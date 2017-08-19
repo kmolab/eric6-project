@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.FetchExtension.fetch</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.FetchExtension.fetch</h1>
+<p>
+Module implementing the fetch extension interface.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Fetch">Fetch</a></td>
+<td>Class implementing the fetch extension interface.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Fetch" ID="Fetch"></a>
+<h2>Fetch</h2>
+<p>
+    Class implementing the fetch extension interface.
+</p>
+<h3>Derived from</h3>
+HgExtension
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Fetch.__init__">Fetch</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Fetch.hgFetch">hgFetch</a></td>
+<td>Public method to fetch changes from a remote repository.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Fetch.__init__" ID="Fetch.__init__"></a>
+<h4>Fetch (Constructor)</h4>
+<b>Fetch</b>(<i>vcs</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i></dt>
+<dd>
+reference to the Mercurial vcs object
+</dd>
+</dl><a NAME="Fetch.hgFetch" ID="Fetch.hgFetch"></a>
+<h4>Fetch.hgFetch</h4>
+<b>hgFetch</b>(<i>name, revisions=None</i>)
+<p>
+        Public method to fetch changes from a remote repository.
+</p><dl>
+<dt><i>name</i> (str)</dt>
+<dd>
+directory name of the project to be fetched to
+</dd><dt><i>revisions</i> (list of str)</dt>
+<dd>
+list of revisions to be pulled
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, that the update contained an add
+            or delete
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

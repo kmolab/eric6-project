@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgDiffDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgDiffDialog</h1>
+<p>
+Module implementing a dialog to show the output of the hg diff command process.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgDiffDialog">HgDiffDialog</a></td>
+<td>Class implementing a dialog to show the output of the hg diff command process.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgDiffDialog" ID="HgDiffDialog"></a>
+<h2>HgDiffDialog</h2>
+<p>
+    Class implementing a dialog to show the output of the hg diff command
+    process.
+</p>
+<h3>Derived from</h3>
+QWidget, Ui_HgDiffDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgDiffDialog.__init__">HgDiffDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.__generatorFinished">__generatorFinished</a></td>
+<td>Private slot connected to the finished signal.</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.closeEvent">closeEvent</a></td>
+<td>Protected slot implementing a close event handler.</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.on_filesCombo_activated">on_filesCombo_activated</a></td>
+<td>Private slot to handle the selection of a file.</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.on_refreshButton_clicked">on_refreshButton_clicked</a></td>
+<td>Private slot to refresh the display.</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.on_saveButton_clicked">on_saveButton_clicked</a></td>
+<td>Private slot to handle the Save button press.</td>
+</tr><tr>
+<td><a href="#HgDiffDialog.start">start</a></td>
+<td>Public slot to start the hg diff command.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgDiffDialog.__init__" ID="HgDiffDialog.__init__"></a>
+<h4>HgDiffDialog (Constructor)</h4>
+<b>HgDiffDialog</b>(<i>vcs, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i></dt>
+<dd>
+reference to the vcs object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="HgDiffDialog.__generatorFinished" ID="HgDiffDialog.__generatorFinished"></a>
+<h4>HgDiffDialog.__generatorFinished</h4>
+<b>__generatorFinished</b>(<i></i>)
+<p>
+        Private slot connected to the finished signal.
+</p><a NAME="HgDiffDialog.closeEvent" ID="HgDiffDialog.closeEvent"></a>
+<h4>HgDiffDialog.closeEvent</h4>
+<b>closeEvent</b>(<i>e</i>)
+<p>
+        Protected slot implementing a close event handler.
+</p><dl>
+<dt><i>e</i></dt>
+<dd>
+close event (QCloseEvent)
+</dd>
+</dl><a NAME="HgDiffDialog.on_buttonBox_clicked" ID="HgDiffDialog.on_buttonBox_clicked"></a>
+<h4>HgDiffDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="HgDiffDialog.on_filesCombo_activated" ID="HgDiffDialog.on_filesCombo_activated"></a>
+<h4>HgDiffDialog.on_filesCombo_activated</h4>
+<b>on_filesCombo_activated</b>(<i>index</i>)
+<p>
+        Private slot to handle the selection of a file.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+activated row (integer)
+</dd>
+</dl><a NAME="HgDiffDialog.on_refreshButton_clicked" ID="HgDiffDialog.on_refreshButton_clicked"></a>
+<h4>HgDiffDialog.on_refreshButton_clicked</h4>
+<b>on_refreshButton_clicked</b>(<i></i>)
+<p>
+        Private slot to refresh the display.
+</p><a NAME="HgDiffDialog.on_saveButton_clicked" ID="HgDiffDialog.on_saveButton_clicked"></a>
+<h4>HgDiffDialog.on_saveButton_clicked</h4>
+<b>on_saveButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the Save button press.
+</p><p>
+        It saves the diff shown in the dialog to a file in the local
+        filesystem.
+</p><a NAME="HgDiffDialog.start" ID="HgDiffDialog.start"></a>
+<h4>HgDiffDialog.start</h4>
+<b>start</b>(<i>fn, versions=None, bundle=None, qdiff=False, refreshable=False</i>)
+<p>
+        Public slot to start the hg diff command.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be diffed (string)
+</dd><dt><i>versions=</i></dt>
+<dd>
+list of versions to be diffed (list of up to
+            2 strings or None)
+</dd><dt><i>bundle=</i></dt>
+<dd>
+name of a bundle file (string)
+</dd><dt><i>qdiff=</i></dt>
+<dd>
+flag indicating qdiff command shall be used (boolean)
+</dd><dt><i>refreshable=</i></dt>
+<dd>
+flag indicating a refreshable diff (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

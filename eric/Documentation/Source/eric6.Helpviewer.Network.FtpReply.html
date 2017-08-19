@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.FtpReply</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.FtpReply</h1>
+<p>
+Module implementing a network reply class for FTP resources.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>ftpListPage_html</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FtpReply">FtpReply</a></td>
+<td>Class implementing a network reply for FTP resources.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FtpReply" ID="FtpReply"></a>
+<h2>FtpReply</h2>
+<p>
+    Class implementing a network reply for FTP resources.
+</p>
+<h3>Derived from</h3>
+QNetworkReply
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FtpReply.__init__">FtpReply</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FtpReply.__cssLinkClass">__cssLinkClass</a></td>
+<td>Private method to generate a link class with an icon.</td>
+</tr><tr>
+<td><a href="#FtpReply.__dirCallback">__dirCallback</a></td>
+<td>Private slot handling the receipt of directory listings.</td>
+</tr><tr>
+<td><a href="#FtpReply.__doFtpCommands">__doFtpCommands</a></td>
+<td>Private slot doing the sequence of FTP commands to get the requested result.</td>
+</tr><tr>
+<td><a href="#FtpReply.__doFtpLogin">__doFtpLogin</a></td>
+<td>Private method to do the FTP login with asking for a username and password, if the login fails with an error 530.</td>
+</tr><tr>
+<td><a href="#FtpReply.__retrCallback">__retrCallback</a></td>
+<td>Private slot handling the reception of data.</td>
+</tr><tr>
+<td><a href="#FtpReply.__setContent">__setContent</a></td>
+<td>Private method to finish the setup of the data.</td>
+</tr><tr>
+<td><a href="#FtpReply.__setListContent">__setListContent</a></td>
+<td>Private method to prepare the content for the reader.</td>
+</tr><tr>
+<td><a href="#FtpReply.abort">abort</a></td>
+<td>Public slot to abort the operation.</td>
+</tr><tr>
+<td><a href="#FtpReply.bytesAvailable">bytesAvailable</a></td>
+<td>Public method to determined the bytes available for being read.</td>
+</tr><tr>
+<td><a href="#FtpReply.isSequential">isSequential</a></td>
+<td>Public method to check for sequential access.</td>
+</tr><tr>
+<td><a href="#FtpReply.readData">readData</a></td>
+<td>Public method to retrieve data from the reply object.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FtpReply.__init__" ID="FtpReply.__init__"></a>
+<h4>FtpReply (Constructor)</h4>
+<b>FtpReply</b>(<i>url, accessHandler, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+requested FTP URL (QUrl)
+</dd><dt><i>accessHandler</i></dt>
+<dd>
+reference to the access handler (FtpAccessHandler)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="FtpReply.__cssLinkClass" ID="FtpReply.__cssLinkClass"></a>
+<h4>FtpReply.__cssLinkClass</h4>
+<b>__cssLinkClass</b>(<i>icon, size=32</i>)
+<p>
+        Private method to generate a link class with an icon.
+</p><dl>
+<dt><i>icon</i></dt>
+<dd>
+icon to be included (QIcon)
+</dd><dt><i>size</i></dt>
+<dd>
+size of the icon to be generated (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+CSS class string (string)
+</dd>
+</dl><a NAME="FtpReply.__dirCallback" ID="FtpReply.__dirCallback"></a>
+<h4>FtpReply.__dirCallback</h4>
+<b>__dirCallback</b>(<i>line</i>)
+<p>
+        Private slot handling the receipt of directory listings.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+the received line of the directory listing (string)
+</dd>
+</dl><a NAME="FtpReply.__doFtpCommands" ID="FtpReply.__doFtpCommands"></a>
+<h4>FtpReply.__doFtpCommands</h4>
+<b>__doFtpCommands</b>(<i></i>)
+<p>
+        Private slot doing the sequence of FTP commands to get the requested
+        result.
+</p><a NAME="FtpReply.__doFtpLogin" ID="FtpReply.__doFtpLogin"></a>
+<h4>FtpReply.__doFtpLogin</h4>
+<b>__doFtpLogin</b>(<i>username, password, byAuth=False</i>)
+<p>
+        Private method to do the FTP login with asking for a username and
+        password, if the login fails with an error 530.
+</p><dl>
+<dt><i>username</i></dt>
+<dd>
+user name to use for the login (string)
+</dd><dt><i>password</i></dt>
+<dd>
+password to use for the login (string)
+</dd><dt><i>byAuth</i></dt>
+<dd>
+flag indicating that the login data was provided by an
+            authenticator (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of two flags indicating a successful login and
+            if the login should be retried (boolean, boolean)
+</dd>
+</dl><a NAME="FtpReply.__retrCallback" ID="FtpReply.__retrCallback"></a>
+<h4>FtpReply.__retrCallback</h4>
+<b>__retrCallback</b>(<i>data</i>)
+<p>
+        Private slot handling the reception of data.
+</p><dl>
+<dt><i>data</i></dt>
+<dd>
+data received from the FTP server (bytes)
+</dd>
+</dl><a NAME="FtpReply.__setContent" ID="FtpReply.__setContent"></a>
+<h4>FtpReply.__setContent</h4>
+<b>__setContent</b>(<i></i>)
+<p>
+        Private method to finish the setup of the data.
+</p><a NAME="FtpReply.__setListContent" ID="FtpReply.__setListContent"></a>
+<h4>FtpReply.__setListContent</h4>
+<b>__setListContent</b>(<i></i>)
+<p>
+        Private method to prepare the content for the reader.
+</p><a NAME="FtpReply.abort" ID="FtpReply.abort"></a>
+<h4>FtpReply.abort</h4>
+<b>abort</b>(<i></i>)
+<p>
+        Public slot to abort the operation.
+</p><a NAME="FtpReply.bytesAvailable" ID="FtpReply.bytesAvailable"></a>
+<h4>FtpReply.bytesAvailable</h4>
+<b>bytesAvailable</b>(<i></i>)
+<p>
+        Public method to determined the bytes available for being read.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+bytes available (integer)
+</dd>
+</dl><a NAME="FtpReply.isSequential" ID="FtpReply.isSequential"></a>
+<h4>FtpReply.isSequential</h4>
+<b>isSequential</b>(<i></i>)
+<p>
+        Public method to check for sequential access.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating sequential access (boolean)
+</dd>
+</dl><a NAME="FtpReply.readData" ID="FtpReply.readData"></a>
+<h4>FtpReply.readData</h4>
+<b>readData</b>(<i>maxlen</i>)
+<p>
+        Public method to retrieve data from the reply object.
+</p><dl>
+<dt><i>maxlen</i></dt>
+<dd>
+maximum number of bytes to read (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string containing the data (bytes)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

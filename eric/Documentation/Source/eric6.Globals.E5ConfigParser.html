@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Globals.E5ConfigParser</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Globals.E5ConfigParser</h1>
+<p>
+Module implementing a ConfigParser wrapper for Python 2 to provide the
+dictionary like interface of the Python 3 variant.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ConfigParser">E5ConfigParser</a></td>
+<td>Class implementing a wrapper of the ConfigParser class implementing dictionary like special methods and some enhancements from Python 3.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ConfigParser" ID="E5ConfigParser"></a>
+<h2>E5ConfigParser</h2>
+<p>
+        Class implementing a wrapper of the ConfigParser class implementing
+        dictionary like special methods and some enhancements from Python 3.
+</p>
+<h3>Derived from</h3>
+SafeConfigParser
+<h3>Class Attributes</h3>
+<table>
+<tr><td>OPTCRE</td></tr><tr><td>OPTCRE_NV</td></tr><tr><td>_OPT_NV_TMPL</td></tr><tr><td>_OPT_TMPL</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ConfigParser.__init__">E5ConfigParser</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ConfigParser.__contains__">__contains__</a></td>
+<td>Special method to test, if a section is contained in the config.</td>
+</tr><tr>
+<td><a href="#E5ConfigParser.__delitem__">__delitem__</a></td>
+<td>Special method to delete a section.</td>
+</tr><tr>
+<td><a href="#E5ConfigParser.__getitem__">__getitem__</a></td>
+<td>Special method to get a section.</td>
+</tr><tr>
+<td><a href="#E5ConfigParser.__iter__">__iter__</a></td>
+<td>Special method to return an iterator of the section names starting with the default section.</td>
+</tr><tr>
+<td><a href="#E5ConfigParser.__len__">__len__</a></td>
+<td>Special method get the number of sections of the config.</td>
+</tr><tr>
+<td><a href="#E5ConfigParser.__setitem__">__setitem__</a></td>
+<td>Special method to set the values of a section.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ConfigParser.__init__" ID="E5ConfigParser.__init__"></a>
+<h4>E5ConfigParser (Constructor)</h4>
+<b>E5ConfigParser</b>(<i>defaults=None, dict_type=_default_dict, allow_no_value=False, delimiters=('=', ':')</i>)
+<p>
+            Constructor
+</p><a NAME="E5ConfigParser.__contains__" ID="E5ConfigParser.__contains__"></a>
+<h4>E5ConfigParser.__contains__</h4>
+<b>__contains__</b>(<i>key</i>)
+<p>
+            Special method to test, if a section is contained in the config.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the section
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating containment
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="E5ConfigParser.__delitem__" ID="E5ConfigParser.__delitem__"></a>
+<h4>E5ConfigParser.__delitem__</h4>
+<b>__delitem__</b>(<i>key</i>)
+<p>
+            Special method to delete a section.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the section
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised to indicate a non-existent section
+</dd><dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised to indicate non-removal of the
+                default section
+</dd>
+</dl><a NAME="E5ConfigParser.__getitem__" ID="E5ConfigParser.__getitem__"></a>
+<h4>E5ConfigParser.__getitem__</h4>
+<b>__getitem__</b>(<i>key</i>)
+<p>
+            Special method to get a section.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the section
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+section for the given key
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+dict
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised if a non-existent key is given
+</dd>
+</dl><a NAME="E5ConfigParser.__iter__" ID="E5ConfigParser.__iter__"></a>
+<h4>E5ConfigParser.__iter__</h4>
+<b>__iter__</b>(<i></i>)
+<p>
+            Special method to return an iterator of the section names starting
+            with the default section.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+iterator of the section names contained in the config
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+iterator of str
+</dd>
+</dl><a NAME="E5ConfigParser.__len__" ID="E5ConfigParser.__len__"></a>
+<h4>E5ConfigParser.__len__</h4>
+<b>__len__</b>(<i></i>)
+<p>
+            Special method get the number of sections of the config.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+number of sections
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+int
+</dd>
+</dl><a NAME="E5ConfigParser.__setitem__" ID="E5ConfigParser.__setitem__"></a>
+<h4>E5ConfigParser.__setitem__</h4>
+<b>__setitem__</b>(<i>key, values</i>)
+<p>
+            Special method to set the values of a section.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the section
+</dd><dt><i>values</i> (dict)</dt>
+<dd>
+value for the section
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

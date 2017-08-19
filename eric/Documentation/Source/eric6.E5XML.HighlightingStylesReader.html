@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5XML.HighlightingStylesReader</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5XML.HighlightingStylesReader</h1>
+<p>
+Module implementing a class for reading a highlighting styles XML file.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HighlightingStylesReader">HighlightingStylesReader</a></td>
+<td>Class for reading a highlighting styles XML file.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HighlightingStylesReader" ID="HighlightingStylesReader"></a>
+<h2>HighlightingStylesReader</h2>
+<p>
+    Class for reading a highlighting styles XML file.
+</p>
+<h3>Derived from</h3>
+XMLStreamReaderBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>supportedVersions</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HighlightingStylesReader.__init__">HighlightingStylesReader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HighlightingStylesReader.__readLexer">__readLexer</a></td>
+<td>Private method to read the lexer info.</td>
+</tr><tr>
+<td><a href="#HighlightingStylesReader.__readStyle">__readStyle</a></td>
+<td>Private method to read the style info.</td>
+</tr><tr>
+<td><a href="#HighlightingStylesReader.readXML">readXML</a></td>
+<td>Public method to read and parse the XML document.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HighlightingStylesReader.__init__" ID="HighlightingStylesReader.__init__"></a>
+<h4>HighlightingStylesReader (Constructor)</h4>
+<b>HighlightingStylesReader</b>(<i>device, lexers</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>device</i></dt>
+<dd>
+reference to the I/O device to read from (QIODevice)
+</dd><dt><i>lexers</i></dt>
+<dd>
+list of lexer objects for which to export the styles
+</dd>
+</dl><a NAME="HighlightingStylesReader.__readLexer" ID="HighlightingStylesReader.__readLexer"></a>
+<h4>HighlightingStylesReader.__readLexer</h4>
+<b>__readLexer</b>(<i></i>)
+<p>
+        Private method to read the lexer info.
+</p><a NAME="HighlightingStylesReader.__readStyle" ID="HighlightingStylesReader.__readStyle"></a>
+<h4>HighlightingStylesReader.__readStyle</h4>
+<b>__readStyle</b>(<i>lexer</i>)
+<p>
+        Private method to read the style info.
+</p><dl>
+<dt><i>lexer</i></dt>
+<dd>
+reference to the lexer object
+</dd>
+</dl><a NAME="HighlightingStylesReader.readXML" ID="HighlightingStylesReader.readXML"></a>
+<h4>HighlightingStylesReader.readXML</h4>
+<b>readXML</b>(<i></i>)
+<p>
+        Public method to read and parse the XML document.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

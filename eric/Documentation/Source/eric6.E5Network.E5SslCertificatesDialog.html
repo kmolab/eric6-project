@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5SslCertificatesDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5SslCertificatesDialog</h1>
+<p>
+Module implementing a dialog to show and edit all certificates.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5SslCertificatesDialog">E5SslCertificatesDialog</a></td>
+<td>Class implementing a dialog to show and edit all certificates.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5SslCertificatesDialog" ID="E5SslCertificatesDialog"></a>
+<h2>E5SslCertificatesDialog</h2>
+<p>
+    Class implementing a dialog to show and edit all certificates.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_E5SslCertificatesDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>CertRole</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5SslCertificatesDialog.__init__">E5SslCertificatesDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__createCaCertificateEntry">__createCaCertificateEntry</a></td>
+<td>Private method to create a CA certificate entry.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__createServerCertificateEntry">__createServerCertificateEntry</a></td>
+<td>Private method to create a server certificate entry.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__exportCertificate">__exportCertificate</a></td>
+<td>Private slot to export a certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__getSystemCaCertificates">__getSystemCaCertificates</a></td>
+<td>Private method to get the list of system certificates.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__importCertificate">__importCertificate</a></td>
+<td>Private method to read a certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__populateCaCertificatesTree">__populateCaCertificatesTree</a></td>
+<td>Private slot to populate the CA certificates tree.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__populateServerCertificatesTree">__populateServerCertificatesTree</a></td>
+<td>Private slot to populate the server certificates tree.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.__updateDefaultConfiguration">__updateDefaultConfiguration</a></td>
+<td>Private method to update the default SSL configuration.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_caCertificatesTree_currentItemChanged">on_caCertificatesTree_currentItemChanged</a></td>
+<td>Private slot handling a change of the current item in the CA certificates list.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_caDeleteButton_clicked">on_caDeleteButton_clicked</a></td>
+<td>Private slot to delete the selected CA certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_caExportButton_clicked">on_caExportButton_clicked</a></td>
+<td>Private slot to export the selected CA certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_caImportButton_clicked">on_caImportButton_clicked</a></td>
+<td>Private slot to import server certificates.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_caViewButton_clicked">on_caViewButton_clicked</a></td>
+<td>Private slot to show data of the selected CA certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_serversCertificatesTree_currentItemChanged">on_serversCertificatesTree_currentItemChanged</a></td>
+<td>Private slot handling a change of the current item in the server certificates list.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_serversDeleteButton_clicked">on_serversDeleteButton_clicked</a></td>
+<td>Private slot to delete the selected server certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_serversExportButton_clicked">on_serversExportButton_clicked</a></td>
+<td>Private slot to export the selected server certificate.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_serversImportButton_clicked">on_serversImportButton_clicked</a></td>
+<td>Private slot to import server certificates.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesDialog.on_serversViewButton_clicked">on_serversViewButton_clicked</a></td>
+<td>Private slot to show data of the selected server certificate.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5SslCertificatesDialog.__init__" ID="E5SslCertificatesDialog.__init__"></a>
+<h4>E5SslCertificatesDialog (Constructor)</h4>
+<b>E5SslCertificatesDialog</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.__createCaCertificateEntry" ID="E5SslCertificatesDialog.__createCaCertificateEntry"></a>
+<h4>E5SslCertificatesDialog.__createCaCertificateEntry</h4>
+<b>__createCaCertificateEntry</b>(<i>cert</i>)
+<p>
+        Private method to create a CA certificate entry.
+</p><dl>
+<dt><i>cert</i></dt>
+<dd>
+certificate to insert (QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.__createServerCertificateEntry" ID="E5SslCertificatesDialog.__createServerCertificateEntry"></a>
+<h4>E5SslCertificatesDialog.__createServerCertificateEntry</h4>
+<b>__createServerCertificateEntry</b>(<i>server, cert</i>)
+<p>
+        Private method to create a server certificate entry.
+</p><dl>
+<dt><i>server</i></dt>
+<dd>
+server name of the certificate (string)
+</dd><dt><i>cert</i></dt>
+<dd>
+certificate to insert (QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.__exportCertificate" ID="E5SslCertificatesDialog.__exportCertificate"></a>
+<h4>E5SslCertificatesDialog.__exportCertificate</h4>
+<b>__exportCertificate</b>(<i>name, cert</i>)
+<p>
+        Private slot to export a certificate.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+default file name without extension (string)
+</dd><dt><i>cert</i></dt>
+<dd>
+certificate to be exported (QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.__getSystemCaCertificates" ID="E5SslCertificatesDialog.__getSystemCaCertificates"></a>
+<h4>E5SslCertificatesDialog.__getSystemCaCertificates</h4>
+<b>__getSystemCaCertificates</b>(<i></i>)
+<p>
+        Private method to get the list of system certificates.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of system certificates (list of QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.__importCertificate" ID="E5SslCertificatesDialog.__importCertificate"></a>
+<h4>E5SslCertificatesDialog.__importCertificate</h4>
+<b>__importCertificate</b>(<i></i>)
+<p>
+        Private method to read a certificate.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+certificates read (list of QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.__populateCaCertificatesTree" ID="E5SslCertificatesDialog.__populateCaCertificatesTree"></a>
+<h4>E5SslCertificatesDialog.__populateCaCertificatesTree</h4>
+<b>__populateCaCertificatesTree</b>(<i></i>)
+<p>
+        Private slot to populate the CA certificates tree.
+</p><a NAME="E5SslCertificatesDialog.__populateServerCertificatesTree" ID="E5SslCertificatesDialog.__populateServerCertificatesTree"></a>
+<h4>E5SslCertificatesDialog.__populateServerCertificatesTree</h4>
+<b>__populateServerCertificatesTree</b>(<i></i>)
+<p>
+        Private slot to populate the server certificates tree.
+</p><a NAME="E5SslCertificatesDialog.__updateDefaultConfiguration" ID="E5SslCertificatesDialog.__updateDefaultConfiguration"></a>
+<h4>E5SslCertificatesDialog.__updateDefaultConfiguration</h4>
+<b>__updateDefaultConfiguration</b>(<i></i>)
+<p>
+        Private method to update the default SSL configuration.
+</p><a NAME="E5SslCertificatesDialog.on_caCertificatesTree_currentItemChanged" ID="E5SslCertificatesDialog.on_caCertificatesTree_currentItemChanged"></a>
+<h4>E5SslCertificatesDialog.on_caCertificatesTree_currentItemChanged</h4>
+<b>on_caCertificatesTree_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot handling a change of the current item
+        in the CA certificates list.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+new current item (QTreeWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+previous current item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.on_caDeleteButton_clicked" ID="E5SslCertificatesDialog.on_caDeleteButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_caDeleteButton_clicked</h4>
+<b>on_caDeleteButton_clicked</b>(<i></i>)
+<p>
+        Private slot to delete the selected CA certificate.
+</p><a NAME="E5SslCertificatesDialog.on_caExportButton_clicked" ID="E5SslCertificatesDialog.on_caExportButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_caExportButton_clicked</h4>
+<b>on_caExportButton_clicked</b>(<i></i>)
+<p>
+        Private slot to export the selected CA certificate.
+</p><a NAME="E5SslCertificatesDialog.on_caImportButton_clicked" ID="E5SslCertificatesDialog.on_caImportButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_caImportButton_clicked</h4>
+<b>on_caImportButton_clicked</b>(<i></i>)
+<p>
+        Private slot to import server certificates.
+</p><a NAME="E5SslCertificatesDialog.on_caViewButton_clicked" ID="E5SslCertificatesDialog.on_caViewButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_caViewButton_clicked</h4>
+<b>on_caViewButton_clicked</b>(<i></i>)
+<p>
+        Private slot to show data of the selected CA certificate.
+</p><a NAME="E5SslCertificatesDialog.on_serversCertificatesTree_currentItemChanged" ID="E5SslCertificatesDialog.on_serversCertificatesTree_currentItemChanged"></a>
+<h4>E5SslCertificatesDialog.on_serversCertificatesTree_currentItemChanged</h4>
+<b>on_serversCertificatesTree_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot handling a change of the current item in the
+        server certificates list.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+new current item (QTreeWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+previous current item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5SslCertificatesDialog.on_serversDeleteButton_clicked" ID="E5SslCertificatesDialog.on_serversDeleteButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_serversDeleteButton_clicked</h4>
+<b>on_serversDeleteButton_clicked</b>(<i></i>)
+<p>
+        Private slot to delete the selected server certificate.
+</p><a NAME="E5SslCertificatesDialog.on_serversExportButton_clicked" ID="E5SslCertificatesDialog.on_serversExportButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_serversExportButton_clicked</h4>
+<b>on_serversExportButton_clicked</b>(<i></i>)
+<p>
+        Private slot to export the selected server certificate.
+</p><a NAME="E5SslCertificatesDialog.on_serversImportButton_clicked" ID="E5SslCertificatesDialog.on_serversImportButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_serversImportButton_clicked</h4>
+<b>on_serversImportButton_clicked</b>(<i></i>)
+<p>
+        Private slot to import server certificates.
+</p><a NAME="E5SslCertificatesDialog.on_serversViewButton_clicked" ID="E5SslCertificatesDialog.on_serversViewButton_clicked"></a>
+<h4>E5SslCertificatesDialog.on_serversViewButton_clicked</h4>
+<b>on_serversViewButton_clicked</b>(<i></i>)
+<p>
+        Private slot to show data of the selected server certificate.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

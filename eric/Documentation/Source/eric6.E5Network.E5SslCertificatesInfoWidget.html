@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5SslCertificatesInfoWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5SslCertificatesInfoWidget</h1>
+<p>
+Module implementing a widget to show SSL certificate infos.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5SslCertificatesInfoWidget">E5SslCertificatesInfoWidget</a></td>
+<td>Class implementing a widget to show SSL certificate infos.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5SslCertificatesInfoWidget" ID="E5SslCertificatesInfoWidget"></a>
+<h2>E5SslCertificatesInfoWidget</h2>
+<p>
+    Class implementing a widget to show SSL certificate infos.
+</p>
+<h3>Derived from</h3>
+QWidget, Ui_E5SslCertificatesInfoWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5SslCertificatesInfoWidget.__init__">E5SslCertificatesInfoWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.__certificateString">__certificateString</a></td>
+<td>Private method to prepare some text for display.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.__formatHexString">__formatHexString</a></td>
+<td>Private method to format a hex string for display.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.__hasExpired">__hasExpired</a></td>
+<td>Private method to check for a certificate expiration.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.__serialNumber">__serialNumber</a></td>
+<td>Private slot to format the certificate serial number.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.__showCertificate">__showCertificate</a></td>
+<td>Private method to show the  SSL certificate information.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.on_chainComboBox_activated">on_chainComboBox_activated</a></td>
+<td>Private slot to show the certificate info for the selected entry.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.showCertificate">showCertificate</a></td>
+<td>Public method to show the SSL certificate information.</td>
+</tr><tr>
+<td><a href="#E5SslCertificatesInfoWidget.showCertificateChain">showCertificateChain</a></td>
+<td>Public method to show the SSL certificates of a certificate chain.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5SslCertificatesInfoWidget.__init__" ID="E5SslCertificatesInfoWidget.__init__"></a>
+<h4>E5SslCertificatesInfoWidget (Constructor)</h4>
+<b>E5SslCertificatesInfoWidget</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.__certificateString" ID="E5SslCertificatesInfoWidget.__certificateString"></a>
+<h4>E5SslCertificatesInfoWidget.__certificateString</h4>
+<b>__certificateString</b>(<i>txt</i>)
+<p>
+        Private method to prepare some text for display.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be displayed (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+prepared text (string)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.__formatHexString" ID="E5SslCertificatesInfoWidget.__formatHexString"></a>
+<h4>E5SslCertificatesInfoWidget.__formatHexString</h4>
+<b>__formatHexString</b>(<i>hexString</i>)
+<p>
+        Private method to format a hex string for display.
+</p><dl>
+<dt><i>hexString</i></dt>
+<dd>
+hex string to be formatted (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted string (string)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.__hasExpired" ID="E5SslCertificatesInfoWidget.__hasExpired"></a>
+<h4>E5SslCertificatesInfoWidget.__hasExpired</h4>
+<b>__hasExpired</b>(<i>effectiveDate, expiryDate</i>)
+<p>
+        Private method to check for a certificate expiration.
+</p><dl>
+<dt><i>effectiveDate</i></dt>
+<dd>
+date the certificate becomes effective (QDateTime)
+</dd><dt><i>expiryDate</i></dt>
+<dd>
+date the certificate expires (QDateTime)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the expiration status (boolean)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.__serialNumber" ID="E5SslCertificatesInfoWidget.__serialNumber"></a>
+<h4>E5SslCertificatesInfoWidget.__serialNumber</h4>
+<b>__serialNumber</b>(<i>cert</i>)
+<p>
+        Private slot to format the certificate serial number.
+</p><dl>
+<dt><i>cert</i></dt>
+<dd>
+reference to the SSL certificate (QSslCertificate)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formated serial number (string)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.__showCertificate" ID="E5SslCertificatesInfoWidget.__showCertificate"></a>
+<h4>E5SslCertificatesInfoWidget.__showCertificate</h4>
+<b>__showCertificate</b>(<i>certificate</i>)
+<p>
+        Private method to show the  SSL certificate information.
+</p><dl>
+<dt><i>certificate</i></dt>
+<dd>
+reference to the SSL certificate (QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.on_chainComboBox_activated" ID="E5SslCertificatesInfoWidget.on_chainComboBox_activated"></a>
+<h4>E5SslCertificatesInfoWidget.on_chainComboBox_activated</h4>
+<b>on_chainComboBox_activated</b>(<i>index</i>)
+<p>
+        Private slot to show the certificate info for the selected entry.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+number of the certificate in the certificate chain
+            (integer)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.showCertificate" ID="E5SslCertificatesInfoWidget.showCertificate"></a>
+<h4>E5SslCertificatesInfoWidget.showCertificate</h4>
+<b>showCertificate</b>(<i>certificate</i>)
+<p>
+        Public method to show the SSL certificate information.
+</p><dl>
+<dt><i>certificate</i></dt>
+<dd>
+reference to the SSL certificate (QSslCertificate)
+</dd>
+</dl><a NAME="E5SslCertificatesInfoWidget.showCertificateChain" ID="E5SslCertificatesInfoWidget.showCertificateChain"></a>
+<h4>E5SslCertificatesInfoWidget.showCertificateChain</h4>
+<b>showCertificateChain</b>(<i>certificateChain</i>)
+<p>
+        Public method to show the SSL certificates of a certificate chain.
+</p><dl>
+<dt><i>certificateChain</i></dt>
+<dd>
+list od SSL certificates
+            (list of QSslCertificate)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

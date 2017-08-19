@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5GoogleMail</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5GoogleMail</h1>
+<p>
+Module implementing a dialog to send bug reports.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>APPLICATION_NAME</td></tr><tr><td>CLIENT_SECRET_FILE</td></tr><tr><td>SCOPES</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#GoogleMailHelp">GoogleMailHelp</a></td>
+<td>Module function to get some help about how to enable the Google Mail OAuth2 service.</td>
+</tr><tr>
+<td><a href="#GoogleMailSendMessage">GoogleMailSendMessage</a></td>
+<td>Module function to send an email message via Google Mail.</td>
+</tr><tr>
+<td><a href="#_prepareMessage_v2">_prepareMessage_v2</a></td>
+<td>Module function to prepare the message for sending (Python2 Variant).</td>
+</tr><tr>
+<td><a href="#_prepareMessage_v3">_prepareMessage_v3</a></td>
+<td>Module function to prepare the message for sending (Python2 Variant).</td>
+</tr><tr>
+<td><a href="#getCredentials">getCredentials</a></td>
+<td>Module function to get the Google credentials.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="GoogleMailHelp" ID="GoogleMailHelp"></a>
+<h2>GoogleMailHelp</h2>
+<b>GoogleMailHelp</b>(<i></i>)
+<p>
+    Module function to get some help about how to enable the Google Mail
+    OAuth2 service.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+help text
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="GoogleMailSendMessage" ID="GoogleMailSendMessage"></a>
+<h2>GoogleMailSendMessage</h2>
+<b>GoogleMailSendMessage</b>(<i>message</i>)
+<p>
+    Module function to send an email message via Google Mail.
+</p><dl>
+<dt><i>message</i> (email.mime.text.MIMEBase)</dt>
+<dd>
+email message to be sent
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing a success flag and a result or error message
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of (bool, str)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="_prepareMessage_v2" ID="_prepareMessage_v2"></a>
+<h2>_prepareMessage_v2</h2>
+<b>_prepareMessage_v2</b>(<i>message</i>)
+<p>
+    Module function to prepare the message for sending (Python2 Variant).
+</p><dl>
+<dt><i>message</i> (email.mime.text.MIMEBase)</dt>
+<dd>
+message to be prepared
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+prepared message dictionary
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+dict
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="_prepareMessage_v3" ID="_prepareMessage_v3"></a>
+<h2>_prepareMessage_v3</h2>
+<b>_prepareMessage_v3</b>(<i>message</i>)
+<p>
+    Module function to prepare the message for sending (Python2 Variant).
+</p><dl>
+<dt><i>message</i> (email.mime.text.MIMEBase)</dt>
+<dd>
+message to be prepared
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+prepared message dictionary
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+dict
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getCredentials" ID="getCredentials"></a>
+<h2>getCredentials</h2>
+<b>getCredentials</b>(<i></i>)
+<p>
+    Module function to get the Google credentials.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+Google Mail credentials
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.QScintilla.Lexers.LexerCSharp</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.QScintilla.Lexers.LexerCSharp</h1>
+<p>
+Module implementing a C# lexer with some additional methods.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#LexerCSharp">LexerCSharp</a></td>
+<td>Subclass to implement some additional lexer dependant methods.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="LexerCSharp" ID="LexerCSharp"></a>
+<h2>LexerCSharp</h2>
+<p>
+    Subclass to implement some additional lexer dependant methods.
+</p>
+<h3>Derived from</h3>
+Lexer, QsciLexerCSharp
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#LexerCSharp.__init__">LexerCSharp</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#LexerCSharp.defaultKeywords">defaultKeywords</a></td>
+<td>Public method to get the default keywords.</td>
+</tr><tr>
+<td><a href="#LexerCSharp.initProperties">initProperties</a></td>
+<td>Public slot to initialize the properties.</td>
+</tr><tr>
+<td><a href="#LexerCSharp.isCommentStyle">isCommentStyle</a></td>
+<td>Public method to check, if a style is a comment style.</td>
+</tr><tr>
+<td><a href="#LexerCSharp.isStringStyle">isStringStyle</a></td>
+<td>Public method to check, if a style is a string style.</td>
+</tr><tr>
+<td><a href="#LexerCSharp.maximumKeywordSet">maximumKeywordSet</a></td>
+<td>Public method to get the maximum keyword set.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="LexerCSharp.__init__" ID="LexerCSharp.__init__"></a>
+<h4>LexerCSharp (Constructor)</h4>
+<b>LexerCSharp</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of this lexer
+</dd>
+</dl><a NAME="LexerCSharp.defaultKeywords" ID="LexerCSharp.defaultKeywords"></a>
+<h4>LexerCSharp.defaultKeywords</h4>
+<b>defaultKeywords</b>(<i>kwSet</i>)
+<p>
+        Public method to get the default keywords.
+</p><dl>
+<dt><i>kwSet</i></dt>
+<dd>
+number of the keyword set (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string giving the keywords (string) or None
+</dd>
+</dl><a NAME="LexerCSharp.initProperties" ID="LexerCSharp.initProperties"></a>
+<h4>LexerCSharp.initProperties</h4>
+<b>initProperties</b>(<i></i>)
+<p>
+        Public slot to initialize the properties.
+</p><a NAME="LexerCSharp.isCommentStyle" ID="LexerCSharp.isCommentStyle"></a>
+<h4>LexerCSharp.isCommentStyle</h4>
+<b>isCommentStyle</b>(<i>style</i>)
+<p>
+        Public method to check, if a style is a comment style.
+</p><dl>
+<dt><i>style</i></dt>
+<dd>
+style to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a comment style (boolean)
+</dd>
+</dl><a NAME="LexerCSharp.isStringStyle" ID="LexerCSharp.isStringStyle"></a>
+<h4>LexerCSharp.isStringStyle</h4>
+<b>isStringStyle</b>(<i>style</i>)
+<p>
+        Public method to check, if a style is a string style.
+</p><dl>
+<dt><i>style</i></dt>
+<dd>
+style to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a string style (boolean)
+</dd>
+</dl><a NAME="LexerCSharp.maximumKeywordSet" ID="LexerCSharp.maximumKeywordSet"></a>
+<h4>LexerCSharp.maximumKeywordSet</h4>
+<b>maximumKeywordSet</b>(<i></i>)
+<p>
+        Public method to get the maximum keyword set.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+maximum keyword set (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

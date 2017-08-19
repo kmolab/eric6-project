@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ModelToolBar</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ModelToolBar</h1>
+<p>
+Module implementing a tool bar populated from a QAbstractItemModel.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ModelToolBar">E5ModelToolBar</a></td>
+<td>Class implementing a tool bar populated from a QAbstractItemModel.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ModelToolBar" ID="E5ModelToolBar"></a>
+<h2>E5ModelToolBar</h2>
+<p>
+    Class implementing a tool bar populated from a QAbstractItemModel.
+</p><h3>Signals</h3>
+<dl>
+<dt>activated(QModelIndex)</dt>
+<dd>
+emitted when an action has been triggered
+</dd>
+</dl>
+<h3>Derived from</h3>
+QToolBar
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ModelToolBar.__init__">E5ModelToolBar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar._build">_build</a></td>
+<td>Protected slot to build the tool bar.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar._createMenu">_createMenu</a></td>
+<td>Protected method to create the menu for a tool bar action.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.dragEnterEvent">dragEnterEvent</a></td>
+<td>Protected method to handle drag enter events.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.dropEvent">dropEvent</a></td>
+<td>Protected method to handle drop events.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.eventFilter">eventFilter</a></td>
+<td>Public method to handle event for other objects.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.hideEvent">hideEvent</a></td>
+<td>Protected method to handle hide events.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.index">index</a></td>
+<td>Public method to get the index of an action.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.model">model</a></td>
+<td>Public method to get a reference to the model.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.mouseMoveEvent">mouseMoveEvent</a></td>
+<td>Protected method to handle mouse move events.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.resetFlags">resetFlags</a></td>
+<td>Public method to reset the saved internal state.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.rootIndex">rootIndex</a></td>
+<td>Public method to get the root index.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.setModel">setModel</a></td>
+<td>Public method to set the model for the tool bar.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.setRootIndex">setRootIndex</a></td>
+<td>Public method to set the root index.</td>
+</tr><tr>
+<td><a href="#E5ModelToolBar.showEvent">showEvent</a></td>
+<td>Protected method to handle show events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ModelToolBar.__init__" ID="E5ModelToolBar.__init__"></a>
+<h4>E5ModelToolBar (Constructor)</h4>
+<b>E5ModelToolBar</b>(<i>title=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>title</i></dt>
+<dd>
+title for the tool bar (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5ModelToolBar._build" ID="E5ModelToolBar._build"></a>
+<h4>E5ModelToolBar._build</h4>
+<b>_build</b>(<i></i>)
+<p>
+        Protected slot to build the tool bar.
+</p><a NAME="E5ModelToolBar._createMenu" ID="E5ModelToolBar._createMenu"></a>
+<h4>E5ModelToolBar._createMenu</h4>
+<b>_createMenu</b>(<i></i>)
+<p>
+        Protected method to create the menu for a tool bar action.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+menu for a tool bar action (E5ModelMenu)
+</dd>
+</dl><a NAME="E5ModelToolBar.dragEnterEvent" ID="E5ModelToolBar.dragEnterEvent"></a>
+<h4>E5ModelToolBar.dragEnterEvent</h4>
+<b>dragEnterEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle drag enter events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QDragEnterEvent)
+</dd>
+</dl><a NAME="E5ModelToolBar.dropEvent" ID="E5ModelToolBar.dropEvent"></a>
+<h4>E5ModelToolBar.dropEvent</h4>
+<b>dropEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle drop events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QDropEvent)
+</dd>
+</dl><a NAME="E5ModelToolBar.eventFilter" ID="E5ModelToolBar.eventFilter"></a>
+<h4>E5ModelToolBar.eventFilter</h4>
+<b>eventFilter</b>(<i>obj, evt</i>)
+<p>
+        Public method to handle event for other objects.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+reference to the object (QObject)
+</dd><dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the event should be filtered out (boolean)
+</dd>
+</dl><a NAME="E5ModelToolBar.hideEvent" ID="E5ModelToolBar.hideEvent"></a>
+<h4>E5ModelToolBar.hideEvent</h4>
+<b>hideEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle hide events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the hide event (QHideEvent)
+</dd>
+</dl><a NAME="E5ModelToolBar.index" ID="E5ModelToolBar.index"></a>
+<h4>E5ModelToolBar.index</h4>
+<b>index</b>(<i>action</i>)
+<p>
+        Public method to get the index of an action.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action to get the index for (QAction)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the action (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelToolBar.model" ID="E5ModelToolBar.model"></a>
+<h4>E5ModelToolBar.model</h4>
+<b>model</b>(<i></i>)
+<p>
+        Public method to get a reference to the model.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the model (QAbstractItemModel)
+</dd>
+</dl><a NAME="E5ModelToolBar.mouseMoveEvent" ID="E5ModelToolBar.mouseMoveEvent"></a>
+<h4>E5ModelToolBar.mouseMoveEvent</h4>
+<b>mouseMoveEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse move events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QMouseEvent)
+</dd>
+</dl><a NAME="E5ModelToolBar.resetFlags" ID="E5ModelToolBar.resetFlags"></a>
+<h4>E5ModelToolBar.resetFlags</h4>
+<b>resetFlags</b>(<i></i>)
+<p>
+        Public method to reset the saved internal state.
+</p><a NAME="E5ModelToolBar.rootIndex" ID="E5ModelToolBar.rootIndex"></a>
+<h4>E5ModelToolBar.rootIndex</h4>
+<b>rootIndex</b>(<i></i>)
+<p>
+        Public method to get the root index.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+root index (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelToolBar.setModel" ID="E5ModelToolBar.setModel"></a>
+<h4>E5ModelToolBar.setModel</h4>
+<b>setModel</b>(<i>model</i>)
+<p>
+        Public method to set the model for the tool bar.
+</p><dl>
+<dt><i>model</i></dt>
+<dd>
+reference to the model (QAbstractItemModel)
+</dd>
+</dl><a NAME="E5ModelToolBar.setRootIndex" ID="E5ModelToolBar.setRootIndex"></a>
+<h4>E5ModelToolBar.setRootIndex</h4>
+<b>setRootIndex</b>(<i>idx</i>)
+<p>
+        Public method to set the root index.
+</p><dl>
+<dt><i>idx</i></dt>
+<dd>
+index to be set as the root index (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelToolBar.showEvent" ID="E5ModelToolBar.showEvent"></a>
+<h4>E5ModelToolBar.showEvent</h4>
+<b>showEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle show events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the hide event (QHideEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

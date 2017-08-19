@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgAnnotateDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgAnnotateDialog</h1>
+<p>
+Module implementing a dialog to show the output of the hg annotate command.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgAnnotateDialog">HgAnnotateDialog</a></td>
+<td>Class implementing a dialog to show the output of the hg annotate command.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgAnnotateDialog" ID="HgAnnotateDialog"></a>
+<h2>HgAnnotateDialog</h2>
+<p>
+    Class implementing a dialog to show the output of the hg annotate command.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgAnnotateDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgAnnotateDialog.__init__">HgAnnotateDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__finish">__finish</a></td>
+<td>Private slot called when the process finished or the user pressed the button.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__generateItem">__generateItem</a></td>
+<td>Private method to generate an annotate item in the annotation list.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__procFinished">__procFinished</a></td>
+<td>Private slot connected to the finished signal.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__processOutputLine">__processOutputLine</a></td>
+<td>Private method to process the lines of output.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__readStderr">__readStderr</a></td>
+<td>Private slot to handle the readyReadStderr signal.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__readStdout">__readStdout</a></td>
+<td>Private slot to handle the readyReadStdout signal.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__resizeColumns">__resizeColumns</a></td>
+<td>Private method to resize the list columns.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.__showError">__showError</a></td>
+<td>Private slot to show some error.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.closeEvent">closeEvent</a></td>
+<td>Protected slot implementing a close event handler.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.keyPressEvent">keyPressEvent</a></td>
+<td>Protected slot to handle a key press event.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.on_input_returnPressed">on_input_returnPressed</a></td>
+<td>Private slot to handle the press of the return key in the input field.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.on_passwordCheckBox_toggled">on_passwordCheckBox_toggled</a></td>
+<td>Private slot to handle the password checkbox toggled.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.on_sendButton_clicked">on_sendButton_clicked</a></td>
+<td>Private slot to send the input to the hg process.</td>
+</tr><tr>
+<td><a href="#HgAnnotateDialog.start">start</a></td>
+<td>Public slot to start the annotate command.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgAnnotateDialog.__init__" ID="HgAnnotateDialog.__init__"></a>
+<h4>HgAnnotateDialog (Constructor)</h4>
+<b>HgAnnotateDialog</b>(<i>vcs, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i></dt>
+<dd>
+reference to the vcs object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="HgAnnotateDialog.__finish" ID="HgAnnotateDialog.__finish"></a>
+<h4>HgAnnotateDialog.__finish</h4>
+<b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the process finished or the user pressed
+        the button.
+</p><a NAME="HgAnnotateDialog.__generateItem" ID="HgAnnotateDialog.__generateItem"></a>
+<h4>HgAnnotateDialog.__generateItem</h4>
+<b>__generateItem</b>(<i>revision, changeset, author, date, text</i>)
+<p>
+        Private method to generate an annotate item in the annotation list.
+</p><dl>
+<dt><i>revision</i></dt>
+<dd>
+revision string (string)
+</dd><dt><i>changeset</i></dt>
+<dd>
+changeset string (string)
+</dd><dt><i>author</i></dt>
+<dd>
+author of the change (string)
+</dd><dt><i>date</i></dt>
+<dd>
+date of the change (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text of the change (string)
+</dd>
+</dl><a NAME="HgAnnotateDialog.__procFinished" ID="HgAnnotateDialog.__procFinished"></a>
+<h4>HgAnnotateDialog.__procFinished</h4>
+<b>__procFinished</b>(<i>exitCode, exitStatus</i>)
+<p>
+        Private slot connected to the finished signal.
+</p><dl>
+<dt><i>exitCode</i></dt>
+<dd>
+exit code of the process (integer)
+</dd><dt><i>exitStatus</i></dt>
+<dd>
+exit status of the process (QProcess.ExitStatus)
+</dd>
+</dl><a NAME="HgAnnotateDialog.__processOutputLine" ID="HgAnnotateDialog.__processOutputLine"></a>
+<h4>HgAnnotateDialog.__processOutputLine</h4>
+<b>__processOutputLine</b>(<i>line</i>)
+<p>
+        Private method to process the lines of output.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+output line to be processed (string)
+</dd>
+</dl><a NAME="HgAnnotateDialog.__readStderr" ID="HgAnnotateDialog.__readStderr"></a>
+<h4>HgAnnotateDialog.__readStderr</h4>
+<b>__readStderr</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStderr signal.
+</p><p>
+        It reads the error output of the process and inserts it into the
+        error pane.
+</p><a NAME="HgAnnotateDialog.__readStdout" ID="HgAnnotateDialog.__readStdout"></a>
+<h4>HgAnnotateDialog.__readStdout</h4>
+<b>__readStdout</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStdout signal.
+</p><p>
+        It reads the output of the process, formats it and inserts it into
+        the annotation list.
+</p><a NAME="HgAnnotateDialog.__resizeColumns" ID="HgAnnotateDialog.__resizeColumns"></a>
+<h4>HgAnnotateDialog.__resizeColumns</h4>
+<b>__resizeColumns</b>(<i></i>)
+<p>
+        Private method to resize the list columns.
+</p><a NAME="HgAnnotateDialog.__showError" ID="HgAnnotateDialog.__showError"></a>
+<h4>HgAnnotateDialog.__showError</h4>
+<b>__showError</b>(<i>out</i>)
+<p>
+        Private slot to show some error.
+</p><dl>
+<dt><i>out</i></dt>
+<dd>
+error to be shown (string)
+</dd>
+</dl><a NAME="HgAnnotateDialog.closeEvent" ID="HgAnnotateDialog.closeEvent"></a>
+<h4>HgAnnotateDialog.closeEvent</h4>
+<b>closeEvent</b>(<i>e</i>)
+<p>
+        Protected slot implementing a close event handler.
+</p><dl>
+<dt><i>e</i></dt>
+<dd>
+close event (QCloseEvent)
+</dd>
+</dl><a NAME="HgAnnotateDialog.keyPressEvent" ID="HgAnnotateDialog.keyPressEvent"></a>
+<h4>HgAnnotateDialog.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>evt</i>)
+<p>
+        Protected slot to handle a key press event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+the key press event (QKeyEvent)
+</dd>
+</dl><a NAME="HgAnnotateDialog.on_buttonBox_clicked" ID="HgAnnotateDialog.on_buttonBox_clicked"></a>
+<h4>HgAnnotateDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="HgAnnotateDialog.on_input_returnPressed" ID="HgAnnotateDialog.on_input_returnPressed"></a>
+<h4>HgAnnotateDialog.on_input_returnPressed</h4>
+<b>on_input_returnPressed</b>(<i></i>)
+<p>
+        Private slot to handle the press of the return key in the input field.
+</p><a NAME="HgAnnotateDialog.on_passwordCheckBox_toggled" ID="HgAnnotateDialog.on_passwordCheckBox_toggled"></a>
+<h4>HgAnnotateDialog.on_passwordCheckBox_toggled</h4>
+<b>on_passwordCheckBox_toggled</b>(<i>isOn</i>)
+<p>
+        Private slot to handle the password checkbox toggled.
+</p><dl>
+<dt><i>isOn</i></dt>
+<dd>
+flag indicating the status of the check box (boolean)
+</dd>
+</dl><a NAME="HgAnnotateDialog.on_sendButton_clicked" ID="HgAnnotateDialog.on_sendButton_clicked"></a>
+<h4>HgAnnotateDialog.on_sendButton_clicked</h4>
+<b>on_sendButton_clicked</b>(<i></i>)
+<p>
+        Private slot to send the input to the hg process.
+</p><a NAME="HgAnnotateDialog.start" ID="HgAnnotateDialog.start"></a>
+<h4>HgAnnotateDialog.start</h4>
+<b>start</b>(<i>fn</i>)
+<p>
+        Public slot to start the annotate command.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to show the annotation for (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

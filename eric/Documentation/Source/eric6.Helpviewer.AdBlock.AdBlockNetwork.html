@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.AdBlock.AdBlockNetwork</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.AdBlock.AdBlockNetwork</h1>
+<p>
+Module implementing the network block class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#AdBlockNetwork">AdBlockNetwork</a></td>
+<td>Class implementing a network block.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="AdBlockNetwork" ID="AdBlockNetwork"></a>
+<h2>AdBlockNetwork</h2>
+<p>
+    Class implementing a network block.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AdBlockNetwork.__canBeBlocked">__canBeBlocked</a></td>
+<td>Private method to check, if an URL can be blocked.</td>
+</tr><tr>
+<td><a href="#AdBlockNetwork.block">block</a></td>
+<td>Public method to check for a network block.</td>
+</tr><tr>
+<td><a href="#AdBlockNetwork.canRunOnScheme">canRunOnScheme</a></td>
+<td>Public method to check, if AdBlock can be performed on the scheme.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AdBlockNetwork.__canBeBlocked" ID="AdBlockNetwork.__canBeBlocked"></a>
+<h4>AdBlockNetwork.__canBeBlocked</h4>
+<b>__canBeBlocked</b>(<i>url</i>)
+<p>
+        Private method to check, if an URL can be blocked.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to be checked (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, that the URL can be blocked (boolean)
+</dd>
+</dl><a NAME="AdBlockNetwork.block" ID="AdBlockNetwork.block"></a>
+<h4>AdBlockNetwork.block</h4>
+<b>block</b>(<i>request</i>)
+<p>
+        Public method to check for a network block.
+</p><dl>
+<dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reply object (QNetworkReply) or None
+</dd>
+</dl><a NAME="AdBlockNetwork.canRunOnScheme" ID="AdBlockNetwork.canRunOnScheme"></a>
+<h4>AdBlockNetwork.canRunOnScheme</h4>
+<b>canRunOnScheme</b>(<i>scheme</i>)
+<p>
+        Public method to check, if AdBlock can be performed on the scheme.
+</p><dl>
+<dt><i>scheme</i></dt>
+<dd>
+scheme to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, that AdBlock can be performed (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

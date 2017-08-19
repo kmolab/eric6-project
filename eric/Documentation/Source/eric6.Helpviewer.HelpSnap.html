@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.HelpSnap</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.HelpSnap</h1>
+<p>
+Module implementing functions to generate page previews.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__render">__render</a></td>
+<td>Private function to render a pixmap of given size for a web page.</td>
+</tr><tr>
+<td><a href="#renderTabPreview">renderTabPreview</a></td>
+<td>Public function to render a pixmap of a page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__render" ID="__render"></a>
+<h2>__render</h2>
+<b>__render</b>(<i>page, w, h</i>)
+<p>
+    Private function to render a pixmap of given size for a web page.
+</p><dl>
+<dt><i>page</i></dt>
+<dd>
+reference to the page to be rendered (QWebPage)
+</dd><dt><i>w</i></dt>
+<dd>
+width of the pixmap (integer)
+</dd><dt><i>h</i></dt>
+<dd>
+height of the pixmap (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+rendered pixmap (QPixmap)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="renderTabPreview" ID="renderTabPreview"></a>
+<h2>renderTabPreview</h2>
+<b>renderTabPreview</b>(<i>page, w, h</i>)
+<p>
+    Public function to render a pixmap of a page.
+</p><dl>
+<dt><i>page</i></dt>
+<dd>
+reference to the page to be previewed (QWebPage)
+</dd><dt><i>w</i></dt>
+<dd>
+width of the preview pixmap (integer)
+</dd><dt><i>h</i></dt>
+<dd>
+height of the preview pixmap (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+preview pixmap (QPixmap)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

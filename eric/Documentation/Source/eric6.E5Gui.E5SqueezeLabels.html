@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5SqueezeLabels</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5SqueezeLabels</h1>
+<p>
+Module implementing labels that squeeze their contents to fit the size of the
+label.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5SqueezeLabel">E5SqueezeLabel</a></td>
+<td>Class implementing a label that squeezes its contents to fit its size.</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabelPath">E5SqueezeLabelPath</a></td>
+<td>Class implementing a label showing a file path compacted to fit its size.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5SqueezeLabel" ID="E5SqueezeLabel"></a>
+<h2>E5SqueezeLabel</h2>
+<p>
+    Class implementing a label that squeezes its contents to fit its size.
+</p>
+<h3>Derived from</h3>
+QLabel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5SqueezeLabel.__init__">E5SqueezeLabel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabel.paintEvent">paintEvent</a></td>
+<td>Protected method called when some painting is required.</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabel.setText">setText</a></td>
+<td>Public method to set the label's text.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5SqueezeLabel.__init__" ID="E5SqueezeLabel.__init__"></a>
+<h4>E5SqueezeLabel (Constructor)</h4>
+<b>E5SqueezeLabel</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent Widget (QWidget)
+</dd>
+</dl><a NAME="E5SqueezeLabel.paintEvent" ID="E5SqueezeLabel.paintEvent"></a>
+<h4>E5SqueezeLabel.paintEvent</h4>
+<b>paintEvent</b>(<i>event</i>)
+<p>
+        Protected method called when some painting is required.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the paint event (QPaintEvent)
+</dd>
+</dl><a NAME="E5SqueezeLabel.setText" ID="E5SqueezeLabel.setText"></a>
+<h4>E5SqueezeLabel.setText</h4>
+<b>setText</b>(<i>txt</i>)
+<p>
+        Public method to set the label's text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+the text to be shown (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5SqueezeLabelPath" ID="E5SqueezeLabelPath"></a>
+<h2>E5SqueezeLabelPath</h2>
+<p>
+    Class implementing a label showing a file path compacted to fit its size.
+</p>
+<h3>Derived from</h3>
+QLabel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5SqueezeLabelPath.__init__">E5SqueezeLabelPath</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabelPath.length">length</a></td>
+<td>Public method to return the length of a text in pixels.</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabelPath.paintEvent">paintEvent</a></td>
+<td>Protected method called when some painting is required.</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabelPath.setPath">setPath</a></td>
+<td>Public method to set the path of the label.</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabelPath.setSurrounding">setSurrounding</a></td>
+<td>Public method to set the surrounding of the path string.</td>
+</tr><tr>
+<td><a href="#E5SqueezeLabelPath.setTextPath">setTextPath</a></td>
+<td>Public method to set the surrounding and the path of the label.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5SqueezeLabelPath.__init__" ID="E5SqueezeLabelPath.__init__"></a>
+<h4>E5SqueezeLabelPath (Constructor)</h4>
+<b>E5SqueezeLabelPath</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent Widget (QWidget)
+</dd>
+</dl><a NAME="E5SqueezeLabelPath.length" ID="E5SqueezeLabelPath.length"></a>
+<h4>E5SqueezeLabelPath.length</h4>
+<b>length</b>(<i>txt</i>)
+<p>
+        Public method to return the length of a text in pixels.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to calculate the length for after wrapped (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+length of the wrapped text in pixels (integer)
+</dd>
+</dl><a NAME="E5SqueezeLabelPath.paintEvent" ID="E5SqueezeLabelPath.paintEvent"></a>
+<h4>E5SqueezeLabelPath.paintEvent</h4>
+<b>paintEvent</b>(<i>event</i>)
+<p>
+        Protected method called when some painting is required.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the paint event (QPaintEvent)
+</dd>
+</dl><a NAME="E5SqueezeLabelPath.setPath" ID="E5SqueezeLabelPath.setPath"></a>
+<h4>E5SqueezeLabelPath.setPath</h4>
+<b>setPath</b>(<i>path</i>)
+<p>
+        Public method to set the path of the label.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be shown (string)
+</dd>
+</dl><a NAME="E5SqueezeLabelPath.setSurrounding" ID="E5SqueezeLabelPath.setSurrounding"></a>
+<h4>E5SqueezeLabelPath.setSurrounding</h4>
+<b>setSurrounding</b>(<i>surrounding</i>)
+<p>
+        Public method to set the surrounding of the path string.
+</p><dl>
+<dt><i>surrounding</i></dt>
+<dd>
+the a string containg placeholders for the path
+            (string)
+</dd>
+</dl><a NAME="E5SqueezeLabelPath.setTextPath" ID="E5SqueezeLabelPath.setTextPath"></a>
+<h4>E5SqueezeLabelPath.setTextPath</h4>
+<b>setTextPath</b>(<i>surrounding, path</i>)
+<p>
+        Public method to set the surrounding and the path of the label.
+</p><dl>
+<dt><i>surrounding</i></dt>
+<dd>
+the a string containg placeholders for the path
+            (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path to be shown (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsSubversion.SvnCommandDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsSubversion.SvnCommandDialog</h1>
+<p>
+Module implementing the Subversion command dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SvnCommandDialog">SvnCommandDialog</a></td>
+<td>Class implementing the Subversion command dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SvnCommandDialog" ID="SvnCommandDialog"></a>
+<h2>SvnCommandDialog</h2>
+<p>
+    Class implementing the Subversion command dialog.
+</p><p>
+    It implements a dialog that is used to enter an
+    arbitrary subversion command. It asks the user to enter
+    the commandline parameters and the working directory.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_SvnCommandDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SvnCommandDialog.__init__">SvnCommandDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SvnCommandDialog.getData">getData</a></td>
+<td>Public method to retrieve the data entered into this dialog.</td>
+</tr><tr>
+<td><a href="#SvnCommandDialog.on_commandCombo_editTextChanged">on_commandCombo_editTextChanged</a></td>
+<td>Private method used to enable/disable the OK-button.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SvnCommandDialog.__init__" ID="SvnCommandDialog.__init__"></a>
+<h4>SvnCommandDialog (Constructor)</h4>
+<b>SvnCommandDialog</b>(<i>argvList, wdList, ppath, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>argvList</i></dt>
+<dd>
+history list of commandline arguments (list of strings)
+</dd><dt><i>wdList</i></dt>
+<dd>
+history list of working directories (list of strings)
+</dd><dt><i>ppath</i></dt>
+<dd>
+pathname of the project directory (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd>
+</dl><a NAME="SvnCommandDialog.getData" ID="SvnCommandDialog.getData"></a>
+<h4>SvnCommandDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the data entered into this dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple of argv, workdir
+</dd>
+</dl><a NAME="SvnCommandDialog.on_commandCombo_editTextChanged" ID="SvnCommandDialog.on_commandCombo_editTextChanged"></a>
+<h4>SvnCommandDialog.on_commandCombo_editTextChanged</h4>
+<b>on_commandCombo_editTextChanged</b>(<i>text</i>)
+<p>
+        Private method used to enable/disable the OK-button.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+ignored
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

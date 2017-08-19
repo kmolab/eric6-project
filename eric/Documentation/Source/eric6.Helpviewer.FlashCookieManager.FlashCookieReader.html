@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.FlashCookieManager.FlashCookieReader</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.FlashCookieManager.FlashCookieReader</h1>
+<p>
+Module implementing a class to read flash cookies.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieReader">FlashCookieReader</a></td>
+<td>Class implementing a reader for flash cookies (*.sol files).</td>
+</tr><tr>
+<td><a href="#FlashCookieReaderError">FlashCookieReaderError</a></td>
+<td>Class containing data of a reader error.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FlashCookieReader" ID="FlashCookieReader"></a>
+<h2>FlashCookieReader</h2>
+<p>
+    Class implementing a reader for flash cookies (*.sol files).
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>Boolean</td></tr><tr><td>EpochCorrectionMsecs</td></tr><tr><td>Null</td></tr><tr><td>Number</td></tr><tr><td>ObjArr</td></tr><tr><td>ObjCc</td></tr><tr><td>ObjDate</td></tr><tr><td>ObjM</td></tr><tr><td>ObjObj</td></tr><tr><td>ObjXml</td></tr><tr><td>String</td></tr><tr><td>Undef</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieReader.__init__">FlashCookieReader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseArray">__parseArray</a></td>
+<td>Private method to parse an array.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseBoolean">__parseBoolean</a></td>
+<td>Private method to parse a boolean.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseDate">__parseDate</a></td>
+<td>Private method to parse a date.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseNull">__parseNull</a></td>
+<td>Private method to parse a null object.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseNumber">__parseNumber</a></td>
+<td>Private method to parse a number.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseObject">__parseObject</a></td>
+<td>Private method to parse an object.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseOcc">__parseOcc</a></td>
+<td>Private method to parse a c_object.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseOjm">__parseOjm</a></td>
+<td>Private method to parse an m_object.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseString">__parseString</a></td>
+<td>Private method to parse a string.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseUndefined">__parseUndefined</a></td>
+<td>Private method to parse an undefined object.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.__parseXml">__parseXml</a></td>
+<td>Private method to parse XML.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.parse">parse</a></td>
+<td>Public method to parse the sol file.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.setBytes">setBytes</a></td>
+<td>Public method to set the contents of a sol file to be parsed.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.setFile">setFile</a></td>
+<td>Public method to set an open sol file to be parsed.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.setFileName">setFileName</a></td>
+<td>Public method to set the name of a sol file to be parsed.</td>
+</tr><tr>
+<td><a href="#FlashCookieReader.toString">toString</a></td>
+<td>Public method to convert the parsed cookie to a string representation.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FlashCookieReader.__init__" ID="FlashCookieReader.__init__"></a>
+<h4>FlashCookieReader (Constructor)</h4>
+<b>FlashCookieReader</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="FlashCookieReader.__parseArray" ID="FlashCookieReader.__parseArray"></a>
+<h4>FlashCookieReader.__parseArray</h4>
+<b>__parseArray</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse an array.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><dl>
+<dt>Raises <b>FlashCookieReaderError</b>:</dt>
+<dd>
+raised when an issue with the cookie
+            file is found
+</dd>
+</dl><a NAME="FlashCookieReader.__parseBoolean" ID="FlashCookieReader.__parseBoolean"></a>
+<h4>FlashCookieReader.__parseBoolean</h4>
+<b>__parseBoolean</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse a boolean.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseDate" ID="FlashCookieReader.__parseDate"></a>
+<h4>FlashCookieReader.__parseDate</h4>
+<b>__parseDate</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse a date.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseNull" ID="FlashCookieReader.__parseNull"></a>
+<h4>FlashCookieReader.__parseNull</h4>
+<b>__parseNull</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse a null object.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseNumber" ID="FlashCookieReader.__parseNumber"></a>
+<h4>FlashCookieReader.__parseNumber</h4>
+<b>__parseNumber</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse a number.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseObject" ID="FlashCookieReader.__parseObject"></a>
+<h4>FlashCookieReader.__parseObject</h4>
+<b>__parseObject</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse an object.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><dl>
+<dt>Raises <b>FlashCookieReaderError</b>:</dt>
+<dd>
+raised when an issue with the cookie
+            file is found
+</dd>
+</dl><a NAME="FlashCookieReader.__parseOcc" ID="FlashCookieReader.__parseOcc"></a>
+<h4>FlashCookieReader.__parseOcc</h4>
+<b>__parseOcc</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse a c_object.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><dl>
+<dt>Raises <b>FlashCookieReaderError</b>:</dt>
+<dd>
+raised when an issue with the cookie
+            file is found
+</dd>
+</dl><a NAME="FlashCookieReader.__parseOjm" ID="FlashCookieReader.__parseOjm"></a>
+<h4>FlashCookieReader.__parseOjm</h4>
+<b>__parseOjm</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse an m_object.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseString" ID="FlashCookieReader.__parseString"></a>
+<h4>FlashCookieReader.__parseString</h4>
+<b>__parseString</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse a string.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseUndefined" ID="FlashCookieReader.__parseUndefined"></a>
+<h4>FlashCookieReader.__parseUndefined</h4>
+<b>__parseUndefined</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse an undefined object.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.__parseXml" ID="FlashCookieReader.__parseXml"></a>
+<h4>FlashCookieReader.__parseXml</h4>
+<b>__parseXml</b>(<i>variableName, parent</i>)
+<p>
+        Private method to parse XML.
+</p><dl>
+<dt><i>variableName</i> (str)</dt>
+<dd>
+name of the variable to be parsed
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to insert the result into
+</dd>
+</dl><a NAME="FlashCookieReader.parse" ID="FlashCookieReader.parse"></a>
+<h4>FlashCookieReader.parse</h4>
+<b>parse</b>(<i></i>)
+<p>
+        Public method to parse the sol file.
+</p><dl>
+<dt>Raises <b>FlashCookieReaderError</b>:</dt>
+<dd>
+raised when encountering a parse
+            issue
+</dd>
+</dl><a NAME="FlashCookieReader.setBytes" ID="FlashCookieReader.setBytes"></a>
+<h4>FlashCookieReader.setBytes</h4>
+<b>setBytes</b>(<i>solData</i>)
+<p>
+        Public method to set the contents of a sol file to be parsed.
+</p><dl>
+<dt><i>solData</i> (bytes)</dt>
+<dd>
+contents of the file
+</dd>
+</dl><a NAME="FlashCookieReader.setFile" ID="FlashCookieReader.setFile"></a>
+<h4>FlashCookieReader.setFile</h4>
+<b>setFile</b>(<i>solFile</i>)
+<p>
+        Public method to set an open sol file to be parsed.
+</p><dl>
+<dt><i>solFile</i> (io.FileIO)</dt>
+<dd>
+sol file to be parsed
+</dd>
+</dl><a NAME="FlashCookieReader.setFileName" ID="FlashCookieReader.setFileName"></a>
+<h4>FlashCookieReader.setFileName</h4>
+<b>setFileName</b>(<i>solFilename</i>)
+<p>
+        Public method to set the name of a sol file to be parsed.
+</p><dl>
+<dt><i>solFilename</i> (str)</dt>
+<dd>
+name of the sol file
+</dd>
+</dl><a NAME="FlashCookieReader.toString" ID="FlashCookieReader.toString"></a>
+<h4>FlashCookieReader.toString</h4>
+<b>toString</b>(<i>indent=0, parent=None</i>)
+<p>
+        Public method to convert the parsed cookie to a string representation.
+</p><dl>
+<dt><i>indent</i> (int)</dt>
+<dd>
+indentation level
+</dd><dt><i>parent</i> (dict)</dt>
+<dd>
+reference to the dictionary to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string representation of the cookie
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="FlashCookieReaderError" ID="FlashCookieReaderError"></a>
+<h2>FlashCookieReaderError</h2>
+<p>
+    Class containing data of a reader error.
+</p>
+<h3>Derived from</h3>
+Exception
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieReaderError.__init__">FlashCookieReaderError</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FlashCookieReaderError.__init__" ID="FlashCookieReaderError.__init__"></a>
+<h4>FlashCookieReaderError (Constructor)</h4>
+<b>FlashCookieReaderError</b>(<i>msg</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>msg</i> (str)</dt>
+<dd>
+error message
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

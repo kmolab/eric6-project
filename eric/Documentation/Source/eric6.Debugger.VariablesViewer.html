@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.VariablesViewer</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.VariablesViewer</h1>
+<p>
+Module implementing the variables viewer widget.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ArrayElementVarItem">ArrayElementVarItem</a></td>
+<td>Class implementing a VariableItem that represents an array element.</td>
+</tr><tr>
+<td><a href="#SpecialArrayElementVarItem">SpecialArrayElementVarItem</a></td>
+<td>Class implementing a QTreeWidgetItem that represents a special array variable node.</td>
+</tr><tr>
+<td><a href="#SpecialVarItem">SpecialVarItem</a></td>
+<td>Class implementing a VariableItem that represents a special variable node.</td>
+</tr><tr>
+<td><a href="#VariableItem">VariableItem</a></td>
+<td>Class implementing the data structure for variable items.</td>
+</tr><tr>
+<td><a href="#VariablesViewer">VariablesViewer</a></td>
+<td>Class implementing the variables viewer widget.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ArrayElementVarItem" ID="ArrayElementVarItem"></a>
+<h2>ArrayElementVarItem</h2>
+<p>
+    Class implementing a VariableItem that represents an array element.
+</p>
+<h3>Derived from</h3>
+VariableItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ArrayElementVarItem.__init__">ArrayElementVarItem</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ArrayElementVarItem.__init__" ID="ArrayElementVarItem.__init__"></a>
+<h4>ArrayElementVarItem (Constructor)</h4>
+<b>ArrayElementVarItem</b>(<i>parent, dvar, dvalue, dtype</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent of this item
+</dd><dt><i>dvar</i></dt>
+<dd>
+variable name (string)
+</dd><dt><i>dvalue</i></dt>
+<dd>
+value string (string)
+</dd><dt><i>dtype</i></dt>
+<dd>
+type string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="SpecialArrayElementVarItem" ID="SpecialArrayElementVarItem"></a>
+<h2>SpecialArrayElementVarItem</h2>
+<p>
+    Class implementing a QTreeWidgetItem that represents a special array
+    variable node.
+</p>
+<h3>Derived from</h3>
+SpecialVarItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SpecialArrayElementVarItem.__init__">SpecialArrayElementVarItem</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SpecialArrayElementVarItem.__init__" ID="SpecialArrayElementVarItem.__init__"></a>
+<h4>SpecialArrayElementVarItem (Constructor)</h4>
+<b>SpecialArrayElementVarItem</b>(<i>parent, dvar, dvalue, dtype, frmnr, globalScope</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent of this item
+</dd><dt><i>dvar</i></dt>
+<dd>
+variable name (string)
+</dd><dt><i>dvalue</i></dt>
+<dd>
+value string (string)
+</dd><dt><i>dtype</i></dt>
+<dd>
+type string (string)
+</dd><dt><i>frmnr</i></dt>
+<dd>
+frame number (0 is the current frame) (int)
+</dd><dt><i>globalScope</i></dt>
+<dd>
+flag indicating global (True) or local (False)
+            variables
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="SpecialVarItem" ID="SpecialVarItem"></a>
+<h2>SpecialVarItem</h2>
+<p>
+    Class implementing a VariableItem that represents a special variable node.
+</p><p>
+    These special variable nodes are generated for classes, lists,
+    tuples and dictionaries.
+</p>
+<h3>Derived from</h3>
+VariableItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SpecialVarItem.__init__">SpecialVarItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SpecialVarItem.expand">expand</a></td>
+<td>Public method to expand the item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SpecialVarItem.__init__" ID="SpecialVarItem.__init__"></a>
+<h4>SpecialVarItem (Constructor)</h4>
+<b>SpecialVarItem</b>(<i>parent, dvar, dvalue, dtype, frmnr, globalScope</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent of this item
+</dd><dt><i>dvar</i></dt>
+<dd>
+variable name (string)
+</dd><dt><i>dvalue</i></dt>
+<dd>
+value string (string)
+</dd><dt><i>dtype</i></dt>
+<dd>
+type string (string)
+</dd><dt><i>frmnr</i></dt>
+<dd>
+frame number (0 is the current frame) (int)
+</dd><dt><i>globalScope</i></dt>
+<dd>
+flag indicating global (True) or local (False)
+            variables
+</dd>
+</dl><a NAME="SpecialVarItem.expand" ID="SpecialVarItem.expand"></a>
+<h4>SpecialVarItem.expand</h4>
+<b>expand</b>(<i></i>)
+<p>
+        Public method to expand the item.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="VariableItem" ID="VariableItem"></a>
+<h2>VariableItem</h2>
+<p>
+    Class implementing the data structure for variable items.
+</p>
+<h3>Derived from</h3>
+QTreeWidgetItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>Indicators</td></tr><tr><td>Type2Indicators</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr>
+<td><a href="#VariableItem.extractId">extractId</a></td>
+<td>Class method to extract the ID string from a variable text.</td>
+</tr><tr>
+<td><a href="#VariableItem.extractIndicators">extractIndicators</a></td>
+<td>Class method to extract the indicator string from a variable text.</td>
+</tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VariableItem.__init__">VariableItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#VariableItem._buildKey">_buildKey</a></td>
+<td>Protected method to build the access key for the variable.</td>
+</tr><tr>
+<td><a href="#VariableItem.attachDummy">attachDummy</a></td>
+<td>Public method to attach a dummy sub item to allow for lazy population.</td>
+</tr><tr>
+<td><a href="#VariableItem.collapse">collapse</a></td>
+<td>Public method to collapse the item.</td>
+</tr><tr>
+<td><a href="#VariableItem.data">data</a></td>
+<td>Public method to return the data for the requested role.</td>
+</tr><tr>
+<td><a href="#VariableItem.deleteChildren">deleteChildren</a></td>
+<td>Public method to delete all children (cleaning the subtree).</td>
+</tr><tr>
+<td><a href="#VariableItem.expand">expand</a></td>
+<td>Public method to expand the item.</td>
+</tr><tr>
+<td><a href="#VariableItem.getId">getId</a></td>
+<td>Public method to get the ID string.</td>
+</tr><tr>
+<td><a href="#VariableItem.getValue">getValue</a></td>
+<td>Public method to return the value of the item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VariableItem.extractId" ID="VariableItem.extractId"></a>
+<h4>VariableItem.extractId (class method)</h4>
+<b>extractId</b>(<i>var</i>)
+<p>
+        Class method to extract the ID string from a variable text.
+</p><dl>
+<dt><i>var</i> (str)</dt>
+<dd>
+variable text
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing the variable text without ID and the ID string
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of two str
+</dd>
+</dl><a NAME="VariableItem.extractIndicators" ID="VariableItem.extractIndicators"></a>
+<h4>VariableItem.extractIndicators (class method)</h4>
+<b>extractIndicators</b>(<i>var</i>)
+<p>
+        Class method to extract the indicator string from a variable text.
+</p><dl>
+<dt><i>var</i> (str)</dt>
+<dd>
+variable text
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing the variable text without indicators and the
+            indicator string
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of two str
+</dd>
+</dl><a NAME="VariableItem.__init__" ID="VariableItem.__init__"></a>
+<h4>VariableItem (Constructor)</h4>
+<b>VariableItem</b>(<i>parent, dvar, dvalue, dtype</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent item
+</dd><dt><i>dvar</i></dt>
+<dd>
+variable name (string)
+</dd><dt><i>dvalue</i></dt>
+<dd>
+value string (string)
+</dd><dt><i>dtype</i></dt>
+<dd>
+type string (string)
+</dd>
+</dl><a NAME="VariableItem._buildKey" ID="VariableItem._buildKey"></a>
+<h4>VariableItem._buildKey</h4>
+<b>_buildKey</b>(<i></i>)
+<p>
+        Protected method to build the access key for the variable.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+access key
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="VariableItem.attachDummy" ID="VariableItem.attachDummy"></a>
+<h4>VariableItem.attachDummy</h4>
+<b>attachDummy</b>(<i></i>)
+<p>
+        Public method to attach a dummy sub item to allow for lazy population.
+</p><a NAME="VariableItem.collapse" ID="VariableItem.collapse"></a>
+<h4>VariableItem.collapse</h4>
+<b>collapse</b>(<i></i>)
+<p>
+        Public method to collapse the item.
+</p><p>
+        Note: This is just a do nothing and should be overwritten.
+</p><a NAME="VariableItem.data" ID="VariableItem.data"></a>
+<h4>VariableItem.data</h4>
+<b>data</b>(<i>column, role</i>)
+<p>
+        Public method to return the data for the requested role.
+</p><p>
+        This implementation changes the original behavior in a way, that the
+        display data is returned as the tooltip for column 1.
+</p><dl>
+<dt><i>column</i></dt>
+<dd>
+column number (integer)
+</dd><dt><i>role</i></dt>
+<dd>
+data role (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="VariableItem.deleteChildren" ID="VariableItem.deleteChildren"></a>
+<h4>VariableItem.deleteChildren</h4>
+<b>deleteChildren</b>(<i></i>)
+<p>
+        Public method to delete all children (cleaning the subtree).
+</p><a NAME="VariableItem.expand" ID="VariableItem.expand"></a>
+<h4>VariableItem.expand</h4>
+<b>expand</b>(<i></i>)
+<p>
+        Public method to expand the item.
+</p><p>
+        Note: This is just a do nothing and should be overwritten.
+</p><a NAME="VariableItem.getId" ID="VariableItem.getId"></a>
+<h4>VariableItem.getId</h4>
+<b>getId</b>(<i></i>)
+<p>
+        Public method to get the ID string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+ID string
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="VariableItem.getValue" ID="VariableItem.getValue"></a>
+<h4>VariableItem.getValue</h4>
+<b>getValue</b>(<i></i>)
+<p>
+        Public method to return the value of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+value of the item (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="VariablesViewer" ID="VariablesViewer"></a>
+<h2>VariablesViewer</h2>
+<p>
+    Class implementing the variables viewer widget.
+</p><p>
+    This widget is used to display the variables of the program being
+    debugged in a tree. Compound types will be shown with
+    their main entry first. Once the subtree has been expanded, the
+    individual entries will be shown. Double clicking an entry will
+    popup a dialog showing the variables parameters in a more readable
+    form. This is especially useful for lengthy strings.
+</p><p>
+    This widget has two modes for displaying the global and the local
+    variables.
+</p>
+<h3>Derived from</h3>
+QTreeWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VariablesViewer.__init__">VariablesViewer</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__addItem">__addItem</a></td>
+<td>Private method used to add an item to the list.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__buildTreePath">__buildTreePath</a></td>
+<td>Private method to build up a path from the top to an item.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__configure">__configure</a></td>
+<td>Private method to open the configuration dialog.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__createPopupMenus">__createPopupMenus</a></td>
+<td>Private method to generate the popup menus.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__expandItemSignal">__expandItemSignal</a></td>
+<td>Private slot to handle the expanded signal.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__findItem">__findItem</a></td>
+<td>Private method to search for an item.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__generateItem">__generateItem</a></td>
+<td>Private method used to generate a VariableItem.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__getDispType">__getDispType</a></td>
+<td>Private method used to get the display string for type vtype.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__refreshView">__refreshView</a></td>
+<td>Private slot to refresh the view.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__resort">__resort</a></td>
+<td>Private method to resort the tree.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__sectionClicked">__sectionClicked</a></td>
+<td>Private method handling a click onto a header section.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot to show the context menu.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__showDetails">__showDetails</a></td>
+<td>Private slot to show details about the selected variable.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.__showVariableDetails">__showVariableDetails</a></td>
+<td>Private method to show details about a variable.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.collapseItem">collapseItem</a></td>
+<td>Public slot to handle the collapsed signal.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.expandItem">expandItem</a></td>
+<td>Public slot to handle the expanded signal.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.handleResetUI">handleResetUI</a></td>
+<td>Public method to reset the VariablesViewer.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.mouseDoubleClickEvent">mouseDoubleClickEvent</a></td>
+<td>Protected method of QAbstractItemView.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.showVariable">showVariable</a></td>
+<td>Public method to show variables in a list.</td>
+</tr><tr>
+<td><a href="#VariablesViewer.showVariables">showVariables</a></td>
+<td>Public method to show variables in a list.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VariablesViewer.__init__" ID="VariablesViewer.__init__"></a>
+<h4>VariablesViewer (Constructor)</h4>
+<b>VariablesViewer</b>(<i>viewer, globalScope, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>viewer</i></dt>
+<dd>
+reference to the debug viewer object (DebugViewer)
+</dd><dt><i>globalScope</i></dt>
+<dd>
+flag indicating global (True) or local (False)
+            variables
+</dd><dt><i>parent</i></dt>
+<dd>
+the parent (QWidget)
+</dd>
+</dl><a NAME="VariablesViewer.__addItem" ID="VariablesViewer.__addItem"></a>
+<h4>VariablesViewer.__addItem</h4>
+<b>__addItem</b>(<i>parent, vtype, var, value</i>)
+<p>
+        Private method used to add an item to the list.
+</p><p>
+        If the item is of a type with subelements (i.e. list, dictionary,
+        tuple), these subelements are added by calling this method recursively.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+the parent of the item to be added
+            (QTreeWidgetItem or None)
+</dd><dt><i>vtype</i></dt>
+<dd>
+the type of the item to be added
+            (string)
+</dd><dt><i>var</i></dt>
+<dd>
+the variable name (string)
+</dd><dt><i>value</i></dt>
+<dd>
+the value string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+The item that was added to the listview (QTreeWidgetItem).
+</dd>
+</dl><a NAME="VariablesViewer.__buildTreePath" ID="VariablesViewer.__buildTreePath"></a>
+<h4>VariablesViewer.__buildTreePath</h4>
+<b>__buildTreePath</b>(<i>itm</i>)
+<p>
+        Private method to build up a path from the top to an item.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+item to build the path for (QTreeWidgetItem)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of names denoting the path from the top (list of strings)
+</dd>
+</dl><a NAME="VariablesViewer.__configure" ID="VariablesViewer.__configure"></a>
+<h4>VariablesViewer.__configure</h4>
+<b>__configure</b>(<i></i>)
+<p>
+        Private method to open the configuration dialog.
+</p><a NAME="VariablesViewer.__createPopupMenus" ID="VariablesViewer.__createPopupMenus"></a>
+<h4>VariablesViewer.__createPopupMenus</h4>
+<b>__createPopupMenus</b>(<i></i>)
+<p>
+        Private method to generate the popup menus.
+</p><a NAME="VariablesViewer.__expandItemSignal" ID="VariablesViewer.__expandItemSignal"></a>
+<h4>VariablesViewer.__expandItemSignal</h4>
+<b>__expandItemSignal</b>(<i>parentItem</i>)
+<p>
+        Private slot to handle the expanded signal.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the item being expanded
+            (QTreeWidgetItem)
+</dd>
+</dl><a NAME="VariablesViewer.__findItem" ID="VariablesViewer.__findItem"></a>
+<h4>VariablesViewer.__findItem</h4>
+<b>__findItem</b>(<i>slist, column, node=None</i>)
+<p>
+        Private method to search for an item.
+</p><p>
+        It is used to find a specific item in column,
+        that is a child of node. If node is None, a child of the
+        QTreeWidget is searched.
+</p><dl>
+<dt><i>slist</i></dt>
+<dd>
+searchlist (list of strings)
+</dd><dt><i>column</i></dt>
+<dd>
+index of column to search in (int)
+</dd><dt><i>node</i></dt>
+<dd>
+start point of the search
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the found item or None
+</dd>
+</dl><a NAME="VariablesViewer.__generateItem" ID="VariablesViewer.__generateItem"></a>
+<h4>VariablesViewer.__generateItem</h4>
+<b>__generateItem</b>(<i>parent, dvar, dvalue, dtype, isSpecial=False</i>)
+<p>
+        Private method used to generate a VariableItem.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent of the item to be generated
+</dd><dt><i>dvar</i></dt>
+<dd>
+variable name (string)
+</dd><dt><i>dvalue</i></dt>
+<dd>
+value string (string)
+</dd><dt><i>dtype</i></dt>
+<dd>
+type string (string)
+</dd><dt><i>isSpecial</i></dt>
+<dd>
+flag indicating that a special node should be
+            generated (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+The item that was generated (VariableItem).
+</dd>
+</dl><a NAME="VariablesViewer.__getDispType" ID="VariablesViewer.__getDispType"></a>
+<h4>VariablesViewer.__getDispType</h4>
+<b>__getDispType</b>(<i>vtype</i>)
+<p>
+        Private method used to get the display string for type vtype.
+</p><dl>
+<dt><i>vtype</i></dt>
+<dd>
+the type, the display string should be looked up for
+              (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+displaystring (string)
+</dd>
+</dl><a NAME="VariablesViewer.__refreshView" ID="VariablesViewer.__refreshView"></a>
+<h4>VariablesViewer.__refreshView</h4>
+<b>__refreshView</b>(<i></i>)
+<p>
+        Private slot to refresh the view.
+</p><a NAME="VariablesViewer.__resort" ID="VariablesViewer.__resort"></a>
+<h4>VariablesViewer.__resort</h4>
+<b>__resort</b>(<i>parent=None</i>)
+<p>
+        Private method to resort the tree.
+</p><dl>
+<dt><i>parent</i> (QTreeWidgetItem)</dt>
+<dd>
+reference to a parent item
+</dd>
+</dl><a NAME="VariablesViewer.__sectionClicked" ID="VariablesViewer.__sectionClicked"></a>
+<h4>VariablesViewer.__sectionClicked</h4>
+<b>__sectionClicked</b>(<i></i>)
+<p>
+        Private method handling a click onto a header section.
+</p><a NAME="VariablesViewer.__showContextMenu" ID="VariablesViewer.__showContextMenu"></a>
+<h4>VariablesViewer.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i>coord</i>)
+<p>
+        Private slot to show the context menu.
+</p><dl>
+<dt><i>coord</i></dt>
+<dd>
+the position of the mouse pointer (QPoint)
+</dd>
+</dl><a NAME="VariablesViewer.__showDetails" ID="VariablesViewer.__showDetails"></a>
+<h4>VariablesViewer.__showDetails</h4>
+<b>__showDetails</b>(<i></i>)
+<p>
+        Private slot to show details about the selected variable.
+</p><a NAME="VariablesViewer.__showVariableDetails" ID="VariablesViewer.__showVariableDetails"></a>
+<h4>VariablesViewer.__showVariableDetails</h4>
+<b>__showVariableDetails</b>(<i>itm</i>)
+<p>
+        Private method to show details about a variable.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+reference to the variable item
+</dd>
+</dl><a NAME="VariablesViewer.collapseItem" ID="VariablesViewer.collapseItem"></a>
+<h4>VariablesViewer.collapseItem</h4>
+<b>collapseItem</b>(<i>parentItem</i>)
+<p>
+        Public slot to handle the collapsed signal.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the item being collapsed
+            (QTreeWidgetItem)
+</dd>
+</dl><a NAME="VariablesViewer.expandItem" ID="VariablesViewer.expandItem"></a>
+<h4>VariablesViewer.expandItem</h4>
+<b>expandItem</b>(<i>parentItem</i>)
+<p>
+        Public slot to handle the expanded signal.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the item being expanded
+            (QTreeWidgetItem)
+</dd>
+</dl><a NAME="VariablesViewer.handleResetUI" ID="VariablesViewer.handleResetUI"></a>
+<h4>VariablesViewer.handleResetUI</h4>
+<b>handleResetUI</b>(<i></i>)
+<p>
+        Public method to reset the VariablesViewer.
+</p><a NAME="VariablesViewer.mouseDoubleClickEvent" ID="VariablesViewer.mouseDoubleClickEvent"></a>
+<h4>VariablesViewer.mouseDoubleClickEvent</h4>
+<b>mouseDoubleClickEvent</b>(<i>mouseEvent</i>)
+<p>
+        Protected method of QAbstractItemView.
+</p><p>
+        Reimplemented to disable expanding/collapsing of items when
+        double-clicking. Instead the double-clicked entry is opened.
+</p><dl>
+<dt><i>mouseEvent</i></dt>
+<dd>
+the mouse event object (QMouseEvent)
+</dd>
+</dl><a NAME="VariablesViewer.showVariable" ID="VariablesViewer.showVariable"></a>
+<h4>VariablesViewer.showVariable</h4>
+<b>showVariable</b>(<i>vlist</i>)
+<p>
+        Public method to show variables in a list.
+</p><dl>
+<dt><i>vlist</i></dt>
+<dd>
+the list of subitems to be displayed.
+                The first element gives the path of the
+                parent variable. Each other listentry is
+                a tuple of three values.
+                <ul>
+                <li>the variable name (string)</li>
+                <li>the variables type (string)</li>
+                <li>the variables value (string)</li>
+                </ul>
+</dd>
+</dl><a NAME="VariablesViewer.showVariables" ID="VariablesViewer.showVariables"></a>
+<h4>VariablesViewer.showVariables</h4>
+<b>showVariables</b>(<i>vlist, frmnr</i>)
+<p>
+        Public method to show variables in a list.
+</p><dl>
+<dt><i>vlist</i></dt>
+<dd>
+the list of variables to be displayed. Each
+                listentry is a tuple of three values.
+                <ul>
+                <li>the variable name (string)</li>
+                <li>the variables type (string)</li>
+                <li>the variables value (string)</li>
+                </ul>
+</dd><dt><i>frmnr</i></dt>
+<dd>
+frame number (0 is the current frame) (int)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

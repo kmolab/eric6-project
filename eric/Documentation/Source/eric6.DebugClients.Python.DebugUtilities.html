@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.DebugClients.Python.DebugUtilities</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.DebugClients.Python.DebugUtilities</h1>
+<p>
+Module implementing utilities functions for the debug client.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>ArgInfo</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#_getfullargs">_getfullargs</a></td>
+<td>Protected function to get information about the arguments accepted by a code object.</td>
+</tr><tr>
+<td><a href="#formatargvalues">formatargvalues</a></td>
+<td>Function to format an argument spec from the 4 values returned by getargvalues.</td>
+</tr><tr>
+<td><a href="#getargvalues">getargvalues</a></td>
+<td>Function to get information about arguments passed into a particular frame.</td>
+</tr><tr>
+<td><a href="#prepareJsonCommand">prepareJsonCommand</a></td>
+<td>Function to prepare a single command or response for transmission to the IDE.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="_getfullargs" ID="_getfullargs"></a>
+<h2>_getfullargs</h2>
+<b>_getfullargs</b>(<i>co</i>)
+<p>
+    Protected function to get information about the arguments accepted
+    by a code object.
+</p><dl>
+<dt><i>co</i> (code)</dt>
+<dd>
+reference to a code object to be processed
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of four things, where 'args' and 'kwonlyargs' are lists of
+        argument names, and 'varargs' and 'varkw' are the names of the
+        * and ** arguments or None.
+</dd>
+</dl><dl>
+<dt>Raises <b>TypeError</b>:</dt>
+<dd>
+raised if the input parameter is not a code object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="formatargvalues" ID="formatargvalues"></a>
+<h2>formatargvalues</h2>
+<b>formatargvalues</b>(<i>args, varargs, varkw, localsDict, formatarg=str, formatvarargs=lambda name: '*' + name, formatvarkw=lambda name: '**' + name, formatvalue=lambda value: '=' + repr(value)</i>)
+<p>
+    Function to format an argument spec from the 4 values returned
+    by getargvalues.
+</p><dl>
+<dt><i>args</i> (list of str)</dt>
+<dd>
+list of argument names
+</dd><dt><i>varargs</i> (str)</dt>
+<dd>
+name of the variable arguments
+</dd><dt><i>varkw</i> (str)</dt>
+<dd>
+name of the keyword arguments
+</dd><dt><i>localsDict</i> (dict)</dt>
+<dd>
+reference to the local variables dictionary
+</dd><dt><i>formatarg=</i> (func)</dt>
+<dd>
+argument formatting function
+</dd><dt><i>formatvarargs=</i> (func)</dt>
+<dd>
+variable arguments formatting function
+</dd><dt><i>formatvarkw=</i> (func)</dt>
+<dd>
+keyword arguments formatting function
+</dd><dt><i>formatvalue=</i> (func)</dt>
+<dd>
+value formating functtion
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted call signature
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getargvalues" ID="getargvalues"></a>
+<h2>getargvalues</h2>
+<b>getargvalues</b>(<i>frame</i>)
+<p>
+    Function to get information about arguments passed into a
+    particular frame.
+</p><dl>
+<dt><i>frame</i> (frame)</dt>
+<dd>
+reference to a frame object to be processed
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of four things, where 'args' is a list of the argument names,
+        'varargs' and 'varkw' are the names of the * and ** arguments or None
+        and 'locals' is the locals dictionary of the given frame.
+</dd>
+</dl><dl>
+<dt>Raises <b>TypeError</b>:</dt>
+<dd>
+raised if the input parameter is not a frame object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="prepareJsonCommand" ID="prepareJsonCommand"></a>
+<h2>prepareJsonCommand</h2>
+<b>prepareJsonCommand</b>(<i>method, params</i>)
+<p>
+    Function to prepare a single command or response for transmission to
+    the IDE.
+</p><dl>
+<dt><i>method</i> (str)</dt>
+<dd>
+command or response name to be sent
+</dd><dt><i>params</i> (dict)</dt>
+<dd>
+dictionary of named parameters for the command or response
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+prepared JSON command or response string
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

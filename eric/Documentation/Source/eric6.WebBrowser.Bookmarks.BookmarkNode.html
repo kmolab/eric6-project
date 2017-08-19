@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.Bookmarks.BookmarkNode</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.Bookmarks.BookmarkNode</h1>
+<p>
+Module implementing the bookmark node.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#BookmarkNode">BookmarkNode</a></td>
+<td>Class implementing the bookmark node type.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="BookmarkNode" ID="BookmarkNode"></a>
+<h2>BookmarkNode</h2>
+<p>
+    Class implementing the bookmark node type.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>Bookmark</td></tr><tr><td>Folder</td></tr><tr><td>Root</td></tr><tr><td>Separator</td></tr><tr><td>TsAdded</td></tr><tr><td>TsModified</td></tr><tr><td>TsVisited</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BookmarkNode.__init__">BookmarkNode</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BookmarkNode.add">add</a></td>
+<td>Public method to add/insert a child node.</td>
+</tr><tr>
+<td><a href="#BookmarkNode.children">children</a></td>
+<td>Public method to get the list of child nodes.</td>
+</tr><tr>
+<td><a href="#BookmarkNode.parent">parent</a></td>
+<td>Public method to get a reference to the parent node.</td>
+</tr><tr>
+<td><a href="#BookmarkNode.remove">remove</a></td>
+<td>Public method to remove a child node.</td>
+</tr><tr>
+<td><a href="#BookmarkNode.setType">setType</a></td>
+<td>Public method to set the bookmark's type.</td>
+</tr><tr>
+<td><a href="#BookmarkNode.type">type</a></td>
+<td>Public method to get the bookmark's type.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BookmarkNode.__init__" ID="BookmarkNode.__init__"></a>
+<h4>BookmarkNode (Constructor)</h4>
+<b>BookmarkNode</b>(<i>type_=Root, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the bookmark node (BookmarkNode.Type)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent node (BookmarkNode)
+</dd>
+</dl><a NAME="BookmarkNode.add" ID="BookmarkNode.add"></a>
+<h4>BookmarkNode.add</h4>
+<b>add</b>(<i>child, offset=-1</i>)
+<p>
+        Public method to add/insert a child node.
+</p><dl>
+<dt><i>child</i></dt>
+<dd>
+reference to the node to add (BookmarkNode)
+</dd><dt><i>offset</i></dt>
+<dd>
+position where to insert child (integer, -1 = append)
+</dd>
+</dl><a NAME="BookmarkNode.children" ID="BookmarkNode.children"></a>
+<h4>BookmarkNode.children</h4>
+<b>children</b>(<i></i>)
+<p>
+        Public method to get the list of child nodes.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of all child nodes (list of BookmarkNode)
+</dd>
+</dl><a NAME="BookmarkNode.parent" ID="BookmarkNode.parent"></a>
+<h4>BookmarkNode.parent</h4>
+<b>parent</b>(<i></i>)
+<p>
+        Public method to get a reference to the parent node.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the parent node (BookmarkNode)
+</dd>
+</dl><a NAME="BookmarkNode.remove" ID="BookmarkNode.remove"></a>
+<h4>BookmarkNode.remove</h4>
+<b>remove</b>(<i>child</i>)
+<p>
+        Public method to remove a child node.
+</p><dl>
+<dt><i>child</i></dt>
+<dd>
+reference to the child node (BookmarkNode)
+</dd>
+</dl><a NAME="BookmarkNode.setType" ID="BookmarkNode.setType"></a>
+<h4>BookmarkNode.setType</h4>
+<b>setType</b>(<i>type_</i>)
+<p>
+        Public method to set the bookmark's type.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the bookmark node (BookmarkNode.Type)
+</dd>
+</dl><a NAME="BookmarkNode.type" ID="BookmarkNode.type"></a>
+<h4>BookmarkNode.type</h4>
+<b>type</b>(<i></i>)
+<p>
+        Public method to get the bookmark's type.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+bookmark type (BookmarkNode.Type)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.QtHelp.HelpIndexWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.QtHelp.HelpIndexWidget</h1>
+<p>
+Module implementing a window for showing the QtHelp index.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpIndexWidget">HelpIndexWidget</a></td>
+<td>Class implementing a window for showing the QtHelp index.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HelpIndexWidget" ID="HelpIndexWidget"></a>
+<h2>HelpIndexWidget</h2>
+<p>
+    Class implementing a window for showing the QtHelp index.
+</p><h3>Signals</h3>
+<dl>
+<dt>escapePressed()</dt>
+<dd>
+emitted when the ESC key was pressed
+</dd><dt>newBackgroundTab(QUrl, str)</dt>
+<dd>
+emitted to open an entry in a
+        new background tab
+</dd><dt>newTab(QUrl, str)</dt>
+<dd>
+emitted to open an entry in a new tab
+</dd><dt>newWindow(QUrl, str)</dt>
+<dd>
+emitted to open an entry in a new window
+</dd><dt>openUrl(QUrl, str)</dt>
+<dd>
+emitted to open an entry in the current tab
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpIndexWidget.__init__">HelpIndexWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__disableSearchEdit">__disableSearchEdit</a></td>
+<td>Private slot to enable the search edit.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__enableSearchEdit">__enableSearchEdit</a></td>
+<td>Private slot to enable the search edit.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__filterIndices">__filterIndices</a></td>
+<td>Private slot to filter the indexes according to the given filter.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__linkActivated">__linkActivated</a></td>
+<td>Private slot to handle the activation of a keyword entry.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__linksActivated">__linksActivated</a></td>
+<td>Private slot to handle the activation of an entry with multiple links.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__selectLink">__selectLink</a></td>
+<td>Private method to give the user a chance to select among the returned links.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot showing the context menu.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.eventFilter">eventFilter</a></td>
+<td>Public method called to filter the event queue.</td>
+</tr><tr>
+<td><a href="#HelpIndexWidget.focusInEvent">focusInEvent</a></td>
+<td>Protected method handling focus in events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpIndexWidget.__init__" ID="HelpIndexWidget.__init__"></a>
+<h4>HelpIndexWidget (Constructor)</h4>
+<b>HelpIndexWidget</b>(<i>engine, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>engine</i></dt>
+<dd>
+reference to the help engine (QHelpEngine)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HelpIndexWidget.__disableSearchEdit" ID="HelpIndexWidget.__disableSearchEdit"></a>
+<h4>HelpIndexWidget.__disableSearchEdit</h4>
+<b>__disableSearchEdit</b>(<i></i>)
+<p>
+        Private slot to enable the search edit.
+</p><a NAME="HelpIndexWidget.__enableSearchEdit" ID="HelpIndexWidget.__enableSearchEdit"></a>
+<h4>HelpIndexWidget.__enableSearchEdit</h4>
+<b>__enableSearchEdit</b>(<i></i>)
+<p>
+        Private slot to enable the search edit.
+</p><a NAME="HelpIndexWidget.__filterIndices" ID="HelpIndexWidget.__filterIndices"></a>
+<h4>HelpIndexWidget.__filterIndices</h4>
+<b>__filterIndices</b>(<i>indexFilter</i>)
+<p>
+        Private slot to filter the indexes according to the given filter.
+</p><dl>
+<dt><i>indexFilter</i></dt>
+<dd>
+filter to be used (string)
+</dd>
+</dl><a NAME="HelpIndexWidget.__linkActivated" ID="HelpIndexWidget.__linkActivated"></a>
+<h4>HelpIndexWidget.__linkActivated</h4>
+<b>__linkActivated</b>(<i>url, keyword, modifiers=None</i>)
+<p>
+        Private slot to handle the activation of a keyword entry.
+</p><dl>
+<dt><i>url</i> (QUrl)</dt>
+<dd>
+URL of the selected entry
+</dd><dt><i>keyword</i> (str)</dt>
+<dd>
+keyword for the URL
+</dd><dt><i>modifiers=</i> (Qt.KeyboardModifiers or None)</dt>
+<dd>
+keyboard modifiers
+</dd>
+</dl><a NAME="HelpIndexWidget.__linksActivated" ID="HelpIndexWidget.__linksActivated"></a>
+<h4>HelpIndexWidget.__linksActivated</h4>
+<b>__linksActivated</b>(<i>links, keyword</i>)
+<p>
+        Private slot to handle the activation of an entry with multiple links.
+</p><dl>
+<dt><i>links</i> (dict of key:str and value:QUrl)</dt>
+<dd>
+dictionary containing the links
+</dd><dt><i>keyword</i> (str)</dt>
+<dd>
+keyword for the entry
+</dd>
+</dl><a NAME="HelpIndexWidget.__selectLink" ID="HelpIndexWidget.__selectLink"></a>
+<h4>HelpIndexWidget.__selectLink</h4>
+<b>__selectLink</b>(<i>links, keyword</i>)
+<p>
+        Private method to give the user a chance to select among the
+        returned links.
+</p><dl>
+<dt><i>links</i> (dictionary of str (key) and QUrl (value))</dt>
+<dd>
+dictionary of document title and URL to select from
+</dd><dt><i>keyword</i> (str)</dt>
+<dd>
+keyword for the link set
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+selected link
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QUrl
+</dd>
+</dl><a NAME="HelpIndexWidget.__showContextMenu" ID="HelpIndexWidget.__showContextMenu"></a>
+<h4>HelpIndexWidget.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i>pos</i>)
+<p>
+        Private slot showing the context menu.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position to show the menu at (QPoint)
+</dd>
+</dl><a NAME="HelpIndexWidget.eventFilter" ID="HelpIndexWidget.eventFilter"></a>
+<h4>HelpIndexWidget.eventFilter</h4>
+<b>eventFilter</b>(<i>watched, event</i>)
+<p>
+        Public method called to filter the event queue.
+</p><dl>
+<dt><i>watched</i></dt>
+<dd>
+the QObject being watched (QObject)
+</dd><dt><i>event</i></dt>
+<dd>
+the event that occurred (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating whether the event was handled (boolean)
+</dd>
+</dl><a NAME="HelpIndexWidget.focusInEvent" ID="HelpIndexWidget.focusInEvent"></a>
+<h4>HelpIndexWidget.focusInEvent</h4>
+<b>focusInEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling focus in events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the focus event object (QFocusEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.PageScreenDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.PageScreenDialog</h1>
+<p>
+Module implementing a dialog to save a screenshot of a web page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PageScreenDialog">PageScreenDialog</a></td>
+<td>Class documentation goes here.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="PageScreenDialog" ID="PageScreenDialog"></a>
+<h2>PageScreenDialog</h2>
+<p>
+    Class documentation goes here.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_PageScreenDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PageScreenDialog.__init__">PageScreenDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PageScreenDialog.__createPixmap">__createPixmap</a></td>
+<td>Private slot to create a pixmap of the associated view's page.</td>
+</tr><tr>
+<td><a href="#PageScreenDialog.__savePageScreen">__savePageScreen</a></td>
+<td>Private slot to save the page screen.</td>
+</tr><tr>
+<td><a href="#PageScreenDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot to handle clicks of the dialog buttons.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PageScreenDialog.__init__" ID="PageScreenDialog.__init__"></a>
+<h4>PageScreenDialog (Constructor)</h4>
+<b>PageScreenDialog</b>(<i>view, visibleOnly=False, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>view</i></dt>
+<dd>
+reference to the web view containing the page to be saved
+            (WebBrowserView)
+</dd><dt><i>visibleOnly</i></dt>
+<dd>
+flag indicating to just save the visible part
+            of the page (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="PageScreenDialog.__createPixmap" ID="PageScreenDialog.__createPixmap"></a>
+<h4>PageScreenDialog.__createPixmap</h4>
+<b>__createPixmap</b>(<i>visibleOnly</i>)
+<p>
+        Private slot to create a pixmap of the associated view's page.
+</p><dl>
+<dt><i>visibleOnly</i></dt>
+<dd>
+flag indicating to just save the visible part
+            of the page (boolean)
+</dd>
+</dl><a NAME="PageScreenDialog.__savePageScreen" ID="PageScreenDialog.__savePageScreen"></a>
+<h4>PageScreenDialog.__savePageScreen</h4>
+<b>__savePageScreen</b>(<i></i>)
+<p>
+        Private slot to save the page screen.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="PageScreenDialog.on_buttonBox_clicked" ID="PageScreenDialog.on_buttonBox_clicked"></a>
+<h4>PageScreenDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot to handle clicks of the dialog buttons.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

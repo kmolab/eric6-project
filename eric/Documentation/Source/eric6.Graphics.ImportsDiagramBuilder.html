@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Graphics.ImportsDiagramBuilder</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Graphics.ImportsDiagramBuilder</h1>
+<p>
+Module implementing a dialog showing an imports diagram of a package.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ImportsDiagramBuilder">ImportsDiagramBuilder</a></td>
+<td>Class implementing a builder for imports diagrams of a package.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ImportsDiagramBuilder" ID="ImportsDiagramBuilder"></a>
+<h2>ImportsDiagramBuilder</h2>
+<p>
+    Class implementing a builder for imports diagrams of a package.
+</p><p>
+    Note: Only package internal imports are shown in order to maintain
+    some readability.
+</p>
+<h3>Derived from</h3>
+UMLDiagramBuilder
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ImportsDiagramBuilder.__init__">ImportsDiagramBuilder</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.__addModule">__addModule</a></td>
+<td>Private method to add a module to the diagram.</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.__buildModulesDict">__buildModulesDict</a></td>
+<td>Private method to build a dictionary of modules contained in the package.</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.__createAssociations">__createAssociations</a></td>
+<td>Private method to generate the associations between the module shapes.</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.buildDiagram">buildDiagram</a></td>
+<td>Public method to build the modules shapes of the diagram.</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.getPersistenceData">getPersistenceData</a></td>
+<td>Public method to get a string for data to be persisted.</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.initialize">initialize</a></td>
+<td>Public method to initialize the object.</td>
+</tr><tr>
+<td><a href="#ImportsDiagramBuilder.parsePersistenceData">parsePersistenceData</a></td>
+<td>Public method to parse persisted data.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ImportsDiagramBuilder.__init__" ID="ImportsDiagramBuilder.__init__"></a>
+<h4>ImportsDiagramBuilder (Constructor)</h4>
+<b>ImportsDiagramBuilder</b>(<i>dialog, view, project, package, showExternalImports=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>dialog</i></dt>
+<dd>
+reference to the UML dialog (UMLDialog)
+</dd><dt><i>view</i></dt>
+<dd>
+reference to the view object (UMLGraphicsView)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object (Project)
+</dd><dt><i>package</i></dt>
+<dd>
+name of a python package to show the import
+            relationships (string)
+</dd><dt><i>showExternalImports=</i></dt>
+<dd>
+flag indicating to show exports from
+            outside the package (boolean)
+</dd>
+</dl><a NAME="ImportsDiagramBuilder.__addModule" ID="ImportsDiagramBuilder.__addModule"></a>
+<h4>ImportsDiagramBuilder.__addModule</h4>
+<b>__addModule</b>(<i>name, classes, x, y</i>)
+<p>
+        Private method to add a module to the diagram.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+module name to be shown (string)
+</dd><dt><i>classes</i></dt>
+<dd>
+list of class names contained in the module
+            (list of strings)
+</dd><dt><i>x</i></dt>
+<dd>
+x-coordinate (float)
+</dd><dt><i>y</i></dt>
+<dd>
+y-coordinate (float)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the imports item (ModuleItem)
+</dd>
+</dl><a NAME="ImportsDiagramBuilder.__buildModulesDict" ID="ImportsDiagramBuilder.__buildModulesDict"></a>
+<h4>ImportsDiagramBuilder.__buildModulesDict</h4>
+<b>__buildModulesDict</b>(<i></i>)
+<p>
+        Private method to build a dictionary of modules contained in the
+        package.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary of modules contained in the package.
+</dd>
+</dl><a NAME="ImportsDiagramBuilder.__createAssociations" ID="ImportsDiagramBuilder.__createAssociations"></a>
+<h4>ImportsDiagramBuilder.__createAssociations</h4>
+<b>__createAssociations</b>(<i>shapes</i>)
+<p>
+        Private method to generate the associations between the module shapes.
+</p><dl>
+<dt><i>shapes</i></dt>
+<dd>
+list of shapes
+</dd>
+</dl><a NAME="ImportsDiagramBuilder.buildDiagram" ID="ImportsDiagramBuilder.buildDiagram"></a>
+<h4>ImportsDiagramBuilder.buildDiagram</h4>
+<b>buildDiagram</b>(<i></i>)
+<p>
+        Public method to build the modules shapes of the diagram.
+</p><a NAME="ImportsDiagramBuilder.getPersistenceData" ID="ImportsDiagramBuilder.getPersistenceData"></a>
+<h4>ImportsDiagramBuilder.getPersistenceData</h4>
+<b>getPersistenceData</b>(<i></i>)
+<p>
+        Public method to get a string for data to be persisted.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+persisted data string (string)
+</dd>
+</dl><a NAME="ImportsDiagramBuilder.initialize" ID="ImportsDiagramBuilder.initialize"></a>
+<h4>ImportsDiagramBuilder.initialize</h4>
+<b>initialize</b>(<i></i>)
+<p>
+        Public method to initialize the object.
+</p><a NAME="ImportsDiagramBuilder.parsePersistenceData" ID="ImportsDiagramBuilder.parsePersistenceData"></a>
+<h4>ImportsDiagramBuilder.parsePersistenceData</h4>
+<b>parsePersistenceData</b>(<i>version, data</i>)
+<p>
+        Public method to parse persisted data.
+</p><dl>
+<dt><i>version</i></dt>
+<dd>
+version of the data (string)
+</dd><dt><i>data</i></dt>
+<dd>
+persisted data to be parsed (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.FlashCookieManager.FlashCookieManagerDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.FlashCookieManager.FlashCookieManagerDialog</h1>
+<p>
+Module implementing a dialog to manage the flash cookies.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieManagerDialog">FlashCookieManagerDialog</a></td>
+<td>Class implementing a dialog to manage the flash cookies.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FlashCookieManagerDialog" ID="FlashCookieManagerDialog"></a>
+<h2>FlashCookieManagerDialog</h2>
+<p>
+    Class implementing a dialog to manage the flash cookies.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_FlashCookieManagerDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieManagerDialog.__init__">FlashCookieManagerDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.__addBlacklist">__addBlacklist</a></td>
+<td>Private method to add a cookie origin to the blacklist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.__addWhitelist">__addWhitelist</a></td>
+<td>Private method to add a cookie origin to the whitelist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.__cookiesListContextMenuRequested">__cookiesListContextMenuRequested</a></td>
+<td>Private slot handling the cookies list context menu.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.__refreshCookiesList">__refreshCookiesList</a></td>
+<td>Private slot to refresh the cookies list.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.__refreshFilterLists">__refreshFilterLists</a></td>
+<td>Private slot to refresh the white and black lists.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.closeEvent">closeEvent</a></td>
+<td>Protected method to handle the close event.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_addBlackButton_clicked">on_addBlackButton_clicked</a></td>
+<td>Private slot to add a server to the blacklist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_addWhiteButton_clicked">on_addWhiteButton_clicked</a></td>
+<td>Private slot to add a server to the whitelist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_blackList_itemSelectionChanged">on_blackList_itemSelectionChanged</a></td>
+<td>Private slot handling the selection of items in the blacklist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_cookiesList_currentItemChanged">on_cookiesList_currentItemChanged</a></td>
+<td>Private slot handling a change of the current cookie item.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_filterEdit_textChanged">on_filterEdit_textChanged</a></td>
+<td>Private slot to filter the cookies list.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_reloadButton_clicked">on_reloadButton_clicked</a></td>
+<td>Private slot handling a press of the reload button.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_removeAllButton_clicked">on_removeAllButton_clicked</a></td>
+<td>Private slot to remove all cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_removeBlackButton_clicked">on_removeBlackButton_clicked</a></td>
+<td>Private slot to remove a server from the blacklist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_removeButton_clicked">on_removeButton_clicked</a></td>
+<td>Private slot to remove one cookie or a cookie group.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_removeWhiteButton_clicked">on_removeWhiteButton_clicked</a></td>
+<td>Private slot to remove a server from the whitelist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.on_whiteList_itemSelectionChanged">on_whiteList_itemSelectionChanged</a></td>
+<td>Private slot handling the selection of items in the whitelist.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.refreshView">refreshView</a></td>
+<td>Public method to refresh the dialog view.</td>
+</tr><tr>
+<td><a href="#FlashCookieManagerDialog.showPage">showPage</a></td>
+<td>Public method to display a given page.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FlashCookieManagerDialog.__init__" ID="FlashCookieManagerDialog.__init__"></a>
+<h4>FlashCookieManagerDialog (Constructor)</h4>
+<b>FlashCookieManagerDialog</b>(<i>manager, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>manager</i> (FlashCookieManager)</dt>
+<dd>
+reference to the Flash cookie manager object
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.__addBlacklist" ID="FlashCookieManagerDialog.__addBlacklist"></a>
+<h4>FlashCookieManagerDialog.__addBlacklist</h4>
+<b>__addBlacklist</b>(<i>origin</i>)
+<p>
+        Private method to add a cookie origin to the blacklist.
+</p><dl>
+<dt><i>origin</i> (str)</dt>
+<dd>
+origin to be added to the list
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.__addWhitelist" ID="FlashCookieManagerDialog.__addWhitelist"></a>
+<h4>FlashCookieManagerDialog.__addWhitelist</h4>
+<b>__addWhitelist</b>(<i>origin</i>)
+<p>
+        Private method to add a cookie origin to the whitelist.
+</p><dl>
+<dt><i>origin</i> (str)</dt>
+<dd>
+origin to be added to the list
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.__cookiesListContextMenuRequested" ID="FlashCookieManagerDialog.__cookiesListContextMenuRequested"></a>
+<h4>FlashCookieManagerDialog.__cookiesListContextMenuRequested</h4>
+<b>__cookiesListContextMenuRequested</b>(<i>pos</i>)
+<p>
+        Private slot handling the cookies list context menu.
+</p><dl>
+<dt><i>pos</i> (QPoint)</dt>
+<dd>
+position to show the menu at
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.__refreshCookiesList" ID="FlashCookieManagerDialog.__refreshCookiesList"></a>
+<h4>FlashCookieManagerDialog.__refreshCookiesList</h4>
+<b>__refreshCookiesList</b>(<i></i>)
+<p>
+        Private slot to refresh the cookies list.
+</p><a NAME="FlashCookieManagerDialog.__refreshFilterLists" ID="FlashCookieManagerDialog.__refreshFilterLists"></a>
+<h4>FlashCookieManagerDialog.__refreshFilterLists</h4>
+<b>__refreshFilterLists</b>(<i></i>)
+<p>
+        Private slot to refresh the white and black lists.
+</p><a NAME="FlashCookieManagerDialog.closeEvent" ID="FlashCookieManagerDialog.closeEvent"></a>
+<h4>FlashCookieManagerDialog.closeEvent</h4>
+<b>closeEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle the close event.
+</p><dl>
+<dt><i>evt</i> (QCloseEvent)</dt>
+<dd>
+reference to the close event
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.on_addBlackButton_clicked" ID="FlashCookieManagerDialog.on_addBlackButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_addBlackButton_clicked</h4>
+<b>on_addBlackButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add a server to the blacklist.
+</p><a NAME="FlashCookieManagerDialog.on_addWhiteButton_clicked" ID="FlashCookieManagerDialog.on_addWhiteButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_addWhiteButton_clicked</h4>
+<b>on_addWhiteButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add a server to the whitelist.
+</p><a NAME="FlashCookieManagerDialog.on_blackList_itemSelectionChanged" ID="FlashCookieManagerDialog.on_blackList_itemSelectionChanged"></a>
+<h4>FlashCookieManagerDialog.on_blackList_itemSelectionChanged</h4>
+<b>on_blackList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot handling the selection of items in the blacklist.
+</p><a NAME="FlashCookieManagerDialog.on_cookiesList_currentItemChanged" ID="FlashCookieManagerDialog.on_cookiesList_currentItemChanged"></a>
+<h4>FlashCookieManagerDialog.on_cookiesList_currentItemChanged</h4>
+<b>on_cookiesList_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot handling a change of the current cookie item.
+</p><dl>
+<dt><i>current</i> (QTreeWidgetItem)</dt>
+<dd>
+reference to the current item
+</dd><dt><i>previous</i> (QTreeWidgetItem)</dt>
+<dd>
+reference to the previous item
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.on_filterEdit_textChanged" ID="FlashCookieManagerDialog.on_filterEdit_textChanged"></a>
+<h4>FlashCookieManagerDialog.on_filterEdit_textChanged</h4>
+<b>on_filterEdit_textChanged</b>(<i>filterStr</i>)
+<p>
+        Private slot to filter the cookies list.
+</p><dl>
+<dt><i>filterStr</i> (str)</dt>
+<dd>
+filter text
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.on_reloadButton_clicked" ID="FlashCookieManagerDialog.on_reloadButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_reloadButton_clicked</h4>
+<b>on_reloadButton_clicked</b>(<i></i>)
+<p>
+        Private slot handling a press of the reload button.
+</p><a NAME="FlashCookieManagerDialog.on_removeAllButton_clicked" ID="FlashCookieManagerDialog.on_removeAllButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_removeAllButton_clicked</h4>
+<b>on_removeAllButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove all cookies.
+</p><a NAME="FlashCookieManagerDialog.on_removeBlackButton_clicked" ID="FlashCookieManagerDialog.on_removeBlackButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_removeBlackButton_clicked</h4>
+<b>on_removeBlackButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove a server from the blacklist.
+</p><a NAME="FlashCookieManagerDialog.on_removeButton_clicked" ID="FlashCookieManagerDialog.on_removeButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_removeButton_clicked</h4>
+<b>on_removeButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove one cookie or a cookie group.
+</p><a NAME="FlashCookieManagerDialog.on_removeWhiteButton_clicked" ID="FlashCookieManagerDialog.on_removeWhiteButton_clicked"></a>
+<h4>FlashCookieManagerDialog.on_removeWhiteButton_clicked</h4>
+<b>on_removeWhiteButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove a server from the whitelist.
+</p><a NAME="FlashCookieManagerDialog.on_whiteList_itemSelectionChanged" ID="FlashCookieManagerDialog.on_whiteList_itemSelectionChanged"></a>
+<h4>FlashCookieManagerDialog.on_whiteList_itemSelectionChanged</h4>
+<b>on_whiteList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot handling the selection of items in the whitelist.
+</p><a NAME="FlashCookieManagerDialog.refreshView" ID="FlashCookieManagerDialog.refreshView"></a>
+<h4>FlashCookieManagerDialog.refreshView</h4>
+<b>refreshView</b>(<i>forceReload=False</i>)
+<p>
+        Public method to refresh the dialog view.
+</p><dl>
+<dt><i>forceReload</i> (bool)</dt>
+<dd>
+flag indicating to reload the cookies
+</dd>
+</dl><a NAME="FlashCookieManagerDialog.showPage" ID="FlashCookieManagerDialog.showPage"></a>
+<h4>FlashCookieManagerDialog.showPage</h4>
+<b>showPage</b>(<i>index</i>)
+<p>
+        Public method to display a given page.
+</p><dl>
+<dt><i>index</i> (int)</dt>
+<dd>
+index of the page to be shown
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

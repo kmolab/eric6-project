@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.FtpAccessHandler</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.FtpAccessHandler</h1>
+<p>
+Module implementing a scheme access handler for FTP.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FtpAccessHandler">FtpAccessHandler</a></td>
+<td>Class implementing a scheme access handler for FTP.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FtpAccessHandler" ID="FtpAccessHandler"></a>
+<h2>FtpAccessHandler</h2>
+<p>
+    Class implementing a scheme access handler for FTP.
+</p>
+<h3>Derived from</h3>
+SchemeAccessHandler
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FtpAccessHandler.__init__">FtpAccessHandler</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FtpAccessHandler.createRequest">createRequest</a></td>
+<td>Public method to create a request.</td>
+</tr><tr>
+<td><a href="#FtpAccessHandler.getAuthenticator">getAuthenticator</a></td>
+<td>Public method to get an authenticator for the given realm.</td>
+</tr><tr>
+<td><a href="#FtpAccessHandler.getProxyAuthenticator">getProxyAuthenticator</a></td>
+<td>Public method to get the authenticator for the FTP proxy.</td>
+</tr><tr>
+<td><a href="#FtpAccessHandler.setAuthenticator">setAuthenticator</a></td>
+<td>Public method to add or change an authenticator in our cache.</td>
+</tr><tr>
+<td><a href="#FtpAccessHandler.setProxyAuthenticator">setProxyAuthenticator</a></td>
+<td>Public method to add or change the authenticator for the FTP proxy.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FtpAccessHandler.__init__" ID="FtpAccessHandler.__init__"></a>
+<h4>FtpAccessHandler (Constructor)</h4>
+<b>FtpAccessHandler</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="FtpAccessHandler.createRequest" ID="FtpAccessHandler.createRequest"></a>
+<h4>FtpAccessHandler.createRequest</h4>
+<b>createRequest</b>(<i>op, request, outgoingData=None</i>)
+<p>
+        Public method to create a request.
+</p><dl>
+<dt><i>op</i></dt>
+<dd>
+the operation to be performed
+            (QNetworkAccessManager.Operation)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>outgoingData</i></dt>
+<dd>
+reference to an IODevice containing data to be sent
+            (QIODevice)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created reply object (QNetworkReply)
+</dd>
+</dl><a NAME="FtpAccessHandler.getAuthenticator" ID="FtpAccessHandler.getAuthenticator"></a>
+<h4>FtpAccessHandler.getAuthenticator</h4>
+<b>getAuthenticator</b>(<i>realm</i>)
+<p>
+        Public method to get an authenticator for the given realm.
+</p><dl>
+<dt><i>realm</i></dt>
+<dd>
+name of the realm to get the authenticator for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+authenticator for the given realm (QAuthenticator) or None
+</dd>
+</dl><a NAME="FtpAccessHandler.getProxyAuthenticator" ID="FtpAccessHandler.getProxyAuthenticator"></a>
+<h4>FtpAccessHandler.getProxyAuthenticator</h4>
+<b>getProxyAuthenticator</b>(<i></i>)
+<p>
+        Public method to get the authenticator for the FTP proxy.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+authenticator for the FTP proxy (QAuthenticator)
+</dd>
+</dl><a NAME="FtpAccessHandler.setAuthenticator" ID="FtpAccessHandler.setAuthenticator"></a>
+<h4>FtpAccessHandler.setAuthenticator</h4>
+<b>setAuthenticator</b>(<i>realm, authenticator</i>)
+<p>
+        Public method to add or change an authenticator in our cache.
+</p><dl>
+<dt><i>realm</i></dt>
+<dd>
+name of the realm the authenticator belongs to (string)
+</dd><dt><i>authenticator</i></dt>
+<dd>
+authenticator to add to the cache
+            (QAuthenticator). If it is None, the entry will be deleted from
+            the cache.
+</dd>
+</dl><a NAME="FtpAccessHandler.setProxyAuthenticator" ID="FtpAccessHandler.setProxyAuthenticator"></a>
+<h4>FtpAccessHandler.setProxyAuthenticator</h4>
+<b>setProxyAuthenticator</b>(<i>authenticator</i>)
+<p>
+        Public method to add or change the authenticator for the FTP proxy.
+</p><dl>
+<dt><i>authenticator</i></dt>
+<dd>
+authenticator for the FTP proxy (QAuthenticator)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

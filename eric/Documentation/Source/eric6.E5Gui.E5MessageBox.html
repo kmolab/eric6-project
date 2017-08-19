@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5MessageBox</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5MessageBox</h1>
+<p>
+Module implementing QMessageBox replacements and more convenience function.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>Abort</td></tr><tr><td>AcceptRole</td></tr><tr><td>ActionRole</td></tr><tr><td>Apply</td></tr><tr><td>ApplyRole</td></tr><tr><td>Cancel</td></tr><tr><td>Close</td></tr><tr><td>Critical</td></tr><tr><td>DestructiveRole</td></tr><tr><td>Discard</td></tr><tr><td>Help</td></tr><tr><td>HelpRole</td></tr><tr><td>Ignore</td></tr><tr><td>Information</td></tr><tr><td>InvalidRole</td></tr><tr><td>No</td></tr><tr><td>NoButton</td></tr><tr><td>NoIcon</td></tr><tr><td>NoRole</td></tr><tr><td>NoToAll</td></tr><tr><td>Ok</td></tr><tr><td>Open</td></tr><tr><td>Question</td></tr><tr><td>RejectRole</td></tr><tr><td>Reset</td></tr><tr><td>ResetRole</td></tr><tr><td>RestoreDefaults</td></tr><tr><td>Retry</td></tr><tr><td>Save</td></tr><tr><td>SaveAll</td></tr><tr><td>StandardButtons</td></tr><tr><td>Warning</td></tr><tr><td>Yes</td></tr><tr><td>YesRole</td></tr><tr><td>YesToAll</td></tr><tr><td>about</td></tr><tr><td>aboutQt</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5MessageBox">E5MessageBox</a></td>
+<td>Class implementing a replacement for QMessageBox.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__messageBox">__messageBox</a></td>
+<td>Private module function to show a modal message box.</td>
+</tr><tr>
+<td><a href="#critical">critical</a></td>
+<td>Function to show a modal critical message box.</td>
+</tr><tr>
+<td><a href="#information">information</a></td>
+<td>Function to show a modal information message box.</td>
+</tr><tr>
+<td><a href="#okToClearData">okToClearData</a></td>
+<td>Function to show a model message box to ask for clearing the data.</td>
+</tr><tr>
+<td><a href="#question">question</a></td>
+<td>Function to show a modal question message box.</td>
+</tr><tr>
+<td><a href="#retryAbort">retryAbort</a></td>
+<td>Function to show a model abort/retry message box.</td>
+</tr><tr>
+<td><a href="#warning">warning</a></td>
+<td>Function to show a modal warning message box.</td>
+</tr><tr>
+<td><a href="#yesNo">yesNo</a></td>
+<td>Function to show a model yes/no message box.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="E5MessageBox" ID="E5MessageBox"></a>
+<h2>E5MessageBox</h2>
+<p>
+    Class implementing a replacement for QMessageBox.
+</p>
+<h3>Derived from</h3>
+QMessageBox
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5MessageBox.__init__">E5MessageBox</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5MessageBox.__init__" ID="E5MessageBox.__init__"></a>
+<h4>E5MessageBox (Constructor)</h4>
+<b>E5MessageBox</b>(<i>icon, title, text, modal=False, buttons=QMessageBox.NoButton, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>icon</i></dt>
+<dd>
+type of icon to be shown (QMessageBox.Icon)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>modal=</i></dt>
+<dd>
+flag indicating a modal dialog (boolean)
+</dd><dt><i>buttons=</i></dt>
+<dd>
+set of standard buttons to generate (StandardButtons)
+</dd><dt><i>parent=</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__messageBox" ID="__messageBox"></a>
+<h2>__messageBox</h2>
+<b>__messageBox</b>(<i>parent, title, text, icon, buttons=QMessageBox.Ok, defaultButton=QMessageBox.NoButton, textFormat=Qt.AutoText</i>)
+<p>
+    Private module function to show a modal message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>icon</i></dt>
+<dd>
+type of icon to be shown (QMessageBox.Icon)
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd><dt><i>textFormat</i></dt>
+<dd>
+format of the text (Qt.TextFormat)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="critical" ID="critical"></a>
+<h2>critical</h2>
+<b>critical</b>(<i>parent, title, text, buttons=QMessageBox.Ok, defaultButton=QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal critical message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="information" ID="information"></a>
+<h2>information</h2>
+<b>information</b>(<i>parent, title, text, buttons=QMessageBox.Ok, defaultButton=QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal information message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="okToClearData" ID="okToClearData"></a>
+<h2>okToClearData</h2>
+<b>okToClearData</b>(<i>parent, title, text, saveFunc, textFormat=Qt.AutoText</i>)
+<p>
+    Function to show a model message box to ask for clearing the data.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>saveFunc</i></dt>
+<dd>
+reference to a function performing the save action. It
+        must be a parameterless function returning a flag indicating success.
+</dd><dt><i>textFormat</i></dt>
+<dd>
+format of the text (Qt.TextFormat)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that it is ok to clear the data (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="question" ID="question"></a>
+<h2>question</h2>
+<b>question</b>(<i>parent, title, text, buttons=QMessageBox.Ok, defaultButton=QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal question message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="retryAbort" ID="retryAbort"></a>
+<h2>retryAbort</h2>
+<b>retryAbort</b>(<i>parent, title, text, icon=Question, textFormat=Qt.AutoText</i>)
+<p>
+    Function to show a model abort/retry message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>icon=</i></dt>
+<dd>
+icon for the dialog (Critical, Information, Question or
+        Warning)
+</dd><dt><i>textFormat</i></dt>
+<dd>
+format of the text (Qt.TextFormat)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the selection of the Retry button (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="warning" ID="warning"></a>
+<h2>warning</h2>
+<b>warning</b>(<i>parent, title, text, buttons=QMessageBox.Ok, defaultButton=QMessageBox.NoButton</i>)
+<p>
+    Function to show a modal warning message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>buttons</i></dt>
+<dd>
+flags indicating which buttons to show
+        (QMessageBox.StandardButtons)
+</dd><dt><i>defaultButton</i></dt>
+<dd>
+flag indicating the default button
+        (QMessageBox.StandardButton)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+button pressed by the user (QMessageBox.StandardButton)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="yesNo" ID="yesNo"></a>
+<h2>yesNo</h2>
+<b>yesNo</b>(<i>parent, title, text, icon=Question, yesDefault=False, textFormat=Qt.AutoText</i>)
+<p>
+    Function to show a model yes/no message box.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the message box (QWidget)
+</dd><dt><i>title</i></dt>
+<dd>
+caption of the message box (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by the message box (string)
+</dd><dt><i>icon=</i></dt>
+<dd>
+icon for the dialog (Critical, Information, Question or
+        Warning)
+</dd><dt><i>yesDefault=</i></dt>
+<dd>
+flag indicating that the Yes button should be the
+        default button (boolean)
+</dd><dt><i>textFormat</i></dt>
+<dd>
+format of the text (Qt.TextFormat)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the selection of the Yes button (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.BrowserModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.BrowserModel</h1>
+<p>
+Module implementing the browser model.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>BrowserItemAttribute</td></tr><tr><td>BrowserItemAttributes</td></tr><tr><td>BrowserItemClass</td></tr><tr><td>BrowserItemCoding</td></tr><tr><td>BrowserItemDirectory</td></tr><tr><td>BrowserItemFile</td></tr><tr><td>BrowserItemImport</td></tr><tr><td>BrowserItemImports</td></tr><tr><td>BrowserItemMethod</td></tr><tr><td>BrowserItemRoot</td></tr><tr><td>BrowserItemSysPath</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#BrowserClassAttributeItem">BrowserClassAttributeItem</a></td>
+<td>Class implementing the data structure for browser class attribute items.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributesItem">BrowserClassAttributesItem</a></td>
+<td>Class implementing the data structure for browser class attributes items.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem">BrowserClassItem</a></td>
+<td>Class implementing the data structure for browser class items.</td>
+</tr><tr>
+<td><a href="#BrowserCodingItem">BrowserCodingItem</a></td>
+<td>Class implementing the data structure for browser coding items.</td>
+</tr><tr>
+<td><a href="#BrowserDirectoryItem">BrowserDirectoryItem</a></td>
+<td>Class implementing the data structure for browser directory items.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem">BrowserFileItem</a></td>
+<td>Class implementing the data structure for browser file items.</td>
+</tr><tr>
+<td><a href="#BrowserGlobalsItem">BrowserGlobalsItem</a></td>
+<td>Class implementing the data structure for browser globals items.</td>
+</tr><tr>
+<td><a href="#BrowserImportItem">BrowserImportItem</a></td>
+<td>Class implementing the data structure for browser imported module and imported names items.</td>
+</tr><tr>
+<td><a href="#BrowserImportsItem">BrowserImportsItem</a></td>
+<td>Class implementing the data structure for browser import items.</td>
+</tr><tr>
+<td><a href="#BrowserItem">BrowserItem</a></td>
+<td>Class implementing the data structure for browser items.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem">BrowserMethodItem</a></td>
+<td>Class implementing the data structure for browser method items.</td>
+</tr><tr>
+<td><a href="#BrowserModel">BrowserModel</a></td>
+<td>Class implementing the browser model.</td>
+</tr><tr>
+<td><a href="#BrowserSysPathItem">BrowserSysPathItem</a></td>
+<td>Class implementing the data structure for browser sys.path items.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="BrowserClassAttributeItem" ID="BrowserClassAttributeItem"></a>
+<h2>BrowserClassAttributeItem</h2>
+<p>
+    Class implementing the data structure for browser class attribute items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserClassAttributeItem.__init__">BrowserClassAttributeItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributeItem.attributeObject">attributeObject</a></td>
+<td>Public method returning the class object.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributeItem.fileName">fileName</a></td>
+<td>Public method returning the filename.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributeItem.isPublic">isPublic</a></td>
+<td>Public method returning the public visibility status.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributeItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributeItem.lineno">lineno</a></td>
+<td>Public method returning the line number defining this object.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributeItem.linenos">linenos</a></td>
+<td>Public method returning the line numbers this object is assigned to.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserClassAttributeItem.__init__" ID="BrowserClassAttributeItem.__init__"></a>
+<h4>BrowserClassAttributeItem (Constructor)</h4>
+<b>BrowserClassAttributeItem</b>(<i>parent, attribute, isClass=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>attribute</i></dt>
+<dd>
+reference to the attribute object
+</dd><dt><i>isClass</i></dt>
+<dd>
+flag indicating a class attribute (boolean)
+</dd>
+</dl><a NAME="BrowserClassAttributeItem.attributeObject" ID="BrowserClassAttributeItem.attributeObject"></a>
+<h4>BrowserClassAttributeItem.attributeObject</h4>
+<b>attributeObject</b>(<i></i>)
+<p>
+        Public method returning the class object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the class object
+</dd>
+</dl><a NAME="BrowserClassAttributeItem.fileName" ID="BrowserClassAttributeItem.fileName"></a>
+<h4>BrowserClassAttributeItem.fileName</h4>
+<b>fileName</b>(<i></i>)
+<p>
+        Public method returning the filename.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename (string)
+</dd>
+</dl><a NAME="BrowserClassAttributeItem.isPublic" ID="BrowserClassAttributeItem.isPublic"></a>
+<h4>BrowserClassAttributeItem.isPublic</h4>
+<b>isPublic</b>(<i></i>)
+<p>
+        Public method returning the public visibility status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating public visibility (boolean)
+</dd>
+</dl><a NAME="BrowserClassAttributeItem.lessThan" ID="BrowserClassAttributeItem.lessThan"></a>
+<h4>BrowserClassAttributeItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserClassAttributeItem.lineno" ID="BrowserClassAttributeItem.lineno"></a>
+<h4>BrowserClassAttributeItem.lineno</h4>
+<b>lineno</b>(<i></i>)
+<p>
+        Public method returning the line number defining this object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line number defining the object (integer)
+</dd>
+</dl><a NAME="BrowserClassAttributeItem.linenos" ID="BrowserClassAttributeItem.linenos"></a>
+<h4>BrowserClassAttributeItem.linenos</h4>
+<b>linenos</b>(<i></i>)
+<p>
+        Public method returning the line numbers this object is assigned to.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line number the object is assigned to (list of integers)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserClassAttributesItem" ID="BrowserClassAttributesItem"></a>
+<h2>BrowserClassAttributesItem</h2>
+<p>
+    Class implementing the data structure for browser class attributes items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserClassAttributesItem.__init__">BrowserClassAttributesItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributesItem.attributes">attributes</a></td>
+<td>Public method returning the attribute list.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributesItem.isClassAttributes">isClassAttributes</a></td>
+<td>Public method returning the attributes type.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributesItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserClassAttributesItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserClassAttributesItem.__init__" ID="BrowserClassAttributesItem.__init__"></a>
+<h4>BrowserClassAttributesItem (Constructor)</h4>
+<b>BrowserClassAttributesItem</b>(<i>parent, attributes, text, isClass=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>attributes</i></dt>
+<dd>
+list of attributes
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by this item (string)
+</dd><dt><i>isClass</i></dt>
+<dd>
+flag indicating class attributes (boolean)
+</dd>
+</dl><a NAME="BrowserClassAttributesItem.attributes" ID="BrowserClassAttributesItem.attributes"></a>
+<h4>BrowserClassAttributesItem.attributes</h4>
+<b>attributes</b>(<i></i>)
+<p>
+        Public method returning the attribute list.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the list of attributes
+</dd>
+</dl><a NAME="BrowserClassAttributesItem.isClassAttributes" ID="BrowserClassAttributesItem.isClassAttributes"></a>
+<h4>BrowserClassAttributesItem.isClassAttributes</h4>
+<b>isClassAttributes</b>(<i></i>)
+<p>
+        Public method returning the attributes type.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating class attributes (boolean)
+</dd>
+</dl><a NAME="BrowserClassAttributesItem.lessThan" ID="BrowserClassAttributesItem.lessThan"></a>
+<h4>BrowserClassAttributesItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserClassAttributesItem.name" ID="BrowserClassAttributesItem.name"></a>
+<h4>BrowserClassAttributesItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserClassItem" ID="BrowserClassItem"></a>
+<h2>BrowserClassItem</h2>
+<p>
+    Class implementing the data structure for browser class items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserClassItem.__init__">BrowserClassItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.boundaries">boundaries</a></td>
+<td>Public method returning the boundaries of the method definition.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.classObject">classObject</a></td>
+<td>Public method returning the class object.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.fileName">fileName</a></td>
+<td>Public method returning the filename.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.isPublic">isPublic</a></td>
+<td>Public method returning the public visibility status.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.lineno">lineno</a></td>
+<td>Public method returning the line number defining this object.</td>
+</tr><tr>
+<td><a href="#BrowserClassItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserClassItem.__init__" ID="BrowserClassItem.__init__"></a>
+<h4>BrowserClassItem (Constructor)</h4>
+<b>BrowserClassItem</b>(<i>parent, cl, filename</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>cl</i></dt>
+<dd>
+Class object to be shown
+</dd><dt><i>filename</i></dt>
+<dd>
+filename of the file defining this class
+</dd>
+</dl><a NAME="BrowserClassItem.boundaries" ID="BrowserClassItem.boundaries"></a>
+<h4>BrowserClassItem.boundaries</h4>
+<b>boundaries</b>(<i></i>)
+<p>
+        Public method returning the boundaries of the method definition.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with start end end line number (integer, integer)
+</dd>
+</dl><a NAME="BrowserClassItem.classObject" ID="BrowserClassItem.classObject"></a>
+<h4>BrowserClassItem.classObject</h4>
+<b>classObject</b>(<i></i>)
+<p>
+        Public method returning the class object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the class object
+</dd>
+</dl><a NAME="BrowserClassItem.fileName" ID="BrowserClassItem.fileName"></a>
+<h4>BrowserClassItem.fileName</h4>
+<b>fileName</b>(<i></i>)
+<p>
+        Public method returning the filename.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename (string)
+</dd>
+</dl><a NAME="BrowserClassItem.isPublic" ID="BrowserClassItem.isPublic"></a>
+<h4>BrowserClassItem.isPublic</h4>
+<b>isPublic</b>(<i></i>)
+<p>
+        Public method returning the public visibility status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating public visibility (boolean)
+</dd>
+</dl><a NAME="BrowserClassItem.lessThan" ID="BrowserClassItem.lessThan"></a>
+<h4>BrowserClassItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserClassItem.lineno" ID="BrowserClassItem.lineno"></a>
+<h4>BrowserClassItem.lineno</h4>
+<b>lineno</b>(<i></i>)
+<p>
+        Public method returning the line number defining this object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line number defining the object (integer)
+</dd>
+</dl><a NAME="BrowserClassItem.name" ID="BrowserClassItem.name"></a>
+<h4>BrowserClassItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserCodingItem" ID="BrowserCodingItem"></a>
+<h2>BrowserCodingItem</h2>
+<p>
+    Class implementing the data structure for browser coding items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserCodingItem.__init__">BrowserCodingItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserCodingItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserCodingItem.__init__" ID="BrowserCodingItem.__init__"></a>
+<h4>BrowserCodingItem (Constructor)</h4>
+<b>BrowserCodingItem</b>(<i>parent, text</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by this item (string)
+</dd>
+</dl><a NAME="BrowserCodingItem.lessThan" ID="BrowserCodingItem.lessThan"></a>
+<h4>BrowserCodingItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserDirectoryItem" ID="BrowserDirectoryItem"></a>
+<h2>BrowserDirectoryItem</h2>
+<p>
+    Class implementing the data structure for browser directory items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserDirectoryItem.__init__">BrowserDirectoryItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserDirectoryItem.dirName">dirName</a></td>
+<td>Public method returning the directory name.</td>
+</tr><tr>
+<td><a href="#BrowserDirectoryItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserDirectoryItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr><tr>
+<td><a href="#BrowserDirectoryItem.setName">setName</a></td>
+<td>Public method to set the directory name.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserDirectoryItem.__init__" ID="BrowserDirectoryItem.__init__"></a>
+<h4>BrowserDirectoryItem (Constructor)</h4>
+<b>BrowserDirectoryItem</b>(<i>parent, dinfo, full=True</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>dinfo</i></dt>
+<dd>
+dinfo is the string for the directory (string)
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd>
+</dl><a NAME="BrowserDirectoryItem.dirName" ID="BrowserDirectoryItem.dirName"></a>
+<h4>BrowserDirectoryItem.dirName</h4>
+<b>dirName</b>(<i></i>)
+<p>
+        Public method returning the directory name.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+directory name (string)
+</dd>
+</dl><a NAME="BrowserDirectoryItem.lessThan" ID="BrowserDirectoryItem.lessThan"></a>
+<h4>BrowserDirectoryItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserDirectoryItem.name" ID="BrowserDirectoryItem.name"></a>
+<h4>BrowserDirectoryItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl><a NAME="BrowserDirectoryItem.setName" ID="BrowserDirectoryItem.setName"></a>
+<h4>BrowserDirectoryItem.setName</h4>
+<b>setName</b>(<i>dinfo, full=True</i>)
+<p>
+        Public method to set the directory name.
+</p><dl>
+<dt><i>dinfo</i></dt>
+<dd>
+dinfo is the string for the directory (string)
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserFileItem" ID="BrowserFileItem"></a>
+<h2>BrowserFileItem</h2>
+<p>
+    Class implementing the data structure for browser file items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserFileItem.__init__">BrowserFileItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.dirName">dirName</a></td>
+<td>Public method returning the directory name.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.fileExt">fileExt</a></td>
+<td>Public method returning the file extension.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.fileName">fileName</a></td>
+<td>Public method returning the filename.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isDFile">isDFile</a></td>
+<td>Public method to check, if this file is a D file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isDesignerFile">isDesignerFile</a></td>
+<td>Public method to check, if this file is a Qt-Designer file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isIdlFile">isIdlFile</a></td>
+<td>Public method to check, if this file is a CORBA IDL file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isJavaScriptFile">isJavaScriptFile</a></td>
+<td>Public method to check, if this file is a JavaScript file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isLinguistFile">isLinguistFile</a></td>
+<td>Public method to check, if this file is a Qt-Linguist file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isMultiProjectFile">isMultiProjectFile</a></td>
+<td>Public method to check, if this file is an eric multi project file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isPixmapFile">isPixmapFile</a></td>
+<td>Public method to check, if this file is a pixmap file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isProjectFile">isProjectFile</a></td>
+<td>Public method to check, if this file is an eric project file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isPython2File">isPython2File</a></td>
+<td>Public method to check, if this file is a Python script.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isPython3File">isPython3File</a></td>
+<td>Public method to check, if this file is a Python3 script.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isResourcesFile">isResourcesFile</a></td>
+<td>Public method to check, if this file is a Qt-Resources file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isRubyFile">isRubyFile</a></td>
+<td>Public method to check, if this file is a Ruby script.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.isSvgFile">isSvgFile</a></td>
+<td>Public method to check, if this file is a SVG file.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.moduleName">moduleName</a></td>
+<td>Public method returning the module name.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr><tr>
+<td><a href="#BrowserFileItem.setName">setName</a></td>
+<td>Public method to set the directory name.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserFileItem.__init__" ID="BrowserFileItem.__init__"></a>
+<h4>BrowserFileItem (Constructor)</h4>
+<b>BrowserFileItem</b>(<i>parent, finfo, full=True, sourceLanguage=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>finfo</i></dt>
+<dd>
+the string for the file (string)
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd><dt><i>sourceLanguage</i></dt>
+<dd>
+source code language of the project (string)
+</dd>
+</dl><a NAME="BrowserFileItem.dirName" ID="BrowserFileItem.dirName"></a>
+<h4>BrowserFileItem.dirName</h4>
+<b>dirName</b>(<i></i>)
+<p>
+        Public method returning the directory name.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+directory name (string)
+</dd>
+</dl><a NAME="BrowserFileItem.fileExt" ID="BrowserFileItem.fileExt"></a>
+<h4>BrowserFileItem.fileExt</h4>
+<b>fileExt</b>(<i></i>)
+<p>
+        Public method returning the file extension.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+file extension (string)
+</dd>
+</dl><a NAME="BrowserFileItem.fileName" ID="BrowserFileItem.fileName"></a>
+<h4>BrowserFileItem.fileName</h4>
+<b>fileName</b>(<i></i>)
+<p>
+        Public method returning the filename.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename (string)
+</dd>
+</dl><a NAME="BrowserFileItem.isDFile" ID="BrowserFileItem.isDFile"></a>
+<h4>BrowserFileItem.isDFile</h4>
+<b>isDFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a D file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a D file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isDesignerFile" ID="BrowserFileItem.isDesignerFile"></a>
+<h4>BrowserFileItem.isDesignerFile</h4>
+<b>isDesignerFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a Qt-Designer file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Qt-Designer file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isIdlFile" ID="BrowserFileItem.isIdlFile"></a>
+<h4>BrowserFileItem.isIdlFile</h4>
+<b>isIdlFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a CORBA IDL file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a CORBA IDL file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isJavaScriptFile" ID="BrowserFileItem.isJavaScriptFile"></a>
+<h4>BrowserFileItem.isJavaScriptFile</h4>
+<b>isJavaScriptFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a JavaScript file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a JavaScript file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isLinguistFile" ID="BrowserFileItem.isLinguistFile"></a>
+<h4>BrowserFileItem.isLinguistFile</h4>
+<b>isLinguistFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a Qt-Linguist file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Qt-Linguist file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isMultiProjectFile" ID="BrowserFileItem.isMultiProjectFile"></a>
+<h4>BrowserFileItem.isMultiProjectFile</h4>
+<b>isMultiProjectFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is an eric multi project file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an eric project file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isPixmapFile" ID="BrowserFileItem.isPixmapFile"></a>
+<h4>BrowserFileItem.isPixmapFile</h4>
+<b>isPixmapFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a pixmap file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a pixmap file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isProjectFile" ID="BrowserFileItem.isProjectFile"></a>
+<h4>BrowserFileItem.isProjectFile</h4>
+<b>isProjectFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is an eric project file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an eric project file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isPython2File" ID="BrowserFileItem.isPython2File"></a>
+<h4>BrowserFileItem.isPython2File</h4>
+<b>isPython2File</b>(<i></i>)
+<p>
+        Public method to check, if this file is a Python script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isPython3File" ID="BrowserFileItem.isPython3File"></a>
+<h4>BrowserFileItem.isPython3File</h4>
+<b>isPython3File</b>(<i></i>)
+<p>
+        Public method to check, if this file is a Python3 script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isResourcesFile" ID="BrowserFileItem.isResourcesFile"></a>
+<h4>BrowserFileItem.isResourcesFile</h4>
+<b>isResourcesFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a Qt-Resources file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Qt-Resources file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isRubyFile" ID="BrowserFileItem.isRubyFile"></a>
+<h4>BrowserFileItem.isRubyFile</h4>
+<b>isRubyFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a Ruby script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Ruby file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.isSvgFile" ID="BrowserFileItem.isSvgFile"></a>
+<h4>BrowserFileItem.isSvgFile</h4>
+<b>isSvgFile</b>(<i></i>)
+<p>
+        Public method to check, if this file is a SVG file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a SVG file (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.lessThan" ID="BrowserFileItem.lessThan"></a>
+<h4>BrowserFileItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserFileItem.moduleName" ID="BrowserFileItem.moduleName"></a>
+<h4>BrowserFileItem.moduleName</h4>
+<b>moduleName</b>(<i></i>)
+<p>
+        Public method returning the module name.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+module name (string)
+</dd>
+</dl><a NAME="BrowserFileItem.name" ID="BrowserFileItem.name"></a>
+<h4>BrowserFileItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl><a NAME="BrowserFileItem.setName" ID="BrowserFileItem.setName"></a>
+<h4>BrowserFileItem.setName</h4>
+<b>setName</b>(<i>finfo, full=True</i>)
+<p>
+        Public method to set the directory name.
+</p><dl>
+<dt><i>finfo</i></dt>
+<dd>
+the string for the file (string)
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserGlobalsItem" ID="BrowserGlobalsItem"></a>
+<h2>BrowserGlobalsItem</h2>
+<p>
+    Class implementing the data structure for browser globals items.
+</p>
+<h3>Derived from</h3>
+BrowserClassAttributesItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserGlobalsItem.__init__">BrowserGlobalsItem</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserGlobalsItem.__init__" ID="BrowserGlobalsItem.__init__"></a>
+<h4>BrowserGlobalsItem (Constructor)</h4>
+<b>BrowserGlobalsItem</b>(<i>parent, attributes, text</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>attributes</i></dt>
+<dd>
+list of attributes
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by this item (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserImportItem" ID="BrowserImportItem"></a>
+<h2>BrowserImportItem</h2>
+<p>
+    Class implementing the data structure for browser imported module and
+    imported names items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserImportItem.__init__">BrowserImportItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserImportItem.fileName">fileName</a></td>
+<td>Public method returning the filename.</td>
+</tr><tr>
+<td><a href="#BrowserImportItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserImportItem.lineno">lineno</a></td>
+<td>Public method returning the line number of the first import.</td>
+</tr><tr>
+<td><a href="#BrowserImportItem.linenos">linenos</a></td>
+<td>Public method returning the line numbers of all imports.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserImportItem.__init__" ID="BrowserImportItem.__init__"></a>
+<h4>BrowserImportItem (Constructor)</h4>
+<b>BrowserImportItem</b>(<i>parent, text, filename, lineNumbers, isModule=True</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by this item (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+name of the file (string)
+</dd><dt><i>lineNumbers</i></dt>
+<dd>
+list of line numbers of the import statement
+            (list of integer)
+</dd><dt><i>isModule</i></dt>
+<dd>
+flag indicating a module item entry (boolean)
+</dd>
+</dl><a NAME="BrowserImportItem.fileName" ID="BrowserImportItem.fileName"></a>
+<h4>BrowserImportItem.fileName</h4>
+<b>fileName</b>(<i></i>)
+<p>
+        Public method returning the filename.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename (string)
+</dd>
+</dl><a NAME="BrowserImportItem.lessThan" ID="BrowserImportItem.lessThan"></a>
+<h4>BrowserImportItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserImportItem.lineno" ID="BrowserImportItem.lineno"></a>
+<h4>BrowserImportItem.lineno</h4>
+<b>lineno</b>(<i></i>)
+<p>
+        Public method returning the line number of the first import.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line number of the first import (integer)
+</dd>
+</dl><a NAME="BrowserImportItem.linenos" ID="BrowserImportItem.linenos"></a>
+<h4>BrowserImportItem.linenos</h4>
+<b>linenos</b>(<i></i>)
+<p>
+        Public method returning the line numbers of all imports.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line numbers of all imports (list of integers)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserImportsItem" ID="BrowserImportsItem"></a>
+<h2>BrowserImportsItem</h2>
+<p>
+    Class implementing the data structure for browser import items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserImportsItem.__init__">BrowserImportsItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserImportsItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserImportsItem.__init__" ID="BrowserImportsItem.__init__"></a>
+<h4>BrowserImportsItem (Constructor)</h4>
+<b>BrowserImportsItem</b>(<i>parent, text</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>text</i></dt>
+<dd>
+text to be shown by this item (string)
+</dd>
+</dl><a NAME="BrowserImportsItem.lessThan" ID="BrowserImportsItem.lessThan"></a>
+<h4>BrowserImportsItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserItem" ID="BrowserItem"></a>
+<h2>BrowserItem</h2>
+<p>
+    Class implementing the data structure for browser items.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserItem.__init__">BrowserItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserItem.appendChild">appendChild</a></td>
+<td>Public method to add a child to this item.</td>
+</tr><tr>
+<td><a href="#BrowserItem.child">child</a></td>
+<td>Public method to get a child id.</td>
+</tr><tr>
+<td><a href="#BrowserItem.childCount">childCount</a></td>
+<td>Public method to get the number of available child items.</td>
+</tr><tr>
+<td><a href="#BrowserItem.children">children</a></td>
+<td>Public method to get the ids of all child items.</td>
+</tr><tr>
+<td><a href="#BrowserItem.columnCount">columnCount</a></td>
+<td>Public method to get the number of available data items.</td>
+</tr><tr>
+<td><a href="#BrowserItem.data">data</a></td>
+<td>Public method to get a specific data item.</td>
+</tr><tr>
+<td><a href="#BrowserItem.getIcon">getIcon</a></td>
+<td>Public method to get the items icon.</td>
+</tr><tr>
+<td><a href="#BrowserItem.isLazyPopulated">isLazyPopulated</a></td>
+<td>Public method to check, if this item should be populated lazyly.</td>
+</tr><tr>
+<td><a href="#BrowserItem.isPopulated">isPopulated</a></td>
+<td>Public method to chek, if this item is populated.</td>
+</tr><tr>
+<td><a href="#BrowserItem.isPublic">isPublic</a></td>
+<td>Public method returning the public visibility status.</td>
+</tr><tr>
+<td><a href="#BrowserItem.isSymlink">isSymlink</a></td>
+<td>Public method to check, if the items is a symbolic link.</td>
+</tr><tr>
+<td><a href="#BrowserItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserItem.parent">parent</a></td>
+<td>Public method to get the reference to the parent item.</td>
+</tr><tr>
+<td><a href="#BrowserItem.removeChild">removeChild</a></td>
+<td>Public method to remove a child.</td>
+</tr><tr>
+<td><a href="#BrowserItem.removeChildren">removeChildren</a></td>
+<td>Public method to remove all children.</td>
+</tr><tr>
+<td><a href="#BrowserItem.row">row</a></td>
+<td>Public method to get the row number of this item.</td>
+</tr><tr>
+<td><a href="#BrowserItem.type">type</a></td>
+<td>Public method to get the item type.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserItem.__init__" ID="BrowserItem.__init__"></a>
+<h4>BrowserItem (Constructor)</h4>
+<b>BrowserItem</b>(<i>parent, data</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent item
+</dd><dt><i>data</i></dt>
+<dd>
+single data of the item
+</dd>
+</dl><a NAME="BrowserItem.appendChild" ID="BrowserItem.appendChild"></a>
+<h4>BrowserItem.appendChild</h4>
+<b>appendChild</b>(<i>child</i>)
+<p>
+        Public method to add a child to this item.
+</p><dl>
+<dt><i>child</i></dt>
+<dd>
+reference to the child item to add (BrowserItem)
+</dd>
+</dl><a NAME="BrowserItem.child" ID="BrowserItem.child"></a>
+<h4>BrowserItem.child</h4>
+<b>child</b>(<i>row</i>)
+<p>
+        Public method to get a child id.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+number of child to get the id of (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the child item (BrowserItem)
+</dd>
+</dl><a NAME="BrowserItem.childCount" ID="BrowserItem.childCount"></a>
+<h4>BrowserItem.childCount</h4>
+<b>childCount</b>(<i></i>)
+<p>
+        Public method to get the number of available child items.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+number of child items (integer)
+</dd>
+</dl><a NAME="BrowserItem.children" ID="BrowserItem.children"></a>
+<h4>BrowserItem.children</h4>
+<b>children</b>(<i></i>)
+<p>
+        Public method to get the ids of all child items.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+references to all child items (list of BrowserItem)
+</dd>
+</dl><a NAME="BrowserItem.columnCount" ID="BrowserItem.columnCount"></a>
+<h4>BrowserItem.columnCount</h4>
+<b>columnCount</b>(<i></i>)
+<p>
+        Public method to get the number of available data items.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+number of data items (integer)
+</dd>
+</dl><a NAME="BrowserItem.data" ID="BrowserItem.data"></a>
+<h4>BrowserItem.data</h4>
+<b>data</b>(<i>column</i>)
+<p>
+        Public method to get a specific data item.
+</p><dl>
+<dt><i>column</i></dt>
+<dd>
+number of the requested data item (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+stored data item
+</dd>
+</dl><a NAME="BrowserItem.getIcon" ID="BrowserItem.getIcon"></a>
+<h4>BrowserItem.getIcon</h4>
+<b>getIcon</b>(<i></i>)
+<p>
+        Public method to get the items icon.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the icon (QIcon)
+</dd>
+</dl><a NAME="BrowserItem.isLazyPopulated" ID="BrowserItem.isLazyPopulated"></a>
+<h4>BrowserItem.isLazyPopulated</h4>
+<b>isLazyPopulated</b>(<i></i>)
+<p>
+        Public method to check, if this item should be populated lazyly.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+lazy population flag (boolean)
+</dd>
+</dl><a NAME="BrowserItem.isPopulated" ID="BrowserItem.isPopulated"></a>
+<h4>BrowserItem.isPopulated</h4>
+<b>isPopulated</b>(<i></i>)
+<p>
+        Public method to chek, if this item is populated.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+population status (boolean)
+</dd>
+</dl><a NAME="BrowserItem.isPublic" ID="BrowserItem.isPublic"></a>
+<h4>BrowserItem.isPublic</h4>
+<b>isPublic</b>(<i></i>)
+<p>
+        Public method returning the public visibility status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating public visibility (boolean)
+</dd>
+</dl><a NAME="BrowserItem.isSymlink" ID="BrowserItem.isSymlink"></a>
+<h4>BrowserItem.isSymlink</h4>
+<b>isSymlink</b>(<i></i>)
+<p>
+        Public method to check, if the items is a symbolic link.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a symbolic link (boolean)
+</dd>
+</dl><a NAME="BrowserItem.lessThan" ID="BrowserItem.lessThan"></a>
+<h4>BrowserItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserItem.parent" ID="BrowserItem.parent"></a>
+<h4>BrowserItem.parent</h4>
+<b>parent</b>(<i></i>)
+<p>
+        Public method to get the reference to the parent item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the parent item
+</dd>
+</dl><a NAME="BrowserItem.removeChild" ID="BrowserItem.removeChild"></a>
+<h4>BrowserItem.removeChild</h4>
+<b>removeChild</b>(<i>child</i>)
+<p>
+        Public method to remove a child.
+</p><dl>
+<dt><i>child</i></dt>
+<dd>
+reference to the child to remove (BrowserItem)
+</dd>
+</dl><a NAME="BrowserItem.removeChildren" ID="BrowserItem.removeChildren"></a>
+<h4>BrowserItem.removeChildren</h4>
+<b>removeChildren</b>(<i></i>)
+<p>
+        Public method to remove all children.
+</p><a NAME="BrowserItem.row" ID="BrowserItem.row"></a>
+<h4>BrowserItem.row</h4>
+<b>row</b>(<i></i>)
+<p>
+        Public method to get the row number of this item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+row number (integer)
+</dd>
+</dl><a NAME="BrowserItem.type" ID="BrowserItem.type"></a>
+<h4>BrowserItem.type</h4>
+<b>type</b>(<i></i>)
+<p>
+        Public method to get the item type.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+type of the item
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserMethodItem" ID="BrowserMethodItem"></a>
+<h2>BrowserMethodItem</h2>
+<p>
+    Class implementing the data structure for browser method items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserMethodItem.__init__">BrowserMethodItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.boundaries">boundaries</a></td>
+<td>Public method returning the boundaries of the method definition.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.fileName">fileName</a></td>
+<td>Public method returning the filename.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.functionObject">functionObject</a></td>
+<td>Public method returning the function object.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.isPublic">isPublic</a></td>
+<td>Public method returning the public visibility status.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.lineno">lineno</a></td>
+<td>Public method returning the line number defining this object.</td>
+</tr><tr>
+<td><a href="#BrowserMethodItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserMethodItem.__init__" ID="BrowserMethodItem.__init__"></a>
+<h4>BrowserMethodItem (Constructor)</h4>
+<b>BrowserMethodItem</b>(<i>parent, fn, filename</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>fn</i></dt>
+<dd>
+Function object to be shown
+</dd><dt><i>filename</i></dt>
+<dd>
+filename of the file defining this class (string)
+</dd>
+</dl><a NAME="BrowserMethodItem.boundaries" ID="BrowserMethodItem.boundaries"></a>
+<h4>BrowserMethodItem.boundaries</h4>
+<b>boundaries</b>(<i></i>)
+<p>
+        Public method returning the boundaries of the method definition.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with start end end line number (integer, integer)
+</dd>
+</dl><a NAME="BrowserMethodItem.fileName" ID="BrowserMethodItem.fileName"></a>
+<h4>BrowserMethodItem.fileName</h4>
+<b>fileName</b>(<i></i>)
+<p>
+        Public method returning the filename.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename (string)
+</dd>
+</dl><a NAME="BrowserMethodItem.functionObject" ID="BrowserMethodItem.functionObject"></a>
+<h4>BrowserMethodItem.functionObject</h4>
+<b>functionObject</b>(<i></i>)
+<p>
+        Public method returning the function object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the function object
+</dd>
+</dl><a NAME="BrowserMethodItem.isPublic" ID="BrowserMethodItem.isPublic"></a>
+<h4>BrowserMethodItem.isPublic</h4>
+<b>isPublic</b>(<i></i>)
+<p>
+        Public method returning the public visibility status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating public visibility (boolean)
+</dd>
+</dl><a NAME="BrowserMethodItem.lessThan" ID="BrowserMethodItem.lessThan"></a>
+<h4>BrowserMethodItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="BrowserMethodItem.lineno" ID="BrowserMethodItem.lineno"></a>
+<h4>BrowserMethodItem.lineno</h4>
+<b>lineno</b>(<i></i>)
+<p>
+        Public method returning the line number defining this object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line number defining the object (integer)
+</dd>
+</dl><a NAME="BrowserMethodItem.name" ID="BrowserMethodItem.name"></a>
+<h4>BrowserMethodItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserModel" ID="BrowserModel"></a>
+<h2>BrowserModel</h2>
+<p>
+    Class implementing the browser model.
+</p>
+<h3>Derived from</h3>
+QAbstractItemModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserModel.__init__">BrowserModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserModel.__populateModel">__populateModel</a></td>
+<td>Private method to populate the browser model.</td>
+</tr><tr>
+<td><a href="#BrowserModel._addItem">_addItem</a></td>
+<td>Protected slot to add an item.</td>
+</tr><tr>
+<td><a href="#BrowserModel._addWatchedItem">_addWatchedItem</a></td>
+<td>Protected method to watch an item.</td>
+</tr><tr>
+<td><a href="#BrowserModel._removeWatchedItem">_removeWatchedItem</a></td>
+<td>Protected method to remove a watched item.</td>
+</tr><tr>
+<td><a href="#BrowserModel.addItem">addItem</a></td>
+<td>Public slot to add an item.</td>
+</tr><tr>
+<td><a href="#BrowserModel.addTopLevelDir">addTopLevelDir</a></td>
+<td>Public method to add a new toplevel directory.</td>
+</tr><tr>
+<td><a href="#BrowserModel.clear">clear</a></td>
+<td>Public method to clear the model.</td>
+</tr><tr>
+<td><a href="#BrowserModel.columnCount">columnCount</a></td>
+<td>Public method to get the number of columns.</td>
+</tr><tr>
+<td><a href="#BrowserModel.data">data</a></td>
+<td>Public method to get data of an item.</td>
+</tr><tr>
+<td><a href="#BrowserModel.directoryChanged">directoryChanged</a></td>
+<td>Public slot to handle the directoryChanged signal of the watcher.</td>
+</tr><tr>
+<td><a href="#BrowserModel.flags">flags</a></td>
+<td>Public method to get the item flags.</td>
+</tr><tr>
+<td><a href="#BrowserModel.hasChildren">hasChildren</a></td>
+<td>Public method to check for the presence of child items.</td>
+</tr><tr>
+<td><a href="#BrowserModel.headerData">headerData</a></td>
+<td>Public method to get the header data.</td>
+</tr><tr>
+<td><a href="#BrowserModel.index">index</a></td>
+<td>Public method to create an index.</td>
+</tr><tr>
+<td><a href="#BrowserModel.interpreterChanged">interpreterChanged</a></td>
+<td>Public method to handle a change of the debug client's interpreter.</td>
+</tr><tr>
+<td><a href="#BrowserModel.item">item</a></td>
+<td>Public method to get a reference to an item.</td>
+</tr><tr>
+<td><a href="#BrowserModel.parent">parent</a></td>
+<td>Public method to get the index of the parent object.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateClassAttributesItem">populateClassAttributesItem</a></td>
+<td>Public method to populate a class attributes item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateClassItem">populateClassItem</a></td>
+<td>Public method to populate a class item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateDirectoryItem">populateDirectoryItem</a></td>
+<td>Public method to populate a directory item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateFileItem">populateFileItem</a></td>
+<td>Public method to populate a file item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateItem">populateItem</a></td>
+<td>Public method to populate an item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateMethodItem">populateMethodItem</a></td>
+<td>Public method to populate a method item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.populateSysPathItem">populateSysPathItem</a></td>
+<td>Public method to populate a sys.path item's subtree.</td>
+</tr><tr>
+<td><a href="#BrowserModel.programChange">programChange</a></td>
+<td>Public method to change the entry for the directory of file being debugged.</td>
+</tr><tr>
+<td><a href="#BrowserModel.removeToplevelDir">removeToplevelDir</a></td>
+<td>Public method to remove a toplevel directory.</td>
+</tr><tr>
+<td><a href="#BrowserModel.rowCount">rowCount</a></td>
+<td>Public method to get the number of rows.</td>
+</tr><tr>
+<td><a href="#BrowserModel.saveToplevelDirs">saveToplevelDirs</a></td>
+<td>Public slot to save the toplevel directories.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserModel.__init__" ID="BrowserModel.__init__"></a>
+<h4>BrowserModel (Constructor)</h4>
+<b>BrowserModel</b>(<i>parent=None, nopopulate=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to parent object (QObject)
+</dd><dt><i>nopopulate=</i></dt>
+<dd>
+flag indicating to not populate the model
+            (boolean)
+</dd>
+</dl><a NAME="BrowserModel.__populateModel" ID="BrowserModel.__populateModel"></a>
+<h4>BrowserModel.__populateModel</h4>
+<b>__populateModel</b>(<i></i>)
+<p>
+        Private method to populate the browser model.
+</p><a NAME="BrowserModel._addItem" ID="BrowserModel._addItem"></a>
+<h4>BrowserModel._addItem</h4>
+<b>_addItem</b>(<i>itm, parentItem</i>)
+<p>
+        Protected slot to add an item.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+reference to item to add (BrowserItem)
+</dd><dt><i>parentItem</i></dt>
+<dd>
+reference to item to add to (BrowserItem)
+</dd>
+</dl><a NAME="BrowserModel._addWatchedItem" ID="BrowserModel._addWatchedItem"></a>
+<h4>BrowserModel._addWatchedItem</h4>
+<b>_addWatchedItem</b>(<i>itm</i>)
+<p>
+        Protected method to watch an item.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+item to be watched (BrowserDirectoryItem)
+</dd>
+</dl><a NAME="BrowserModel._removeWatchedItem" ID="BrowserModel._removeWatchedItem"></a>
+<h4>BrowserModel._removeWatchedItem</h4>
+<b>_removeWatchedItem</b>(<i>itm</i>)
+<p>
+        Protected method to remove a watched item.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+item to be removed (BrowserDirectoryItem)
+</dd>
+</dl><a NAME="BrowserModel.addItem" ID="BrowserModel.addItem"></a>
+<h4>BrowserModel.addItem</h4>
+<b>addItem</b>(<i>itm, parent=None</i>)
+<p>
+        Public slot to add an item.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+item to add (BrowserItem)
+</dd><dt><i>parent</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><a NAME="BrowserModel.addTopLevelDir" ID="BrowserModel.addTopLevelDir"></a>
+<h4>BrowserModel.addTopLevelDir</h4>
+<b>addTopLevelDir</b>(<i>dirname</i>)
+<p>
+        Public method to add a new toplevel directory.
+</p><dl>
+<dt><i>dirname</i></dt>
+<dd>
+name of the new toplevel directory (string)
+</dd>
+</dl><a NAME="BrowserModel.clear" ID="BrowserModel.clear"></a>
+<h4>BrowserModel.clear</h4>
+<b>clear</b>(<i></i>)
+<p>
+        Public method to clear the model.
+</p><a NAME="BrowserModel.columnCount" ID="BrowserModel.columnCount"></a>
+<h4>BrowserModel.columnCount</h4>
+<b>columnCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of columns.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="BrowserModel.data" ID="BrowserModel.data"></a>
+<h4>BrowserModel.data</h4>
+<b>data</b>(<i>index, role</i>)
+<p>
+        Public method to get data of an item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the data to retrieve (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of data (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="BrowserModel.directoryChanged" ID="BrowserModel.directoryChanged"></a>
+<h4>BrowserModel.directoryChanged</h4>
+<b>directoryChanged</b>(<i>path</i>)
+<p>
+        Public slot to handle the directoryChanged signal of the watcher.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path of the directory (string)
+</dd>
+</dl><a NAME="BrowserModel.flags" ID="BrowserModel.flags"></a>
+<h4>BrowserModel.flags</h4>
+<b>flags</b>(<i>index</i>)
+<p>
+        Public method to get the item flags.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the data to retrieve (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested flags (Qt.ItemFlags)
+</dd>
+</dl><a NAME="BrowserModel.hasChildren" ID="BrowserModel.hasChildren"></a>
+<h4>BrowserModel.hasChildren</h4>
+<b>hasChildren</b>(<i>parent=None</i>)
+<p>
+        Public method to check for the presence of child items.
+</p><p>
+        We always return True for normal items in order to do lazy
+        population of the tree.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of child items (boolean)
+</dd>
+</dl><a NAME="BrowserModel.headerData" ID="BrowserModel.headerData"></a>
+<h4>BrowserModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get the header data.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+number of section to get data for (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+header orientation (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+role of data (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested header data
+</dd>
+</dl><a NAME="BrowserModel.index" ID="BrowserModel.index"></a>
+<h4>BrowserModel.index</h4>
+<b>index</b>(<i>row, column, parent=None</i>)
+<p>
+        Public method to create an index.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+row number of the new index (integer)
+</dd><dt><i>column</i></dt>
+<dd>
+column number of the new index (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index object (QModelIndex)
+</dd>
+</dl><a NAME="BrowserModel.interpreterChanged" ID="BrowserModel.interpreterChanged"></a>
+<h4>BrowserModel.interpreterChanged</h4>
+<b>interpreterChanged</b>(<i>interpreter</i>)
+<p>
+        Public method to handle a change of the debug client's interpreter.
+</p><dl>
+<dt><i>interpreter</i></dt>
+<dd>
+interpreter of the debug client (string)
+</dd>
+</dl><a NAME="BrowserModel.item" ID="BrowserModel.item"></a>
+<h4>BrowserModel.item</h4>
+<b>item</b>(<i>index</i>)
+<p>
+        Public method to get a reference to an item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the data to retrieve (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested item reference (BrowserItem)
+</dd>
+</dl><a NAME="BrowserModel.parent" ID="BrowserModel.parent"></a>
+<h4>BrowserModel.parent</h4>
+<b>parent</b>(<i>index</i>)
+<p>
+        Public method to get the index of the parent object.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><a NAME="BrowserModel.populateClassAttributesItem" ID="BrowserModel.populateClassAttributesItem"></a>
+<h4>BrowserModel.populateClassAttributesItem</h4>
+<b>populateClassAttributesItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a class attributes item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the class attributes item to be
+            populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.populateClassItem" ID="BrowserModel.populateClassItem"></a>
+<h4>BrowserModel.populateClassItem</h4>
+<b>populateClassItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a class item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the class item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.populateDirectoryItem" ID="BrowserModel.populateDirectoryItem"></a>
+<h4>BrowserModel.populateDirectoryItem</h4>
+<b>populateDirectoryItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a directory item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the directory item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.populateFileItem" ID="BrowserModel.populateFileItem"></a>
+<h4>BrowserModel.populateFileItem</h4>
+<b>populateFileItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a file item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the file item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.populateItem" ID="BrowserModel.populateItem"></a>
+<h4>BrowserModel.populateItem</h4>
+<b>populateItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate an item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.populateMethodItem" ID="BrowserModel.populateMethodItem"></a>
+<h4>BrowserModel.populateMethodItem</h4>
+<b>populateMethodItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a method item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the method item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.populateSysPathItem" ID="BrowserModel.populateSysPathItem"></a>
+<h4>BrowserModel.populateSysPathItem</h4>
+<b>populateSysPathItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a sys.path item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the sys.path item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="BrowserModel.programChange" ID="BrowserModel.programChange"></a>
+<h4>BrowserModel.programChange</h4>
+<b>programChange</b>(<i>dirname</i>)
+<p>
+        Public method to change the entry for the directory of file being
+        debugged.
+</p><dl>
+<dt><i>dirname</i></dt>
+<dd>
+name of the directory containing the file (string)
+</dd>
+</dl><a NAME="BrowserModel.removeToplevelDir" ID="BrowserModel.removeToplevelDir"></a>
+<h4>BrowserModel.removeToplevelDir</h4>
+<b>removeToplevelDir</b>(<i>index</i>)
+<p>
+        Public method to remove a toplevel directory.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the toplevel directory to be removed
+            (QModelIndex)
+</dd>
+</dl><a NAME="BrowserModel.rowCount" ID="BrowserModel.rowCount"></a>
+<h4>BrowserModel.rowCount</h4>
+<b>rowCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of rows.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of rows (integer)
+</dd>
+</dl><a NAME="BrowserModel.saveToplevelDirs" ID="BrowserModel.saveToplevelDirs"></a>
+<h4>BrowserModel.saveToplevelDirs</h4>
+<b>saveToplevelDirs</b>(<i></i>)
+<p>
+        Public slot to save the toplevel directories.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="BrowserSysPathItem" ID="BrowserSysPathItem"></a>
+<h2>BrowserSysPathItem</h2>
+<p>
+    Class implementing the data structure for browser sys.path items.
+</p>
+<h3>Derived from</h3>
+BrowserItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BrowserSysPathItem.__init__">BrowserSysPathItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BrowserSysPathItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BrowserSysPathItem.__init__" ID="BrowserSysPathItem.__init__"></a>
+<h4>BrowserSysPathItem (Constructor)</h4>
+<b>BrowserSysPathItem</b>(<i>parent</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd>
+</dl><a NAME="BrowserSysPathItem.name" ID="BrowserSysPathItem.name"></a>
+<h4>BrowserSysPathItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

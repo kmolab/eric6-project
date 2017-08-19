@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Project.Project</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Project.Project</h1>
+<p>
+Module implementing the project management functionality.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Project">Project</a></td>
+<td>Class implementing the project management functionality.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Project" ID="Project"></a>
+<h2>Project</h2>
+<p>
+    Class implementing the project management functionality.
+</p><h3>Signals</h3>
+<dl>
+<dt>completeRepopulateItem(str)</dt>
+<dd>
+emitted after an item of the model was
+        repopulated
+</dd><dt>designerFile(str)</dt>
+<dd>
+emitted to open a found designer file
+</dd><dt>directoryRemoved(str)</dt>
+<dd>
+emitted after a directory has been removed
+        from the project
+</dd><dt>dirty(int)</dt>
+<dd>
+emitted when the dirty state changes
+</dd><dt>lexerAssociationsChanged()</dt>
+<dd>
+emitted after the lexer associations
+        have been changed
+</dd><dt>linguistFile(str)</dt>
+<dd>
+emitted to open a found translation file
+</dd><dt>newProject()</dt>
+<dd>
+emitted after a new project was generated
+</dd><dt>newProjectHooks()</dt>
+<dd>
+emitted after a new project was generated but
+        before the newProject() signal is sent
+</dd><dt>prepareRepopulateItem(str)</dt>
+<dd>
+emitted before an item of the model is
+        repopulated
+</dd><dt>projectAboutToBeCreated()</dt>
+<dd>
+emitted just before the project will be
+        created
+</dd><dt>projectChanged()</dt>
+<dd>
+emitted to signal a change of the project
+</dd><dt>projectClosed()</dt>
+<dd>
+emitted after a project was closed
+</dd><dt>projectClosedHooks()</dt>
+<dd>
+emitted after a project file was closed but
+        before the projectClosed() signal is sent
+</dd><dt>projectFileRenamed(str, str)</dt>
+<dd>
+emitted after a file of the project
+        has been renamed
+</dd><dt>projectFormAdded(str)</dt>
+<dd>
+emitted after a new form was added
+</dd><dt>projectFormCompiled(str)</dt>
+<dd>
+emitted after a form was compiled
+</dd><dt>projectFormRemoved(str)</dt>
+<dd>
+emitted after a form was removed
+</dd><dt>projectInterfaceAdded(str)</dt>
+<dd>
+emitted after a new IDL file was added
+</dd><dt>projectInterfaceRemoved(str)</dt>
+<dd>
+emitted after a IDL file was removed
+</dd><dt>projectLanguageAdded(str)</dt>
+<dd>
+emitted after a new language was added
+</dd><dt>projectLanguageAddedByCode(str)</dt>
+<dd>
+emitted after a new language was
+        added. The language code is sent by this signal.
+</dd><dt>projectLanguageRemoved(str)</dt>
+<dd>
+emitted after a language was removed
+</dd><dt>projectOpened()</dt>
+<dd>
+emitted after a project file was read
+</dd><dt>projectOpenedHooks()</dt>
+<dd>
+emitted after a project file was read but
+        before the projectOpened() signal is sent
+</dd><dt>projectOthersAdded(str)</dt>
+<dd>
+emitted after a file or directory was added
+        to the OTHERS project data area
+</dd><dt>projectOthersRemoved(str)</dt>
+<dd>
+emitted after a file was removed from the
+        OTHERS project data area
+</dd><dt>projectPropertiesChanged()</dt>
+<dd>
+emitted after the project properties
+        were changed
+</dd><dt>projectResourceAdded(str)</dt>
+<dd>
+emitted after a new resource file was
+        added
+</dd><dt>projectResourceRemoved(str)</dt>
+<dd>
+emitted after a resource was removed
+</dd><dt>projectSourceAdded(str)</dt>
+<dd>
+emitted after a new source file was added
+</dd><dt>projectSourceRemoved(str)</dt>
+<dd>
+emitted after a source was removed
+</dd><dt>reinitVCS()</dt>
+<dd>
+emitted after the VCS has been reinitialized
+</dd><dt>showMenu(str, QMenu)</dt>
+<dd>
+emitted when a menu is about to be shown. The
+        name of the menu and a reference to the menu are given.
+</dd><dt>sourceFile(str)</dt>
+<dd>
+emitted after a project file was read to
+        open the main script
+</dd><dt>vcsStatusMonitorStatus(str, str)</dt>
+<dd>
+emitted to signal the status of
+        the monitoring thread (ok, nok, op, off) and a status message
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>eols</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Project.__init__">Project</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Project.__addRecursiveDirectory">__addRecursiveDirectory</a></td>
+<td>Private method used to add all files of a directory tree.</td>
+</tr><tr>
+<td><a href="#Project.__addSingleDirectory">__addSingleDirectory</a></td>
+<td>Private method used to add all files of a single directory to the project.</td>
+</tr><tr>
+<td><a href="#Project.__binaryTranslationFile">__binaryTranslationFile</a></td>
+<td>Private method to calculate the filename of the binary translations file given the name of the raw translations file.</td>
+</tr><tr>
+<td><a href="#Project.__checkFilesExist">__checkFilesExist</a></td>
+<td>Private method to check, if the files in a list exist.</td>
+</tr><tr>
+<td><a href="#Project.__checkProjectFileGroup">__checkProjectFileGroup</a></td>
+<td>Private method to check, if a file is in a specific file group of the project.</td>
+</tr><tr>
+<td><a href="#Project.__closeAllWindows">__closeAllWindows</a></td>
+<td>Private method to close all project related windows.</td>
+</tr><tr>
+<td><a href="#Project.__createSnapshotSource">__createSnapshotSource</a></td>
+<td>Private method to create a snapshot plugin version.</td>
+</tr><tr>
+<td><a href="#Project.__createZipDirEntries">__createZipDirEntries</a></td>
+<td>Private method to create dir entries in the zip file.</td>
+</tr><tr>
+<td><a href="#Project.__deleteDebugProperties">__deleteDebugProperties</a></td>
+<td>Private method to delete the project debugger properties file (.e4d).</td>
+</tr><tr>
+<td><a href="#Project.__deleteSession">__deleteSession</a></td>
+<td>Private method to delete the session file.</td>
+</tr><tr>
+<td><a href="#Project.__doSearchNewFiles">__doSearchNewFiles</a></td>
+<td>Private method to search for new files in the project directory.</td>
+</tr><tr>
+<td><a href="#Project.__initData">__initData</a></td>
+<td>Private method to initialize the project data part.</td>
+</tr><tr>
+<td><a href="#Project.__initDebugProperties">__initDebugProperties</a></td>
+<td>Private method to initialize the debug properties.</td>
+</tr><tr>
+<td><a href="#Project.__initProjectTypes">__initProjectTypes</a></td>
+<td>Private method to initialize the list of supported project types.</td>
+</tr><tr>
+<td><a href="#Project.__loadDiagram">__loadDiagram</a></td>
+<td>Private slot to load a diagram from file.</td>
+</tr><tr>
+<td><a href="#Project.__loadRecent">__loadRecent</a></td>
+<td>Private method to load the recently opened project filenames.</td>
+</tr><tr>
+<td><a href="#Project.__openRecent">__openRecent</a></td>
+<td>Private method to open a project from the list of rencently opened projects.</td>
+</tr><tr>
+<td><a href="#Project.__pluginCreateArchives">__pluginCreateArchives</a></td>
+<td>Private slot to create eric6 plugin archives.</td>
+</tr><tr>
+<td><a href="#Project.__pluginCreatePkgList">__pluginCreatePkgList</a></td>
+<td>Private slot to create a PKGLIST file needed for archive file creation.</td>
+</tr><tr>
+<td><a href="#Project.__pluginCreateSnapshotArchives">__pluginCreateSnapshotArchives</a></td>
+<td>Private slot to create eric6 plugin archive snapshot releases.</td>
+</tr><tr>
+<td><a href="#Project.__pluginExtractVersion">__pluginExtractVersion</a></td>
+<td>Private method to extract the version number entry.</td>
+</tr><tr>
+<td><a href="#Project.__pluginVersionToTuple">__pluginVersionToTuple</a></td>
+<td>Private method to convert a plug-in version string into a version tuple.</td>
+</tr><tr>
+<td><a href="#Project.__readDebugProperties">__readDebugProperties</a></td>
+<td>Private method to read in the project debugger properties file (.e4d).</td>
+</tr><tr>
+<td><a href="#Project.__readProject">__readProject</a></td>
+<td>Private method to read in a project (.e4p) file.</td>
+</tr><tr>
+<td><a href="#Project.__readSession">__readSession</a></td>
+<td>Private method to read in the project session file (.e5s or .e4s).</td>
+</tr><tr>
+<td><a href="#Project.__readTasks">__readTasks</a></td>
+<td>Private method to read in the project tasks file (.e6t).</td>
+</tr><tr>
+<td><a href="#Project.__readUserProperties">__readUserProperties</a></td>
+<td>Private method to read in the user specific project file (.e4q).</td>
+</tr><tr>
+<td><a href="#Project.__reorganizeFiles">__reorganizeFiles</a></td>
+<td>Private method to reorganize files stored in the project.</td>
+</tr><tr>
+<td><a href="#Project.__saveRecent">__saveRecent</a></td>
+<td>Private method to save the list of recently opened filenames.</td>
+</tr><tr>
+<td><a href="#Project.__searchNewFiles">__searchNewFiles</a></td>
+<td>Private slot used to handle the search new files action.</td>
+</tr><tr>
+<td><a href="#Project.__searchProjectFile">__searchProjectFile</a></td>
+<td>Private slot to show the Find Project File dialog.</td>
+</tr><tr>
+<td><a href="#Project.__showCodeCoverage">__showCodeCoverage</a></td>
+<td>Private slot used to show the code coverage information for the project files.</td>
+</tr><tr>
+<td><a href="#Project.__showCodeMetrics">__showCodeMetrics</a></td>
+<td>Private slot used to calculate some code metrics for the project files.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuApiDoc">__showContextMenuApiDoc</a></td>
+<td>Private slot called before the apidoc menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuChecks">__showContextMenuChecks</a></td>
+<td>Private slot called before the checks menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuDebugger">__showContextMenuDebugger</a></td>
+<td>Private slot called before the Debugger menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuGraphics">__showContextMenuGraphics</a></td>
+<td>Private slot called before the graphics menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuPackagers">__showContextMenuPackagers</a></td>
+<td>Private slot called before the packagers menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuRecent">__showContextMenuRecent</a></td>
+<td>Private method to set up the recent projects menu.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuSession">__showContextMenuSession</a></td>
+<td>Private slot called before the Session menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuShow">__showContextMenuShow</a></td>
+<td>Private slot called before the show menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showContextMenuVCS">__showContextMenuVCS</a></td>
+<td>Private slot called before the vcs menu is shown.</td>
+</tr><tr>
+<td><a href="#Project.__showDebugProperties">__showDebugProperties</a></td>
+<td>Private slot to display the debugger properties dialog.</td>
+</tr><tr>
+<td><a href="#Project.__showFiletypeAssociations">__showFiletypeAssociations</a></td>
+<td>Private slot to display the filetype association dialog.</td>
+</tr><tr>
+<td><a href="#Project.__showLexerAssociations">__showLexerAssociations</a></td>
+<td>Private slot to display the lexer association dialog.</td>
+</tr><tr>
+<td><a href="#Project.__showMenu">__showMenu</a></td>
+<td>Private method to set up the project menu.</td>
+</tr><tr>
+<td><a href="#Project.__showProfileData">__showProfileData</a></td>
+<td>Private slot used to show the profiling information for the project.</td>
+</tr><tr>
+<td><a href="#Project.__showProperties">__showProperties</a></td>
+<td>Private slot to display the properties dialog.</td>
+</tr><tr>
+<td><a href="#Project.__showUserProperties">__showUserProperties</a></td>
+<td>Private slot to display the user specific properties dialog.</td>
+</tr><tr>
+<td><a href="#Project.__sourceExtensions">__sourceExtensions</a></td>
+<td>Private method to get the source extensions of a programming language.</td>
+</tr><tr>
+<td><a href="#Project.__statusMonitorStatus">__statusMonitorStatus</a></td>
+<td>Private method to receive the status monitor status.</td>
+</tr><tr>
+<td><a href="#Project.__syncRecent">__syncRecent</a></td>
+<td>Private method to synchronize the list of recently opened projects with the central store.</td>
+</tr><tr>
+<td><a href="#Project.__vcsStatusChanged">__vcsStatusChanged</a></td>
+<td>Private slot to handle a change of the overall VCS status.</td>
+</tr><tr>
+<td><a href="#Project.__writeDebugProperties">__writeDebugProperties</a></td>
+<td>Private method to write the project debugger properties file (.e4d).</td>
+</tr><tr>
+<td><a href="#Project.__writeProject">__writeProject</a></td>
+<td>Private method to save the project infos to a project file.</td>
+</tr><tr>
+<td><a href="#Project.__writeSession">__writeSession</a></td>
+<td>Private method to write the session data to an XML file (.e5s).</td>
+</tr><tr>
+<td><a href="#Project.__writeUserProperties">__writeUserProperties</a></td>
+<td>Private method to write the project data to an XML file.</td>
+</tr><tr>
+<td><a href="#Project.addDirectory">addDirectory</a></td>
+<td>Public method used to add all files of a directory to the project.</td>
+</tr><tr>
+<td><a href="#Project.addE5Actions">addE5Actions</a></td>
+<td>Public method to add actions to the list of actions.</td>
+</tr><tr>
+<td><a href="#Project.addFiles">addFiles</a></td>
+<td>Public slot used to add files to the project.</td>
+</tr><tr>
+<td><a href="#Project.addIdlDir">addIdlDir</a></td>
+<td>Public slot to add all IDL interfaces of a directory to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addIdlFiles">addIdlFiles</a></td>
+<td>Public slot to add IDL interfaces to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addLanguage">addLanguage</a></td>
+<td>Public slot used to add a language to the project.</td>
+</tr><tr>
+<td><a href="#Project.addOthersDir">addOthersDir</a></td>
+<td>Public slot to add a directory to the OTHERS project data.</td>
+</tr><tr>
+<td><a href="#Project.addOthersFiles">addOthersFiles</a></td>
+<td>Public slot to add files to the OTHERS project data.</td>
+</tr><tr>
+<td><a href="#Project.addResourceDir">addResourceDir</a></td>
+<td>Public slot to add all Qt resource files of a directory to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addResourceFiles">addResourceFiles</a></td>
+<td>Public slot to add Qt resources to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addSourceDir">addSourceDir</a></td>
+<td>Public slot to add all source files of a directory to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addSourceFiles">addSourceFiles</a></td>
+<td>Public slot to add source files to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addToOthers">addToOthers</a></td>
+<td>Public method to add a file/directory to the OTHERS project data.</td>
+</tr><tr>
+<td><a href="#Project.addUiDir">addUiDir</a></td>
+<td>Public slot to add all forms of a directory to the current project.</td>
+</tr><tr>
+<td><a href="#Project.addUiFiles">addUiFiles</a></td>
+<td>Public slot to add forms to the current project.</td>
+</tr><tr>
+<td><a href="#Project.appendFile">appendFile</a></td>
+<td>Public method to append a file to the project.</td>
+</tr><tr>
+<td><a href="#Project.checkAllScriptsDirty">checkAllScriptsDirty</a></td>
+<td>Public method to check all scripts belonging to the project for their dirty status.</td>
+</tr><tr>
+<td><a href="#Project.checkDirty">checkDirty</a></td>
+<td>Public method to check dirty status and open a message window.</td>
+</tr><tr>
+<td><a href="#Project.checkLanguageFiles">checkLanguageFiles</a></td>
+<td>Public slot to check the language files after a release process.</td>
+</tr><tr>
+<td><a href="#Project.checkVCSStatus">checkVCSStatus</a></td>
+<td>Public method to wake up the VCS status monitor thread.</td>
+</tr><tr>
+<td><a href="#Project.clearHistories">clearHistories</a></td>
+<td>Public method to clear the project related histories.</td>
+</tr><tr>
+<td><a href="#Project.clearRecent">clearRecent</a></td>
+<td>Public method to clear the recent projects menu.</td>
+</tr><tr>
+<td><a href="#Project.clearStatusMonitorCachedState">clearStatusMonitorCachedState</a></td>
+<td>Public method to clear the cached VCS state of a file/directory.</td>
+</tr><tr>
+<td><a href="#Project.closeProject">closeProject</a></td>
+<td>Public slot to close the current project.</td>
+</tr><tr>
+<td><a href="#Project.copyDirectory">copyDirectory</a></td>
+<td>Public slot to copy a directory.</td>
+</tr><tr>
+<td><a href="#Project.createNewProject">createNewProject</a></td>
+<td>Public slot to built a new project.</td>
+</tr><tr>
+<td><a href="#Project.createProjectManagementDir">createProjectManagementDir</a></td>
+<td>Public method to create the project management directory.</td>
+</tr><tr>
+<td><a href="#Project.deleteDirectory">deleteDirectory</a></td>
+<td>Public slot to delete a directory from the project directory.</td>
+</tr><tr>
+<td><a href="#Project.deleteFile">deleteFile</a></td>
+<td>Public slot to delete a file from the project directory.</td>
+</tr><tr>
+<td><a href="#Project.deleteLanguageFile">deleteLanguageFile</a></td>
+<td>Public slot to delete a translation from the project directory.</td>
+</tr><tr>
+<td><a href="#Project.getAbsolutePath">getAbsolutePath</a></td>
+<td>Public method to convert a project relative file path to an absolute file path.</td>
+</tr><tr>
+<td><a href="#Project.getAbsoluteUniversalPath">getAbsoluteUniversalPath</a></td>
+<td>Public method to convert a project relative file path with universal separators to an absolute file path.</td>
+</tr><tr>
+<td><a href="#Project.getActions">getActions</a></td>
+<td>Public method to get a list of all actions.</td>
+</tr><tr>
+<td><a href="#Project.getData">getData</a></td>
+<td>Public method to get data out of the project data store.</td>
+</tr><tr>
+<td><a href="#Project.getDebugProperty">getDebugProperty</a></td>
+<td>Public method to retrieve a debugger property.</td>
+</tr><tr>
+<td><a href="#Project.getDebuggerFilters">getDebuggerFilters</a></td>
+<td>Public method to get the debugger filters for a programming language.</td>
+</tr><tr>
+<td><a href="#Project.getDefaultSourceExtension">getDefaultSourceExtension</a></td>
+<td>Public method to get the default extension for the project's programming language.</td>
+</tr><tr>
+<td><a href="#Project.getEditorLexerAssoc">getEditorLexerAssoc</a></td>
+<td>Public method to retrieve a lexer association.</td>
+</tr><tr>
+<td><a href="#Project.getEolString">getEolString</a></td>
+<td>Public method to get the EOL-string to be used by the project.</td>
+</tr><tr>
+<td><a href="#Project.getFiles">getFiles</a></td>
+<td>Public method to get all files starting with a common prefix.</td>
+</tr><tr>
+<td><a href="#Project.getHash">getHash</a></td>
+<td>Public method to get the project hash.</td>
+</tr><tr>
+<td><a href="#Project.getMainScript">getMainScript</a></td>
+<td>Public method to return the main script filename.</td>
+</tr><tr>
+<td><a href="#Project.getMenu">getMenu</a></td>
+<td>Public method to get a reference to the main menu or a submenu.</td>
+</tr><tr>
+<td><a href="#Project.getModel">getModel</a></td>
+<td>Public method to get a reference to the project browser model.</td>
+</tr><tr>
+<td><a href="#Project.getMostRecent">getMostRecent</a></td>
+<td>Public method to get the most recently opened project.</td>
+</tr><tr>
+<td><a href="#Project.getProgrammingLanguages">getProgrammingLanguages</a></td>
+<td>Public method to get the programming languages supported by project.</td>
+</tr><tr>
+<td><a href="#Project.getProjectAuthor">getProjectAuthor</a></td>
+<td>Public method to get the author of the project.</td>
+</tr><tr>
+<td><a href="#Project.getProjectAuthorEmail">getProjectAuthorEmail</a></td>
+<td>Public method to get the email address of the project author.</td>
+</tr><tr>
+<td><a href="#Project.getProjectDescription">getProjectDescription</a></td>
+<td>Public method to get the description of the project.</td>
+</tr><tr>
+<td><a href="#Project.getProjectDictionaries">getProjectDictionaries</a></td>
+<td>Public method to get the names of the project specific dictionaries.</td>
+</tr><tr>
+<td><a href="#Project.getProjectFile">getProjectFile</a></td>
+<td>Public method to get the path of the project file.</td>
+</tr><tr>
+<td><a href="#Project.getProjectFiles">getProjectFiles</a></td>
+<td>Public method to get the file entries of the given type.</td>
+</tr><tr>
+<td><a href="#Project.getProjectLanguage">getProjectLanguage</a></td>
+<td>Public method to get the project's programming language.</td>
+</tr><tr>
+<td><a href="#Project.getProjectManagementDir">getProjectManagementDir</a></td>
+<td>Public method to get the path of the management directory.</td>
+</tr><tr>
+<td><a href="#Project.getProjectName">getProjectName</a></td>
+<td>Public method to get the name of the project.</td>
+</tr><tr>
+<td><a href="#Project.getProjectPath">getProjectPath</a></td>
+<td>Public method to get the project path.</td>
+</tr><tr>
+<td><a href="#Project.getProjectSpellLanguage">getProjectSpellLanguage</a></td>
+<td>Public method to get the project's programming language.</td>
+</tr><tr>
+<td><a href="#Project.getProjectType">getProjectType</a></td>
+<td>Public method to get the type of the project.</td>
+</tr><tr>
+<td><a href="#Project.getProjectTypes">getProjectTypes</a></td>
+<td>Public method to get the list of supported project types.</td>
+</tr><tr>
+<td><a href="#Project.getProjectVersion">getProjectVersion</a></td>
+<td>Public mehod to get the version number of the project.</td>
+</tr><tr>
+<td><a href="#Project.getRelativePath">getRelativePath</a></td>
+<td>Public method to convert a file path to a project relative file path.</td>
+</tr><tr>
+<td><a href="#Project.getRelativeUniversalPath">getRelativeUniversalPath</a></td>
+<td>Public method to convert a file path to a project relative file path with universal separators.</td>
+</tr><tr>
+<td><a href="#Project.getSources">getSources</a></td>
+<td>Public method to return the source script files.</td>
+</tr><tr>
+<td><a href="#Project.getStatusMonitorAutoUpdate">getStatusMonitorAutoUpdate</a></td>
+<td>Public method to retrieve the status of the auto update function.</td>
+</tr><tr>
+<td><a href="#Project.getStatusMonitorInterval">getStatusMonitorInterval</a></td>
+<td>Public method to get the monitor interval.</td>
+</tr><tr>
+<td><a href="#Project.getTranslationPattern">getTranslationPattern</a></td>
+<td>Public method to get the translation pattern.</td>
+</tr><tr>
+<td><a href="#Project.getVcs">getVcs</a></td>
+<td>Public method to get a reference to the VCS object.</td>
+</tr><tr>
+<td><a href="#Project.handleApplicationDiagram">handleApplicationDiagram</a></td>
+<td>Public method to handle the application diagram context menu action.</td>
+</tr><tr>
+<td><a href="#Project.handlePreferencesChanged">handlePreferencesChanged</a></td>
+<td>Public slot used to handle the preferencesChanged signal.</td>
+</tr><tr>
+<td><a href="#Project.hasEntry">hasEntry</a></td>
+<td>Public method to check the project for a file.</td>
+</tr><tr>
+<td><a href="#Project.hasProjectType">hasProjectType</a></td>
+<td>Public method to check, if a project type is already registered.</td>
+</tr><tr>
+<td><a href="#Project.initActions">initActions</a></td>
+<td>Public slot to initialize the project related actions.</td>
+</tr><tr>
+<td><a href="#Project.initFileTypes">initFileTypes</a></td>
+<td>Public method to initialize the filetype associations with default values.</td>
+</tr><tr>
+<td><a href="#Project.initMenu">initMenu</a></td>
+<td>Public slot to initialize the project menu.</td>
+</tr><tr>
+<td><a href="#Project.initToolbars">initToolbars</a></td>
+<td>Public slot to initialize the project toolbar and the basic VCS toolbar.</td>
+</tr><tr>
+<td><a href="#Project.initVCS">initVCS</a></td>
+<td>Public method used to instantiate a vcs system.</td>
+</tr><tr>
+<td><a href="#Project.isDebugPropertiesLoaded">isDebugPropertiesLoaded</a></td>
+<td>Public method to return the status of the debug properties.</td>
+</tr><tr>
+<td><a href="#Project.isDirty">isDirty</a></td>
+<td>Public method to return the dirty state.</td>
+</tr><tr>
+<td><a href="#Project.isJavaScriptProject">isJavaScriptProject</a></td>
+<td>Public method to check, if this project is a JavaScript project.</td>
+</tr><tr>
+<td><a href="#Project.isMixedLanguageProject">isMixedLanguageProject</a></td>
+<td>Public method to check, if this is a mixed language project.</td>
+</tr><tr>
+<td><a href="#Project.isOpen">isOpen</a></td>
+<td>Public method to return the opened state.</td>
+</tr><tr>
+<td><a href="#Project.isProjectFile">isProjectFile</a></td>
+<td>Public method used to check, if the passed in filename belongs to the project.</td>
+</tr><tr>
+<td><a href="#Project.isProjectForm">isProjectForm</a></td>
+<td>Public method used to check, if the passed in filename belongs to the project forms.</td>
+</tr><tr>
+<td><a href="#Project.isProjectInterface">isProjectInterface</a></td>
+<td>Public method used to check, if the passed in filename belongs to the project interfaces.</td>
+</tr><tr>
+<td><a href="#Project.isProjectResource">isProjectResource</a></td>
+<td>Public method used to check, if the passed in filename belongs to the project resources.</td>
+</tr><tr>
+<td><a href="#Project.isProjectSource">isProjectSource</a></td>
+<td>Public method used to check, if the passed in filename belongs to the project sources.</td>
+</tr><tr>
+<td><a href="#Project.isPy2Project">isPy2Project</a></td>
+<td>Public method to check, if this project is a Python2 project.</td>
+</tr><tr>
+<td><a href="#Project.isPy3Project">isPy3Project</a></td>
+<td>Public method to check, if this project is a Python3 project.</td>
+</tr><tr>
+<td><a href="#Project.isPythonProject">isPythonProject</a></td>
+<td>Public method to check, if this project is a Python2 or Python3 project.</td>
+</tr><tr>
+<td><a href="#Project.isRubyProject">isRubyProject</a></td>
+<td>Public method to check, if this project is a Ruby project.</td>
+</tr><tr>
+<td><a href="#Project.moveDirectory">moveDirectory</a></td>
+<td>Public slot to move a directory.</td>
+</tr><tr>
+<td><a href="#Project.newProjectAddFiles">newProjectAddFiles</a></td>
+<td>Public method to add files to a new project.</td>
+</tr><tr>
+<td><a href="#Project.openProject">openProject</a></td>
+<td>Public slot to open a project.</td>
+</tr><tr>
+<td><a href="#Project.othersAdded">othersAdded</a></td>
+<td>Public slot to be called, if something was added to the OTHERS project data area.</td>
+</tr><tr>
+<td><a href="#Project.registerProjectType">registerProjectType</a></td>
+<td>Public method to register a project type.</td>
+</tr><tr>
+<td><a href="#Project.removeDirectory">removeDirectory</a></td>
+<td>Public slot to remove a directory from the project.</td>
+</tr><tr>
+<td><a href="#Project.removeE5Actions">removeE5Actions</a></td>
+<td>Public method to remove actions from the list of actions.</td>
+</tr><tr>
+<td><a href="#Project.removeFile">removeFile</a></td>
+<td>Public slot to remove a file from the project.</td>
+</tr><tr>
+<td><a href="#Project.removeLanguageFile">removeLanguageFile</a></td>
+<td>Public slot to remove a translation from the project.</td>
+</tr><tr>
+<td><a href="#Project.renameFile">renameFile</a></td>
+<td>Public slot to rename a file of the project.</td>
+</tr><tr>
+<td><a href="#Project.renameFileInPdata">renameFileInPdata</a></td>
+<td>Public method to rename a file in the pdata structure.</td>
+</tr><tr>
+<td><a href="#Project.renameMainScript">renameMainScript</a></td>
+<td>Public method to rename the main script.</td>
+</tr><tr>
+<td><a href="#Project.reopenProject">reopenProject</a></td>
+<td>Public slot to reopen the current project.</td>
+</tr><tr>
+<td><a href="#Project.repopulateItem">repopulateItem</a></td>
+<td>Public slot to repopulate a named item.</td>
+</tr><tr>
+<td><a href="#Project.saveAllScripts">saveAllScripts</a></td>
+<td>Public method to save all scripts belonging to the project.</td>
+</tr><tr>
+<td><a href="#Project.saveProject">saveProject</a></td>
+<td>Public slot to save the current project.</td>
+</tr><tr>
+<td><a href="#Project.saveProjectAs">saveProjectAs</a></td>
+<td>Public slot to save the current project to a different file.</td>
+</tr><tr>
+<td><a href="#Project.setData">setData</a></td>
+<td>Public method to store data in the project data store.</td>
+</tr><tr>
+<td><a href="#Project.setDbgInfo">setDbgInfo</a></td>
+<td>Public method to set the debugging information.</td>
+</tr><tr>
+<td><a href="#Project.setDirty">setDirty</a></td>
+<td>Public method to set the dirty state.</td>
+</tr><tr>
+<td><a href="#Project.setStatusMonitorAutoUpdate">setStatusMonitorAutoUpdate</a></td>
+<td>Public method to enable the auto update function.</td>
+</tr><tr>
+<td><a href="#Project.setStatusMonitorInterval">setStatusMonitorInterval</a></td>
+<td>Public method to se the interval of the VCS status monitor thread.</td>
+</tr><tr>
+<td><a href="#Project.setTranslationPattern">setTranslationPattern</a></td>
+<td>Public method to set the translation pattern.</td>
+</tr><tr>
+<td><a href="#Project.startStatusMonitor">startStatusMonitor</a></td>
+<td>Public method to start the VCS status monitor thread.</td>
+</tr><tr>
+<td><a href="#Project.startswithProjectPath">startswithProjectPath</a></td>
+<td>Public method to check, if a path starts with the project path.</td>
+</tr><tr>
+<td><a href="#Project.stopStatusMonitor">stopStatusMonitor</a></td>
+<td>Public method to stop the VCS status monitor thread.</td>
+</tr><tr>
+<td><a href="#Project.unregisterProjectType">unregisterProjectType</a></td>
+<td>Public method to unregister a project type.</td>
+</tr><tr>
+<td><a href="#Project.updateFileTypes">updateFileTypes</a></td>
+<td>Public method to update the filetype associations with new default values.</td>
+</tr><tr>
+<td><a href="#Project.useSystemEol">useSystemEol</a></td>
+<td>Public method to check, if the project uses the system eol setting.</td>
+</tr><tr>
+<td><a href="#Project.vcsSoftwareAvailable">vcsSoftwareAvailable</a></td>
+<td>Public method to check, if some supported VCS software is available to the IDE.</td>
+</tr><tr>
+<td><a href="#Project.writeTasks">writeTasks</a></td>
+<td>Public method to write the tasks data to an XML file (.e6t).</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Project.__init__" ID="Project.__init__"></a>
+<h4>Project (Constructor)</h4>
+<b>Project</b>(<i>parent=None, filename=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget (usually the ui object) (QWidget)
+</dd><dt><i>filename</i></dt>
+<dd>
+optional filename of a project file to open (string)
+</dd>
+</dl><a NAME="Project.__addRecursiveDirectory" ID="Project.__addRecursiveDirectory"></a>
+<h4>Project.__addRecursiveDirectory</h4>
+<b>__addRecursiveDirectory</b>(<i>filetype, source, target</i>)
+<p>
+        Private method used to add all files of a directory tree.
+</p><p>
+        The tree is rooted at source to another one rooted at target. This
+        method decents down to the lowest subdirectory.
+</p><dl>
+<dt><i>filetype</i></dt>
+<dd>
+type of files to add (string)
+</dd><dt><i>source</i></dt>
+<dd>
+source directory (string)
+</dd><dt><i>target</i></dt>
+<dd>
+target directory (string)
+</dd>
+</dl><a NAME="Project.__addSingleDirectory" ID="Project.__addSingleDirectory"></a>
+<h4>Project.__addSingleDirectory</h4>
+<b>__addSingleDirectory</b>(<i>filetype, source, target, quiet=False</i>)
+<p>
+        Private method used to add all files of a single directory to the
+        project.
+</p><dl>
+<dt><i>filetype</i></dt>
+<dd>
+type of files to add (string)
+</dd><dt><i>source</i></dt>
+<dd>
+source directory (string)
+</dd><dt><i>target</i></dt>
+<dd>
+target directory (string)
+</dd><dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations (boolean)
+</dd>
+</dl><a NAME="Project.__binaryTranslationFile" ID="Project.__binaryTranslationFile"></a>
+<h4>Project.__binaryTranslationFile</h4>
+<b>__binaryTranslationFile</b>(<i>langFile</i>)
+<p>
+        Private method to calculate the filename of the binary translations
+        file given the name of the raw translations file.
+</p><dl>
+<dt><i>langFile</i></dt>
+<dd>
+name of the raw translations file (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of the binary translations file (string)
+</dd>
+</dl><a NAME="Project.__checkFilesExist" ID="Project.__checkFilesExist"></a>
+<h4>Project.__checkFilesExist</h4>
+<b>__checkFilesExist</b>(<i>index</i>)
+<p>
+        Private method to check, if the files in a list exist.
+</p><p>
+        The files in the indicated list are checked for existance in the
+        filesystem. Non existant files are removed from the list and the
+        dirty state of the project is changed accordingly.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+key of the list to be checked (string)
+</dd>
+</dl><a NAME="Project.__checkProjectFileGroup" ID="Project.__checkProjectFileGroup"></a>
+<h4>Project.__checkProjectFileGroup</h4>
+<b>__checkProjectFileGroup</b>(<i>fn, group</i>)
+<p>
+        Private method to check, if a file is in a specific file group of the
+        project.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd><dt><i>group</i></dt>
+<dd>
+group to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating membership (boolean)
+</dd>
+</dl><a NAME="Project.__closeAllWindows" ID="Project.__closeAllWindows"></a>
+<h4>Project.__closeAllWindows</h4>
+<b>__closeAllWindows</b>(<i></i>)
+<p>
+        Private method to close all project related windows.
+</p><a NAME="Project.__createSnapshotSource" ID="Project.__createSnapshotSource"></a>
+<h4>Project.__createSnapshotSource</h4>
+<b>__createSnapshotSource</b>(<i>filename</i>)
+<p>
+        Private method to create a snapshot plugin version.
+</p><p>
+        The version entry in the plugin module is modified to signify
+        a snapshot version. This method appends the string "-snapshot-"
+        and date indicator to the version string.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the plugin file to modify (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+modified source (bytes), snapshot version string (string)
+</dd>
+</dl><a NAME="Project.__createZipDirEntries" ID="Project.__createZipDirEntries"></a>
+<h4>Project.__createZipDirEntries</h4>
+<b>__createZipDirEntries</b>(<i>path, zipFile</i>)
+<p>
+        Private method to create dir entries in the zip file.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+name of the directory entry to create (string)
+</dd><dt><i>zipFile</i></dt>
+<dd>
+open ZipFile object (zipfile.ZipFile)
+</dd>
+</dl><a NAME="Project.__deleteDebugProperties" ID="Project.__deleteDebugProperties"></a>
+<h4>Project.__deleteDebugProperties</h4>
+<b>__deleteDebugProperties</b>(<i></i>)
+<p>
+        Private method to delete the project debugger properties file (.e4d).
+</p><a NAME="Project.__deleteSession" ID="Project.__deleteSession"></a>
+<h4>Project.__deleteSession</h4>
+<b>__deleteSession</b>(<i></i>)
+<p>
+        Private method to delete the session file.
+</p><a NAME="Project.__doSearchNewFiles" ID="Project.__doSearchNewFiles"></a>
+<h4>Project.__doSearchNewFiles</h4>
+<b>__doSearchNewFiles</b>(<i>AI=True, onUserDemand=False</i>)
+<p>
+        Private method to search for new files in the project directory.
+</p><p>
+        If new files were found, it shows a dialog listing these files and
+        gives the user the opportunity to select the ones he wants to
+        include. If 'Automatic Inclusion' is enabled, the new files are
+        automatically added to the project.
+</p><dl>
+<dt><i>AI</i></dt>
+<dd>
+flag indicating whether the automatic inclusion should
+                be honoured (boolean)
+</dd><dt><i>onUserDemand</i></dt>
+<dd>
+flag indicating whether this method was
+                requested by the user via a menu action (boolean)
+</dd>
+</dl><a NAME="Project.__initData" ID="Project.__initData"></a>
+<h4>Project.__initData</h4>
+<b>__initData</b>(<i></i>)
+<p>
+        Private method to initialize the project data part.
+</p><a NAME="Project.__initDebugProperties" ID="Project.__initDebugProperties"></a>
+<h4>Project.__initDebugProperties</h4>
+<b>__initDebugProperties</b>(<i></i>)
+<p>
+        Private method to initialize the debug properties.
+</p><a NAME="Project.__initProjectTypes" ID="Project.__initProjectTypes"></a>
+<h4>Project.__initProjectTypes</h4>
+<b>__initProjectTypes</b>(<i></i>)
+<p>
+        Private method to initialize the list of supported project types.
+</p><a NAME="Project.__loadDiagram" ID="Project.__loadDiagram"></a>
+<h4>Project.__loadDiagram</h4>
+<b>__loadDiagram</b>(<i></i>)
+<p>
+        Private slot to load a diagram from file.
+</p><a NAME="Project.__loadRecent" ID="Project.__loadRecent"></a>
+<h4>Project.__loadRecent</h4>
+<b>__loadRecent</b>(<i></i>)
+<p>
+        Private method to load the recently opened project filenames.
+</p><a NAME="Project.__openRecent" ID="Project.__openRecent"></a>
+<h4>Project.__openRecent</h4>
+<b>__openRecent</b>(<i>act</i>)
+<p>
+        Private method to open a project from the list of rencently opened
+        projects.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that triggered (QAction)
+</dd>
+</dl><a NAME="Project.__pluginCreateArchives" ID="Project.__pluginCreateArchives"></a>
+<h4>Project.__pluginCreateArchives</h4>
+<b>__pluginCreateArchives</b>(<i>snapshot=False</i>)
+<p>
+        Private slot to create eric6 plugin archives.
+</p><dl>
+<dt><i>snapshot</i></dt>
+<dd>
+flag indicating snapshot archives (boolean)
+</dd>
+</dl><a NAME="Project.__pluginCreatePkgList" ID="Project.__pluginCreatePkgList"></a>
+<h4>Project.__pluginCreatePkgList</h4>
+<b>__pluginCreatePkgList</b>(<i></i>)
+<p>
+        Private slot to create a PKGLIST file needed for archive file creation.
+</p><a NAME="Project.__pluginCreateSnapshotArchives" ID="Project.__pluginCreateSnapshotArchives"></a>
+<h4>Project.__pluginCreateSnapshotArchives</h4>
+<b>__pluginCreateSnapshotArchives</b>(<i></i>)
+<p>
+        Private slot to create eric6 plugin archive snapshot releases.
+</p><a NAME="Project.__pluginExtractVersion" ID="Project.__pluginExtractVersion"></a>
+<h4>Project.__pluginExtractVersion</h4>
+<b>__pluginExtractVersion</b>(<i>filename</i>)
+<p>
+        Private method to extract the version number entry.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the plugin file (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+version string (string)
+</dd>
+</dl><a NAME="Project.__pluginVersionToTuple" ID="Project.__pluginVersionToTuple"></a>
+<h4>Project.__pluginVersionToTuple</h4>
+<b>__pluginVersionToTuple</b>(<i>versionStr</i>)
+<p>
+        Private method to convert a plug-in version string into a version
+        tuple.
+</p><dl>
+<dt><i>versionStr</i> (str)</dt>
+<dd>
+version string to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+version info as a tuple
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of int and str
+</dd>
+</dl><a NAME="Project.__readDebugProperties" ID="Project.__readDebugProperties"></a>
+<h4>Project.__readDebugProperties</h4>
+<b>__readDebugProperties</b>(<i>quiet=False</i>)
+<p>
+        Private method to read in the project debugger properties file (.e4d).
+</p><dl>
+<dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations.
+                If this flag is true, no errors are reported.
+</dd>
+</dl><a NAME="Project.__readProject" ID="Project.__readProject"></a>
+<h4>Project.__readProject</h4>
+<b>__readProject</b>(<i>fn</i>)
+<p>
+        Private method to read in a project (.e4p) file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the project file to be read (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success
+</dd>
+</dl><a NAME="Project.__readSession" ID="Project.__readSession"></a>
+<h4>Project.__readSession</h4>
+<b>__readSession</b>(<i>quiet=False, indicator=""</i>)
+<p>
+        Private method to read in the project session file (.e5s or .e4s).
+</p><dl>
+<dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations.
+                If this flag is true, no errors are reported.
+</dd><dt><i>indicator=</i></dt>
+<dd>
+indicator string (string)
+</dd>
+</dl><a NAME="Project.__readTasks" ID="Project.__readTasks"></a>
+<h4>Project.__readTasks</h4>
+<b>__readTasks</b>(<i></i>)
+<p>
+        Private method to read in the project tasks file (.e6t).
+</p><a NAME="Project.__readUserProperties" ID="Project.__readUserProperties"></a>
+<h4>Project.__readUserProperties</h4>
+<b>__readUserProperties</b>(<i></i>)
+<p>
+        Private method to read in the user specific project file (.e4q).
+</p><a NAME="Project.__reorganizeFiles" ID="Project.__reorganizeFiles"></a>
+<h4>Project.__reorganizeFiles</h4>
+<b>__reorganizeFiles</b>(<i></i>)
+<p>
+        Private method to reorganize files stored in the project.
+</p><a NAME="Project.__saveRecent" ID="Project.__saveRecent"></a>
+<h4>Project.__saveRecent</h4>
+<b>__saveRecent</b>(<i></i>)
+<p>
+        Private method to save the list of recently opened filenames.
+</p><a NAME="Project.__searchNewFiles" ID="Project.__searchNewFiles"></a>
+<h4>Project.__searchNewFiles</h4>
+<b>__searchNewFiles</b>(<i></i>)
+<p>
+        Private slot used to handle the search new files action.
+</p><a NAME="Project.__searchProjectFile" ID="Project.__searchProjectFile"></a>
+<h4>Project.__searchProjectFile</h4>
+<b>__searchProjectFile</b>(<i></i>)
+<p>
+        Private slot to show the Find Project File dialog.
+</p><a NAME="Project.__showCodeCoverage" ID="Project.__showCodeCoverage"></a>
+<h4>Project.__showCodeCoverage</h4>
+<b>__showCodeCoverage</b>(<i></i>)
+<p>
+        Private slot used to show the code coverage information for the
+        project files.
+</p><a NAME="Project.__showCodeMetrics" ID="Project.__showCodeMetrics"></a>
+<h4>Project.__showCodeMetrics</h4>
+<b>__showCodeMetrics</b>(<i></i>)
+<p>
+        Private slot used to calculate some code metrics for the project files.
+</p><a NAME="Project.__showContextMenuApiDoc" ID="Project.__showContextMenuApiDoc"></a>
+<h4>Project.__showContextMenuApiDoc</h4>
+<b>__showContextMenuApiDoc</b>(<i></i>)
+<p>
+        Private slot called before the apidoc menu is shown.
+</p><a NAME="Project.__showContextMenuChecks" ID="Project.__showContextMenuChecks"></a>
+<h4>Project.__showContextMenuChecks</h4>
+<b>__showContextMenuChecks</b>(<i></i>)
+<p>
+        Private slot called before the checks menu is shown.
+</p><a NAME="Project.__showContextMenuDebugger" ID="Project.__showContextMenuDebugger"></a>
+<h4>Project.__showContextMenuDebugger</h4>
+<b>__showContextMenuDebugger</b>(<i></i>)
+<p>
+        Private slot called before the Debugger menu is shown.
+</p><a NAME="Project.__showContextMenuGraphics" ID="Project.__showContextMenuGraphics"></a>
+<h4>Project.__showContextMenuGraphics</h4>
+<b>__showContextMenuGraphics</b>(<i></i>)
+<p>
+        Private slot called before the graphics menu is shown.
+</p><a NAME="Project.__showContextMenuPackagers" ID="Project.__showContextMenuPackagers"></a>
+<h4>Project.__showContextMenuPackagers</h4>
+<b>__showContextMenuPackagers</b>(<i></i>)
+<p>
+        Private slot called before the packagers menu is shown.
+</p><a NAME="Project.__showContextMenuRecent" ID="Project.__showContextMenuRecent"></a>
+<h4>Project.__showContextMenuRecent</h4>
+<b>__showContextMenuRecent</b>(<i></i>)
+<p>
+        Private method to set up the recent projects menu.
+</p><a NAME="Project.__showContextMenuSession" ID="Project.__showContextMenuSession"></a>
+<h4>Project.__showContextMenuSession</h4>
+<b>__showContextMenuSession</b>(<i></i>)
+<p>
+        Private slot called before the Session menu is shown.
+</p><a NAME="Project.__showContextMenuShow" ID="Project.__showContextMenuShow"></a>
+<h4>Project.__showContextMenuShow</h4>
+<b>__showContextMenuShow</b>(<i></i>)
+<p>
+        Private slot called before the show menu is shown.
+</p><a NAME="Project.__showContextMenuVCS" ID="Project.__showContextMenuVCS"></a>
+<h4>Project.__showContextMenuVCS</h4>
+<b>__showContextMenuVCS</b>(<i></i>)
+<p>
+        Private slot called before the vcs menu is shown.
+</p><a NAME="Project.__showDebugProperties" ID="Project.__showDebugProperties"></a>
+<h4>Project.__showDebugProperties</h4>
+<b>__showDebugProperties</b>(<i></i>)
+<p>
+        Private slot to display the debugger properties dialog.
+</p><a NAME="Project.__showFiletypeAssociations" ID="Project.__showFiletypeAssociations"></a>
+<h4>Project.__showFiletypeAssociations</h4>
+<b>__showFiletypeAssociations</b>(<i></i>)
+<p>
+        Private slot to display the filetype association dialog.
+</p><a NAME="Project.__showLexerAssociations" ID="Project.__showLexerAssociations"></a>
+<h4>Project.__showLexerAssociations</h4>
+<b>__showLexerAssociations</b>(<i></i>)
+<p>
+        Private slot to display the lexer association dialog.
+</p><a NAME="Project.__showMenu" ID="Project.__showMenu"></a>
+<h4>Project.__showMenu</h4>
+<b>__showMenu</b>(<i></i>)
+<p>
+        Private method to set up the project menu.
+</p><a NAME="Project.__showProfileData" ID="Project.__showProfileData"></a>
+<h4>Project.__showProfileData</h4>
+<b>__showProfileData</b>(<i></i>)
+<p>
+        Private slot used to show the profiling information for the project.
+</p><a NAME="Project.__showProperties" ID="Project.__showProperties"></a>
+<h4>Project.__showProperties</h4>
+<b>__showProperties</b>(<i></i>)
+<p>
+        Private slot to display the properties dialog.
+</p><a NAME="Project.__showUserProperties" ID="Project.__showUserProperties"></a>
+<h4>Project.__showUserProperties</h4>
+<b>__showUserProperties</b>(<i></i>)
+<p>
+        Private slot to display the user specific properties dialog.
+</p><a NAME="Project.__sourceExtensions" ID="Project.__sourceExtensions"></a>
+<h4>Project.__sourceExtensions</h4>
+<b>__sourceExtensions</b>(<i>language</i>)
+<p>
+        Private method to get the source extensions of a programming language.
+</p><dl>
+<dt><i>language</i></dt>
+<dd>
+programming language (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+source extensions (list of string)
+</dd>
+</dl><a NAME="Project.__statusMonitorStatus" ID="Project.__statusMonitorStatus"></a>
+<h4>Project.__statusMonitorStatus</h4>
+<b>__statusMonitorStatus</b>(<i>status, statusMsg</i>)
+<p>
+        Private method to receive the status monitor status.
+</p><p>
+        It simply reemits the received status.
+</p><dl>
+<dt><i>status</i></dt>
+<dd>
+status of the monitoring thread (string, ok, nok or off)
+</dd><dt><i>statusMsg</i></dt>
+<dd>
+explanotory text for the signaled status (string)
+</dd>
+</dl><a NAME="Project.__syncRecent" ID="Project.__syncRecent"></a>
+<h4>Project.__syncRecent</h4>
+<b>__syncRecent</b>(<i></i>)
+<p>
+        Private method to synchronize the list of recently opened projects
+        with the central store.
+</p><a NAME="Project.__vcsStatusChanged" ID="Project.__vcsStatusChanged"></a>
+<h4>Project.__vcsStatusChanged</h4>
+<b>__vcsStatusChanged</b>(<i></i>)
+<p>
+        Private slot to handle a change of the overall VCS status.
+</p><a NAME="Project.__writeDebugProperties" ID="Project.__writeDebugProperties"></a>
+<h4>Project.__writeDebugProperties</h4>
+<b>__writeDebugProperties</b>(<i>quiet=False</i>)
+<p>
+        Private method to write the project debugger properties file (.e4d).
+</p><dl>
+<dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations.
+                If this flag is true, no errors are reported.
+</dd>
+</dl><a NAME="Project.__writeProject" ID="Project.__writeProject"></a>
+<h4>Project.__writeProject</h4>
+<b>__writeProject</b>(<i>fn=None</i>)
+<p>
+        Private method to save the project infos to a project file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+optional filename of the project file to be written (string).
+            If fn is None, the filename stored in the project object
+            is used. This is the 'save' action. If fn is given, this filename
+            is used instead of the one in the project object. This is the
+            'save as' action.
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success
+</dd>
+</dl><a NAME="Project.__writeSession" ID="Project.__writeSession"></a>
+<h4>Project.__writeSession</h4>
+<b>__writeSession</b>(<i>quiet=False, indicator=""</i>)
+<p>
+        Private method to write the session data to an XML file (.e5s).
+</p><dl>
+<dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations.
+                If this flag is true, no errors are reported.
+</dd><dt><i>indicator=</i></dt>
+<dd>
+indicator string (string)
+</dd>
+</dl><a NAME="Project.__writeUserProperties" ID="Project.__writeUserProperties"></a>
+<h4>Project.__writeUserProperties</h4>
+<b>__writeUserProperties</b>(<i></i>)
+<p>
+        Private method to write the project data to an XML file.
+</p><a NAME="Project.addDirectory" ID="Project.addDirectory"></a>
+<h4>Project.addDirectory</h4>
+<b>addDirectory</b>(<i>fileTypeFilter=None, startdir=None</i>)
+<p>
+        Public method used to add all files of a directory to the project.
+</p><dl>
+<dt><i>fileTypeFilter</i></dt>
+<dd>
+filter to be used by the add directory dialog
+            (string out of source, form, resource, interface, others)
+</dd><dt><i>startdir</i></dt>
+<dd>
+start directory for the selection dialog (string)
+</dd>
+</dl><a NAME="Project.addE5Actions" ID="Project.addE5Actions"></a>
+<h4>Project.addE5Actions</h4>
+<b>addE5Actions</b>(<i>actions</i>)
+<p>
+        Public method to add actions to the list of actions.
+</p><dl>
+<dt><i>actions</i></dt>
+<dd>
+list of actions (list of E5Action)
+</dd>
+</dl><a NAME="Project.addFiles" ID="Project.addFiles"></a>
+<h4>Project.addFiles</h4>
+<b>addFiles</b>(<i>fileTypeFilter=None, startdir=None</i>)
+<p>
+        Public slot used to add files to the project.
+</p><dl>
+<dt><i>fileTypeFilter</i></dt>
+<dd>
+filter to be used by the add file dialog
+            (string out of source, form, resource, interface, others)
+</dd><dt><i>startdir</i></dt>
+<dd>
+start directory for the selection dialog
+</dd>
+</dl><a NAME="Project.addIdlDir" ID="Project.addIdlDir"></a>
+<h4>Project.addIdlDir</h4>
+<b>addIdlDir</b>(<i></i>)
+<p>
+        Public slot to add all IDL interfaces of a directory to the current
+        project.
+</p><a NAME="Project.addIdlFiles" ID="Project.addIdlFiles"></a>
+<h4>Project.addIdlFiles</h4>
+<b>addIdlFiles</b>(<i></i>)
+<p>
+        Public slot to add IDL interfaces to the current project.
+</p><a NAME="Project.addLanguage" ID="Project.addLanguage"></a>
+<h4>Project.addLanguage</h4>
+<b>addLanguage</b>(<i></i>)
+<p>
+        Public slot used to add a language to the project.
+</p><a NAME="Project.addOthersDir" ID="Project.addOthersDir"></a>
+<h4>Project.addOthersDir</h4>
+<b>addOthersDir</b>(<i></i>)
+<p>
+        Public slot to add a directory to the OTHERS project data.
+</p><a NAME="Project.addOthersFiles" ID="Project.addOthersFiles"></a>
+<h4>Project.addOthersFiles</h4>
+<b>addOthersFiles</b>(<i></i>)
+<p>
+        Public slot to add files to the OTHERS project data.
+</p><a NAME="Project.addResourceDir" ID="Project.addResourceDir"></a>
+<h4>Project.addResourceDir</h4>
+<b>addResourceDir</b>(<i></i>)
+<p>
+        Public slot to add all Qt resource files of a directory to the current
+        project.
+</p><a NAME="Project.addResourceFiles" ID="Project.addResourceFiles"></a>
+<h4>Project.addResourceFiles</h4>
+<b>addResourceFiles</b>(<i></i>)
+<p>
+        Public slot to add Qt resources to the current project.
+</p><a NAME="Project.addSourceDir" ID="Project.addSourceDir"></a>
+<h4>Project.addSourceDir</h4>
+<b>addSourceDir</b>(<i></i>)
+<p>
+        Public slot to add all source files of a directory to the current
+        project.
+</p><a NAME="Project.addSourceFiles" ID="Project.addSourceFiles"></a>
+<h4>Project.addSourceFiles</h4>
+<b>addSourceFiles</b>(<i></i>)
+<p>
+        Public slot to add source files to the current project.
+</p><a NAME="Project.addToOthers" ID="Project.addToOthers"></a>
+<h4>Project.addToOthers</h4>
+<b>addToOthers</b>(<i>fn</i>)
+<p>
+        Public method to add a file/directory to the OTHERS project data.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+file name or directory name to add (string)
+</dd>
+</dl><a NAME="Project.addUiDir" ID="Project.addUiDir"></a>
+<h4>Project.addUiDir</h4>
+<b>addUiDir</b>(<i></i>)
+<p>
+        Public slot to add all forms of a directory to the current project.
+</p><a NAME="Project.addUiFiles" ID="Project.addUiFiles"></a>
+<h4>Project.addUiFiles</h4>
+<b>addUiFiles</b>(<i></i>)
+<p>
+        Public slot to add forms to the current project.
+</p><a NAME="Project.appendFile" ID="Project.appendFile"></a>
+<h4>Project.appendFile</h4>
+<b>appendFile</b>(<i>fn, isSourceFile=False, updateModel=True</i>)
+<p>
+        Public method to append a file to the project.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be added to the project (string)
+</dd><dt><i>isSourceFile</i></dt>
+<dd>
+flag indicating that this is a source file
+            even if it doesn't have the source extension (boolean)
+</dd><dt><i>updateModel</i></dt>
+<dd>
+flag indicating an update of the model is
+            requested (boolean)
+</dd>
+</dl><a NAME="Project.checkAllScriptsDirty" ID="Project.checkAllScriptsDirty"></a>
+<h4>Project.checkAllScriptsDirty</h4>
+<b>checkAllScriptsDirty</b>(<i>reportSyntaxErrors=False</i>)
+<p>
+        Public method to check all scripts belonging to the project for
+        their dirty status.
+</p><dl>
+<dt><i>reportSyntaxErrors=</i></dt>
+<dd>
+flag indicating special reporting
+            for syntax errors (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.checkDirty" ID="Project.checkDirty"></a>
+<h4>Project.checkDirty</h4>
+<b>checkDirty</b>(<i></i>)
+<p>
+        Public method to check dirty status and open a message window.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating whether this operation was successful (boolean)
+</dd>
+</dl><a NAME="Project.checkLanguageFiles" ID="Project.checkLanguageFiles"></a>
+<h4>Project.checkLanguageFiles</h4>
+<b>checkLanguageFiles</b>(<i></i>)
+<p>
+        Public slot to check the language files after a release process.
+</p><a NAME="Project.checkVCSStatus" ID="Project.checkVCSStatus"></a>
+<h4>Project.checkVCSStatus</h4>
+<b>checkVCSStatus</b>(<i></i>)
+<p>
+        Public method to wake up the VCS status monitor thread.
+</p><a NAME="Project.clearHistories" ID="Project.clearHistories"></a>
+<h4>Project.clearHistories</h4>
+<b>clearHistories</b>(<i></i>)
+<p>
+        Public method to clear the project related histories.
+</p><a NAME="Project.clearRecent" ID="Project.clearRecent"></a>
+<h4>Project.clearRecent</h4>
+<b>clearRecent</b>(<i></i>)
+<p>
+        Public method to clear the recent projects menu.
+</p><a NAME="Project.clearStatusMonitorCachedState" ID="Project.clearStatusMonitorCachedState"></a>
+<h4>Project.clearStatusMonitorCachedState</h4>
+<b>clearStatusMonitorCachedState</b>(<i>name</i>)
+<p>
+        Public method to clear the cached VCS state of a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the entry to be cleared (string)
+</dd>
+</dl><a NAME="Project.closeProject" ID="Project.closeProject"></a>
+<h4>Project.closeProject</h4>
+<b>closeProject</b>(<i>reopen=False, noSave=False</i>)
+<p>
+        Public slot to close the current project.
+</p><dl>
+<dt><i>reopen=</i></dt>
+<dd>
+flag indicating a reopening of the project (boolean)
+</dd><dt><i>noSave=</i></dt>
+<dd>
+flag indicating to not perform save actions (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.copyDirectory" ID="Project.copyDirectory"></a>
+<h4>Project.copyDirectory</h4>
+<b>copyDirectory</b>(<i>olddn, newdn</i>)
+<p>
+        Public slot to copy a directory.
+</p><dl>
+<dt><i>olddn</i></dt>
+<dd>
+original directory name (string)
+</dd><dt><i>newdn</i></dt>
+<dd>
+new directory name (string)
+</dd>
+</dl><a NAME="Project.createNewProject" ID="Project.createNewProject"></a>
+<h4>Project.createNewProject</h4>
+<b>createNewProject</b>(<i></i>)
+<p>
+        Public slot to built a new project.
+</p><p>
+        This method displays the new project dialog and initializes
+        the project object with the data entered.
+</p><a NAME="Project.createProjectManagementDir" ID="Project.createProjectManagementDir"></a>
+<h4>Project.createProjectManagementDir</h4>
+<b>createProjectManagementDir</b>(<i></i>)
+<p>
+        Public method to create the project management directory.
+</p><p>
+        It does nothing, if it already exists.
+</p><a NAME="Project.deleteDirectory" ID="Project.deleteDirectory"></a>
+<h4>Project.deleteDirectory</h4>
+<b>deleteDirectory</b>(<i>dn</i>)
+<p>
+        Public slot to delete a directory from the project directory.
+</p><dl>
+<dt><i>dn</i></dt>
+<dd>
+directory name to be removed from the project
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.deleteFile" ID="Project.deleteFile"></a>
+<h4>Project.deleteFile</h4>
+<b>deleteFile</b>(<i>fn</i>)
+<p>
+        Public slot to delete a file from the project directory.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be deleted from the project
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.deleteLanguageFile" ID="Project.deleteLanguageFile"></a>
+<h4>Project.deleteLanguageFile</h4>
+<b>deleteLanguageFile</b>(<i>langFile</i>)
+<p>
+        Public slot to delete a translation from the project directory.
+</p><dl>
+<dt><i>langFile</i></dt>
+<dd>
+the translation file to be removed (string)
+</dd>
+</dl><a NAME="Project.getAbsolutePath" ID="Project.getAbsolutePath"></a>
+<h4>Project.getAbsolutePath</h4>
+<b>getAbsolutePath</b>(<i>fn</i>)
+<p>
+        Public method to convert a project relative file path to an absolute
+        file path.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute path (string)
+</dd>
+</dl><a NAME="Project.getAbsoluteUniversalPath" ID="Project.getAbsoluteUniversalPath"></a>
+<h4>Project.getAbsoluteUniversalPath</h4>
+<b>getAbsoluteUniversalPath</b>(<i>fn</i>)
+<p>
+        Public method to convert a project relative file path with universal
+        separators to an absolute file path.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute path (string)
+</dd>
+</dl><a NAME="Project.getActions" ID="Project.getActions"></a>
+<h4>Project.getActions</h4>
+<b>getActions</b>(<i></i>)
+<p>
+        Public method to get a list of all actions.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of all actions (list of E5Action)
+</dd>
+</dl><a NAME="Project.getData" ID="Project.getData"></a>
+<h4>Project.getData</h4>
+<b>getData</b>(<i>category, key</i>)
+<p>
+        Public method to get data out of the project data store.
+</p><dl>
+<dt><i>category</i></dt>
+<dd>
+category of the data to get (string, one of
+            PROJECTTYPESPECIFICDATA, CHECKERSPARMS, PACKAGERSPARMS,
+            DOCUMENTATIONPARMS or OTHERTOOLSPARMS)
+</dd><dt><i>key</i></dt>
+<dd>
+key of the data entry to get (string).
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a copy of the requested data or None
+</dd>
+</dl><a NAME="Project.getDebugProperty" ID="Project.getDebugProperty"></a>
+<h4>Project.getDebugProperty</h4>
+<b>getDebugProperty</b>(<i>key</i>)
+<p>
+        Public method to retrieve a debugger property.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key of the property (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+value of the property
+</dd>
+</dl><a NAME="Project.getDebuggerFilters" ID="Project.getDebuggerFilters"></a>
+<h4>Project.getDebuggerFilters</h4>
+<b>getDebuggerFilters</b>(<i>language</i>)
+<p>
+        Public method to get the debugger filters for a programming language.
+</p><dl>
+<dt><i>language</i> (str)</dt>
+<dd>
+programming language
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+filter string
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="Project.getDefaultSourceExtension" ID="Project.getDefaultSourceExtension"></a>
+<h4>Project.getDefaultSourceExtension</h4>
+<b>getDefaultSourceExtension</b>(<i></i>)
+<p>
+        Public method to get the default extension for the project's
+        programming language.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+default extension (including the dot) (string)
+</dd>
+</dl><a NAME="Project.getEditorLexerAssoc" ID="Project.getEditorLexerAssoc"></a>
+<h4>Project.getEditorLexerAssoc</h4>
+<b>getEditorLexerAssoc</b>(<i>filename</i>)
+<p>
+        Public method to retrieve a lexer association.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+filename used to determine the associated lexer
+            language (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested lexer language (string)
+</dd>
+</dl><a NAME="Project.getEolString" ID="Project.getEolString"></a>
+<h4>Project.getEolString</h4>
+<b>getEolString</b>(<i></i>)
+<p>
+        Public method to get the EOL-string to be used by the project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+eol string (string)
+</dd>
+</dl><a NAME="Project.getFiles" ID="Project.getFiles"></a>
+<h4>Project.getFiles</h4>
+<b>getFiles</b>(<i>start</i>)
+<p>
+        Public method to get all files starting with a common prefix.
+</p><dl>
+<dt><i>start</i></dt>
+<dd>
+prefix (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of files starting with a common prefix (list of strings)
+</dd>
+</dl><a NAME="Project.getHash" ID="Project.getHash"></a>
+<h4>Project.getHash</h4>
+<b>getHash</b>(<i></i>)
+<p>
+        Public method to get the project hash.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+project hash as a hex string (string)
+</dd>
+</dl><a NAME="Project.getMainScript" ID="Project.getMainScript"></a>
+<h4>Project.getMainScript</h4>
+<b>getMainScript</b>(<i>normalized=False</i>)
+<p>
+        Public method to return the main script filename.
+</p><dl>
+<dt><i>normalized</i></dt>
+<dd>
+flag indicating a normalized filename is wanted
+            (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+filename of the projects main script (string)
+</dd>
+</dl><a NAME="Project.getMenu" ID="Project.getMenu"></a>
+<h4>Project.getMenu</h4>
+<b>getMenu</b>(<i>menuName</i>)
+<p>
+        Public method to get a reference to the main menu or a submenu.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the requested menu (QMenu) or None
+</dd>
+</dl><a NAME="Project.getModel" ID="Project.getModel"></a>
+<h4>Project.getModel</h4>
+<b>getModel</b>(<i></i>)
+<p>
+        Public method to get a reference to the project browser model.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the project browser model (ProjectBrowserModel)
+</dd>
+</dl><a NAME="Project.getMostRecent" ID="Project.getMostRecent"></a>
+<h4>Project.getMostRecent</h4>
+<b>getMostRecent</b>(<i></i>)
+<p>
+        Public method to get the most recently opened project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path of the most recently opened project (string)
+</dd>
+</dl><a NAME="Project.getProgrammingLanguages" ID="Project.getProgrammingLanguages"></a>
+<h4>Project.getProgrammingLanguages</h4>
+<b>getProgrammingLanguages</b>(<i></i>)
+<p>
+        Public method to get the programming languages supported by project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of supported programming languages (list of string)
+</dd>
+</dl><a NAME="Project.getProjectAuthor" ID="Project.getProjectAuthor"></a>
+<h4>Project.getProjectAuthor</h4>
+<b>getProjectAuthor</b>(<i></i>)
+<p>
+        Public method to get the author of the project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+author name
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="Project.getProjectAuthorEmail" ID="Project.getProjectAuthorEmail"></a>
+<h4>Project.getProjectAuthorEmail</h4>
+<b>getProjectAuthorEmail</b>(<i></i>)
+<p>
+        Public method to get the email address of the project author.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+project author email
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="Project.getProjectDescription" ID="Project.getProjectDescription"></a>
+<h4>Project.getProjectDescription</h4>
+<b>getProjectDescription</b>(<i></i>)
+<p>
+        Public method to get the description of the project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+project description
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="Project.getProjectDictionaries" ID="Project.getProjectDictionaries"></a>
+<h4>Project.getProjectDictionaries</h4>
+<b>getProjectDictionaries</b>(<i></i>)
+<p>
+        Public method to get the names of the project specific dictionaries.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of two strings giving the absolute path names of the
+            project specific word and exclude list
+</dd>
+</dl><a NAME="Project.getProjectFile" ID="Project.getProjectFile"></a>
+<h4>Project.getProjectFile</h4>
+<b>getProjectFile</b>(<i></i>)
+<p>
+        Public method to get the path of the project file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path of the project file (string)
+</dd>
+</dl><a NAME="Project.getProjectFiles" ID="Project.getProjectFiles"></a>
+<h4>Project.getProjectFiles</h4>
+<b>getProjectFiles</b>(<i>fileType, normalized=False</i>)
+<p>
+        Public method to get the file entries of the given type.
+</p><dl>
+<dt><i>fileType</i> (str)</dt>
+<dd>
+project file type (one of SOURCES, FORMS, RESOURCES,
+            INTERFACES, OTHERS, TRANSLATIONS)
+</dd><dt><i>normalized</i> (boolean)</dt>
+<dd>
+flag indicating normalized file names are wanted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of file names
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised when an unsupported file type is given
+</dd>
+</dl><a NAME="Project.getProjectLanguage" ID="Project.getProjectLanguage"></a>
+<h4>Project.getProjectLanguage</h4>
+<b>getProjectLanguage</b>(<i></i>)
+<p>
+        Public method to get the project's programming language.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+programming language (string)
+</dd>
+</dl><a NAME="Project.getProjectManagementDir" ID="Project.getProjectManagementDir"></a>
+<h4>Project.getProjectManagementDir</h4>
+<b>getProjectManagementDir</b>(<i></i>)
+<p>
+        Public method to get the path of the management directory.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path of the management directory (string)
+</dd>
+</dl><a NAME="Project.getProjectName" ID="Project.getProjectName"></a>
+<h4>Project.getProjectName</h4>
+<b>getProjectName</b>(<i></i>)
+<p>
+        Public method to get the name of the project.
+</p><p>
+        The project name is determined from the name of the project file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the project (string)
+</dd>
+</dl><a NAME="Project.getProjectPath" ID="Project.getProjectPath"></a>
+<h4>Project.getProjectPath</h4>
+<b>getProjectPath</b>(<i></i>)
+<p>
+        Public method to get the project path.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+project path (string)
+</dd>
+</dl><a NAME="Project.getProjectSpellLanguage" ID="Project.getProjectSpellLanguage"></a>
+<h4>Project.getProjectSpellLanguage</h4>
+<b>getProjectSpellLanguage</b>(<i></i>)
+<p>
+        Public method to get the project's programming language.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+programming language (string)
+</dd>
+</dl><a NAME="Project.getProjectType" ID="Project.getProjectType"></a>
+<h4>Project.getProjectType</h4>
+<b>getProjectType</b>(<i></i>)
+<p>
+        Public method to get the type of the project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+UI type of the project (string)
+</dd>
+</dl><a NAME="Project.getProjectTypes" ID="Project.getProjectTypes"></a>
+<h4>Project.getProjectTypes</h4>
+<b>getProjectTypes</b>(<i>progLanguage=""</i>)
+<p>
+        Public method to get the list of supported project types.
+</p><dl>
+<dt><i>progLanguage</i></dt>
+<dd>
+programming language to get project types for
+            (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the dictionary of project types.
+</dd>
+</dl><a NAME="Project.getProjectVersion" ID="Project.getProjectVersion"></a>
+<h4>Project.getProjectVersion</h4>
+<b>getProjectVersion</b>(<i></i>)
+<p>
+        Public mehod to get the version number of the project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+version number
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="Project.getRelativePath" ID="Project.getRelativePath"></a>
+<h4>Project.getRelativePath</h4>
+<b>getRelativePath</b>(<i>path</i>)
+<p>
+        Public method to convert a file path to a project relative
+        file path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+project relative path or unchanged path, if path doesn't
+            belong to the project (string)
+</dd>
+</dl><a NAME="Project.getRelativeUniversalPath" ID="Project.getRelativeUniversalPath"></a>
+<h4>Project.getRelativeUniversalPath</h4>
+<b>getRelativeUniversalPath</b>(<i>path</i>)
+<p>
+        Public method to convert a file path to a project relative
+        file path with universal separators.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+project relative path or unchanged path, if path doesn't
+            belong to the project (string)
+</dd>
+</dl><a NAME="Project.getSources" ID="Project.getSources"></a>
+<h4>Project.getSources</h4>
+<b>getSources</b>(<i>normalized=False</i>)
+<p>
+        Public method to return the source script files.
+</p><dl>
+<dt><i>normalized</i></dt>
+<dd>
+flag indicating a normalized filename is wanted
+            (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of the projects scripts (list of string)
+</dd>
+</dl><a NAME="Project.getStatusMonitorAutoUpdate" ID="Project.getStatusMonitorAutoUpdate"></a>
+<h4>Project.getStatusMonitorAutoUpdate</h4>
+<b>getStatusMonitorAutoUpdate</b>(<i></i>)
+<p>
+        Public method to retrieve the status of the auto update function.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+status of the auto update function (boolean)
+</dd>
+</dl><a NAME="Project.getStatusMonitorInterval" ID="Project.getStatusMonitorInterval"></a>
+<h4>Project.getStatusMonitorInterval</h4>
+<b>getStatusMonitorInterval</b>(<i></i>)
+<p>
+        Public method to get the monitor interval.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+interval in seconds (integer)
+</dd>
+</dl><a NAME="Project.getTranslationPattern" ID="Project.getTranslationPattern"></a>
+<h4>Project.getTranslationPattern</h4>
+<b>getTranslationPattern</b>(<i></i>)
+<p>
+        Public method to get the translation pattern.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+translation pattern (string)
+</dd>
+</dl><a NAME="Project.getVcs" ID="Project.getVcs"></a>
+<h4>Project.getVcs</h4>
+<b>getVcs</b>(<i></i>)
+<p>
+        Public method to get a reference to the VCS object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the VCS object
+</dd>
+</dl><a NAME="Project.handleApplicationDiagram" ID="Project.handleApplicationDiagram"></a>
+<h4>Project.handleApplicationDiagram</h4>
+<b>handleApplicationDiagram</b>(<i></i>)
+<p>
+        Public method to handle the application diagram context menu action.
+</p><a NAME="Project.handlePreferencesChanged" ID="Project.handlePreferencesChanged"></a>
+<h4>Project.handlePreferencesChanged</h4>
+<b>handlePreferencesChanged</b>(<i></i>)
+<p>
+        Public slot used to handle the preferencesChanged signal.
+</p><a NAME="Project.hasEntry" ID="Project.hasEntry"></a>
+<h4>Project.hasEntry</h4>
+<b>hasEntry</b>(<i>fn</i>)
+<p>
+        Public method to check the project for a file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the project contains the file (boolean)
+</dd>
+</dl><a NAME="Project.hasProjectType" ID="Project.hasProjectType"></a>
+<h4>Project.hasProjectType</h4>
+<b>hasProjectType</b>(<i>type_, progLanguage=""</i>)
+<p>
+        Public method to check, if a project type is already registered.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+internal type designator (string)
+</dd><dt><i>progLanguage</i></dt>
+<dd>
+programming language of the project type (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating presence of the project type (boolean)
+</dd>
+</dl><a NAME="Project.initActions" ID="Project.initActions"></a>
+<h4>Project.initActions</h4>
+<b>initActions</b>(<i></i>)
+<p>
+        Public slot to initialize the project related actions.
+</p><a NAME="Project.initFileTypes" ID="Project.initFileTypes"></a>
+<h4>Project.initFileTypes</h4>
+<b>initFileTypes</b>(<i></i>)
+<p>
+        Public method to initialize the filetype associations with default
+        values.
+</p><a NAME="Project.initMenu" ID="Project.initMenu"></a>
+<h4>Project.initMenu</h4>
+<b>initMenu</b>(<i></i>)
+<p>
+        Public slot to initialize the project menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the menu generated (QMenu)
+</dd>
+</dl><a NAME="Project.initToolbars" ID="Project.initToolbars"></a>
+<h4>Project.initToolbars</h4>
+<b>initToolbars</b>(<i>toolbarManager</i>)
+<p>
+        Public slot to initialize the project toolbar and the basic VCS
+        toolbar.
+</p><dl>
+<dt><i>toolbarManager</i></dt>
+<dd>
+reference to a toolbar manager object
+            (E5ToolBarManager)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of the generated toolbars (tuple of two QToolBar)
+</dd>
+</dl><a NAME="Project.initVCS" ID="Project.initVCS"></a>
+<h4>Project.initVCS</h4>
+<b>initVCS</b>(<i>vcsSystem=None, nooverride=False</i>)
+<p>
+        Public method used to instantiate a vcs system.
+</p><dl>
+<dt><i>vcsSystem</i></dt>
+<dd>
+type of VCS to be used (string)
+</dd><dt><i>nooverride</i></dt>
+<dd>
+flag indicating to ignore an override request
+            (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a reference to the vcs object
+</dd>
+</dl><a NAME="Project.isDebugPropertiesLoaded" ID="Project.isDebugPropertiesLoaded"></a>
+<h4>Project.isDebugPropertiesLoaded</h4>
+<b>isDebugPropertiesLoaded</b>(<i></i>)
+<p>
+        Public method to return the status of the debug properties.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+load status of debug properties (boolean)
+</dd>
+</dl><a NAME="Project.isDirty" ID="Project.isDirty"></a>
+<h4>Project.isDirty</h4>
+<b>isDirty</b>(<i></i>)
+<p>
+        Public method to return the dirty state.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dirty state (boolean)
+</dd>
+</dl><a NAME="Project.isJavaScriptProject" ID="Project.isJavaScriptProject"></a>
+<h4>Project.isJavaScriptProject</h4>
+<b>isJavaScriptProject</b>(<i></i>)
+<p>
+        Public method to check, if this project is a JavaScript project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a JavaScript project (boolean)
+</dd>
+</dl><a NAME="Project.isMixedLanguageProject" ID="Project.isMixedLanguageProject"></a>
+<h4>Project.isMixedLanguageProject</h4>
+<b>isMixedLanguageProject</b>(<i></i>)
+<p>
+        Public method to check, if this is a mixed language project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a mixed language project
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="Project.isOpen" ID="Project.isOpen"></a>
+<h4>Project.isOpen</h4>
+<b>isOpen</b>(<i></i>)
+<p>
+        Public method to return the opened state.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+open state (boolean)
+</dd>
+</dl><a NAME="Project.isProjectFile" ID="Project.isProjectFile"></a>
+<h4>Project.isProjectFile</h4>
+<b>isProjectFile</b>(<i>fn</i>)
+<p>
+        Public method used to check, if the passed in filename belongs to the
+        project.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating membership (boolean)
+</dd>
+</dl><a NAME="Project.isProjectForm" ID="Project.isProjectForm"></a>
+<h4>Project.isProjectForm</h4>
+<b>isProjectForm</b>(<i>fn</i>)
+<p>
+        Public method used to check, if the passed in filename belongs to the
+        project forms.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating membership (boolean)
+</dd>
+</dl><a NAME="Project.isProjectInterface" ID="Project.isProjectInterface"></a>
+<h4>Project.isProjectInterface</h4>
+<b>isProjectInterface</b>(<i>fn</i>)
+<p>
+        Public method used to check, if the passed in filename belongs to the
+        project interfaces.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating membership (boolean)
+</dd>
+</dl><a NAME="Project.isProjectResource" ID="Project.isProjectResource"></a>
+<h4>Project.isProjectResource</h4>
+<b>isProjectResource</b>(<i>fn</i>)
+<p>
+        Public method used to check, if the passed in filename belongs to the
+        project resources.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating membership (boolean)
+</dd>
+</dl><a NAME="Project.isProjectSource" ID="Project.isProjectSource"></a>
+<h4>Project.isProjectSource</h4>
+<b>isProjectSource</b>(<i>fn</i>)
+<p>
+        Public method used to check, if the passed in filename belongs to the
+        project sources.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating membership (boolean)
+</dd>
+</dl><a NAME="Project.isPy2Project" ID="Project.isPy2Project"></a>
+<h4>Project.isPy2Project</h4>
+<b>isPy2Project</b>(<i></i>)
+<p>
+        Public method to check, if this project is a Python2 project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python2 project (boolean)
+</dd>
+</dl><a NAME="Project.isPy3Project" ID="Project.isPy3Project"></a>
+<h4>Project.isPy3Project</h4>
+<b>isPy3Project</b>(<i></i>)
+<p>
+        Public method to check, if this project is a Python3 project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python3 project (boolean)
+</dd>
+</dl><a NAME="Project.isPythonProject" ID="Project.isPythonProject"></a>
+<h4>Project.isPythonProject</h4>
+<b>isPythonProject</b>(<i></i>)
+<p>
+        Public method to check, if this project is a Python2 or Python3
+        project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python project (boolean)
+</dd>
+</dl><a NAME="Project.isRubyProject" ID="Project.isRubyProject"></a>
+<h4>Project.isRubyProject</h4>
+<b>isRubyProject</b>(<i></i>)
+<p>
+        Public method to check, if this project is a Ruby project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Ruby project (boolean)
+</dd>
+</dl><a NAME="Project.moveDirectory" ID="Project.moveDirectory"></a>
+<h4>Project.moveDirectory</h4>
+<b>moveDirectory</b>(<i>olddn, newdn</i>)
+<p>
+        Public slot to move a directory.
+</p><dl>
+<dt><i>olddn</i></dt>
+<dd>
+old directory name (string)
+</dd><dt><i>newdn</i></dt>
+<dd>
+new directory name (string)
+</dd>
+</dl><a NAME="Project.newProjectAddFiles" ID="Project.newProjectAddFiles"></a>
+<h4>Project.newProjectAddFiles</h4>
+<b>newProjectAddFiles</b>(<i>mainscript</i>)
+<p>
+        Public method to add files to a new project.
+</p><dl>
+<dt><i>mainscript</i></dt>
+<dd>
+name of the mainscript (string)
+</dd>
+</dl><a NAME="Project.openProject" ID="Project.openProject"></a>
+<h4>Project.openProject</h4>
+<b>openProject</b>(<i>fn=None, restoreSession=True, reopen=False</i>)
+<p>
+        Public slot to open a project.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+optional filename of the project file to be read
+</dd><dt><i>restoreSession</i></dt>
+<dd>
+flag indicating to restore the project
+            session (boolean)
+</dd><dt><i>reopen=</i></dt>
+<dd>
+flag indicating a reopening of the project (boolean)
+</dd>
+</dl><a NAME="Project.othersAdded" ID="Project.othersAdded"></a>
+<h4>Project.othersAdded</h4>
+<b>othersAdded</b>(<i>fn, updateModel=True</i>)
+<p>
+        Public slot to be called, if something was added to the OTHERS project
+        data area.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename or directory name added (string)
+</dd><dt><i>updateModel</i></dt>
+<dd>
+flag indicating an update of the model is requested
+            (boolean)
+</dd>
+</dl><a NAME="Project.registerProjectType" ID="Project.registerProjectType"></a>
+<h4>Project.registerProjectType</h4>
+<b>registerProjectType</b>(<i>type_, description, fileTypeCallback=None, binaryTranslationsCallback=None, lexerAssociationCallback=None, progLanguages=None</i>)
+<p>
+        Public method to register a project type.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+internal type designator to be registered (string)
+</dd><dt><i>description</i></dt>
+<dd>
+more verbose type name (display string) (string)
+</dd><dt><i>fileTypeCallback=</i></dt>
+<dd>
+reference to a method returning a dictionary
+            of filetype associations.
+</dd><dt><i>binaryTranslationsCallback=</i></dt>
+<dd>
+reference to a method returning
+            the name of the binary translation file given the name of the raw
+            translation file
+</dd><dt><i>lexerAssociationCallback=</i></dt>
+<dd>
+reference to a method returning the
+            lexer type to be used for syntax highlighting given the name of
+            a file
+</dd><dt><i>progLanguages=</i></dt>
+<dd>
+programming languages supported by the
+            project type (list of string)
+</dd>
+</dl><a NAME="Project.removeDirectory" ID="Project.removeDirectory"></a>
+<h4>Project.removeDirectory</h4>
+<b>removeDirectory</b>(<i>dn</i>)
+<p>
+        Public slot to remove a directory from the project.
+</p><p>
+        The directory is not deleted from the project directory.
+</p><dl>
+<dt><i>dn</i></dt>
+<dd>
+directory name to be removed from the project
+</dd>
+</dl><a NAME="Project.removeE5Actions" ID="Project.removeE5Actions"></a>
+<h4>Project.removeE5Actions</h4>
+<b>removeE5Actions</b>(<i>actions</i>)
+<p>
+        Public method to remove actions from the list of actions.
+</p><dl>
+<dt><i>actions</i></dt>
+<dd>
+list of actions (list of E5Action)
+</dd>
+</dl><a NAME="Project.removeFile" ID="Project.removeFile"></a>
+<h4>Project.removeFile</h4>
+<b>removeFile</b>(<i>fn, updateModel=True</i>)
+<p>
+        Public slot to remove a file from the project.
+</p><p>
+        The file is not deleted from the project directory.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be removed from the project
+</dd><dt><i>updateModel</i></dt>
+<dd>
+flag indicating an update of the model is
+            requested (boolean)
+</dd>
+</dl><a NAME="Project.removeLanguageFile" ID="Project.removeLanguageFile"></a>
+<h4>Project.removeLanguageFile</h4>
+<b>removeLanguageFile</b>(<i>langFile</i>)
+<p>
+        Public slot to remove a translation from the project.
+</p><p>
+        The translation file is not deleted from the project directory.
+</p><dl>
+<dt><i>langFile</i></dt>
+<dd>
+the translation file to be removed (string)
+</dd>
+</dl><a NAME="Project.renameFile" ID="Project.renameFile"></a>
+<h4>Project.renameFile</h4>
+<b>renameFile</b>(<i>oldfn, newfn=None</i>)
+<p>
+        Public slot to rename a file of the project.
+</p><dl>
+<dt><i>oldfn</i></dt>
+<dd>
+old filename of the file (string)
+</dd><dt><i>newfn</i></dt>
+<dd>
+new filename of the file (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success
+</dd>
+</dl><a NAME="Project.renameFileInPdata" ID="Project.renameFileInPdata"></a>
+<h4>Project.renameFileInPdata</h4>
+<b>renameFileInPdata</b>(<i>oldname, newname, isSourceFile=False</i>)
+<p>
+        Public method to rename a file in the pdata structure.
+</p><dl>
+<dt><i>oldname</i></dt>
+<dd>
+old filename (string)
+</dd><dt><i>newname</i></dt>
+<dd>
+new filename (string)
+</dd><dt><i>isSourceFile</i></dt>
+<dd>
+flag indicating that this is a source file
+                even if it doesn't have the source extension (boolean)
+</dd>
+</dl><a NAME="Project.renameMainScript" ID="Project.renameMainScript"></a>
+<h4>Project.renameMainScript</h4>
+<b>renameMainScript</b>(<i>oldfn, newfn</i>)
+<p>
+        Public method to rename the main script.
+</p><dl>
+<dt><i>oldfn</i></dt>
+<dd>
+old filename (string)
+</dd><dt><i>newfn</i></dt>
+<dd>
+new filename of the main script (string)
+</dd>
+</dl><a NAME="Project.reopenProject" ID="Project.reopenProject"></a>
+<h4>Project.reopenProject</h4>
+<b>reopenProject</b>(<i></i>)
+<p>
+        Public slot to reopen the current project.
+</p><a NAME="Project.repopulateItem" ID="Project.repopulateItem"></a>
+<h4>Project.repopulateItem</h4>
+<b>repopulateItem</b>(<i>fullname</i>)
+<p>
+        Public slot to repopulate a named item.
+</p><dl>
+<dt><i>fullname</i></dt>
+<dd>
+full name of the item to repopulate (string)
+</dd>
+</dl><a NAME="Project.saveAllScripts" ID="Project.saveAllScripts"></a>
+<h4>Project.saveAllScripts</h4>
+<b>saveAllScripts</b>(<i>reportSyntaxErrors=False</i>)
+<p>
+        Public method to save all scripts belonging to the project.
+</p><dl>
+<dt><i>reportSyntaxErrors=</i></dt>
+<dd>
+flag indicating special reporting
+            for syntax errors (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.saveProject" ID="Project.saveProject"></a>
+<h4>Project.saveProject</h4>
+<b>saveProject</b>(<i></i>)
+<p>
+        Public slot to save the current project.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success
+</dd>
+</dl><a NAME="Project.saveProjectAs" ID="Project.saveProjectAs"></a>
+<h4>Project.saveProjectAs</h4>
+<b>saveProjectAs</b>(<i></i>)
+<p>
+        Public slot to save the current project to a different file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.setData" ID="Project.setData"></a>
+<h4>Project.setData</h4>
+<b>setData</b>(<i>category, key, data</i>)
+<p>
+        Public method to store data in the project data store.
+</p><dl>
+<dt><i>category</i></dt>
+<dd>
+category of the data to get (string, one of
+            PROJECTTYPESPECIFICDATA, CHECKERSPARMS, PACKAGERSPARMS,
+            DOCUMENTATIONPARMS or OTHERTOOLSPARMS)
+</dd><dt><i>key</i></dt>
+<dd>
+key of the data entry to get (string).
+</dd><dt><i>data</i></dt>
+<dd>
+data to be stored
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Project.setDbgInfo" ID="Project.setDbgInfo"></a>
+<h4>Project.setDbgInfo</h4>
+<b>setDbgInfo</b>(<i>argv, wd, env, excReporting, excList, excIgnoreList, autoClearShell, tracePython=None, autoContinue=None</i>)
+<p>
+        Public method to set the debugging information.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+command line arguments to be used (string)
+</dd><dt><i>wd</i></dt>
+<dd>
+working directory (string)
+</dd><dt><i>env</i></dt>
+<dd>
+environment setting (string)
+</dd><dt><i>excReporting</i></dt>
+<dd>
+flag indicating the highlighting of exceptions
+</dd><dt><i>excList</i></dt>
+<dd>
+list of exceptions to be highlighted (list of strings)
+</dd><dt><i>excIgnoreList</i></dt>
+<dd>
+list of exceptions to be ignored (list of strings)
+</dd><dt><i>autoClearShell</i></dt>
+<dd>
+flag indicating, that the interpreter window
+            should be cleared (boolean)
+</dd><dt><i>tracePython=</i></dt>
+<dd>
+flag to indicate if the Python library should be
+            traced as well (boolean)
+</dd><dt><i>autoContinue=</i></dt>
+<dd>
+flag indicating, that the debugger should not
+            stop at the first executable line (boolean)
+</dd>
+</dl><a NAME="Project.setDirty" ID="Project.setDirty"></a>
+<h4>Project.setDirty</h4>
+<b>setDirty</b>(<i>b</i>)
+<p>
+        Public method to set the dirty state.
+</p><p>
+        It emits the signal dirty(int).
+</p><dl>
+<dt><i>b</i></dt>
+<dd>
+dirty state (boolean)
+</dd>
+</dl><a NAME="Project.setStatusMonitorAutoUpdate" ID="Project.setStatusMonitorAutoUpdate"></a>
+<h4>Project.setStatusMonitorAutoUpdate</h4>
+<b>setStatusMonitorAutoUpdate</b>(<i>auto</i>)
+<p>
+        Public method to enable the auto update function.
+</p><dl>
+<dt><i>auto</i></dt>
+<dd>
+status of the auto update function (boolean)
+</dd>
+</dl><a NAME="Project.setStatusMonitorInterval" ID="Project.setStatusMonitorInterval"></a>
+<h4>Project.setStatusMonitorInterval</h4>
+<b>setStatusMonitorInterval</b>(<i>interval</i>)
+<p>
+        Public method to se the interval of the VCS status monitor thread.
+</p><dl>
+<dt><i>interval</i></dt>
+<dd>
+status monitor interval in seconds (integer)
+</dd>
+</dl><a NAME="Project.setTranslationPattern" ID="Project.setTranslationPattern"></a>
+<h4>Project.setTranslationPattern</h4>
+<b>setTranslationPattern</b>(<i>pattern</i>)
+<p>
+        Public method to set the translation pattern.
+</p><dl>
+<dt><i>pattern</i> (str)</dt>
+<dd>
+translation pattern
+</dd>
+</dl><a NAME="Project.startStatusMonitor" ID="Project.startStatusMonitor"></a>
+<h4>Project.startStatusMonitor</h4>
+<b>startStatusMonitor</b>(<i></i>)
+<p>
+        Public method to start the VCS status monitor thread.
+</p><a NAME="Project.startswithProjectPath" ID="Project.startswithProjectPath"></a>
+<h4>Project.startswithProjectPath</h4>
+<b>startswithProjectPath</b>(<i>path</i>)
+<p>
+        Public method to check, if a path starts with the project path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the path starts with the project path
+            (boolean)
+</dd>
+</dl><a NAME="Project.stopStatusMonitor" ID="Project.stopStatusMonitor"></a>
+<h4>Project.stopStatusMonitor</h4>
+<b>stopStatusMonitor</b>(<i></i>)
+<p>
+        Public method to stop the VCS status monitor thread.
+</p><a NAME="Project.unregisterProjectType" ID="Project.unregisterProjectType"></a>
+<h4>Project.unregisterProjectType</h4>
+<b>unregisterProjectType</b>(<i>type_</i>)
+<p>
+        Public method to unregister a project type.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+internal type designator to be unregistered (string)
+</dd>
+</dl><a NAME="Project.updateFileTypes" ID="Project.updateFileTypes"></a>
+<h4>Project.updateFileTypes</h4>
+<b>updateFileTypes</b>(<i></i>)
+<p>
+        Public method to update the filetype associations with new default
+        values.
+</p><a NAME="Project.useSystemEol" ID="Project.useSystemEol"></a>
+<h4>Project.useSystemEol</h4>
+<b>useSystemEol</b>(<i></i>)
+<p>
+        Public method to check, if the project uses the system eol setting.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the usage of system eol (boolean)
+</dd>
+</dl><a NAME="Project.vcsSoftwareAvailable" ID="Project.vcsSoftwareAvailable"></a>
+<h4>Project.vcsSoftwareAvailable</h4>
+<b>vcsSoftwareAvailable</b>(<i></i>)
+<p>
+        Public method to check, if some supported VCS software is available
+        to the IDE.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating availability of VCS software (boolean)
+</dd>
+</dl><a NAME="Project.writeTasks" ID="Project.writeTasks"></a>
+<h4>Project.writeTasks</h4>
+<b>writeTasks</b>(<i></i>)
+<p>
+        Public method to write the tasks data to an XML file (.e6t).
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.WebBrowserPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.WebBrowserPage</h1>
+<p>
+Module implementing the helpbrowser using QWebView.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#WebBrowserPage">WebBrowserPage</a></td>
+<td>Class implementing an enhanced web page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="WebBrowserPage" ID="WebBrowserPage"></a>
+<h2>WebBrowserPage</h2>
+<p>
+    Class implementing an enhanced web page.
+</p>
+<h3>Derived from</h3>
+QWebEnginePage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>SafeJsWorld</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr>
+<td><a href="#WebBrowserPage.setUserAgent">setUserAgent</a></td>
+<td>Class method to set the global user agent string.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.userAgent">userAgent</a></td>
+<td>Class method to get the global user agent setting.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.userAgentForUrl">userAgentForUrl</a></td>
+<td>Class method to determine the user agent for the given URL.</td>
+</tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#WebBrowserPage.__init__">WebBrowserPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.__featurePermissionRequested">__featurePermissionRequested</a></td>
+<td>Private slot handling a feature permission request.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.__fullScreenRequested">__fullScreenRequested</a></td>
+<td>Private slot handling a full screen request.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.__setupWebChannel">__setupWebChannel</a></td>
+<td>Private method to setup a web channel to our external object.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.__urlChanged">__urlChanged</a></td>
+<td>Private slot to handle changes of the URL.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.acceptNavigationRequest">acceptNavigationRequest</a></td>
+<td>Public method to determine, if a request may be accepted.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.certificateError">certificateError</a></td>
+<td>Public method to handle SSL certificate errors.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.execJavaScript">execJavaScript</a></td>
+<td>Public method to execute a JavaScript function synchroneously.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.execPrintPage">execPrintPage</a></td>
+<td>Public method to execute a synchronous print.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.hitTestContent">hitTestContent</a></td>
+<td>Public method to test the content at a specified position.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.icon">icon</a></td>
+<td>Public method to get the web site icon.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.isJavaScriptEnabled">isJavaScriptEnabled</a></td>
+<td>Public method to test, if JavaScript is enabled.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.javaScriptConsoleMessage">javaScriptConsoleMessage</a></td>
+<td>Public method to show a console message.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.mapToViewport">mapToViewport</a></td>
+<td>Public method to map a position to the viewport.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.printCallback">printCallback</a></td>
+<td></td>
+</tr><tr>
+<td><a href="#WebBrowserPage.resultCallback">resultCallback</a></td>
+<td></td>
+</tr><tr>
+<td><a href="#WebBrowserPage.runJavaScript">runJavaScript</a></td>
+<td>Public method to run a script in the context of the page.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.scroll">scroll</a></td>
+<td>Public method to scroll by the given amount of pixels.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.scrollPosition">scrollPosition</a></td>
+<td>Public method to get the scroll position of the web page.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.scrollTo">scrollTo</a></td>
+<td>Public method to scroll to the given position.</td>
+</tr><tr>
+<td><a href="#WebBrowserPage.setJavaScriptEnabled">setJavaScriptEnabled</a></td>
+<td>Public method to enable JavaScript.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="WebBrowserPage.setUserAgent" ID="WebBrowserPage.setUserAgent"></a>
+<h4>WebBrowserPage.setUserAgent (class method)</h4>
+<b>setUserAgent</b>(<i>agent</i>)
+<p>
+        Class method to set the global user agent string.
+</p><dl>
+<dt><i>agent</i></dt>
+<dd>
+new current user agent string (string)
+</dd>
+</dl><a NAME="WebBrowserPage.userAgent" ID="WebBrowserPage.userAgent"></a>
+<h4>WebBrowserPage.userAgent (class method)</h4>
+<b>userAgent</b>(<i>resolveEmpty=False</i>)
+<p>
+        Class method to get the global user agent setting.
+</p><dl>
+<dt><i>resolveEmpty</i></dt>
+<dd>
+flag indicating to resolve an empty
+            user agent (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+user agent string (string)
+</dd>
+</dl><a NAME="WebBrowserPage.userAgentForUrl" ID="WebBrowserPage.userAgentForUrl"></a>
+<h4>WebBrowserPage.userAgentForUrl (class method)</h4>
+<b>userAgentForUrl</b>(<i>url</i>)
+<p>
+        Class method to determine the user agent for the given URL.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to determine user agent for (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+user agent string (string)
+</dd>
+</dl><a NAME="WebBrowserPage.__init__" ID="WebBrowserPage.__init__"></a>
+<h4>WebBrowserPage (Constructor)</h4>
+<b>WebBrowserPage</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of this window (QWidget)
+</dd>
+</dl><a NAME="WebBrowserPage.__featurePermissionRequested" ID="WebBrowserPage.__featurePermissionRequested"></a>
+<h4>WebBrowserPage.__featurePermissionRequested</h4>
+<b>__featurePermissionRequested</b>(<i>url, feature</i>)
+<p>
+        Private slot handling a feature permission request.
+</p><dl>
+<dt><i>url</i> (QUrl)</dt>
+<dd>
+url requesting the feature
+</dd><dt><i>feature</i> (QWebEnginePage.Feature)</dt>
+<dd>
+requested feature
+</dd>
+</dl><a NAME="WebBrowserPage.__fullScreenRequested" ID="WebBrowserPage.__fullScreenRequested"></a>
+<h4>WebBrowserPage.__fullScreenRequested</h4>
+<b>__fullScreenRequested</b>(<i>request</i>)
+<p>
+        Private slot handling a full screen request.
+</p><dl>
+<dt><i>request</i> (QWebEngineFullScreenRequest)</dt>
+<dd>
+reference to the full screen request
+</dd>
+</dl><a NAME="WebBrowserPage.__setupWebChannel" ID="WebBrowserPage.__setupWebChannel"></a>
+<h4>WebBrowserPage.__setupWebChannel</h4>
+<b>__setupWebChannel</b>(<i></i>)
+<p>
+        Private method to setup a web channel to our external object.
+</p><a NAME="WebBrowserPage.__urlChanged" ID="WebBrowserPage.__urlChanged"></a>
+<h4>WebBrowserPage.__urlChanged</h4>
+<b>__urlChanged</b>(<i>url</i>)
+<p>
+        Private slot to handle changes of the URL.
+</p><dl>
+<dt><i>url</i> (QUrl)</dt>
+<dd>
+new URL
+</dd>
+</dl><a NAME="WebBrowserPage.acceptNavigationRequest" ID="WebBrowserPage.acceptNavigationRequest"></a>
+<h4>WebBrowserPage.acceptNavigationRequest</h4>
+<b>acceptNavigationRequest</b>(<i>url, type_, isMainFrame</i>)
+<p>
+        Public method to determine, if a request may be accepted.
+</p><dl>
+<dt><i>url</i> (QUrl)</dt>
+<dd>
+URL to navigate to
+</dd><dt><i>type_</i> (QWebEnginePage.NavigationType)</dt>
+<dd>
+type of the navigation request
+</dd><dt><i>isMainFrame</i> (bool)</dt>
+<dd>
+flag indicating, that the request originated from
+            the main frame
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating acceptance
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="WebBrowserPage.certificateError" ID="WebBrowserPage.certificateError"></a>
+<h4>WebBrowserPage.certificateError</h4>
+<b>certificateError</b>(<i>error</i>)
+<p>
+        Public method to handle SSL certificate errors.
+</p><dl>
+<dt><i>error</i> (QWebEngineCertificateError)</dt>
+<dd>
+object containing the certificate error information
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating to ignore this error
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="WebBrowserPage.execJavaScript" ID="WebBrowserPage.execJavaScript"></a>
+<h4>WebBrowserPage.execJavaScript</h4>
+<b>execJavaScript</b>(<i>script, worldId=QWebEngineScript.MainWorld, timeout=500</i>)
+<p>
+        Public method to execute a JavaScript function synchroneously.
+</p><dl>
+<dt><i>script</i> (str)</dt>
+<dd>
+JavaScript script source to be executed
+</dd><dt><i>worldId</i> (int)</dt>
+<dd>
+ID to run the script under
+</dd><dt><i>timeout</i> (int)</dt>
+<dd>
+max. time the script is given to execute
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+result of the script
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+depending upon script result
+</dd>
+</dl><a NAME="WebBrowserPage.execPrintPage" ID="WebBrowserPage.execPrintPage"></a>
+<h4>WebBrowserPage.execPrintPage</h4>
+<b>execPrintPage</b>(<i>printer, timeout=1000</i>)
+<p>
+        Public method to execute a synchronous print.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer object
+</dd><dt><i>timeout</i> (int)</dt>
+<dd>
+timeout value in milliseconds
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successful print job
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="WebBrowserPage.hitTestContent" ID="WebBrowserPage.hitTestContent"></a>
+<h4>WebBrowserPage.hitTestContent</h4>
+<b>hitTestContent</b>(<i>pos</i>)
+<p>
+        Public method to test the content at a specified position.
+</p><dl>
+<dt><i>pos</i> (QPoint)</dt>
+<dd>
+position to execute the test at
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+test result object
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+WebHitTestResult
+</dd>
+</dl><a NAME="WebBrowserPage.icon" ID="WebBrowserPage.icon"></a>
+<h4>WebBrowserPage.icon</h4>
+<b>icon</b>(<i></i>)
+<p>
+            Public method to get the web site icon.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+web site icon
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QIcon
+</dd>
+</dl><a NAME="WebBrowserPage.isJavaScriptEnabled" ID="WebBrowserPage.isJavaScriptEnabled"></a>
+<h4>WebBrowserPage.isJavaScriptEnabled</h4>
+<b>isJavaScriptEnabled</b>(<i></i>)
+<p>
+        Public method to test, if JavaScript is enabled.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the state of the JavaScript support
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="WebBrowserPage.javaScriptConsoleMessage" ID="WebBrowserPage.javaScriptConsoleMessage"></a>
+<h4>WebBrowserPage.javaScriptConsoleMessage</h4>
+<b>javaScriptConsoleMessage</b>(<i>level, message, lineNumber, sourceId</i>)
+<p>
+        Public method to show a console message.
+</p><dl>
+<dt><i>level</i> (QWebEnginePage.JavaScriptConsoleMessageLevel)</dt>
+<dd>
+severity
+</dd><dt><i>message</i> (str)</dt>
+<dd>
+message to be shown
+</dd><dt><i>lineNumber</i> (int)</dt>
+<dd>
+line number of an error
+</dd><dt><i>sourceId</i> (str)</dt>
+<dd>
+source URL causing the error
+</dd>
+</dl><a NAME="WebBrowserPage.mapToViewport" ID="WebBrowserPage.mapToViewport"></a>
+<h4>WebBrowserPage.mapToViewport</h4>
+<b>mapToViewport</b>(<i>pos</i>)
+<p>
+        Public method to map a position to the viewport.
+</p><dl>
+<dt><i>pos</i> (QPoint)</dt>
+<dd>
+position to be mapped
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+viewport position
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QPoint
+</dd>
+</dl><a NAME="WebBrowserPage.printCallback" ID="WebBrowserPage.printCallback"></a>
+<h4>WebBrowserPage.printCallback</h4>
+<b>printCallback</b>(<i>resDict=resultDict</i>)
+<a NAME="WebBrowserPage.resultCallback" ID="WebBrowserPage.resultCallback"></a>
+<h4>WebBrowserPage.resultCallback</h4>
+<b>resultCallback</b>(<i>resDict=resultDict</i>)
+<a NAME="WebBrowserPage.runJavaScript" ID="WebBrowserPage.runJavaScript"></a>
+<h4>WebBrowserPage.runJavaScript</h4>
+<b>runJavaScript</b>(<i>script, worldId=-1, callback=None</i>)
+<p>
+        Public method to run a script in the context of the page.
+</p><dl>
+<dt><i>script</i> (str)</dt>
+<dd>
+JavaScript script source to be executed
+</dd><dt><i>worldId</i> (int)</dt>
+<dd>
+ID to run the script under
+</dd><dt><i>callback</i> (function)</dt>
+<dd>
+callback function to be executed when the script has
+            ended
+</dd>
+</dl><a NAME="WebBrowserPage.scroll" ID="WebBrowserPage.scroll"></a>
+<h4>WebBrowserPage.scroll</h4>
+<b>scroll</b>(<i>x, y</i>)
+<p>
+        Public method to scroll by the given amount of pixels.
+</p><dl>
+<dt><i>x</i> (int)</dt>
+<dd>
+horizontal scroll value
+</dd><dt><i>y</i> (int)</dt>
+<dd>
+vertical scroll value
+</dd>
+</dl><a NAME="WebBrowserPage.scrollPosition" ID="WebBrowserPage.scrollPosition"></a>
+<h4>WebBrowserPage.scrollPosition</h4>
+<b>scrollPosition</b>(<i></i>)
+<p>
+            Public method to get the scroll position of the web page.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+scroll position
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QPointF
+</dd>
+</dl><a NAME="WebBrowserPage.scrollTo" ID="WebBrowserPage.scrollTo"></a>
+<h4>WebBrowserPage.scrollTo</h4>
+<b>scrollTo</b>(<i>pos</i>)
+<p>
+        Public method to scroll to the given position.
+</p><dl>
+<dt><i>pos</i> (QPointF)</dt>
+<dd>
+position to scroll to
+</dd>
+</dl><a NAME="WebBrowserPage.setJavaScriptEnabled" ID="WebBrowserPage.setJavaScriptEnabled"></a>
+<h4>WebBrowserPage.setJavaScriptEnabled</h4>
+<b>setJavaScriptEnabled</b>(<i>enable</i>)
+<p>
+        Public method to enable JavaScript.
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating the enabled state to be set
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

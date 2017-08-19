@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsPySvn.subversion</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsPySvn.subversion</h1>
+<p>
+Module implementing the version control systems interface to Subversion.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Subversion">Subversion</a></td>
+<td>Class implementing the version control systems interface to Subversion.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Subversion" ID="Subversion"></a>
+<h2>Subversion</h2>
+<p>
+    Class implementing the version control systems interface to Subversion.
+</p><h3>Signals</h3>
+<dl>
+<dt>committed()</dt>
+<dd>
+emitted after the commit action has completed
+</dd>
+</dl>
+<h3>Derived from</h3>
+VersionControl
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Subversion.__init__">Subversion</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Subversion.__isVersioned">__isVersioned</a></td>
+<td>Private method to check, if the given status indicates a versioned state.</td>
+</tr><tr>
+<td><a href="#Subversion.__svnGetFileForRevision">__svnGetFileForRevision</a></td>
+<td>Private method to get a file for a specific revision from the repository.</td>
+</tr><tr>
+<td><a href="#Subversion.__svnURL">__svnURL</a></td>
+<td>Private method to format a url for subversion.</td>
+</tr><tr>
+<td><a href="#Subversion.__vcsAllRegisteredStates_wc">__vcsAllRegisteredStates_wc</a></td>
+<td>Private method used to get the registered states of a number of files in the VCS.</td>
+</tr><tr>
+<td><a href="#Subversion.__vcsAllRegisteredStates_wcng">__vcsAllRegisteredStates_wcng</a></td>
+<td>Private method used to get the registered states of a number of files in the vcs.</td>
+</tr><tr>
+<td><a href="#Subversion.__vcsCommit_Step2">__vcsCommit_Step2</a></td>
+<td>Private slot performing the second step of the commit action.</td>
+</tr><tr>
+<td><a href="#Subversion.__vcsRegisteredState_wc">__vcsRegisteredState_wc</a></td>
+<td>Private method used to get the registered state of a file in the vcs.</td>
+</tr><tr>
+<td><a href="#Subversion.__vcsRegisteredState_wcng">__vcsRegisteredState_wcng</a></td>
+<td>Private method used to get the registered state of a file in the vcs.</td>
+</tr><tr>
+<td><a href="#Subversion._createStatusMonitorThread">_createStatusMonitorThread</a></td>
+<td>Protected method to create an instance of the VCS status monitor thread.</td>
+</tr><tr>
+<td><a href="#Subversion.clearStatusCache">clearStatusCache</a></td>
+<td>Public method to clear the status cache.</td>
+</tr><tr>
+<td><a href="#Subversion.getClient">getClient</a></td>
+<td>Public method to create and initialize the pysvn client object.</td>
+</tr><tr>
+<td><a href="#Subversion.getPlugin">getPlugin</a></td>
+<td>Public method to get a reference to the plugin object.</td>
+</tr><tr>
+<td><a href="#Subversion.svnAddToChangelist">svnAddToChangelist</a></td>
+<td>Public method to add a file or directory to a changelist.</td>
+</tr><tr>
+<td><a href="#Subversion.svnBlame">svnBlame</a></td>
+<td>Public method to show the output of the svn blame command.</td>
+</tr><tr>
+<td><a href="#Subversion.svnCopy">svnCopy</a></td>
+<td>Public method used to copy a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.svnDelProp">svnDelProp</a></td>
+<td>Public method used to delete a property of a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.svnExtendedDiff">svnExtendedDiff</a></td>
+<td>Public method used to view the difference of a file/directory to the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.svnGetChangelists">svnGetChangelists</a></td>
+<td>Public method to get a list of all defined change lists.</td>
+</tr><tr>
+<td><a href="#Subversion.svnGetReposName">svnGetReposName</a></td>
+<td>Public method used to retrieve the URL of the subversion repository path.</td>
+</tr><tr>
+<td><a href="#Subversion.svnInfo">svnInfo</a></td>
+<td>Public method to show repository information about a file or directory.</td>
+</tr><tr>
+<td><a href="#Subversion.svnListProps">svnListProps</a></td>
+<td>Public method used to list the properties of a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.svnListTagBranch">svnListTagBranch</a></td>
+<td>Public method used to list the available tags or branches.</td>
+</tr><tr>
+<td><a href="#Subversion.svnLock">svnLock</a></td>
+<td>Public method used to lock a file in the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.svnNormalizeURL">svnNormalizeURL</a></td>
+<td>Public method to normalize a url for subversion.</td>
+</tr><tr>
+<td><a href="#Subversion.svnRelocate">svnRelocate</a></td>
+<td>Public method to relocate the working copy to a new repository URL.</td>
+</tr><tr>
+<td><a href="#Subversion.svnRemoveFromChangelist">svnRemoveFromChangelist</a></td>
+<td>Public method to remove a file or directory from its changelist.</td>
+</tr><tr>
+<td><a href="#Subversion.svnRepoBrowser">svnRepoBrowser</a></td>
+<td>Public method to open the repository browser.</td>
+</tr><tr>
+<td><a href="#Subversion.svnResolve">svnResolve</a></td>
+<td>Public method used to resolve conflicts of a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.svnSbsDiff">svnSbsDiff</a></td>
+<td>Public method used to view the difference of a file to the Mercurial repository side-by-side.</td>
+</tr><tr>
+<td><a href="#Subversion.svnSetProp">svnSetProp</a></td>
+<td>Public method used to add a property to a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.svnShowChangelists">svnShowChangelists</a></td>
+<td>Public method used to inspect the change lists defined for the project.</td>
+</tr><tr>
+<td><a href="#Subversion.svnUnlock">svnUnlock</a></td>
+<td>Public method used to unlock a file in the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.svnUpgrade">svnUpgrade</a></td>
+<td>Public method to upgrade the working copy format.</td>
+</tr><tr>
+<td><a href="#Subversion.svnUrlDiff">svnUrlDiff</a></td>
+<td>Public method used to view the difference of a file/directory of two repository URLs.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsAdd">vcsAdd</a></td>
+<td>Public method used to add a file/directory to the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsAddBinary">vcsAddBinary</a></td>
+<td>Public method used to add a file/directory in binary mode to the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsAddTree">vcsAddTree</a></td>
+<td>Public method to add a directory tree rooted at path to the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsAllRegisteredStates">vcsAllRegisteredStates</a></td>
+<td>Public method used to get the registered states of a number of files in the vcs.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsCheckout">vcsCheckout</a></td>
+<td>Public method used to check the project out of the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsCleanup">vcsCleanup</a></td>
+<td>Public method used to cleanup the working copy.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsCommandLine">vcsCommandLine</a></td>
+<td>Public method used to execute arbitrary subversion commands.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsCommit">vcsCommit</a></td>
+<td>Public method used to make the change of a file/directory permanent in the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsConvertProject">vcsConvertProject</a></td>
+<td>Public method to convert an uncontrolled project to a version controlled project.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsDiff">vcsDiff</a></td>
+<td>Public method used to view the difference of a file/directory to the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsExists">vcsExists</a></td>
+<td>Public method used to test for the presence of the svn executable.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsExport">vcsExport</a></td>
+<td>Public method used to export a directory from the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsGetProjectBrowserHelper">vcsGetProjectBrowserHelper</a></td>
+<td>Public method to instanciate a helper object for the different project browsers.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsGetProjectHelper">vcsGetProjectHelper</a></td>
+<td>Public method to instanciate a helper object for the project.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsImport">vcsImport</a></td>
+<td>Public method used to import the project into the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsInit">vcsInit</a></td>
+<td>Public method used to initialize the subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsInitConfig">vcsInitConfig</a></td>
+<td>Public method to initialize the VCS configuration.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsLogBrowser">vcsLogBrowser</a></td>
+<td>Public method used to browse the log of a file/directory from the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsMerge">vcsMerge</a></td>
+<td>Public method used to merge a URL/revision into the local project.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsMove">vcsMove</a></td>
+<td>Public method used to move a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsName">vcsName</a></td>
+<td>Public method returning the name of the vcs.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsNewProjectOptionsDialog">vcsNewProjectOptionsDialog</a></td>
+<td>Public method to get a dialog to enter repository info for getting a new project.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsOptionsDialog">vcsOptionsDialog</a></td>
+<td>Public method to get a dialog to enter repository info.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsRegisteredState">vcsRegisteredState</a></td>
+<td>Public method used to get the registered state of a file in the vcs.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsRemove">vcsRemove</a></td>
+<td>Public method used to remove a file/directory from the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsRepositoryInfos">vcsRepositoryInfos</a></td>
+<td>Public method to retrieve information about the repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsRevert">vcsRevert</a></td>
+<td>Public method used to revert changes made to a file/directory.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsShutdown">vcsShutdown</a></td>
+<td>Public method used to shutdown the Subversion interface.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsStatus">vcsStatus</a></td>
+<td>Public method used to view the status of files/directories in the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsSwitch">vcsSwitch</a></td>
+<td>Public method used to switch a directory to a different tag/branch.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsTag">vcsTag</a></td>
+<td>Public method used to set the tag of a file/directory in the Subversion repository.</td>
+</tr><tr>
+<td><a href="#Subversion.vcsUpdate">vcsUpdate</a></td>
+<td>Public method used to update a file/directory with the Subversion repository.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Subversion.__init__" ID="Subversion.__init__"></a>
+<h4>Subversion (Constructor)</h4>
+<b>Subversion</b>(<i>plugin, parent=None, name=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>plugin</i></dt>
+<dd>
+reference to the plugin object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+name of this object (string)
+</dd>
+</dl><a NAME="Subversion.__isVersioned" ID="Subversion.__isVersioned"></a>
+<h4>Subversion.__isVersioned</h4>
+<b>__isVersioned</b>(<i>status</i>)
+<p>
+        Private method to check, if the given status indicates a
+        versioned state.
+</p><dl>
+<dt><i>status</i></dt>
+<dd>
+status object to check (pysvn.PysvnStatus)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a versioned state (boolean)
+</dd>
+</dl><a NAME="Subversion.__svnGetFileForRevision" ID="Subversion.__svnGetFileForRevision"></a>
+<h4>Subversion.__svnGetFileForRevision</h4>
+<b>__svnGetFileForRevision</b>(<i>name, rev=""</i>)
+<p>
+        Private method to get a file for a specific revision from the
+        repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file name to get from the repository (string)
+</dd><dt><i>rev=</i></dt>
+<dd>
+revision to retrieve (integer or string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+contents of the file (string) and an error message (string)
+</dd>
+</dl><a NAME="Subversion.__svnURL" ID="Subversion.__svnURL"></a>
+<h4>Subversion.__svnURL</h4>
+<b>__svnURL</b>(<i>url</i>)
+<p>
+        Private method to format a url for subversion.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+unformatted url string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+properly formated url for subversion (string)
+</dd>
+</dl><a NAME="Subversion.__vcsAllRegisteredStates_wc" ID="Subversion.__vcsAllRegisteredStates_wc"></a>
+<h4>Subversion.__vcsAllRegisteredStates_wc</h4>
+<b>__vcsAllRegisteredStates_wc</b>(<i>names, dname, shortcut=True</i>)
+<p>
+        Private method used to get the registered states of a number of files
+        in the VCS.
+</p><p>
+        This is the variant for subversion installations using the old working
+        copy meta-data format.
+</p><p>
+        <b>Note:</b> If a shortcut is to be taken, the code will only check,
+        if the named directory has been scanned already. If so, it is assumed,
+        that the states for all files has been populated by the previous run.
+</p><dl>
+<dt><i>names</i></dt>
+<dd>
+dictionary with all filenames to be checked as keys
+</dd><dt><i>dname</i></dt>
+<dd>
+directory to check in (string)
+</dd><dt><i>shortcut</i></dt>
+<dd>
+flag indicating a shortcut should be taken (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the received dictionary completed with a combination of
+            canBeCommited and canBeAdded or None in order to signal an error
+</dd>
+</dl><a NAME="Subversion.__vcsAllRegisteredStates_wcng" ID="Subversion.__vcsAllRegisteredStates_wcng"></a>
+<h4>Subversion.__vcsAllRegisteredStates_wcng</h4>
+<b>__vcsAllRegisteredStates_wcng</b>(<i>names, dname, shortcut=True</i>)
+<p>
+        Private method used to get the registered states of a number of files
+        in the vcs.
+</p><p>
+        This is the variant for subversion installations using the new working
+        copy meta-data format.
+</p><p>
+        <b>Note:</b> If a shortcut is to be taken, the code will only check,
+        if the named directory has been scanned already. If so, it is assumed,
+        that the states for all files has been populated by the previous run.
+</p><dl>
+<dt><i>names</i></dt>
+<dd>
+dictionary with all filenames to be checked as keys
+</dd><dt><i>dname</i></dt>
+<dd>
+directory to check in (string)
+</dd><dt><i>shortcut</i></dt>
+<dd>
+flag indicating a shortcut should be taken (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the received dictionary completed with a combination of
+            canBeCommited and canBeAdded or None in order to signal an error
+</dd>
+</dl><a NAME="Subversion.__vcsCommit_Step2" ID="Subversion.__vcsCommit_Step2"></a>
+<h4>Subversion.__vcsCommit_Step2</h4>
+<b>__vcsCommit_Step2</b>(<i></i>)
+<p>
+        Private slot performing the second step of the commit action.
+</p><a NAME="Subversion.__vcsRegisteredState_wc" ID="Subversion.__vcsRegisteredState_wc"></a>
+<h4>Subversion.__vcsRegisteredState_wc</h4>
+<b>__vcsRegisteredState_wc</b>(<i>name</i>)
+<p>
+        Private method used to get the registered state of a file in the vcs.
+</p><p>
+        This is the variant for subversion installations using the old working
+        copy meta-data format.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a combination of canBeCommited and canBeAdded
+</dd>
+</dl><a NAME="Subversion.__vcsRegisteredState_wcng" ID="Subversion.__vcsRegisteredState_wcng"></a>
+<h4>Subversion.__vcsRegisteredState_wcng</h4>
+<b>__vcsRegisteredState_wcng</b>(<i>name</i>)
+<p>
+        Private method used to get the registered state of a file in the vcs.
+</p><p>
+        This is the variant for subversion installations using the new
+        working copy meta-data format.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a combination of canBeCommited and canBeAdded
+</dd>
+</dl><a NAME="Subversion._createStatusMonitorThread" ID="Subversion._createStatusMonitorThread"></a>
+<h4>Subversion._createStatusMonitorThread</h4>
+<b>_createStatusMonitorThread</b>(<i>interval, project</i>)
+<p>
+        Protected method to create an instance of the VCS status monitor
+        thread.
+</p><dl>
+<dt><i>interval</i></dt>
+<dd>
+check interval for the monitor thread in seconds
+            (integer)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the monitor thread (QThread)
+</dd>
+</dl><a NAME="Subversion.clearStatusCache" ID="Subversion.clearStatusCache"></a>
+<h4>Subversion.clearStatusCache</h4>
+<b>clearStatusCache</b>(<i></i>)
+<p>
+        Public method to clear the status cache.
+</p><a NAME="Subversion.getClient" ID="Subversion.getClient"></a>
+<h4>Subversion.getClient</h4>
+<b>getClient</b>(<i></i>)
+<p>
+        Public method to create and initialize the pysvn client object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the pysvn client object (pysvn.Client)
+</dd>
+</dl><a NAME="Subversion.getPlugin" ID="Subversion.getPlugin"></a>
+<h4>Subversion.getPlugin</h4>
+<b>getPlugin</b>(<i></i>)
+<p>
+        Public method to get a reference to the plugin object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the plugin object (VcsPySvnPlugin)
+</dd>
+</dl><a NAME="Subversion.svnAddToChangelist" ID="Subversion.svnAddToChangelist"></a>
+<h4>Subversion.svnAddToChangelist</h4>
+<b>svnAddToChangelist</b>(<i>names</i>)
+<p>
+        Public method to add a file or directory to a changelist.
+</p><p>
+        Note: Directories will be added recursively.
+</p><dl>
+<dt><i>names</i></dt>
+<dd>
+name or list of names of file or directory to add
+            (string)
+</dd>
+</dl><a NAME="Subversion.svnBlame" ID="Subversion.svnBlame"></a>
+<h4>Subversion.svnBlame</h4>
+<b>svnBlame</b>(<i>name</i>)
+<p>
+        Public method to show the output of the svn blame command.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file name to show the blame for (string)
+</dd>
+</dl><a NAME="Subversion.svnCopy" ID="Subversion.svnCopy"></a>
+<h4>Subversion.svnCopy</h4>
+<b>svnCopy</b>(<i>name, project</i>)
+<p>
+        Public method used to copy a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be copied (string)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating successfull operation (boolean)
+</dd>
+</dl><a NAME="Subversion.svnDelProp" ID="Subversion.svnDelProp"></a>
+<h4>Subversion.svnDelProp</h4>
+<b>svnDelProp</b>(<i>name, recursive=False</i>)
+<p>
+        Public method used to delete a property of a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name (string or list of strings)
+</dd><dt><i>recursive</i></dt>
+<dd>
+flag indicating a recursive list is requested
+</dd>
+</dl><a NAME="Subversion.svnExtendedDiff" ID="Subversion.svnExtendedDiff"></a>
+<h4>Subversion.svnExtendedDiff</h4>
+<b>svnExtendedDiff</b>(<i>name</i>)
+<p>
+        Public method used to view the difference of a file/directory to the
+        Subversion repository.
+</p><p>
+        If name is a directory and is the project directory, all project files
+        are saved first. If name is a file (or list of files), which is/are
+        being edited and has unsaved modification, they can be saved or the
+        operation may be aborted.
+</p><p>
+        This method gives the chance to enter the revisions to be compared.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be diffed (string)
+</dd>
+</dl><a NAME="Subversion.svnGetChangelists" ID="Subversion.svnGetChangelists"></a>
+<h4>Subversion.svnGetChangelists</h4>
+<b>svnGetChangelists</b>(<i></i>)
+<p>
+        Public method to get a list of all defined change lists.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of defined change list names (list of strings)
+</dd>
+</dl><a NAME="Subversion.svnGetReposName" ID="Subversion.svnGetReposName"></a>
+<h4>Subversion.svnGetReposName</h4>
+<b>svnGetReposName</b>(<i>path</i>)
+<p>
+        Public method used to retrieve the URL of the subversion repository
+        path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+local path to get the svn repository path for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string with the repository path URL
+</dd>
+</dl><a NAME="Subversion.svnInfo" ID="Subversion.svnInfo"></a>
+<h4>Subversion.svnInfo</h4>
+<b>svnInfo</b>(<i>projectPath, name</i>)
+<p>
+        Public method to show repository information about a file or directory.
+</p><dl>
+<dt><i>projectPath</i></dt>
+<dd>
+path name of the project (string)
+</dd><dt><i>name</i></dt>
+<dd>
+file/directory name relative to the project (string)
+</dd>
+</dl><a NAME="Subversion.svnListProps" ID="Subversion.svnListProps"></a>
+<h4>Subversion.svnListProps</h4>
+<b>svnListProps</b>(<i>name, recursive=False</i>)
+<p>
+        Public method used to list the properties of a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name (string or list of strings)
+</dd><dt><i>recursive</i></dt>
+<dd>
+flag indicating a recursive list is requested
+</dd>
+</dl><a NAME="Subversion.svnListTagBranch" ID="Subversion.svnListTagBranch"></a>
+<h4>Subversion.svnListTagBranch</h4>
+<b>svnListTagBranch</b>(<i>path, tags=True</i>)
+<p>
+        Public method used to list the available tags or branches.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+directory name of the project (string)
+</dd><dt><i>tags</i></dt>
+<dd>
+flag indicating listing of branches or tags
+                (False = branches, True = tags)
+</dd>
+</dl><a NAME="Subversion.svnLock" ID="Subversion.svnLock"></a>
+<h4>Subversion.svnLock</h4>
+<b>svnLock</b>(<i>name, stealIt=False, parent=None</i>)
+<p>
+        Public method used to lock a file in the Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be locked (string or list of
+            strings)
+</dd><dt><i>stealIt</i></dt>
+<dd>
+flag indicating a forced operation (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object of the subversion dialog
+            (QWidget)
+</dd>
+</dl><a NAME="Subversion.svnNormalizeURL" ID="Subversion.svnNormalizeURL"></a>
+<h4>Subversion.svnNormalizeURL</h4>
+<b>svnNormalizeURL</b>(<i>url</i>)
+<p>
+        Public method to normalize a url for subversion.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+url string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+properly normalized url for subversion (string)
+</dd>
+</dl><a NAME="Subversion.svnRelocate" ID="Subversion.svnRelocate"></a>
+<h4>Subversion.svnRelocate</h4>
+<b>svnRelocate</b>(<i>projectPath</i>)
+<p>
+        Public method to relocate the working copy to a new repository URL.
+</p><dl>
+<dt><i>projectPath</i></dt>
+<dd>
+path name of the project (string)
+</dd>
+</dl><a NAME="Subversion.svnRemoveFromChangelist" ID="Subversion.svnRemoveFromChangelist"></a>
+<h4>Subversion.svnRemoveFromChangelist</h4>
+<b>svnRemoveFromChangelist</b>(<i>names</i>)
+<p>
+        Public method to remove a file or directory from its changelist.
+</p><p>
+        Note: Directories will be removed recursively.
+</p><dl>
+<dt><i>names</i></dt>
+<dd>
+name or list of names of file or directory to remove
+            (string)
+</dd>
+</dl><a NAME="Subversion.svnRepoBrowser" ID="Subversion.svnRepoBrowser"></a>
+<h4>Subversion.svnRepoBrowser</h4>
+<b>svnRepoBrowser</b>(<i>projectPath=None</i>)
+<p>
+        Public method to open the repository browser.
+</p><dl>
+<dt><i>projectPath</i></dt>
+<dd>
+path name of the project (string)
+</dd>
+</dl><a NAME="Subversion.svnResolve" ID="Subversion.svnResolve"></a>
+<h4>Subversion.svnResolve</h4>
+<b>svnResolve</b>(<i>name</i>)
+<p>
+        Public method used to resolve conflicts of a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be resolved (string)
+</dd>
+</dl><a NAME="Subversion.svnSbsDiff" ID="Subversion.svnSbsDiff"></a>
+<h4>Subversion.svnSbsDiff</h4>
+<b>svnSbsDiff</b>(<i>name, extended=False, revisions=None</i>)
+<p>
+        Public method used to view the difference of a file to the Mercurial
+        repository side-by-side.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file name to be diffed (string)
+</dd><dt><i>extended=</i></dt>
+<dd>
+flag indicating the extended variant (boolean)
+</dd><dt><i>revisions=</i></dt>
+<dd>
+tuple of two revisions (tuple of strings)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised to indicate an invalid name parameter type
+</dd>
+</dl><a NAME="Subversion.svnSetProp" ID="Subversion.svnSetProp"></a>
+<h4>Subversion.svnSetProp</h4>
+<b>svnSetProp</b>(<i>name, recursive=False</i>)
+<p>
+        Public method used to add a property to a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name (string or list of strings)
+</dd><dt><i>recursive</i></dt>
+<dd>
+flag indicating a recursive set is requested
+</dd>
+</dl><a NAME="Subversion.svnShowChangelists" ID="Subversion.svnShowChangelists"></a>
+<h4>Subversion.svnShowChangelists</h4>
+<b>svnShowChangelists</b>(<i>path</i>)
+<p>
+        Public method used to inspect the change lists defined for the project.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+directory name to show change lists for (string)
+</dd>
+</dl><a NAME="Subversion.svnUnlock" ID="Subversion.svnUnlock"></a>
+<h4>Subversion.svnUnlock</h4>
+<b>svnUnlock</b>(<i>name, breakIt=False, parent=None</i>)
+<p>
+        Public method used to unlock a file in the Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be unlocked (string or list of
+            strings)
+</dd><dt><i>breakIt</i></dt>
+<dd>
+flag indicating a forced operation (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object of the subversion dialog
+            (QWidget)
+</dd>
+</dl><a NAME="Subversion.svnUpgrade" ID="Subversion.svnUpgrade"></a>
+<h4>Subversion.svnUpgrade</h4>
+<b>svnUpgrade</b>(<i>path</i>)
+<p>
+        Public method to upgrade the working copy format.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+directory name to show change lists for (string)
+</dd>
+</dl><a NAME="Subversion.svnUrlDiff" ID="Subversion.svnUrlDiff"></a>
+<h4>Subversion.svnUrlDiff</h4>
+<b>svnUrlDiff</b>(<i>name</i>)
+<p>
+        Public method used to view the difference of a file/directory of two
+        repository URLs.
+</p><p>
+        If name is a directory and is the project directory, all project files
+        are saved first. If name is a file (or list of files), which is/are
+        being edited and has unsaved modification, they can be saved or the
+        operation may be aborted.
+</p><p>
+        This method gives the chance to enter the revisions to be compared.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be diffed (string)
+</dd>
+</dl><a NAME="Subversion.vcsAdd" ID="Subversion.vcsAdd"></a>
+<h4>Subversion.vcsAdd</h4>
+<b>vcsAdd</b>(<i>name, isDir=False, noDialog=False</i>)
+<p>
+        Public method used to add a file/directory to the Subversion
+        repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be added (string)
+</dd><dt><i>isDir</i></dt>
+<dd>
+flag indicating name is a directory (boolean)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsAddBinary" ID="Subversion.vcsAddBinary"></a>
+<h4>Subversion.vcsAddBinary</h4>
+<b>vcsAddBinary</b>(<i>name, isDir=False</i>)
+<p>
+        Public method used to add a file/directory in binary mode to the
+        Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be added (string)
+</dd><dt><i>isDir</i></dt>
+<dd>
+flag indicating name is a directory (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsAddTree" ID="Subversion.vcsAddTree"></a>
+<h4>Subversion.vcsAddTree</h4>
+<b>vcsAddTree</b>(<i>path</i>)
+<p>
+        Public method to add a directory tree rooted at path to the Subversion
+        repository.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+root directory of the tree to be added (string or list of
+            strings))
+</dd>
+</dl><a NAME="Subversion.vcsAllRegisteredStates" ID="Subversion.vcsAllRegisteredStates"></a>
+<h4>Subversion.vcsAllRegisteredStates</h4>
+<b>vcsAllRegisteredStates</b>(<i>names, dname, shortcut=True</i>)
+<p>
+        Public method used to get the registered states of a number of files
+        in the vcs.
+</p><p>
+        <b>Note:</b> If a shortcut is to be taken, the code will only check,
+        if the named directory has been scanned already. If so, it is assumed,
+        that the states for all files has been populated by the previous run.
+</p><dl>
+<dt><i>names</i></dt>
+<dd>
+dictionary with all filenames to be checked as keys
+</dd><dt><i>dname</i></dt>
+<dd>
+directory to check in (string)
+</dd><dt><i>shortcut</i></dt>
+<dd>
+flag indicating a shortcut should be taken (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the received dictionary completed with a combination of
+            canBeCommited and canBeAdded or None in order to signal an error
+</dd>
+</dl><a NAME="Subversion.vcsCheckout" ID="Subversion.vcsCheckout"></a>
+<h4>Subversion.vcsCheckout</h4>
+<b>vcsCheckout</b>(<i>vcsDataDict, projectDir, noDialog=False</i>)
+<p>
+        Public method used to check the project out of the Subversion
+        repository.
+</p><dl>
+<dt><i>vcsDataDict</i></dt>
+<dd>
+dictionary of data required for the checkout
+</dd><dt><i>projectDir</i></dt>
+<dd>
+project directory to create (string)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an execution without errors (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsCleanup" ID="Subversion.vcsCleanup"></a>
+<h4>Subversion.vcsCleanup</h4>
+<b>vcsCleanup</b>(<i>name</i>)
+<p>
+        Public method used to cleanup the working copy.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+directory name to be cleaned up (string)
+</dd>
+</dl><a NAME="Subversion.vcsCommandLine" ID="Subversion.vcsCommandLine"></a>
+<h4>Subversion.vcsCommandLine</h4>
+<b>vcsCommandLine</b>(<i>name</i>)
+<p>
+        Public method used to execute arbitrary subversion commands.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+directory name of the working directory (string)
+</dd>
+</dl><a NAME="Subversion.vcsCommit" ID="Subversion.vcsCommit"></a>
+<h4>Subversion.vcsCommit</h4>
+<b>vcsCommit</b>(<i>name, message, noDialog=False</i>)
+<p>
+        Public method used to make the change of a file/directory permanent
+        in the Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be committed (string or
+        list of strings)
+</dd><dt><i>message</i></dt>
+<dd>
+message for this operation (string)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations
+</dd>
+</dl><a NAME="Subversion.vcsConvertProject" ID="Subversion.vcsConvertProject"></a>
+<h4>Subversion.vcsConvertProject</h4>
+<b>vcsConvertProject</b>(<i>vcsDataDict, project</i>)
+<p>
+        Public method to convert an uncontrolled project to a version
+        controlled project.
+</p><dl>
+<dt><i>vcsDataDict</i></dt>
+<dd>
+dictionary of data required for the conversion
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd>
+</dl><a NAME="Subversion.vcsDiff" ID="Subversion.vcsDiff"></a>
+<h4>Subversion.vcsDiff</h4>
+<b>vcsDiff</b>(<i>name</i>)
+<p>
+        Public method used to view the difference of a file/directory to the
+        Subversion repository.
+</p><p>
+        If name is a directory and is the project directory, all project files
+        are saved first. If name is a file (or list of files), which is/are
+        being edited and has unsaved modification, they can be saved or the
+        operation may be aborted.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be diffed (string)
+</dd>
+</dl><a NAME="Subversion.vcsExists" ID="Subversion.vcsExists"></a>
+<h4>Subversion.vcsExists</h4>
+<b>vcsExists</b>(<i></i>)
+<p>
+        Public method used to test for the presence of the svn executable.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the existance (boolean) and an error message
+            (string)
+</dd>
+</dl><a NAME="Subversion.vcsExport" ID="Subversion.vcsExport"></a>
+<h4>Subversion.vcsExport</h4>
+<b>vcsExport</b>(<i>vcsDataDict, projectDir</i>)
+<p>
+        Public method used to export a directory from the Subversion
+        repository.
+</p><dl>
+<dt><i>vcsDataDict</i></dt>
+<dd>
+dictionary of data required for the checkout
+</dd><dt><i>projectDir</i></dt>
+<dd>
+project directory to create (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an execution without errors (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsGetProjectBrowserHelper" ID="Subversion.vcsGetProjectBrowserHelper"></a>
+<h4>Subversion.vcsGetProjectBrowserHelper</h4>
+<b>vcsGetProjectBrowserHelper</b>(<i>browser, project, isTranslationsBrowser=False</i>)
+<p>
+        Public method to instanciate a helper object for the different
+        project browsers.
+</p><dl>
+<dt><i>browser</i></dt>
+<dd>
+reference to the project browser object
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>isTranslationsBrowser</i></dt>
+<dd>
+flag indicating, the helper is requested
+            for the translations browser (this needs some special treatment)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the project browser helper object
+</dd>
+</dl><a NAME="Subversion.vcsGetProjectHelper" ID="Subversion.vcsGetProjectHelper"></a>
+<h4>Subversion.vcsGetProjectHelper</h4>
+<b>vcsGetProjectHelper</b>(<i>project</i>)
+<p>
+        Public method to instanciate a helper object for the project.
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the project helper object
+</dd>
+</dl><a NAME="Subversion.vcsImport" ID="Subversion.vcsImport"></a>
+<h4>Subversion.vcsImport</h4>
+<b>vcsImport</b>(<i>vcsDataDict, projectDir, noDialog=False</i>)
+<p>
+        Public method used to import the project into the Subversion
+        repository.
+</p><dl>
+<dt><i>vcsDataDict</i></dt>
+<dd>
+dictionary of data required for the import
+</dd><dt><i>projectDir</i></dt>
+<dd>
+project directory (string)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an execution without errors (boolean)
+            and a flag indicating the version controll status (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsInit" ID="Subversion.vcsInit"></a>
+<h4>Subversion.vcsInit</h4>
+<b>vcsInit</b>(<i>vcsDir, noDialog=False</i>)
+<p>
+        Public method used to initialize the subversion repository.
+</p><p>
+        The subversion repository has to be initialized from outside eric6
+        because the respective command always works locally. Therefore we
+        always return TRUE without doing anything.
+</p><dl>
+<dt><i>vcsDir</i></dt>
+<dd>
+name of the VCS directory (string)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+always TRUE
+</dd>
+</dl><a NAME="Subversion.vcsInitConfig" ID="Subversion.vcsInitConfig"></a>
+<h4>Subversion.vcsInitConfig</h4>
+<b>vcsInitConfig</b>(<i>project</i>)
+<p>
+        Public method to initialize the VCS configuration.
+</p><p>
+        This method ensures, that eric specific files and directories are
+        ignored.
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project (Project)
+</dd>
+</dl><a NAME="Subversion.vcsLogBrowser" ID="Subversion.vcsLogBrowser"></a>
+<h4>Subversion.vcsLogBrowser</h4>
+<b>vcsLogBrowser</b>(<i>name, isFile=False</i>)
+<p>
+        Public method used to browse the log of a file/directory from the
+        Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to show the log of (string)
+</dd><dt><i>isFile</i></dt>
+<dd>
+flag indicating log for a file is to be shown (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsMerge" ID="Subversion.vcsMerge"></a>
+<h4>Subversion.vcsMerge</h4>
+<b>vcsMerge</b>(<i>name</i>)
+<p>
+        Public method used to merge a URL/revision into the local project.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be merged (string)
+</dd>
+</dl><a NAME="Subversion.vcsMove" ID="Subversion.vcsMove"></a>
+<h4>Subversion.vcsMove</h4>
+<b>vcsMove</b>(<i>name, project, target=None, noDialog=False</i>)
+<p>
+        Public method used to move a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be moved (string)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>target</i></dt>
+<dd>
+new name of the file/directory (string)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating successfull operation (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsName" ID="Subversion.vcsName"></a>
+<h4>Subversion.vcsName</h4>
+<b>vcsName</b>(<i></i>)
+<p>
+        Public method returning the name of the vcs.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+always 'Subversion' (string)
+</dd>
+</dl><a NAME="Subversion.vcsNewProjectOptionsDialog" ID="Subversion.vcsNewProjectOptionsDialog"></a>
+<h4>Subversion.vcsNewProjectOptionsDialog</h4>
+<b>vcsNewProjectOptionsDialog</b>(<i>parent=None</i>)
+<p>
+        Public method to get a dialog to enter repository info for getting a
+        new project.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated options dialog
+            (SvnNewProjectOptionsDialog)
+</dd>
+</dl><a NAME="Subversion.vcsOptionsDialog" ID="Subversion.vcsOptionsDialog"></a>
+<h4>Subversion.vcsOptionsDialog</h4>
+<b>vcsOptionsDialog</b>(<i>project, archive, editable=False, parent=None</i>)
+<p>
+        Public method to get a dialog to enter repository info.
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>archive</i></dt>
+<dd>
+name of the project in the repository (string)
+</dd><dt><i>editable</i></dt>
+<dd>
+flag indicating that the project name is editable
+            (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated options dialog (SvnOptionsDialog)
+</dd>
+</dl><a NAME="Subversion.vcsRegisteredState" ID="Subversion.vcsRegisteredState"></a>
+<h4>Subversion.vcsRegisteredState</h4>
+<b>vcsRegisteredState</b>(<i>name</i>)
+<p>
+        Public method used to get the registered state of a file in the vcs.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a combination of canBeCommited and canBeAdded
+</dd>
+</dl><a NAME="Subversion.vcsRemove" ID="Subversion.vcsRemove"></a>
+<h4>Subversion.vcsRemove</h4>
+<b>vcsRemove</b>(<i>name, project=False, noDialog=False</i>)
+<p>
+        Public method used to remove a file/directory from the Subversion
+        repository.
+</p><p>
+        The default operation is to remove the local copy as well.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be removed (string or list of
+            strings))
+</dd><dt><i>project</i></dt>
+<dd>
+flag indicating deletion of a project tree (boolean)
+            (not needed)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating successfull operation (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsRepositoryInfos" ID="Subversion.vcsRepositoryInfos"></a>
+<h4>Subversion.vcsRepositoryInfos</h4>
+<b>vcsRepositoryInfos</b>(<i>ppath</i>)
+<p>
+        Public method to retrieve information about the repository.
+</p><dl>
+<dt><i>ppath</i></dt>
+<dd>
+local path to get the repository infos (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string with ready formated info for display (string)
+</dd>
+</dl><a NAME="Subversion.vcsRevert" ID="Subversion.vcsRevert"></a>
+<h4>Subversion.vcsRevert</h4>
+<b>vcsRevert</b>(<i>name</i>)
+<p>
+        Public method used to revert changes made to a file/directory.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be reverted (string)
+</dd>
+</dl><a NAME="Subversion.vcsShutdown" ID="Subversion.vcsShutdown"></a>
+<h4>Subversion.vcsShutdown</h4>
+<b>vcsShutdown</b>(<i></i>)
+<p>
+        Public method used to shutdown the Subversion interface.
+</p><a NAME="Subversion.vcsStatus" ID="Subversion.vcsStatus"></a>
+<h4>Subversion.vcsStatus</h4>
+<b>vcsStatus</b>(<i>name</i>)
+<p>
+        Public method used to view the status of files/directories in the
+        Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name(s) to show the status of
+            (string or list of strings)
+</dd>
+</dl><a NAME="Subversion.vcsSwitch" ID="Subversion.vcsSwitch"></a>
+<h4>Subversion.vcsSwitch</h4>
+<b>vcsSwitch</b>(<i>name</i>)
+<p>
+        Public method used to switch a directory to a different tag/branch.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+directory name to be switched (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, that the switch contained an add
+            or delete (boolean)
+</dd>
+</dl><a NAME="Subversion.vcsTag" ID="Subversion.vcsTag"></a>
+<h4>Subversion.vcsTag</h4>
+<b>vcsTag</b>(<i>name</i>)
+<p>
+        Public method used to set the tag of a file/directory in the
+        Subversion repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be tagged (string)
+</dd>
+</dl><a NAME="Subversion.vcsUpdate" ID="Subversion.vcsUpdate"></a>
+<h4>Subversion.vcsUpdate</h4>
+<b>vcsUpdate</b>(<i>name, noDialog=False</i>)
+<p>
+        Public method used to update a file/directory with the Subversion
+        repository.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file/directory name to be updated (string or list of
+            strings)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating quiet operations (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, that the update contained an add
+            or delete (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

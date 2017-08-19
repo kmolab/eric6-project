@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'E:\project\github\eric6-17.08\eric\Helpviewer\FeaturePermissions\FeaturePermissionsDialog.ui'
+#
+# Created by: PyQt5 UI code generator 5.9
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_FeaturePermissionsDialog(object):
+    def setupUi(self, FeaturePermissionsDialog):
+        FeaturePermissionsDialog.setObjectName("FeaturePermissionsDialog")
+        FeaturePermissionsDialog.resize(500, 400)
+        FeaturePermissionsDialog.setSizeGripEnabled(True)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(FeaturePermissionsDialog)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.tabWidget = QtWidgets.QTabWidget(FeaturePermissionsDialog)
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.tab)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.notifList = QtWidgets.QTreeWidget(self.tab)
+        self.notifList.setAlternatingRowColors(True)
+        self.notifList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+        self.notifList.setRootIsDecorated(False)
+        self.notifList.setItemsExpandable(False)
+        self.notifList.setAllColumnsShowFocus(True)
+        self.notifList.setObjectName("notifList")
+        self.horizontalLayout_2.addWidget(self.notifList)
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem)
+        self.notifRemoveButton = QtWidgets.QPushButton(self.tab)
+        self.notifRemoveButton.setObjectName("notifRemoveButton")
+        self.verticalLayout_3.addWidget(self.notifRemoveButton)
+        self.notifRemoveAllButton = QtWidgets.QPushButton(self.tab)
+        self.notifRemoveAllButton.setObjectName("notifRemoveAllButton")
+        self.verticalLayout_3.addWidget(self.notifRemoveAllButton)
+        self.horizontalLayout_2.addLayout(self.verticalLayout_3)
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.tab_2)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.geoList = QtWidgets.QTreeWidget(self.tab_2)
+        self.geoList.setAlternatingRowColors(True)
+        self.geoList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+        self.geoList.setRootIsDecorated(False)
+        self.geoList.setItemsExpandable(False)
+        self.geoList.setAllColumnsShowFocus(True)
+        self.geoList.setObjectName("geoList")
+        self.horizontalLayout.addWidget(self.geoList)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.geoRemoveButton = QtWidgets.QPushButton(self.tab_2)
+        self.geoRemoveButton.setObjectName("geoRemoveButton")
+        self.verticalLayout.addWidget(self.geoRemoveButton)
+        self.geoRemoveAllButton = QtWidgets.QPushButton(self.tab_2)
+        self.geoRemoveAllButton.setObjectName("geoRemoveAllButton")
+        self.verticalLayout.addWidget(self.geoRemoveAllButton)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+        self.tabWidget.addTab(self.tab_2, "")
+        self.verticalLayout_2.addWidget(self.tabWidget)
+        self.buttonBox = QtWidgets.QDialogButtonBox(FeaturePermissionsDialog)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setObjectName("buttonBox")
+        self.verticalLayout_2.addWidget(self.buttonBox)
+
+        self.retranslateUi(FeaturePermissionsDialog)
+        self.tabWidget.setCurrentIndex(0)
+        self.buttonBox.accepted.connect(FeaturePermissionsDialog.accept)
+        self.buttonBox.rejected.connect(FeaturePermissionsDialog.reject)
+        QtCore.QMetaObject.connectSlotsByName(FeaturePermissionsDialog)
+        FeaturePermissionsDialog.setTabOrder(self.tabWidget, self.notifList)
+        FeaturePermissionsDialog.setTabOrder(self.notifList, self.notifRemoveButton)
+        FeaturePermissionsDialog.setTabOrder(self.notifRemoveButton, self.notifRemoveAllButton)
+        FeaturePermissionsDialog.setTabOrder(self.notifRemoveAllButton, self.geoList)
+        FeaturePermissionsDialog.setTabOrder(self.geoList, self.geoRemoveButton)
+        FeaturePermissionsDialog.setTabOrder(self.geoRemoveButton, self.geoRemoveAllButton)
+
+    def retranslateUi(self, FeaturePermissionsDialog):
+        _translate = QtCore.QCoreApplication.translate
+        FeaturePermissionsDialog.setWindowTitle(_translate("FeaturePermissionsDialog", "HTML5 Feature Permissions"))
+        self.notifList.setSortingEnabled(True)
+        self.notifList.headerItem().setText(0, _translate("FeaturePermissionsDialog", "Host"))
+        self.notifList.headerItem().setText(1, _translate("FeaturePermissionsDialog", "Permission"))
+        self.notifRemoveButton.setText(_translate("FeaturePermissionsDialog", "Remove"))
+        self.notifRemoveAllButton.setText(_translate("FeaturePermissionsDialog", "Remove All"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("FeaturePermissionsDialog", "Notifications"))
+        self.geoList.setSortingEnabled(True)
+        self.geoList.headerItem().setText(0, _translate("FeaturePermissionsDialog", "Host"))
+        self.geoList.headerItem().setText(1, _translate("FeaturePermissionsDialog", "Permission"))
+        self.geoRemoveButton.setText(_translate("FeaturePermissionsDialog", "Remove"))
+        self.geoRemoveAllButton.setText(_translate("FeaturePermissionsDialog", "Remove All"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("FeaturePermissionsDialog", "Geolocation"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    FeaturePermissionsDialog = QtWidgets.QDialog()
+    ui = Ui_FeaturePermissionsDialog()
+    ui.setupUi(FeaturePermissionsDialog)
+    FeaturePermissionsDialog.show()
+    sys.exit(app.exec_())
+

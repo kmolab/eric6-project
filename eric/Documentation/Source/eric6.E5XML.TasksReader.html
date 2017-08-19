@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5XML.TasksReader</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5XML.TasksReader</h1>
+<p>
+Module implementing a class for reading an XML tasks file.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#TasksReader">TasksReader</a></td>
+<td>Class for reading an XML tasks file.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="TasksReader" ID="TasksReader"></a>
+<h2>TasksReader</h2>
+<p>
+    Class for reading an XML tasks file.
+</p>
+<h3>Derived from</h3>
+XMLStreamReaderBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>supportedVersions</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#TasksReader.__init__">TasksReader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#TasksReader.__readTask">__readTask</a></td>
+<td>Private method to read the task info.</td>
+</tr><tr>
+<td><a href="#TasksReader.readXML">readXML</a></td>
+<td>Public method to read and parse the XML document.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="TasksReader.__init__" ID="TasksReader.__init__"></a>
+<h4>TasksReader (Constructor)</h4>
+<b>TasksReader</b>(<i>device, forProject=False, viewer=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>device</i></dt>
+<dd>
+reference to the I/O device to read from (QIODevice)
+</dd><dt><i>forProject</i></dt>
+<dd>
+flag indicating project related mode (boolean)
+</dd><dt><i>viewer</i></dt>
+<dd>
+reference to the task viewer (TaskViewer)
+</dd>
+</dl><a NAME="TasksReader.__readTask" ID="TasksReader.__readTask"></a>
+<h4>TasksReader.__readTask</h4>
+<b>__readTask</b>(<i></i>)
+<p>
+        Private method to read the task info.
+</p><a NAME="TasksReader.readXML" ID="TasksReader.readXML"></a>
+<h4>TasksReader.readXML</h4>
+<b>readXML</b>(<i></i>)
+<p>
+        Public method to read and parse the XML document.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

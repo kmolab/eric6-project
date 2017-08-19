@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.PluginVcsPySvn</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.PluginVcsPySvn</h1>
+<p>
+Module implementing the PySvn version control plugin.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>author</td></tr><tr><td>autoactivate</td></tr><tr><td>className</td></tr><tr><td>deactivateable</td></tr><tr><td>error</td></tr><tr><td>longDescription</td></tr><tr><td>name</td></tr><tr><td>packageName</td></tr><tr><td>pluginType</td></tr><tr><td>pluginTypename</td></tr><tr><td>pyqtApi</td></tr><tr><td>python2Compatible</td></tr><tr><td>shortDescription</td></tr><tr><td>subversionCfgPluginObject</td></tr><tr><td>version</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#VcsPySvnPlugin">VcsPySvnPlugin</a></td>
+<td>Class implementing the PySvn version control plugin.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#createConfigurationPage">createConfigurationPage</a></td>
+<td>Module function to create the configuration page.</td>
+</tr><tr>
+<td><a href="#displayString">displayString</a></td>
+<td>Public function to get the display string.</td>
+</tr><tr>
+<td><a href="#exeDisplayData">exeDisplayData</a></td>
+<td>Public method to support the display of some executable info.</td>
+</tr><tr>
+<td><a href="#getConfigData">getConfigData</a></td>
+<td>Module function returning data as required by the configuration dialog.</td>
+</tr><tr>
+<td><a href="#getVcsSystemIndicator">getVcsSystemIndicator</a></td>
+<td>Public function to get the indicators for this version control system.</td>
+</tr><tr>
+<td><a href="#prepareUninstall">prepareUninstall</a></td>
+<td>Module function to prepare for an uninstallation.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="VcsPySvnPlugin" ID="VcsPySvnPlugin"></a>
+<h2>VcsPySvnPlugin</h2>
+<p>
+    Class implementing the PySvn version control plugin.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VcsPySvnPlugin.__init__">VcsPySvnPlugin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.activate">activate</a></td>
+<td>Public method to activate this plugin.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.deactivate">deactivate</a></td>
+<td>Public method to deactivate this plugin.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.getConfigPath">getConfigPath</a></td>
+<td>Public method to get the filename of the config file.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.getPreferences">getPreferences</a></td>
+<td>Public method to retrieve the various settings.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.getProjectHelper">getProjectHelper</a></td>
+<td>Public method to get a reference to the project helper object.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.getServersPath">getServersPath</a></td>
+<td>Public method to get the filename of the servers file.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.initToolbar">initToolbar</a></td>
+<td>Public slot to initialize the VCS toolbar.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.prepareUninstall">prepareUninstall</a></td>
+<td>Public method to prepare for an uninstallation.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.prepareUnload">prepareUnload</a></td>
+<td>Public method to prepare for an unload.</td>
+</tr><tr>
+<td><a href="#VcsPySvnPlugin.setPreferences">setPreferences</a></td>
+<td>Public method to store the various settings.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VcsPySvnPlugin.__init__" ID="VcsPySvnPlugin.__init__"></a>
+<h4>VcsPySvnPlugin (Constructor)</h4>
+<b>VcsPySvnPlugin</b>(<i>ui</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>ui</i></dt>
+<dd>
+reference to the user interface object (UI.UserInterface)
+</dd>
+</dl><a NAME="VcsPySvnPlugin.activate" ID="VcsPySvnPlugin.activate"></a>
+<h4>VcsPySvnPlugin.activate</h4>
+<b>activate</b>(<i></i>)
+<p>
+        Public method to activate this plugin.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of reference to instantiated viewmanager and
+            activation status (boolean)
+</dd>
+</dl><a NAME="VcsPySvnPlugin.deactivate" ID="VcsPySvnPlugin.deactivate"></a>
+<h4>VcsPySvnPlugin.deactivate</h4>
+<b>deactivate</b>(<i></i>)
+<p>
+        Public method to deactivate this plugin.
+</p><a NAME="VcsPySvnPlugin.getConfigPath" ID="VcsPySvnPlugin.getConfigPath"></a>
+<h4>VcsPySvnPlugin.getConfigPath</h4>
+<b>getConfigPath</b>(<i></i>)
+<p>
+        Public method to get the filename of the config file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename of the config file (string)
+</dd>
+</dl><a NAME="VcsPySvnPlugin.getPreferences" ID="VcsPySvnPlugin.getPreferences"></a>
+<h4>VcsPySvnPlugin.getPreferences</h4>
+<b>getPreferences</b>(<i>key</i>)
+<p>
+        Public method to retrieve the various settings.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+the key of the value to get
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested refactoring setting
+</dd>
+</dl><a NAME="VcsPySvnPlugin.getProjectHelper" ID="VcsPySvnPlugin.getProjectHelper"></a>
+<h4>VcsPySvnPlugin.getProjectHelper</h4>
+<b>getProjectHelper</b>(<i></i>)
+<p>
+        Public method to get a reference to the project helper object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the project helper object
+</dd>
+</dl><a NAME="VcsPySvnPlugin.getServersPath" ID="VcsPySvnPlugin.getServersPath"></a>
+<h4>VcsPySvnPlugin.getServersPath</h4>
+<b>getServersPath</b>(<i></i>)
+<p>
+        Public method to get the filename of the servers file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename of the servers file (string)
+</dd>
+</dl><a NAME="VcsPySvnPlugin.initToolbar" ID="VcsPySvnPlugin.initToolbar"></a>
+<h4>VcsPySvnPlugin.initToolbar</h4>
+<b>initToolbar</b>(<i>ui, toolbarManager</i>)
+<p>
+        Public slot to initialize the VCS toolbar.
+</p><dl>
+<dt><i>ui</i></dt>
+<dd>
+reference to the main window (UserInterface)
+</dd><dt><i>toolbarManager</i></dt>
+<dd>
+reference to a toolbar manager object
+            (E5ToolBarManager)
+</dd>
+</dl><a NAME="VcsPySvnPlugin.prepareUninstall" ID="VcsPySvnPlugin.prepareUninstall"></a>
+<h4>VcsPySvnPlugin.prepareUninstall</h4>
+<b>prepareUninstall</b>(<i></i>)
+<p>
+        Public method to prepare for an uninstallation.
+</p><a NAME="VcsPySvnPlugin.prepareUnload" ID="VcsPySvnPlugin.prepareUnload"></a>
+<h4>VcsPySvnPlugin.prepareUnload</h4>
+<b>prepareUnload</b>(<i></i>)
+<p>
+        Public method to prepare for an unload.
+</p><a NAME="VcsPySvnPlugin.setPreferences" ID="VcsPySvnPlugin.setPreferences"></a>
+<h4>VcsPySvnPlugin.setPreferences</h4>
+<b>setPreferences</b>(<i>key, value</i>)
+<p>
+        Public method to store the various settings.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+the key of the setting to be set
+</dd><dt><i>value</i></dt>
+<dd>
+the value to be set
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createConfigurationPage" ID="createConfigurationPage"></a>
+<h2>createConfigurationPage</h2>
+<b>createConfigurationPage</b>(<i>configDlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>configDlg</i></dt>
+<dd>
+reference to the configuration dialog (QDialog)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the configuration page
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="displayString" ID="displayString"></a>
+<h2>displayString</h2>
+<b>displayString</b>(<i></i>)
+<p>
+    Public function to get the display string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+display string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="exeDisplayData" ID="exeDisplayData"></a>
+<h2>exeDisplayData</h2>
+<b>exeDisplayData</b>(<i></i>)
+<p>
+    Public method to support the display of some executable info.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary containing the data to be shown
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getConfigData" ID="getConfigData"></a>
+<h2>getConfigData</h2>
+<b>getConfigData</b>(<i></i>)
+<p>
+    Module function returning data as required by the configuration dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary with key "zzz_subversionPage" containing the relevant
+    data
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getVcsSystemIndicator" ID="getVcsSystemIndicator"></a>
+<h2>getVcsSystemIndicator</h2>
+<b>getVcsSystemIndicator</b>(<i></i>)
+<p>
+    Public function to get the indicators for this version control system.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary with indicator as key and a tuple with the vcs name
+        (string) and vcs display string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="prepareUninstall" ID="prepareUninstall"></a>
+<h2>prepareUninstall</h2>
+<b>prepareUninstall</b>(<i></i>)
+<p>
+    Module function to prepare for an uninstallation.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

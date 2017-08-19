@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.CheckerPlugins.CodeStyleChecker.CodeStyleStatisticsDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.CheckerPlugins.CodeStyleChecker.CodeStyleStatisticsDialog</h1>
+<p>
+Module implementing a dialog showing statistical data for the last code
+style checker run.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CodeStyleStatisticsDialog">CodeStyleStatisticsDialog</a></td>
+<td>Class implementing a dialog showing statistical data for the last code style checker run.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CodeStyleStatisticsDialog" ID="CodeStyleStatisticsDialog"></a>
+<h2>CodeStyleStatisticsDialog</h2>
+<p>
+    Class implementing a dialog showing statistical data for the last
+    code style checker run.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_CodeStyleStatisticsDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CodeStyleStatisticsDialog.__init__">CodeStyleStatisticsDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CodeStyleStatisticsDialog.__createItem">__createItem</a></td>
+<td>Private method to create an entry in the result list.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CodeStyleStatisticsDialog.__init__" ID="CodeStyleStatisticsDialog.__init__"></a>
+<h4>CodeStyleStatisticsDialog (Constructor)</h4>
+<b>CodeStyleStatisticsDialog</b>(<i>statistics, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>statistics</i></dt>
+<dd>
+dictionary with the statistical data
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="CodeStyleStatisticsDialog.__createItem" ID="CodeStyleStatisticsDialog.__createItem"></a>
+<h4>CodeStyleStatisticsDialog.__createItem</h4>
+<b>__createItem</b>(<i>count, code, message</i>)
+<p>
+        Private method to create an entry in the result list.
+</p><dl>
+<dt><i>count</i></dt>
+<dd>
+occurrences of the issue (integer)
+</dd><dt><i>code</i></dt>
+<dd>
+of a code style issue message (string)
+</dd><dt><i>message</i></dt>
+<dd>
+code style issue message to be shown (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

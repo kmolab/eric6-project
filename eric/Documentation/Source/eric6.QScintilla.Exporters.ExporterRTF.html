@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.QScintilla.Exporters.ExporterRTF</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.QScintilla.Exporters.ExporterRTF</h1>
+<p>
+Module implementing an exporter for RTF.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ExporterRTF">ExporterRTF</a></td>
+<td>Class implementing an exporter for RTF.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ExporterRTF" ID="ExporterRTF"></a>
+<h2>ExporterRTF</h2>
+<p>
+    Class implementing an exporter for RTF.
+</p>
+<h3>Derived from</h3>
+ExporterBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>RTF_BODYCLOSE</td></tr><tr><td>RTF_BODYOPEN</td></tr><tr><td>RTF_BOLD_OFF</td></tr><tr><td>RTF_BOLD_ON</td></tr><tr><td>RTF_COLOR</td></tr><tr><td>RTF_COLORDEF</td></tr><tr><td>RTF_COLORDEFCLOSE</td></tr><tr><td>RTF_COLORDEFOPEN</td></tr><tr><td>RTF_COMMENT</td></tr><tr><td>RTF_CREATED</td></tr><tr><td>RTF_EOLN</td></tr><tr><td>RTF_FONTDEF</td></tr><tr><td>RTF_FONTDEFCLOSE</td></tr><tr><td>RTF_FONTDEFOPEN</td></tr><tr><td>RTF_HEADERCLOSE</td></tr><tr><td>RTF_HEADEROPEN</td></tr><tr><td>RTF_INFOCLOSE</td></tr><tr><td>RTF_INFOOPEN</td></tr><tr><td>RTF_ITALIC_OFF</td></tr><tr><td>RTF_ITALIC_ON</td></tr><tr><td>RTF_SETBACKGROUND</td></tr><tr><td>RTF_SETCOLOR</td></tr><tr><td>RTF_SETFONTFACE</td></tr><tr><td>RTF_SETFONTSIZE</td></tr><tr><td>RTF_TAB</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ExporterRTF.__init__">ExporterRTF</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ExporterRTF.__GetRTFNextControl">__GetRTFNextControl</a></td>
+<td>Private method to extract the next RTF control word from style.</td>
+</tr><tr>
+<td><a href="#ExporterRTF.__GetRTFStyleChange">__GetRTFStyleChange</a></td>
+<td>Private method to extract control words that are different between two styles.</td>
+</tr><tr>
+<td><a href="#ExporterRTF.exportSource">exportSource</a></td>
+<td>Public method performing the export.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ExporterRTF.__init__" ID="ExporterRTF.__init__"></a>
+<h4>ExporterRTF (Constructor)</h4>
+<b>ExporterRTF</b>(<i>editor, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor object (QScintilla.Editor.Editor)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent object of the exporter (QObject)
+</dd>
+</dl><a NAME="ExporterRTF.__GetRTFNextControl" ID="ExporterRTF.__GetRTFNextControl"></a>
+<h4>ExporterRTF.__GetRTFNextControl</h4>
+<b>__GetRTFNextControl</b>(<i>pos, style</i>)
+<p>
+        Private method to extract the next RTF control word from style.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position to start search (integer)
+</dd><dt><i>style</i></dt>
+<dd>
+style definition to search in (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of new start position and control word found
+            (integer, string)
+</dd>
+</dl><a NAME="ExporterRTF.__GetRTFStyleChange" ID="ExporterRTF.__GetRTFStyleChange"></a>
+<h4>ExporterRTF.__GetRTFStyleChange</h4>
+<b>__GetRTFStyleChange</b>(<i>last, current</i>)
+<p>
+        Private method to extract control words that are different between two
+        styles.
+</p><dl>
+<dt><i>last</i></dt>
+<dd>
+least recently used style (string)
+</dd><dt><i>current</i></dt>
+<dd>
+current style (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string containing the delta between these styles (string)
+</dd>
+</dl><a NAME="ExporterRTF.exportSource" ID="ExporterRTF.exportSource"></a>
+<h4>ExporterRTF.exportSource</h4>
+<b>exportSource</b>(<i></i>)
+<p>
+        Public method performing the export.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

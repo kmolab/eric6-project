@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ListSelectionDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ListSelectionDialog</h1>
+<p>
+Module implementing a dialog to select from a list of strings.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ListSelectionDialog">E5ListSelectionDialog</a></td>
+<td>Class implementing a dialog to select from a list of strings.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ListSelectionDialog" ID="E5ListSelectionDialog"></a>
+<h2>E5ListSelectionDialog</h2>
+<p>
+    Class implementing a dialog to select from a list of strings.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_E5ListSelectionDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ListSelectionDialog.__init__">E5ListSelectionDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ListSelectionDialog.getSelection">getSelection</a></td>
+<td>Public method to retrieve the selected items.</td>
+</tr><tr>
+<td><a href="#E5ListSelectionDialog.on_selectionList_itemSelectionChanged">on_selectionList_itemSelectionChanged</a></td>
+<td>Private slot handling a change of the selection.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ListSelectionDialog.__init__" ID="E5ListSelectionDialog.__init__"></a>
+<h4>E5ListSelectionDialog (Constructor)</h4>
+<b>E5ListSelectionDialog</b>(<i>entries, selectionMode=QAbstractItemView.ExtendedSelection, title="", message="", parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>entries</i> (list of str)</dt>
+<dd>
+list of entries to select from
+</dd><dt><i>selectionMode</i> (QAbstractItemView.SelectionMode)</dt>
+<dd>
+selection mode for the list
+</dd><dt><i>title</i> (str)</dt>
+<dd>
+tirle of the dialog
+</dd><dt><i>message</i> (str)</dt>
+<dd>
+message to be show in the dialog
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="E5ListSelectionDialog.getSelection" ID="E5ListSelectionDialog.getSelection"></a>
+<h4>E5ListSelectionDialog.getSelection</h4>
+<b>getSelection</b>(<i></i>)
+<p>
+        Public method to retrieve the selected items.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+selected entries
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="E5ListSelectionDialog.on_selectionList_itemSelectionChanged" ID="E5ListSelectionDialog.on_selectionList_itemSelectionChanged"></a>
+<h4>E5ListSelectionDialog.on_selectionList_itemSelectionChanged</h4>
+<b>on_selectionList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot handling a change of the selection.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

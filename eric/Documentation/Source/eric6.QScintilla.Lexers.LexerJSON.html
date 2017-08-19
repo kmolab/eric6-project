@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.QScintilla.Lexers.LexerJSON</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.QScintilla.Lexers.LexerJSON</h1>
+<p>
+Module implementing a JSON lexer with some additional methods.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#LexerJSON">LexerJSON</a></td>
+<td>Subclass to implement some additional lexer dependent methods.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="LexerJSON" ID="LexerJSON"></a>
+<h2>LexerJSON</h2>
+<p>
+    Subclass to implement some additional lexer dependent methods.
+</p>
+<h3>Derived from</h3>
+Lexer, QsciLexerJSON
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#LexerJSON.__init__">LexerJSON</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#LexerJSON.defaultKeywords">defaultKeywords</a></td>
+<td>Public method to get the default keywords.</td>
+</tr><tr>
+<td><a href="#LexerJSON.initProperties">initProperties</a></td>
+<td>Public slot to initialize the properties.</td>
+</tr><tr>
+<td><a href="#LexerJSON.isCommentStyle">isCommentStyle</a></td>
+<td>Public method to check, if a style is a comment style.</td>
+</tr><tr>
+<td><a href="#LexerJSON.isStringStyle">isStringStyle</a></td>
+<td>Public method to check, if a style is a string style.</td>
+</tr><tr>
+<td><a href="#LexerJSON.maximumKeywordSet">maximumKeywordSet</a></td>
+<td>Public method to get the maximum keyword set.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="LexerJSON.__init__" ID="LexerJSON.__init__"></a>
+<h4>LexerJSON (Constructor)</h4>
+<b>LexerJSON</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of this lexer
+</dd>
+</dl><a NAME="LexerJSON.defaultKeywords" ID="LexerJSON.defaultKeywords"></a>
+<h4>LexerJSON.defaultKeywords</h4>
+<b>defaultKeywords</b>(<i>kwSet</i>)
+<p>
+        Public method to get the default keywords.
+</p><dl>
+<dt><i>kwSet</i></dt>
+<dd>
+number of the keyword set (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string giving the keywords (string) or None
+</dd>
+</dl><a NAME="LexerJSON.initProperties" ID="LexerJSON.initProperties"></a>
+<h4>LexerJSON.initProperties</h4>
+<b>initProperties</b>(<i></i>)
+<p>
+        Public slot to initialize the properties.
+</p><a NAME="LexerJSON.isCommentStyle" ID="LexerJSON.isCommentStyle"></a>
+<h4>LexerJSON.isCommentStyle</h4>
+<b>isCommentStyle</b>(<i>style</i>)
+<p>
+        Public method to check, if a style is a comment style.
+</p><dl>
+<dt><i>style</i></dt>
+<dd>
+style to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a comment style (boolean)
+</dd>
+</dl><a NAME="LexerJSON.isStringStyle" ID="LexerJSON.isStringStyle"></a>
+<h4>LexerJSON.isStringStyle</h4>
+<b>isStringStyle</b>(<i>style</i>)
+<p>
+        Public method to check, if a style is a string style.
+</p><dl>
+<dt><i>style</i></dt>
+<dd>
+style to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a string style (boolean)
+</dd>
+</dl><a NAME="LexerJSON.maximumKeywordSet" ID="LexerJSON.maximumKeywordSet"></a>
+<h4>LexerJSON.maximumKeywordSet</h4>
+<b>maximumKeywordSet</b>(<i></i>)
+<p>
+        Public method to get the maximum keyword set.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+maximum keyword set (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

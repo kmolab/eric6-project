@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5TldExtractor</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5TldExtractor</h1>
+<p>
+Module implementing the TLD Extractor.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>_TLDExtractor</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5TldExtractor">E5TldExtractor</a></td>
+<td>Class implementing the TLD Extractor.</td>
+</tr><tr>
+<td><a href="#E5TldHostParts">E5TldHostParts</a></td>
+<td>Class implementing the host parts helper.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#instance">instance</a></td>
+<td>Global function to get a reference to the TLD extractor and create it, if it hasn't been yet.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="E5TldExtractor" ID="E5TldExtractor"></a>
+<h2>E5TldExtractor</h2>
+<p>
+    Class implementing the TLD Extractor.
+</p><p>
+    Note: The module function instance() should be used to get a reference
+    to a global object to avoid overhead.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5TldExtractor.__init__">E5TldExtractor</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__checkPublicSuffix">__checkPublicSuffix</a></td>
+<td>Private method to test a host name against a registrable name.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__defaultDataSearchPaths">__defaultDataSearchPaths</a></td>
+<td>Private method to get the default search paths for the TLD data file.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__domainHelper">__domainHelper</a></td>
+<td>Private method to get the domain name without TLD.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__loadData">__loadData</a></td>
+<td>Private method to load the TLD data.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__normalizedHost">__normalizedHost</a></td>
+<td>Private method to get the normalized host for a host address.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__parseData">__parseData</a></td>
+<td>Private method to parse TLD data.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__registrableDomainHelper">__registrableDomainHelper</a></td>
+<td>Private method to get the registrable domain (i.e.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.__subdomainHelper">__subdomainHelper</a></td>
+<td>Private method to get the subdomain of a host address (i.e.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.dataSearchPaths">dataSearchPaths</a></td>
+<td>Public method to get the search paths for the TLD data file.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.domain">domain</a></td>
+<td>Public method to get the domain for a host.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.getTldDownloadUrl">getTldDownloadUrl</a></td>
+<td>Public method to get the TLD data file download URL.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.isDataLoaded">isDataLoaded</a></td>
+<td>Public method to check, if the TLD data ia already loaded.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.registrableDomain">registrableDomain</a></td>
+<td>Public method to get the registrable domain for a host.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.setDataSearchPaths">setDataSearchPaths</a></td>
+<td>Public method to set the search paths for the TLD data file.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.splitParts">splitParts</a></td>
+<td>Public method to split a host address into its parts.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.subdomain">subdomain</a></td>
+<td>Public method to get the subdomain for a host.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.test">test</a></td>
+<td>Public method to execute the tests.</td>
+</tr><tr>
+<td><a href="#E5TldExtractor.tld">tld</a></td>
+<td>Public method to get the top level domain for a host.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5TldExtractor.__init__" ID="E5TldExtractor.__init__"></a>
+<h4>E5TldExtractor (Constructor)</h4>
+<b>E5TldExtractor</b>(<i>withPrivate=False, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>withPrivate</i> (bool)</dt>
+<dd>
+flag indicating to load private TLDs as well
+</dd><dt><i>parent</i> (QObject)</dt>
+<dd>
+reference to the parent object
+</dd>
+</dl><a NAME="E5TldExtractor.__checkPublicSuffix" ID="E5TldExtractor.__checkPublicSuffix"></a>
+<h4>E5TldExtractor.__checkPublicSuffix</h4>
+<b>__checkPublicSuffix</b>(<i>host, registrableName</i>)
+<p>
+        Private method to test a host name against a registrable name.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host name to test
+</dd><dt><i>registrableName</i> (str)</dt>
+<dd>
+registrable domain name to test against
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the check result
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="E5TldExtractor.__defaultDataSearchPaths" ID="E5TldExtractor.__defaultDataSearchPaths"></a>
+<h4>E5TldExtractor.__defaultDataSearchPaths</h4>
+<b>__defaultDataSearchPaths</b>(<i></i>)
+<p>
+        Private method to get the default search paths for the TLD data file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+default search paths for the TLD data file
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="E5TldExtractor.__domainHelper" ID="E5TldExtractor.__domainHelper"></a>
+<h4>E5TldExtractor.__domainHelper</h4>
+<b>__domainHelper</b>(<i>host, tldPart</i>)
+<p>
+        Private method to get the domain name without TLD.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host address
+</dd><dt><i>tldPart</i> (str)</dt>
+<dd>
+TLD part of the host address
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+domain name
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.__loadData" ID="E5TldExtractor.__loadData"></a>
+<h4>E5TldExtractor.__loadData</h4>
+<b>__loadData</b>(<i></i>)
+<p>
+        Private method to load the TLD data.
+</p><a NAME="E5TldExtractor.__normalizedHost" ID="E5TldExtractor.__normalizedHost"></a>
+<h4>E5TldExtractor.__normalizedHost</h4>
+<b>__normalizedHost</b>(<i>host</i>)
+<p>
+        Private method to get the normalized host for a host address.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host address to be normalized
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+normalized host address
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.__parseData" ID="E5TldExtractor.__parseData"></a>
+<h4>E5TldExtractor.__parseData</h4>
+<b>__parseData</b>(<i>dataFile, loadPrivateDomains=False</i>)
+<p>
+        Private method to parse TLD data.
+</p><dl>
+<dt><i>dataFile</i> (str)</dt>
+<dd>
+name of the file containing the TLD data
+</dd><dt><i>loadPrivateDomains</i> (bool)</dt>
+<dd>
+flag indicating to load private domains
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="E5TldExtractor.__registrableDomainHelper" ID="E5TldExtractor.__registrableDomainHelper"></a>
+<h4>E5TldExtractor.__registrableDomainHelper</h4>
+<b>__registrableDomainHelper</b>(<i>domainPart, tldPart</i>)
+<p>
+        Private method to get the registrable domain (i.e. domain plus TLD).
+</p><dl>
+<dt><i>domainPart</i> (str)</dt>
+<dd>
+domain part of a host address
+</dd><dt><i>tldPart</i> (str)</dt>
+<dd>
+TLD part of a host address
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+registrable domain name
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.__subdomainHelper" ID="E5TldExtractor.__subdomainHelper"></a>
+<h4>E5TldExtractor.__subdomainHelper</h4>
+<b>__subdomainHelper</b>(<i>host, registrablePart</i>)
+<p>
+        Private method to get the subdomain of a host address (i.e. domain part
+        without the registrable domain name).
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host address
+</dd><dt><i>registrablePart</i> (str)</dt>
+<dd>
+registrable domain part of the host address
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+subdomain name
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.dataSearchPaths" ID="E5TldExtractor.dataSearchPaths"></a>
+<h4>E5TldExtractor.dataSearchPaths</h4>
+<b>dataSearchPaths</b>(<i></i>)
+<p>
+        Public method to get the search paths for the TLD data file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+search paths for the TLD data file
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="E5TldExtractor.domain" ID="E5TldExtractor.domain"></a>
+<h4>E5TldExtractor.domain</h4>
+<b>domain</b>(<i>host</i>)
+<p>
+        Public method to get the domain for a host.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host name to get the domain for
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+domain for host
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.getTldDownloadUrl" ID="E5TldExtractor.getTldDownloadUrl"></a>
+<h4>E5TldExtractor.getTldDownloadUrl</h4>
+<b>getTldDownloadUrl</b>(<i></i>)
+<p>
+        Public method to get the TLD data file download URL.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+download URL
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QUrl
+</dd>
+</dl><a NAME="E5TldExtractor.isDataLoaded" ID="E5TldExtractor.isDataLoaded"></a>
+<h4>E5TldExtractor.isDataLoaded</h4>
+<b>isDataLoaded</b>(<i></i>)
+<p>
+        Public method to check, if the TLD data ia already loaded.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating data is loaded
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="E5TldExtractor.registrableDomain" ID="E5TldExtractor.registrableDomain"></a>
+<h4>E5TldExtractor.registrableDomain</h4>
+<b>registrableDomain</b>(<i>host</i>)
+<p>
+        Public method to get the registrable domain for a host.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host name to get the registrable domain for
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+registrable domain for host
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.setDataSearchPaths" ID="E5TldExtractor.setDataSearchPaths"></a>
+<h4>E5TldExtractor.setDataSearchPaths</h4>
+<b>setDataSearchPaths</b>(<i>searchPaths=None</i>)
+<p>
+        Public method to set the search paths for the TLD data file.
+</p><dl>
+<dt><i>searchPaths</i> (list of str)</dt>
+<dd>
+search paths for the TLD data file or None,
+            if the default search paths shall be set
+</dd>
+</dl><a NAME="E5TldExtractor.splitParts" ID="E5TldExtractor.splitParts"></a>
+<h4>E5TldExtractor.splitParts</h4>
+<b>splitParts</b>(<i>host</i>)
+<p>
+        Public method to split a host address into its parts.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host address to be split
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+splitted host address
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+E5TldHostParts
+</dd>
+</dl><a NAME="E5TldExtractor.subdomain" ID="E5TldExtractor.subdomain"></a>
+<h4>E5TldExtractor.subdomain</h4>
+<b>subdomain</b>(<i>host</i>)
+<p>
+        Public method to get the subdomain for a host.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host name to get the subdomain for
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+subdomain for host
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5TldExtractor.test" ID="E5TldExtractor.test"></a>
+<h4>E5TldExtractor.test</h4>
+<b>test</b>(<i></i>)
+<p>
+        Public method to execute the tests.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the test result
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="E5TldExtractor.tld" ID="E5TldExtractor.tld"></a>
+<h4>E5TldExtractor.tld</h4>
+<b>tld</b>(<i>host</i>)
+<p>
+        Public method to get the top level domain for a host.
+</p><dl>
+<dt><i>host</i> (str)</dt>
+<dd>
+host name to get TLD for
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+TLD for host
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5TldHostParts" ID="E5TldHostParts"></a>
+<h2>E5TldHostParts</h2>
+<p>
+    Class implementing the host parts helper.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5TldHostParts.__init__">E5TldHostParts</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5TldHostParts.__init__" ID="E5TldHostParts.__init__"></a>
+<h4>E5TldHostParts (Constructor)</h4>
+<b>E5TldHostParts</b>(<i></i>)
+<p>
+        Constructor
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="instance" ID="instance"></a>
+<h2>instance</h2>
+<b>instance</b>(<i>withPrivate=False</i>)
+<p>
+    Global function to get a reference to the TLD extractor and create it, if
+    it hasn't been yet.
+</p><dl>
+<dt><i>withPrivate</i> (bool)</dt>
+<dd>
+flag indicating to load private TLDs as well
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the zoom manager object
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+E5TldExtractor
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

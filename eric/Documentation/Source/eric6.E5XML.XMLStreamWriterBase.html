@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5XML.XMLStreamWriterBase</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5XML.XMLStreamWriterBase</h1>
+<p>
+Module implementing a base class for all of eric6s XML stream writers.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#XMLStreamWriterBase">XMLStreamWriterBase</a></td>
+<td>Class implementing a base class for all of eric6s XML stream writers.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="XMLStreamWriterBase" ID="XMLStreamWriterBase"></a>
+<h2>XMLStreamWriterBase</h2>
+<p>
+    Class implementing a base class for all of eric6s XML stream writers.
+</p>
+<h3>Derived from</h3>
+QXmlStreamWriter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#XMLStreamWriterBase.__init__">XMLStreamWriterBase</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._writeBasics">_writeBasics</a></td>
+<td>Protected method to dump an object of a basic Python type.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_bool">_write_bool</a></td>
+<td>Protected method to dump a bool object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_bytearray">_write_bytearray</a></td>
+<td>Protected method to dump a bytearray object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_bytes">_write_bytes</a></td>
+<td>Protected method to dump a bytes object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_complex">_write_complex</a></td>
+<td>Protected method to dump a complex object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_dictionary">_write_dictionary</a></td>
+<td>Protected method to dump a dict object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_float">_write_float</a></td>
+<td>Protected method to dump a float object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_frozenset">_write_frozenset</a></td>
+<td>Protected method to dump a frozenset object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_int">_write_int</a></td>
+<td>Protected method to dump an int object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_list">_write_list</a></td>
+<td>Protected method to dump a list object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_none">_write_none</a></td>
+<td>Protected method to dump a NoneType object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_set">_write_set</a></td>
+<td>Protected method to dump a set object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_string">_write_string</a></td>
+<td>Protected method to dump a str object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_tuple">_write_tuple</a></td>
+<td>Protected method to dump a tuple object.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase._write_unimplemented">_write_unimplemented</a></td>
+<td>Protected method to dump a type, that has no special method.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase.writeBasics">writeBasics</a></td>
+<td>Public method to write a tag with a basic Python object dump.</td>
+</tr><tr>
+<td><a href="#XMLStreamWriterBase.writeXML">writeXML</a></td>
+<td>Public method to write the XML to the file.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="XMLStreamWriterBase.__init__" ID="XMLStreamWriterBase.__init__"></a>
+<h4>XMLStreamWriterBase (Constructor)</h4>
+<b>XMLStreamWriterBase</b>(<i>device</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>device</i></dt>
+<dd>
+reference to the I/O device to write to (QIODevice)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._writeBasics" ID="XMLStreamWriterBase._writeBasics"></a>
+<h4>XMLStreamWriterBase._writeBasics</h4>
+<b>_writeBasics</b>(<i>pyobject</i>)
+<p>
+        Protected method to dump an object of a basic Python type.
+</p><dl>
+<dt><i>pyobject</i></dt>
+<dd>
+object to be dumped
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_bool" ID="XMLStreamWriterBase._write_bool"></a>
+<h4>XMLStreamWriterBase._write_bool</h4>
+<b>_write_bool</b>(<i>value</i>)
+<p>
+        Protected method to dump a bool object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (boolean)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_bytearray" ID="XMLStreamWriterBase._write_bytearray"></a>
+<h4>XMLStreamWriterBase._write_bytearray</h4>
+<b>_write_bytearray</b>(<i>value</i>)
+<p>
+        Protected method to dump a bytearray object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (bytearray)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_bytes" ID="XMLStreamWriterBase._write_bytes"></a>
+<h4>XMLStreamWriterBase._write_bytes</h4>
+<b>_write_bytes</b>(<i>value</i>)
+<p>
+        Protected method to dump a bytes object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (bytes)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_complex" ID="XMLStreamWriterBase._write_complex"></a>
+<h4>XMLStreamWriterBase._write_complex</h4>
+<b>_write_complex</b>(<i>value</i>)
+<p>
+        Protected method to dump a complex object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (complex)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_dictionary" ID="XMLStreamWriterBase._write_dictionary"></a>
+<h4>XMLStreamWriterBase._write_dictionary</h4>
+<b>_write_dictionary</b>(<i>value</i>)
+<p>
+        Protected method to dump a dict object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (dictionary)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_float" ID="XMLStreamWriterBase._write_float"></a>
+<h4>XMLStreamWriterBase._write_float</h4>
+<b>_write_float</b>(<i>value</i>)
+<p>
+        Protected method to dump a float object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (float)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_frozenset" ID="XMLStreamWriterBase._write_frozenset"></a>
+<h4>XMLStreamWriterBase._write_frozenset</h4>
+<b>_write_frozenset</b>(<i>value</i>)
+<p>
+        Protected method to dump a frozenset object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (frozenset)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_int" ID="XMLStreamWriterBase._write_int"></a>
+<h4>XMLStreamWriterBase._write_int</h4>
+<b>_write_int</b>(<i>value</i>)
+<p>
+        Protected method to dump an int object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (integer)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_list" ID="XMLStreamWriterBase._write_list"></a>
+<h4>XMLStreamWriterBase._write_list</h4>
+<b>_write_list</b>(<i>value</i>)
+<p>
+        Protected method to dump a list object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (list)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_none" ID="XMLStreamWriterBase._write_none"></a>
+<h4>XMLStreamWriterBase._write_none</h4>
+<b>_write_none</b>(<i>value</i>)
+<p>
+        Protected method to dump a NoneType object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (None) (ignored)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_set" ID="XMLStreamWriterBase._write_set"></a>
+<h4>XMLStreamWriterBase._write_set</h4>
+<b>_write_set</b>(<i>value</i>)
+<p>
+        Protected method to dump a set object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (set)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_string" ID="XMLStreamWriterBase._write_string"></a>
+<h4>XMLStreamWriterBase._write_string</h4>
+<b>_write_string</b>(<i>value</i>)
+<p>
+        Protected method to dump a str object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (string)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_tuple" ID="XMLStreamWriterBase._write_tuple"></a>
+<h4>XMLStreamWriterBase._write_tuple</h4>
+<b>_write_tuple</b>(<i>value</i>)
+<p>
+        Protected method to dump a tuple object.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (tuple)
+</dd>
+</dl><a NAME="XMLStreamWriterBase._write_unimplemented" ID="XMLStreamWriterBase._write_unimplemented"></a>
+<h4>XMLStreamWriterBase._write_unimplemented</h4>
+<b>_write_unimplemented</b>(<i>value</i>)
+<p>
+        Protected method to dump a type, that has no special method.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be dumped (any pickleable object)
+</dd>
+</dl><a NAME="XMLStreamWriterBase.writeBasics" ID="XMLStreamWriterBase.writeBasics"></a>
+<h4>XMLStreamWriterBase.writeBasics</h4>
+<b>writeBasics</b>(<i>tag, pyobject</i>)
+<p>
+        Public method to write a tag with a basic Python object dump.
+</p><dl>
+<dt><i>tag</i></dt>
+<dd>
+tag name (string)
+</dd><dt><i>pyobject</i></dt>
+<dd>
+object to be dumped
+</dd>
+</dl><a NAME="XMLStreamWriterBase.writeXML" ID="XMLStreamWriterBase.writeXML"></a>
+<h4>XMLStreamWriterBase.writeXML</h4>
+<b>writeXML</b>(<i></i>)
+<p>
+        Public method to write the XML to the file.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

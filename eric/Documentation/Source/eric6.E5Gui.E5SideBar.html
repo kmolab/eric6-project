@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5SideBar</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5SideBar</h1>
+<p>
+Module implementing a sidebar class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5SideBar">E5SideBar</a></td>
+<td>Class implementing a sidebar with a widget area, that is hidden or shown, if the current tab is clicked again.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5SideBar" ID="E5SideBar"></a>
+<h2>E5SideBar</h2>
+<p>
+    Class implementing a sidebar with a widget area, that is hidden or shown,
+    if the current tab is clicked again.
+</p>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>East</td></tr><tr><td>North</td></tr><tr><td>South</td></tr><tr><td>Version</td></tr><tr><td>West</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5SideBar.__init__">E5SideBar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5SideBar.__appFocusChanged">__appFocusChanged</a></td>
+<td>Private slot to handle a change of the focus.</td>
+</tr><tr>
+<td><a href="#E5SideBar.__autoHideToggled">__autoHideToggled</a></td>
+<td>Private slot to handle the toggling of the autohide button.</td>
+</tr><tr>
+<td><a href="#E5SideBar.__cancelDelayTimer">__cancelDelayTimer</a></td>
+<td>Private method to cancel the current delay timer.</td>
+</tr><tr>
+<td><a href="#E5SideBar.__delayedAction">__delayedAction</a></td>
+<td>Private slot to handle the firing of the delay timer.</td>
+</tr><tr>
+<td><a href="#E5SideBar.__expandIt">__expandIt</a></td>
+<td>Private method to expand the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.__shrinkIt">__shrinkIt</a></td>
+<td>Private method to shrink the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.__splitterMoved">__splitterMoved</a></td>
+<td>Private slot to react on splitter moves.</td>
+</tr><tr>
+<td><a href="#E5SideBar.addTab">addTab</a></td>
+<td>Public method to add a tab to the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.clear">clear</a></td>
+<td>Public method to remove all tabs.</td>
+</tr><tr>
+<td><a href="#E5SideBar.count">count</a></td>
+<td>Public method to get the number of tabs.</td>
+</tr><tr>
+<td><a href="#E5SideBar.currentIndex">currentIndex</a></td>
+<td>Public method to get the index of the current tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.currentWidget">currentWidget</a></td>
+<td>Public method to get a reference to the current widget.</td>
+</tr><tr>
+<td><a href="#E5SideBar.delay">delay</a></td>
+<td>Public method to get the delay value for the expand/shrink delay in milliseconds.</td>
+</tr><tr>
+<td><a href="#E5SideBar.enterEvent">enterEvent</a></td>
+<td>Protected method to handle the mouse entering this widget.</td>
+</tr><tr>
+<td><a href="#E5SideBar.eventFilter">eventFilter</a></td>
+<td>Public method to handle some events for the tabbar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.expand">expand</a></td>
+<td>Public method to record a expand request.</td>
+</tr><tr>
+<td><a href="#E5SideBar.indexOf">indexOf</a></td>
+<td>Public method to get the index of the given widget.</td>
+</tr><tr>
+<td><a href="#E5SideBar.insertTab">insertTab</a></td>
+<td>Public method to insert a tab into the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.isAutoHiding">isAutoHiding</a></td>
+<td>Public method to check, if the auto hide function is active.</td>
+</tr><tr>
+<td><a href="#E5SideBar.isMinimized">isMinimized</a></td>
+<td>Public method to check the minimized state.</td>
+</tr><tr>
+<td><a href="#E5SideBar.isTabEnabled">isTabEnabled</a></td>
+<td>Public method to check, if a tab is enabled.</td>
+</tr><tr>
+<td><a href="#E5SideBar.leaveEvent">leaveEvent</a></td>
+<td>Protected method to handle the mouse leaving this widget.</td>
+</tr><tr>
+<td><a href="#E5SideBar.nextTab">nextTab</a></td>
+<td>Public slot used to show the next tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.orientation">orientation</a></td>
+<td>Public method to get the orientation of the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.prevTab">prevTab</a></td>
+<td>Public slot used to show the previous tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.removeTab">removeTab</a></td>
+<td>Public method to remove a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.restoreState">restoreState</a></td>
+<td>Public method to restore the state of the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.saveState">saveState</a></td>
+<td>Public method to save the state of the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setCurrentIndex">setCurrentIndex</a></td>
+<td>Public slot to set the current index.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setCurrentWidget">setCurrentWidget</a></td>
+<td>Public slot to set the current widget.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setDelay">setDelay</a></td>
+<td>Public method to set the delay value for the expand/shrink delay in milliseconds.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setOrientation">setOrientation</a></td>
+<td>Public method to set the orientation of the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setSplitter">setSplitter</a></td>
+<td>Public method to set the splitter managing the sidebar.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setTabEnabled">setTabEnabled</a></td>
+<td>Public method to set the enabled state of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setTabIcon">setTabIcon</a></td>
+<td>Public method to set the icon of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setTabText">setTabText</a></td>
+<td>Public method to set the text of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setTabToolTip">setTabToolTip</a></td>
+<td>Public method to set the tooltip text of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.setTabWhatsThis">setTabWhatsThis</a></td>
+<td>Public method to set the WhatsThis text of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.shrink">shrink</a></td>
+<td>Public method to record a shrink request.</td>
+</tr><tr>
+<td><a href="#E5SideBar.shutdown">shutdown</a></td>
+<td>Public method to shut down the object.</td>
+</tr><tr>
+<td><a href="#E5SideBar.tabIcon">tabIcon</a></td>
+<td>Public method to get the icon of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.tabText">tabText</a></td>
+<td>Public method to get the text of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.tabToolTip">tabToolTip</a></td>
+<td>Public method to get the tooltip text of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.tabWhatsThis">tabWhatsThis</a></td>
+<td>Public method to get the WhatsThis text of a tab.</td>
+</tr><tr>
+<td><a href="#E5SideBar.widget">widget</a></td>
+<td>Public method to get a reference to the widget associated with a tab.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5SideBar.__init__" ID="E5SideBar.__init__"></a>
+<h4>E5SideBar (Constructor)</h4>
+<b>E5SideBar</b>(<i>orientation=None, delay=200, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>orientation</i></dt>
+<dd>
+orientation of the sidebar widget (North, East,
+            South, West)
+</dd><dt><i>delay</i></dt>
+<dd>
+value for the expand/shrink delay in milliseconds
+            (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="E5SideBar.__appFocusChanged" ID="E5SideBar.__appFocusChanged"></a>
+<h4>E5SideBar.__appFocusChanged</h4>
+<b>__appFocusChanged</b>(<i>old, now</i>)
+<p>
+        Private slot to handle a change of the focus.
+</p><dl>
+<dt><i>old</i></dt>
+<dd>
+reference to the widget, that lost focus (QWidget or None)
+</dd><dt><i>now</i></dt>
+<dd>
+reference to the widget having the focus (QWidget or None)
+</dd>
+</dl><a NAME="E5SideBar.__autoHideToggled" ID="E5SideBar.__autoHideToggled"></a>
+<h4>E5SideBar.__autoHideToggled</h4>
+<b>__autoHideToggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle the toggling of the autohide button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the checked state of the button
+            (boolean)
+</dd>
+</dl><a NAME="E5SideBar.__cancelDelayTimer" ID="E5SideBar.__cancelDelayTimer"></a>
+<h4>E5SideBar.__cancelDelayTimer</h4>
+<b>__cancelDelayTimer</b>(<i></i>)
+<p>
+        Private method to cancel the current delay timer.
+</p><a NAME="E5SideBar.__delayedAction" ID="E5SideBar.__delayedAction"></a>
+<h4>E5SideBar.__delayedAction</h4>
+<b>__delayedAction</b>(<i></i>)
+<p>
+        Private slot to handle the firing of the delay timer.
+</p><a NAME="E5SideBar.__expandIt" ID="E5SideBar.__expandIt"></a>
+<h4>E5SideBar.__expandIt</h4>
+<b>__expandIt</b>(<i></i>)
+<p>
+        Private method to expand the sidebar.
+</p><a NAME="E5SideBar.__shrinkIt" ID="E5SideBar.__shrinkIt"></a>
+<h4>E5SideBar.__shrinkIt</h4>
+<b>__shrinkIt</b>(<i></i>)
+<p>
+        Private method to shrink the sidebar.
+</p><a NAME="E5SideBar.__splitterMoved" ID="E5SideBar.__splitterMoved"></a>
+<h4>E5SideBar.__splitterMoved</h4>
+<b>__splitterMoved</b>(<i>pos, index</i>)
+<p>
+        Private slot to react on splitter moves.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+new position of the splitter handle (integer)
+</dd><dt><i>index</i></dt>
+<dd>
+index of the splitter handle (integer)
+</dd>
+</dl><a NAME="E5SideBar.addTab" ID="E5SideBar.addTab"></a>
+<h4>E5SideBar.addTab</h4>
+<b>addTab</b>(<i>widget, iconOrLabel, label=None</i>)
+<p>
+        Public method to add a tab to the sidebar.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget to add (QWidget)
+</dd><dt><i>iconOrLabel</i></dt>
+<dd>
+reference to the icon or the label text of the tab
+            (QIcon, string)
+</dd><dt><i>label</i></dt>
+<dd>
+the labeltext of the tab (string) (only to be
+            used, if the second parameter is a QIcon)
+</dd>
+</dl><a NAME="E5SideBar.clear" ID="E5SideBar.clear"></a>
+<h4>E5SideBar.clear</h4>
+<b>clear</b>(<i></i>)
+<p>
+        Public method to remove all tabs.
+</p><a NAME="E5SideBar.count" ID="E5SideBar.count"></a>
+<h4>E5SideBar.count</h4>
+<b>count</b>(<i></i>)
+<p>
+        Public method to get the number of tabs.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+number of tabs in the sidebar (integer)
+</dd>
+</dl><a NAME="E5SideBar.currentIndex" ID="E5SideBar.currentIndex"></a>
+<h4>E5SideBar.currentIndex</h4>
+<b>currentIndex</b>(<i></i>)
+<p>
+        Public method to get the index of the current tab.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+index of the current tab (integer)
+</dd>
+</dl><a NAME="E5SideBar.currentWidget" ID="E5SideBar.currentWidget"></a>
+<h4>E5SideBar.currentWidget</h4>
+<b>currentWidget</b>(<i></i>)
+<p>
+        Public method to get a reference to the current widget.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the current widget (QWidget)
+</dd>
+</dl><a NAME="E5SideBar.delay" ID="E5SideBar.delay"></a>
+<h4>E5SideBar.delay</h4>
+<b>delay</b>(<i></i>)
+<p>
+        Public method to get the delay value for the expand/shrink delay in
+        milliseconds.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+value for the expand/shrink delay in milliseconds (integer)
+</dd>
+</dl><a NAME="E5SideBar.enterEvent" ID="E5SideBar.enterEvent"></a>
+<h4>E5SideBar.enterEvent</h4>
+<b>enterEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the mouse entering this widget.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><a NAME="E5SideBar.eventFilter" ID="E5SideBar.eventFilter"></a>
+<h4>E5SideBar.eventFilter</h4>
+<b>eventFilter</b>(<i>obj, evt</i>)
+<p>
+        Public method to handle some events for the tabbar.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+reference to the object (QObject)
+</dd><dt><i>evt</i></dt>
+<dd>
+reference to the event object (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the event was handled (boolean)
+</dd>
+</dl><a NAME="E5SideBar.expand" ID="E5SideBar.expand"></a>
+<h4>E5SideBar.expand</h4>
+<b>expand</b>(<i></i>)
+<p>
+        Public method to record a expand request.
+</p><a NAME="E5SideBar.indexOf" ID="E5SideBar.indexOf"></a>
+<h4>E5SideBar.indexOf</h4>
+<b>indexOf</b>(<i>widget</i>)
+<p>
+        Public method to get the index of the given widget.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget to get the index of (QWidget)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the given widget (integer)
+</dd>
+</dl><a NAME="E5SideBar.insertTab" ID="E5SideBar.insertTab"></a>
+<h4>E5SideBar.insertTab</h4>
+<b>insertTab</b>(<i>index, widget, iconOrLabel, label=None</i>)
+<p>
+        Public method to insert a tab into the sidebar.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+the index to insert the tab at (integer)
+</dd><dt><i>widget</i></dt>
+<dd>
+reference to the widget to insert (QWidget)
+</dd><dt><i>iconOrLabel</i></dt>
+<dd>
+reference to the icon or the labeltext of the tab
+            (QIcon, string)
+</dd><dt><i>label</i></dt>
+<dd>
+the labeltext of the tab (string) (only to be
+            used, if the second parameter is a QIcon)
+</dd>
+</dl><a NAME="E5SideBar.isAutoHiding" ID="E5SideBar.isAutoHiding"></a>
+<h4>E5SideBar.isAutoHiding</h4>
+<b>isAutoHiding</b>(<i></i>)
+<p>
+        Public method to check, if the auto hide function is active.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the state of auto hiding (boolean)
+</dd>
+</dl><a NAME="E5SideBar.isMinimized" ID="E5SideBar.isMinimized"></a>
+<h4>E5SideBar.isMinimized</h4>
+<b>isMinimized</b>(<i></i>)
+<p>
+        Public method to check the minimized state.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the minimized state (boolean)
+</dd>
+</dl><a NAME="E5SideBar.isTabEnabled" ID="E5SideBar.isTabEnabled"></a>
+<h4>E5SideBar.isTabEnabled</h4>
+<b>isTabEnabled</b>(<i>index</i>)
+<p>
+        Public method to check, if a tab is enabled.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the enabled state (boolean)
+</dd>
+</dl><a NAME="E5SideBar.leaveEvent" ID="E5SideBar.leaveEvent"></a>
+<h4>E5SideBar.leaveEvent</h4>
+<b>leaveEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the mouse leaving this widget.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><a NAME="E5SideBar.nextTab" ID="E5SideBar.nextTab"></a>
+<h4>E5SideBar.nextTab</h4>
+<b>nextTab</b>(<i></i>)
+<p>
+        Public slot used to show the next tab.
+</p><a NAME="E5SideBar.orientation" ID="E5SideBar.orientation"></a>
+<h4>E5SideBar.orientation</h4>
+<b>orientation</b>(<i></i>)
+<p>
+        Public method to get the orientation of the sidebar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+orientation of the sidebar (North, East, South, West)
+</dd>
+</dl><a NAME="E5SideBar.prevTab" ID="E5SideBar.prevTab"></a>
+<h4>E5SideBar.prevTab</h4>
+<b>prevTab</b>(<i></i>)
+<p>
+        Public slot used to show the previous tab.
+</p><a NAME="E5SideBar.removeTab" ID="E5SideBar.removeTab"></a>
+<h4>E5SideBar.removeTab</h4>
+<b>removeTab</b>(<i>index</i>)
+<p>
+        Public method to remove a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+the index of the tab to remove (integer)
+</dd>
+</dl><a NAME="E5SideBar.restoreState" ID="E5SideBar.restoreState"></a>
+<h4>E5SideBar.restoreState</h4>
+<b>restoreState</b>(<i>state</i>)
+<p>
+        Public method to restore the state of the sidebar.
+</p><dl>
+<dt><i>state</i></dt>
+<dd>
+byte array containing the saved state (QByteArray)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="E5SideBar.saveState" ID="E5SideBar.saveState"></a>
+<h4>E5SideBar.saveState</h4>
+<b>saveState</b>(<i></i>)
+<p>
+        Public method to save the state of the sidebar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+saved state as a byte array (QByteArray)
+</dd>
+</dl><a NAME="E5SideBar.setCurrentIndex" ID="E5SideBar.setCurrentIndex"></a>
+<h4>E5SideBar.setCurrentIndex</h4>
+<b>setCurrentIndex</b>(<i>index</i>)
+<p>
+        Public slot to set the current index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+the index to set as the current index (integer)
+</dd>
+</dl><a NAME="E5SideBar.setCurrentWidget" ID="E5SideBar.setCurrentWidget"></a>
+<h4>E5SideBar.setCurrentWidget</h4>
+<b>setCurrentWidget</b>(<i>widget</i>)
+<p>
+        Public slot to set the current widget.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget to become the current widget
+            (QWidget)
+</dd>
+</dl><a NAME="E5SideBar.setDelay" ID="E5SideBar.setDelay"></a>
+<h4>E5SideBar.setDelay</h4>
+<b>setDelay</b>(<i>delay</i>)
+<p>
+        Public method to set the delay value for the expand/shrink delay in
+        milliseconds.
+</p><dl>
+<dt><i>delay</i></dt>
+<dd>
+value for the expand/shrink delay in milliseconds
+            (integer)
+</dd>
+</dl><a NAME="E5SideBar.setOrientation" ID="E5SideBar.setOrientation"></a>
+<h4>E5SideBar.setOrientation</h4>
+<b>setOrientation</b>(<i>orient</i>)
+<p>
+        Public method to set the orientation of the sidebar.
+</p><dl>
+<dt><i>orient</i></dt>
+<dd>
+orientation of the sidebar (North, East, South, West)
+</dd>
+</dl><a NAME="E5SideBar.setSplitter" ID="E5SideBar.setSplitter"></a>
+<h4>E5SideBar.setSplitter</h4>
+<b>setSplitter</b>(<i>splitter</i>)
+<p>
+        Public method to set the splitter managing the sidebar.
+</p><dl>
+<dt><i>splitter</i></dt>
+<dd>
+reference to the splitter (QSplitter)
+</dd>
+</dl><a NAME="E5SideBar.setTabEnabled" ID="E5SideBar.setTabEnabled"></a>
+<h4>E5SideBar.setTabEnabled</h4>
+<b>setTabEnabled</b>(<i>index, enabled</i>)
+<p>
+        Public method to set the enabled state of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab to set (integer)
+</dd><dt><i>enabled</i></dt>
+<dd>
+enabled state to set (boolean)
+</dd>
+</dl><a NAME="E5SideBar.setTabIcon" ID="E5SideBar.setTabIcon"></a>
+<h4>E5SideBar.setTabIcon</h4>
+<b>setTabIcon</b>(<i>index, icon</i>)
+<p>
+        Public method to set the icon of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd><dt><i>icon</i></dt>
+<dd>
+icon to be set (QIcon)
+</dd>
+</dl><a NAME="E5SideBar.setTabText" ID="E5SideBar.setTabText"></a>
+<h4>E5SideBar.setTabText</h4>
+<b>setTabText</b>(<i>index, text</i>)
+<p>
+        Public method to set the text of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd><dt><i>text</i></dt>
+<dd>
+text to set (string)
+</dd>
+</dl><a NAME="E5SideBar.setTabToolTip" ID="E5SideBar.setTabToolTip"></a>
+<h4>E5SideBar.setTabToolTip</h4>
+<b>setTabToolTip</b>(<i>index, tip</i>)
+<p>
+        Public method to set the tooltip text of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd><dt><i>tip</i></dt>
+<dd>
+tooltip text to set (string)
+</dd>
+</dl><a NAME="E5SideBar.setTabWhatsThis" ID="E5SideBar.setTabWhatsThis"></a>
+<h4>E5SideBar.setTabWhatsThis</h4>
+<b>setTabWhatsThis</b>(<i>index, text</i>)
+<p>
+        Public method to set the WhatsThis text of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd><dt><i>text</i></dt>
+<dd>
+WhatsThis text to set (string)
+</dd>
+</dl><a NAME="E5SideBar.shrink" ID="E5SideBar.shrink"></a>
+<h4>E5SideBar.shrink</h4>
+<b>shrink</b>(<i></i>)
+<p>
+        Public method to record a shrink request.
+</p><a NAME="E5SideBar.shutdown" ID="E5SideBar.shutdown"></a>
+<h4>E5SideBar.shutdown</h4>
+<b>shutdown</b>(<i></i>)
+<p>
+        Public method to shut down the object.
+</p><p>
+        This method does some preparations so the object can be deleted
+        properly. It disconnects from the focusChanged signal in order to
+        avoid trouble later on.
+</p><a NAME="E5SideBar.tabIcon" ID="E5SideBar.tabIcon"></a>
+<h4>E5SideBar.tabIcon</h4>
+<b>tabIcon</b>(<i>index</i>)
+<p>
+        Public method to get the icon of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+icon of the tab (QIcon)
+</dd>
+</dl><a NAME="E5SideBar.tabText" ID="E5SideBar.tabText"></a>
+<h4>E5SideBar.tabText</h4>
+<b>tabText</b>(<i>index</i>)
+<p>
+        Public method to get the text of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+text of the tab (string)
+</dd>
+</dl><a NAME="E5SideBar.tabToolTip" ID="E5SideBar.tabToolTip"></a>
+<h4>E5SideBar.tabToolTip</h4>
+<b>tabToolTip</b>(<i>index</i>)
+<p>
+        Public method to get the tooltip text of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tooltip text of the tab (string)
+</dd>
+</dl><a NAME="E5SideBar.tabWhatsThis" ID="E5SideBar.tabWhatsThis"></a>
+<h4>E5SideBar.tabWhatsThis</h4>
+<b>tabWhatsThis</b>(<i>index</i>)
+<p>
+        Public method to get the WhatsThis text of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+WhatsThis text of the tab (string)
+</dd>
+</dl><a NAME="E5SideBar.widget" ID="E5SideBar.widget"></a>
+<h4>E5SideBar.widget</h4>
+<b>widget</b>(<i>index</i>)
+<p>
+        Public method to get a reference to the widget associated with a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the widget (QWidget)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

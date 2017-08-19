@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.PyUnit.UnittestDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.PyUnit.UnittestDialog</h1>
+<p>
+Module implementing the UI to the pyunit package.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#QtTestResult">QtTestResult</a></td>
+<td>A TestResult derivative to work with a graphical GUI.</td>
+</tr><tr>
+<td><a href="#UnittestDialog">UnittestDialog</a></td>
+<td>Class implementing the UI to the pyunit package.</td>
+</tr><tr>
+<td><a href="#UnittestWindow">UnittestWindow</a></td>
+<td>Main window class for the standalone dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="QtTestResult" ID="QtTestResult"></a>
+<h2>QtTestResult</h2>
+<p>
+    A TestResult derivative to work with a graphical GUI.
+</p><p>
+    For more details see pyunit.py of the standard python distribution.
+</p>
+<h3>Derived from</h3>
+unittest.TestResult
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QtTestResult.__init__">QtTestResult</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#QtTestResult.addError">addError</a></td>
+<td>Public method called if a test errored.</td>
+</tr><tr>
+<td><a href="#QtTestResult.addExpectedFailure">addExpectedFailure</a></td>
+<td>Public method called if a test failed expected.</td>
+</tr><tr>
+<td><a href="#QtTestResult.addFailure">addFailure</a></td>
+<td>Public method called if a test failed.</td>
+</tr><tr>
+<td><a href="#QtTestResult.addSkip">addSkip</a></td>
+<td>Public method called if a test was skipped.</td>
+</tr><tr>
+<td><a href="#QtTestResult.addUnexpectedSuccess">addUnexpectedSuccess</a></td>
+<td>Public method called if a test succeeded expectedly.</td>
+</tr><tr>
+<td><a href="#QtTestResult.startTest">startTest</a></td>
+<td>Public method called at the start of a test.</td>
+</tr><tr>
+<td><a href="#QtTestResult.stopTest">stopTest</a></td>
+<td>Public method called at the end of a test.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QtTestResult.__init__" ID="QtTestResult.__init__"></a>
+<h4>QtTestResult (Constructor)</h4>
+<b>QtTestResult</b>(<i>parent</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+The parent widget.
+</dd>
+</dl><a NAME="QtTestResult.addError" ID="QtTestResult.addError"></a>
+<h4>QtTestResult.addError</h4>
+<b>addError</b>(<i>test, err</i>)
+<p>
+        Public method called if a test errored.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd><dt><i>err</i></dt>
+<dd>
+error traceback
+</dd>
+</dl><a NAME="QtTestResult.addExpectedFailure" ID="QtTestResult.addExpectedFailure"></a>
+<h4>QtTestResult.addExpectedFailure</h4>
+<b>addExpectedFailure</b>(<i>test, err</i>)
+<p>
+        Public method called if a test failed expected.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd><dt><i>err</i></dt>
+<dd>
+error traceback
+</dd>
+</dl><a NAME="QtTestResult.addFailure" ID="QtTestResult.addFailure"></a>
+<h4>QtTestResult.addFailure</h4>
+<b>addFailure</b>(<i>test, err</i>)
+<p>
+        Public method called if a test failed.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd><dt><i>err</i></dt>
+<dd>
+error traceback
+</dd>
+</dl><a NAME="QtTestResult.addSkip" ID="QtTestResult.addSkip"></a>
+<h4>QtTestResult.addSkip</h4>
+<b>addSkip</b>(<i>test, reason</i>)
+<p>
+        Public method called if a test was skipped.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd><dt><i>reason</i></dt>
+<dd>
+reason for skipping the test (string)
+</dd>
+</dl><a NAME="QtTestResult.addUnexpectedSuccess" ID="QtTestResult.addUnexpectedSuccess"></a>
+<h4>QtTestResult.addUnexpectedSuccess</h4>
+<b>addUnexpectedSuccess</b>(<i>test</i>)
+<p>
+        Public method called if a test succeeded expectedly.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd>
+</dl><a NAME="QtTestResult.startTest" ID="QtTestResult.startTest"></a>
+<h4>QtTestResult.startTest</h4>
+<b>startTest</b>(<i>test</i>)
+<p>
+        Public method called at the start of a test.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+Reference to the test object
+</dd>
+</dl><a NAME="QtTestResult.stopTest" ID="QtTestResult.stopTest"></a>
+<h4>QtTestResult.stopTest</h4>
+<b>stopTest</b>(<i>test</i>)
+<p>
+        Public method called at the end of a test.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+Reference to the test object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="UnittestDialog" ID="UnittestDialog"></a>
+<h2>UnittestDialog</h2>
+<p>
+    Class implementing the UI to the pyunit package.
+</p><h3>Signals</h3>
+<dl>
+<dt>unittestFile(str, int, int)</dt>
+<dd>
+emitted to show the source of a
+        unittest file
+</dd><dt>unittestStopped()</dt>
+<dd>
+emitted after a unit test was run
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget, Ui_UnittestDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#UnittestDialog.__init__">UnittestDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#UnittestDialog.__UTPrepared">__UTPrepared</a></td>
+<td>Private slot to handle the utPrepared signal.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.__setProgressColor">__setProgressColor</a></td>
+<td>Private methode to set the color of the progress color label.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.__setRunningMode">__setRunningMode</a></td>
+<td>Private method to set the GUI in running mode.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.__setStoppedMode">__setStoppedMode</a></td>
+<td>Private method to set the GUI in stopped mode.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.__showSource">__showSource</a></td>
+<td>Private slot to show the source of a traceback in an eric6 editor.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.hasFailedTests">hasFailedTests</a></td>
+<td>Public method to check, if there are failed tests from the last run.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.insertProg">insertProg</a></td>
+<td>Public slot to insert the filename prog into the testsuitePicker object.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.insertTestName">insertTestName</a></td>
+<td>Public slot to insert a test name into the testComboBox object.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.keyPressEvent">keyPressEvent</a></td>
+<td>Protected slot to handle key press events.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_errorsListWidget_currentTextChanged">on_errorsListWidget_currentTextChanged</a></td>
+<td>Private slot to handle the highlighted signal.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_errorsListWidget_itemDoubleClicked">on_errorsListWidget_itemDoubleClicked</a></td>
+<td>Private slot called by doubleclicking an errorlist entry.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_startButton_clicked">on_startButton_clicked</a></td>
+<td>Private slot to start the test.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_stopButton_clicked">on_stopButton_clicked</a></td>
+<td>Private slot to stop the test.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_testsuitePicker_aboutToShowPathPickerDialog">on_testsuitePicker_aboutToShowPathPickerDialog</a></td>
+<td>Private slot called before the test suite selection dialog is shown.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_testsuitePicker_editTextChanged">on_testsuitePicker_editTextChanged</a></td>
+<td>Private slot to handle changes of the test file name.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.on_testsuitePicker_pathSelected">on_testsuitePicker_pathSelected</a></td>
+<td>Private slot called after a test suite has been selected.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testErrored">testErrored</a></td>
+<td>Public method called if a test errors.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testFailed">testFailed</a></td>
+<td>Public method called if a test fails.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testFailedExpected">testFailedExpected</a></td>
+<td>Public method called if a test fails expectedly.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testFinished">testFinished</a></td>
+<td>Public method called if a test has finished.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testSkipped">testSkipped</a></td>
+<td>Public method called if a test was skipped.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testStarted">testStarted</a></td>
+<td>Public method called if a test is about to be run.</td>
+</tr><tr>
+<td><a href="#UnittestDialog.testSucceededUnexpected">testSucceededUnexpected</a></td>
+<td>Public method called if a test succeeds unexpectedly.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="UnittestDialog.__init__" ID="UnittestDialog.__init__"></a>
+<h4>UnittestDialog (Constructor)</h4>
+<b>UnittestDialog</b>(<i>prog=None, dbs=None, ui=None, fromEric=False, parent=None, name=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>prog</i></dt>
+<dd>
+filename of the program to open
+</dd><dt><i>dbs</i></dt>
+<dd>
+reference to the debug server object. It is an indication
+            whether we were called from within the eric6 IDE
+</dd><dt><i>ui</i></dt>
+<dd>
+reference to the UI object
+</dd><dt><i>fromEric</i></dt>
+<dd>
+flag indicating an instantiation from within the
+            eric IDE (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+name of this dialog (string)
+</dd>
+</dl><a NAME="UnittestDialog.__UTPrepared" ID="UnittestDialog.__UTPrepared"></a>
+<h4>UnittestDialog.__UTPrepared</h4>
+<b>__UTPrepared</b>(<i>nrTests, exc_type, exc_value</i>)
+<p>
+        Private slot to handle the utPrepared signal.
+</p><p>
+        If the unittest suite was loaded successfully, we ask the
+        client to run the test suite.
+</p><dl>
+<dt><i>nrTests</i></dt>
+<dd>
+number of tests contained in the test suite (integer)
+</dd><dt><i>exc_type</i></dt>
+<dd>
+type of exception occured during preparation (string)
+</dd><dt><i>exc_value</i></dt>
+<dd>
+value of exception occured during preparation (string)
+</dd>
+</dl><a NAME="UnittestDialog.__setProgressColor" ID="UnittestDialog.__setProgressColor"></a>
+<h4>UnittestDialog.__setProgressColor</h4>
+<b>__setProgressColor</b>(<i>color</i>)
+<p>
+        Private methode to set the color of the progress color label.
+</p><dl>
+<dt><i>color</i></dt>
+<dd>
+colour to be shown (string)
+</dd>
+</dl><a NAME="UnittestDialog.__setRunningMode" ID="UnittestDialog.__setRunningMode"></a>
+<h4>UnittestDialog.__setRunningMode</h4>
+<b>__setRunningMode</b>(<i></i>)
+<p>
+        Private method to set the GUI in running mode.
+</p><a NAME="UnittestDialog.__setStoppedMode" ID="UnittestDialog.__setStoppedMode"></a>
+<h4>UnittestDialog.__setStoppedMode</h4>
+<b>__setStoppedMode</b>(<i></i>)
+<p>
+        Private method to set the GUI in stopped mode.
+</p><a NAME="UnittestDialog.__showSource" ID="UnittestDialog.__showSource"></a>
+<h4>UnittestDialog.__showSource</h4>
+<b>__showSource</b>(<i></i>)
+<p>
+        Private slot to show the source of a traceback in an eric6 editor.
+</p><a NAME="UnittestDialog.hasFailedTests" ID="UnittestDialog.hasFailedTests"></a>
+<h4>UnittestDialog.hasFailedTests</h4>
+<b>hasFailedTests</b>(<i></i>)
+<p>
+        Public method to check, if there are failed tests from the last run.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of failed tests (boolean)
+</dd>
+</dl><a NAME="UnittestDialog.insertProg" ID="UnittestDialog.insertProg"></a>
+<h4>UnittestDialog.insertProg</h4>
+<b>insertProg</b>(<i>prog</i>)
+<p>
+        Public slot to insert the filename prog into the testsuitePicker
+        object.
+</p><dl>
+<dt><i>prog</i></dt>
+<dd>
+filename to be inserted (string)
+</dd>
+</dl><a NAME="UnittestDialog.insertTestName" ID="UnittestDialog.insertTestName"></a>
+<h4>UnittestDialog.insertTestName</h4>
+<b>insertTestName</b>(<i>testName</i>)
+<p>
+        Public slot to insert a test name into the testComboBox object.
+</p><dl>
+<dt><i>testName</i></dt>
+<dd>
+name of the test to be inserted (string)
+</dd>
+</dl><a NAME="UnittestDialog.keyPressEvent" ID="UnittestDialog.keyPressEvent"></a>
+<h4>UnittestDialog.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>evt</i>)
+<p>
+        Protected slot to handle key press events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+key press event to handle (QKeyEvent)
+</dd>
+</dl><a NAME="UnittestDialog.on_buttonBox_clicked" ID="UnittestDialog.on_buttonBox_clicked"></a>
+<h4>UnittestDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="UnittestDialog.on_errorsListWidget_currentTextChanged" ID="UnittestDialog.on_errorsListWidget_currentTextChanged"></a>
+<h4>UnittestDialog.on_errorsListWidget_currentTextChanged</h4>
+<b>on_errorsListWidget_currentTextChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the highlighted signal.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+current text (string)
+</dd>
+</dl><a NAME="UnittestDialog.on_errorsListWidget_itemDoubleClicked" ID="UnittestDialog.on_errorsListWidget_itemDoubleClicked"></a>
+<h4>UnittestDialog.on_errorsListWidget_itemDoubleClicked</h4>
+<b>on_errorsListWidget_itemDoubleClicked</b>(<i>lbitem</i>)
+<p>
+        Private slot called by doubleclicking an errorlist entry.
+</p><p>
+        It will popup a dialog showing the stacktrace.
+        If called from eric, an additional button is displayed
+        to show the python source in an eric source viewer (in
+        erics main window.
+</p><dl>
+<dt><i>lbitem</i></dt>
+<dd>
+the listbox item that was double clicked
+</dd>
+</dl><a NAME="UnittestDialog.on_startButton_clicked" ID="UnittestDialog.on_startButton_clicked"></a>
+<h4>UnittestDialog.on_startButton_clicked</h4>
+<b>on_startButton_clicked</b>(<i>failedOnly=False</i>)
+<p>
+        Private slot to start the test.
+</p><dl>
+<dt><i>failedOnly=</i></dt>
+<dd>
+flag indicating to run only failed tests (boolean)
+</dd>
+</dl><a NAME="UnittestDialog.on_stopButton_clicked" ID="UnittestDialog.on_stopButton_clicked"></a>
+<h4>UnittestDialog.on_stopButton_clicked</h4>
+<b>on_stopButton_clicked</b>(<i></i>)
+<p>
+        Private slot to stop the test.
+</p><a NAME="UnittestDialog.on_testsuitePicker_aboutToShowPathPickerDialog" ID="UnittestDialog.on_testsuitePicker_aboutToShowPathPickerDialog"></a>
+<h4>UnittestDialog.on_testsuitePicker_aboutToShowPathPickerDialog</h4>
+<b>on_testsuitePicker_aboutToShowPathPickerDialog</b>(<i></i>)
+<p>
+        Private slot called before the test suite selection dialog is shown.
+</p><a NAME="UnittestDialog.on_testsuitePicker_editTextChanged" ID="UnittestDialog.on_testsuitePicker_editTextChanged"></a>
+<h4>UnittestDialog.on_testsuitePicker_editTextChanged</h4>
+<b>on_testsuitePicker_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the test file name.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+name of the test file (string)
+</dd>
+</dl><a NAME="UnittestDialog.on_testsuitePicker_pathSelected" ID="UnittestDialog.on_testsuitePicker_pathSelected"></a>
+<h4>UnittestDialog.on_testsuitePicker_pathSelected</h4>
+<b>on_testsuitePicker_pathSelected</b>(<i>suite</i>)
+<p>
+        Private slot called after a test suite has been selected.
+</p><dl>
+<dt><i>suite</i> (str)</dt>
+<dd>
+file name of the test suite
+</dd>
+</dl><a NAME="UnittestDialog.testErrored" ID="UnittestDialog.testErrored"></a>
+<h4>UnittestDialog.testErrored</h4>
+<b>testErrored</b>(<i>test, exc, testId</i>)
+<p>
+        Public method called if a test errors.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+name of the test (string)
+</dd><dt><i>exc</i></dt>
+<dd>
+string representation of the exception (string)
+</dd><dt><i>testId</i></dt>
+<dd>
+id of the test (string)
+</dd>
+</dl><a NAME="UnittestDialog.testFailed" ID="UnittestDialog.testFailed"></a>
+<h4>UnittestDialog.testFailed</h4>
+<b>testFailed</b>(<i>test, exc, testId</i>)
+<p>
+        Public method called if a test fails.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+name of the test (string)
+</dd><dt><i>exc</i></dt>
+<dd>
+string representation of the exception (string)
+</dd><dt><i>testId</i></dt>
+<dd>
+id of the test (string)
+</dd>
+</dl><a NAME="UnittestDialog.testFailedExpected" ID="UnittestDialog.testFailedExpected"></a>
+<h4>UnittestDialog.testFailedExpected</h4>
+<b>testFailedExpected</b>(<i>test, exc, testId</i>)
+<p>
+        Public method called if a test fails expectedly.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+name of the test (string)
+</dd><dt><i>exc</i></dt>
+<dd>
+string representation of the exception (string)
+</dd><dt><i>testId</i></dt>
+<dd>
+id of the test (string)
+</dd>
+</dl><a NAME="UnittestDialog.testFinished" ID="UnittestDialog.testFinished"></a>
+<h4>UnittestDialog.testFinished</h4>
+<b>testFinished</b>(<i></i>)
+<p>
+        Public method called if a test has finished.
+</p><p>
+        <b>Note</b>: It is also called if it has already failed or errored.
+</p><a NAME="UnittestDialog.testSkipped" ID="UnittestDialog.testSkipped"></a>
+<h4>UnittestDialog.testSkipped</h4>
+<b>testSkipped</b>(<i>test, reason, testId</i>)
+<p>
+        Public method called if a test was skipped.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+name of the test (string)
+</dd><dt><i>reason</i></dt>
+<dd>
+reason for skipping the test (string)
+</dd><dt><i>testId</i></dt>
+<dd>
+id of the test (string)
+</dd>
+</dl><a NAME="UnittestDialog.testStarted" ID="UnittestDialog.testStarted"></a>
+<h4>UnittestDialog.testStarted</h4>
+<b>testStarted</b>(<i>test, doc</i>)
+<p>
+        Public method called if a test is about to be run.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+name of the started test (string)
+</dd><dt><i>doc</i></dt>
+<dd>
+documentation of the started test (string)
+</dd>
+</dl><a NAME="UnittestDialog.testSucceededUnexpected" ID="UnittestDialog.testSucceededUnexpected"></a>
+<h4>UnittestDialog.testSucceededUnexpected</h4>
+<b>testSucceededUnexpected</b>(<i>test, testId</i>)
+<p>
+        Public method called if a test succeeds unexpectedly.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+name of the test (string)
+</dd><dt><i>testId</i></dt>
+<dd>
+id of the test (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="UnittestWindow" ID="UnittestWindow"></a>
+<h2>UnittestWindow</h2>
+<p>
+    Main window class for the standalone dialog.
+</p>
+<h3>Derived from</h3>
+E5MainWindow
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#UnittestWindow.__init__">UnittestWindow</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#UnittestWindow.eventFilter">eventFilter</a></td>
+<td>Public method to filter events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="UnittestWindow.__init__" ID="UnittestWindow.__init__"></a>
+<h4>UnittestWindow (Constructor)</h4>
+<b>UnittestWindow</b>(<i>prog=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>prog</i></dt>
+<dd>
+filename of the program to open
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="UnittestWindow.eventFilter" ID="UnittestWindow.eventFilter"></a>
+<h4>UnittestWindow.eventFilter</h4>
+<b>eventFilter</b>(<i>obj, event</i>)
+<p>
+        Public method to filter events.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+reference to the object the event is meant for (QObject)
+</dd><dt><i>event</i></dt>
+<dd>
+reference to the event object (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, whether the event was handled (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

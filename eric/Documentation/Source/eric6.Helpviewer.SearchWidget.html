@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.SearchWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.SearchWidget</h1>
+<p>
+Module implementing the search bar for the web browser.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SearchWidget">SearchWidget</a></td>
+<td>Class implementing the search bar for the web browser.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SearchWidget" ID="SearchWidget"></a>
+<h2>SearchWidget</h2>
+<p>
+    Class implementing the search bar for the web browser.
+</p>
+<h3>Derived from</h3>
+QWidget, Ui_SearchWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SearchWidget.__init__">SearchWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SearchWidget.__findByReturnPressed">__findByReturnPressed</a></td>
+<td>Private slot to handle the returnPressed signal of the findtext combobox.</td>
+</tr><tr>
+<td><a href="#SearchWidget.__findNextPrev">__findNextPrev</a></td>
+<td>Private slot to find the next occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchWidget.__searchTextEdited">__searchTextEdited</a></td>
+<td>Private slot to perform an incremental search.</td>
+</tr><tr>
+<td><a href="#SearchWidget.__setFindtextComboBackground">__setFindtextComboBackground</a></td>
+<td>Private slot to change the findtext combo background to indicate errors.</td>
+</tr><tr>
+<td><a href="#SearchWidget.findNext">findNext</a></td>
+<td>Public slot to find the next occurrence.</td>
+</tr><tr>
+<td><a href="#SearchWidget.findPrevious">findPrevious</a></td>
+<td>Public slot to find the previous occurrence.</td>
+</tr><tr>
+<td><a href="#SearchWidget.keyPressEvent">keyPressEvent</a></td>
+<td>Protected slot to handle key press events.</td>
+</tr><tr>
+<td><a href="#SearchWidget.on_closeButton_clicked">on_closeButton_clicked</a></td>
+<td>Private slot to close the widget.</td>
+</tr><tr>
+<td><a href="#SearchWidget.on_findNextButton_clicked">on_findNextButton_clicked</a></td>
+<td>Private slot to find the next occurrence.</td>
+</tr><tr>
+<td><a href="#SearchWidget.on_findPrevButton_clicked">on_findPrevButton_clicked</a></td>
+<td>Private slot to find the previous occurrence.</td>
+</tr><tr>
+<td><a href="#SearchWidget.on_findtextCombo_editTextChanged">on_findtextCombo_editTextChanged</a></td>
+<td>Private slot to enable/disable the find buttons.</td>
+</tr><tr>
+<td><a href="#SearchWidget.on_highlightAllCheckBox_toggled">on_highlightAllCheckBox_toggled</a></td>
+<td>Private slot to toggle the highlight of all occurrences.</td>
+</tr><tr>
+<td><a href="#SearchWidget.showFind">showFind</a></td>
+<td>Public method to display this dialog.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SearchWidget.__init__" ID="SearchWidget.__init__"></a>
+<h4>SearchWidget (Constructor)</h4>
+<b>SearchWidget</b>(<i>mainWindow, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>mainWindow</i></dt>
+<dd>
+reference to the main window (QMainWindow)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd>
+</dl><a NAME="SearchWidget.__findByReturnPressed" ID="SearchWidget.__findByReturnPressed"></a>
+<h4>SearchWidget.__findByReturnPressed</h4>
+<b>__findByReturnPressed</b>(<i></i>)
+<p>
+        Private slot to handle the returnPressed signal of the findtext
+        combobox.
+</p><a NAME="SearchWidget.__findNextPrev" ID="SearchWidget.__findNextPrev"></a>
+<h4>SearchWidget.__findNextPrev</h4>
+<b>__findNextPrev</b>(<i></i>)
+<p>
+        Private slot to find the next occurrence of text.
+</p><a NAME="SearchWidget.__searchTextEdited" ID="SearchWidget.__searchTextEdited"></a>
+<h4>SearchWidget.__searchTextEdited</h4>
+<b>__searchTextEdited</b>(<i>txt</i>)
+<p>
+        Private slot to perform an incremental search.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+current text of the search combos line edit (string)
+            (unused)
+</dd>
+</dl><a NAME="SearchWidget.__setFindtextComboBackground" ID="SearchWidget.__setFindtextComboBackground"></a>
+<h4>SearchWidget.__setFindtextComboBackground</h4>
+<b>__setFindtextComboBackground</b>(<i>error</i>)
+<p>
+        Private slot to change the findtext combo background to indicate
+        errors.
+</p><dl>
+<dt><i>error</i></dt>
+<dd>
+flag indicating an error condition (boolean)
+</dd>
+</dl><a NAME="SearchWidget.findNext" ID="SearchWidget.findNext"></a>
+<h4>SearchWidget.findNext</h4>
+<b>findNext</b>(<i></i>)
+<p>
+        Public slot to find the next occurrence.
+</p><a NAME="SearchWidget.findPrevious" ID="SearchWidget.findPrevious"></a>
+<h4>SearchWidget.findPrevious</h4>
+<b>findPrevious</b>(<i></i>)
+<p>
+        Public slot to find the previous occurrence.
+</p><a NAME="SearchWidget.keyPressEvent" ID="SearchWidget.keyPressEvent"></a>
+<h4>SearchWidget.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>event</i>)
+<p>
+        Protected slot to handle key press events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the key press event (QKeyEvent)
+</dd>
+</dl><a NAME="SearchWidget.on_closeButton_clicked" ID="SearchWidget.on_closeButton_clicked"></a>
+<h4>SearchWidget.on_closeButton_clicked</h4>
+<b>on_closeButton_clicked</b>(<i></i>)
+<p>
+        Private slot to close the widget.
+</p><a NAME="SearchWidget.on_findNextButton_clicked" ID="SearchWidget.on_findNextButton_clicked"></a>
+<h4>SearchWidget.on_findNextButton_clicked</h4>
+<b>on_findNextButton_clicked</b>(<i></i>)
+<p>
+        Private slot to find the next occurrence.
+</p><a NAME="SearchWidget.on_findPrevButton_clicked" ID="SearchWidget.on_findPrevButton_clicked"></a>
+<h4>SearchWidget.on_findPrevButton_clicked</h4>
+<b>on_findPrevButton_clicked</b>(<i></i>)
+<p>
+        Private slot to find the previous occurrence.
+</p><a NAME="SearchWidget.on_findtextCombo_editTextChanged" ID="SearchWidget.on_findtextCombo_editTextChanged"></a>
+<h4>SearchWidget.on_findtextCombo_editTextChanged</h4>
+<b>on_findtextCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to enable/disable the find buttons.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combobox (string)
+</dd>
+</dl><a NAME="SearchWidget.on_highlightAllCheckBox_toggled" ID="SearchWidget.on_highlightAllCheckBox_toggled"></a>
+<h4>SearchWidget.on_highlightAllCheckBox_toggled</h4>
+<b>on_highlightAllCheckBox_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to toggle the highlight of all occurrences.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the check box toggle state (boolean)
+</dd>
+</dl><a NAME="SearchWidget.showFind" ID="SearchWidget.showFind"></a>
+<h4>SearchWidget.showFind</h4>
+<b>showFind</b>(<i></i>)
+<p>
+        Public method to display this dialog.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.ClassBrowsers.jsclbr</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.ClassBrowsers.jsclbr</h1>
+<p>
+Parse a JavaScript file and retrieve variables and functions.
+</p><p>
+It uses the JavaScript parser contained in the jasy web framework.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>SUPPORTED_TYPES</td></tr><tr><td>_modules</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Attribute">Attribute</a></td>
+<td>Class to represent a class attribute.</td>
+</tr><tr>
+<td><a href="#Function">Function</a></td>
+<td>Class to represent a Python function.</td>
+</tr><tr>
+<td><a href="#VisibilityMixin">VisibilityMixin</a></td>
+<td>Mixin class implementing the notion of visibility.</td>
+</tr><tr>
+<td><a href="#Visitor">Visitor</a></td>
+<td>Class implementing a visitor going through the parsed tree.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#readmodule_ex">readmodule_ex</a></td>
+<td>Read a JavaScript file and return a dictionary of functions and variables.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="Attribute" ID="Attribute"></a>
+<h2>Attribute</h2>
+<p>
+    Class to represent a class attribute.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Attribute, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Attribute.__init__">Attribute</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Attribute.__init__" ID="Attribute.__init__"></a>
+<h4>Attribute (Constructor)</h4>
+<b>Attribute</b>(<i>module, name, file, lineno</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this class
+</dd><dt><i>name</i></dt>
+<dd>
+name of this class
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this attribute
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Function" ID="Function"></a>
+<h2>Function</h2>
+<p>
+    Class to represent a Python function.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Function, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Function.__init__">Function</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Function.__init__" ID="Function.__init__"></a>
+<h4>Function (Constructor)</h4>
+<b>Function</b>(<i>module, name, file, lineno, signature='', separator=', '</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this function
+</dd><dt><i>name</i></dt>
+<dd>
+name of this function
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this class
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd><dt><i>signature</i></dt>
+<dd>
+parameterlist of the method
+</dd><dt><i>separator</i></dt>
+<dd>
+string separating the parameters
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="VisibilityMixin" ID="VisibilityMixin"></a>
+<h2>VisibilityMixin</h2>
+<p>
+    Mixin class implementing the notion of visibility.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.ClbrVisibilityMixinBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VisibilityMixin.__init__">VisibilityMixin</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VisibilityMixin.__init__" ID="VisibilityMixin.__init__"></a>
+<h4>VisibilityMixin (Constructor)</h4>
+<b>VisibilityMixin</b>(<i></i>)
+<p>
+        Constructor
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Visitor" ID="Visitor"></a>
+<h2>Visitor</h2>
+<p>
+    Class implementing a visitor going through the parsed tree.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Visitor.__init__">Visitor</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Visitor.__visit">__visit</a></td>
+<td>Private method implementing the visit logic delegating to interesting methods.</td>
+</tr><tr>
+<td><a href="#Visitor.call">call</a></td>
+<td></td>
+</tr><tr>
+<td><a href="#Visitor.parse">parse</a></td>
+<td>Public method to parse the source.</td>
+</tr><tr>
+<td><a href="#Visitor.visit_const">visit_const</a></td>
+<td>Public method to treat a constant node.</td>
+</tr><tr>
+<td><a href="#Visitor.visit_function">visit_function</a></td>
+<td>Public method to treat a function node.</td>
+</tr><tr>
+<td><a href="#Visitor.visit_noop">visit_noop</a></td>
+<td>Public method to ignore the given node.</td>
+</tr><tr>
+<td><a href="#Visitor.visit_property_init">visit_property_init</a></td>
+<td>Public method to treat a property_init node.</td>
+</tr><tr>
+<td><a href="#Visitor.visit_var">visit_var</a></td>
+<td>Public method to treat a variable node.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Visitor.__init__" ID="Visitor.__init__"></a>
+<h4>Visitor (Constructor)</h4>
+<b>Visitor</b>(<i>src, module, filename</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source to be parsed (string)
+</dd><dt><i>module</i></dt>
+<dd>
+name of the module (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+file name (string)
+</dd>
+</dl><a NAME="Visitor.__visit" ID="Visitor.__visit"></a>
+<h4>Visitor.__visit</h4>
+<b>__visit</b>(<i>root</i>)
+<p>
+        Private method implementing the visit logic delegating to interesting
+        methods.
+</p><dl>
+<dt><i>root</i></dt>
+<dd>
+root node to visit
+</dd>
+</dl><a NAME="Visitor.call" ID="Visitor.call"></a>
+<h4>Visitor.call</h4>
+<b>call</b>(<i></i>)
+<a NAME="Visitor.parse" ID="Visitor.parse"></a>
+<h4>Visitor.parse</h4>
+<b>parse</b>(<i></i>)
+<p>
+        Public method to parse the source.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary containing the parsed information
+</dd>
+</dl><a NAME="Visitor.visit_const" ID="Visitor.visit_const"></a>
+<h4>Visitor.visit_const</h4>
+<b>visit_const</b>(<i>node</i>)
+<p>
+        Public method to treat a constant node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+reference to the node (jasy.js.parse.Node.Node)
+</dd>
+</dl><a NAME="Visitor.visit_function" ID="Visitor.visit_function"></a>
+<h4>Visitor.visit_function</h4>
+<b>visit_function</b>(<i>node</i>)
+<p>
+        Public method to treat a function node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+reference to the node (jasy.js.parse.Node.Node)
+</dd>
+</dl><a NAME="Visitor.visit_noop" ID="Visitor.visit_noop"></a>
+<h4>Visitor.visit_noop</h4>
+<b>visit_noop</b>(<i>node</i>)
+<p>
+        Public method to ignore the given node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+reference to the node (jasy.js.parse.Node.Node)
+</dd>
+</dl><a NAME="Visitor.visit_property_init" ID="Visitor.visit_property_init"></a>
+<h4>Visitor.visit_property_init</h4>
+<b>visit_property_init</b>(<i>node</i>)
+<p>
+        Public method to treat a property_init node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+reference to the node (jasy.js.parse.Node.Node)
+</dd>
+</dl><a NAME="Visitor.visit_var" ID="Visitor.visit_var"></a>
+<h4>Visitor.visit_var</h4>
+<b>visit_var</b>(<i>node</i>)
+<p>
+        Public method to treat a variable node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+reference to the node (jasy.js.parse.Node.Node)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readmodule_ex" ID="readmodule_ex"></a>
+<h2>readmodule_ex</h2>
+<b>readmodule_ex</b>(<i>module, path=None</i>)
+<p>
+    Read a JavaScript file and return a dictionary of functions and variables.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the JavaScript file (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path the file should be searched in (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the resulting dictionary
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

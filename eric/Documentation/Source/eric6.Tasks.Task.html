@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Tasks.Task</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Tasks.Task</h1>
+<p>
+Module implementing a class to store task data.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Task">Task</a></td>
+<td>Class implementing the task data structure.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Task" ID="Task"></a>
+<h2>Task</h2>
+<p>
+    Class implementing the task data structure.
+</p>
+<h3>Derived from</h3>
+QTreeWidgetItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>TypeFixme</td></tr><tr><td>TypeNone</td></tr><tr><td>TypeNote</td></tr><tr><td>TypeTodo</td></tr><tr><td>TypeWarning</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Task.__init__">Task</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Task.colorizeTask">colorizeTask</a></td>
+<td>Public slot to set the colors of the task item.</td>
+</tr><tr>
+<td><a href="#Task.getFilename">getFilename</a></td>
+<td>Public method to retrieve the task's filename.</td>
+</tr><tr>
+<td><a href="#Task.getLineno">getLineno</a></td>
+<td>Public method to retrieve the task's linenumber.</td>
+</tr><tr>
+<td><a href="#Task.getParentUuid">getParentUuid</a></td>
+<td>Public method to get the parent task's uid.</td>
+</tr><tr>
+<td><a href="#Task.getUuid">getUuid</a></td>
+<td>Public method to get the task's uid.</td>
+</tr><tr>
+<td><a href="#Task.isCompleted">isCompleted</a></td>
+<td>Public slot to return the completion status.</td>
+</tr><tr>
+<td><a href="#Task.isFileTask">isFileTask</a></td>
+<td>Public slot to get an indication, if this task is related to a file.</td>
+</tr><tr>
+<td><a href="#Task.isProjectFileTask">isProjectFileTask</a></td>
+<td>Public slot to get an indication, if this task is related to a project file.</td>
+</tr><tr>
+<td><a href="#Task.isProjectTask">isProjectTask</a></td>
+<td>Public slot to return the project relation status.</td>
+</tr><tr>
+<td><a href="#Task.setCompleted">setCompleted</a></td>
+<td>Public slot to update the completed flag.</td>
+</tr><tr>
+<td><a href="#Task.setDescription">setDescription</a></td>
+<td>Public slot to update the description field.</td>
+</tr><tr>
+<td><a href="#Task.setPriority">setPriority</a></td>
+<td>Public slot to update the priority.</td>
+</tr><tr>
+<td><a href="#Task.setProjectTask">setProjectTask</a></td>
+<td>Public method to set the project relation flag.</td>
+</tr><tr>
+<td><a href="#Task.setSummary">setSummary</a></td>
+<td>Public slot to update the description.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Task.__init__" ID="Task.__init__"></a>
+<h4>Task (Constructor)</h4>
+<b>Task</b>(<i>summary, priority=1, filename="", lineno=0, completed=False, _time=0, isProjectTask=False, taskType=TypeTodo, project=None, description="", uid="", parentUid=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>summary</i></dt>
+<dd>
+summary text of the task (string)
+</dd><dt><i>priority</i></dt>
+<dd>
+priority of the task (0=high, 1=normal, 2=low)
+</dd><dt><i>filename</i></dt>
+<dd>
+filename containing the task (string)
+</dd><dt><i>lineno</i></dt>
+<dd>
+line number containing the task (integer)
+</dd><dt><i>completed</i></dt>
+<dd>
+flag indicating completion status (boolean)
+</dd><dt><i>_time</i></dt>
+<dd>
+creation time of the task (float, if 0 use current time)
+</dd><dt><i>isProjectTask</i></dt>
+<dd>
+flag indicating a task related to the current
+            project (boolean)
+</dd><dt><i>taskType</i></dt>
+<dd>
+type of the task (one of TypeFixme, TypeTodo,
+            TypeWarning, TypeNote)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object (Project)
+</dd><dt><i>description</i></dt>
+<dd>
+explanatory text of the task (string)
+</dd><dt><i>uid</i></dt>
+<dd>
+unique id of the task (string)
+</dd><dt><i>parentUid</i></dt>
+<dd>
+unique id of the parent task (string)
+</dd>
+</dl><a NAME="Task.colorizeTask" ID="Task.colorizeTask"></a>
+<h4>Task.colorizeTask</h4>
+<b>colorizeTask</b>(<i></i>)
+<p>
+        Public slot to set the colors of the task item.
+</p><a NAME="Task.getFilename" ID="Task.getFilename"></a>
+<h4>Task.getFilename</h4>
+<b>getFilename</b>(<i></i>)
+<p>
+        Public method to retrieve the task's filename.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename (string)
+</dd>
+</dl><a NAME="Task.getLineno" ID="Task.getLineno"></a>
+<h4>Task.getLineno</h4>
+<b>getLineno</b>(<i></i>)
+<p>
+        Public method to retrieve the task's linenumber.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+linenumber (integer)
+</dd>
+</dl><a NAME="Task.getParentUuid" ID="Task.getParentUuid"></a>
+<h4>Task.getParentUuid</h4>
+<b>getParentUuid</b>(<i></i>)
+<p>
+        Public method to get the parent task's uid.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+parent uid (string)
+</dd>
+</dl><a NAME="Task.getUuid" ID="Task.getUuid"></a>
+<h4>Task.getUuid</h4>
+<b>getUuid</b>(<i></i>)
+<p>
+        Public method to get the task's uid.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+uid (string)
+</dd>
+</dl><a NAME="Task.isCompleted" ID="Task.isCompleted"></a>
+<h4>Task.isCompleted</h4>
+<b>isCompleted</b>(<i></i>)
+<p>
+        Public slot to return the completion status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the completion status (boolean)
+</dd>
+</dl><a NAME="Task.isFileTask" ID="Task.isFileTask"></a>
+<h4>Task.isFileTask</h4>
+<b>isFileTask</b>(<i></i>)
+<p>
+        Public slot to get an indication, if this task is related to a file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a file task (boolean)
+</dd>
+</dl><a NAME="Task.isProjectFileTask" ID="Task.isProjectFileTask"></a>
+<h4>Task.isProjectFileTask</h4>
+<b>isProjectFileTask</b>(<i></i>)
+<p>
+        Public slot to get an indication, if this task is related to a
+        project file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a project file task (boolean)
+</dd>
+</dl><a NAME="Task.isProjectTask" ID="Task.isProjectTask"></a>
+<h4>Task.isProjectTask</h4>
+<b>isProjectTask</b>(<i></i>)
+<p>
+        Public slot to return the project relation status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the project relation status (boolean)
+</dd>
+</dl><a NAME="Task.setCompleted" ID="Task.setCompleted"></a>
+<h4>Task.setCompleted</h4>
+<b>setCompleted</b>(<i>completed</i>)
+<p>
+        Public slot to update the completed flag.
+</p><dl>
+<dt><i>completed</i></dt>
+<dd>
+flag indicating completion status (boolean)
+</dd>
+</dl><a NAME="Task.setDescription" ID="Task.setDescription"></a>
+<h4>Task.setDescription</h4>
+<b>setDescription</b>(<i>description</i>)
+<p>
+        Public slot to update the description field.
+</p><dl>
+<dt><i>description</i></dt>
+<dd>
+descriptive text of the task (string)
+</dd>
+</dl><a NAME="Task.setPriority" ID="Task.setPriority"></a>
+<h4>Task.setPriority</h4>
+<b>setPriority</b>(<i>priority</i>)
+<p>
+        Public slot to update the priority.
+</p><dl>
+<dt><i>priority</i></dt>
+<dd>
+priority of the task (0=high, 1=normal, 2=low)
+</dd>
+</dl><a NAME="Task.setProjectTask" ID="Task.setProjectTask"></a>
+<h4>Task.setProjectTask</h4>
+<b>setProjectTask</b>(<i>pt</i>)
+<p>
+        Public method to set the project relation flag.
+</p><dl>
+<dt><i>pt</i></dt>
+<dd>
+flag indicating a project task (boolean)
+</dd>
+</dl><a NAME="Task.setSummary" ID="Task.setSummary"></a>
+<h4>Task.setSummary</h4>
+<b>setSummary</b>(<i>summary</i>)
+<p>
+        Public slot to update the description.
+</p><dl>
+<dt><i>summary</i></dt>
+<dd>
+summary text of the task (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

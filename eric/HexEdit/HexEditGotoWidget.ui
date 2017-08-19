@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HexEditGotoWidget</class>
+ <widget class="QWidget" name="HexEditGotoWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>54</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Go to</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>1</number>
+   </property>
+   <property name="topMargin">
+    <number>1</number>
+   </property>
+   <property name="rightMargin">
+    <number>1</number>
+   </property>
+   <property name="bottomMargin">
+    <number>1</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QToolButton" name="closeButton">
+     <property name="toolTip">
+      <string>Press to close the window</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Offset:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QComboBox" name="formatCombo">
+     <property name="toolTip">
+      <string>Select the data format of the offset field</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QLineEdit" name="offsetEdit">
+     <property name="toolTip">
+      <string>Enter the address to move to or the offset from the cursor position</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QCheckBox" name="cursorCheckBox">
+     <property name="toolTip">
+      <string>Select to move relative to the cursor</string>
+     </property>
+     <property name="text">
+      <string>From Cursor</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <widget class="QCheckBox" name="backCheckBox">
+     <property name="toolTip">
+      <string>Select to move backwards</string>
+     </property>
+     <property name="text">
+      <string>Backwards</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="6">
+    <widget class="QPushButton" name="gotoButton">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="toolTip">
+      <string>Press to move the cursor</string>
+     </property>
+     <property name="text">
+      <string>&gt; Goto</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="4" colspan="2">
+    <widget class="QCheckBox" name="selectionCheckBox">
+     <property name="toolTip">
+      <string>Select to also extend the selection</string>
+     </property>
+     <property name="text">
+      <string>Extend Selection</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>formatCombo</tabstop>
+  <tabstop>offsetEdit</tabstop>
+  <tabstop>cursorCheckBox</tabstop>
+  <tabstop>backCheckBox</tabstop>
+  <tabstop>selectionCheckBox</tabstop>
+  <tabstop>gotoButton</tabstop>
+  <tabstop>closeButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>offsetEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>gotoButton</receiver>
+   <slot>animateClick()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>207</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>548</x>
+     <y>14</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

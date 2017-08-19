@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Toolbox.Startup</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Toolbox.Startup</h1>
+<p>
+Module implementing some startup helper funcions.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>loaded_translators</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#handleArgs">handleArgs</a></td>
+<td>Module function to handle the always present commandline options.</td>
+</tr><tr>
+<td><a href="#initializeResourceSearchPath">initializeResourceSearchPath</a></td>
+<td>Module function to initialize the default mime source factory.</td>
+</tr><tr>
+<td><a href="#loadTranslatorForLocale">loadTranslatorForLocale</a></td>
+<td>Module function to find and load a specific translation.</td>
+</tr><tr>
+<td><a href="#loadTranslators">loadTranslators</a></td>
+<td>Module function to load all required translations.</td>
+</tr><tr>
+<td><a href="#setLibraryPaths">setLibraryPaths</a></td>
+<td>Module function to set the Qt library paths correctly for windows systems.</td>
+</tr><tr>
+<td><a href="#simpleAppStartup">simpleAppStartup</a></td>
+<td>Module function to start up an application that doesn't need a specialized start up.</td>
+</tr><tr>
+<td><a href="#usage">usage</a></td>
+<td>Module function to show the usage information.</td>
+</tr><tr>
+<td><a href="#version">version</a></td>
+<td>Module function to show the version information.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="handleArgs" ID="handleArgs"></a>
+<h2>handleArgs</h2>
+<b>handleArgs</b>(<i>argv, appinfo</i>)
+<p>
+    Module function to handle the always present commandline options.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+list of commandline parameters (list of strings)
+</dd><dt><i>appinfo</i></dt>
+<dd>
+dictionary describing the application
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the '--' option (integer). This is used to tell
+        the application, that all additional options don't belong to
+        the application.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="initializeResourceSearchPath" ID="initializeResourceSearchPath"></a>
+<h2>initializeResourceSearchPath</h2>
+<b>initializeResourceSearchPath</b>(<i></i>)
+<p>
+    Module function to initialize the default mime source factory.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="loadTranslatorForLocale" ID="loadTranslatorForLocale"></a>
+<h2>loadTranslatorForLocale</h2>
+<b>loadTranslatorForLocale</b>(<i>dirs, tn</i>)
+<p>
+    Module function to find and load a specific translation.
+</p><dl>
+<dt><i>dirs</i></dt>
+<dd>
+Searchpath for the translations. (list of strings)
+</dd><dt><i>tn</i></dt>
+<dd>
+The translation to be loaded. (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+Tuple of a status flag and the loaded translator
+        (int, QTranslator)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="loadTranslators" ID="loadTranslators"></a>
+<h2>loadTranslators</h2>
+<b>loadTranslators</b>(<i>qtTransDir, app, translationFiles=()</i>)
+<p>
+    Module function to load all required translations.
+</p><dl>
+<dt><i>qtTransDir</i></dt>
+<dd>
+directory of the Qt translations files (string)
+</dd><dt><i>app</i></dt>
+<dd>
+reference to the application object (QApplication)
+</dd><dt><i>translationFiles</i></dt>
+<dd>
+tuple of additional translations to
+        be loaded (tuple of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested locale (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="setLibraryPaths" ID="setLibraryPaths"></a>
+<h2>setLibraryPaths</h2>
+<b>setLibraryPaths</b>(<i></i>)
+<p>
+    Module function to set the Qt library paths correctly for windows systems.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="simpleAppStartup" ID="simpleAppStartup"></a>
+<h2>simpleAppStartup</h2>
+<b>simpleAppStartup</b>(<i>argv, appinfo, mwFactory, quitOnLastWindowClosed=True, app=None, raiseIt=True, installErrorHandler=False</i>)
+<p>
+    Module function to start up an application that doesn't need a specialized
+    start up.
+</p><p>
+    This function is used by all of eric6's helper programs.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+list of commandline parameters (list of strings)
+</dd><dt><i>appinfo</i></dt>
+<dd>
+dictionary describing the application
+</dd><dt><i>mwFactory</i></dt>
+<dd>
+factory function generating the main widget. This
+        function must accept the following parameter.
+        <dl>
+            <dt>argv</dt>
+            <dd>list of commandline parameters (list of strings)</dd>
+        </dl>
+</dd><dt><i>quitOnLastWindowClosed=</i></dt>
+<dd>
+flag indicating to quit the application,
+        if the last window was closed (boolean)
+</dd><dt><i>app=</i></dt>
+<dd>
+reference to the application object (QApplication or None)
+</dd><dt><i>raiseIt=</i></dt>
+<dd>
+flag indicating to raise the generated application
+        window (boolean)
+</dd><dt><i>installErrorHandler=</i></dt>
+<dd>
+flag indicating to install an error
+        handler dialog (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+exit result (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="usage" ID="usage"></a>
+<h2>usage</h2>
+<b>usage</b>(<i>appinfo, optlen=12</i>)
+<p>
+    Module function to show the usage information.
+</p><dl>
+<dt><i>appinfo</i></dt>
+<dd>
+dictionary describing the application
+</dd><dt><i>optlen</i></dt>
+<dd>
+length of the field for the commandline option (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="version" ID="version"></a>
+<h2>version</h2>
+<b>version</b>(<i>appinfo</i>)
+<p>
+    Module function to show the version information.
+</p><dl>
+<dt><i>appinfo</i></dt>
+<dd>
+dictionary describing the application
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

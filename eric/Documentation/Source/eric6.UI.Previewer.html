@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.Previewer</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.Previewer</h1>
+<p>
+Module implementing a previewer widget for HTML, Markdown and ReST files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Previewer">Previewer</a></td>
+<td>Class implementing a previewer widget containing a stack of specialized previewers.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Previewer" ID="Previewer"></a>
+<h2>Previewer</h2>
+<p>
+    Class implementing a previewer widget containing a stack of
+    specialized previewers.
+</p>
+<h3>Derived from</h3>
+QStackedWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Previewer.__init__">Previewer</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Previewer.__editorChanged">__editorChanged</a></td>
+<td>Private slot to handle a change of the current editor.</td>
+</tr><tr>
+<td><a href="#Previewer.__editorLanguageChanged">__editorLanguageChanged</a></td>
+<td>Private slot to handle a change of the current editor's language.</td>
+</tr><tr>
+<td><a href="#Previewer.__editorTextChanged">__editorTextChanged</a></td>
+<td>Private slot to handle changes of an editor's text.</td>
+</tr><tr>
+<td><a href="#Previewer.__isPreviewable">__isPreviewable</a></td>
+<td>Private method to check, if a preview can be shown for the given editor.</td>
+</tr><tr>
+<td><a href="#Previewer.__previewStateChanged">__previewStateChanged</a></td>
+<td>Private slot to toggle the display of the preview.</td>
+</tr><tr>
+<td><a href="#Previewer.__processEditor">__processEditor</a></td>
+<td>Private slot to schedule the processing of the current editor's text.</td>
+</tr><tr>
+<td><a href="#Previewer.__splitterMoved">__splitterMoved</a></td>
+<td>Private slot to handle the movement of the embedding splitter's handle.</td>
+</tr><tr>
+<td><a href="#Previewer.hide">hide</a></td>
+<td>Public method to hide the preview widget.</td>
+</tr><tr>
+<td><a href="#Previewer.show">show</a></td>
+<td>Public method to show the preview widget.</td>
+</tr><tr>
+<td><a href="#Previewer.shutdown">shutdown</a></td>
+<td>Public method to perform shutdown actions.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Previewer.__init__" ID="Previewer.__init__"></a>
+<h4>Previewer (Constructor)</h4>
+<b>Previewer</b>(<i>viewmanager, splitter, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>viewmanager</i></dt>
+<dd>
+reference to the viewmanager object (ViewManager)
+</dd><dt><i>splitter</i></dt>
+<dd>
+reference to the embedding splitter (QSplitter)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="Previewer.__editorChanged" ID="Previewer.__editorChanged"></a>
+<h4>Previewer.__editorChanged</h4>
+<b>__editorChanged</b>(<i>editor</i>)
+<p>
+        Private slot to handle a change of the current editor.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (Editor)
+</dd>
+</dl><a NAME="Previewer.__editorLanguageChanged" ID="Previewer.__editorLanguageChanged"></a>
+<h4>Previewer.__editorLanguageChanged</h4>
+<b>__editorLanguageChanged</b>(<i>editor</i>)
+<p>
+        Private slot to handle a change of the current editor's language.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (Editor)
+</dd>
+</dl><a NAME="Previewer.__editorTextChanged" ID="Previewer.__editorTextChanged"></a>
+<h4>Previewer.__editorTextChanged</h4>
+<b>__editorTextChanged</b>(<i>editor</i>)
+<p>
+        Private slot to handle changes of an editor's text.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (Editor)
+</dd>
+</dl><a NAME="Previewer.__isPreviewable" ID="Previewer.__isPreviewable"></a>
+<h4>Previewer.__isPreviewable</h4>
+<b>__isPreviewable</b>(<i>editor</i>)
+<p>
+        Private method to check, if a preview can be shown for the given
+        editor.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to an editor (Editor)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating if a preview can be shown (boolean)
+</dd>
+</dl><a NAME="Previewer.__previewStateChanged" ID="Previewer.__previewStateChanged"></a>
+<h4>Previewer.__previewStateChanged</h4>
+<b>__previewStateChanged</b>(<i>on</i>)
+<p>
+        Private slot to toggle the display of the preview.
+</p><dl>
+<dt><i>on</i></dt>
+<dd>
+flag indicating to show a preview (boolean)
+</dd>
+</dl><a NAME="Previewer.__processEditor" ID="Previewer.__processEditor"></a>
+<h4>Previewer.__processEditor</h4>
+<b>__processEditor</b>(<i></i>)
+<p>
+        Private slot to schedule the processing of the current editor's text.
+</p><a NAME="Previewer.__splitterMoved" ID="Previewer.__splitterMoved"></a>
+<h4>Previewer.__splitterMoved</h4>
+<b>__splitterMoved</b>(<i></i>)
+<p>
+        Private slot to handle the movement of the embedding splitter's handle.
+</p><a NAME="Previewer.hide" ID="Previewer.hide"></a>
+<h4>Previewer.hide</h4>
+<b>hide</b>(<i></i>)
+<p>
+        Public method to hide the preview widget.
+</p><a NAME="Previewer.show" ID="Previewer.show"></a>
+<h4>Previewer.show</h4>
+<b>show</b>(<i></i>)
+<p>
+        Public method to show the preview widget.
+</p><a NAME="Previewer.shutdown" ID="Previewer.shutdown"></a>
+<h4>Previewer.shutdown</h4>
+<b>shutdown</b>(<i></i>)
+<p>
+        Public method to perform shutdown actions.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.GreaseMonkey.GreaseMonkeyUrlMatcher</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.GreaseMonkey.GreaseMonkeyUrlMatcher</h1>
+<p>
+Module implementing the GreaseMonkey URL matcher.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#GreaseMonkeyUrlMatcher">GreaseMonkeyUrlMatcher</a></td>
+<td>Class implementing the GreaseMonkey URL matcher.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#wildcardMatch">wildcardMatch</a></td>
+<td>Module function implementing a special wildcard matcher.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="GreaseMonkeyUrlMatcher" ID="GreaseMonkeyUrlMatcher"></a>
+<h2>GreaseMonkeyUrlMatcher</h2>
+<p>
+    Class implementing the GreaseMonkey URL matcher.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#GreaseMonkeyUrlMatcher.__init__">GreaseMonkeyUrlMatcher</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyUrlMatcher.__parsePattern">__parsePattern</a></td>
+<td>Private method to parse the match pattern.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyUrlMatcher.match">match</a></td>
+<td>Public method to match the given URL.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyUrlMatcher.pattern">pattern</a></td>
+<td>Public method to get the match pattern.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="GreaseMonkeyUrlMatcher.__init__" ID="GreaseMonkeyUrlMatcher.__init__"></a>
+<h4>GreaseMonkeyUrlMatcher (Constructor)</h4>
+<b>GreaseMonkeyUrlMatcher</b>(<i>pattern</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>pattern</i></dt>
+<dd>
+pattern to be used for the matching (string)
+</dd>
+</dl><a NAME="GreaseMonkeyUrlMatcher.__parsePattern" ID="GreaseMonkeyUrlMatcher.__parsePattern"></a>
+<h4>GreaseMonkeyUrlMatcher.__parsePattern</h4>
+<b>__parsePattern</b>(<i>pattern</i>)
+<p>
+        Private method to parse the match pattern.
+</p><dl>
+<dt><i>pattern</i></dt>
+<dd>
+match pattern to be used (string)
+</dd>
+</dl><a NAME="GreaseMonkeyUrlMatcher.match" ID="GreaseMonkeyUrlMatcher.match"></a>
+<h4>GreaseMonkeyUrlMatcher.match</h4>
+<b>match</b>(<i>urlString</i>)
+<p>
+        Public method to match the given URL.
+</p><dl>
+<dt><i>urlString</i></dt>
+<dd>
+URL to match (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successful match (boolean)
+</dd>
+</dl><a NAME="GreaseMonkeyUrlMatcher.pattern" ID="GreaseMonkeyUrlMatcher.pattern"></a>
+<h4>GreaseMonkeyUrlMatcher.pattern</h4>
+<b>pattern</b>(<i></i>)
+<p>
+        Public method to get the match pattern.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+match pattern (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="wildcardMatch" ID="wildcardMatch"></a>
+<h2>wildcardMatch</h2>
+<b>wildcardMatch</b>(<i>string, pattern</i>)
+<p>
+    Module function implementing a special wildcard matcher.
+</p><dl>
+<dt><i>string</i></dt>
+<dd>
+string to match (string)
+</dd><dt><i>pattern</i></dt>
+<dd>
+pattern to be used (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successful match (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

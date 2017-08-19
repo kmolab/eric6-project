@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5GenericDiffHighlighter</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5GenericDiffHighlighter</h1>
+<p>
+Module implementing a syntax highlighter for diff outputs.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>_REGEX_CACHE</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5GenericDiffHighlighter">E5GenericDiffHighlighter</a></td>
+<td>Class implementing a generic diff highlighter.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#TERMINAL">TERMINAL</a></td>
+<td>Function to mark a pattern as the final one to search for.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="E5GenericDiffHighlighter" ID="E5GenericDiffHighlighter"></a>
+<h2>E5GenericDiffHighlighter</h2>
+<p>
+    Class implementing a generic diff highlighter.
+</p>
+<h3>Derived from</h3>
+QSyntaxHighlighter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5GenericDiffHighlighter.__init__">E5GenericDiffHighlighter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.__initColours">__initColours</a></td>
+<td>Private method to initialize the highlighter colours.</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.createRules">createRules</a></td>
+<td>Public method to create the highlighting rules.</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.formats">formats</a></td>
+<td>Public method to determine the highlighting formats for a line of text.</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.generateRules">generateRules</a></td>
+<td>Public method to generate the rule set.</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.highlightBlock">highlightBlock</a></td>
+<td>Public method to highlight a block of text.</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.makeFormat">makeFormat</a></td>
+<td>Public method to generate a format definition.</td>
+</tr><tr>
+<td><a href="#E5GenericDiffHighlighter.regenerateRules">regenerateRules</a></td>
+<td>Public method to initialize or regenerate the syntax highlighter rules.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5GenericDiffHighlighter.__init__" ID="E5GenericDiffHighlighter.__init__"></a>
+<h4>E5GenericDiffHighlighter (Constructor)</h4>
+<b>E5GenericDiffHighlighter</b>(<i>doc</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>doc</i></dt>
+<dd>
+reference to the text document (QTextDocument)
+</dd>
+</dl><a NAME="E5GenericDiffHighlighter.__initColours" ID="E5GenericDiffHighlighter.__initColours"></a>
+<h4>E5GenericDiffHighlighter.__initColours</h4>
+<b>__initColours</b>(<i></i>)
+<p>
+        Private method to initialize the highlighter colours.
+</p><a NAME="E5GenericDiffHighlighter.createRules" ID="E5GenericDiffHighlighter.createRules"></a>
+<h4>E5GenericDiffHighlighter.createRules</h4>
+<b>createRules</b>(<i>*rules</i>)
+<p>
+        Public method to create the highlighting rules.
+</p><dl>
+<dt><i>rules</i></dt>
+<dd>
+set of highlighting rules (list of tuples of rule
+            pattern (string) and highlighting format (QTextCharFormat))
+</dd>
+</dl><a NAME="E5GenericDiffHighlighter.formats" ID="E5GenericDiffHighlighter.formats"></a>
+<h4>E5GenericDiffHighlighter.formats</h4>
+<b>formats</b>(<i>line</i>)
+<p>
+        Public method to determine the highlighting formats for a line of
+        text.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+text line to be highlighted (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of matched highlighting rules (list of tuples of match
+            object and format (QTextCharFormat))
+</dd>
+</dl><a NAME="E5GenericDiffHighlighter.generateRules" ID="E5GenericDiffHighlighter.generateRules"></a>
+<h4>E5GenericDiffHighlighter.generateRules</h4>
+<b>generateRules</b>(<i></i>)
+<p>
+        Public method to generate the rule set.
+</p><p>
+        Note: This method must me implemented by derived syntax
+        highlighters.
+</p><a NAME="E5GenericDiffHighlighter.highlightBlock" ID="E5GenericDiffHighlighter.highlightBlock"></a>
+<h4>E5GenericDiffHighlighter.highlightBlock</h4>
+<b>highlightBlock</b>(<i>text</i>)
+<p>
+        Public method to highlight a block of text.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be highlighted (string)
+</dd>
+</dl><a NAME="E5GenericDiffHighlighter.makeFormat" ID="E5GenericDiffHighlighter.makeFormat"></a>
+<h4>E5GenericDiffHighlighter.makeFormat</h4>
+<b>makeFormat</b>(<i>fg=None, bg=None, bold=False</i>)
+<p>
+        Public method to generate a format definition.
+</p><dl>
+<dt><i>fg</i></dt>
+<dd>
+foreground color (QColor)
+</dd><dt><i>bg</i></dt>
+<dd>
+background color (QColor)
+</dd><dt><i>bold</i></dt>
+<dd>
+flag indicating bold text (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+format definiton (QTextCharFormat)
+</dd>
+</dl><a NAME="E5GenericDiffHighlighter.regenerateRules" ID="E5GenericDiffHighlighter.regenerateRules"></a>
+<h4>E5GenericDiffHighlighter.regenerateRules</h4>
+<b>regenerateRules</b>(<i></i>)
+<p>
+        Public method to initialize or regenerate the syntax highlighter rules.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="TERMINAL" ID="TERMINAL"></a>
+<h2>TERMINAL</h2>
+<b>TERMINAL</b>(<i>pattern</i>)
+<p>
+    Function to mark a pattern as the final one to search for.
+</p><dl>
+<dt><i>pattern</i></dt>
+<dd>
+pattern to be marked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+marked pattern (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

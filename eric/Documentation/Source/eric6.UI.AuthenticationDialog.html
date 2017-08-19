@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.AuthenticationDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.AuthenticationDialog</h1>
+<p>
+Module implementing the authentication dialog for the help browser.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#AuthenticationDialog">AuthenticationDialog</a></td>
+<td>Class implementing the authentication dialog for the help browser.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="AuthenticationDialog" ID="AuthenticationDialog"></a>
+<h2>AuthenticationDialog</h2>
+<p>
+    Class implementing the authentication dialog for the help browser.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_AuthenticationDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AuthenticationDialog.__init__">AuthenticationDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#AuthenticationDialog.getData">getData</a></td>
+<td>Public method to retrieve the login data.</td>
+</tr><tr>
+<td><a href="#AuthenticationDialog.setData">setData</a></td>
+<td>Public method to set the login data.</td>
+</tr><tr>
+<td><a href="#AuthenticationDialog.shallSave">shallSave</a></td>
+<td>Public method to check, if the login data shall be saved.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AuthenticationDialog.__init__" ID="AuthenticationDialog.__init__"></a>
+<h4>AuthenticationDialog (Constructor)</h4>
+<b>AuthenticationDialog</b>(<i>info, username, showSave=False, saveIt=False, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>info</i></dt>
+<dd>
+information to be shown (string)
+</dd><dt><i>username</i></dt>
+<dd>
+username as supplied by subversion (string)
+</dd><dt><i>showSave</i></dt>
+<dd>
+flag to indicate to show the save checkbox (boolean)
+</dd><dt><i>saveIt</i></dt>
+<dd>
+flag indicating the value for the save checkbox (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="AuthenticationDialog.getData" ID="AuthenticationDialog.getData"></a>
+<h4>AuthenticationDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the login data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of two string values (username, password)
+</dd>
+</dl><a NAME="AuthenticationDialog.setData" ID="AuthenticationDialog.setData"></a>
+<h4>AuthenticationDialog.setData</h4>
+<b>setData</b>(<i>username, password</i>)
+<p>
+        Public method to set the login data.
+</p><dl>
+<dt><i>username</i></dt>
+<dd>
+username (string)
+</dd><dt><i>password</i></dt>
+<dd>
+password (string)
+</dd>
+</dl><a NAME="AuthenticationDialog.shallSave" ID="AuthenticationDialog.shallSave"></a>
+<h4>AuthenticationDialog.shallSave</h4>
+<b>shallSave</b>(<i></i>)
+<p>
+        Public method to check, if the login data shall be saved.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the login data shall be saved (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

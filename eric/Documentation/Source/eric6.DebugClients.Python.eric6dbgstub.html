@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.DebugClients.Python.eric6dbgstub</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.DebugClients.Python.eric6dbgstub</h1>
+<p>
+Module implementing a debugger stub for remote debugging.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>__scriptname</td></tr><tr><td>debugger</td></tr><tr><td>ericpath</td></tr><tr><td>modDir</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#initDebugger">initDebugger</a></td>
+<td>Module function to initialize a debugger for remote debugging.</td>
+</tr><tr>
+<td><a href="#runcall">runcall</a></td>
+<td>Module function mimicing the Pdb interface.</td>
+</tr><tr>
+<td><a href="#setScriptname">setScriptname</a></td>
+<td>Module function to set the scriptname to be reported back to the IDE.</td>
+</tr><tr>
+<td><a href="#startDebugger">startDebugger</a></td>
+<td>Module function used to start the remote debugger.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="initDebugger" ID="initDebugger"></a>
+<h2>initDebugger</h2>
+<b>initDebugger</b>(<i>kind="standard"</i>)
+<p>
+    Module function to initialize a debugger for remote debugging.
+</p><dl>
+<dt><i>kind</i></dt>
+<dd>
+type of debugger ("standard" or "threads")
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised to indicate a wrong debugger kind
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="runcall" ID="runcall"></a>
+<h2>runcall</h2>
+<b>runcall</b>(<i>func, *args</i>)
+<p>
+    Module function mimicing the Pdb interface.
+</p><dl>
+<dt><i>func</i></dt>
+<dd>
+function to be called (function object)
+</dd><dt><i>*args</i></dt>
+<dd>
+arguments being passed to func
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the function result
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="setScriptname" ID="setScriptname"></a>
+<h2>setScriptname</h2>
+<b>setScriptname</b>(<i>name</i>)
+<p>
+    Module function to set the scriptname to be reported back to the IDE.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+absolute pathname of the script (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="startDebugger" ID="startDebugger"></a>
+<h2>startDebugger</h2>
+<b>startDebugger</b>(<i>enableTrace=True, exceptions=True, tracePython=False, redirect=True</i>)
+<p>
+    Module function used to start the remote debugger.
+</p><dl>
+<dt><i>enableTrace=</i></dt>
+<dd>
+flag to enable the tracing function (boolean)
+</dd><dt><i>exceptions=</i></dt>
+<dd>
+flag to enable exception reporting of the IDE
+        (boolean)
+</dd><dt><i>tracePython=</i></dt>
+<dd>
+flag to enable tracing into the Python library
+        (boolean)
+</dd><dt><i>redirect=</i></dt>
+<dd>
+flag indicating redirection of stdin, stdout and
+        stderr (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

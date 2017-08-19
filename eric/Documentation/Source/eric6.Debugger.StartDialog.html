@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.StartDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.StartDialog</h1>
+<p>
+Module implementing the Start Program dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#StartDialog">StartDialog</a></td>
+<td>Class implementing the Start Program dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="StartDialog" ID="StartDialog"></a>
+<h2>StartDialog</h2>
+<p>
+    Class implementing the Start Program dialog.
+</p><p>
+    It implements a dialog that is used to start an
+    application for debugging. It asks the user to enter
+    the commandline parameters, the working directory and
+    whether exception reporting should be disabled.
+</p>
+<h3>Derived from</h3>
+QDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#StartDialog.__init__">StartDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#StartDialog.__clearHistories">__clearHistories</a></td>
+<td>Private slot to clear the combo boxes lists and record a flag to clear the lists.</td>
+</tr><tr>
+<td><a href="#StartDialog.__editHistory">__editHistory</a></td>
+<td>Private slot to edit a history list.</td>
+</tr><tr>
+<td><a href="#StartDialog.clearHistories">clearHistories</a></td>
+<td>Public method to test, if histories shall be cleared.</td>
+</tr><tr>
+<td><a href="#StartDialog.getCoverageData">getCoverageData</a></td>
+<td>Public method to retrieve the coverage related data entered into this dialog.</td>
+</tr><tr>
+<td><a href="#StartDialog.getData">getData</a></td>
+<td>Public method to retrieve the data entered into this dialog.</td>
+</tr><tr>
+<td><a href="#StartDialog.getDebugData">getDebugData</a></td>
+<td>Public method to retrieve the debug related data entered into this dialog.</td>
+</tr><tr>
+<td><a href="#StartDialog.getHistories">getHistories</a></td>
+<td>Public method to get the lists of histories.</td>
+</tr><tr>
+<td><a href="#StartDialog.getProfilingData">getProfilingData</a></td>
+<td>Public method to retrieve the profiling related data entered into this dialog.</td>
+</tr><tr>
+<td><a href="#StartDialog.getRunData">getRunData</a></td>
+<td>Public method to retrieve the debug related data entered into this dialog.</td>
+</tr><tr>
+<td><a href="#StartDialog.historiesModified">historiesModified</a></td>
+<td>Public method to test for modified histories.</td>
+</tr><tr>
+<td><a href="#StartDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#StartDialog.on_modFuncCombo_editTextChanged">on_modFuncCombo_editTextChanged</a></td>
+<td>Private slot to enable/disable the OK button.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="StartDialog.__init__" ID="StartDialog.__init__"></a>
+<h4>StartDialog (Constructor)</h4>
+<b>StartDialog</b>(<i>caption, argvList, wdList, envList, exceptions, parent=None, dialogType=0, modfuncList=None, tracePython=False, autoClearShell=True, autoContinue=True, autoFork=False, forkChild=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>caption</i></dt>
+<dd>
+the caption to be displayed (string)
+</dd><dt><i>argvList</i></dt>
+<dd>
+history list of commandline arguments (list of strings)
+</dd><dt><i>wdList</i></dt>
+<dd>
+history list of working directories (list of strings)
+</dd><dt><i>envList</i></dt>
+<dd>
+history list of environment settings (list of strings)
+</dd><dt><i>exceptions</i></dt>
+<dd>
+exception reporting flag (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd><dt><i>dialogType</i></dt>
+<dd>
+type of the start dialog
+                <ul>
+                <li>0 = start debug dialog</li>
+                <li>1 = start run dialog</li>
+                <li>2 = start coverage dialog</li>
+                <li>3 = start profile dialog</li>
+                </ul>
+</dd><dt><i>modfuncList=</i></dt>
+<dd>
+history list of module functions
+            (list of strings)
+</dd><dt><i>tracePython=</i></dt>
+<dd>
+flag indicating if the Python library should
+            be traced as well (boolean)
+</dd><dt><i>autoClearShell=</i></dt>
+<dd>
+flag indicating, that the interpreter window
+            should be cleared automatically (boolean)
+</dd><dt><i>autoContinue=</i></dt>
+<dd>
+flag indicating, that the debugger should not
+            stop at the first executable line (boolean)
+</dd><dt><i>autoFork=</i></dt>
+<dd>
+flag indicating the automatic fork mode (boolean)
+</dd><dt><i>forkChild=</i></dt>
+<dd>
+flag indicating to debug the child after forking
+            (boolean)
+</dd>
+</dl><a NAME="StartDialog.__clearHistories" ID="StartDialog.__clearHistories"></a>
+<h4>StartDialog.__clearHistories</h4>
+<b>__clearHistories</b>(<i></i>)
+<p>
+        Private slot to clear the combo boxes lists and record a flag to
+        clear the lists.
+</p><a NAME="StartDialog.__editHistory" ID="StartDialog.__editHistory"></a>
+<h4>StartDialog.__editHistory</h4>
+<b>__editHistory</b>(<i></i>)
+<p>
+        Private slot to edit a history list.
+</p><a NAME="StartDialog.clearHistories" ID="StartDialog.clearHistories"></a>
+<h4>StartDialog.clearHistories</h4>
+<b>clearHistories</b>(<i></i>)
+<p>
+        Public method to test, if histories shall be cleared.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating histories shall be cleared
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="StartDialog.getCoverageData" ID="StartDialog.getCoverageData"></a>
+<h4>StartDialog.getCoverageData</h4>
+<b>getCoverageData</b>(<i></i>)
+<p>
+        Public method to retrieve the coverage related data entered into this
+        dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating erasure of coverage info (boolean)
+</dd>
+</dl><a NAME="StartDialog.getData" ID="StartDialog.getData"></a>
+<h4>StartDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the data entered into this dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple of argv (string), workdir (string), environment
+            (string), exceptions flag (boolean), clear interpreter flag
+            (boolean) and run in console flag (boolean)
+</dd>
+</dl><a NAME="StartDialog.getDebugData" ID="StartDialog.getDebugData"></a>
+<h4>StartDialog.getDebugData</h4>
+<b>getDebugData</b>(<i></i>)
+<p>
+        Public method to retrieve the debug related data entered into this
+        dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple of a flag indicating, if the Python library should be
+            traced as well, a flag indicating, that the debugger should not
+            stop at the first executable line (boolean), a flag indicating,
+            that the debugger should fork automatically (boolean) and a flag
+            indicating, that the debugger should debug the child process after
+            forking automatically (boolean)
+</dd>
+</dl><a NAME="StartDialog.getHistories" ID="StartDialog.getHistories"></a>
+<h4>StartDialog.getHistories</h4>
+<b>getHistories</b>(<i></i>)
+<p>
+        Public method to get the lists of histories.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing the histories of command line arguments,
+            working directories and environment settings
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of three list of str
+</dd>
+</dl><a NAME="StartDialog.getProfilingData" ID="StartDialog.getProfilingData"></a>
+<h4>StartDialog.getProfilingData</h4>
+<b>getProfilingData</b>(<i></i>)
+<p>
+        Public method to retrieve the profiling related data entered into this
+        dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating erasure of profiling info (boolean)
+</dd>
+</dl><a NAME="StartDialog.getRunData" ID="StartDialog.getRunData"></a>
+<h4>StartDialog.getRunData</h4>
+<b>getRunData</b>(<i></i>)
+<p>
+        Public method to retrieve the debug related data entered into this
+        dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple of a flag indicating, that the debugger should fork
+            automatically (boolean) and a flag indicating, that the debugger
+            should debug the child process after forking automatically
+            (boolean)
+</dd>
+</dl><a NAME="StartDialog.historiesModified" ID="StartDialog.historiesModified"></a>
+<h4>StartDialog.historiesModified</h4>
+<b>historiesModified</b>(<i></i>)
+<p>
+        Public method to test for modified histories.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating modified histories
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="StartDialog.on_buttonBox_clicked" ID="StartDialog.on_buttonBox_clicked"></a>
+<h4>StartDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="StartDialog.on_modFuncCombo_editTextChanged" ID="StartDialog.on_modFuncCombo_editTextChanged"></a>
+<h4>StartDialog.on_modFuncCombo_editTextChanged</h4>
+<b>on_modFuncCombo_editTextChanged</b>(<i></i>)
+<p>
+        Private slot to enable/disable the OK button.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

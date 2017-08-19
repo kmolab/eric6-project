@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Globals.__init__</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Globals.__init__</h1>
+<p>
+Module defining common data to be used by all modules.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>configDir</td></tr><tr><td>recentNameFiles</td></tr><tr><td>recentNameHexFiles</td></tr><tr><td>recentNameHosts</td></tr><tr><td>recentNameMultiProject</td></tr><tr><td>recentNameProject</td></tr><tr><td>settingsNameGlobal</td></tr><tr><td>settingsNameOrganization</td></tr><tr><td>settingsNameRecent</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#checkBlacklistedVersions">checkBlacklistedVersions</a></td>
+<td>Module functions to check for blacklisted versions of the prerequisites.</td>
+</tr><tr>
+<td><a href="#findPythonInterpreters">findPythonInterpreters</a></td>
+<td>Module function for searching a Python interpreter.</td>
+</tr><tr>
+<td><a href="#getConfigDir">getConfigDir</a></td>
+<td>Module function to get the name of the directory storing the config data.</td>
+</tr><tr>
+<td><a href="#getPyQt5ModulesDirectory">getPyQt5ModulesDirectory</a></td>
+<td>Function to determine the path to PyQt5's (or PyQt4's) modules directory.</td>
+</tr><tr>
+<td><a href="#getPyQtToolsPath">getPyQtToolsPath</a></td>
+<td>Module function to get the path of the PyQt tools.</td>
+</tr><tr>
+<td><a href="#getPythonModulesDirectory">getPythonModulesDirectory</a></td>
+<td>Function to determine the path to Python's modules directory.</td>
+</tr><tr>
+<td><a href="#getQtBinariesPath">getQtBinariesPath</a></td>
+<td>Module function to get the path of the Qt binaries.</td>
+</tr><tr>
+<td><a href="#isLinuxPlatform">isLinuxPlatform</a></td>
+<td>Function to check, if this is a Linux platform.</td>
+</tr><tr>
+<td><a href="#isMacPlatform">isMacPlatform</a></td>
+<td>Function to check, if this is a Mac platform.</td>
+</tr><tr>
+<td><a href="#isWindowsPlatform">isWindowsPlatform</a></td>
+<td>Function to check, if this is a Windows platform.</td>
+</tr><tr>
+<td><a href="#qVersionTuple">qVersionTuple</a></td>
+<td>Module function to get the Qt version as a tuple.</td>
+</tr><tr>
+<td><a href="#setConfigDir">setConfigDir</a></td>
+<td>Module function to set the name of the directory storing the config data.</td>
+</tr><tr>
+<td><a href="#strGroup">strGroup</a></td>
+<td>Module function to group a string into sub-strings separated by a separator.</td>
+</tr><tr>
+<td><a href="#toBool">toBool</a></td>
+<td>Module function to convert a value to bool.</td>
+</tr><tr>
+<td><a href="#toByteArray">toByteArray</a></td>
+<td>Module function to convert a value to a byte array.</td>
+</tr><tr>
+<td><a href="#toDict">toDict</a></td>
+<td>Module function to convert a value to a dictionary.</td>
+</tr><tr>
+<td><a href="#toList">toList</a></td>
+<td>Module function to convert a value to a list.</td>
+</tr><tr>
+<td><a href="#translate">translate</a></td>
+<td>Module function to handle different PyQt 4/5 QCoreApplication.translate parameter.</td>
+</tr><tr>
+<td><a href="#versionToTuple">versionToTuple</a></td>
+<td>Module function to convert a version string into a tuple.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="checkBlacklistedVersions" ID="checkBlacklistedVersions"></a>
+<h2>checkBlacklistedVersions</h2>
+<b>checkBlacklistedVersions</b>(<i></i>)
+<p>
+    Module functions to check for blacklisted versions of the prerequisites.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating good versions were found (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="findPythonInterpreters" ID="findPythonInterpreters"></a>
+<h2>findPythonInterpreters</h2>
+<b>findPythonInterpreters</b>(<i>pyVersion</i>)
+<p>
+    Module function for searching a Python interpreter.
+</p><dl>
+<dt><i>pyVersion</i></dt>
+<dd>
+major Python version
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of interpreters found (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getConfigDir" ID="getConfigDir"></a>
+<h2>getConfigDir</h2>
+<b>getConfigDir</b>(<i></i>)
+<p>
+    Module function to get the name of the directory storing the config data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+directory name of the config dir (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPyQt5ModulesDirectory" ID="getPyQt5ModulesDirectory"></a>
+<h2>getPyQt5ModulesDirectory</h2>
+<b>getPyQt5ModulesDirectory</b>(<i></i>)
+<p>
+    Function to determine the path to PyQt5's (or PyQt4's) modules directory.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path to the PyQt5/PyQt4 modules directory (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPyQtToolsPath" ID="getPyQtToolsPath"></a>
+<h2>getPyQtToolsPath</h2>
+<b>getPyQtToolsPath</b>(<i>version=5</i>)
+<p>
+    Module function to get the path of the PyQt tools.
+</p><dl>
+<dt><i>version</i> (int)</dt>
+<dd>
+PyQt major version
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+path to the PyQt tools
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPythonModulesDirectory" ID="getPythonModulesDirectory"></a>
+<h2>getPythonModulesDirectory</h2>
+<b>getPythonModulesDirectory</b>(<i></i>)
+<p>
+    Function to determine the path to Python's modules directory.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path to the Python modules directory (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getQtBinariesPath" ID="getQtBinariesPath"></a>
+<h2>getQtBinariesPath</h2>
+<b>getQtBinariesPath</b>(<i></i>)
+<p>
+    Module function to get the path of the Qt binaries.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path of the Qt binaries (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isLinuxPlatform" ID="isLinuxPlatform"></a>
+<h2>isLinuxPlatform</h2>
+<b>isLinuxPlatform</b>(<i></i>)
+<p>
+    Function to check, if this is a Linux platform.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating Linux platform (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isMacPlatform" ID="isMacPlatform"></a>
+<h2>isMacPlatform</h2>
+<b>isMacPlatform</b>(<i></i>)
+<p>
+    Function to check, if this is a Mac platform.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating Mac platform (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isWindowsPlatform" ID="isWindowsPlatform"></a>
+<h2>isWindowsPlatform</h2>
+<b>isWindowsPlatform</b>(<i></i>)
+<p>
+    Function to check, if this is a Windows platform.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating Windows platform (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="qVersionTuple" ID="qVersionTuple"></a>
+<h2>qVersionTuple</h2>
+<b>qVersionTuple</b>(<i></i>)
+<p>
+    Module function to get the Qt version as a tuple.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+Qt version as a tuple
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of int
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="setConfigDir" ID="setConfigDir"></a>
+<h2>setConfigDir</h2>
+<b>setConfigDir</b>(<i>d</i>)
+<p>
+    Module function to set the name of the directory storing the config data.
+</p><dl>
+<dt><i>d</i></dt>
+<dd>
+name of an existing directory (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="strGroup" ID="strGroup"></a>
+<h2>strGroup</h2>
+<b>strGroup</b>(<i>txt, sep, groupLen=4</i>)
+<p>
+    Module function to group a string into sub-strings separated by a
+    separator.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text to be grouped
+</dd><dt><i>sep</i> (str)</dt>
+<dd>
+separator string
+</dd><dt><i>groupLen</i> (int)</dt>
+<dd>
+length of each group
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+result string
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="toBool" ID="toBool"></a>
+<h2>toBool</h2>
+<b>toBool</b>(<i>value</i>)
+<p>
+    Module function to convert a value to bool.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+converted data
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="toByteArray" ID="toByteArray"></a>
+<h2>toByteArray</h2>
+<b>toByteArray</b>(<i>value</i>)
+<p>
+    Module function to convert a value to a byte array.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+converted data
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="toDict" ID="toDict"></a>
+<h2>toDict</h2>
+<b>toDict</b>(<i>value</i>)
+<p>
+    Module function to convert a value to a dictionary.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+converted data
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="toList" ID="toList"></a>
+<h2>toList</h2>
+<b>toList</b>(<i>value</i>)
+<p>
+    Module function to convert a value to a list.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+converted data
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="translate" ID="translate"></a>
+<h2>translate</h2>
+<b>translate</b>(<i>*args</i>)
+<p>
+    Module function to handle different PyQt 4/5 QCoreApplication.translate
+    parameter.
+</p><dl>
+<dt><i>args</i></dt>
+<dd>
+tuple of arguments from QCoreApplication.translate (tuple)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+translated string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="versionToTuple" ID="versionToTuple"></a>
+<h2>versionToTuple</h2>
+<b>versionToTuple</b>(<i>version</i>)
+<p>
+    Module function to convert a version string into a tuple.
+</p><p>
+    Note: A version string consists of non-negative decimals separated by "."
+    optionally followed by a suffix. Suffix is everything after the last
+    decimal.
+</p><dl>
+<dt><i>version</i> (str)</dt>
+<dd>
+version string
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+version tuple without the suffix
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of int
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5XmlRpcClient</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5XmlRpcClient</h1>
+<p>
+Module implementing a xmlrpc client for Qt.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5XmlRpcClient">E5XmlRpcClient</a></td>
+<td>Class implementing a xmlrpc client for Qt.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5XmlRpcClient" ID="E5XmlRpcClient"></a>
+<h2>E5XmlRpcClient</h2>
+<p>
+    Class implementing a xmlrpc client for Qt.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5XmlRpcClient.__init__">E5XmlRpcClient</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5XmlRpcClient.__replyFinished">__replyFinished</a></td>
+<td>Private slot handling the receipt of a reply.</td>
+</tr><tr>
+<td><a href="#E5XmlRpcClient.__sslErrors">__sslErrors</a></td>
+<td>Private slot to handle SSL errors.</td>
+</tr><tr>
+<td><a href="#E5XmlRpcClient.abort">abort</a></td>
+<td>Public method to abort all calls.</td>
+</tr><tr>
+<td><a href="#E5XmlRpcClient.call">call</a></td>
+<td>Public method to call the remote server.</td>
+</tr><tr>
+<td><a href="#E5XmlRpcClient.setUrl">setUrl</a></td>
+<td>Public slot to set the xmlrpc handler URL.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5XmlRpcClient.__init__" ID="E5XmlRpcClient.__init__"></a>
+<h4>E5XmlRpcClient (Constructor)</h4>
+<b>E5XmlRpcClient</b>(<i>url, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+xmlrpc handler URL (string or QUrl)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent object (QObject)
+</dd>
+</dl><a NAME="E5XmlRpcClient.__replyFinished" ID="E5XmlRpcClient.__replyFinished"></a>
+<h4>E5XmlRpcClient.__replyFinished</h4>
+<b>__replyFinished</b>(<i>reply</i>)
+<p>
+        Private slot handling the receipt of a reply.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the finished reply (QNetworkReply)
+</dd>
+</dl><a NAME="E5XmlRpcClient.__sslErrors" ID="E5XmlRpcClient.__sslErrors"></a>
+<h4>E5XmlRpcClient.__sslErrors</h4>
+<b>__sslErrors</b>(<i>reply, errors</i>)
+<p>
+        Private slot to handle SSL errors.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>errors</i></dt>
+<dd>
+list of SSL errors (list of QSslError)
+</dd>
+</dl><a NAME="E5XmlRpcClient.abort" ID="E5XmlRpcClient.abort"></a>
+<h4>E5XmlRpcClient.abort</h4>
+<b>abort</b>(<i></i>)
+<p>
+        Public method to abort all calls.
+</p><a NAME="E5XmlRpcClient.call" ID="E5XmlRpcClient.call"></a>
+<h4>E5XmlRpcClient.call</h4>
+<b>call</b>(<i>method, args, responseCallback, errorCallback</i>)
+<p>
+        Public method to call the remote server.
+</p><dl>
+<dt><i>method</i></dt>
+<dd>
+name of the remote method to be called (string)
+</dd><dt><i>args</i></dt>
+<dd>
+tuple of method arguments (tuple)
+</dd><dt><i>responseCallback</i></dt>
+<dd>
+method to be called with the returned
+            result as a tuple (function)
+</dd><dt><i>errorCallback</i></dt>
+<dd>
+method to be called in case of an error
+            with error code and error string (function)
+</dd>
+</dl><a NAME="E5XmlRpcClient.setUrl" ID="E5XmlRpcClient.setUrl"></a>
+<h4>E5XmlRpcClient.setUrl</h4>
+<b>setUrl</b>(<i>url</i>)
+<p>
+        Public slot to set the xmlrpc handler URL.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+xmlrpc handler URL (string or QUrl)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'E:\project\github\eric6-17.08\eric\Helpviewer\Bookmarks\BookmarksImportDialog.ui'
+#
+# Created by: PyQt5 UI code generator 5.9
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_BookmarksImportDialog(object):
+    def setupUi(self, BookmarksImportDialog):
+        BookmarksImportDialog.setObjectName("BookmarksImportDialog")
+        BookmarksImportDialog.resize(550, 354)
+        BookmarksImportDialog.setMinimumSize(QtCore.QSize(550, 350))
+        BookmarksImportDialog.setSizeGripEnabled(True)
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(BookmarksImportDialog)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.pagesWidget = QtWidgets.QStackedWidget(BookmarksImportDialog)
+        self.pagesWidget.setObjectName("pagesWidget")
+        self.sourcePage = QtWidgets.QWidget()
+        self.sourcePage.setObjectName("sourcePage")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.sourcePage)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_2 = QtWidgets.QLabel(self.sourcePage)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout.addWidget(self.label_2)
+        self.sourcesList = QtWidgets.QListWidget(self.sourcePage)
+        self.sourcesList.setObjectName("sourcesList")
+        self.verticalLayout.addWidget(self.sourcesList)
+        self.pagesWidget.addWidget(self.sourcePage)
+        self.filePage = QtWidgets.QWidget()
+        self.filePage.setObjectName("filePage")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.filePage)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.iconLabel = QtWidgets.QLabel(self.filePage)
+        self.iconLabel.setMinimumSize(QtCore.QSize(48, 48))
+        self.iconLabel.setMaximumSize(QtCore.QSize(48, 48))
+        self.iconLabel.setObjectName("iconLabel")
+        self.horizontalLayout_2.addWidget(self.iconLabel)
+        self.importingFromLabel = QtWidgets.QLabel(self.filePage)
+        self.importingFromLabel.setObjectName("importingFromLabel")
+        self.horizontalLayout_2.addWidget(self.importingFromLabel)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        spacerItem = QtWidgets.QSpacerItem(20, 44, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+        self.fileLabel1 = QtWidgets.QLabel(self.filePage)
+        self.fileLabel1.setWordWrap(True)
+        self.fileLabel1.setObjectName("fileLabel1")
+        self.verticalLayout_2.addWidget(self.fileLabel1)
+        self.standardDirLabel = QtWidgets.QLabel(self.filePage)
+        self.standardDirLabel.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
+        self.standardDirLabel.setObjectName("standardDirLabel")
+        self.verticalLayout_2.addWidget(self.standardDirLabel)
+        self.fileLabel2 = QtWidgets.QLabel(self.filePage)
+        self.fileLabel2.setObjectName("fileLabel2")
+        self.verticalLayout_2.addWidget(self.fileLabel2)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 44, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem1)
+        self.filePicker = E5PathPicker(self.filePage)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.filePicker.sizePolicy().hasHeightForWidth())
+        self.filePicker.setSizePolicy(sizePolicy)
+        self.filePicker.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.filePicker.setObjectName("filePicker")
+        self.verticalLayout_2.addWidget(self.filePicker)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 44, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem2)
+        self.pagesWidget.addWidget(self.filePage)
+        self.verticalLayout_3.addWidget(self.pagesWidget)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem3)
+        self.nextButton = QtWidgets.QPushButton(BookmarksImportDialog)
+        self.nextButton.setObjectName("nextButton")
+        self.horizontalLayout.addWidget(self.nextButton)
+        self.cancelButton = QtWidgets.QPushButton(BookmarksImportDialog)
+        self.cancelButton.setObjectName("cancelButton")
+        self.horizontalLayout.addWidget(self.cancelButton)
+        self.verticalLayout_3.addLayout(self.horizontalLayout)
+
+        self.retranslateUi(BookmarksImportDialog)
+        self.pagesWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(BookmarksImportDialog)
+        BookmarksImportDialog.setTabOrder(self.sourcesList, self.nextButton)
+        BookmarksImportDialog.setTabOrder(self.nextButton, self.cancelButton)
+        BookmarksImportDialog.setTabOrder(self.cancelButton, self.filePicker)
+
+    def retranslateUi(self, BookmarksImportDialog):
+        _translate = QtCore.QCoreApplication.translate
+        BookmarksImportDialog.setWindowTitle(_translate("BookmarksImportDialog", "Import Bookmarks"))
+        self.label_2.setText(_translate("BookmarksImportDialog", "Choose source from which you want to import bookmarks:"))
+        self.sourcesList.setToolTip(_translate("BookmarksImportDialog", "Choose the source to import from"))
+        self.filePicker.setToolTip(_translate("BookmarksImportDialog", "Enter the name of the bookmarks file or directory"))
+        self.nextButton.setText(_translate("BookmarksImportDialog", "Next >"))
+        self.cancelButton.setText(_translate("BookmarksImportDialog", "Cancel"))
+
+from E5Gui.E5PathPicker import E5PathPicker
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    BookmarksImportDialog = QtWidgets.QDialog()
+    ui = Ui_BookmarksImportDialog()
+    ui.setupUi(BookmarksImportDialog)
+    BookmarksImportDialog.show()
+    sys.exit(app.exec_())
+

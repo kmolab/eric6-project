@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5TabWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5TabWidget</h1>
+<p>
+Module implementing a TabWidget class substituting QTabWidget.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5DnDTabBar">E5DnDTabBar</a></td>
+<td>Class implementing a tab bar class substituting QTabBar.</td>
+</tr><tr>
+<td><a href="#E5TabWidget">E5TabWidget</a></td>
+<td>Class implementing a tab widget class substituting QTabWidget.</td>
+</tr><tr>
+<td><a href="#E5WheelTabBar">E5WheelTabBar</a></td>
+<td>Class implementing a tab bar class substituting QTabBar to support wheel events.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5DnDTabBar" ID="E5DnDTabBar"></a>
+<h2>E5DnDTabBar</h2>
+<p>
+    Class implementing a tab bar class substituting QTabBar.
+</p><h3>Signals</h3>
+<dl>
+<dt>tabMoveRequested(int, int)</dt>
+<dd>
+emitted to signal a tab move request
+        giving the old and new index position
+</dd>
+</dl>
+<h3>Derived from</h3>
+E5WheelTabBar
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5DnDTabBar.__init__">E5DnDTabBar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5DnDTabBar.dragEnterEvent">dragEnterEvent</a></td>
+<td>Protected method to handle drag enter events.</td>
+</tr><tr>
+<td><a href="#E5DnDTabBar.dropEvent">dropEvent</a></td>
+<td>Protected method to handle drop events.</td>
+</tr><tr>
+<td><a href="#E5DnDTabBar.mouseMoveEvent">mouseMoveEvent</a></td>
+<td>Protected method to handle mouse move events.</td>
+</tr><tr>
+<td><a href="#E5DnDTabBar.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method to handle mouse press events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5DnDTabBar.__init__" ID="E5DnDTabBar.__init__"></a>
+<h4>E5DnDTabBar (Constructor)</h4>
+<b>E5DnDTabBar</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5DnDTabBar.dragEnterEvent" ID="E5DnDTabBar.dragEnterEvent"></a>
+<h4>E5DnDTabBar.dragEnterEvent</h4>
+<b>dragEnterEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle drag enter events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the drag enter event (QDragEnterEvent)
+</dd>
+</dl><a NAME="E5DnDTabBar.dropEvent" ID="E5DnDTabBar.dropEvent"></a>
+<h4>E5DnDTabBar.dropEvent</h4>
+<b>dropEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle drop events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the drop event (QDropEvent)
+</dd>
+</dl><a NAME="E5DnDTabBar.mouseMoveEvent" ID="E5DnDTabBar.mouseMoveEvent"></a>
+<h4>E5DnDTabBar.mouseMoveEvent</h4>
+<b>mouseMoveEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle mouse move events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the mouse move event (QMouseEvent)
+</dd>
+</dl><a NAME="E5DnDTabBar.mousePressEvent" ID="E5DnDTabBar.mousePressEvent"></a>
+<h4>E5DnDTabBar.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle mouse press events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the mouse press event (QMouseEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5TabWidget" ID="E5TabWidget"></a>
+<h2>E5TabWidget</h2>
+<p>
+    Class implementing a tab widget class substituting QTabWidget.
+</p><p>
+    It provides slots to show the previous and next tab and give
+    them the input focus and it allows to have a context menu for the tabs.
+</p><h3>Signals</h3>
+<dl>
+<dt>customTabContextMenuRequested(const QPoint & point, int index)</dt>
+<dd>
+        emitted when a context menu for a tab is requested
+</dd>
+</dl>
+<h3>Derived from</h3>
+QTabWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5TabWidget.__init__">E5TabWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5TabWidget.__currentChanged">__currentChanged</a></td>
+<td>Private slot to handle the currentChanged signal.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.__freeSide">__freeSide</a></td>
+<td>Private method to determine the free side of a tab.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.__handleTabCustomContextMenuRequested">__handleTabCustomContextMenuRequested</a></td>
+<td>Private slot to handle the context menu request for the tabbar.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.animationLabel">animationLabel</a></td>
+<td>Public slot to set an animated icon.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.moveTab">moveTab</a></td>
+<td>Public method to move a tab to a new index.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.nextTab">nextTab</a></td>
+<td>Public slot used to show the next tab.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.prevTab">prevTab</a></td>
+<td>Public slot used to show the previous tab.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.resetAnimation">resetAnimation</a></td>
+<td>Public slot to reset an animated icon.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.selectTab">selectTab</a></td>
+<td>Public method to get the index of a tab given a position.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.setCustomTabBar">setCustomTabBar</a></td>
+<td>Public method to set a custom tab bar.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.setTabContextMenuPolicy">setTabContextMenuPolicy</a></td>
+<td>Public method to set the context menu policy of the tab.</td>
+</tr><tr>
+<td><a href="#E5TabWidget.switchTab">switchTab</a></td>
+<td>Public slot used to switch between the current and the previous current tab.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5TabWidget.__init__" ID="E5TabWidget.__init__"></a>
+<h4>E5TabWidget (Constructor)</h4>
+<b>E5TabWidget</b>(<i>parent=None, dnd=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd><dt><i>dnd=</i></dt>
+<dd>
+flag indicating the support for Drag & Drop (boolean)
+</dd>
+</dl><a NAME="E5TabWidget.__currentChanged" ID="E5TabWidget.__currentChanged"></a>
+<h4>E5TabWidget.__currentChanged</h4>
+<b>__currentChanged</b>(<i>index</i>)
+<p>
+        Private slot to handle the currentChanged signal.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the current tab
+</dd>
+</dl><a NAME="E5TabWidget.__freeSide" ID="E5TabWidget.__freeSide"></a>
+<h4>E5TabWidget.__freeSide</h4>
+<b>__freeSide</b>(<i></i>)
+<p>
+        Private method to determine the free side of a tab.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+free side (QTabBar.ButtonPosition)
+</dd>
+</dl><a NAME="E5TabWidget.__handleTabCustomContextMenuRequested" ID="E5TabWidget.__handleTabCustomContextMenuRequested"></a>
+<h4>E5TabWidget.__handleTabCustomContextMenuRequested</h4>
+<b>__handleTabCustomContextMenuRequested</b>(<i>point</i>)
+<p>
+        Private slot to handle the context menu request for the tabbar.
+</p><dl>
+<dt><i>point</i></dt>
+<dd>
+point the context menu was requested (QPoint)
+</dd>
+</dl><a NAME="E5TabWidget.animationLabel" ID="E5TabWidget.animationLabel"></a>
+<h4>E5TabWidget.animationLabel</h4>
+<b>animationLabel</b>(<i>index, animationFile, speed=100</i>)
+<p>
+        Public slot to set an animated icon.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+tab index (integer)
+</dd><dt><i>animationFile</i></dt>
+<dd>
+name of the file containing the animation (string)
+</dd><dt><i>speed</i></dt>
+<dd>
+animation speed of the icon in percent of the original
+            icon's speed (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created label (QLabel)
+</dd>
+</dl><a NAME="E5TabWidget.moveTab" ID="E5TabWidget.moveTab"></a>
+<h4>E5TabWidget.moveTab</h4>
+<b>moveTab</b>(<i>curIndex, newIndex</i>)
+<p>
+        Public method to move a tab to a new index.
+</p><dl>
+<dt><i>curIndex</i></dt>
+<dd>
+index of tab to be moved (integer)
+</dd><dt><i>newIndex</i></dt>
+<dd>
+index the tab should be moved to (integer)
+</dd>
+</dl><a NAME="E5TabWidget.nextTab" ID="E5TabWidget.nextTab"></a>
+<h4>E5TabWidget.nextTab</h4>
+<b>nextTab</b>(<i></i>)
+<p>
+        Public slot used to show the next tab.
+</p><a NAME="E5TabWidget.prevTab" ID="E5TabWidget.prevTab"></a>
+<h4>E5TabWidget.prevTab</h4>
+<b>prevTab</b>(<i></i>)
+<p>
+        Public slot used to show the previous tab.
+</p><a NAME="E5TabWidget.resetAnimation" ID="E5TabWidget.resetAnimation"></a>
+<h4>E5TabWidget.resetAnimation</h4>
+<b>resetAnimation</b>(<i>index</i>)
+<p>
+        Public slot to reset an animated icon.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+tab index (integer)
+</dd>
+</dl><a NAME="E5TabWidget.selectTab" ID="E5TabWidget.selectTab"></a>
+<h4>E5TabWidget.selectTab</h4>
+<b>selectTab</b>(<i>pos</i>)
+<p>
+        Public method to get the index of a tab given a position.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position determining the tab index (QPoint)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><a NAME="E5TabWidget.setCustomTabBar" ID="E5TabWidget.setCustomTabBar"></a>
+<h4>E5TabWidget.setCustomTabBar</h4>
+<b>setCustomTabBar</b>(<i>dnd, tabBar</i>)
+<p>
+        Public method to set a custom tab bar.
+</p><dl>
+<dt><i>dnd</i></dt>
+<dd>
+flag indicating the support for Drag & Drop (boolean)
+</dd><dt><i>tabBar</i></dt>
+<dd>
+reference to the tab bar to set (QTabBar)
+</dd>
+</dl><a NAME="E5TabWidget.setTabContextMenuPolicy" ID="E5TabWidget.setTabContextMenuPolicy"></a>
+<h4>E5TabWidget.setTabContextMenuPolicy</h4>
+<b>setTabContextMenuPolicy</b>(<i>policy</i>)
+<p>
+        Public method to set the context menu policy of the tab.
+</p><dl>
+<dt><i>policy</i></dt>
+<dd>
+context menu policy to set (Qt.ContextMenuPolicy)
+</dd>
+</dl><a NAME="E5TabWidget.switchTab" ID="E5TabWidget.switchTab"></a>
+<h4>E5TabWidget.switchTab</h4>
+<b>switchTab</b>(<i></i>)
+<p>
+        Public slot used to switch between the current and the previous
+        current tab.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5WheelTabBar" ID="E5WheelTabBar"></a>
+<h2>E5WheelTabBar</h2>
+<p>
+    Class implementing a tab bar class substituting QTabBar to support wheel
+    events.
+</p>
+<h3>Derived from</h3>
+QTabBar
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5WheelTabBar.__init__">E5WheelTabBar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5WheelTabBar.wheelEvent">wheelEvent</a></td>
+<td>Protected slot to support wheel events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5WheelTabBar.__init__" ID="E5WheelTabBar.__init__"></a>
+<h4>E5WheelTabBar (Constructor)</h4>
+<b>E5WheelTabBar</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5WheelTabBar.wheelEvent" ID="E5WheelTabBar.wheelEvent"></a>
+<h4>E5WheelTabBar.wheelEvent</h4>
+<b>wheelEvent</b>(<i>event</i>)
+<p>
+        Protected slot to support wheel events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the wheel event (QWheelEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Project.ProjectInterfacesBrowser</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Project.ProjectInterfacesBrowser</h1>
+<p>
+Module implementing the a class used to display the interfaces (IDL) part
+of the project.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ProjectInterfacesBrowser">ProjectInterfacesBrowser</a></td>
+<td>A class used to display the interfaces (IDL) part of the project.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ProjectInterfacesBrowser" ID="ProjectInterfacesBrowser"></a>
+<h2>ProjectInterfacesBrowser</h2>
+<p>
+    A class used to display the interfaces (IDL) part of the project.
+</p><h3>Signals</h3>
+<dl>
+<dt>appendStderr(str)</dt>
+<dd>
+emitted after something was received from
+        a QProcess on stderr
+</dd><dt>appendStdout(str)</dt>
+<dd>
+emitted after something was received from
+        a QProcess on stdout
+</dd><dt>showMenu(str, QMenu)</dt>
+<dd>
+emitted when a menu is about to be shown.
+        The name of the menu and a reference to the menu are given.
+</dd>
+</dl>
+<h3>Derived from</h3>
+ProjectBaseBrowser
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectInterfacesBrowser.__init__">ProjectInterfacesBrowser</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__addInterfaceFiles">__addInterfaceFiles</a></td>
+<td>Private method to add interface files to the project.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__addInterfacesDirectory">__addInterfacesDirectory</a></td>
+<td>Private method to add interface files of a directory to the project.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__compileAllInterfaces">__compileAllInterfaces</a></td>
+<td>Private method to compile all interfaces to python.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__compileIDL">__compileIDL</a></td>
+<td>Private method to compile a .idl file to python.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__compileIDLDone">__compileIDLDone</a></td>
+<td>Private slot to handle the finished signal of the omniidl process.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__compileInterface">__compileInterface</a></td>
+<td>Private method to compile an interface to python.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__compileSelectedInterfaces">__compileSelectedInterfaces</a></td>
+<td>Private method to compile selected interfaces to python.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__configureCorba">__configureCorba</a></td>
+<td>Private method to open the configuration dialog.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__deleteFile">__deleteFile</a></td>
+<td>Private method to delete files from the project.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__readStderr">__readStderr</a></td>
+<td>Private slot to handle the readyReadStandardError signal of the omniidl process.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__readStdout">__readStdout</a></td>
+<td>Private slot to handle the readyReadStandardOutput signal of the omniidl process.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot called by the menu aboutToShow signal.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__showContextMenuBack">__showContextMenuBack</a></td>
+<td>Private slot called by the backMenu aboutToShow signal.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__showContextMenuDir">__showContextMenuDir</a></td>
+<td>Private slot called by the dirMenu aboutToShow signal.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__showContextMenuDirMulti">__showContextMenuDirMulti</a></td>
+<td>Private slot called by the dirMultiMenu aboutToShow signal.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser.__showContextMenuMulti">__showContextMenuMulti</a></td>
+<td>Private slot called by the multiMenu aboutToShow signal.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser._contextMenuRequested">_contextMenuRequested</a></td>
+<td>Protected slot to show the context menu.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser._createPopupMenus">_createPopupMenus</a></td>
+<td>Protected overloaded method to generate the popup menu.</td>
+</tr><tr>
+<td><a href="#ProjectInterfacesBrowser._openItem">_openItem</a></td>
+<td>Protected slot to handle the open popup menu entry.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectInterfacesBrowser.__init__" ID="ProjectInterfacesBrowser.__init__"></a>
+<h4>ProjectInterfacesBrowser (Constructor)</h4>
+<b>ProjectInterfacesBrowser</b>(<i>project, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this browser (QWidget)
+</dd>
+</dl><a NAME="ProjectInterfacesBrowser.__addInterfaceFiles" ID="ProjectInterfacesBrowser.__addInterfaceFiles"></a>
+<h4>ProjectInterfacesBrowser.__addInterfaceFiles</h4>
+<b>__addInterfaceFiles</b>(<i></i>)
+<p>
+        Private method to add interface files to the project.
+</p><a NAME="ProjectInterfacesBrowser.__addInterfacesDirectory" ID="ProjectInterfacesBrowser.__addInterfacesDirectory"></a>
+<h4>ProjectInterfacesBrowser.__addInterfacesDirectory</h4>
+<b>__addInterfacesDirectory</b>(<i></i>)
+<p>
+        Private method to add interface files of a directory to the project.
+</p><a NAME="ProjectInterfacesBrowser.__compileAllInterfaces" ID="ProjectInterfacesBrowser.__compileAllInterfaces"></a>
+<h4>ProjectInterfacesBrowser.__compileAllInterfaces</h4>
+<b>__compileAllInterfaces</b>(<i></i>)
+<p>
+        Private method to compile all interfaces to python.
+</p><a NAME="ProjectInterfacesBrowser.__compileIDL" ID="ProjectInterfacesBrowser.__compileIDL"></a>
+<h4>ProjectInterfacesBrowser.__compileIDL</h4>
+<b>__compileIDL</b>(<i>fn, noDialog=False, progress=None</i>)
+<p>
+        Private method to compile a .idl file to python.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the .idl file to be compiled (string)
+</dd><dt><i>noDialog</i></dt>
+<dd>
+flag indicating silent operations (boolean)
+</dd><dt><i>progress</i></dt>
+<dd>
+reference to the progress dialog (E5ProgressDialog)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the compile process (QProcess)
+</dd>
+</dl><a NAME="ProjectInterfacesBrowser.__compileIDLDone" ID="ProjectInterfacesBrowser.__compileIDLDone"></a>
+<h4>ProjectInterfacesBrowser.__compileIDLDone</h4>
+<b>__compileIDLDone</b>(<i>exitCode, exitStatus</i>)
+<p>
+        Private slot to handle the finished signal of the omniidl process.
+</p><dl>
+<dt><i>exitCode</i></dt>
+<dd>
+exit code of the process (integer)
+</dd><dt><i>exitStatus</i></dt>
+<dd>
+exit status of the process (QProcess.ExitStatus)
+</dd>
+</dl><a NAME="ProjectInterfacesBrowser.__compileInterface" ID="ProjectInterfacesBrowser.__compileInterface"></a>
+<h4>ProjectInterfacesBrowser.__compileInterface</h4>
+<b>__compileInterface</b>(<i></i>)
+<p>
+        Private method to compile an interface to python.
+</p><a NAME="ProjectInterfacesBrowser.__compileSelectedInterfaces" ID="ProjectInterfacesBrowser.__compileSelectedInterfaces"></a>
+<h4>ProjectInterfacesBrowser.__compileSelectedInterfaces</h4>
+<b>__compileSelectedInterfaces</b>(<i></i>)
+<p>
+        Private method to compile selected interfaces to python.
+</p><a NAME="ProjectInterfacesBrowser.__configureCorba" ID="ProjectInterfacesBrowser.__configureCorba"></a>
+<h4>ProjectInterfacesBrowser.__configureCorba</h4>
+<b>__configureCorba</b>(<i></i>)
+<p>
+        Private method to open the configuration dialog.
+</p><a NAME="ProjectInterfacesBrowser.__deleteFile" ID="ProjectInterfacesBrowser.__deleteFile"></a>
+<h4>ProjectInterfacesBrowser.__deleteFile</h4>
+<b>__deleteFile</b>(<i></i>)
+<p>
+        Private method to delete files from the project.
+</p><a NAME="ProjectInterfacesBrowser.__readStderr" ID="ProjectInterfacesBrowser.__readStderr"></a>
+<h4>ProjectInterfacesBrowser.__readStderr</h4>
+<b>__readStderr</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStandardError signal of the
+        omniidl process.
+</p><a NAME="ProjectInterfacesBrowser.__readStdout" ID="ProjectInterfacesBrowser.__readStdout"></a>
+<h4>ProjectInterfacesBrowser.__readStdout</h4>
+<b>__readStdout</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStandardOutput signal of the
+        omniidl process.
+</p><a NAME="ProjectInterfacesBrowser.__showContextMenu" ID="ProjectInterfacesBrowser.__showContextMenu"></a>
+<h4>ProjectInterfacesBrowser.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i></i>)
+<p>
+        Private slot called by the menu aboutToShow signal.
+</p><a NAME="ProjectInterfacesBrowser.__showContextMenuBack" ID="ProjectInterfacesBrowser.__showContextMenuBack"></a>
+<h4>ProjectInterfacesBrowser.__showContextMenuBack</h4>
+<b>__showContextMenuBack</b>(<i></i>)
+<p>
+        Private slot called by the backMenu aboutToShow signal.
+</p><a NAME="ProjectInterfacesBrowser.__showContextMenuDir" ID="ProjectInterfacesBrowser.__showContextMenuDir"></a>
+<h4>ProjectInterfacesBrowser.__showContextMenuDir</h4>
+<b>__showContextMenuDir</b>(<i></i>)
+<p>
+        Private slot called by the dirMenu aboutToShow signal.
+</p><a NAME="ProjectInterfacesBrowser.__showContextMenuDirMulti" ID="ProjectInterfacesBrowser.__showContextMenuDirMulti"></a>
+<h4>ProjectInterfacesBrowser.__showContextMenuDirMulti</h4>
+<b>__showContextMenuDirMulti</b>(<i></i>)
+<p>
+        Private slot called by the dirMultiMenu aboutToShow signal.
+</p><a NAME="ProjectInterfacesBrowser.__showContextMenuMulti" ID="ProjectInterfacesBrowser.__showContextMenuMulti"></a>
+<h4>ProjectInterfacesBrowser.__showContextMenuMulti</h4>
+<b>__showContextMenuMulti</b>(<i></i>)
+<p>
+        Private slot called by the multiMenu aboutToShow signal.
+</p><a NAME="ProjectInterfacesBrowser._contextMenuRequested" ID="ProjectInterfacesBrowser._contextMenuRequested"></a>
+<h4>ProjectInterfacesBrowser._contextMenuRequested</h4>
+<b>_contextMenuRequested</b>(<i>coord</i>)
+<p>
+        Protected slot to show the context menu.
+</p><dl>
+<dt><i>coord</i></dt>
+<dd>
+the position of the mouse pointer (QPoint)
+</dd>
+</dl><a NAME="ProjectInterfacesBrowser._createPopupMenus" ID="ProjectInterfacesBrowser._createPopupMenus"></a>
+<h4>ProjectInterfacesBrowser._createPopupMenus</h4>
+<b>_createPopupMenus</b>(<i></i>)
+<p>
+        Protected overloaded method to generate the popup menu.
+</p><a NAME="ProjectInterfacesBrowser._openItem" ID="ProjectInterfacesBrowser._openItem"></a>
+<h4>ProjectInterfacesBrowser._openItem</h4>
+<b>_openItem</b>(<i></i>)
+<p>
+        Protected slot to handle the open popup menu entry.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

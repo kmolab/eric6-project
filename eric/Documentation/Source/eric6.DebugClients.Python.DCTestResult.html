@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.DebugClients.Python.DCTestResult</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.DebugClients.Python.DCTestResult</h1>
+<p>
+Module implementing a TestResult derivative for the eric6 debugger.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#DCTestResult">DCTestResult</a></td>
+<td>A TestResult derivative to work with eric6's debug client.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="DCTestResult" ID="DCTestResult"></a>
+<h2>DCTestResult</h2>
+<p>
+    A TestResult derivative to work with eric6's debug client.
+</p><p>
+    For more details see unittest.py of the standard python distribution.
+</p>
+<h3>Derived from</h3>
+TestResult
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DCTestResult.__init__">DCTestResult</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#DCTestResult.addError">addError</a></td>
+<td>Public method called if a test errored.</td>
+</tr><tr>
+<td><a href="#DCTestResult.addExpectedFailure">addExpectedFailure</a></td>
+<td>Public method called if a test failed expected.</td>
+</tr><tr>
+<td><a href="#DCTestResult.addFailure">addFailure</a></td>
+<td>Public method called if a test failed.</td>
+</tr><tr>
+<td><a href="#DCTestResult.addSkip">addSkip</a></td>
+<td>Public method called if a test was skipped.</td>
+</tr><tr>
+<td><a href="#DCTestResult.addUnexpectedSuccess">addUnexpectedSuccess</a></td>
+<td>Public method called if a test succeeded expectedly.</td>
+</tr><tr>
+<td><a href="#DCTestResult.startTest">startTest</a></td>
+<td>Public method called at the start of a test.</td>
+</tr><tr>
+<td><a href="#DCTestResult.stopTest">stopTest</a></td>
+<td>Public method called at the end of a test.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="DCTestResult.__init__" ID="DCTestResult.__init__"></a>
+<h4>DCTestResult (Constructor)</h4>
+<b>DCTestResult</b>(<i>dbgClient</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>dbgClient</i> (DebugClientBase)</dt>
+<dd>
+reference to the debug client
+</dd>
+</dl><a NAME="DCTestResult.addError" ID="DCTestResult.addError"></a>
+<h4>DCTestResult.addError</h4>
+<b>addError</b>(<i>test, err</i>)
+<p>
+        Public method called if a test errored.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+Reference to the test object
+</dd><dt><i>err</i></dt>
+<dd>
+The error traceback
+</dd>
+</dl><a NAME="DCTestResult.addExpectedFailure" ID="DCTestResult.addExpectedFailure"></a>
+<h4>DCTestResult.addExpectedFailure</h4>
+<b>addExpectedFailure</b>(<i>test, err</i>)
+<p>
+        Public method called if a test failed expected.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd><dt><i>err</i></dt>
+<dd>
+error traceback
+</dd>
+</dl><a NAME="DCTestResult.addFailure" ID="DCTestResult.addFailure"></a>
+<h4>DCTestResult.addFailure</h4>
+<b>addFailure</b>(<i>test, err</i>)
+<p>
+        Public method called if a test failed.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+Reference to the test object
+</dd><dt><i>err</i></dt>
+<dd>
+The error traceback
+</dd>
+</dl><a NAME="DCTestResult.addSkip" ID="DCTestResult.addSkip"></a>
+<h4>DCTestResult.addSkip</h4>
+<b>addSkip</b>(<i>test, reason</i>)
+<p>
+        Public method called if a test was skipped.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd><dt><i>reason</i></dt>
+<dd>
+reason for skipping the test (string)
+</dd>
+</dl><a NAME="DCTestResult.addUnexpectedSuccess" ID="DCTestResult.addUnexpectedSuccess"></a>
+<h4>DCTestResult.addUnexpectedSuccess</h4>
+<b>addUnexpectedSuccess</b>(<i>test</i>)
+<p>
+        Public method called if a test succeeded expectedly.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+reference to the test object
+</dd>
+</dl><a NAME="DCTestResult.startTest" ID="DCTestResult.startTest"></a>
+<h4>DCTestResult.startTest</h4>
+<b>startTest</b>(<i>test</i>)
+<p>
+        Public method called at the start of a test.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+Reference to the test object
+</dd>
+</dl><a NAME="DCTestResult.stopTest" ID="DCTestResult.stopTest"></a>
+<h4>DCTestResult.stopTest</h4>
+<b>stopTest</b>(<i>test</i>)
+<p>
+        Public method called at the end of a test.
+</p><dl>
+<dt><i>test</i></dt>
+<dd>
+Reference to the test object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

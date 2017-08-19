@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.NetworkReply</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.NetworkReply</h1>
+<p>
+Module implementing a network reply object for special data.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#NetworkReply">NetworkReply</a></td>
+<td>Class implementing a QNetworkReply subclass for special data.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="NetworkReply" ID="NetworkReply"></a>
+<h2>NetworkReply</h2>
+<p>
+    Class implementing a QNetworkReply subclass for special data.
+</p>
+<h3>Derived from</h3>
+QNetworkReply
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#NetworkReply.__init__">NetworkReply</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#NetworkReply.abort">abort</a></td>
+<td>Public slot to abort the operation.</td>
+</tr><tr>
+<td><a href="#NetworkReply.bytesAvailable">bytesAvailable</a></td>
+<td>Public method to determined the bytes available for being read.</td>
+</tr><tr>
+<td><a href="#NetworkReply.isFinished">isFinished</a></td>
+<td>Public method to check, if the reply has finished.</td>
+</tr><tr>
+<td><a href="#NetworkReply.readData">readData</a></td>
+<td>Public method to retrieve data from the reply object.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="NetworkReply.__init__" ID="NetworkReply.__init__"></a>
+<h4>NetworkReply (Constructor)</h4>
+<b>NetworkReply</b>(<i>request, fileData, mimeType, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>fileData</i></dt>
+<dd>
+reference to the data buffer (QByteArray)
+</dd><dt><i>mimeType</i></dt>
+<dd>
+for the reply (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="NetworkReply.abort" ID="NetworkReply.abort"></a>
+<h4>NetworkReply.abort</h4>
+<b>abort</b>(<i></i>)
+<p>
+        Public slot to abort the operation.
+</p><a NAME="NetworkReply.bytesAvailable" ID="NetworkReply.bytesAvailable"></a>
+<h4>NetworkReply.bytesAvailable</h4>
+<b>bytesAvailable</b>(<i></i>)
+<p>
+        Public method to determined the bytes available for being read.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+bytes available (integer)
+</dd>
+</dl><a NAME="NetworkReply.isFinished" ID="NetworkReply.isFinished"></a>
+<h4>NetworkReply.isFinished</h4>
+<b>isFinished</b>(<i></i>)
+<p>
+        Public method to check, if the reply has finished.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the finished state (boolean)
+</dd>
+</dl><a NAME="NetworkReply.readData" ID="NetworkReply.readData"></a>
+<h4>NetworkReply.readData</h4>
+<b>readData</b>(<i>maxlen</i>)
+<p>
+        Public method to retrieve data from the reply object.
+</p><dl>
+<dt><i>maxlen</i></dt>
+<dd>
+maximum number of bytes to read (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string containing the data (bytes)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

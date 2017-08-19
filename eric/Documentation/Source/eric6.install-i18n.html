@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.install-i18n</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.install-i18n</h1>
+<p>
+Installation script for the eric6 IDE translation files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>configDir</td></tr><tr><td>privateInstall</td></tr><tr><td>progName</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#getConfigDir">getConfigDir</a></td>
+<td>Global function to get the name of the directory storing the config data.</td>
+</tr><tr>
+<td><a href="#installTranslations">installTranslations</a></td>
+<td>Install the translation files into the right place.</td>
+</tr><tr>
+<td><a href="#main">main</a></td>
+<td>The main function of the script.</td>
+</tr><tr>
+<td><a href="#usage">usage</a></td>
+<td>Display a usage message and exit.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="getConfigDir" ID="getConfigDir"></a>
+<h2>getConfigDir</h2>
+<b>getConfigDir</b>(<i></i>)
+<p>
+    Global function to get the name of the directory storing the config data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+directory name of the config dir (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="installTranslations" ID="installTranslations"></a>
+<h2>installTranslations</h2>
+<b>installTranslations</b>(<i></i>)
+<p>
+    Install the translation files into the right place.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="main" ID="main"></a>
+<h2>main</h2>
+<b>main</b>(<i>argv</i>)
+<p>
+    The main function of the script.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+list of command line arguments (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="usage" ID="usage"></a>
+<h2>usage</h2>
+<b>usage</b>(<i>rcode=2</i>)
+<p>
+    Display a usage message and exit.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+return code passed back to the calling process (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgMergeDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgMergeDialog</h1>
+<p>
+Module implementing a dialog to enter the data for a merge operation.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgMergeDialog">HgMergeDialog</a></td>
+<td>Class implementing a dialog to enter the data for a merge operation.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgMergeDialog" ID="HgMergeDialog"></a>
+<h2>HgMergeDialog</h2>
+<p>
+    Class implementing a dialog to enter the data for a merge operation.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgMergeDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgMergeDialog.__init__">HgMergeDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.getParameters">getParameters</a></td>
+<td>Public method to retrieve the merge data.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_bookmarkButton_toggled">on_bookmarkButton_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark select button.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_bookmarkCombo_editTextChanged">on_bookmarkCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark combo.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_branchButton_toggled">on_branchButton_toggled</a></td>
+<td>Private slot to handle changes of the Branch select button.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_branchCombo_editTextChanged">on_branchCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch combo.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_idButton_toggled">on_idButton_toggled</a></td>
+<td>Private slot to handle changes of the ID select button.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_idEdit_textChanged">on_idEdit_textChanged</a></td>
+<td>Private slot to handle changes of the ID edit.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_tagButton_toggled">on_tagButton_toggled</a></td>
+<td>Private slot to handle changes of the Tag select button.</td>
+</tr><tr>
+<td><a href="#HgMergeDialog.on_tagCombo_editTextChanged">on_tagCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgMergeDialog.__init__" ID="HgMergeDialog.__init__"></a>
+<h4>HgMergeDialog (Constructor)</h4>
+<b>HgMergeDialog</b>(<i>tagsList, branchesList, bookmarksList=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>tagsList</i></dt>
+<dd>
+list of tags (list of strings)
+</dd><dt><i>branchesList</i></dt>
+<dd>
+list of branches (list of strings)
+</dd><dt><i>bookmarksList</i></dt>
+<dd>
+list of bookmarks (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="HgMergeDialog.__updateOK" ID="HgMergeDialog.__updateOK"></a>
+<h4>HgMergeDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgMergeDialog.getParameters" ID="HgMergeDialog.getParameters"></a>
+<h4>HgMergeDialog.getParameters</h4>
+<b>getParameters</b>(<i></i>)
+<p>
+        Public method to retrieve the merge data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple naming the revision and a flag indicating a
+            forced merge (string, boolean)
+</dd>
+</dl><a NAME="HgMergeDialog.on_bookmarkButton_toggled" ID="HgMergeDialog.on_bookmarkButton_toggled"></a>
+<h4>HgMergeDialog.on_bookmarkButton_toggled</h4>
+<b>on_bookmarkButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgMergeDialog.on_bookmarkCombo_editTextChanged" ID="HgMergeDialog.on_bookmarkCombo_editTextChanged"></a>
+<h4>HgMergeDialog.on_bookmarkCombo_editTextChanged</h4>
+<b>on_bookmarkCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgMergeDialog.on_branchButton_toggled" ID="HgMergeDialog.on_branchButton_toggled"></a>
+<h4>HgMergeDialog.on_branchButton_toggled</h4>
+<b>on_branchButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgMergeDialog.on_branchCombo_editTextChanged" ID="HgMergeDialog.on_branchCombo_editTextChanged"></a>
+<h4>HgMergeDialog.on_branchCombo_editTextChanged</h4>
+<b>on_branchCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgMergeDialog.on_idButton_toggled" ID="HgMergeDialog.on_idButton_toggled"></a>
+<h4>HgMergeDialog.on_idButton_toggled</h4>
+<b>on_idButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgMergeDialog.on_idEdit_textChanged" ID="HgMergeDialog.on_idEdit_textChanged"></a>
+<h4>HgMergeDialog.on_idEdit_textChanged</h4>
+<b>on_idEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgMergeDialog.on_tagButton_toggled" ID="HgMergeDialog.on_tagButton_toggled"></a>
+<h4>HgMergeDialog.on_tagButton_toggled</h4>
+<b>on_tagButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgMergeDialog.on_tagCombo_editTextChanged" ID="HgMergeDialog.on_tagCombo_editTextChanged"></a>
+<h4>HgMergeDialog.on_tagCombo_editTextChanged</h4>
+<b>on_tagCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

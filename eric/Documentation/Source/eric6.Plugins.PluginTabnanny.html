@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.PluginTabnanny</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.PluginTabnanny</h1>
+<p>
+Module implementing the Tabnanny plugin.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>author</td></tr><tr><td>autoactivate</td></tr><tr><td>className</td></tr><tr><td>deactivateable</td></tr><tr><td>error</td></tr><tr><td>longDescription</td></tr><tr><td>name</td></tr><tr><td>packageName</td></tr><tr><td>pyqtApi</td></tr><tr><td>python2Compatible</td></tr><tr><td>shortDescription</td></tr><tr><td>version</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#TabnannyPlugin">TabnannyPlugin</a></td>
+<td>Class implementing the Tabnanny plugin.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="TabnannyPlugin" ID="TabnannyPlugin"></a>
+<h2>TabnannyPlugin</h2>
+<p>
+    Class implementing the Tabnanny plugin.
+</p><h3>Signals</h3>
+<dl>
+<dt>batchFinished()</dt>
+<dd>
+emitted when a style check batch is done
+</dd><dt>error(str, str)</dt>
+<dd>
+emitted in case of an error
+</dd><dt>indentChecked(str, bool, str, str)</dt>
+<dd>
+emitted when the indent
+        check was done.
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#TabnannyPlugin.__init__">TabnannyPlugin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__editorClosed">__editorClosed</a></td>
+<td>Private slot called, when an editor was closed.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__editorOpened">__editorOpened</a></td>
+<td>Private slot called, when a new editor was opened.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__editorShowMenu">__editorShowMenu</a></td>
+<td>Private slot called, when the the editor context menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__editorTabnanny">__editorTabnanny</a></td>
+<td>Private slot to handle the tabnanny context menu action of the editors.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__initialize">__initialize</a></td>
+<td>Private slot to (re)initialize the plugin.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__projectBrowserShowMenu">__projectBrowserShowMenu</a></td>
+<td>Private slot called, when the the project browser context menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__projectBrowserTabnanny">__projectBrowserTabnanny</a></td>
+<td>Private method to handle the tabnanny context menu action of the project sources browser.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__projectShowMenu">__projectShowMenu</a></td>
+<td>Private slot called, when the the project menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__projectTabnanny">__projectTabnanny</a></td>
+<td>Private slot used to check the project files for bad indentations.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.__serviceError">__serviceError</a></td>
+<td>Private slot handling service errors.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.activate">activate</a></td>
+<td>Public method to activate this plugin.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.batchJobDone">batchJobDone</a></td>
+<td>Public slot handling the completion of a batch job.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.cancelIndentBatchCheck">cancelIndentBatchCheck</a></td>
+<td>Public method to cancel all batch jobs.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.deactivate">deactivate</a></td>
+<td>Public method to deactivate this plugin.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.indentBatchCheck">indentBatchCheck</a></td>
+<td>Public method to prepare an indentation check on multiple Python source files.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.indentCheck">indentCheck</a></td>
+<td>Public method to prepare an indentation check on one Python source file.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.serviceErrorPy2">serviceErrorPy2</a></td>
+<td>Public slot handling service errors for Python 2.</td>
+</tr><tr>
+<td><a href="#TabnannyPlugin.serviceErrorPy3">serviceErrorPy3</a></td>
+<td>Public slot handling service errors for Python 2.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="TabnannyPlugin.__init__" ID="TabnannyPlugin.__init__"></a>
+<h4>TabnannyPlugin (Constructor)</h4>
+<b>TabnannyPlugin</b>(<i>ui</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>ui</i></dt>
+<dd>
+reference to the user interface object (UI.UserInterface)
+</dd>
+</dl><a NAME="TabnannyPlugin.__editorClosed" ID="TabnannyPlugin.__editorClosed"></a>
+<h4>TabnannyPlugin.__editorClosed</h4>
+<b>__editorClosed</b>(<i>editor</i>)
+<p>
+        Private slot called, when an editor was closed.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (QScintilla.Editor)
+</dd>
+</dl><a NAME="TabnannyPlugin.__editorOpened" ID="TabnannyPlugin.__editorOpened"></a>
+<h4>TabnannyPlugin.__editorOpened</h4>
+<b>__editorOpened</b>(<i>editor</i>)
+<p>
+        Private slot called, when a new editor was opened.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the new editor (QScintilla.Editor)
+</dd>
+</dl><a NAME="TabnannyPlugin.__editorShowMenu" ID="TabnannyPlugin.__editorShowMenu"></a>
+<h4>TabnannyPlugin.__editorShowMenu</h4>
+<b>__editorShowMenu</b>(<i>menuName, menu, editor</i>)
+<p>
+        Private slot called, when the the editor context menu or a submenu is
+        about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd><dt><i>editor</i></dt>
+<dd>
+reference to the editor
+</dd>
+</dl><a NAME="TabnannyPlugin.__editorTabnanny" ID="TabnannyPlugin.__editorTabnanny"></a>
+<h4>TabnannyPlugin.__editorTabnanny</h4>
+<b>__editorTabnanny</b>(<i></i>)
+<p>
+        Private slot to handle the tabnanny context menu action of the editors.
+</p><a NAME="TabnannyPlugin.__initialize" ID="TabnannyPlugin.__initialize"></a>
+<h4>TabnannyPlugin.__initialize</h4>
+<b>__initialize</b>(<i></i>)
+<p>
+        Private slot to (re)initialize the plugin.
+</p><a NAME="TabnannyPlugin.__projectBrowserShowMenu" ID="TabnannyPlugin.__projectBrowserShowMenu"></a>
+<h4>TabnannyPlugin.__projectBrowserShowMenu</h4>
+<b>__projectBrowserShowMenu</b>(<i>menuName, menu</i>)
+<p>
+        Private slot called, when the the project browser context menu or a
+        submenu is about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd>
+</dl><a NAME="TabnannyPlugin.__projectBrowserTabnanny" ID="TabnannyPlugin.__projectBrowserTabnanny"></a>
+<h4>TabnannyPlugin.__projectBrowserTabnanny</h4>
+<b>__projectBrowserTabnanny</b>(<i></i>)
+<p>
+        Private method to handle the tabnanny context menu action of the
+        project sources browser.
+</p><a NAME="TabnannyPlugin.__projectShowMenu" ID="TabnannyPlugin.__projectShowMenu"></a>
+<h4>TabnannyPlugin.__projectShowMenu</h4>
+<b>__projectShowMenu</b>(<i>menuName, menu</i>)
+<p>
+        Private slot called, when the the project menu or a submenu is
+        about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd>
+</dl><a NAME="TabnannyPlugin.__projectTabnanny" ID="TabnannyPlugin.__projectTabnanny"></a>
+<h4>TabnannyPlugin.__projectTabnanny</h4>
+<b>__projectTabnanny</b>(<i></i>)
+<p>
+        Private slot used to check the project files for bad indentations.
+</p><a NAME="TabnannyPlugin.__serviceError" ID="TabnannyPlugin.__serviceError"></a>
+<h4>TabnannyPlugin.__serviceError</h4>
+<b>__serviceError</b>(<i>fn, msg</i>)
+<p>
+        Private slot handling service errors.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+file name (string)
+</dd><dt><i>msg</i></dt>
+<dd>
+message text (string)
+</dd>
+</dl><a NAME="TabnannyPlugin.activate" ID="TabnannyPlugin.activate"></a>
+<h4>TabnannyPlugin.activate</h4>
+<b>activate</b>(<i></i>)
+<p>
+        Public method to activate this plugin.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of None and activation status (boolean)
+</dd>
+</dl><a NAME="TabnannyPlugin.batchJobDone" ID="TabnannyPlugin.batchJobDone"></a>
+<h4>TabnannyPlugin.batchJobDone</h4>
+<b>batchJobDone</b>(<i>fx, lang</i>)
+<p>
+        Public slot handling the completion of a batch job.
+</p><dl>
+<dt><i>fx</i></dt>
+<dd>
+service name (string)
+</dd><dt><i>lang</i></dt>
+<dd>
+language (string)
+</dd>
+</dl><a NAME="TabnannyPlugin.cancelIndentBatchCheck" ID="TabnannyPlugin.cancelIndentBatchCheck"></a>
+<h4>TabnannyPlugin.cancelIndentBatchCheck</h4>
+<b>cancelIndentBatchCheck</b>(<i></i>)
+<p>
+        Public method to cancel all batch jobs.
+</p><a NAME="TabnannyPlugin.deactivate" ID="TabnannyPlugin.deactivate"></a>
+<h4>TabnannyPlugin.deactivate</h4>
+<b>deactivate</b>(<i></i>)
+<p>
+        Public method to deactivate this plugin.
+</p><a NAME="TabnannyPlugin.indentBatchCheck" ID="TabnannyPlugin.indentBatchCheck"></a>
+<h4>TabnannyPlugin.indentBatchCheck</h4>
+<b>indentBatchCheck</b>(<i>argumentsList</i>)
+<p>
+        Public method to prepare an indentation check on multiple Python
+        source files.
+</p><dl>
+<dt><i>argumentsList</i></dt>
+<dd>
+list of arguments tuples with each tuple
+            containing filename and source (string, string)
+</dd>
+</dl><a NAME="TabnannyPlugin.indentCheck" ID="TabnannyPlugin.indentCheck"></a>
+<h4>TabnannyPlugin.indentCheck</h4>
+<b>indentCheck</b>(<i>lang, filename, source</i>)
+<p>
+        Public method to prepare an indentation check on one Python source
+        file.
+</p><dl>
+<dt><i>lang</i></dt>
+<dd>
+language of the file or None to determine by internal
+            algorithm (str or None)
+</dd><dt><i>filename</i></dt>
+<dd>
+source filename (string)
+</dd><dt><i>source</i></dt>
+<dd>
+string containing the code to check (string)
+</dd>
+</dl><a NAME="TabnannyPlugin.serviceErrorPy2" ID="TabnannyPlugin.serviceErrorPy2"></a>
+<h4>TabnannyPlugin.serviceErrorPy2</h4>
+<b>serviceErrorPy2</b>(<i>fx, lang, fn, msg</i>)
+<p>
+        Public slot handling service errors for Python 2.
+</p><dl>
+<dt><i>fx</i></dt>
+<dd>
+service name (string)
+</dd><dt><i>lang</i></dt>
+<dd>
+language (string)
+</dd><dt><i>fn</i></dt>
+<dd>
+file name (string)
+</dd><dt><i>msg</i></dt>
+<dd>
+message text (string)
+</dd>
+</dl><a NAME="TabnannyPlugin.serviceErrorPy3" ID="TabnannyPlugin.serviceErrorPy3"></a>
+<h4>TabnannyPlugin.serviceErrorPy3</h4>
+<b>serviceErrorPy3</b>(<i>fx, lang, fn, msg</i>)
+<p>
+        Public slot handling service errors for Python 2.
+</p><dl>
+<dt><i>fx</i></dt>
+<dd>
+service name (string)
+</dd><dt><i>lang</i></dt>
+<dd>
+language (string)
+</dd><dt><i>fn</i></dt>
+<dd>
+file name (string)
+</dd><dt><i>msg</i></dt>
+<dd>
+message text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

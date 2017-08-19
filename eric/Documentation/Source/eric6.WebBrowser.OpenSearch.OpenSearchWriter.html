@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.OpenSearch.OpenSearchWriter</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.OpenSearch.OpenSearchWriter</h1>
+<p>
+Module implementing a writer for open search engine descriptions.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#OpenSearchWriter">OpenSearchWriter</a></td>
+<td>Class implementing a writer for open search engine descriptions.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="OpenSearchWriter" ID="OpenSearchWriter"></a>
+<h2>OpenSearchWriter</h2>
+<p>
+    Class implementing a writer for open search engine descriptions.
+</p>
+<h3>Derived from</h3>
+QXmlStreamWriter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#OpenSearchWriter.__init__">OpenSearchWriter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#OpenSearchWriter.__write">__write</a></td>
+<td>Private method to write the description of an engine.</td>
+</tr><tr>
+<td><a href="#OpenSearchWriter.write">write</a></td>
+<td>Public method to write the description of an engine.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="OpenSearchWriter.__init__" ID="OpenSearchWriter.__init__"></a>
+<h4>OpenSearchWriter (Constructor)</h4>
+<b>OpenSearchWriter</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="OpenSearchWriter.__write" ID="OpenSearchWriter.__write"></a>
+<h4>OpenSearchWriter.__write</h4>
+<b>__write</b>(<i>engine</i>)
+<p>
+        Private method to write the description of an engine.
+</p><dl>
+<dt><i>engine</i></dt>
+<dd>
+reference to the engine (OpenSearchEngine)
+</dd>
+</dl><a NAME="OpenSearchWriter.write" ID="OpenSearchWriter.write"></a>
+<h4>OpenSearchWriter.write</h4>
+<b>write</b>(<i>device, engine</i>)
+<p>
+        Public method to write the description of an engine.
+</p><dl>
+<dt><i>device</i></dt>
+<dd>
+reference to the device to write to (QIODevice)
+</dd><dt><i>engine</i></dt>
+<dd>
+reference to the engine (OpenSearchEngine)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

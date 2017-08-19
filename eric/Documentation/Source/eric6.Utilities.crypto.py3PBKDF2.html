@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.crypto.py3PBKDF2</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.crypto.py3PBKDF2</h1>
+<p>
+Module implementing PBKDF2 functions.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>Delimiter</td></tr><tr><td>Hashes</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#hashPassword">hashPassword</a></td>
+<td>Module function to hash a password according to the PBKDF2 specification.</td>
+</tr><tr>
+<td><a href="#hashPasswordTuple">hashPasswordTuple</a></td>
+<td>Module function to hash a password according to the PBKDF2 specification.</td>
+</tr><tr>
+<td><a href="#pbkdf2">pbkdf2</a></td>
+<td>Module function to hash a password according to the PBKDF2 specification.</td>
+</tr><tr>
+<td><a href="#rehashPassword">rehashPassword</a></td>
+<td>Module function to recreate a password hash given the hash parameters.</td>
+</tr><tr>
+<td><a href="#verifyPassword">verifyPassword</a></td>
+<td>Module function to verify a password against a hash encoded password.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="hashPassword" ID="hashPassword"></a>
+<h2>hashPassword</h2>
+<b>hashPassword</b>(<i>password, digestMod=hashlib.sha512, iterations=10000, saltSize=32</i>)
+<p>
+    Module function to hash a password according to the PBKDF2 specification.
+</p><dl>
+<dt><i>password</i></dt>
+<dd>
+clear text password (string)
+</dd><dt><i>digestMod</i></dt>
+<dd>
+hash function
+</dd><dt><i>iterations</i></dt>
+<dd>
+number of times hash function should be applied (integer)
+</dd><dt><i>saltSize</i></dt>
+<dd>
+size of the salt (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+hashed password entry according to PBKDF2 specification (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="hashPasswordTuple" ID="hashPasswordTuple"></a>
+<h2>hashPasswordTuple</h2>
+<b>hashPasswordTuple</b>(<i>password, digestMod=hashlib.sha512, iterations=10000, saltSize=32</i>)
+<p>
+    Module function to hash a password according to the PBKDF2 specification.
+</p><dl>
+<dt><i>password</i></dt>
+<dd>
+clear text password (string)
+</dd><dt><i>digestMod</i></dt>
+<dd>
+hash function
+</dd><dt><i>iterations</i></dt>
+<dd>
+number of times hash function should be applied (integer)
+</dd><dt><i>saltSize</i></dt>
+<dd>
+size of the salt (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of digestname (string), number of iterations (integer),
+        salt (bytes) and hashed password (bytes)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pbkdf2" ID="pbkdf2"></a>
+<h2>pbkdf2</h2>
+<b>pbkdf2</b>(<i>password, salt, iterations, digestMod</i>)
+<p>
+    Module function to hash a password according to the PBKDF2 specification.
+</p><dl>
+<dt><i>password</i></dt>
+<dd>
+clear text password (bytes)
+</dd><dt><i>salt</i></dt>
+<dd>
+salt value (bytes)
+</dd><dt><i>iterations</i></dt>
+<dd>
+number of times hash function should be applied (integer)
+</dd><dt><i>digestMod</i></dt>
+<dd>
+hash function
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+hashed password (bytes)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="rehashPassword" ID="rehashPassword"></a>
+<h2>rehashPassword</h2>
+<b>rehashPassword</b>(<i>password, hashParameters</i>)
+<p>
+    Module function to recreate a password hash given the hash parameters.
+</p><dl>
+<dt><i>password</i></dt>
+<dd>
+clear text password (string)
+</dd><dt><i>hashParameters</i></dt>
+<dd>
+hash parameters in the form
+        'digestmod$iterations$salt' (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+hashed password (bytes)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+the hash parameters string is not of the expected
+        format or the digest is not one of the known ones
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="verifyPassword" ID="verifyPassword"></a>
+<h2>verifyPassword</h2>
+<b>verifyPassword</b>(<i>password, pwHash</i>)
+<p>
+    Module function to verify a password against a hash encoded password.
+</p><dl>
+<dt><i>password</i></dt>
+<dd>
+clear text password (string)
+</dd><dt><i>pwHash</i></dt>
+<dd>
+hash encoded password in the form
+        'digestmod$iterations$salt$hashed_password' as produced by the
+        hashPassword function (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successfull verification (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+the hash is not of the expected format or the
+        digest is not one of the known ones
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

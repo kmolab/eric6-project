@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.CheckerPlugins.CodeStyleChecker.CodeStyleChecker</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.CheckerPlugins.CodeStyleChecker.CodeStyleChecker</h1>
+<p>
+Module implementing the code style checker.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CodeStyleCheckerReport">CodeStyleCheckerReport</a></td>
+<td>Class implementing a special report to be used with our dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__checkCodeStyle">__checkCodeStyle</a></td>
+<td>Private module function to perform the code style check and/or fix found errors.</td>
+</tr><tr>
+<td><a href="#codeStyleBatchCheck">codeStyleBatchCheck</a></td>
+<td>Module function to check code style for a batch of files.</td>
+</tr><tr>
+<td><a href="#codeStyleCheck">codeStyleCheck</a></td>
+<td>Do the code style check and/ or fix found errors.</td>
+</tr><tr>
+<td><a href="#extractLineFlags">extractLineFlags</a></td>
+<td>Function to extract flags starting and ending with '__' from a line comment.</td>
+</tr><tr>
+<td><a href="#ignoreCode">ignoreCode</a></td>
+<td>Function to check, if the given code should be ignored as per line flags.</td>
+</tr><tr>
+<td><a href="#initBatchService">initBatchService</a></td>
+<td>Initialize the batch service and return the entry point.</td>
+</tr><tr>
+<td><a href="#initService">initService</a></td>
+<td>Initialize the service and return the entry point.</td>
+</tr><tr>
+<td><a href="#worker">worker</a></td>
+<td>Module function acting as the parallel worker for the style check.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="CodeStyleCheckerReport" ID="CodeStyleCheckerReport"></a>
+<h2>CodeStyleCheckerReport</h2>
+<p>
+    Class implementing a special report to be used with our dialog.
+</p>
+<h3>Derived from</h3>
+pycodestyle.BaseReport
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CodeStyleCheckerReport.__init__">CodeStyleCheckerReport</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerReport.error_args">error_args</a></td>
+<td>Public method to collect the error messages.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CodeStyleCheckerReport.__init__" ID="CodeStyleCheckerReport.__init__"></a>
+<h4>CodeStyleCheckerReport (Constructor)</h4>
+<b>CodeStyleCheckerReport</b>(<i>options</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>options</i></dt>
+<dd>
+options for the report (optparse.Values)
+</dd>
+</dl><a NAME="CodeStyleCheckerReport.error_args" ID="CodeStyleCheckerReport.error_args"></a>
+<h4>CodeStyleCheckerReport.error_args</h4>
+<b>error_args</b>(<i>line_number, offset, code, check, *args</i>)
+<p>
+        Public method to collect the error messages.
+</p><dl>
+<dt><i>line_number</i></dt>
+<dd>
+line number of the issue (integer)
+</dd><dt><i>offset</i></dt>
+<dd>
+position within line of the issue (integer)
+</dd><dt><i>code</i></dt>
+<dd>
+message code (string)
+</dd><dt><i>check</i></dt>
+<dd>
+reference to the checker function (function)
+</dd><dt><i>args</i></dt>
+<dd>
+arguments for the message (list)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+error code (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__checkCodeStyle" ID="__checkCodeStyle"></a>
+<h2>__checkCodeStyle</h2>
+<b>__checkCodeStyle</b>(<i>filename, source, args</i>)
+<p>
+    Private module function to perform the code style check and/or fix
+    found errors.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+source filename (string)
+</dd><dt><i>source</i></dt>
+<dd>
+string containing the code to check (string)
+</dd><dt><i>args</i></dt>
+<dd>
+arguments used by the codeStyleCheck function (list of
+        excludeMessages (str), includeMessages (str), repeatMessages
+        (bool), fixCodes (str), noFixCodes (str), fixIssues (bool),
+        maxLineLength (int), hangClosing (bool), docType (str), dictionary
+        with arguments for the code complexity checker (dict), dictionary
+        with arguments for the miscellaneous checker (dict), errors (list
+        of str), eol (str), encoding (str), backup (bool))
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of statistics (dict) and results (tuple for each found
+        violation of style (tuple of lineno (int), position (int), text (str),
+        ignored (bool), fixed (bool), autofixing (bool), fixedMsg (str)))
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="codeStyleBatchCheck" ID="codeStyleBatchCheck"></a>
+<h2>codeStyleBatchCheck</h2>
+<b>codeStyleBatchCheck</b>(<i>argumentsList, send, fx, cancelled, maxProcesses=0</i>)
+<p>
+    Module function to check code style for a batch of files.
+</p><dl>
+<dt><i>argumentsList</i> (list)</dt>
+<dd>
+list of arguments tuples as given for codeStyleCheck
+</dd><dt><i>send</i> (func)</dt>
+<dd>
+reference to send function
+</dd><dt><i>fx</i> (str)</dt>
+<dd>
+registered service name
+</dd><dt><i>cancelled</i> (func)</dt>
+<dd>
+reference to function checking for a cancellation
+</dd><dt><i>maxProcesses</i> (int)</dt>
+<dd>
+number of processes to be used
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="codeStyleCheck" ID="codeStyleCheck"></a>
+<h2>codeStyleCheck</h2>
+<b>codeStyleCheck</b>(<i>filename, source, args</i>)
+<p>
+    Do the code style check and/ or fix found errors.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+source filename (string)
+</dd><dt><i>source</i></dt>
+<dd>
+string containing the code to check (string)
+</dd><dt><i>args</i></dt>
+<dd>
+arguments used by the codeStyleCheck function (list of
+        excludeMessages (str), includeMessages (str), repeatMessages
+        (bool), fixCodes (str), noFixCodes (str), fixIssues (bool),
+        maxLineLength (int), hangClosing (bool), docType (str), errors
+        (list of str), eol (str), encoding (str), backup (bool))
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of stats (dict) and results (tuple for each found violation
+        of style (tuple of lineno (int), position (int), text (str), ignored
+            (bool), fixed (bool), autofixing (bool), fixedMsg (str)))
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="extractLineFlags" ID="extractLineFlags"></a>
+<h2>extractLineFlags</h2>
+<b>extractLineFlags</b>(<i>line, startComment="</i>)
+<p>
+    Function to extract flags starting and ending with '__' from a line
+    comment.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line to extract flags from (string)
+</dd><dt><i>startComment=</i></dt>
+<dd>
+string identifying the start of the comment (string)
+</dd><dt><i>endComment=</i></dt>
+<dd>
+string identifying the end of a comment (string)
+</dd><dt><i>flagsLine=</i></dt>
+<dd>
+flag indicating to check for a flags only line (bool)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list containing the extracted flags (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ignoreCode" ID="ignoreCode"></a>
+<h2>ignoreCode</h2>
+<b>ignoreCode</b>(<i>code, lineFlags</i>)
+<p>
+    Function to check, if the given code should be ignored as per line flags.
+</p><dl>
+<dt><i>code</i> (str)</dt>
+<dd>
+error code to be checked
+</dd><dt><i>lineFlags</i> (list of str)</dt>
+<dd>
+list of line flags to check against
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating to ignore the code
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="initBatchService" ID="initBatchService"></a>
+<h2>initBatchService</h2>
+<b>initBatchService</b>(<i></i>)
+<p>
+    Initialize the batch service and return the entry point.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the entry point for the background client (function)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="initService" ID="initService"></a>
+<h2>initService</h2>
+<b>initService</b>(<i></i>)
+<p>
+    Initialize the service and return the entry point.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the entry point for the background client (function)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="worker" ID="worker"></a>
+<h2>worker</h2>
+<b>worker</b>(<i>inputQueue, outputQueue</i>)
+<p>
+    Module function acting as the parallel worker for the style check.
+</p><dl>
+<dt><i>inputQueue</i></dt>
+<dd>
+input queue (multiprocessing.Queue)
+</dd><dt><i>outputQueue</i></dt>
+<dd>
+output queue (multiprocessing.Queue)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

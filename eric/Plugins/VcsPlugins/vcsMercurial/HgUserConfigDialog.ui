@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HgUserConfigDialog</class>
+ <widget class="QDialog" name="HgUserConfigDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mercurial User Data</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_7">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>User</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>User Data</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="E5ClearableLineEdit" name="userNameEdit">
+            <property name="toolTip">
+             <string>Enter the user name</string>
+            </property>
+            <property name="placeholderText">
+             <string>Enter your name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Email:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="E5ClearableLineEdit" name="emailEdit">
+            <property name="toolTip">
+             <string>Enter the email address</string>
+            </property>
+            <property name="placeholderText">
+             <string>Enter your email address</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>239</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Extensions</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Extensions</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="fetchCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the fetch extension</string>
+            </property>
+            <property name="text">
+             <string>Fetch</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="gpgCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the GPG extension</string>
+            </property>
+            <property name="text">
+             <string>GPG</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="histeditCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the histedit extension</string>
+            </property>
+            <property name="text">
+             <string>Histedit</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="largefilesCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the largefiles extension</string>
+            </property>
+            <property name="text">
+             <string>Large Files</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="purgeCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the Purge extension</string>
+            </property>
+            <property name="text">
+             <string>Purge</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QCheckBox" name="queuesCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the queues extension</string>
+            </property>
+            <property name="text">
+             <string>Queues</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="rebaseCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the rebase extension</string>
+            </property>
+            <property name="text">
+             <string>Rebase</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="shelveCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the shelve extension</string>
+            </property>
+            <property name="text">
+             <string>Shelve</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="stripCheckBox">
+            <property name="toolTip">
+             <string>Select to activate the strip extension</string>
+            </property>
+            <property name="text">
+             <string>Strip</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="largefilesGroup">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="title">
+          <string>Large Files</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Minimum file size:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="lfFileSizeSpinBox">
+            <property name="toolTip">
+             <string>Enter the minimum file size in MB for files to be treated as Large Files</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+            <property name="suffix">
+             <string> MB</string>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Patterns:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="E5ClearableLineEdit" name="lfFilePatternsEdit">
+            <property name="toolTip">
+             <string>Enter file patterns (space separated) for files to be treated as Large Files</string>
+            </property>
+            <property name="placeholderText">
+             <string>Enter file patterns for large files</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>User Cache:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <widget class="E5PathPicker" name="lfUserCachePicker" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::StrongFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Enter the name of the user cache directory</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>39</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Network</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>Proxy</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Host:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="E5ClearableLineEdit" name="proxyHostEdit">
+            <property name="toolTip">
+             <string>Enter the network proxy host name</string>
+            </property>
+            <property name="placeholderText">
+             <string>Enter Proxy Hostname</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>User:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="E5ClearableLineEdit" name="proxyUserEdit">
+            <property name="toolTip">
+             <string>Enter the user name for the network proxy</string>
+            </property>
+            <property name="placeholderText">
+             <string>Enter Proxy Username</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Password:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="E5ClearableLineEdit" name="proxyPasswordEdit">
+            <property name="toolTip">
+             <string>Enter the password for the network proxy</string>
+            </property>
+            <property name="echoMode">
+             <enum>QLineEdit::Password</enum>
+            </property>
+            <property name="placeholderText">
+             <string>Enter Proxy Password</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Bypass:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="E5ClearableLineEdit" name="proxyBypassEdit">
+            <property name="toolTip">
+             <string>Enter the names of hosts bypassing the network proxy sparated by comma</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>Enter hosts bypassing  the proxy separated by comma</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>242</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="title">
+       <string>Security</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="leftMargin">
+        <number>6</number>
+       </property>
+       <property name="topMargin">
+        <number>6</number>
+       </property>
+       <property name="rightMargin">
+        <number>6</number>
+       </property>
+       <property name="bottomMargin">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Host Fingerprints</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QTreeWidget" name="fingerprintsList">
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="rootIsDecorated">
+             <bool>false</bool>
+            </property>
+            <property name="itemsExpandable">
+             <bool>false</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>Host</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Fingerprint</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QToolButton" name="fpAddButton">
+              <property name="toolTip">
+               <string>Add a host fingerprint entry</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="fpDeleteButton">
+              <property name="toolTip">
+               <string>Delete a host fingerprint entry</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="fpEditButton">
+              <property name="toolTip">
+               <string>Edit a host fingerprint entry</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="disableTls10WarningCheckBox">
+         <property name="text">
+          <string>Disable TLS 1.0 Warning</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>Minimum Protocol:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="minimumProtocolComboBox">
+           <property name="toolTip">
+            <string>Select the minimum protocol to use</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="minimumProtcolGroupBox">
+         <property name="title">
+          <string>Minimum Protocol per Host</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QTreeWidget" name="protocolsList">
+            <property name="alternatingRowColors">
+             <bool>true</bool>
+            </property>
+            <property name="rootIsDecorated">
+             <bool>false</bool>
+            </property>
+            <property name="itemsExpandable">
+             <bool>false</bool>
+            </property>
+            <column>
+             <property name="text">
+              <string>Host</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Minimum Protocol</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QToolButton" name="protocolAddButton">
+              <property name="toolTip">
+               <string>Add a host minimum protocol entry</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="protocolDeleteButton">
+              <property name="toolTip">
+               <string>Delete a host minimum protocol entry</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="protocolEditButton">
+              <property name="toolTip">
+               <string>Edit a host minimum protocol entry</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="editorButton">
+     <property name="toolTip">
+      <string>Open the user configuration file in a text editor</string>
+     </property>
+     <property name="text">
+      <string>Open configuration file in editor</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>E5ClearableLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>E5Gui/E5LineEdit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>E5PathPicker</class>
+   <extends>QWidget</extends>
+   <header>E5Gui/E5PathPicker.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>userNameEdit</tabstop>
+  <tabstop>emailEdit</tabstop>
+  <tabstop>fetchCheckBox</tabstop>
+  <tabstop>gpgCheckBox</tabstop>
+  <tabstop>histeditCheckBox</tabstop>
+  <tabstop>largefilesCheckBox</tabstop>
+  <tabstop>purgeCheckBox</tabstop>
+  <tabstop>queuesCheckBox</tabstop>
+  <tabstop>rebaseCheckBox</tabstop>
+  <tabstop>shelveCheckBox</tabstop>
+  <tabstop>stripCheckBox</tabstop>
+  <tabstop>lfFileSizeSpinBox</tabstop>
+  <tabstop>lfFilePatternsEdit</tabstop>
+  <tabstop>lfUserCachePicker</tabstop>
+  <tabstop>proxyHostEdit</tabstop>
+  <tabstop>proxyUserEdit</tabstop>
+  <tabstop>proxyPasswordEdit</tabstop>
+  <tabstop>proxyBypassEdit</tabstop>
+  <tabstop>fingerprintsList</tabstop>
+  <tabstop>fpAddButton</tabstop>
+  <tabstop>fpDeleteButton</tabstop>
+  <tabstop>fpEditButton</tabstop>
+  <tabstop>disableTls10WarningCheckBox</tabstop>
+  <tabstop>minimumProtocolComboBox</tabstop>
+  <tabstop>protocolsList</tabstop>
+  <tabstop>protocolAddButton</tabstop>
+  <tabstop>protocolDeleteButton</tabstop>
+  <tabstop>protocolEditButton</tabstop>
+  <tabstop>editorButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>HgUserConfigDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>HgUserConfigDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>largefilesCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>largefilesGroup</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>225</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>55</x>
+     <y>276</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

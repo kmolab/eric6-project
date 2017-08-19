@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Graphics.E5GraphicsView</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Graphics.E5GraphicsView</h1>
+<p>
+Module implementing a canvas view class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5GraphicsView">E5GraphicsView</a></td>
+<td>Class implementing a graphics view.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5GraphicsView" ID="E5GraphicsView"></a>
+<h2>E5GraphicsView</h2>
+<p>
+    Class implementing a graphics view.
+</p><h3>Signals</h3>
+<dl>
+<dt>zoomValueChanged(int)</dt>
+<dd>
+emitted to signal a change of the zoom value
+</dd>
+</dl>
+<h3>Derived from</h3>
+QGraphicsView
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ZoomLevelDefault</td></tr><tr><td>ZoomLevels</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5GraphicsView.__init__">E5GraphicsView</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.__getDiagram">__getDiagram</a></td>
+<td>Private method to retrieve the diagram from the scene fitting it in the minimum rectangle.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.__levelForZoom">__levelForZoom</a></td>
+<td>Private method determining the zoom level index given a zoom factor.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView._getDiagramRect">_getDiagramRect</a></td>
+<td>Protected method to calculate the minimum rectangle fitting the diagram.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView._getDiagramSize">_getDiagramSize</a></td>
+<td>Protected method to calculate the minimum size fitting the diagram.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.autoAdjustSceneSize">autoAdjustSceneSize</a></td>
+<td>Public method to adjust the scene size to the diagram size.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.filteredItems">filteredItems</a></td>
+<td>Public method to filter a list of items.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.printDiagram">printDiagram</a></td>
+<td>Public method to print the diagram.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.resizeScene">resizeScene</a></td>
+<td>Public method to resize the scene.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.saveImage">saveImage</a></td>
+<td>Public method to save the scene to a file.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.setSceneSize">setSceneSize</a></td>
+<td>Public method to set the scene size.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.setZoom">setZoom</a></td>
+<td>Public method to set the zoom value in percent.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.zoom">zoom</a></td>
+<td>Public method to get the current zoom factor in percent.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.zoomIn">zoomIn</a></td>
+<td>Public method to zoom in.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.zoomOut">zoomOut</a></td>
+<td>Public method to zoom out.</td>
+</tr><tr>
+<td><a href="#E5GraphicsView.zoomReset">zoomReset</a></td>
+<td>Public method to handle the reset the zoom value.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5GraphicsView.__init__" ID="E5GraphicsView.__init__"></a>
+<h4>E5GraphicsView (Constructor)</h4>
+<b>E5GraphicsView</b>(<i>scene, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>scene</i></dt>
+<dd>
+reference to the scene object (QGraphicsScene)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="E5GraphicsView.__getDiagram" ID="E5GraphicsView.__getDiagram"></a>
+<h4>E5GraphicsView.__getDiagram</h4>
+<b>__getDiagram</b>(<i>rect, imageFormat="PNG", filename=None</i>)
+<p>
+        Private method to retrieve the diagram from the scene fitting it
+        in the minimum rectangle.
+</p><dl>
+<dt><i>rect</i></dt>
+<dd>
+minimum rectangle fitting the diagram (QRectF)
+</dd><dt><i>imageFormat</i></dt>
+<dd>
+format for the image file (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+name of the file for non pixmaps (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+diagram pixmap to receive the diagram (QPixmap)
+</dd>
+</dl><a NAME="E5GraphicsView.__levelForZoom" ID="E5GraphicsView.__levelForZoom"></a>
+<h4>E5GraphicsView.__levelForZoom</h4>
+<b>__levelForZoom</b>(<i>zoom</i>)
+<p>
+        Private method determining the zoom level index given a zoom factor.
+</p><dl>
+<dt><i>zoom</i></dt>
+<dd>
+zoom factor (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of zoom factor (integer)
+</dd>
+</dl><a NAME="E5GraphicsView._getDiagramRect" ID="E5GraphicsView._getDiagramRect"></a>
+<h4>E5GraphicsView._getDiagramRect</h4>
+<b>_getDiagramRect</b>(<i>border=0</i>)
+<p>
+        Protected method to calculate the minimum rectangle fitting the
+        diagram.
+</p><dl>
+<dt><i>border</i></dt>
+<dd>
+border width to include in the calculation (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the minimum rectangle (QRectF)
+</dd>
+</dl><a NAME="E5GraphicsView._getDiagramSize" ID="E5GraphicsView._getDiagramSize"></a>
+<h4>E5GraphicsView._getDiagramSize</h4>
+<b>_getDiagramSize</b>(<i>border=0</i>)
+<p>
+        Protected method to calculate the minimum size fitting the diagram.
+</p><dl>
+<dt><i>border</i></dt>
+<dd>
+border width to include in the calculation (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the minimum size (QSizeF)
+</dd>
+</dl><a NAME="E5GraphicsView.autoAdjustSceneSize" ID="E5GraphicsView.autoAdjustSceneSize"></a>
+<h4>E5GraphicsView.autoAdjustSceneSize</h4>
+<b>autoAdjustSceneSize</b>(<i>limit=False</i>)
+<p>
+        Public method to adjust the scene size to the diagram size.
+</p><dl>
+<dt><i>limit</i></dt>
+<dd>
+flag indicating to limit the scene to the
+            initial size (boolean)
+</dd>
+</dl><a NAME="E5GraphicsView.filteredItems" ID="E5GraphicsView.filteredItems"></a>
+<h4>E5GraphicsView.filteredItems</h4>
+<b>filteredItems</b>(<i>items</i>)
+<p>
+        Public method to filter a list of items.
+</p><dl>
+<dt><i>items</i></dt>
+<dd>
+list of items as returned by the scene object
+            (QGraphicsItem)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of interesting collision items (QGraphicsItem)
+</dd>
+</dl><a NAME="E5GraphicsView.printDiagram" ID="E5GraphicsView.printDiagram"></a>
+<h4>E5GraphicsView.printDiagram</h4>
+<b>printDiagram</b>(<i>printer, diagramName=""</i>)
+<p>
+        Public method to print the diagram.
+</p><dl>
+<dt><i>printer</i></dt>
+<dd>
+reference to a ready configured printer object
+            (QPrinter)
+</dd><dt><i>diagramName</i></dt>
+<dd>
+name of the diagram (string)
+</dd>
+</dl><a NAME="E5GraphicsView.resizeScene" ID="E5GraphicsView.resizeScene"></a>
+<h4>E5GraphicsView.resizeScene</h4>
+<b>resizeScene</b>(<i>amount, isWidth=True</i>)
+<p>
+        Public method to resize the scene.
+</p><dl>
+<dt><i>amount</i></dt>
+<dd>
+size increment (integer)
+</dd><dt><i>isWidth</i></dt>
+<dd>
+flag indicating width is to be resized (boolean)
+</dd>
+</dl><a NAME="E5GraphicsView.saveImage" ID="E5GraphicsView.saveImage"></a>
+<h4>E5GraphicsView.saveImage</h4>
+<b>saveImage</b>(<i>filename, imageFormat="PNG"</i>)
+<p>
+        Public method to save the scene to a file.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file to write the image to (string)
+</dd><dt><i>imageFormat</i></dt>
+<dd>
+format for the image file (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="E5GraphicsView.setSceneSize" ID="E5GraphicsView.setSceneSize"></a>
+<h4>E5GraphicsView.setSceneSize</h4>
+<b>setSceneSize</b>(<i>width, height</i>)
+<p>
+        Public method to set the scene size.
+</p><dl>
+<dt><i>width</i></dt>
+<dd>
+width for the scene (real)
+</dd><dt><i>height</i></dt>
+<dd>
+height for the scene (real)
+</dd>
+</dl><a NAME="E5GraphicsView.setZoom" ID="E5GraphicsView.setZoom"></a>
+<h4>E5GraphicsView.setZoom</h4>
+<b>setZoom</b>(<i>value</i>)
+<p>
+        Public method to set the zoom value in percent.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+zoom value in percent (integer)
+</dd>
+</dl><a NAME="E5GraphicsView.zoom" ID="E5GraphicsView.zoom"></a>
+<h4>E5GraphicsView.zoom</h4>
+<b>zoom</b>(<i></i>)
+<p>
+        Public method to get the current zoom factor in percent.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+current zoom factor in percent (integer)
+</dd>
+</dl><a NAME="E5GraphicsView.zoomIn" ID="E5GraphicsView.zoomIn"></a>
+<h4>E5GraphicsView.zoomIn</h4>
+<b>zoomIn</b>(<i></i>)
+<p>
+        Public method to zoom in.
+</p><a NAME="E5GraphicsView.zoomOut" ID="E5GraphicsView.zoomOut"></a>
+<h4>E5GraphicsView.zoomOut</h4>
+<b>zoomOut</b>(<i></i>)
+<p>
+        Public method to zoom out.
+</p><a NAME="E5GraphicsView.zoomReset" ID="E5GraphicsView.zoomReset"></a>
+<h4>E5GraphicsView.zoomReset</h4>
+<b>zoomReset</b>(<i></i>)
+<p>
+        Public method to handle the reset the zoom value.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

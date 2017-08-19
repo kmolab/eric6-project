@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.WebPlugins.ClickToFlash.ClickToFlash</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.WebPlugins.ClickToFlash.ClickToFlash</h1>
+<p>
+Module implementing the Flash blocker.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ClickToFlash">ClickToFlash</a></td>
+<td>Class implementing the Flash blocker.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ClickToFlash" ID="ClickToFlash"></a>
+<h2>ClickToFlash</h2>
+<p>
+    Class implementing the Flash blocker.
+</p>
+<h3>Derived from</h3>
+QWidget, Ui_ClickToFlash
+<h3>Class Attributes</h3>
+<table>
+<tr><td>_acceptedArgNames</td></tr><tr><td>_acceptedArgValues</td></tr><tr><td>_acceptedUrl</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr>
+<td><a href="#ClickToFlash.isAlreadyAccepted">isAlreadyAccepted</a></td>
+<td>Class method to check, if the given parameter combination is being accepted.</td>
+</tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ClickToFlash.__init__">ClickToFlash</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__addToWhitelist">__addToWhitelist</a></td>
+<td>Private slot to add the host to the whitelist.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__checkElement">__checkElement</a></td>
+<td>Private slot to check an element against the saved arguments.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__checkUrlOnElement">__checkUrlOnElement</a></td>
+<td>Private slot to check the URL of an element.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__configure">__configure</a></td>
+<td>Private slot to configure the whitelist.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__elide">__elide</a></td>
+<td>Private method to elide some text.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__findElement">__findElement</a></td>
+<td>Private method to find the element belonging to this ClickToFlash instance.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__hideAdBlocked">__hideAdBlocked</a></td>
+<td>Private slot to hide the object.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__load">__load</a></td>
+<td>Private slot to load the flash content.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__removeFromWhitelist">__removeFromWhitelist</a></td>
+<td>Private slot to remove the host from the whitelist.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot to show the context menu.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.__showInfo">__showInfo</a></td>
+<td>Private slot to show information about the blocked object.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.on_loadFlashButton_clicked">on_loadFlashButton_clicked</a></td>
+<td>Private slot handling the flash activation.</td>
+</tr><tr>
+<td><a href="#ClickToFlash.swapping">swapping</a></td>
+<td>Public method to check, if the plug-in is swapping.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ClickToFlash.isAlreadyAccepted" ID="ClickToFlash.isAlreadyAccepted"></a>
+<h4>ClickToFlash.isAlreadyAccepted (class method)</h4>
+<b>isAlreadyAccepted</b>(<i>url, argumentNames, argumentValues</i>)
+<p>
+        Class method to check, if the given parameter combination is being
+        accepted.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to be checked for (QUrl)
+</dd><dt><i>argumentNames</i></dt>
+<dd>
+argument names to be checked for (list of strings)
+</dd><dt><i>argumentValues</i></dt>
+<dd>
+argument values to be checked for (list of
+            strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that this was already accepted (boolean)
+</dd>
+</dl><a NAME="ClickToFlash.__init__" ID="ClickToFlash.__init__"></a>
+<h4>ClickToFlash (Constructor)</h4>
+<b>ClickToFlash</b>(<i>plugin, mimeType, url, argumentNames, argumentValues, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>plugin</i></dt>
+<dd>
+reference to the plug-in (ClickToFlashPlugin)
+</dd><dt><i>mimeType</i></dt>
+<dd>
+MIME type for the plug-in (string)
+</dd><dt><i>url</i></dt>
+<dd>
+requested URL (QUrl)
+</dd><dt><i>argumentNames</i></dt>
+<dd>
+list of argument names (list of strings)
+</dd><dt><i>argumentValues</i></dt>
+<dd>
+list of argument values (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="ClickToFlash.__addToWhitelist" ID="ClickToFlash.__addToWhitelist"></a>
+<h4>ClickToFlash.__addToWhitelist</h4>
+<b>__addToWhitelist</b>(<i></i>)
+<p>
+        Private slot to add the host to the whitelist.
+</p><a NAME="ClickToFlash.__checkElement" ID="ClickToFlash.__checkElement"></a>
+<h4>ClickToFlash.__checkElement</h4>
+<b>__checkElement</b>(<i>element</i>)
+<p>
+        Private slot to check an element against the saved arguments.
+</p><dl>
+<dt><i>element</i></dt>
+<dd>
+reference to the element to check (QWebElement)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a positive result (boolean)
+</dd>
+</dl><a NAME="ClickToFlash.__checkUrlOnElement" ID="ClickToFlash.__checkUrlOnElement"></a>
+<h4>ClickToFlash.__checkUrlOnElement</h4>
+<b>__checkUrlOnElement</b>(<i>element, view</i>)
+<p>
+        Private slot to check the URL of an element.
+</p><dl>
+<dt><i>element</i></dt>
+<dd>
+reference to the element to check (QWebElement)
+</dd><dt><i>view</i></dt>
+<dd>
+reference to the view object (QWebView)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a positive result (boolean)
+</dd>
+</dl><a NAME="ClickToFlash.__configure" ID="ClickToFlash.__configure"></a>
+<h4>ClickToFlash.__configure</h4>
+<b>__configure</b>(<i></i>)
+<p>
+        Private slot to configure the whitelist.
+</p><a NAME="ClickToFlash.__elide" ID="ClickToFlash.__elide"></a>
+<h4>ClickToFlash.__elide</h4>
+<b>__elide</b>(<i>txt, mode=Qt.ElideMiddle, length=40</i>)
+<p>
+        Private method to elide some text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be elided (string)
+</dd><dt><i>mode=</i></dt>
+<dd>
+elide mode (Qt.TextElideMode)
+</dd><dt><i>length=</i></dt>
+<dd>
+amount of characters to be used (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the elided text (string)
+</dd>
+</dl><a NAME="ClickToFlash.__findElement" ID="ClickToFlash.__findElement"></a>
+<h4>ClickToFlash.__findElement</h4>
+<b>__findElement</b>(<i></i>)
+<p>
+        Private method to find the element belonging to this ClickToFlash
+        instance.
+</p><a NAME="ClickToFlash.__hideAdBlocked" ID="ClickToFlash.__hideAdBlocked"></a>
+<h4>ClickToFlash.__hideAdBlocked</h4>
+<b>__hideAdBlocked</b>(<i></i>)
+<p>
+        Private slot to hide the object.
+</p><a NAME="ClickToFlash.__load" ID="ClickToFlash.__load"></a>
+<h4>ClickToFlash.__load</h4>
+<b>__load</b>(<i>allPlayers=False</i>)
+<p>
+        Private slot to load the flash content.
+</p><dl>
+<dt><i>allPlayers</i></dt>
+<dd>
+flag indicating to load all flash players (boolean)
+</dd>
+</dl><a NAME="ClickToFlash.__removeFromWhitelist" ID="ClickToFlash.__removeFromWhitelist"></a>
+<h4>ClickToFlash.__removeFromWhitelist</h4>
+<b>__removeFromWhitelist</b>(<i></i>)
+<p>
+        Private slot to remove the host from the whitelist.
+</p><a NAME="ClickToFlash.__showContextMenu" ID="ClickToFlash.__showContextMenu"></a>
+<h4>ClickToFlash.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i></i>)
+<p>
+        Private slot to show the context menu.
+</p><a NAME="ClickToFlash.__showInfo" ID="ClickToFlash.__showInfo"></a>
+<h4>ClickToFlash.__showInfo</h4>
+<b>__showInfo</b>(<i></i>)
+<p>
+        Private slot to show information about the blocked object.
+</p><a NAME="ClickToFlash.on_loadFlashButton_clicked" ID="ClickToFlash.on_loadFlashButton_clicked"></a>
+<h4>ClickToFlash.on_loadFlashButton_clicked</h4>
+<b>on_loadFlashButton_clicked</b>(<i></i>)
+<p>
+        Private slot handling the flash activation.
+</p><a NAME="ClickToFlash.swapping" ID="ClickToFlash.swapping"></a>
+<h4>ClickToFlash.swapping</h4>
+<b>swapping</b>(<i></i>)
+<p>
+        Public method to check, if the plug-in is swapping.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the swapping status (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

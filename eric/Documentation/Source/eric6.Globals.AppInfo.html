@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Globals.AppInfo</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Globals.AppInfo</h1>
+<p>
+Module implementing a function to generate an application info.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#makeAppInfo">makeAppInfo</a></td>
+<td>Module function to generate a dictionary describing the application.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="makeAppInfo" ID="makeAppInfo"></a>
+<h2>makeAppInfo</h2>
+<b>makeAppInfo</b>(<i>argv, name, arg, description, options=None</i>)
+<p>
+    Module function to generate a dictionary describing the application.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+list of commandline parameters (list of strings)
+</dd><dt><i>name</i></dt>
+<dd>
+name of the application (string)
+</dd><dt><i>arg</i></dt>
+<dd>
+commandline arguments (string)
+</dd><dt><i>description</i></dt>
+<dd>
+text describing the application (string)
+</dd><dt><i>options</i></dt>
+<dd>
+list of additional commandline options
+        (list of tuples of two strings (commandline option,
+        option description)). The options --version, --help and -h are
+        always present and must not be repeated in this list.
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary describing the application
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

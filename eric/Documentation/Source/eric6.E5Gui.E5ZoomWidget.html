@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ZoomWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ZoomWidget</h1>
+<p>
+Module implementing a zoom widget for the status bar.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ZoomWidget">E5ZoomWidget</a></td>
+<td>Class implementing a zoom widget for the status bar.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ZoomWidget" ID="E5ZoomWidget"></a>
+<h2>E5ZoomWidget</h2>
+<p>
+    Class implementing a zoom widget for the status bar.
+</p><h3>Signals</h3>
+<dl>
+<dt>valueChanged(value)</dt>
+<dd>
+emitted to indicate the new zoom value (int)
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget, Ui_E5ZoomWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ZoomWidget.__init__">E5ZoomWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.__indexForValue">__indexForValue</a></td>
+<td>Private method to get the nearest index for a given value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.__setValueLabelWidth">__setValueLabelWidth</a></td>
+<td>Private slot to determine the width of the zoom value label.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.__zoomIn">__zoomIn</a></td>
+<td>Private slot to zoom in one step.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.__zoomOut">__zoomOut</a></td>
+<td>Private slot to zoom out one step.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.__zoomReset">__zoomReset</a></td>
+<td>Private slot to reset the value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget._sliderValueChanged">_sliderValueChanged</a></td>
+<td>Protected slot to handle changes of the slider value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.default">default</a></td>
+<td>Public method to get the default zoom value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.isMapped">isMapped</a></td>
+<td>Public method to check for a mapped zoom widget.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.isPercent">isPercent</a></td>
+<td>Public method to get the percent mode.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.mapping">mapping</a></td>
+<td>Public method to get the current mapping.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.maximum">maximum</a></td>
+<td>Public method to get the maximum value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.minimum">minimum</a></td>
+<td>Public method to get the minimum value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.on_slider_sliderMoved">on_slider_sliderMoved</a></td>
+<td>Private slot to handle changes of the zoom value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.pageStep">pageStep</a></td>
+<td>Public method to get the page step value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setDefault">setDefault</a></td>
+<td>Public method to set the default zoom value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setMapping">setMapping</a></td>
+<td>Public method to set a zoom level mapping.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setMaximum">setMaximum</a></td>
+<td>Public method to set the maximum value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setMinimum">setMinimum</a></td>
+<td>Public method to set the minimum value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setPageStep">setPageStep</a></td>
+<td>Public method to set the page step value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setPercent">setPercent</a></td>
+<td>Public method to set the percent mode of the widget.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setSingleStep">setSingleStep</a></td>
+<td>Public method to set the single step value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.setValue">setValue</a></td>
+<td>Public slot to set the value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.singleStep">singleStep</a></td>
+<td>Public method to get the single step value.</td>
+</tr><tr>
+<td><a href="#E5ZoomWidget.value">value</a></td>
+<td>Public method to get the current value.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ZoomWidget.__init__" ID="E5ZoomWidget.__init__"></a>
+<h4>E5ZoomWidget (Constructor)</h4>
+<b>E5ZoomWidget</b>(<i>outPix, inPix, resetPix, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>outPix</i></dt>
+<dd>
+pixmap for the zoom out button (QPixmap)
+</dd><dt><i>inPix</i></dt>
+<dd>
+pixmap for the zoom in button (QPixmap)
+</dd><dt><i>resetPix</i></dt>
+<dd>
+pixmap for the zoom reset button (QPixmap)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5ZoomWidget.__indexForValue" ID="E5ZoomWidget.__indexForValue"></a>
+<h4>E5ZoomWidget.__indexForValue</h4>
+<b>__indexForValue</b>(<i>value</i>)
+<p>
+        Private method to get the nearest index for a given value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value to get the index for (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index into the mapping list or the unchanged value,
+            if mapping is not set (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.__setValueLabelWidth" ID="E5ZoomWidget.__setValueLabelWidth"></a>
+<h4>E5ZoomWidget.__setValueLabelWidth</h4>
+<b>__setValueLabelWidth</b>(<i></i>)
+<p>
+        Private slot to determine the width of the zoom value label.
+</p><a NAME="E5ZoomWidget.__zoomIn" ID="E5ZoomWidget.__zoomIn"></a>
+<h4>E5ZoomWidget.__zoomIn</h4>
+<b>__zoomIn</b>(<i></i>)
+<p>
+        Private slot to zoom in one step.
+</p><a NAME="E5ZoomWidget.__zoomOut" ID="E5ZoomWidget.__zoomOut"></a>
+<h4>E5ZoomWidget.__zoomOut</h4>
+<b>__zoomOut</b>(<i></i>)
+<p>
+        Private slot to zoom out one step.
+</p><a NAME="E5ZoomWidget.__zoomReset" ID="E5ZoomWidget.__zoomReset"></a>
+<h4>E5ZoomWidget.__zoomReset</h4>
+<b>__zoomReset</b>(<i></i>)
+<p>
+        Private slot to reset the value.
+</p><a NAME="E5ZoomWidget._sliderValueChanged" ID="E5ZoomWidget._sliderValueChanged"></a>
+<h4>E5ZoomWidget._sliderValueChanged</h4>
+<b>_sliderValueChanged</b>(<i>value</i>)
+<p>
+        Protected slot to handle changes of the slider value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+slider value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.default" ID="E5ZoomWidget.default"></a>
+<h4>E5ZoomWidget.default</h4>
+<b>default</b>(<i></i>)
+<p>
+        Public method to get the default zoom value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+default zoom value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.isMapped" ID="E5ZoomWidget.isMapped"></a>
+<h4>E5ZoomWidget.isMapped</h4>
+<b>isMapped</b>(<i></i>)
+<p>
+        Public method to check for a mapped zoom widget.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a mapped zoom widget (boolean)
+</dd>
+</dl><a NAME="E5ZoomWidget.isPercent" ID="E5ZoomWidget.isPercent"></a>
+<h4>E5ZoomWidget.isPercent</h4>
+<b>isPercent</b>(<i></i>)
+<p>
+        Public method to get the percent mode.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating percent mode (boolean)
+</dd>
+</dl><a NAME="E5ZoomWidget.mapping" ID="E5ZoomWidget.mapping"></a>
+<h4>E5ZoomWidget.mapping</h4>
+<b>mapping</b>(<i></i>)
+<p>
+        Public method to get the current mapping.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of the mapping and the default index
+            (list of integer, integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.maximum" ID="E5ZoomWidget.maximum"></a>
+<h4>E5ZoomWidget.maximum</h4>
+<b>maximum</b>(<i></i>)
+<p>
+        Public method to get the maximum value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+maximum value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.minimum" ID="E5ZoomWidget.minimum"></a>
+<h4>E5ZoomWidget.minimum</h4>
+<b>minimum</b>(<i></i>)
+<p>
+        Public method to get the minimum value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+minimum value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.on_slider_sliderMoved" ID="E5ZoomWidget.on_slider_sliderMoved"></a>
+<h4>E5ZoomWidget.on_slider_sliderMoved</h4>
+<b>on_slider_sliderMoved</b>(<i>value</i>)
+<p>
+        Private slot to handle changes of the zoom value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value of the slider (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.pageStep" ID="E5ZoomWidget.pageStep"></a>
+<h4>E5ZoomWidget.pageStep</h4>
+<b>pageStep</b>(<i></i>)
+<p>
+        Public method to get the page step value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+page step value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.setDefault" ID="E5ZoomWidget.setDefault"></a>
+<h4>E5ZoomWidget.setDefault</h4>
+<b>setDefault</b>(<i>value</i>)
+<p>
+        Public method to set the default zoom value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+default zoom value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.setMapping" ID="E5ZoomWidget.setMapping"></a>
+<h4>E5ZoomWidget.setMapping</h4>
+<b>setMapping</b>(<i>mapping, default, percent=True</i>)
+<p>
+        Public method to set a zoom level mapping.
+</p><p>
+        When zoom level mapping is activated, the slider covers
+        values from 0 to the max. index of the mapping list. The
+        default value is the value of the default zoom level. If
+        percent is given, the zoom level is shown as a percent value.
+</p><dl>
+<dt><i>mapping</i></dt>
+<dd>
+list of mapping values (list of integer)
+</dd><dt><i>default</i></dt>
+<dd>
+index of the default value (integer)
+</dd><dt><i>percent=</i></dt>
+<dd>
+flag indicating to show zoom value in percent
+            (boolean)
+</dd>
+</dl><a NAME="E5ZoomWidget.setMaximum" ID="E5ZoomWidget.setMaximum"></a>
+<h4>E5ZoomWidget.setMaximum</h4>
+<b>setMaximum</b>(<i>maximum</i>)
+<p>
+        Public method to set the maximum value.
+</p><dl>
+<dt><i>maximum</i></dt>
+<dd>
+new maximum value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.setMinimum" ID="E5ZoomWidget.setMinimum"></a>
+<h4>E5ZoomWidget.setMinimum</h4>
+<b>setMinimum</b>(<i>minimum</i>)
+<p>
+        Public method to set the minimum value.
+</p><dl>
+<dt><i>minimum</i></dt>
+<dd>
+new minimum value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.setPageStep" ID="E5ZoomWidget.setPageStep"></a>
+<h4>E5ZoomWidget.setPageStep</h4>
+<b>setPageStep</b>(<i>value</i>)
+<p>
+        Public method to set the page step value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+page step value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.setPercent" ID="E5ZoomWidget.setPercent"></a>
+<h4>E5ZoomWidget.setPercent</h4>
+<b>setPercent</b>(<i>on</i>)
+<p>
+        Public method to set the percent mode of the widget.
+</p><dl>
+<dt><i>on</i></dt>
+<dd>
+flag indicating percent mode (boolean)
+</dd>
+</dl><a NAME="E5ZoomWidget.setSingleStep" ID="E5ZoomWidget.setSingleStep"></a>
+<h4>E5ZoomWidget.setSingleStep</h4>
+<b>setSingleStep</b>(<i>value</i>)
+<p>
+        Public method to set the single step value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+value for the single step (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.setValue" ID="E5ZoomWidget.setValue"></a>
+<h4>E5ZoomWidget.setValue</h4>
+<b>setValue</b>(<i>value</i>)
+<p>
+        Public slot to set the value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+new zoom value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.singleStep" ID="E5ZoomWidget.singleStep"></a>
+<h4>E5ZoomWidget.singleStep</h4>
+<b>singleStep</b>(<i></i>)
+<p>
+        Public method to get the single step value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+single step value (integer)
+</dd>
+</dl><a NAME="E5ZoomWidget.value" ID="E5ZoomWidget.value"></a>
+<h4>E5ZoomWidget.value</h4>
+<b>value</b>(<i></i>)
+<p>
+        Public method to get the current value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+current zoom value (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

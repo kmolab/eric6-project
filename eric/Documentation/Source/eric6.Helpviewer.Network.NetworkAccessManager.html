@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.NetworkAccessManager</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.NetworkAccessManager</h1>
+<p>
+Module implementing a QNetworkAccessManager subclass.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#NetworkAccessManager">NetworkAccessManager</a></td>
+<td>Class implementing a QNetworkAccessManager subclass.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="NetworkAccessManager" ID="NetworkAccessManager"></a>
+<h2>NetworkAccessManager</h2>
+<p>
+    Class implementing a QNetworkAccessManager subclass.
+</p><h3>Signals</h3>
+<dl>
+<dt>requestCreated</dt>
+<dd>
+emitted after the request has been created passing
+        the operation, a reference to the network request and a reference to
+        the network reply (QNetworkAccessManager.Operation, QNetworkRequest,
+        QNetworkReply)
+</dd>
+</dl>
+<h3>Derived from</h3>
+QNetworkAccessManager
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#NetworkAccessManager.__init__">NetworkAccessManager</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#NetworkAccessManager.__authenticationRequired">__authenticationRequired</a></td>
+<td>Private slot to handle an authentication request.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManager.__setDiskCache">__setDiskCache</a></td>
+<td>Private method to set the disk cache.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManager.createRequest">createRequest</a></td>
+<td>Public method to create a request.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManager.languagesChanged">languagesChanged</a></td>
+<td>Public slot to (re-)load the list of accepted languages.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManager.preferencesChanged">preferencesChanged</a></td>
+<td>Public slot to signal a change of preferences.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManager.setSchemeHandler">setSchemeHandler</a></td>
+<td>Public method to register a scheme handler.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="NetworkAccessManager.__init__" ID="NetworkAccessManager.__init__"></a>
+<h4>NetworkAccessManager (Constructor)</h4>
+<b>NetworkAccessManager</b>(<i>engine, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>engine</i></dt>
+<dd>
+reference to the help engine (QHelpEngine)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="NetworkAccessManager.__authenticationRequired" ID="NetworkAccessManager.__authenticationRequired"></a>
+<h4>NetworkAccessManager.__authenticationRequired</h4>
+<b>__authenticationRequired</b>(<i>reply, auth</i>)
+<p>
+        Private slot to handle an authentication request.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>auth</i></dt>
+<dd>
+reference to the authenticator object (QAuthenticator)
+</dd>
+</dl><a NAME="NetworkAccessManager.__setDiskCache" ID="NetworkAccessManager.__setDiskCache"></a>
+<h4>NetworkAccessManager.__setDiskCache</h4>
+<b>__setDiskCache</b>(<i></i>)
+<p>
+        Private method to set the disk cache.
+</p><a NAME="NetworkAccessManager.createRequest" ID="NetworkAccessManager.createRequest"></a>
+<h4>NetworkAccessManager.createRequest</h4>
+<b>createRequest</b>(<i>op, request, outgoingData=None</i>)
+<p>
+        Public method to create a request.
+</p><dl>
+<dt><i>op</i></dt>
+<dd>
+the operation to be performed
+            (QNetworkAccessManager.Operation)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>outgoingData</i></dt>
+<dd>
+reference to an IODevice containing data to be sent
+            (QIODevice)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created reply object (QNetworkReply)
+</dd>
+</dl><a NAME="NetworkAccessManager.languagesChanged" ID="NetworkAccessManager.languagesChanged"></a>
+<h4>NetworkAccessManager.languagesChanged</h4>
+<b>languagesChanged</b>(<i></i>)
+<p>
+        Public slot to (re-)load the list of accepted languages.
+</p><a NAME="NetworkAccessManager.preferencesChanged" ID="NetworkAccessManager.preferencesChanged"></a>
+<h4>NetworkAccessManager.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public slot to signal a change of preferences.
+</p><a NAME="NetworkAccessManager.setSchemeHandler" ID="NetworkAccessManager.setSchemeHandler"></a>
+<h4>NetworkAccessManager.setSchemeHandler</h4>
+<b>setSchemeHandler</b>(<i>scheme, handler</i>)
+<p>
+        Public method to register a scheme handler.
+</p><dl>
+<dt><i>scheme</i></dt>
+<dd>
+access scheme (string)
+</dd><dt><i>handler</i></dt>
+<dd>
+reference to the scheme handler object
+            (SchemeAccessHandler)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

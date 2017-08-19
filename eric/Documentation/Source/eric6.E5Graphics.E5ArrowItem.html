@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Graphics.E5ArrowItem</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Graphics.E5ArrowItem</h1>
+<p>
+Module implementing a graphics item subclass for an arrow.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>ArrowheadAngleFactor</td></tr><tr><td>NormalArrow</td></tr><tr><td>WideArrow</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ArrowItem">E5ArrowItem</a></td>
+<td>Class implementing an arrow graphics item subclass.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ArrowItem" ID="E5ArrowItem"></a>
+<h2>E5ArrowItem</h2>
+<p>
+    Class implementing an arrow graphics item subclass.
+</p>
+<h3>Derived from</h3>
+QAbstractGraphicsShapeItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ArrowItem.__init__">E5ArrowItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ArrowItem.boundingRect">boundingRect</a></td>
+<td>Public method to return the bounding rectangle.</td>
+</tr><tr>
+<td><a href="#E5ArrowItem.paint">paint</a></td>
+<td>Public method to paint the item in local coordinates.</td>
+</tr><tr>
+<td><a href="#E5ArrowItem.setEndPoint">setEndPoint</a></td>
+<td>Public method to set the end point.</td>
+</tr><tr>
+<td><a href="#E5ArrowItem.setPoints">setPoints</a></td>
+<td>Public method to set the start and end points of the line.</td>
+</tr><tr>
+<td><a href="#E5ArrowItem.setStartPoint">setStartPoint</a></td>
+<td>Public method to set the start point.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ArrowItem.__init__" ID="E5ArrowItem.__init__"></a>
+<h4>E5ArrowItem (Constructor)</h4>
+<b>E5ArrowItem</b>(<i>origin=None, end=None, filled=False, arrowType=NormalArrow, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>origin</i></dt>
+<dd>
+origin of the arrow (QPointF)
+</dd><dt><i>end</i></dt>
+<dd>
+end point of the arrow (QPointF)
+</dd><dt><i>filled</i></dt>
+<dd>
+flag indicating a filled arrow head (boolean)
+</dd><dt><i>arrowType</i></dt>
+<dd>
+arrow type (NormalArrow, WideArrow)
+</dd><dt><i>parent=</i></dt>
+<dd>
+reference to the parent object (QGraphicsItem)
+</dd>
+</dl><a NAME="E5ArrowItem.boundingRect" ID="E5ArrowItem.boundingRect"></a>
+<h4>E5ArrowItem.boundingRect</h4>
+<b>boundingRect</b>(<i></i>)
+<p>
+        Public method to return the bounding rectangle.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+bounding rectangle (QRectF)
+</dd>
+</dl><a NAME="E5ArrowItem.paint" ID="E5ArrowItem.paint"></a>
+<h4>E5ArrowItem.paint</h4>
+<b>paint</b>(<i>painter, option, widget=None</i>)
+<p>
+        Public method to paint the item in local coordinates.
+</p><dl>
+<dt><i>painter</i></dt>
+<dd>
+reference to the painter object (QPainter)
+</dd><dt><i>option</i></dt>
+<dd>
+style options (QStyleOptionGraphicsItem)
+</dd><dt><i>widget</i></dt>
+<dd>
+optional reference to the widget painted on (QWidget)
+</dd>
+</dl><a NAME="E5ArrowItem.setEndPoint" ID="E5ArrowItem.setEndPoint"></a>
+<h4>E5ArrowItem.setEndPoint</h4>
+<b>setEndPoint</b>(<i>x, y</i>)
+<p>
+        Public method to set the end point.
+</p><p>
+        <b>Note:</b> This method does not redraw the item.
+</p><dl>
+<dt><i>x</i></dt>
+<dd>
+x-coordinate of the end point (float)
+</dd><dt><i>y</i></dt>
+<dd>
+y-coordinate of the end point (float)
+</dd>
+</dl><a NAME="E5ArrowItem.setPoints" ID="E5ArrowItem.setPoints"></a>
+<h4>E5ArrowItem.setPoints</h4>
+<b>setPoints</b>(<i>xa, ya, xb, yb</i>)
+<p>
+        Public method to set the start and end points of the line.
+</p><p>
+        <b>Note:</b> This method does not redraw the item.
+</p><dl>
+<dt><i>xa</i></dt>
+<dd>
+x-coordinate of the start point (float)
+</dd><dt><i>ya</i></dt>
+<dd>
+y-coordinate of the start point (float)
+</dd><dt><i>xb</i></dt>
+<dd>
+x-coordinate of the end point (float)
+</dd><dt><i>yb</i></dt>
+<dd>
+y-coordinate of the end point (float)
+</dd>
+</dl><a NAME="E5ArrowItem.setStartPoint" ID="E5ArrowItem.setStartPoint"></a>
+<h4>E5ArrowItem.setStartPoint</h4>
+<b>setStartPoint</b>(<i>x, y</i>)
+<p>
+        Public method to set the start point.
+</p><p>
+        <b>Note:</b> This method does not redraw the item.
+</p><dl>
+<dt><i>x</i></dt>
+<dd>
+x-coordinate of the start point (float)
+</dd><dt><i>y</i></dt>
+<dd>
+y-coordinate of the start point (float)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

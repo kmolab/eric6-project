@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Toolbox.PyQt4ImportHook</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Toolbox.PyQt4ImportHook</h1>
+<p>
+Module implementing an import hook converting PyQt5 imports to PyQt4 imports.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PyQt4Importer">PyQt4Importer</a></td>
+<td>Class implementing an importer converting PyQt5 imports to PyQt4 imports.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="PyQt4Importer" ID="PyQt4Importer"></a>
+<h2>PyQt4Importer</h2>
+<p>
+    Class implementing an importer converting PyQt5 imports to PyQt4
+    imports.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PyQt4Importer.__init__">PyQt4Importer</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PyQt4Importer.find_module">find_module</a></td>
+<td>Public method returning the module loader.</td>
+</tr><tr>
+<td><a href="#PyQt4Importer.load_module">load_module</a></td>
+<td>Public method to load a module.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr>
+<td><a href="#PyQt4Importer.QComboBox_currentData">QComboBox_currentData</a></td>
+<td>Static method to emulate the currentData method of Qt5.</td>
+</tr>
+</table>
+<a NAME="PyQt4Importer.__init__" ID="PyQt4Importer.__init__"></a>
+<h4>PyQt4Importer (Constructor)</h4>
+<b>PyQt4Importer</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="PyQt4Importer.find_module" ID="PyQt4Importer.find_module"></a>
+<h4>PyQt4Importer.find_module</h4>
+<b>find_module</b>(<i>fullname, path=None</i>)
+<p>
+        Public method returning the module loader.
+</p><dl>
+<dt><i>fullname</i></dt>
+<dd>
+name of the module to be loaded (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path to resolve the module name (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+module loader object
+</dd>
+</dl><a NAME="PyQt4Importer.load_module" ID="PyQt4Importer.load_module"></a>
+<h4>PyQt4Importer.load_module</h4>
+<b>load_module</b>(<i>fullname</i>)
+<p>
+        Public method to load a module.
+</p><dl>
+<dt><i>fullname</i></dt>
+<dd>
+name of the module to be loaded (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the loaded module (module)
+</dd>
+</dl><a NAME="PyQt4Importer.QComboBox_currentData" ID="PyQt4Importer.QComboBox_currentData"></a>
+<h4>PyQt4Importer.QComboBox_currentData (static)</h4>
+<b>QComboBox_currentData</b>(<i>role=None</i>)
+<p>
+        Static method to emulate the currentData method of Qt5.
+</p><dl>
+<dt><i>other</i> (QComboBox)</dt>
+<dd>
+reference to the combo box to get the user data of
+</dd><dt><i>role</i> (int)</dt>
+<dd>
+role of which data should be retrieved
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+stored data at current selection
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+any
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

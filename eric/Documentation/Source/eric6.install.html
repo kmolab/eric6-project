@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.install</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.install</h1>
+<p>
+Installation script for the eric6 IDE and all eric6 related tools.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>BlackLists</td></tr><tr><td>PlatformsBlackLists</td></tr><tr><td>PythonMarkers</td></tr><tr><td>PythonTextMarkers</td></tr><tr><td>apisDir</td></tr><tr><td>cfg</td></tr><tr><td>configLength</td></tr><tr><td>configName</td></tr><tr><td>currDir</td></tr><tr><td>defaultMacAppBundleName</td></tr><tr><td>defaultMacAppBundlePath</td></tr><tr><td>defaultMacPythonExe</td></tr><tr><td>distDir</td></tr><tr><td>doCleanup</td></tr><tr><td>doCompile</td></tr><tr><td>includePythonVariant</td></tr><tr><td>installApis</td></tr><tr><td>macAppBundleName</td></tr><tr><td>macAppBundlePath</td></tr><tr><td>macPythonExe</td></tr><tr><td>modDir</td></tr><tr><td>platBinDir</td></tr><tr><td>platBinDirOld</td></tr><tr><td>progLanguages</td></tr><tr><td>progName</td></tr><tr><td>pyModDir</td></tr><tr><td>pyqtOverride</td></tr><tr><td>pyqtVariant</td></tr><tr><td>sourceDir</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__pyName">__pyName</a></td>
+<td>Local function to create the Python source file name for the compiled .ui file.</td>
+</tr><tr>
+<td><a href="#cleanUp">cleanUp</a></td>
+<td>Uninstall the old eric files.</td>
+</tr><tr>
+<td><a href="#cleanupSource">cleanupSource</a></td>
+<td>Cleanup the sources directory to get rid of leftover files and directories.</td>
+</tr><tr>
+<td><a href="#compileUiFiles">compileUiFiles</a></td>
+<td>Compile the .ui files to Python sources.</td>
+</tr><tr>
+<td><a href="#copyAppStreamFile">copyAppStreamFile</a></td>
+<td>Modify an appstream file and write it to its destination.</td>
+</tr><tr>
+<td><a href="#copyDesktopFile">copyDesktopFile</a></td>
+<td>Modify a desktop file and write it to its destination.</td>
+</tr><tr>
+<td><a href="#copyToFile">copyToFile</a></td>
+<td>Copy a string to a file.</td>
+</tr><tr>
+<td><a href="#copyTree">copyTree</a></td>
+<td>Copy Python, translation, documentation, wizards configuration, designer template files and DTDs of a directory tree.</td>
+</tr><tr>
+<td><a href="#createConfig">createConfig</a></td>
+<td>Create a config file with the respective config entries.</td>
+</tr><tr>
+<td><a href="#createGlobalPluginsDir">createGlobalPluginsDir</a></td>
+<td>Create the global plugins directory, if it doesn't exist.</td>
+</tr><tr>
+<td><a href="#createInstallConfig">createInstallConfig</a></td>
+<td>Create the installation config dictionary.</td>
+</tr><tr>
+<td><a href="#createMacAppBundle">createMacAppBundle</a></td>
+<td>Create a Mac application bundle.</td>
+</tr><tr>
+<td><a href="#createPyWrapper">createPyWrapper</a></td>
+<td>Create an executable wrapper for a Python script.</td>
+</tr><tr>
+<td><a href="#determinePyQtVariant">determinePyQtVariant</a></td>
+<td>Module function to determine the PyQt variant to be used.</td>
+</tr><tr>
+<td><a href="#doDependancyChecks">doDependancyChecks</a></td>
+<td>Perform some dependency checks.</td>
+</tr><tr>
+<td><a href="#exit">exit</a></td>
+<td>Exit the install script.</td>
+</tr><tr>
+<td><a href="#initGlobals">initGlobals</a></td>
+<td>Module function to set the values of globals that need more than a simple assignment.</td>
+</tr><tr>
+<td><a href="#installEric">installEric</a></td>
+<td>Actually perform the installation steps.</td>
+</tr><tr>
+<td><a href="#main">main</a></td>
+<td>The main function of the script.</td>
+</tr><tr>
+<td><a href="#prepareInfoFile">prepareInfoFile</a></td>
+<td>Function to prepare an Info.py file when installing from source.</td>
+</tr><tr>
+<td><a href="#shutilCopy">shutilCopy</a></td>
+<td>Wrapper function around shutil.copy() to ensure the permissions.</td>
+</tr><tr>
+<td><a href="#usage">usage</a></td>
+<td>Display a usage message and exit.</td>
+</tr><tr>
+<td><a href="#wrapperName">wrapperName</a></td>
+<td>Create the platform specific name for the wrapper script.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__pyName" ID="__pyName"></a>
+<h2>__pyName</h2>
+<b>__pyName</b>(<i>py_dir, py_file</i>)
+<p>
+    Local function to create the Python source file name for the compiled
+    .ui file.
+</p><dl>
+<dt><i>py_dir</i></dt>
+<dd>
+suggested name of the directory (string)
+</dd><dt><i>py_file</i></dt>
+<dd>
+suggested name for the compile source file (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of directory name (string) and source file name (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="cleanUp" ID="cleanUp"></a>
+<h2>cleanUp</h2>
+<b>cleanUp</b>(<i></i>)
+<p>
+    Uninstall the old eric files.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="cleanupSource" ID="cleanupSource"></a>
+<h2>cleanupSource</h2>
+<b>cleanupSource</b>(<i>dirName</i>)
+<p>
+    Cleanup the sources directory to get rid of leftover files
+    and directories.
+</p><dl>
+<dt><i>dirName</i></dt>
+<dd>
+name of the directory to prune (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="compileUiFiles" ID="compileUiFiles"></a>
+<h2>compileUiFiles</h2>
+<b>compileUiFiles</b>(<i></i>)
+<p>
+    Compile the .ui files to Python sources.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="copyAppStreamFile" ID="copyAppStreamFile"></a>
+<h2>copyAppStreamFile</h2>
+<b>copyAppStreamFile</b>(<i>src, dst, marker</i>)
+<p>
+    Modify an appstream file and write it to its destination.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source file name (string)
+</dd><dt><i>dst</i></dt>
+<dd>
+destination file name (string)
+</dd><dt><i>marker</i></dt>
+<dd>
+marker to be used (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="copyDesktopFile" ID="copyDesktopFile"></a>
+<h2>copyDesktopFile</h2>
+<b>copyDesktopFile</b>(<i>src, dst, marker</i>)
+<p>
+    Modify a desktop file and write it to its destination.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source file name (string)
+</dd><dt><i>dst</i></dt>
+<dd>
+destination file name (string)
+</dd><dt><i>marker</i></dt>
+<dd>
+marker to be used (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="copyToFile" ID="copyToFile"></a>
+<h2>copyToFile</h2>
+<b>copyToFile</b>(<i>name, text</i>)
+<p>
+    Copy a string to a file.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+the name of the file.
+</dd><dt><i>text</i></dt>
+<dd>
+the contents to copy to the file.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="copyTree" ID="copyTree"></a>
+<h2>copyTree</h2>
+<b>copyTree</b>(<i>src, dst, filters, excludeDirs=None, excludePatterns=None</i>)
+<p>
+    Copy Python, translation, documentation, wizards configuration,
+    designer template files and DTDs of a directory tree.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+name of the source directory
+</dd><dt><i>dst</i></dt>
+<dd>
+name of the destination directory
+</dd><dt><i>filters</i></dt>
+<dd>
+list of filter pattern determining the files to be copied
+</dd><dt><i>excludeDirs</i></dt>
+<dd>
+list of (sub)directories to exclude from copying
+</dd><dt><i>excludePatterns=</i></dt>
+<dd>
+list of filter pattern determining the files to
+        be skipped
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createConfig" ID="createConfig"></a>
+<h2>createConfig</h2>
+<b>createConfig</b>(<i></i>)
+<p>
+    Create a config file with the respective config entries.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createGlobalPluginsDir" ID="createGlobalPluginsDir"></a>
+<h2>createGlobalPluginsDir</h2>
+<b>createGlobalPluginsDir</b>(<i></i>)
+<p>
+    Create the global plugins directory, if it doesn't exist.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createInstallConfig" ID="createInstallConfig"></a>
+<h2>createInstallConfig</h2>
+<b>createInstallConfig</b>(<i></i>)
+<p>
+    Create the installation config dictionary.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createMacAppBundle" ID="createMacAppBundle"></a>
+<h2>createMacAppBundle</h2>
+<b>createMacAppBundle</b>(<i>pydir</i>)
+<p>
+    Create a Mac application bundle.
+</p><dl>
+<dt><i>pydir</i></dt>
+<dd>
+the name of the directory where the Python script will
+        eventually be installed (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createPyWrapper" ID="createPyWrapper"></a>
+<h2>createPyWrapper</h2>
+<b>createPyWrapper</b>(<i>pydir, wfile, isGuiScript=True</i>)
+<p>
+    Create an executable wrapper for a Python script.
+</p><dl>
+<dt><i>pydir</i></dt>
+<dd>
+the name of the directory where the Python script will
+        eventually be installed (string)
+</dd><dt><i>wfile</i></dt>
+<dd>
+the basename of the wrapper (string)
+</dd><dt><i>isGuiScript</i></dt>
+<dd>
+flag indicating a wrapper script for a GUI
+        application (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the platform specific name of the wrapper (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="determinePyQtVariant" ID="determinePyQtVariant"></a>
+<h2>determinePyQtVariant</h2>
+<b>determinePyQtVariant</b>(<i></i>)
+<p>
+    Module function to determine the PyQt variant to be used.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="doDependancyChecks" ID="doDependancyChecks"></a>
+<h2>doDependancyChecks</h2>
+<b>doDependancyChecks</b>(<i></i>)
+<p>
+    Perform some dependency checks.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="exit" ID="exit"></a>
+<h2>exit</h2>
+<b>exit</b>(<i>rcode=0</i>)
+<p>
+    Exit the install script.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+result code to report back (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="initGlobals" ID="initGlobals"></a>
+<h2>initGlobals</h2>
+<b>initGlobals</b>(<i></i>)
+<p>
+    Module function to set the values of globals that need more than a
+    simple assignment.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="installEric" ID="installEric"></a>
+<h2>installEric</h2>
+<b>installEric</b>(<i></i>)
+<p>
+    Actually perform the installation steps.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+result code (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="main" ID="main"></a>
+<h2>main</h2>
+<b>main</b>(<i>argv</i>)
+<p>
+    The main function of the script.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+the list of command line arguments.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="prepareInfoFile" ID="prepareInfoFile"></a>
+<h2>prepareInfoFile</h2>
+<b>prepareInfoFile</b>(<i>fileName</i>)
+<p>
+    Function to prepare an Info.py file when installing from source.
+</p><dl>
+<dt><i>fileName</i></dt>
+<dd>
+name of the Python file containing the info (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="shutilCopy" ID="shutilCopy"></a>
+<h2>shutilCopy</h2>
+<b>shutilCopy</b>(<i>src, dst, perm=0o644</i>)
+<p>
+    Wrapper function around shutil.copy() to ensure the permissions.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source file name (string)
+</dd><dt><i>dst</i></dt>
+<dd>
+destination file name or directory name (string)
+</dd><dt><i>perm=</i></dt>
+<dd>
+permissions to be set (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="usage" ID="usage"></a>
+<h2>usage</h2>
+<b>usage</b>(<i>rcode=2</i>)
+<p>
+    Display a usage message and exit.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+the return code passed back to the calling process.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="wrapperName" ID="wrapperName"></a>
+<h2>wrapperName</h2>
+<b>wrapperName</b>(<i>dname, wfile</i>)
+<p>
+    Create the platform specific name for the wrapper script.
+</p><dl>
+<dt><i>dname</i></dt>
+<dd>
+name of the directory to place the wrapper into
+</dd><dt><i>wfile</i></dt>
+<dd>
+basename (without extension) of the wrapper script
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the name of the wrapper script
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

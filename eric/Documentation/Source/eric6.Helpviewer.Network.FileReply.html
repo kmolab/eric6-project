@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.FileReply</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.FileReply</h1>
+<p>
+Module implementing a network reply class for directory resources.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>dirListPage_html</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FileReply">FileReply</a></td>
+<td>Class implementing a network reply for directory resources.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FileReply" ID="FileReply"></a>
+<h2>FileReply</h2>
+<p>
+    Class implementing a network reply for directory resources.
+</p>
+<h3>Derived from</h3>
+QNetworkReply
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FileReply.__init__">FileReply</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FileReply.__cssLinkClass">__cssLinkClass</a></td>
+<td>Private method to generate a link class with an icon.</td>
+</tr><tr>
+<td><a href="#FileReply.__loadDirectory">__loadDirectory</a></td>
+<td>Private slot loading the directory and preparing the listing page.</td>
+</tr><tr>
+<td><a href="#FileReply.abort">abort</a></td>
+<td>Public slot to abort the operation.</td>
+</tr><tr>
+<td><a href="#FileReply.bytesAvailable">bytesAvailable</a></td>
+<td>Public method to determined the bytes available for being read.</td>
+</tr><tr>
+<td><a href="#FileReply.isSequential">isSequential</a></td>
+<td>Public method to check for sequential access.</td>
+</tr><tr>
+<td><a href="#FileReply.readData">readData</a></td>
+<td>Public method to retrieve data from the reply object.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FileReply.__init__" ID="FileReply.__init__"></a>
+<h4>FileReply (Constructor)</h4>
+<b>FileReply</b>(<i>url, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+requested FTP URL (QUrl)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="FileReply.__cssLinkClass" ID="FileReply.__cssLinkClass"></a>
+<h4>FileReply.__cssLinkClass</h4>
+<b>__cssLinkClass</b>(<i>icon, size=32</i>)
+<p>
+        Private method to generate a link class with an icon.
+</p><dl>
+<dt><i>icon</i></dt>
+<dd>
+icon to be included (QIcon)
+</dd><dt><i>size</i></dt>
+<dd>
+size of the icon to be generated (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+CSS class string (string)
+</dd>
+</dl><a NAME="FileReply.__loadDirectory" ID="FileReply.__loadDirectory"></a>
+<h4>FileReply.__loadDirectory</h4>
+<b>__loadDirectory</b>(<i></i>)
+<p>
+        Private slot loading the directory and preparing the listing page.
+</p><a NAME="FileReply.abort" ID="FileReply.abort"></a>
+<h4>FileReply.abort</h4>
+<b>abort</b>(<i></i>)
+<p>
+        Public slot to abort the operation.
+</p><a NAME="FileReply.bytesAvailable" ID="FileReply.bytesAvailable"></a>
+<h4>FileReply.bytesAvailable</h4>
+<b>bytesAvailable</b>(<i></i>)
+<p>
+        Public method to determined the bytes available for being read.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+bytes available (integer)
+</dd>
+</dl><a NAME="FileReply.isSequential" ID="FileReply.isSequential"></a>
+<h4>FileReply.isSequential</h4>
+<b>isSequential</b>(<i></i>)
+<p>
+        Public method to check for sequential access.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating sequential access (boolean)
+</dd>
+</dl><a NAME="FileReply.readData" ID="FileReply.readData"></a>
+<h4>FileReply.readData</h4>
+<b>readData</b>(<i>maxlen</i>)
+<p>
+        Public method to retrieve data from the reply object.
+</p><dl>
+<dt><i>maxlen</i></dt>
+<dd>
+maximum number of bytes to read (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string containing the data (bytes)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

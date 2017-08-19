@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.binplistlib</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.binplistlib</h1>
+<p>
+Module implementing a library for reading and writing binary property list
+files.
+</p><p>
+Binary Property List (plist) files provide a faster and smaller serialization
+format for property lists on OS X. This is a library for generating binary
+plists which can be read by OS X, iOS, or other clients.
+</p><p>
+The API models the plistlib API, and will call through to plistlib when
+XML serialization or deserialization is required.
+</p><p>
+To generate plists with UID values, wrap the values with the Uid object. The
+value must be an int.
+</p><p>
+To generate plists with NSData/CFData values, wrap the values with the
+Data object. The value must be a bytes object.
+</p><p>
+Date values can only be datetime.datetime objects.
+</p><p>
+The exceptions InvalidPlistException and NotBinaryPlistException may be
+thrown to indicate that the data cannot be serialized or deserialized as
+a binary plist.
+</p><p>
+Plist generation example:
+<pre>
+    from binplistlib import *
+    from datetime import datetime
+    plist = {'aKey':'aValue',
+             '0':1.322,
+             'now':datetime.now(),
+             'list':[1,2,3],
+             'tuple':('a','b','c')
+             }
+    try:
+        writePlist(plist, "example.plist")
+    except (InvalidPlistException, NotBinaryPlistException) as e:
+        print("Something bad happened:", e)
+</pre>
+Plist parsing example:
+<pre>
+    from binplistlib import *
+    try:
+        plist = readPlist("example.plist")
+        print(plist)
+    except (InvalidPlistException, NotBinaryPlistException) as e:
+        print("Not a plist:", e)
+</pre>
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>PlistByteCounts</td></tr><tr><td>PlistTrailer</td></tr><tr><td>__all__</td></tr><tr><td>apple_reference_date_offset</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#BoolWrapper">BoolWrapper</a></td>
+<td>Class wrapping a boolean value.</td>
+</tr><tr>
+<td><a href="#Data">Data</a></td>
+<td>Class implementing a wrapper around bytes types for representing Data values.</td>
+</tr><tr>
+<td><a href="#HashableWrapper">HashableWrapper</a></td>
+<td>Class wrapping a hashable value.</td>
+</tr><tr>
+<td><a href="#InvalidPlistException">InvalidPlistException</a></td>
+<td>Exception raised when the plist is incorrectly formatted.</td>
+</tr><tr>
+<td><a href="#NotBinaryPlistException">NotBinaryPlistException</a></td>
+<td>Exception raised when a binary plist was expected but not encountered.</td>
+</tr><tr>
+<td><a href="#PlistReader">PlistReader</a></td>
+<td>Class implementing the plist reader.</td>
+</tr><tr>
+<td><a href="#PlistWriter">PlistWriter</a></td>
+<td>Class implementing the plist writer.</td>
+</tr><tr>
+<td><a href="#Uid">Uid</a></td>
+<td>Class implementing a wrapper around integers for representing UID values.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#is_stream_binary_plist">is_stream_binary_plist</a></td>
+<td>Module function to check, if the stream is a binary plist.</td>
+</tr><tr>
+<td><a href="#readPlist">readPlist</a></td>
+<td>Module function to read a plist file.</td>
+</tr><tr>
+<td><a href="#readPlistFromBytes">readPlistFromBytes</a></td>
+<td>Module function to read from a plist bytes object.</td>
+</tr><tr>
+<td><a href="#writePlist">writePlist</a></td>
+<td>Module function to write a plist file.</td>
+</tr><tr>
+<td><a href="#writePlistToBytes">writePlistToBytes</a></td>
+<td>Module function to write a plist bytes object.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="BoolWrapper" ID="BoolWrapper"></a>
+<h2>BoolWrapper</h2>
+<p>
+    Class wrapping a boolean value.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BoolWrapper.__init__">BoolWrapper</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BoolWrapper.__repr__">__repr__</a></td>
+<td>Special method to generate a representation of the object.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BoolWrapper.__init__" ID="BoolWrapper.__init__"></a>
+<h4>BoolWrapper (Constructor)</h4>
+<b>BoolWrapper</b>(<i>value</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+object value (boolean)
+</dd>
+</dl><a NAME="BoolWrapper.__repr__" ID="BoolWrapper.__repr__"></a>
+<h4>BoolWrapper.__repr__</h4>
+<b>__repr__</b>(<i></i>)
+<p>
+        Special method to generate a representation of the object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+object representation (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Data" ID="Data"></a>
+<h2>Data</h2>
+<p>
+    Class implementing a wrapper around bytes types for representing Data
+    values.
+</p>
+<h3>Derived from</h3>
+bytes
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="HashableWrapper" ID="HashableWrapper"></a>
+<h2>HashableWrapper</h2>
+<p>
+    Class wrapping a hashable value.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HashableWrapper.__init__">HashableWrapper</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HashableWrapper.__repr__">__repr__</a></td>
+<td>Special method to generate a representation of the object.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HashableWrapper.__init__" ID="HashableWrapper.__init__"></a>
+<h4>HashableWrapper (Constructor)</h4>
+<b>HashableWrapper</b>(<i>value</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+object value
+</dd>
+</dl><a NAME="HashableWrapper.__repr__" ID="HashableWrapper.__repr__"></a>
+<h4>HashableWrapper.__repr__</h4>
+<b>__repr__</b>(<i></i>)
+<p>
+        Special method to generate a representation of the object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+object representation (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="InvalidPlistException" ID="InvalidPlistException"></a>
+<h2>InvalidPlistException</h2>
+<p>
+    Exception raised when the plist is incorrectly formatted.
+</p>
+<h3>Derived from</h3>
+Exception
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="NotBinaryPlistException" ID="NotBinaryPlistException"></a>
+<h2>NotBinaryPlistException</h2>
+<p>
+    Exception raised when a binary plist was expected but not encountered.
+</p>
+<h3>Derived from</h3>
+Exception
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PlistReader" ID="PlistReader"></a>
+<h2>PlistReader</h2>
+<p>
+    Class implementing the plist reader.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>contents</td></tr><tr><td>currentOffset</td></tr><tr><td>file</td></tr><tr><td>offsets</td></tr><tr><td>trailer</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PlistReader.__init__">PlistReader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PlistReader.getSizedInteger">getSizedInteger</a></td>
+<td>Public method to read an integer of a specific size.</td>
+</tr><tr>
+<td><a href="#PlistReader.parse">parse</a></td>
+<td>Public method to parse the plist data.</td>
+</tr><tr>
+<td><a href="#PlistReader.proc_extra">proc_extra</a></td>
+<td></td>
+</tr><tr>
+<td><a href="#PlistReader.readArray">readArray</a></td>
+<td>Public method to read an Array object.</td>
+</tr><tr>
+<td><a href="#PlistReader.readAsciiString">readAsciiString</a></td>
+<td>Public method to read an ASCII encoded string.</td>
+</tr><tr>
+<td><a href="#PlistReader.readData">readData</a></td>
+<td>Public method to read some bytes.</td>
+</tr><tr>
+<td><a href="#PlistReader.readDate">readDate</a></td>
+<td>Public method to read a date.</td>
+</tr><tr>
+<td><a href="#PlistReader.readDict">readDict</a></td>
+<td>Public method to read a Dictionary object.</td>
+</tr><tr>
+<td><a href="#PlistReader.readInteger">readInteger</a></td>
+<td>Public method to read an Integer object.</td>
+</tr><tr>
+<td><a href="#PlistReader.readObject">readObject</a></td>
+<td>Public method to read the object data.</td>
+</tr><tr>
+<td><a href="#PlistReader.readReal">readReal</a></td>
+<td>Public method to read a Real object.</td>
+</tr><tr>
+<td><a href="#PlistReader.readRefs">readRefs</a></td>
+<td>Public method to read References.</td>
+</tr><tr>
+<td><a href="#PlistReader.readRoot">readRoot</a></td>
+<td>Public method to read the root object.</td>
+</tr><tr>
+<td><a href="#PlistReader.readUid">readUid</a></td>
+<td>Public method to read a UID.</td>
+</tr><tr>
+<td><a href="#PlistReader.readUnicode">readUnicode</a></td>
+<td>Public method to read an Unicode encoded string.</td>
+</tr><tr>
+<td><a href="#PlistReader.reset">reset</a></td>
+<td>Public method to reset the instance object.</td>
+</tr><tr>
+<td><a href="#PlistReader.setCurrentOffsetToObjectNumber">setCurrentOffsetToObjectNumber</a></td>
+<td>Public method to set the current offset.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PlistReader.__init__" ID="PlistReader.__init__"></a>
+<h4>PlistReader (Constructor)</h4>
+<b>PlistReader</b>(<i>fileOrStream</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>fileOrStream</i></dt>
+<dd>
+open file containing the plist data (file object)
+</dd>
+</dl><a NAME="PlistReader.getSizedInteger" ID="PlistReader.getSizedInteger"></a>
+<h4>PlistReader.getSizedInteger</h4>
+<b>getSizedInteger</b>(<i>data, length</i>)
+<p>
+        Public method to read an integer of a specific size.
+</p><dl>
+<dt><i>data</i></dt>
+<dd>
+data to extract the integer from (bytes)
+</dd><dt><i>length</i></dt>
+<dd>
+length of the integer (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+read integer (integer)
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistReader.parse" ID="PlistReader.parse"></a>
+<h4>PlistReader.parse</h4>
+<b>parse</b>(<i></i>)
+<p>
+        Public method to parse the plist data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+unpickled object
+</dd>
+</dl><a NAME="PlistReader.proc_extra" ID="PlistReader.proc_extra"></a>
+<h4>PlistReader.proc_extra</h4>
+<b>proc_extra</b>(<i></i>)
+<a NAME="PlistReader.readArray" ID="PlistReader.readArray"></a>
+<h4>PlistReader.readArray</h4>
+<b>readArray</b>(<i>count</i>)
+<p>
+        Public method to read an Array object.
+</p><dl>
+<dt><i>count</i></dt>
+<dd>
+number of array elements (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of unpickled objects
+</dd>
+</dl><a NAME="PlistReader.readAsciiString" ID="PlistReader.readAsciiString"></a>
+<h4>PlistReader.readAsciiString</h4>
+<b>readAsciiString</b>(<i>length</i>)
+<p>
+        Public method to read an ASCII encoded string.
+</p><dl>
+<dt><i>length</i></dt>
+<dd>
+length of the string (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+ASCII encoded string
+</dd>
+</dl><a NAME="PlistReader.readData" ID="PlistReader.readData"></a>
+<h4>PlistReader.readData</h4>
+<b>readData</b>(<i>length</i>)
+<p>
+        Public method to read some bytes.
+</p><dl>
+<dt><i>length</i></dt>
+<dd>
+number of bytes to read (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+Data object
+</dd>
+</dl><a NAME="PlistReader.readDate" ID="PlistReader.readDate"></a>
+<h4>PlistReader.readDate</h4>
+<b>readDate</b>(<i></i>)
+<p>
+        Public method to read a date.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+date object (datetime.datetime)
+</dd>
+</dl><a NAME="PlistReader.readDict" ID="PlistReader.readDict"></a>
+<h4>PlistReader.readDict</h4>
+<b>readDict</b>(<i>count</i>)
+<p>
+        Public method to read a Dictionary object.
+</p><dl>
+<dt><i>count</i></dt>
+<dd>
+number of dictionary elements (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary of unpickled objects
+</dd>
+</dl><a NAME="PlistReader.readInteger" ID="PlistReader.readInteger"></a>
+<h4>PlistReader.readInteger</h4>
+<b>readInteger</b>(<i>length</i>)
+<p>
+        Public method to read an Integer object.
+</p><dl>
+<dt><i>length</i></dt>
+<dd>
+length of the object (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+integer object
+</dd>
+</dl><a NAME="PlistReader.readObject" ID="PlistReader.readObject"></a>
+<h4>PlistReader.readObject</h4>
+<b>readObject</b>(<i></i>)
+<p>
+        Public method to read the object data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+unpickled object
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistReader.readReal" ID="PlistReader.readReal"></a>
+<h4>PlistReader.readReal</h4>
+<b>readReal</b>(<i>length</i>)
+<p>
+        Public method to read a Real object.
+</p><dl>
+<dt><i>length</i></dt>
+<dd>
+length of the object (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+float object
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistReader.readRefs" ID="PlistReader.readRefs"></a>
+<h4>PlistReader.readRefs</h4>
+<b>readRefs</b>(<i>count</i>)
+<p>
+        Public method to read References.
+</p><dl>
+<dt><i>count</i></dt>
+<dd>
+amount of the references (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of references (list of integers)
+</dd>
+</dl><a NAME="PlistReader.readRoot" ID="PlistReader.readRoot"></a>
+<h4>PlistReader.readRoot</h4>
+<b>readRoot</b>(<i></i>)
+<p>
+        Public method to read the root object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+unpickled object
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd><dt>Raises <b>NotBinaryPlistException</b>:</dt>
+<dd>
+raised to indicate, that the
+            plist file is not a binary file
+</dd>
+</dl><a NAME="PlistReader.readUid" ID="PlistReader.readUid"></a>
+<h4>PlistReader.readUid</h4>
+<b>readUid</b>(<i>length</i>)
+<p>
+        Public method to read a UID.
+</p><dl>
+<dt><i>length</i></dt>
+<dd>
+length of the UID (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+Uid object
+</dd>
+</dl><a NAME="PlistReader.readUnicode" ID="PlistReader.readUnicode"></a>
+<h4>PlistReader.readUnicode</h4>
+<b>readUnicode</b>(<i>length</i>)
+<p>
+        Public method to read an Unicode encoded string.
+</p><dl>
+<dt><i>length</i></dt>
+<dd>
+length of the string (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+unicode encoded string
+</dd>
+</dl><a NAME="PlistReader.reset" ID="PlistReader.reset"></a>
+<h4>PlistReader.reset</h4>
+<b>reset</b>(<i></i>)
+<p>
+        Public method to reset the instance object.
+</p><a NAME="PlistReader.setCurrentOffsetToObjectNumber" ID="PlistReader.setCurrentOffsetToObjectNumber"></a>
+<h4>PlistReader.setCurrentOffsetToObjectNumber</h4>
+<b>setCurrentOffsetToObjectNumber</b>(<i>objectNumber</i>)
+<p>
+        Public method to set the current offset.
+</p><dl>
+<dt><i>objectNumber</i></dt>
+<dd>
+number of the object (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PlistWriter" ID="PlistWriter"></a>
+<h2>PlistWriter</h2>
+<p>
+    Class implementing the plist writer.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>byteCounts</td></tr><tr><td>computedUniques</td></tr><tr><td>file</td></tr><tr><td>header</td></tr><tr><td>referencePositions</td></tr><tr><td>trailer</td></tr><tr><td>wrappedFalse</td></tr><tr><td>wrappedTrue</td></tr><tr><td>writtenReferences</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PlistWriter.__init__">PlistWriter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PlistWriter.__checkKey">__checkKey</a></td>
+<td>Private method to check the validity of a key.</td>
+</tr><tr>
+<td><a href="#PlistWriter.__processSize">__processSize</a></td>
+<td>Private method to process a size.</td>
+</tr><tr>
+<td><a href="#PlistWriter.binaryInt">binaryInt</a></td>
+<td>Public method to pack an integer object.</td>
+</tr><tr>
+<td><a href="#PlistWriter.binaryReal">binaryReal</a></td>
+<td>Public method to pack a real object.</td>
+</tr><tr>
+<td><a href="#PlistWriter.computeOffsets">computeOffsets</a></td>
+<td>Public method to compute offsets of an object.</td>
+</tr><tr>
+<td><a href="#PlistWriter.incrementByteCount">incrementByteCount</a></td>
+<td>Public method to increment the byte count.</td>
+</tr><tr>
+<td><a href="#PlistWriter.intSize">intSize</a></td>
+<td>Public method to determine the number of bytes necessary to store the given integer.</td>
+</tr><tr>
+<td><a href="#PlistWriter.positionOfObjectReference">positionOfObjectReference</a></td>
+<td>Public method to get the position of an object.</td>
+</tr><tr>
+<td><a href="#PlistWriter.proc_variable_length">proc_variable_length</a></td>
+<td></td>
+</tr><tr>
+<td><a href="#PlistWriter.realSize">realSize</a></td>
+<td>Public method to determine the number of bytes necessary to store the given real.</td>
+</tr><tr>
+<td><a href="#PlistWriter.reset">reset</a></td>
+<td>Public method to reset the instance object.</td>
+</tr><tr>
+<td><a href="#PlistWriter.wrapRoot">wrapRoot</a></td>
+<td>Public method to generate object wrappers.</td>
+</tr><tr>
+<td><a href="#PlistWriter.writeObject">writeObject</a></td>
+<td>Public method to serialize the given object to the output.</td>
+</tr><tr>
+<td><a href="#PlistWriter.writeObjectReference">writeObjectReference</a></td>
+<td>Public method to write an object reference.</td>
+</tr><tr>
+<td><a href="#PlistWriter.writeOffsetTable">writeOffsetTable</a></td>
+<td>Public method to write all of the object reference offsets.</td>
+</tr><tr>
+<td><a href="#PlistWriter.writeRoot">writeRoot</a></td>
+<td>Public method to write an object to a plist file.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PlistWriter.__init__" ID="PlistWriter.__init__"></a>
+<h4>PlistWriter (Constructor)</h4>
+<b>PlistWriter</b>(<i>file</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+file to write the plist data to (file object)
+</dd>
+</dl><a NAME="PlistWriter.__checkKey" ID="PlistWriter.__checkKey"></a>
+<h4>PlistWriter.__checkKey</h4>
+<b>__checkKey</b>(<i>key</i>)
+<p>
+        Private method to check the validity of a key.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key to be checked
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistWriter.__processSize" ID="PlistWriter.__processSize"></a>
+<h4>PlistWriter.__processSize</h4>
+<b>__processSize</b>(<i>size</i>)
+<p>
+        Private method to process a size.
+</p><dl>
+<dt><i>size</i></dt>
+<dd>
+size value to be processed (int)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed size (int)
+</dd>
+</dl><a NAME="PlistWriter.binaryInt" ID="PlistWriter.binaryInt"></a>
+<h4>PlistWriter.binaryInt</h4>
+<b>binaryInt</b>(<i>obj, length=None</i>)
+<p>
+        Public method to pack an integer object.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+integer to be packed
+</dd><dt><i>length</i></dt>
+<dd>
+length the integer should be packed into (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+serialized object (bytes)
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistWriter.binaryReal" ID="PlistWriter.binaryReal"></a>
+<h4>PlistWriter.binaryReal</h4>
+<b>binaryReal</b>(<i>obj</i>)
+<p>
+        Public method to pack a real object.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+real to be packed
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+serialized object (bytes)
+</dd>
+</dl><a NAME="PlistWriter.computeOffsets" ID="PlistWriter.computeOffsets"></a>
+<h4>PlistWriter.computeOffsets</h4>
+<b>computeOffsets</b>(<i>obj, asReference=False, isRoot=False</i>)
+<p>
+        Public method to compute offsets of an object.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+plist object
+</dd><dt><i>asReference</i></dt>
+<dd>
+flag indicating offsets as references (boolean)
+</dd><dt><i>isRoot</i></dt>
+<dd>
+flag indicating a root object (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistWriter.incrementByteCount" ID="PlistWriter.incrementByteCount"></a>
+<h4>PlistWriter.incrementByteCount</h4>
+<b>incrementByteCount</b>(<i>field, incr=1</i>)
+<p>
+        Public method to increment the byte count.
+</p><dl>
+<dt><i>field</i></dt>
+<dd>
+field to evaluate
+</dd><dt><i>incr</i></dt>
+<dd>
+byte count increment (integer)
+</dd>
+</dl><a NAME="PlistWriter.intSize" ID="PlistWriter.intSize"></a>
+<h4>PlistWriter.intSize</h4>
+<b>intSize</b>(<i>obj</i>)
+<p>
+        Public method to determine the number of bytes necessary to store the
+        given integer.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+integer object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of bytes required (integer)
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistWriter.positionOfObjectReference" ID="PlistWriter.positionOfObjectReference"></a>
+<h4>PlistWriter.positionOfObjectReference</h4>
+<b>positionOfObjectReference</b>(<i>obj</i>)
+<p>
+        Public method to get the position of an object.
+</p><p>
+        If the given object has been written already, return its
+        position in the offset table. Otherwise, return None.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+position of the object (integer)
+</dd>
+</dl><a NAME="PlistWriter.proc_variable_length" ID="PlistWriter.proc_variable_length"></a>
+<h4>PlistWriter.proc_variable_length</h4>
+<b>proc_variable_length</b>(<i>length</i>)
+<a NAME="PlistWriter.realSize" ID="PlistWriter.realSize"></a>
+<h4>PlistWriter.realSize</h4>
+<b>realSize</b>(<i>obj</i>)
+<p>
+        Public method to determine the number of bytes necessary to store the
+        given real.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+real object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of bytes required (integer)
+</dd>
+</dl><a NAME="PlistWriter.reset" ID="PlistWriter.reset"></a>
+<h4>PlistWriter.reset</h4>
+<b>reset</b>(<i></i>)
+<p>
+        Public method to reset the instance object.
+</p><a NAME="PlistWriter.wrapRoot" ID="PlistWriter.wrapRoot"></a>
+<h4>PlistWriter.wrapRoot</h4>
+<b>wrapRoot</b>(<i>root</i>)
+<p>
+        Public method to generate object wrappers.
+</p><dl>
+<dt><i>root</i></dt>
+<dd>
+object to be wrapped
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+wrapped object
+</dd>
+</dl><a NAME="PlistWriter.writeObject" ID="PlistWriter.writeObject"></a>
+<h4>PlistWriter.writeObject</h4>
+<b>writeObject</b>(<i>obj, output, setReferencePosition=False</i>)
+<p>
+        Public method to serialize the given object to the output.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+object to be serialized
+</dd><dt><i>output</i></dt>
+<dd>
+output to be serialized to (bytes)
+</dd><dt><i>setReferencePosition</i></dt>
+<dd>
+flag indicating, that the reference
+            position the object was written to shall be recorded (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+new output
+</dd>
+</dl><a NAME="PlistWriter.writeObjectReference" ID="PlistWriter.writeObjectReference"></a>
+<h4>PlistWriter.writeObjectReference</h4>
+<b>writeObjectReference</b>(<i>obj, output</i>)
+<p>
+        Public method to write an object reference.
+</p><p>
+        Tries to write an object reference, adding it to the references
+        table. Does not write the actual object bytes or set the reference
+        position. Returns a tuple of whether the object was a new reference
+        (True if it was, False if it already was in the reference table)
+        and the new output.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+object to be written
+</dd><dt><i>output</i></dt>
+<dd>
+output stream to append the object to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a new reference and the new output
+</dd>
+</dl><a NAME="PlistWriter.writeOffsetTable" ID="PlistWriter.writeOffsetTable"></a>
+<h4>PlistWriter.writeOffsetTable</h4>
+<b>writeOffsetTable</b>(<i>output</i>)
+<p>
+        Public method to write all of the object reference offsets.
+</p><dl>
+<dt><i>output</i></dt>
+<dd>
+current output (bytes)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+new output (bytes)
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plist file
+</dd>
+</dl><a NAME="PlistWriter.writeRoot" ID="PlistWriter.writeRoot"></a>
+<h4>PlistWriter.writeRoot</h4>
+<b>writeRoot</b>(<i>root</i>)
+<p>
+        Public method to write an object to a plist file.
+</p><p>
+        Strategy is:
+        <ul>
+        <li>write header</li>
+        <li>wrap root object so everything is hashable</li>
+        <li>compute size of objects which will be written
+          <ul>
+          <li>need to do this in order to know how large the object refs
+            will be in the list/dict/set reference lists</li>
+        </ul></li>
+        <li>write objects
+          <ul>
+          <li>keep objects in writtenReferences</li>
+          <li>keep positions of object references in referencePositions</li>
+          <li>write object references with the length computed previously</li>
+        </ul></li>
+        <li>computer object reference length</li>
+        <li>write object reference positions</li>
+        <li>write trailer</li>
+        </ul>
+</p><dl>
+<dt><i>root</i></dt>
+<dd>
+reference to the object to be written
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Uid" ID="Uid"></a>
+<h2>Uid</h2>
+<p>
+    Class implementing a wrapper around integers for representing UID values.
+</p><p>
+    This is used in keyed archiving.
+</p>
+<h3>Derived from</h3>
+int
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Uid.__repr__">__repr__</a></td>
+<td>Special method to return an object representation.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Uid.__repr__" ID="Uid.__repr__"></a>
+<h4>Uid.__repr__</h4>
+<b>__repr__</b>(<i></i>)
+<p>
+        Special method to return an object representation.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+object representation (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="is_stream_binary_plist" ID="is_stream_binary_plist"></a>
+<h2>is_stream_binary_plist</h2>
+<b>is_stream_binary_plist</b>(<i>stream</i>)
+<p>
+    Module function to check, if the stream is a binary plist.
+</p><dl>
+<dt><i>stream</i></dt>
+<dd>
+plist stream (file object)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a binary plist (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readPlist" ID="readPlist"></a>
+<h2>readPlist</h2>
+<b>readPlist</b>(<i>pathOrFile</i>)
+<p>
+    Module function to read a plist file.
+</p><dl>
+<dt><i>pathOrFile</i></dt>
+<dd>
+name of the plist file (string) or an open file
+        (file object)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the read object
+</dd>
+</dl><dl>
+<dt>Raises <b>InvalidPlistException</b>:</dt>
+<dd>
+raised to signal an invalid plist file
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readPlistFromBytes" ID="readPlistFromBytes"></a>
+<h2>readPlistFromBytes</h2>
+<b>readPlistFromBytes</b>(<i>data</i>)
+<p>
+    Module function to read from a plist bytes object.
+</p><dl>
+<dt><i>data</i></dt>
+<dd>
+plist data (bytes)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the read object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="writePlist" ID="writePlist"></a>
+<h2>writePlist</h2>
+<b>writePlist</b>(<i>rootObject, pathOrFile, binary=True</i>)
+<p>
+    Module function to write a plist file.
+</p><dl>
+<dt><i>rootObject</i></dt>
+<dd>
+reference to the object to be written
+</dd><dt><i>pathOrFile</i></dt>
+<dd>
+name of the plist file (string) or an open file
+        (file object)
+</dd><dt><i>binary</i></dt>
+<dd>
+flag indicating the generation of a binary plist file
+        (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="writePlistToBytes" ID="writePlistToBytes"></a>
+<h2>writePlistToBytes</h2>
+<b>writePlistToBytes</b>(<i>rootObject, binary=True</i>)
+<p>
+    Module function to write a plist bytes object.
+</p><dl>
+<dt><i>rootObject</i></dt>
+<dd>
+reference to the object to be written
+</dd><dt><i>binary</i></dt>
+<dd>
+flag indicating the generation of a binary plist bytes
+        object (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+bytes object containing the plist data
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

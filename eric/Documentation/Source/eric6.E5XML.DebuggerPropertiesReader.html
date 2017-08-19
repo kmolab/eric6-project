@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5XML.DebuggerPropertiesReader</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5XML.DebuggerPropertiesReader</h1>
+<p>
+Module implementing a class for reading an XML project debugger properties
+file.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#DebuggerPropertiesReader">DebuggerPropertiesReader</a></td>
+<td>Class for reading an XML project debugger properties file.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="DebuggerPropertiesReader" ID="DebuggerPropertiesReader"></a>
+<h2>DebuggerPropertiesReader</h2>
+<p>
+    Class for reading an XML project debugger properties file.
+</p>
+<h3>Derived from</h3>
+XMLStreamReaderBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>supportedVersions</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DebuggerPropertiesReader.__init__">DebuggerPropertiesReader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#DebuggerPropertiesReader.__readPathTranslation">__readPathTranslation</a></td>
+<td>Private method to read the path translation info.</td>
+</tr><tr>
+<td><a href="#DebuggerPropertiesReader.__readRemoteDebugger">__readRemoteDebugger</a></td>
+<td>Private method to read the remote debugger info.</td>
+</tr><tr>
+<td><a href="#DebuggerPropertiesReader.readXML">readXML</a></td>
+<td>Public method to read and parse the XML document.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="DebuggerPropertiesReader.__init__" ID="DebuggerPropertiesReader.__init__"></a>
+<h4>DebuggerPropertiesReader (Constructor)</h4>
+<b>DebuggerPropertiesReader</b>(<i>device, project</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>device</i></dt>
+<dd>
+reference to the I/O device to read from (QIODevice)
+</dd><dt><i>project</i></dt>
+<dd>
+Reference to the project object to store the
+                information into.
+</dd>
+</dl><a NAME="DebuggerPropertiesReader.__readPathTranslation" ID="DebuggerPropertiesReader.__readPathTranslation"></a>
+<h4>DebuggerPropertiesReader.__readPathTranslation</h4>
+<b>__readPathTranslation</b>(<i></i>)
+<p>
+        Private method to read the path translation info.
+</p><a NAME="DebuggerPropertiesReader.__readRemoteDebugger" ID="DebuggerPropertiesReader.__readRemoteDebugger"></a>
+<h4>DebuggerPropertiesReader.__readRemoteDebugger</h4>
+<b>__readRemoteDebugger</b>(<i></i>)
+<p>
+        Private method to read the remote debugger info.
+</p><a NAME="DebuggerPropertiesReader.readXML" ID="DebuggerPropertiesReader.readXML"></a>
+<h4>DebuggerPropertiesReader.readXML</h4>
+<b>readXML</b>(<i>quiet=False</i>)
+<p>
+        Public method to read and parse the XML document.
+</p><dl>
+<dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations.
+                If this flag is true, no errors are reported.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

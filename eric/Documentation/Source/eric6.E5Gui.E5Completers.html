@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5Completers</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5Completers</h1>
+<p>
+Module implementing various kinds of completers.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5DirCompleter">E5DirCompleter</a></td>
+<td>Class implementing a completer for directory names.</td>
+</tr><tr>
+<td><a href="#E5FileCompleter">E5FileCompleter</a></td>
+<td>Class implementing a completer for file names.</td>
+</tr><tr>
+<td><a href="#E5StringListCompleter">E5StringListCompleter</a></td>
+<td>Class implementing a completer for string lists.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5DirCompleter" ID="E5DirCompleter"></a>
+<h2>E5DirCompleter</h2>
+<p>
+    Class implementing a completer for directory names.
+</p>
+<h3>Derived from</h3>
+QCompleter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5DirCompleter.__init__">E5DirCompleter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5DirCompleter.rootPath">rootPath</a></td>
+<td>Public method to get the root path of the model.</td>
+</tr><tr>
+<td><a href="#E5DirCompleter.setRootPath">setRootPath</a></td>
+<td>Public method to set the root path of the model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5DirCompleter.__init__" ID="E5DirCompleter.__init__"></a>
+<h4>E5DirCompleter (Constructor)</h4>
+<b>E5DirCompleter</b>(<i>parent=None, completionMode=QCompleter.PopupCompletion, showHidden=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the completer (QWidget)
+</dd><dt><i>completionMode=</i></dt>
+<dd>
+completion mode of the
+            completer (QCompleter.CompletionMode)
+</dd><dt><i>showHidden=</i></dt>
+<dd>
+flag indicating to show hidden entries as well
+            (boolean)
+</dd>
+</dl><a NAME="E5DirCompleter.rootPath" ID="E5DirCompleter.rootPath"></a>
+<h4>E5DirCompleter.rootPath</h4>
+<b>rootPath</b>(<i></i>)
+<p>
+        Public method to get the root path of the model.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+root path of the model
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5DirCompleter.setRootPath" ID="E5DirCompleter.setRootPath"></a>
+<h4>E5DirCompleter.setRootPath</h4>
+<b>setRootPath</b>(<i>path</i>)
+<p>
+        Public method to set the root path of the model.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+root path for the model
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5FileCompleter" ID="E5FileCompleter"></a>
+<h2>E5FileCompleter</h2>
+<p>
+    Class implementing a completer for file names.
+</p>
+<h3>Derived from</h3>
+QCompleter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5FileCompleter.__init__">E5FileCompleter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5FileCompleter.rootPath">rootPath</a></td>
+<td>Public method to get the root path of the model.</td>
+</tr><tr>
+<td><a href="#E5FileCompleter.setRootPath">setRootPath</a></td>
+<td>Public method to set the root path of the model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5FileCompleter.__init__" ID="E5FileCompleter.__init__"></a>
+<h4>E5FileCompleter (Constructor)</h4>
+<b>E5FileCompleter</b>(<i>parent=None, completionMode=QCompleter.PopupCompletion, showHidden=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the completer (QWidget)
+</dd><dt><i>completionMode=</i></dt>
+<dd>
+completion mode of the
+            completer (QCompleter.CompletionMode)
+</dd><dt><i>showHidden=</i></dt>
+<dd>
+flag indicating to show hidden entries as well
+            (boolean)
+</dd>
+</dl><a NAME="E5FileCompleter.rootPath" ID="E5FileCompleter.rootPath"></a>
+<h4>E5FileCompleter.rootPath</h4>
+<b>rootPath</b>(<i></i>)
+<p>
+        Public method to get the root path of the model.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+root path of the model
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="E5FileCompleter.setRootPath" ID="E5FileCompleter.setRootPath"></a>
+<h4>E5FileCompleter.setRootPath</h4>
+<b>setRootPath</b>(<i>path</i>)
+<p>
+        Public method to set the root path of the model.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+root path for the model
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5StringListCompleter" ID="E5StringListCompleter"></a>
+<h2>E5StringListCompleter</h2>
+<p>
+    Class implementing a completer for string lists.
+</p>
+<h3>Derived from</h3>
+QCompleter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5StringListCompleter.__init__">E5StringListCompleter</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5StringListCompleter.__init__" ID="E5StringListCompleter.__init__"></a>
+<h4>E5StringListCompleter (Constructor)</h4>
+<b>E5StringListCompleter</b>(<i>parent=None, strings=None, completionMode=QCompleter.PopupCompletion</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the completer (QWidget)
+</dd><dt><i>strings</i></dt>
+<dd>
+list of string to load into the completer
+            (list of strings)
+</dd><dt><i>completionMode=</i></dt>
+<dd>
+completion mode of the
+            completer (QCompleter.CompletionMode)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.ClassBrowsers.idlclbr</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.ClassBrowsers.idlclbr</h1>
+<p>
+Parse a CORBA IDL file and retrieve modules, interfaces, methods and
+attributes.
+</p><p>
+Parse enough of a CORBA IDL file to recognize module, interface and method
+definitions and to find out the superclasses of an interface as well as its
+attributes.
+</p><p>
+It is based on the Python class browser found in this package.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>SUPPORTED_TYPES</td></tr><tr><td>_commentsub</td></tr><tr><td>_getnext</td></tr><tr><td>_modules</td></tr><tr><td>_normalize</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Attribute">Attribute</a></td>
+<td>Class to represent a CORBA IDL attribute.</td>
+</tr><tr>
+<td><a href="#Function">Function</a></td>
+<td>Class to represent a CORBA IDL function.</td>
+</tr><tr>
+<td><a href="#Interface">Interface</a></td>
+<td>Class to represent a CORBA IDL interface.</td>
+</tr><tr>
+<td><a href="#Module">Module</a></td>
+<td>Class to represent a CORBA IDL module.</td>
+</tr><tr>
+<td><a href="#VisibilityMixin">VisibilityMixin</a></td>
+<td>Mixin class implementing the notion of visibility.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#readmodule_ex">readmodule_ex</a></td>
+<td>Read a CORBA IDL file and return a dictionary of classes, functions and modules.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="Attribute" ID="Attribute"></a>
+<h2>Attribute</h2>
+<p>
+    Class to represent a CORBA IDL attribute.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Attribute, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Attribute.__init__">Attribute</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Attribute.__init__" ID="Attribute.__init__"></a>
+<h4>Attribute (Constructor)</h4>
+<b>Attribute</b>(<i>module, name, file, lineno</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this class
+</dd><dt><i>name</i></dt>
+<dd>
+name of this class
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this attribute
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Function" ID="Function"></a>
+<h2>Function</h2>
+<p>
+    Class to represent a CORBA IDL function.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Function, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Function.__init__">Function</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Function.__init__" ID="Function.__init__"></a>
+<h4>Function (Constructor)</h4>
+<b>Function</b>(<i>module, name, file, lineno, signature='', separator=', '</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this function
+</dd><dt><i>name</i></dt>
+<dd>
+name of this function
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this class
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd><dt><i>signature</i></dt>
+<dd>
+parameterlist of the method
+</dd><dt><i>separator</i></dt>
+<dd>
+string separating the parameters
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Interface" ID="Interface"></a>
+<h2>Interface</h2>
+<p>
+    Class to represent a CORBA IDL interface.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Class, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Interface.__init__">Interface</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Interface.__init__" ID="Interface.__init__"></a>
+<h4>Interface (Constructor)</h4>
+<b>Interface</b>(<i>module, name, superClasses, file, lineno</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this class
+</dd><dt><i>name</i></dt>
+<dd>
+name of this interface
+</dd><dt><i>superClasses</i></dt>
+<dd>
+list of interface names this interface is
+            inherited from
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this interface
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the interface definition
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Module" ID="Module"></a>
+<h2>Module</h2>
+<p>
+    Class to represent a CORBA IDL module.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Module, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Module.__init__">Module</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Module.__init__" ID="Module.__init__"></a>
+<h4>Module (Constructor)</h4>
+<b>Module</b>(<i>module, name, file, lineno</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this class
+</dd><dt><i>name</i></dt>
+<dd>
+name of this class
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this class
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="VisibilityMixin" ID="VisibilityMixin"></a>
+<h2>VisibilityMixin</h2>
+<p>
+    Mixin class implementing the notion of visibility.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.ClbrVisibilityMixinBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VisibilityMixin.__init__">VisibilityMixin</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VisibilityMixin.__init__" ID="VisibilityMixin.__init__"></a>
+<h4>VisibilityMixin (Constructor)</h4>
+<b>VisibilityMixin</b>(<i></i>)
+<p>
+        Constructor
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readmodule_ex" ID="readmodule_ex"></a>
+<h2>readmodule_ex</h2>
+<b>readmodule_ex</b>(<i>module, path=None</i>)
+<p>
+    Read a CORBA IDL file and return a dictionary of classes, functions and
+    modules.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the CORBA IDL file (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path the file should be searched in (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the resulting dictionary
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

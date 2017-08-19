@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Project.ProjectBrowser</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Project.ProjectBrowser</h1>
+<p>
+Module implementing the project browser part of the eric6 UI.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowser">ProjectBrowser</a></td>
+<td>Class implementing the project browser part of the eric6 UI.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ProjectBrowser" ID="ProjectBrowser"></a>
+<h2>ProjectBrowser</h2>
+<p>
+    Class implementing the project browser part of the eric6 UI.
+</p><p>
+    It generates a widget with up to seven tabs. The individual tabs contain
+    the project sources browser, the project forms browser,
+    the project resources browser, the project translations browser,
+    the project interfaces (IDL) browser and a browser for stuff,
+    that doesn't fit these categories. Optionally it contains an additional
+    tab with the file system browser.
+</p>
+<h3>Derived from</h3>
+E5TabWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowser.__init__">ProjectBrowser</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__currentChanged">__currentChanged</a></td>
+<td>Private slot to handle the currentChanged(int) signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__newProject">__newProject</a></td>
+<td>Private slot to handle the newProject signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__projectClosed">__projectClosed</a></td>
+<td>Private slot to handle the projectClosed signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__projectOpened">__projectOpened</a></td>
+<td>Private slot to handle the projectOpened signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__projectPropertiesChanged">__projectPropertiesChanged</a></td>
+<td>Private slot to handle the projectPropertiesChanged signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__setBrowsersAvailable">__setBrowsersAvailable</a></td>
+<td>Private method to add selected browsers to the project browser.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__setSourcesIcon">__setSourcesIcon</a></td>
+<td>Private method to set the right icon for the sources browser tab.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__vcsStateChanged">__vcsStateChanged</a></td>
+<td>Private slot to handle a change in the vcs state.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.__vcsStatusIndicatorClicked">__vcsStatusIndicatorClicked</a></td>
+<td>Private slot to react upon clicks on the VCS indicator LED.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.getProjectBrowser">getProjectBrowser</a></td>
+<td>Public method to get a reference to the named project browser.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.getProjectBrowserNames">getProjectBrowserNames</a></td>
+<td>Public method to get the names of the various project browsers.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.getProjectBrowsers">getProjectBrowsers</a></td>
+<td>Public method to get references to the individual project browsers.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.handleEditorChanged">handleEditorChanged</a></td>
+<td>Public slot to handle the editorChanged signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.handleEditorLineChanged">handleEditorLineChanged</a></td>
+<td>Public slot to handle the editorLineChanged signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.handlePreferencesChanged">handlePreferencesChanged</a></td>
+<td>Public slot used to handle the preferencesChanged signal.</td>
+</tr><tr>
+<td><a href="#ProjectBrowser.showEvent">showEvent</a></td>
+<td>Protected method handleing the show event.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowser.__init__" ID="ProjectBrowser.__init__"></a>
+<h4>ProjectBrowser (Constructor)</h4>
+<b>ProjectBrowser</b>(<i>project, parent=None, embeddedBrowser=True</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd><dt><i>embeddedBrowser</i></dt>
+<dd>
+flag indicating whether the file browser should
+            be included. This flag is set to False by those layouts, that
+            have the file browser in a separate window or embedded
+            in the debeug browser instead
+</dd>
+</dl><a NAME="ProjectBrowser.__currentChanged" ID="ProjectBrowser.__currentChanged"></a>
+<h4>ProjectBrowser.__currentChanged</h4>
+<b>__currentChanged</b>(<i>index</i>)
+<p>
+        Private slot to handle the currentChanged(int) signal.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab (integer)
+</dd>
+</dl><a NAME="ProjectBrowser.__newProject" ID="ProjectBrowser.__newProject"></a>
+<h4>ProjectBrowser.__newProject</h4>
+<b>__newProject</b>(<i></i>)
+<p>
+        Private slot to handle the newProject signal.
+</p><a NAME="ProjectBrowser.__projectClosed" ID="ProjectBrowser.__projectClosed"></a>
+<h4>ProjectBrowser.__projectClosed</h4>
+<b>__projectClosed</b>(<i></i>)
+<p>
+        Private slot to handle the projectClosed signal.
+</p><a NAME="ProjectBrowser.__projectOpened" ID="ProjectBrowser.__projectOpened"></a>
+<h4>ProjectBrowser.__projectOpened</h4>
+<b>__projectOpened</b>(<i></i>)
+<p>
+        Private slot to handle the projectOpened signal.
+</p><a NAME="ProjectBrowser.__projectPropertiesChanged" ID="ProjectBrowser.__projectPropertiesChanged"></a>
+<h4>ProjectBrowser.__projectPropertiesChanged</h4>
+<b>__projectPropertiesChanged</b>(<i></i>)
+<p>
+        Private slot to handle the projectPropertiesChanged signal.
+</p><a NAME="ProjectBrowser.__setBrowsersAvailable" ID="ProjectBrowser.__setBrowsersAvailable"></a>
+<h4>ProjectBrowser.__setBrowsersAvailable</h4>
+<b>__setBrowsersAvailable</b>(<i>browserFlags</i>)
+<p>
+        Private method to add selected browsers to the project browser.
+</p><dl>
+<dt><i>browserFlags</i></dt>
+<dd>
+flags indicating the browsers to add (integer)
+</dd>
+</dl><a NAME="ProjectBrowser.__setSourcesIcon" ID="ProjectBrowser.__setSourcesIcon"></a>
+<h4>ProjectBrowser.__setSourcesIcon</h4>
+<b>__setSourcesIcon</b>(<i></i>)
+<p>
+        Private method to set the right icon for the sources browser tab.
+</p><a NAME="ProjectBrowser.__vcsStateChanged" ID="ProjectBrowser.__vcsStateChanged"></a>
+<h4>ProjectBrowser.__vcsStateChanged</h4>
+<b>__vcsStateChanged</b>(<i>state</i>)
+<p>
+        Private slot to handle a change in the vcs state.
+</p><dl>
+<dt><i>state</i></dt>
+<dd>
+new vcs state (string)
+</dd>
+</dl><a NAME="ProjectBrowser.__vcsStatusIndicatorClicked" ID="ProjectBrowser.__vcsStatusIndicatorClicked"></a>
+<h4>ProjectBrowser.__vcsStatusIndicatorClicked</h4>
+<b>__vcsStatusIndicatorClicked</b>(<i>pos</i>)
+<p>
+        Private slot to react upon clicks on the VCS indicator LED.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position of the click (QPoint)
+</dd>
+</dl><a NAME="ProjectBrowser.getProjectBrowser" ID="ProjectBrowser.getProjectBrowser"></a>
+<h4>ProjectBrowser.getProjectBrowser</h4>
+<b>getProjectBrowser</b>(<i>name</i>)
+<p>
+        Public method to get a reference to the named project browser.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the requested project browser (string).
+            Valid names are "sources, forms, resources, translations,
+            interfaces, others".
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the requested browser or None
+</dd>
+</dl><a NAME="ProjectBrowser.getProjectBrowserNames" ID="ProjectBrowser.getProjectBrowserNames"></a>
+<h4>ProjectBrowser.getProjectBrowserNames</h4>
+<b>getProjectBrowserNames</b>(<i></i>)
+<p>
+        Public method to get the names of the various project browsers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of project browser names (list of string)
+</dd>
+</dl><a NAME="ProjectBrowser.getProjectBrowsers" ID="ProjectBrowser.getProjectBrowsers"></a>
+<h4>ProjectBrowser.getProjectBrowsers</h4>
+<b>getProjectBrowsers</b>(<i></i>)
+<p>
+        Public method to get references to the individual project browsers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of references to project browsers
+</dd>
+</dl><a NAME="ProjectBrowser.handleEditorChanged" ID="ProjectBrowser.handleEditorChanged"></a>
+<h4>ProjectBrowser.handleEditorChanged</h4>
+<b>handleEditorChanged</b>(<i>fn</i>)
+<p>
+        Public slot to handle the editorChanged signal.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the changed file (string)
+</dd>
+</dl><a NAME="ProjectBrowser.handleEditorLineChanged" ID="ProjectBrowser.handleEditorLineChanged"></a>
+<h4>ProjectBrowser.handleEditorLineChanged</h4>
+<b>handleEditorLineChanged</b>(<i>fn, lineno</i>)
+<p>
+        Public slot to handle the editorLineChanged signal.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the changed file (string)
+</dd><dt><i>lineno</i></dt>
+<dd>
+one based line number of the item (integer)
+</dd>
+</dl><a NAME="ProjectBrowser.handlePreferencesChanged" ID="ProjectBrowser.handlePreferencesChanged"></a>
+<h4>ProjectBrowser.handlePreferencesChanged</h4>
+<b>handlePreferencesChanged</b>(<i></i>)
+<p>
+        Public slot used to handle the preferencesChanged signal.
+</p><a NAME="ProjectBrowser.showEvent" ID="ProjectBrowser.showEvent"></a>
+<h4>ProjectBrowser.showEvent</h4>
+<b>showEvent</b>(<i>evt</i>)
+<p>
+        Protected method handleing the show event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+show event to handle (QShowEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

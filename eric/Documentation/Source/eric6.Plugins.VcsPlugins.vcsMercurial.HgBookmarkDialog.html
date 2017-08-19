@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgBookmarkDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgBookmarkDialog</h1>
+<p>
+Module implementing the bookmark dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgBookmarkDialog">HgBookmarkDialog</a></td>
+<td>Class mplementing the bookmark dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgBookmarkDialog" ID="HgBookmarkDialog"></a>
+<h2>HgBookmarkDialog</h2>
+<p>
+    Class mplementing the bookmark dialog.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgBookmarkDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>DEFINE_MODE</td></tr><tr><td>MOVE_MODE</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgBookmarkDialog.__init__">HgBookmarkDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.__updateBookmarksCombo">__updateBookmarksCombo</a></td>
+<td>Private slot to update the bookmarks combo.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.getData">getData</a></td>
+<td>Public method to retrieve the entered data.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_bookmarkButton_toggled">on_bookmarkButton_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark select button.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_bookmarkCombo_editTextChanged">on_bookmarkCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark combo.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_branchButton_toggled">on_branchButton_toggled</a></td>
+<td>Private slot to handle changes of the Branch select button.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_branchCombo_editTextChanged">on_branchCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch combo.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_idButton_toggled">on_idButton_toggled</a></td>
+<td>Private slot to handle changes of the ID select button.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_idEdit_textChanged">on_idEdit_textChanged</a></td>
+<td>Private slot to handle changes of the ID edit.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_nameCombo_activated">on_nameCombo_activated</a></td>
+<td>Private slot to handle changes of the selected bookmark name.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_nameEdit_textChanged">on_nameEdit_textChanged</a></td>
+<td>Private slot to handle changes of the bookmark name.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_tagButton_toggled">on_tagButton_toggled</a></td>
+<td>Private slot to handle changes of the Tag select button.</td>
+</tr><tr>
+<td><a href="#HgBookmarkDialog.on_tagCombo_editTextChanged">on_tagCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgBookmarkDialog.__init__" ID="HgBookmarkDialog.__init__"></a>
+<h4>HgBookmarkDialog (Constructor)</h4>
+<b>HgBookmarkDialog</b>(<i>mode, tagsList, branchesList, bookmarksList, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>mode</i></dt>
+<dd>
+of the dialog (integer)
+</dd><dt><i>tagsList</i></dt>
+<dd>
+list of tags (list of strings)
+</dd><dt><i>branchesList</i></dt>
+<dd>
+list of branches (list of strings)
+</dd><dt><i>bookmarksList</i></dt>
+<dd>
+list of bookmarks (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgBookmarkDialog.__updateBookmarksCombo" ID="HgBookmarkDialog.__updateBookmarksCombo"></a>
+<h4>HgBookmarkDialog.__updateBookmarksCombo</h4>
+<b>__updateBookmarksCombo</b>(<i></i>)
+<p>
+        Private slot to update the bookmarks combo.
+</p><a NAME="HgBookmarkDialog.__updateOK" ID="HgBookmarkDialog.__updateOK"></a>
+<h4>HgBookmarkDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgBookmarkDialog.getData" ID="HgBookmarkDialog.getData"></a>
+<h4>HgBookmarkDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the entered data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple naming the revision and the bookmark name
+            (string, string)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_bookmarkButton_toggled" ID="HgBookmarkDialog.on_bookmarkButton_toggled"></a>
+<h4>HgBookmarkDialog.on_bookmarkButton_toggled</h4>
+<b>on_bookmarkButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_bookmarkCombo_editTextChanged" ID="HgBookmarkDialog.on_bookmarkCombo_editTextChanged"></a>
+<h4>HgBookmarkDialog.on_bookmarkCombo_editTextChanged</h4>
+<b>on_bookmarkCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_branchButton_toggled" ID="HgBookmarkDialog.on_branchButton_toggled"></a>
+<h4>HgBookmarkDialog.on_branchButton_toggled</h4>
+<b>on_branchButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_branchCombo_editTextChanged" ID="HgBookmarkDialog.on_branchCombo_editTextChanged"></a>
+<h4>HgBookmarkDialog.on_branchCombo_editTextChanged</h4>
+<b>on_branchCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_idButton_toggled" ID="HgBookmarkDialog.on_idButton_toggled"></a>
+<h4>HgBookmarkDialog.on_idButton_toggled</h4>
+<b>on_idButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_idEdit_textChanged" ID="HgBookmarkDialog.on_idEdit_textChanged"></a>
+<h4>HgBookmarkDialog.on_idEdit_textChanged</h4>
+<b>on_idEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_nameCombo_activated" ID="HgBookmarkDialog.on_nameCombo_activated"></a>
+<h4>HgBookmarkDialog.on_nameCombo_activated</h4>
+<b>on_nameCombo_activated</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the selected bookmark name.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+selected combo entry (string)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_nameEdit_textChanged" ID="HgBookmarkDialog.on_nameEdit_textChanged"></a>
+<h4>HgBookmarkDialog.on_nameEdit_textChanged</h4>
+<b>on_nameEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the bookmark name.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_tagButton_toggled" ID="HgBookmarkDialog.on_tagButton_toggled"></a>
+<h4>HgBookmarkDialog.on_tagButton_toggled</h4>
+<b>on_tagButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgBookmarkDialog.on_tagCombo_editTextChanged" ID="HgBookmarkDialog.on_tagCombo_editTextChanged"></a>
+<h4>HgBookmarkDialog.on_tagCombo_editTextChanged</h4>
+<b>on_tagCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

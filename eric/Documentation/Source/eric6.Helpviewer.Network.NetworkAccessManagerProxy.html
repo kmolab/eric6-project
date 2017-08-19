@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.NetworkAccessManagerProxy</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.NetworkAccessManagerProxy</h1>
+<p>
+Module implementing a network access manager proxy for web pages.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#NetworkAccessManagerProxy">NetworkAccessManagerProxy</a></td>
+<td>Class implementing a network access manager proxy for web pages.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="NetworkAccessManagerProxy" ID="NetworkAccessManagerProxy"></a>
+<h2>NetworkAccessManagerProxy</h2>
+<p>
+    Class implementing a network access manager proxy for web pages.
+</p>
+<h3>Derived from</h3>
+QNetworkAccessManager
+<h3>Class Attributes</h3>
+<table>
+<tr><td>primaryManager</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#NetworkAccessManagerProxy.__init__">NetworkAccessManagerProxy</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#NetworkAccessManagerProxy.createRequest">createRequest</a></td>
+<td>Public method to create a request.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManagerProxy.setPrimaryNetworkAccessManager">setPrimaryNetworkAccessManager</a></td>
+<td>Public method to set the primary network access manager.</td>
+</tr><tr>
+<td><a href="#NetworkAccessManagerProxy.setWebPage">setWebPage</a></td>
+<td>Public method to set the reference to a web page.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="NetworkAccessManagerProxy.__init__" ID="NetworkAccessManagerProxy.__init__"></a>
+<h4>NetworkAccessManagerProxy (Constructor)</h4>
+<b>NetworkAccessManagerProxy</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="NetworkAccessManagerProxy.createRequest" ID="NetworkAccessManagerProxy.createRequest"></a>
+<h4>NetworkAccessManagerProxy.createRequest</h4>
+<b>createRequest</b>(<i>op, request, outgoingData=None</i>)
+<p>
+        Public method to create a request.
+</p><dl>
+<dt><i>op</i></dt>
+<dd>
+the operation to be performed
+            (QNetworkAccessManager.Operation)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>outgoingData</i></dt>
+<dd>
+reference to an IODevice containing data to be sent
+            (QIODevice)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created reply object (QNetworkReply)
+</dd>
+</dl><a NAME="NetworkAccessManagerProxy.setPrimaryNetworkAccessManager" ID="NetworkAccessManagerProxy.setPrimaryNetworkAccessManager"></a>
+<h4>NetworkAccessManagerProxy.setPrimaryNetworkAccessManager</h4>
+<b>setPrimaryNetworkAccessManager</b>(<i>manager</i>)
+<p>
+        Public method to set the primary network access manager.
+</p><dl>
+<dt><i>manager</i></dt>
+<dd>
+reference to the network access manager object
+            (QNetworkAccessManager)
+</dd>
+</dl><a NAME="NetworkAccessManagerProxy.setWebPage" ID="NetworkAccessManagerProxy.setWebPage"></a>
+<h4>NetworkAccessManagerProxy.setWebPage</h4>
+<b>setWebPage</b>(<i>page</i>)
+<p>
+        Public method to set the reference to a web page.
+</p><dl>
+<dt><i>page</i></dt>
+<dd>
+reference to the web page object (HelpWebPage)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

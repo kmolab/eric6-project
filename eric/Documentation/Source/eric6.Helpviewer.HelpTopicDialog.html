@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.HelpTopicDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.HelpTopicDialog</h1>
+<p>
+Module implementing a dialog to select a help topic to display.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpTopicDialog">HelpTopicDialog</a></td>
+<td>Class implementing a dialog to select a help topic to display.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HelpTopicDialog" ID="HelpTopicDialog"></a>
+<h2>HelpTopicDialog</h2>
+<p>
+    Class implementing a dialog to select a help topic to display.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HelpTopicDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpTopicDialog.__init__">HelpTopicDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpTopicDialog.link">link</a></td>
+<td>Public method to the link of the selected topic.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpTopicDialog.__init__" ID="HelpTopicDialog.__init__"></a>
+<h4>HelpTopicDialog (Constructor)</h4>
+<b>HelpTopicDialog</b>(<i>parent, keyword, links</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd><dt><i>keyword</i></dt>
+<dd>
+keyword for the link set (string)
+</dd><dt><i>links</i></dt>
+<dd>
+dictionary with help topic as key (string) and
+            URL as value (QUrl)
+</dd>
+</dl><a NAME="HelpTopicDialog.link" ID="HelpTopicDialog.link"></a>
+<h4>HelpTopicDialog.link</h4>
+<b>link</b>(<i></i>)
+<p>
+        Public method to the link of the selected topic.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+URL of the selected topic (QUrl)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

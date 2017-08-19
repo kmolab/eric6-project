@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.FindFileNameDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.FindFileNameDialog</h1>
+<p>
+Module implementing a dialog to search for files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FindFileNameDialog">FindFileNameDialog</a></td>
+<td>Class implementing a dialog to search for files.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FindFileNameDialog" ID="FindFileNameDialog"></a>
+<h2>FindFileNameDialog</h2>
+<p>
+    Class implementing a dialog to search for files.
+</p><p>
+    The occurrences found are displayed in a QTreeWidget showing the
+    filename and the pathname. The file will be opened upon a double click
+    onto the respective entry of the list.
+</p><h3>Signals</h3>
+<dl>
+<dt>designerFile(str)</dt>
+<dd>
+emitted to open a Qt-Designer file
+</dd><dt>sourceFile(str)</dt>
+<dd>
+emitted to open a file in the editor
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget, Ui_FindFileNameDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FindFileNameDialog.__init__">FindFileNameDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.__openFile">__openFile</a></td>
+<td>Private slot to open a file.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.__searchFile">__searchFile</a></td>
+<td>Private slot to handle the search.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.checkStop">checkStop</a></td>
+<td>Public method to check, if the search should be stopped.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_fileExtEdit_textChanged">on_fileExtEdit_textChanged</a></td>
+<td>Private slot to handle the textChanged signal of the file extension edit.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_fileList_currentItemChanged">on_fileList_currentItemChanged</a></td>
+<td>Private slot handling a change of the current item.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_fileList_itemActivated">on_fileList_itemActivated</a></td>
+<td>Private slot to handle the double click on a file item.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_fileNameEdit_textChanged">on_fileNameEdit_textChanged</a></td>
+<td>Private slot to handle the textChanged signal of the file name edit.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_projectCheckBox_toggled">on_projectCheckBox_toggled</a></td>
+<td>Private slot to handle the toggled signal of the project checkbox.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_searchDirCheckBox_toggled">on_searchDirCheckBox_toggled</a></td>
+<td>Private slot to handle the toggled signal of the search directory checkbox.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_searchDirPicker_textChanged">on_searchDirPicker_textChanged</a></td>
+<td>Private slot to handle the textChanged signal of the search directory edit.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.on_syspathCheckBox_toggled">on_syspathCheckBox_toggled</a></td>
+<td>Private slot to handle the toggled signal of the sys.path checkbox.</td>
+</tr><tr>
+<td><a href="#FindFileNameDialog.show">show</a></td>
+<td>Public method to enable/disable the project checkbox.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FindFileNameDialog.__init__" ID="FindFileNameDialog.__init__"></a>
+<h4>FindFileNameDialog (Constructor)</h4>
+<b>FindFileNameDialog</b>(<i>project, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd>
+</dl><a NAME="FindFileNameDialog.__openFile" ID="FindFileNameDialog.__openFile"></a>
+<h4>FindFileNameDialog.__openFile</h4>
+<b>__openFile</b>(<i>itm=None</i>)
+<p>
+        Private slot to open a file.
+</p><p>
+        It emits the signal sourceFile or designerFile depending on the
+        file extension.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+item to be opened (QTreeWidgetItem)
+</dd>
+</dl><a NAME="FindFileNameDialog.__searchFile" ID="FindFileNameDialog.__searchFile"></a>
+<h4>FindFileNameDialog.__searchFile</h4>
+<b>__searchFile</b>(<i></i>)
+<p>
+        Private slot to handle the search.
+</p><a NAME="FindFileNameDialog.checkStop" ID="FindFileNameDialog.checkStop"></a>
+<h4>FindFileNameDialog.checkStop</h4>
+<b>checkStop</b>(<i></i>)
+<p>
+        Public method to check, if the search should be stopped.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the search should be stopped (boolean)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_buttonBox_clicked" ID="FindFileNameDialog.on_buttonBox_clicked"></a>
+<h4>FindFileNameDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_fileExtEdit_textChanged" ID="FindFileNameDialog.on_fileExtEdit_textChanged"></a>
+<h4>FindFileNameDialog.on_fileExtEdit_textChanged</h4>
+<b>on_fileExtEdit_textChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the textChanged signal of the file extension
+        edit.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+(ignored)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_fileList_currentItemChanged" ID="FindFileNameDialog.on_fileList_currentItemChanged"></a>
+<h4>FindFileNameDialog.on_fileList_currentItemChanged</h4>
+<b>on_fileList_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot handling a change of the current item.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+current item (QTreeWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+prevoius current item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_fileList_itemActivated" ID="FindFileNameDialog.on_fileList_itemActivated"></a>
+<h4>FindFileNameDialog.on_fileList_itemActivated</h4>
+<b>on_fileList_itemActivated</b>(<i>itm, column</i>)
+<p>
+        Private slot to handle the double click on a file item.
+</p><p>
+        It emits the signal sourceFile or designerFile depending on the
+        file extension.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+the double clicked listview item (QTreeWidgetItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column that was double clicked (integer) (ignored)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_fileNameEdit_textChanged" ID="FindFileNameDialog.on_fileNameEdit_textChanged"></a>
+<h4>FindFileNameDialog.on_fileNameEdit_textChanged</h4>
+<b>on_fileNameEdit_textChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the textChanged signal of the file name edit.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+(ignored)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_projectCheckBox_toggled" ID="FindFileNameDialog.on_projectCheckBox_toggled"></a>
+<h4>FindFileNameDialog.on_projectCheckBox_toggled</h4>
+<b>on_projectCheckBox_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle the toggled signal of the project checkbox.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the state of the checkbox (boolean)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_searchDirCheckBox_toggled" ID="FindFileNameDialog.on_searchDirCheckBox_toggled"></a>
+<h4>FindFileNameDialog.on_searchDirCheckBox_toggled</h4>
+<b>on_searchDirCheckBox_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle the toggled signal of the search directory
+        checkbox.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the state of the checkbox (boolean)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_searchDirPicker_textChanged" ID="FindFileNameDialog.on_searchDirPicker_textChanged"></a>
+<h4>FindFileNameDialog.on_searchDirPicker_textChanged</h4>
+<b>on_searchDirPicker_textChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the textChanged signal of the search directory
+        edit.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text of the search dir edit (string)
+</dd>
+</dl><a NAME="FindFileNameDialog.on_syspathCheckBox_toggled" ID="FindFileNameDialog.on_syspathCheckBox_toggled"></a>
+<h4>FindFileNameDialog.on_syspathCheckBox_toggled</h4>
+<b>on_syspathCheckBox_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle the toggled signal of the sys.path checkbox.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the state of the checkbox (boolean)
+</dd>
+</dl><a NAME="FindFileNameDialog.show" ID="FindFileNameDialog.show"></a>
+<h4>FindFileNameDialog.show</h4>
+<b>show</b>(<i></i>)
+<p>
+        Public method to enable/disable the project checkbox.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

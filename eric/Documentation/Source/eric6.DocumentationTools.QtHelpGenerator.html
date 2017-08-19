@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.DocumentationTools.QtHelpGenerator</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.DocumentationTools.QtHelpGenerator</h1>
+<p>
+Module implementing the QtHelp generator for the builtin documentation
+generator.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>HelpCollection</td></tr><tr><td>HelpCollectionFile</td></tr><tr><td>HelpCollectionProjectFile</td></tr><tr><td>HelpHelpFile</td></tr><tr><td>HelpProject</td></tr><tr><td>HelpProjectFile</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#QtHelpGenerator">QtHelpGenerator</a></td>
+<td>Class implementing the QtHelp generator for the builtin documentation generator.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="QtHelpGenerator" ID="QtHelpGenerator"></a>
+<h2>QtHelpGenerator</h2>
+<p>
+    Class implementing the QtHelp generator for the builtin documentation
+    generator.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QtHelpGenerator.__init__">QtHelpGenerator</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#QtHelpGenerator.__convertEol">__convertEol</a></td>
+<td>Private method to convert the newline characters.</td>
+</tr><tr>
+<td><a href="#QtHelpGenerator.__generateSections">__generateSections</a></td>
+<td>Private method to generate the sections part.</td>
+</tr><tr>
+<td><a href="#QtHelpGenerator.generateFiles">generateFiles</a></td>
+<td>Public method to generate all index files.</td>
+</tr><tr>
+<td><a href="#QtHelpGenerator.remember">remember</a></td>
+<td>Public method to remember a documentation file.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QtHelpGenerator.__init__" ID="QtHelpGenerator.__init__"></a>
+<h4>QtHelpGenerator (Constructor)</h4>
+<b>QtHelpGenerator</b>(<i>htmlDir, outputDir, namespace, virtualFolder, filterName, filterAttributes, title, createCollection</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>htmlDir</i></dt>
+<dd>
+directory containing the HTML files (string)
+</dd><dt><i>outputDir</i></dt>
+<dd>
+output directory for the files (string)
+</dd><dt><i>namespace</i></dt>
+<dd>
+namespace to be used (string)
+</dd><dt><i>virtualFolder</i></dt>
+<dd>
+virtual folder to be used (string)
+</dd><dt><i>filterName</i></dt>
+<dd>
+name of the custom filter (string)
+</dd><dt><i>filterAttributes</i></dt>
+<dd>
+':' separated list of filter attributes
+            (string)
+</dd><dt><i>title</i></dt>
+<dd>
+title to be used for the generated help (string)
+</dd><dt><i>createCollection</i></dt>
+<dd>
+flag indicating the generation of the
+            collection files (boolean)
+</dd>
+</dl><a NAME="QtHelpGenerator.__convertEol" ID="QtHelpGenerator.__convertEol"></a>
+<h4>QtHelpGenerator.__convertEol</h4>
+<b>__convertEol</b>(<i>txt, newline</i>)
+<p>
+        Private method to convert the newline characters.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be converted (string)
+</dd><dt><i>newline</i></dt>
+<dd>
+newline character to be used (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+converted text (string)
+</dd>
+</dl><a NAME="QtHelpGenerator.__generateSections" ID="QtHelpGenerator.__generateSections"></a>
+<h4>QtHelpGenerator.__generateSections</h4>
+<b>__generateSections</b>(<i>package, level</i>)
+<p>
+        Private method to generate the sections part.
+</p><dl>
+<dt><i>package</i></dt>
+<dd>
+name of the package to process (string)
+</dd><dt><i>level</i></dt>
+<dd>
+indentation level (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+sections part (string)
+</dd>
+</dl><a NAME="QtHelpGenerator.generateFiles" ID="QtHelpGenerator.generateFiles"></a>
+<h4>QtHelpGenerator.generateFiles</h4>
+<b>generateFiles</b>(<i>basename="", newline=None</i>)
+<p>
+        Public method to generate all index files.
+</p><dl>
+<dt><i>basename</i></dt>
+<dd>
+The basename of the file hierarchy to be documented.
+            The basename is stripped off the filename if it starts with
+            the basename.
+</dd><dt><i>newline</i></dt>
+<dd>
+newline character to be used (string)
+</dd>
+</dl><a NAME="QtHelpGenerator.remember" ID="QtHelpGenerator.remember"></a>
+<h4>QtHelpGenerator.remember</h4>
+<b>remember</b>(<i>file, moduleDocument, basename=""</i>)
+<p>
+        Public method to remember a documentation file.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+The filename to be remembered. (string)
+</dd><dt><i>moduleDocument</i></dt>
+<dd>
+The ModuleDocument object containing the
+            information for the file.
+</dd><dt><i>basename</i></dt>
+<dd>
+The basename of the file hierarchy to be documented.
+            The basename is stripped off the filename if it starts with
+            the basename.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

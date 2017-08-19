@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.QScintilla.SearchReplaceWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.QScintilla.SearchReplaceWidget</h1>
+<p>
+Module implementing the search and replace widget.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SearchReplaceSlidingWidget">SearchReplaceSlidingWidget</a></td>
+<td>Class implementing the search and replace widget with sliding behavior.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget">SearchReplaceWidget</a></td>
+<td>Class implementing the search and replace widget.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SearchReplaceSlidingWidget" ID="SearchReplaceSlidingWidget"></a>
+<h2>SearchReplaceSlidingWidget</h2>
+<p>
+    Class implementing the search and replace widget with sliding behavior.
+</p><h3>Signals</h3>
+<dl>
+<dt>searchListChanged()</dt>
+<dd>
+emitted to indicate a change of the search list
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SearchReplaceSlidingWidget.__init__">SearchReplaceSlidingWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.__enableScrollerButtons">__enableScrollerButtons</a></td>
+<td>Private method to set the enabled state of the scroll buttons.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.__slide">__slide</a></td>
+<td>Private method to move the sliding widget.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.__slideLeft">__slideLeft</a></td>
+<td>Private slot to move the widget to the left, i.e.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.__slideRight">__slideRight</a></td>
+<td>Private slot to move the widget to the right, i.e.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.changeEvent">changeEvent</a></td>
+<td>Protected method handling state changes.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.findNext">findNext</a></td>
+<td>Public slot to find the next occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.findPrev">findPrev</a></td>
+<td>Public slot to find the next previous of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.replace">replace</a></td>
+<td>Public method to replace the current selection.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.replaceAll">replaceAll</a></td>
+<td>Public method to replace all occurrences.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.replaceSearch">replaceSearch</a></td>
+<td>Public method to replace the current selection and search again.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.resizeEvent">resizeEvent</a></td>
+<td>Protected method to handle resize events.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.selectionChanged">selectionChanged</a></td>
+<td>Public slot tracking changes of selected text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.show">show</a></td>
+<td>Public slot to show the widget.</td>
+</tr><tr>
+<td><a href="#SearchReplaceSlidingWidget.updateSelectionCheckBox">updateSelectionCheckBox</a></td>
+<td>Public slot to update the selection check box.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SearchReplaceSlidingWidget.__init__" ID="SearchReplaceSlidingWidget.__init__"></a>
+<h4>SearchReplaceSlidingWidget (Constructor)</h4>
+<b>SearchReplaceSlidingWidget</b>(<i>replace, vm, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>replace</i></dt>
+<dd>
+flag indicating a replace widget is called
+</dd><dt><i>vm</i></dt>
+<dd>
+reference to the viewmanager object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this widget (QWidget)
+</dd>
+</dl><a NAME="SearchReplaceSlidingWidget.__enableScrollerButtons" ID="SearchReplaceSlidingWidget.__enableScrollerButtons"></a>
+<h4>SearchReplaceSlidingWidget.__enableScrollerButtons</h4>
+<b>__enableScrollerButtons</b>(<i></i>)
+<p>
+        Private method to set the enabled state of the scroll buttons.
+</p><a NAME="SearchReplaceSlidingWidget.__slide" ID="SearchReplaceSlidingWidget.__slide"></a>
+<h4>SearchReplaceSlidingWidget.__slide</h4>
+<b>__slide</b>(<i>toLeft</i>)
+<p>
+        Private method to move the sliding widget.
+</p><dl>
+<dt><i>toLeft</i></dt>
+<dd>
+flag indicating to move to the left (boolean)
+</dd>
+</dl><a NAME="SearchReplaceSlidingWidget.__slideLeft" ID="SearchReplaceSlidingWidget.__slideLeft"></a>
+<h4>SearchReplaceSlidingWidget.__slideLeft</h4>
+<b>__slideLeft</b>(<i></i>)
+<p>
+        Private slot to move the widget to the left, i.e. show contents to the
+        right.
+</p><a NAME="SearchReplaceSlidingWidget.__slideRight" ID="SearchReplaceSlidingWidget.__slideRight"></a>
+<h4>SearchReplaceSlidingWidget.__slideRight</h4>
+<b>__slideRight</b>(<i></i>)
+<p>
+        Private slot to move the widget to the right, i.e. show contents to
+        the left.
+</p><a NAME="SearchReplaceSlidingWidget.changeEvent" ID="SearchReplaceSlidingWidget.changeEvent"></a>
+<h4>SearchReplaceSlidingWidget.changeEvent</h4>
+<b>changeEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling state changes.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+event containing the state change (QEvent)
+</dd>
+</dl><a NAME="SearchReplaceSlidingWidget.findNext" ID="SearchReplaceSlidingWidget.findNext"></a>
+<h4>SearchReplaceSlidingWidget.findNext</h4>
+<b>findNext</b>(<i></i>)
+<p>
+        Public slot to find the next occurrence of text.
+</p><a NAME="SearchReplaceSlidingWidget.findPrev" ID="SearchReplaceSlidingWidget.findPrev"></a>
+<h4>SearchReplaceSlidingWidget.findPrev</h4>
+<b>findPrev</b>(<i></i>)
+<p>
+        Public slot to find the next previous of text.
+</p><a NAME="SearchReplaceSlidingWidget.replace" ID="SearchReplaceSlidingWidget.replace"></a>
+<h4>SearchReplaceSlidingWidget.replace</h4>
+<b>replace</b>(<i></i>)
+<p>
+        Public method to replace the current selection.
+</p><a NAME="SearchReplaceSlidingWidget.replaceAll" ID="SearchReplaceSlidingWidget.replaceAll"></a>
+<h4>SearchReplaceSlidingWidget.replaceAll</h4>
+<b>replaceAll</b>(<i></i>)
+<p>
+        Public method to replace all occurrences.
+</p><a NAME="SearchReplaceSlidingWidget.replaceSearch" ID="SearchReplaceSlidingWidget.replaceSearch"></a>
+<h4>SearchReplaceSlidingWidget.replaceSearch</h4>
+<b>replaceSearch</b>(<i></i>)
+<p>
+        Public method to replace the current selection and search again.
+</p><a NAME="SearchReplaceSlidingWidget.resizeEvent" ID="SearchReplaceSlidingWidget.resizeEvent"></a>
+<h4>SearchReplaceSlidingWidget.resizeEvent</h4>
+<b>resizeEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle resize events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the resize event (QResizeEvent)
+</dd>
+</dl><a NAME="SearchReplaceSlidingWidget.selectionChanged" ID="SearchReplaceSlidingWidget.selectionChanged"></a>
+<h4>SearchReplaceSlidingWidget.selectionChanged</h4>
+<b>selectionChanged</b>(<i></i>)
+<p>
+        Public slot tracking changes of selected text.
+</p><a NAME="SearchReplaceSlidingWidget.show" ID="SearchReplaceSlidingWidget.show"></a>
+<h4>SearchReplaceSlidingWidget.show</h4>
+<b>show</b>(<i>text=''</i>)
+<p>
+        Public slot to show the widget.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be shown in the findtext edit (string)
+</dd>
+</dl><a NAME="SearchReplaceSlidingWidget.updateSelectionCheckBox" ID="SearchReplaceSlidingWidget.updateSelectionCheckBox"></a>
+<h4>SearchReplaceSlidingWidget.updateSelectionCheckBox</h4>
+<b>updateSelectionCheckBox</b>(<i>editor</i>)
+<p>
+        Public slot to update the selection check box.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (Editor)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="SearchReplaceWidget" ID="SearchReplaceWidget"></a>
+<h2>SearchReplaceWidget</h2>
+<p>
+    Class implementing the search and replace widget.
+</p><h3>Signals</h3>
+<dl>
+<dt>searchListChanged()</dt>
+<dd>
+emitted to indicate a change of the search list
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SearchReplaceWidget.__init__">SearchReplaceWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__doReplace">__doReplace</a></td>
+<td>Private method to replace one occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__findByReturnPressed">__findByReturnPressed</a></td>
+<td>Private slot to handle the returnPressed signal of the findtext combobox.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__findNextPrev">__findNextPrev</a></td>
+<td>Private method to find the next occurrence of the search text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__markOccurrences">__markOccurrences</a></td>
+<td>Private method to mark all occurrences of the search text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__selectionBoundary">__selectionBoundary</a></td>
+<td>Private method to calculate the current selection boundary.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__setFindNextEnabled">__setFindNextEnabled</a></td>
+<td>Private method to set the enabled state of "Find Next".</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__setFindPrevEnabled">__setFindPrevEnabled</a></td>
+<td>Private method to set the enabled state of "Find Prev".</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__setReplaceAllEnabled">__setReplaceAllEnabled</a></td>
+<td>Private method to set the enabled state of "Replace All".</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__setReplaceAndSearchEnabled">__setReplaceAndSearchEnabled</a></td>
+<td>Private method to set the enabled state of "Replace And Search".</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__setReplaceSelectionEnabled">__setReplaceSelectionEnabled</a></td>
+<td>Private method to set the enabled state of "Replace Occurrence".</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__setShortcuts">__setShortcuts</a></td>
+<td>Private method to set the local action's shortcuts to the same key sequences as in the view manager.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__showFind">__showFind</a></td>
+<td>Private method to display this widget in find mode.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.__showReplace">__showReplace</a></td>
+<td>Private slot to display this widget in replace mode.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.changeEvent">changeEvent</a></td>
+<td>Protected method handling state changes.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.findNext">findNext</a></td>
+<td>Public slot to find the next occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.findPrev">findPrev</a></td>
+<td>Public slot to find the next previous of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.keyPressEvent">keyPressEvent</a></td>
+<td>Protected slot to handle key press events.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_closeButton_clicked">on_closeButton_clicked</a></td>
+<td>Private slot to close the widget.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_findNextButton_clicked">on_findNextButton_clicked</a></td>
+<td>Private slot to find the next occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_findPrevButton_clicked">on_findPrevButton_clicked</a></td>
+<td>Private slot to find the previous occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_findtextCombo_editTextChanged">on_findtextCombo_editTextChanged</a></td>
+<td>Private slot to enable/disable the find buttons.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_replaceAllButton_clicked">on_replaceAllButton_clicked</a></td>
+<td>Private slot to replace all occurrences of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_replaceButton_clicked">on_replaceButton_clicked</a></td>
+<td>Private slot to replace one occurrence of text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.on_replaceSearchButton_clicked">on_replaceSearchButton_clicked</a></td>
+<td>Private slot to replace one occurrence of text and search for the next one.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.replace">replace</a></td>
+<td>Public method to replace the current selection.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.replaceAll">replaceAll</a></td>
+<td>Public method to replace all occurrences.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.replaceSearch">replaceSearch</a></td>
+<td>Public method to replace the current selection and search again.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.selectionChanged">selectionChanged</a></td>
+<td>Public slot tracking changes of selected text.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.show">show</a></td>
+<td>Public slot to show the widget.</td>
+</tr><tr>
+<td><a href="#SearchReplaceWidget.updateSelectionCheckBox">updateSelectionCheckBox</a></td>
+<td>Public slot to update the selection check box.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SearchReplaceWidget.__init__" ID="SearchReplaceWidget.__init__"></a>
+<h4>SearchReplaceWidget (Constructor)</h4>
+<b>SearchReplaceWidget</b>(<i>replace, vm, parent=None, sliding=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>replace</i></dt>
+<dd>
+flag indicating a replace widget is called
+</dd><dt><i>vm</i></dt>
+<dd>
+reference to the viewmanager object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this widget (QWidget)
+</dd><dt><i>sliding</i></dt>
+<dd>
+flag indicating the widget is embedded in the
+            sliding widget (boolean)
+</dd>
+</dl><a NAME="SearchReplaceWidget.__doReplace" ID="SearchReplaceWidget.__doReplace"></a>
+<h4>SearchReplaceWidget.__doReplace</h4>
+<b>__doReplace</b>(<i>searchNext</i>)
+<p>
+        Private method to replace one occurrence of text.
+</p><dl>
+<dt><i>searchNext</i></dt>
+<dd>
+flag indicating to search for the next occurrence
+        (boolean).
+</dd>
+</dl><a NAME="SearchReplaceWidget.__findByReturnPressed" ID="SearchReplaceWidget.__findByReturnPressed"></a>
+<h4>SearchReplaceWidget.__findByReturnPressed</h4>
+<b>__findByReturnPressed</b>(<i></i>)
+<p>
+        Private slot to handle the returnPressed signal of the findtext
+        combobox.
+</p><a NAME="SearchReplaceWidget.__findNextPrev" ID="SearchReplaceWidget.__findNextPrev"></a>
+<h4>SearchReplaceWidget.__findNextPrev</h4>
+<b>__findNextPrev</b>(<i>txt, backwards</i>)
+<p>
+        Private method to find the next occurrence of the search text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to search for (string)
+</dd><dt><i>backwards</i></dt>
+<dd>
+flag indicating a backwards search (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="SearchReplaceWidget.__markOccurrences" ID="SearchReplaceWidget.__markOccurrences"></a>
+<h4>SearchReplaceWidget.__markOccurrences</h4>
+<b>__markOccurrences</b>(<i>txt</i>)
+<p>
+        Private method to mark all occurrences of the search text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to search for (string)
+</dd>
+</dl><a NAME="SearchReplaceWidget.__selectionBoundary" ID="SearchReplaceWidget.__selectionBoundary"></a>
+<h4>SearchReplaceWidget.__selectionBoundary</h4>
+<b>__selectionBoundary</b>(<i>selections=None</i>)
+<p>
+        Private method to calculate the current selection boundary.
+</p><dl>
+<dt><i>selections</i></dt>
+<dd>
+optional parameter giving the selections to
+            calculate the boundary for (list of tuples of four integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of start line and index and end line and index
+            (tuple of four integer)
+</dd>
+</dl><a NAME="SearchReplaceWidget.__setFindNextEnabled" ID="SearchReplaceWidget.__setFindNextEnabled"></a>
+<h4>SearchReplaceWidget.__setFindNextEnabled</h4>
+<b>__setFindNextEnabled</b>(<i>enable</i>)
+<p>
+        Private method to set the enabled state of "Find Next".
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating the enable state to be set
+</dd>
+</dl><a NAME="SearchReplaceWidget.__setFindPrevEnabled" ID="SearchReplaceWidget.__setFindPrevEnabled"></a>
+<h4>SearchReplaceWidget.__setFindPrevEnabled</h4>
+<b>__setFindPrevEnabled</b>(<i>enable</i>)
+<p>
+        Private method to set the enabled state of "Find Prev".
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating the enable state to be set
+</dd>
+</dl><a NAME="SearchReplaceWidget.__setReplaceAllEnabled" ID="SearchReplaceWidget.__setReplaceAllEnabled"></a>
+<h4>SearchReplaceWidget.__setReplaceAllEnabled</h4>
+<b>__setReplaceAllEnabled</b>(<i>enable</i>)
+<p>
+        Private method to set the enabled state of "Replace All".
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating the enable state to be set
+</dd>
+</dl><a NAME="SearchReplaceWidget.__setReplaceAndSearchEnabled" ID="SearchReplaceWidget.__setReplaceAndSearchEnabled"></a>
+<h4>SearchReplaceWidget.__setReplaceAndSearchEnabled</h4>
+<b>__setReplaceAndSearchEnabled</b>(<i>enable</i>)
+<p>
+        Private method to set the enabled state of "Replace And Search".
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating the enable state to be set
+</dd>
+</dl><a NAME="SearchReplaceWidget.__setReplaceSelectionEnabled" ID="SearchReplaceWidget.__setReplaceSelectionEnabled"></a>
+<h4>SearchReplaceWidget.__setReplaceSelectionEnabled</h4>
+<b>__setReplaceSelectionEnabled</b>(<i>enable</i>)
+<p>
+        Private method to set the enabled state of "Replace Occurrence".
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating the enable state to be set
+</dd>
+</dl><a NAME="SearchReplaceWidget.__setShortcuts" ID="SearchReplaceWidget.__setShortcuts"></a>
+<h4>SearchReplaceWidget.__setShortcuts</h4>
+<b>__setShortcuts</b>(<i></i>)
+<p>
+        Private method to set the local action's shortcuts to the same key
+        sequences as in the view manager.
+</p><a NAME="SearchReplaceWidget.__showFind" ID="SearchReplaceWidget.__showFind"></a>
+<h4>SearchReplaceWidget.__showFind</h4>
+<b>__showFind</b>(<i>text=''</i>)
+<p>
+        Private method to display this widget in find mode.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be shown in the findtext edit (string)
+</dd>
+</dl><a NAME="SearchReplaceWidget.__showReplace" ID="SearchReplaceWidget.__showReplace"></a>
+<h4>SearchReplaceWidget.__showReplace</h4>
+<b>__showReplace</b>(<i>text=''</i>)
+<p>
+        Private slot to display this widget in replace mode.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be shown in the findtext edit
+</dd>
+</dl><a NAME="SearchReplaceWidget.changeEvent" ID="SearchReplaceWidget.changeEvent"></a>
+<h4>SearchReplaceWidget.changeEvent</h4>
+<b>changeEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling state changes.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+event containing the state change (QEvent)
+</dd>
+</dl><a NAME="SearchReplaceWidget.findNext" ID="SearchReplaceWidget.findNext"></a>
+<h4>SearchReplaceWidget.findNext</h4>
+<b>findNext</b>(<i></i>)
+<p>
+        Public slot to find the next occurrence of text.
+</p><a NAME="SearchReplaceWidget.findPrev" ID="SearchReplaceWidget.findPrev"></a>
+<h4>SearchReplaceWidget.findPrev</h4>
+<b>findPrev</b>(<i></i>)
+<p>
+        Public slot to find the next previous of text.
+</p><a NAME="SearchReplaceWidget.keyPressEvent" ID="SearchReplaceWidget.keyPressEvent"></a>
+<h4>SearchReplaceWidget.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>event</i>)
+<p>
+        Protected slot to handle key press events.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+reference to the key press event (QKeyEvent)
+</dd>
+</dl><a NAME="SearchReplaceWidget.on_closeButton_clicked" ID="SearchReplaceWidget.on_closeButton_clicked"></a>
+<h4>SearchReplaceWidget.on_closeButton_clicked</h4>
+<b>on_closeButton_clicked</b>(<i></i>)
+<p>
+        Private slot to close the widget.
+</p><a NAME="SearchReplaceWidget.on_findNextButton_clicked" ID="SearchReplaceWidget.on_findNextButton_clicked"></a>
+<h4>SearchReplaceWidget.on_findNextButton_clicked</h4>
+<b>on_findNextButton_clicked</b>(<i></i>)
+<p>
+        Private slot to find the next occurrence of text.
+</p><a NAME="SearchReplaceWidget.on_findPrevButton_clicked" ID="SearchReplaceWidget.on_findPrevButton_clicked"></a>
+<h4>SearchReplaceWidget.on_findPrevButton_clicked</h4>
+<b>on_findPrevButton_clicked</b>(<i></i>)
+<p>
+        Private slot to find the previous occurrence of text.
+</p><a NAME="SearchReplaceWidget.on_findtextCombo_editTextChanged" ID="SearchReplaceWidget.on_findtextCombo_editTextChanged"></a>
+<h4>SearchReplaceWidget.on_findtextCombo_editTextChanged</h4>
+<b>on_findtextCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to enable/disable the find buttons.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the find text combo (string)
+</dd>
+</dl><a NAME="SearchReplaceWidget.on_replaceAllButton_clicked" ID="SearchReplaceWidget.on_replaceAllButton_clicked"></a>
+<h4>SearchReplaceWidget.on_replaceAllButton_clicked</h4>
+<b>on_replaceAllButton_clicked</b>(<i></i>)
+<p>
+        Private slot to replace all occurrences of text.
+</p><a NAME="SearchReplaceWidget.on_replaceButton_clicked" ID="SearchReplaceWidget.on_replaceButton_clicked"></a>
+<h4>SearchReplaceWidget.on_replaceButton_clicked</h4>
+<b>on_replaceButton_clicked</b>(<i></i>)
+<p>
+        Private slot to replace one occurrence of text.
+</p><a NAME="SearchReplaceWidget.on_replaceSearchButton_clicked" ID="SearchReplaceWidget.on_replaceSearchButton_clicked"></a>
+<h4>SearchReplaceWidget.on_replaceSearchButton_clicked</h4>
+<b>on_replaceSearchButton_clicked</b>(<i></i>)
+<p>
+        Private slot to replace one occurrence of text and search for the next
+        one.
+</p><a NAME="SearchReplaceWidget.replace" ID="SearchReplaceWidget.replace"></a>
+<h4>SearchReplaceWidget.replace</h4>
+<b>replace</b>(<i></i>)
+<p>
+        Public method to replace the current selection.
+</p><a NAME="SearchReplaceWidget.replaceAll" ID="SearchReplaceWidget.replaceAll"></a>
+<h4>SearchReplaceWidget.replaceAll</h4>
+<b>replaceAll</b>(<i></i>)
+<p>
+        Public method to replace all occurrences.
+</p><a NAME="SearchReplaceWidget.replaceSearch" ID="SearchReplaceWidget.replaceSearch"></a>
+<h4>SearchReplaceWidget.replaceSearch</h4>
+<b>replaceSearch</b>(<i></i>)
+<p>
+        Public method to replace the current selection and search again.
+</p><a NAME="SearchReplaceWidget.selectionChanged" ID="SearchReplaceWidget.selectionChanged"></a>
+<h4>SearchReplaceWidget.selectionChanged</h4>
+<b>selectionChanged</b>(<i></i>)
+<p>
+        Public slot tracking changes of selected text.
+</p><a NAME="SearchReplaceWidget.show" ID="SearchReplaceWidget.show"></a>
+<h4>SearchReplaceWidget.show</h4>
+<b>show</b>(<i>text=''</i>)
+<p>
+        Public slot to show the widget.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be shown in the findtext edit (string)
+</dd>
+</dl><a NAME="SearchReplaceWidget.updateSelectionCheckBox" ID="SearchReplaceWidget.updateSelectionCheckBox"></a>
+<h4>SearchReplaceWidget.updateSelectionCheckBox</h4>
+<b>updateSelectionCheckBox</b>(<i>editor</i>)
+<p>
+        Public slot to update the selection check box.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (Editor)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

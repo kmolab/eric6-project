@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.FollowRedirectReply</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.FollowRedirectReply</h1>
+<p>
+Module implementing a network reply delegate allowing to check redirects.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FollowRedirectReply">FollowRedirectReply</a></td>
+<td>Class implementing a network reply delegate allowing to check redirects.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FollowRedirectReply" ID="FollowRedirectReply"></a>
+<h2>FollowRedirectReply</h2>
+<p>
+    Class implementing a network reply delegate allowing to check redirects.
+</p><h3>Signals</h3>
+<dl>
+<dt>finished()</dt>
+<dd>
+emitted to indicate the end of the redirect
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FollowRedirectReply.__init__">FollowRedirectReply</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.__replyFinished">__replyFinished</a></td>
+<td>Private slot handling the receipt of the requested data.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.close">close</a></td>
+<td>Public method to close the data stream.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.error">error</a></td>
+<td>Public method to get the error information.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.errorString">errorString</a></td>
+<td>Public method to get the error message.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.originalUrl">originalUrl</a></td>
+<td>Public method to get the original URL.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.readAll">readAll</a></td>
+<td>Public method to read all received data.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.reply">reply</a></td>
+<td>Public method to get the reply object.</td>
+</tr><tr>
+<td><a href="#FollowRedirectReply.url">url</a></td>
+<td>Public method to get the final URL (after redirects).</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FollowRedirectReply.__init__" ID="FollowRedirectReply.__init__"></a>
+<h4>FollowRedirectReply (Constructor)</h4>
+<b>FollowRedirectReply</b>(<i>url, manager, maxRedirects=5</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to get (QUrl)
+</dd><dt><i>manager</i></dt>
+<dd>
+reference to the network access manager
+            (QNetworkAccessManager)
+</dd><dt><i>maxRedirects=</i></dt>
+<dd>
+maximum allowed redirects (integer)
+</dd>
+</dl><a NAME="FollowRedirectReply.__replyFinished" ID="FollowRedirectReply.__replyFinished"></a>
+<h4>FollowRedirectReply.__replyFinished</h4>
+<b>__replyFinished</b>(<i></i>)
+<p>
+        Private slot handling the receipt of the requested data.
+</p><a NAME="FollowRedirectReply.close" ID="FollowRedirectReply.close"></a>
+<h4>FollowRedirectReply.close</h4>
+<b>close</b>(<i></i>)
+<p>
+        Public method to close the data stream.
+</p><a NAME="FollowRedirectReply.error" ID="FollowRedirectReply.error"></a>
+<h4>FollowRedirectReply.error</h4>
+<b>error</b>(<i></i>)
+<p>
+        Public method to get the error information.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+error code (QNetworkReply.NetworkError)
+</dd>
+</dl><a NAME="FollowRedirectReply.errorString" ID="FollowRedirectReply.errorString"></a>
+<h4>FollowRedirectReply.errorString</h4>
+<b>errorString</b>(<i></i>)
+<p>
+        Public method to get the error message.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+error message (string)
+</dd>
+</dl><a NAME="FollowRedirectReply.originalUrl" ID="FollowRedirectReply.originalUrl"></a>
+<h4>FollowRedirectReply.originalUrl</h4>
+<b>originalUrl</b>(<i></i>)
+<p>
+        Public method to get the original URL.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+original URL (QUrl)
+</dd>
+</dl><a NAME="FollowRedirectReply.readAll" ID="FollowRedirectReply.readAll"></a>
+<h4>FollowRedirectReply.readAll</h4>
+<b>readAll</b>(<i></i>)
+<p>
+        Public method to read all received data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+received raw data (QByteArray)
+</dd>
+</dl><a NAME="FollowRedirectReply.reply" ID="FollowRedirectReply.reply"></a>
+<h4>FollowRedirectReply.reply</h4>
+<b>reply</b>(<i></i>)
+<p>
+        Public method to get the reply object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd>
+</dl><a NAME="FollowRedirectReply.url" ID="FollowRedirectReply.url"></a>
+<h4>FollowRedirectReply.url</h4>
+<b>url</b>(<i></i>)
+<p>
+        Public method to get the final URL (after redirects).
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+final URL (QUrl)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

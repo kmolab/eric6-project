@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.WizardPlugins.QRegExpWizard.QRegExpWizardDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.WizardPlugins.QRegExpWizard.QRegExpWizardDialog</h1>
+<p>
+Module implementing the QRegExp wizard dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#QRegExpWizardDialog">QRegExpWizardDialog</a></td>
+<td>Class for the dialog variant.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget">QRegExpWizardWidget</a></td>
+<td>Class implementing the QRegExp wizard dialog.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWindow">QRegExpWizardWindow</a></td>
+<td>Main window class for the standalone dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="QRegExpWizardDialog" ID="QRegExpWizardDialog"></a>
+<h2>QRegExpWizardDialog</h2>
+<p>
+    Class for the dialog variant.
+</p>
+<h3>Derived from</h3>
+QDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QRegExpWizardDialog.__init__">QRegExpWizardDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#QRegExpWizardDialog.getCode">getCode</a></td>
+<td>Public method to get the source code.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QRegExpWizardDialog.__init__" ID="QRegExpWizardDialog.__init__"></a>
+<h4>QRegExpWizardDialog (Constructor)</h4>
+<b>QRegExpWizardDialog</b>(<i>parent=None, fromEric=True</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd><dt><i>fromEric</i></dt>
+<dd>
+flag indicating a call from within eric6
+</dd>
+</dl><a NAME="QRegExpWizardDialog.getCode" ID="QRegExpWizardDialog.getCode"></a>
+<h4>QRegExpWizardDialog.getCode</h4>
+<b>getCode</b>(<i>indLevel, indString</i>)
+<p>
+        Public method to get the source code.
+</p><dl>
+<dt><i>indLevel</i></dt>
+<dd>
+indentation level (int)
+</dd><dt><i>indString</i></dt>
+<dd>
+string used for indentation (space or tab) (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+generated code (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="QRegExpWizardWidget" ID="QRegExpWizardWidget"></a>
+<h2>QRegExpWizardWidget</h2>
+<p>
+    Class implementing the QRegExp wizard dialog.
+</p>
+<h3>Derived from</h3>
+QWidget, Ui_QRegExpWizardWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QRegExpWizardWidget.__init__">QRegExpWizardWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.__getPatternSyntaxCode">__getPatternSyntaxCode</a></td>
+<td>Private method to convert a pattern syntax value into a pattern syntax string.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.__insertString">__insertString</a></td>
+<td>Private method to insert a string into line edit and move cursor.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.getCode">getCode</a></td>
+<td>Public method to get the source code.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_altnButton_clicked">on_altnButton_clicked</a></td>
+<td>Private slot to handle the alternatives toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_anycharButton_clicked">on_anycharButton_clicked</a></td>
+<td>Private slot to handle the any character toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_beglineButton_clicked">on_beglineButton_clicked</a></td>
+<td>Private slot to handle the begin line toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_charButton_clicked">on_charButton_clicked</a></td>
+<td>Private slot to handle the characters toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_copyButton_clicked">on_copyButton_clicked</a></td>
+<td>Private slot to copy the regexp string into the clipboard.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_endlineButton_clicked">on_endlineButton_clicked</a></td>
+<td>Private slot to handle the end line toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_executeButton_clicked">on_executeButton_clicked</a></td>
+<td>Private slot to execute the entered regexp on the test text.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_groupButton_clicked">on_groupButton_clicked</a></td>
+<td>Private slot to handle the group toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_loadButton_clicked">on_loadButton_clicked</a></td>
+<td>Private slot to load a regexp from a file.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_neglookaheadButton_clicked">on_neglookaheadButton_clicked</a></td>
+<td>Private slot to handle the negative lookahead toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_nextButton_clicked">on_nextButton_clicked</a></td>
+<td>Private slot to find the next match.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_nonGroupButton_clicked">on_nonGroupButton_clicked</a></td>
+<td>Private slot to handle the non group toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_nonwordboundButton_clicked">on_nonwordboundButton_clicked</a></td>
+<td>Private slot to handle the non word boundary toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_poslookaheadButton_clicked">on_poslookaheadButton_clicked</a></td>
+<td>Private slot to handle the positive lookahead toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_regexpLineEdit_textChanged">on_regexpLineEdit_textChanged</a></td>
+<td>Private slot called when the regexp changes.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_repeatButton_clicked">on_repeatButton_clicked</a></td>
+<td>Private slot to handle the repeat toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_saveButton_clicked">on_saveButton_clicked</a></td>
+<td>Private slot to save the regexp to a file.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_syntaxCombo_currentIndexChanged">on_syntaxCombo_currentIndexChanged</a></td>
+<td>Private slot handling the selection of a pattern syntax.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_validateButton_clicked">on_validateButton_clicked</a></td>
+<td>Private slot to validate the entered regexp.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_w3cAltnButton_clicked">on_w3cAltnButton_clicked</a></td>
+<td>Private slot to handle the alternatives toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_w3cAnycharButton_clicked">on_w3cAnycharButton_clicked</a></td>
+<td>Private slot to handle the W3C any character toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_w3cCharButton_clicked">on_w3cCharButton_clicked</a></td>
+<td>Private slot to handle the wildcard characters toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_w3cGroupButton_clicked">on_w3cGroupButton_clicked</a></td>
+<td>Private slot to handle the W3C group toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_w3cRepeatButton_clicked">on_w3cRepeatButton_clicked</a></td>
+<td>Private slot to handle the W3C repeat toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_wildcardAnycharButton_clicked">on_wildcardAnycharButton_clicked</a></td>
+<td>Private slot to handle the wildcard any character toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_wildcardCharButton_clicked">on_wildcardCharButton_clicked</a></td>
+<td>Private slot to handle the wildcard characters toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_wildcardRepeatButton_clicked">on_wildcardRepeatButton_clicked</a></td>
+<td>Private slot to handle the wildcard multiple characters toolbutton.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardWidget.on_wordboundButton_clicked">on_wordboundButton_clicked</a></td>
+<td>Private slot to handle the word boundary toolbutton.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QRegExpWizardWidget.__init__" ID="QRegExpWizardWidget.__init__"></a>
+<h4>QRegExpWizardWidget (Constructor)</h4>
+<b>QRegExpWizardWidget</b>(<i>parent=None, fromEric=True</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd><dt><i>fromEric</i></dt>
+<dd>
+flag indicating a call from within eric6
+</dd>
+</dl><a NAME="QRegExpWizardWidget.__getPatternSyntaxCode" ID="QRegExpWizardWidget.__getPatternSyntaxCode"></a>
+<h4>QRegExpWizardWidget.__getPatternSyntaxCode</h4>
+<b>__getPatternSyntaxCode</b>(<i>syntaxValue</i>)
+<p>
+        Private method to convert a pattern syntax value into a
+        pattern syntax string.
+</p><dl>
+<dt><i>syntaxValue</i></dt>
+<dd>
+pattern syntax value (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+pattern syntax string (string)
+</dd>
+</dl><a NAME="QRegExpWizardWidget.__insertString" ID="QRegExpWizardWidget.__insertString"></a>
+<h4>QRegExpWizardWidget.__insertString</h4>
+<b>__insertString</b>(<i>s, steps=0</i>)
+<p>
+        Private method to insert a string into line edit and move cursor.
+</p><dl>
+<dt><i>s</i></dt>
+<dd>
+string to be inserted into the regexp line edit
+            (string)
+</dd><dt><i>steps</i></dt>
+<dd>
+number of characters to move the cursor (integer).
+            Negative steps moves cursor back, positives forward.
+</dd>
+</dl><a NAME="QRegExpWizardWidget.getCode" ID="QRegExpWizardWidget.getCode"></a>
+<h4>QRegExpWizardWidget.getCode</h4>
+<b>getCode</b>(<i>indLevel, indString</i>)
+<p>
+        Public method to get the source code.
+</p><dl>
+<dt><i>indLevel</i></dt>
+<dd>
+indentation level (int)
+</dd><dt><i>indString</i></dt>
+<dd>
+string used for indentation (space or tab) (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+generated code (string)
+</dd>
+</dl><a NAME="QRegExpWizardWidget.on_altnButton_clicked" ID="QRegExpWizardWidget.on_altnButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_altnButton_clicked</h4>
+<b>on_altnButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the alternatives toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_anycharButton_clicked" ID="QRegExpWizardWidget.on_anycharButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_anycharButton_clicked</h4>
+<b>on_anycharButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the any character toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_beglineButton_clicked" ID="QRegExpWizardWidget.on_beglineButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_beglineButton_clicked</h4>
+<b>on_beglineButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the begin line toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_buttonBox_clicked" ID="QRegExpWizardWidget.on_buttonBox_clicked"></a>
+<h4>QRegExpWizardWidget.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="QRegExpWizardWidget.on_charButton_clicked" ID="QRegExpWizardWidget.on_charButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_charButton_clicked</h4>
+<b>on_charButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the characters toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_copyButton_clicked" ID="QRegExpWizardWidget.on_copyButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_copyButton_clicked</h4>
+<b>on_copyButton_clicked</b>(<i></i>)
+<p>
+        Private slot to copy the regexp string into the clipboard.
+</p><p>
+        This slot is only available, if not called from within eric6.
+</p><a NAME="QRegExpWizardWidget.on_endlineButton_clicked" ID="QRegExpWizardWidget.on_endlineButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_endlineButton_clicked</h4>
+<b>on_endlineButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the end line toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_executeButton_clicked" ID="QRegExpWizardWidget.on_executeButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_executeButton_clicked</h4>
+<b>on_executeButton_clicked</b>(<i>startpos=0</i>)
+<p>
+        Private slot to execute the entered regexp on the test text.
+</p><p>
+        This slot will execute the entered regexp on the entered test
+        data and will display the result in the table part of the dialog.
+</p><dl>
+<dt><i>startpos</i></dt>
+<dd>
+starting position for the regexp matching
+</dd>
+</dl><a NAME="QRegExpWizardWidget.on_groupButton_clicked" ID="QRegExpWizardWidget.on_groupButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_groupButton_clicked</h4>
+<b>on_groupButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the group toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_loadButton_clicked" ID="QRegExpWizardWidget.on_loadButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_loadButton_clicked</h4>
+<b>on_loadButton_clicked</b>(<i></i>)
+<p>
+        Private slot to load a regexp from a file.
+</p><a NAME="QRegExpWizardWidget.on_neglookaheadButton_clicked" ID="QRegExpWizardWidget.on_neglookaheadButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_neglookaheadButton_clicked</h4>
+<b>on_neglookaheadButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the negative lookahead toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_nextButton_clicked" ID="QRegExpWizardWidget.on_nextButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_nextButton_clicked</h4>
+<b>on_nextButton_clicked</b>(<i></i>)
+<p>
+        Private slot to find the next match.
+</p><a NAME="QRegExpWizardWidget.on_nonGroupButton_clicked" ID="QRegExpWizardWidget.on_nonGroupButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_nonGroupButton_clicked</h4>
+<b>on_nonGroupButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the non group toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_nonwordboundButton_clicked" ID="QRegExpWizardWidget.on_nonwordboundButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_nonwordboundButton_clicked</h4>
+<b>on_nonwordboundButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the non word boundary toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_poslookaheadButton_clicked" ID="QRegExpWizardWidget.on_poslookaheadButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_poslookaheadButton_clicked</h4>
+<b>on_poslookaheadButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the positive lookahead toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_regexpLineEdit_textChanged" ID="QRegExpWizardWidget.on_regexpLineEdit_textChanged"></a>
+<h4>QRegExpWizardWidget.on_regexpLineEdit_textChanged</h4>
+<b>on_regexpLineEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot called when the regexp changes.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+the new text of the line edit (string)
+</dd>
+</dl><a NAME="QRegExpWizardWidget.on_repeatButton_clicked" ID="QRegExpWizardWidget.on_repeatButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_repeatButton_clicked</h4>
+<b>on_repeatButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the repeat toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_saveButton_clicked" ID="QRegExpWizardWidget.on_saveButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_saveButton_clicked</h4>
+<b>on_saveButton_clicked</b>(<i></i>)
+<p>
+        Private slot to save the regexp to a file.
+</p><a NAME="QRegExpWizardWidget.on_syntaxCombo_currentIndexChanged" ID="QRegExpWizardWidget.on_syntaxCombo_currentIndexChanged"></a>
+<h4>QRegExpWizardWidget.on_syntaxCombo_currentIndexChanged</h4>
+<b>on_syntaxCombo_currentIndexChanged</b>(<i>index</i>)
+<p>
+        Private slot handling the selection of a pattern syntax.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the selected entry (integer)
+</dd>
+</dl><a NAME="QRegExpWizardWidget.on_validateButton_clicked" ID="QRegExpWizardWidget.on_validateButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_validateButton_clicked</h4>
+<b>on_validateButton_clicked</b>(<i></i>)
+<p>
+        Private slot to validate the entered regexp.
+</p><a NAME="QRegExpWizardWidget.on_w3cAltnButton_clicked" ID="QRegExpWizardWidget.on_w3cAltnButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_w3cAltnButton_clicked</h4>
+<b>on_w3cAltnButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the alternatives toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_w3cAnycharButton_clicked" ID="QRegExpWizardWidget.on_w3cAnycharButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_w3cAnycharButton_clicked</h4>
+<b>on_w3cAnycharButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the W3C any character toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_w3cCharButton_clicked" ID="QRegExpWizardWidget.on_w3cCharButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_w3cCharButton_clicked</h4>
+<b>on_w3cCharButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the wildcard characters toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_w3cGroupButton_clicked" ID="QRegExpWizardWidget.on_w3cGroupButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_w3cGroupButton_clicked</h4>
+<b>on_w3cGroupButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the W3C group toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_w3cRepeatButton_clicked" ID="QRegExpWizardWidget.on_w3cRepeatButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_w3cRepeatButton_clicked</h4>
+<b>on_w3cRepeatButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the W3C repeat toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_wildcardAnycharButton_clicked" ID="QRegExpWizardWidget.on_wildcardAnycharButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_wildcardAnycharButton_clicked</h4>
+<b>on_wildcardAnycharButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the wildcard any character toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_wildcardCharButton_clicked" ID="QRegExpWizardWidget.on_wildcardCharButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_wildcardCharButton_clicked</h4>
+<b>on_wildcardCharButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the wildcard characters toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_wildcardRepeatButton_clicked" ID="QRegExpWizardWidget.on_wildcardRepeatButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_wildcardRepeatButton_clicked</h4>
+<b>on_wildcardRepeatButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the wildcard multiple characters toolbutton.
+</p><a NAME="QRegExpWizardWidget.on_wordboundButton_clicked" ID="QRegExpWizardWidget.on_wordboundButton_clicked"></a>
+<h4>QRegExpWizardWidget.on_wordboundButton_clicked</h4>
+<b>on_wordboundButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the word boundary toolbutton.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="QRegExpWizardWindow" ID="QRegExpWizardWindow"></a>
+<h2>QRegExpWizardWindow</h2>
+<p>
+    Main window class for the standalone dialog.
+</p>
+<h3>Derived from</h3>
+E5MainWindow
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QRegExpWizardWindow.__init__">QRegExpWizardWindow</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QRegExpWizardWindow.__init__" ID="QRegExpWizardWindow.__init__"></a>
+<h4>QRegExpWizardWindow (Constructor)</h4>
+<b>QRegExpWizardWindow</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

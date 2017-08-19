@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5Ftp</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5Ftp</h1>
+<p>
+Module implementing an extension to the Python FTP class to support FTP
+proxies.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5Ftp">E5Ftp</a></td>
+<td>Class implementing an extension to the Python FTP class to support FTP proxies.</td>
+</tr><tr>
+<td><a href="#E5FtpProxyError">E5FtpProxyError</a></td>
+<td>Class to signal an error related to proxy configuration.</td>
+</tr><tr>
+<td><a href="#E5FtpProxyType">E5FtpProxyType</a></td>
+<td>Class defining the supported FTP proxy types.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5Ftp" ID="E5Ftp"></a>
+<h2>E5Ftp</h2>
+<p>
+    Class implementing an extension to the Python FTP class to support FTP
+    proxies.
+</p>
+<h3>Derived from</h3>
+ftplib.FTP
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5Ftp.__init__">E5Ftp</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5Ftp.connect">connect</a></td>
+<td>Public method to connect to the given FTP server.</td>
+</tr><tr>
+<td><a href="#E5Ftp.login">login</a></td>
+<td>Public method to login to the FTP server.</td>
+</tr><tr>
+<td><a href="#E5Ftp.setProxy">setProxy</a></td>
+<td>Public method to set the proxy configuration.</td>
+</tr><tr>
+<td><a href="#E5Ftp.setProxyAuthentication">setProxyAuthentication</a></td>
+<td>Public method to set the proxy authentication info.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5Ftp.__init__" ID="E5Ftp.__init__"></a>
+<h4>E5Ftp (Constructor)</h4>
+<b>E5Ftp</b>(<i>host="", user="", password="", acct="", proxyType=E5FtpProxyType.NoProxy, proxyHost="", proxyPort=ftplib.FTP_PORT, proxyUser="", proxyPassword="", proxyAccount="", timeout=_GLOBAL_DEFAULT_TIMEOUT</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>host</i></dt>
+<dd>
+name of the FTP host (string)
+</dd><dt><i>user</i></dt>
+<dd>
+user name for login to FTP host (string)
+</dd><dt><i>password</i></dt>
+<dd>
+password for login to FTP host (string)
+</dd><dt><i>acct</i></dt>
+<dd>
+account for login to FTP host (string)
+</dd><dt><i>proxyType</i></dt>
+<dd>
+type of the FTP proxy (integer 0 to 8)
+</dd><dt><i>proxyHost</i></dt>
+<dd>
+name of the FTP proxy (string)
+</dd><dt><i>proxyPort</i></dt>
+<dd>
+port of the FTP proxy (integer)
+</dd><dt><i>proxyUser</i></dt>
+<dd>
+user name for login to the proxy (string)
+</dd><dt><i>proxyPassword</i></dt>
+<dd>
+password for login to the proxy (string)
+</dd><dt><i>proxyAccount</i></dt>
+<dd>
+accounting info for the proxy (string)
+</dd><dt><i>timeout</i></dt>
+<dd>
+timeout in seconds for blocking operations (integer)
+</dd>
+</dl><a NAME="E5Ftp.connect" ID="E5Ftp.connect"></a>
+<h4>E5Ftp.connect</h4>
+<b>connect</b>(<i>host="", port=0, timeout=-999</i>)
+<p>
+        Public method to connect to the given FTP server.
+</p><p>
+        This extended method connects to the proxy instead of the given host,
+        if a proxy is to be used. It throws an exception, if the proxy data
+        is incomplete.
+</p><dl>
+<dt><i>host</i></dt>
+<dd>
+name of the FTP host (string)
+</dd><dt><i>port</i></dt>
+<dd>
+port of the FTP host (integer)
+</dd><dt><i>timeout</i></dt>
+<dd>
+timeout in seconds for blocking operations (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+welcome message of the server (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>E5FtpProxyError</b>:</dt>
+<dd>
+raised to indicate a proxy related issue
+</dd>
+</dl><a NAME="E5Ftp.login" ID="E5Ftp.login"></a>
+<h4>E5Ftp.login</h4>
+<b>login</b>(<i>user="", password="", acct=""</i>)
+<p>
+        Public method to login to the FTP server.
+</p><p>
+        This extended method respects the FTP proxy configuration. There are
+        many different FTP proxy products available. But unfortunately there
+        is no standard for how o traverse a FTP proxy. The lis below shows
+        the sequence of commands used.
+</p><p>
+        <table>
+          <tr><td>user</td><td>Username for remote host</td></tr>
+          <tr><td>pass</td><td>Password for remote host</td></tr>
+          <tr><td>pruser</td><td>Username for FTP proxy</td></tr>
+          <tr><td>prpass</td><td>Password for FTP proxy</td></tr>
+          <tr><td>remote.host</td><td>Hostname of the remote FTP server</td>
+          </tr>
+        </table>
+</p><p>
+        <dl>
+          <dt>E5FtpProxyType.NoProxy:</dt>
+          <dd>
+            USER user<br/>
+            PASS pass
+          </dd>
+          <dt>E5FtpProxyType.NonAuthorizing:</dt>
+          <dd>
+            USER user@remote.host<br/>
+            PASS pass
+          </dd>
+          <dt>E5FtpProxyType.UserAtServer:</dt>
+          <dd>
+            USER pruser<br/>
+            PASS prpass<br/>
+            USER user@remote.host<br/>
+            PASS pass
+          </dd>
+          <dt>E5FtpProxyType.Site:</dt>
+          <dd>
+            USER pruser<br/>
+            PASS prpass<br/>
+            SITE remote.site<br/>
+            USER user<br/>
+            PASS pass
+          </dd>
+          <dt>E5FtpProxyType.Open:</dt>
+          <dd>
+            USER pruser<br/>
+            PASS prpass<br/>
+            OPEN remote.site<br/>
+            USER user<br/>
+            PASS pass
+          </dd>
+          <dt>E5FtpProxyType.UserAtProxyuserAtServer:</dt>
+          <dd>
+            USER user@pruser@remote.host<br/>
+            PASS pass@prpass
+          </dd>
+          <dt>E5FtpProxyType.ProxyuserAtServer:</dt>
+          <dd>
+            USER pruser@remote.host<br/>
+            PASS prpass<br/>
+            USER user<br/>
+            PASS pass
+          </dd>
+          <dt>E5FtpProxyType.AuthResp:</dt>
+          <dd>
+            USER user@remote.host<br/>
+            PASS pass<br/>
+            AUTH pruser<br/>
+            RESP prpass
+          </dd>
+          <dt>E5FtpProxyType.Bluecoat:</dt>
+          <dd>
+            USER user@remote.host pruser<br/>
+            PASS pass<br/>
+            ACCT prpass
+          </dd>
+        </dl>
+</p><dl>
+<dt><i>user</i></dt>
+<dd>
+username for the remote host (string)
+</dd><dt><i>password</i></dt>
+<dd>
+password for the remote host (string)
+</dd><dt><i>acct</i></dt>
+<dd>
+accounting information for the remote host (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+response sent by the remote host (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>E5FtpProxyError</b>:</dt>
+<dd>
+raised to indicate a proxy related issue
+</dd><dt>Raises <b>ftplib.error_reply</b>:</dt>
+<dd>
+raised to indicate an FTP error reply
+</dd>
+</dl><a NAME="E5Ftp.setProxy" ID="E5Ftp.setProxy"></a>
+<h4>E5Ftp.setProxy</h4>
+<b>setProxy</b>(<i>proxyType=E5FtpProxyType.NoProxy, proxyHost="", proxyPort=ftplib.FTP_PORT, proxyUser="", proxyPassword="", proxyAccount=""</i>)
+<p>
+        Public method to set the proxy configuration.
+</p><dl>
+<dt><i>proxyType</i></dt>
+<dd>
+type of the FTP proxy (integer 0 to 8)
+</dd><dt><i>proxyHost</i></dt>
+<dd>
+name of the FTP proxy (string)
+</dd><dt><i>proxyPort</i></dt>
+<dd>
+port of the FTP proxy (integer)
+</dd><dt><i>proxyUser</i></dt>
+<dd>
+user name for login to the proxy (string)
+</dd><dt><i>proxyPassword</i></dt>
+<dd>
+password  for login to the proxy (string)
+</dd><dt><i>proxyAccount</i></dt>
+<dd>
+accounting info for the proxy (string)
+</dd>
+</dl><a NAME="E5Ftp.setProxyAuthentication" ID="E5Ftp.setProxyAuthentication"></a>
+<h4>E5Ftp.setProxyAuthentication</h4>
+<b>setProxyAuthentication</b>(<i>proxyUser="", proxyPassword="", proxyAccount=""</i>)
+<p>
+        Public method to set the proxy authentication info.
+</p><dl>
+<dt><i>proxyUser</i></dt>
+<dd>
+user name for login to the proxy (string)
+</dd><dt><i>proxyPassword</i></dt>
+<dd>
+password  for login to the proxy (string)
+</dd><dt><i>proxyAccount</i></dt>
+<dd>
+accounting info for the proxy (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5FtpProxyError" ID="E5FtpProxyError"></a>
+<h2>E5FtpProxyError</h2>
+<p>
+    Class to signal an error related to proxy configuration.
+</p><p>
+    The error message starts with a three digit error code followed by a
+    space and the error string. Supported error codes are:
+    <ul>
+      <li>910: proxy error; the second number gives the category of the proxy
+          error. The original response from the proxy is appended in the next
+          line.</li>
+      <li>930: proxy error; the second number gives the category of the proxy
+          error. The original response from the proxy is appended in the next
+          line.</li>
+      <li>940: proxy error; the second number gives the category of the proxy
+          error. The original response from the proxy is appended in the next
+          line.</li>
+      <li>950: proxy error; the second number gives the category of the proxy
+          error. The original response from the proxy is appended in the next
+          line.</li>
+      <li>990: proxy usage is enabled but no proxy host given</li>
+      <li>991: proxy usage is enabled but no proxy user given</li>
+      <li>992: proxy usage is enabled but no proxy password given</li>
+    </ul>
+</p>
+<h3>Derived from</h3>
+ftplib.Error
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5FtpProxyType" ID="E5FtpProxyType"></a>
+<h2>E5FtpProxyType</h2>
+<p>
+    Class defining the supported FTP proxy types.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>AuthResp</td></tr><tr><td>Bluecoat</td></tr><tr><td>NoProxy</td></tr><tr><td>NonAuthorizing</td></tr><tr><td>Open</td></tr><tr><td>ProxyuserAtServer</td></tr><tr><td>Site</td></tr><tr><td>UserAtProxyuserAtServer</td></tr><tr><td>UserAtServer</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

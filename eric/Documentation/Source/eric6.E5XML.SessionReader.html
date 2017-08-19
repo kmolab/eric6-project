@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5XML.SessionReader</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5XML.SessionReader</h1>
+<p>
+Module implementing a class for reading an XML session file.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SessionReader">SessionReader</a></td>
+<td>Class for reading an XML session file.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SessionReader" ID="SessionReader"></a>
+<h2>SessionReader</h2>
+<p>
+    Class for reading an XML session file.
+</p>
+<h3>Derived from</h3>
+XMLStreamReaderBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>supportedVersions</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SessionReader.__init__">SessionReader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SessionReader.__readBookmark">__readBookmark</a></td>
+<td>Private method to read the bookmark info.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readBookmarks">__readBookmarks</a></td>
+<td>Private method to read the bookmark infos.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readBreakpoint">__readBreakpoint</a></td>
+<td>Private method to read the break point info.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readBreakpoints">__readBreakpoints</a></td>
+<td>Private method to read the break point infos.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readDebugInfo">__readDebugInfo</a></td>
+<td>Private method to read the debug infos.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readFilenames">__readFilenames</a></td>
+<td>Private method to read the file name infos.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readProjectBrowserState">__readProjectBrowserState</a></td>
+<td>Private method to read the project browser state info.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readProjectBrowserStates">__readProjectBrowserStates</a></td>
+<td>Private method to read the project browser state infos.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readWatchexpression">__readWatchexpression</a></td>
+<td>Private method to read the watch expression info.</td>
+</tr><tr>
+<td><a href="#SessionReader.__readWatchexpressions">__readWatchexpressions</a></td>
+<td>Private method to read watch expression infos.</td>
+</tr><tr>
+<td><a href="#SessionReader.readXML">readXML</a></td>
+<td>Public method to read and parse the XML document.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SessionReader.__init__" ID="SessionReader.__init__"></a>
+<h4>SessionReader (Constructor)</h4>
+<b>SessionReader</b>(<i>device, isGlobal</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>device</i></dt>
+<dd>
+reference to the I/O device to read from (QIODevice)
+</dd><dt><i>isGlobal</i></dt>
+<dd>
+flag indicating to read the global session (boolean).
+</dd>
+</dl><a NAME="SessionReader.__readBookmark" ID="SessionReader.__readBookmark"></a>
+<h4>SessionReader.__readBookmark</h4>
+<b>__readBookmark</b>(<i></i>)
+<p>
+        Private method to read the bookmark info.
+</p><a NAME="SessionReader.__readBookmarks" ID="SessionReader.__readBookmarks"></a>
+<h4>SessionReader.__readBookmarks</h4>
+<b>__readBookmarks</b>(<i></i>)
+<p>
+        Private method to read the bookmark infos.
+</p><a NAME="SessionReader.__readBreakpoint" ID="SessionReader.__readBreakpoint"></a>
+<h4>SessionReader.__readBreakpoint</h4>
+<b>__readBreakpoint</b>(<i></i>)
+<p>
+        Private method to read the break point info.
+</p><a NAME="SessionReader.__readBreakpoints" ID="SessionReader.__readBreakpoints"></a>
+<h4>SessionReader.__readBreakpoints</h4>
+<b>__readBreakpoints</b>(<i></i>)
+<p>
+        Private method to read the break point infos.
+</p><a NAME="SessionReader.__readDebugInfo" ID="SessionReader.__readDebugInfo"></a>
+<h4>SessionReader.__readDebugInfo</h4>
+<b>__readDebugInfo</b>(<i></i>)
+<p>
+        Private method to read the debug infos.
+</p><a NAME="SessionReader.__readFilenames" ID="SessionReader.__readFilenames"></a>
+<h4>SessionReader.__readFilenames</h4>
+<b>__readFilenames</b>(<i></i>)
+<p>
+        Private method to read the file name infos.
+</p><a NAME="SessionReader.__readProjectBrowserState" ID="SessionReader.__readProjectBrowserState"></a>
+<h4>SessionReader.__readProjectBrowserState</h4>
+<b>__readProjectBrowserState</b>(<i>browserName</i>)
+<p>
+        Private method to read the project browser state info.
+</p><dl>
+<dt><i>browserName</i></dt>
+<dd>
+name of the project browser (string)
+</dd>
+</dl><a NAME="SessionReader.__readProjectBrowserStates" ID="SessionReader.__readProjectBrowserStates"></a>
+<h4>SessionReader.__readProjectBrowserStates</h4>
+<b>__readProjectBrowserStates</b>(<i></i>)
+<p>
+        Private method to read the project browser state infos.
+</p><a NAME="SessionReader.__readWatchexpression" ID="SessionReader.__readWatchexpression"></a>
+<h4>SessionReader.__readWatchexpression</h4>
+<b>__readWatchexpression</b>(<i></i>)
+<p>
+        Private method to read the watch expression info.
+</p><a NAME="SessionReader.__readWatchexpressions" ID="SessionReader.__readWatchexpressions"></a>
+<h4>SessionReader.__readWatchexpressions</h4>
+<b>__readWatchexpressions</b>(<i></i>)
+<p>
+        Private method to read watch expression infos.
+</p><a NAME="SessionReader.readXML" ID="SessionReader.readXML"></a>
+<h4>SessionReader.readXML</h4>
+<b>readXML</b>(<i>quiet=False</i>)
+<p>
+        Public method to read and parse the XML document.
+</p><dl>
+<dt><i>quiet</i></dt>
+<dd>
+flag indicating quiet operations.
+                If this flag is true, no errors are reported.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

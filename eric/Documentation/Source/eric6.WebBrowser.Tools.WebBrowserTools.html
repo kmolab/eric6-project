@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.Tools.WebBrowserTools</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.Tools.WebBrowserTools</h1>
+<p>
+Module implementing tool functions for the web browser.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#containsSpace">containsSpace</a></td>
+<td>Function to check, if a string contains whitespace characters.</td>
+</tr><tr>
+<td><a href="#ensureUniqueFilename">ensureUniqueFilename</a></td>
+<td>Module function to generate an unique file name based on a pattern.</td>
+</tr><tr>
+<td><a href="#filterCharsFromFilename">filterCharsFromFilename</a></td>
+<td>Module function to filter illegal characters.</td>
+</tr><tr>
+<td><a href="#getFileNameFromUrl">getFileNameFromUrl</a></td>
+<td>Module function to generate a file name based on the given URL.</td>
+</tr><tr>
+<td><a href="#getWebEngineVersions">getWebEngineVersions</a></td>
+<td>Module function to extract the web engine version from the default user agent string.</td>
+</tr><tr>
+<td><a href="#pixmapFromByteArray">pixmapFromByteArray</a></td>
+<td>Module function to convert a byte array to a pixmap.</td>
+</tr><tr>
+<td><a href="#pixmapToByteArray">pixmapToByteArray</a></td>
+<td>Module function to convert a pixmap to a byte array containing the pixmap as a PNG encoded as base64.</td>
+</tr><tr>
+<td><a href="#pixmapToDataUrl">pixmapToDataUrl</a></td>
+<td>Module function to convert a pixmap to a data: URL.</td>
+</tr><tr>
+<td><a href="#readAllFileByteContents">readAllFileByteContents</a></td>
+<td>Function to read the bytes contents of the given file.</td>
+</tr><tr>
+<td><a href="#readAllFileContents">readAllFileContents</a></td>
+<td>Function to read the string contents of the given file.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="containsSpace" ID="containsSpace"></a>
+<h2>containsSpace</h2>
+<b>containsSpace</b>(<i>string</i>)
+<p>
+    Function to check, if a string contains whitespace characters.
+</p><dl>
+<dt><i>string</i> (str)</dt>
+<dd>
+string to be checked
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of at least one whitespace character
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ensureUniqueFilename" ID="ensureUniqueFilename"></a>
+<h2>ensureUniqueFilename</h2>
+<b>ensureUniqueFilename</b>(<i>name, appendFormat="({0})"</i>)
+<p>
+    Module function to generate an unique file name based on a pattern.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+desired file name (string)
+</dd><dt><i>appendFormat</i></dt>
+<dd>
+format pattern to be used to make the unique name
+        (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+unique file name
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="filterCharsFromFilename" ID="filterCharsFromFilename"></a>
+<h2>filterCharsFromFilename</h2>
+<b>filterCharsFromFilename</b>(<i>name</i>)
+<p>
+    Module function to filter illegal characters.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name to be sanitized (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+sanitized name (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getFileNameFromUrl" ID="getFileNameFromUrl"></a>
+<h2>getFileNameFromUrl</h2>
+<b>getFileNameFromUrl</b>(<i>url</i>)
+<p>
+    Module function to generate a file name based on the given URL.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+file name (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getWebEngineVersions" ID="getWebEngineVersions"></a>
+<h2>getWebEngineVersions</h2>
+<b>getWebEngineVersions</b>(<i></i>)
+<p>
+    Module function to extract the web engine version from the default user
+    agent string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing the Chrome version and the QtWebEngine version
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pixmapFromByteArray" ID="pixmapFromByteArray"></a>
+<h2>pixmapFromByteArray</h2>
+<b>pixmapFromByteArray</b>(<i>data</i>)
+<p>
+    Module function to convert a byte array to a pixmap.
+</p><dl>
+<dt><i>data</i> (bytes or QByteArray)</dt>
+<dd>
+data for the pixmap
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+extracted pixmap
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QPixmap
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pixmapToByteArray" ID="pixmapToByteArray"></a>
+<h2>pixmapToByteArray</h2>
+<b>pixmapToByteArray</b>(<i>pixmap</i>)
+<p>
+    Module function to convert a pixmap to a byte array containing the pixmap
+    as a PNG encoded as base64.
+</p><dl>
+<dt><i>pixmap</i> (QPixmap)</dt>
+<dd>
+pixmap to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+byte array containing the pixmap
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QByteArray
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pixmapToDataUrl" ID="pixmapToDataUrl"></a>
+<h2>pixmapToDataUrl</h2>
+<b>pixmapToDataUrl</b>(<i>pixmap</i>)
+<p>
+    Module function to convert a pixmap to a data: URL.
+</p><dl>
+<dt><i>pixmap</i> (QPixmap)</dt>
+<dd>
+pixmap to be converted
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+data: URL
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QUrl
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readAllFileByteContents" ID="readAllFileByteContents"></a>
+<h2>readAllFileByteContents</h2>
+<b>readAllFileByteContents</b>(<i>filename</i>)
+<p>
+    Function to read the bytes contents of the given file.
+</p><dl>
+<dt><i>filename</i> (str)</dt>
+<dd>
+name of the file
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+contents of the file
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readAllFileContents" ID="readAllFileContents"></a>
+<h2>readAllFileContents</h2>
+<b>readAllFileContents</b>(<i>filename</i>)
+<p>
+    Function to read the string contents of the given file.
+</p><dl>
+<dt><i>filename</i> (str)</dt>
+<dd>
+name of the file
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+contents of the file
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

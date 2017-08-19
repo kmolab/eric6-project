@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.MultiProject.AddProjectDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.MultiProject.AddProjectDialog</h1>
+<p>
+Module implementing the add project dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#AddProjectDialog">AddProjectDialog</a></td>
+<td>Class implementing the add project dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="AddProjectDialog" ID="AddProjectDialog"></a>
+<h2>AddProjectDialog</h2>
+<p>
+    Class implementing the add project dialog.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_AddProjectDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AddProjectDialog.__init__">AddProjectDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#AddProjectDialog.__updateUi">__updateUi</a></td>
+<td>Private method to update the dialog.</td>
+</tr><tr>
+<td><a href="#AddProjectDialog.getData">getData</a></td>
+<td>Public slot to retrieve the dialogs data.</td>
+</tr><tr>
+<td><a href="#AddProjectDialog.on_filenamePicker_textChanged">on_filenamePicker_textChanged</a></td>
+<td>Private slot called when the project filename has changed.</td>
+</tr><tr>
+<td><a href="#AddProjectDialog.on_nameEdit_textChanged">on_nameEdit_textChanged</a></td>
+<td>Private slot called when the project name has changed.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AddProjectDialog.__init__" ID="AddProjectDialog.__init__"></a>
+<h4>AddProjectDialog (Constructor)</h4>
+<b>AddProjectDialog</b>(<i>parent=None, startdir=None, project=None, categories=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd><dt><i>startdir</i></dt>
+<dd>
+start directory for the selection dialog (string)
+</dd><dt><i>project</i></dt>
+<dd>
+dictionary containing project data
+</dd><dt><i>categories</i></dt>
+<dd>
+list of already used categories (list of string)
+</dd>
+</dl><a NAME="AddProjectDialog.__updateUi" ID="AddProjectDialog.__updateUi"></a>
+<h4>AddProjectDialog.__updateUi</h4>
+<b>__updateUi</b>(<i></i>)
+<p>
+        Private method to update the dialog.
+</p><a NAME="AddProjectDialog.getData" ID="AddProjectDialog.getData"></a>
+<h4>AddProjectDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public slot to retrieve the dialogs data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of five values (string, string, boolean, string, string)
+            giving the project name, the name of the project file, a flag
+            telling whether the project shall be the main project, a short
+            description for the project and the project category
+</dd>
+</dl><a NAME="AddProjectDialog.on_filenamePicker_textChanged" ID="AddProjectDialog.on_filenamePicker_textChanged"></a>
+<h4>AddProjectDialog.on_filenamePicker_textChanged</h4>
+<b>on_filenamePicker_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot called when the project filename has changed.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="AddProjectDialog.on_nameEdit_textChanged" ID="AddProjectDialog.on_nameEdit_textChanged"></a>
+<h4>AddProjectDialog.on_nameEdit_textChanged</h4>
+<b>on_nameEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot called when the project name has changed.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

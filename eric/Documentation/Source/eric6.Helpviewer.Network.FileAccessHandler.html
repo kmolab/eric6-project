@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.FileAccessHandler</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.FileAccessHandler</h1>
+<p>
+Module implementing a scheme access handler for file.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FileAccessHandler">FileAccessHandler</a></td>
+<td>Class implementing a scheme access handler for FTP.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FileAccessHandler" ID="FileAccessHandler"></a>
+<h2>FileAccessHandler</h2>
+<p>
+    Class implementing a scheme access handler for FTP.
+</p>
+<h3>Derived from</h3>
+SchemeAccessHandler
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FileAccessHandler.__init__">FileAccessHandler</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FileAccessHandler.createRequest">createRequest</a></td>
+<td>Public method to create a request.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FileAccessHandler.__init__" ID="FileAccessHandler.__init__"></a>
+<h4>FileAccessHandler (Constructor)</h4>
+<b>FileAccessHandler</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="FileAccessHandler.createRequest" ID="FileAccessHandler.createRequest"></a>
+<h4>FileAccessHandler.createRequest</h4>
+<b>createRequest</b>(<i>op, request, outgoingData=None</i>)
+<p>
+        Public method to create a request.
+</p><dl>
+<dt><i>op</i></dt>
+<dd>
+the operation to be performed
+            (QNetworkAccessManager.Operation)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>outgoingData</i></dt>
+<dd>
+reference to an IODevice containing data to be sent
+            (QIODevice)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created reply object (QNetworkReply)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.CheckerPlugins.Tabnanny.TabnannyDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.CheckerPlugins.Tabnanny.TabnannyDialog</h1>
+<p>
+Module implementing a dialog to show the output of the tabnanny command
+process.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#TabnannyDialog">TabnannyDialog</a></td>
+<td>Class implementing a dialog to show the results of the tabnanny check run.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="TabnannyDialog" ID="TabnannyDialog"></a>
+<h2>TabnannyDialog</h2>
+<p>
+    Class implementing a dialog to show the results of the tabnanny check run.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_TabnannyDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>filenameRole</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#TabnannyDialog.__init__">TabnannyDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__batchFinished">__batchFinished</a></td>
+<td>Private slot handling the completion of a batch job.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__createErrorItem">__createErrorItem</a></td>
+<td>Private slot to create a new error item in the result list.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__createResultItem">__createResultItem</a></td>
+<td>Private method to create an entry in the result list.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__finish">__finish</a></td>
+<td>Private slot called when the action or the user pressed the button.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__processError">__processError</a></td>
+<td>Private slot to process an error indication from the service.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__processResult">__processResult</a></td>
+<td>Private slot called after perfoming a style check on one file.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.__resort">__resort</a></td>
+<td>Private method to resort the tree.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.check">check</a></td>
+<td>Public method to start an indentation check for one file.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.checkBatch">checkBatch</a></td>
+<td>Public method to start an indentation check batch job.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.on_resultList_itemActivated">on_resultList_itemActivated</a></td>
+<td>Private slot to handle the activation of an item.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.on_startButton_clicked">on_startButton_clicked</a></td>
+<td>Private slot to start a code metrics run.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.prepare">prepare</a></td>
+<td>Public method to prepare the dialog with a list of filenames.</td>
+</tr><tr>
+<td><a href="#TabnannyDialog.start">start</a></td>
+<td>Public slot to start the tabnanny check.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="TabnannyDialog.__init__" ID="TabnannyDialog.__init__"></a>
+<h4>TabnannyDialog (Constructor)</h4>
+<b>TabnannyDialog</b>(<i>indentCheckService, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>indentCheckService</i></dt>
+<dd>
+reference to the service (IndentCheckService)
+</dd><dt><i>parent</i></dt>
+<dd>
+The parent widget (QWidget).
+</dd>
+</dl><a NAME="TabnannyDialog.__batchFinished" ID="TabnannyDialog.__batchFinished"></a>
+<h4>TabnannyDialog.__batchFinished</h4>
+<b>__batchFinished</b>(<i></i>)
+<p>
+        Private slot handling the completion of a batch job.
+</p><a NAME="TabnannyDialog.__createErrorItem" ID="TabnannyDialog.__createErrorItem"></a>
+<h4>TabnannyDialog.__createErrorItem</h4>
+<b>__createErrorItem</b>(<i>filename, message</i>)
+<p>
+        Private slot to create a new error item in the result list.
+</p><dl>
+<dt><i>filename</i> (str)</dt>
+<dd>
+name of the file
+</dd><dt><i>message</i> (str)</dt>
+<dd>
+error message
+</dd>
+</dl><a NAME="TabnannyDialog.__createResultItem" ID="TabnannyDialog.__createResultItem"></a>
+<h4>TabnannyDialog.__createResultItem</h4>
+<b>__createResultItem</b>(<i>filename, line, sourcecode</i>)
+<p>
+        Private method to create an entry in the result list.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+filename of file (string)
+</dd><dt><i>line</i></dt>
+<dd>
+linenumber of faulty source (integer or string)
+</dd><dt><i>sourcecode</i></dt>
+<dd>
+faulty line of code (string)
+</dd>
+</dl><a NAME="TabnannyDialog.__finish" ID="TabnannyDialog.__finish"></a>
+<h4>TabnannyDialog.__finish</h4>
+<b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the action or the user pressed the button.
+</p><a NAME="TabnannyDialog.__processError" ID="TabnannyDialog.__processError"></a>
+<h4>TabnannyDialog.__processError</h4>
+<b>__processError</b>(<i>fn, msg</i>)
+<p>
+        Private slot to process an error indication from the service.
+</p><dl>
+<dt><i>fn</i> (str)</dt>
+<dd>
+filename of the file
+</dd><dt><i>msg</i> (str)</dt>
+<dd>
+error message
+</dd>
+</dl><a NAME="TabnannyDialog.__processResult" ID="TabnannyDialog.__processResult"></a>
+<h4>TabnannyDialog.__processResult</h4>
+<b>__processResult</b>(<i>fn, nok, line, error</i>)
+<p>
+        Private slot called after perfoming a style check on one file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the just checked file (str)
+</dd><dt><i>nok</i></dt>
+<dd>
+flag if a problem was found (bool)
+</dd><dt><i>line</i></dt>
+<dd>
+line number (str)
+</dd><dt><i>error</i></dt>
+<dd>
+text of the problem (str)
+</dd>
+</dl><a NAME="TabnannyDialog.__resort" ID="TabnannyDialog.__resort"></a>
+<h4>TabnannyDialog.__resort</h4>
+<b>__resort</b>(<i></i>)
+<p>
+        Private method to resort the tree.
+</p><a NAME="TabnannyDialog.check" ID="TabnannyDialog.check"></a>
+<h4>TabnannyDialog.check</h4>
+<b>check</b>(<i>codestring=''</i>)
+<p>
+        Public method to start an indentation check for one file.
+</p><p>
+        The results are reported to the __processResult slot.
+</p><dl>
+<dt><i>codestring=</i></dt>
+<dd>
+optional sourcestring (str)
+</dd>
+</dl><a NAME="TabnannyDialog.checkBatch" ID="TabnannyDialog.checkBatch"></a>
+<h4>TabnannyDialog.checkBatch</h4>
+<b>checkBatch</b>(<i></i>)
+<p>
+        Public method to start an indentation check batch job.
+</p><p>
+        The results are reported to the __processResult slot.
+</p><a NAME="TabnannyDialog.on_buttonBox_clicked" ID="TabnannyDialog.on_buttonBox_clicked"></a>
+<h4>TabnannyDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="TabnannyDialog.on_resultList_itemActivated" ID="TabnannyDialog.on_resultList_itemActivated"></a>
+<h4>TabnannyDialog.on_resultList_itemActivated</h4>
+<b>on_resultList_itemActivated</b>(<i>itm, col</i>)
+<p>
+        Private slot to handle the activation of an item.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+reference to the activated item (QTreeWidgetItem)
+</dd><dt><i>col</i></dt>
+<dd>
+column the item was activated in (integer)
+</dd>
+</dl><a NAME="TabnannyDialog.on_startButton_clicked" ID="TabnannyDialog.on_startButton_clicked"></a>
+<h4>TabnannyDialog.on_startButton_clicked</h4>
+<b>on_startButton_clicked</b>(<i></i>)
+<p>
+        Private slot to start a code metrics run.
+</p><a NAME="TabnannyDialog.prepare" ID="TabnannyDialog.prepare"></a>
+<h4>TabnannyDialog.prepare</h4>
+<b>prepare</b>(<i>fileList, project</i>)
+<p>
+        Public method to prepare the dialog with a list of filenames.
+</p><dl>
+<dt><i>fileList</i></dt>
+<dd>
+list of filenames (list of strings)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object (Project)
+</dd>
+</dl><a NAME="TabnannyDialog.start" ID="TabnannyDialog.start"></a>
+<h4>TabnannyDialog.start</h4>
+<b>start</b>(<i>fn</i>)
+<p>
+        Public slot to start the tabnanny check.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+File or list of files or directory to be checked
+                (string or list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

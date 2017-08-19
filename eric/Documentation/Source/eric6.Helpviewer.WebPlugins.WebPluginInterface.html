@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.WebPlugins.WebPluginInterface</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.WebPlugins.WebPluginInterface</h1>
+<p>
+Module implementing the web plug-in interface.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#WebPluginInterface">WebPluginInterface</a></td>
+<td>Class implementing the web plug-in interface.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="WebPluginInterface" ID="WebPluginInterface"></a>
+<h2>WebPluginInterface</h2>
+<p>
+    Class implementing the web plug-in interface.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#WebPluginInterface.configure">configure</a></td>
+<td>Public method to configure the plug-in.</td>
+</tr><tr>
+<td><a href="#WebPluginInterface.create">create</a></td>
+<td>Public method to create a plug-in instance for the given data.</td>
+</tr><tr>
+<td><a href="#WebPluginInterface.isAnonymous">isAnonymous</a></td>
+<td>Public method to indicate an anonymous plug-in.</td>
+</tr><tr>
+<td><a href="#WebPluginInterface.metaPlugin">metaPlugin</a></td>
+<td>Public method to create a meta plug-in object containing plug-in info.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="WebPluginInterface.configure" ID="WebPluginInterface.configure"></a>
+<h4>WebPluginInterface.configure</h4>
+<b>configure</b>(<i></i>)
+<p>
+        Public method to configure the plug-in.
+</p><dl>
+<dt>Raises <b>NotImplementedError</b>:</dt>
+<dd>
+raised to indicate that this method
+            must be implemented by subclasses
+</dd>
+</dl><a NAME="WebPluginInterface.create" ID="WebPluginInterface.create"></a>
+<h4>WebPluginInterface.create</h4>
+<b>create</b>(<i>mimeType, url, argumentNames, argumentValues</i>)
+<p>
+        Public method to create a plug-in instance for the given data.
+</p><dl>
+<dt><i>mimeType</i></dt>
+<dd>
+MIME type for the plug-in (string)
+</dd><dt><i>url</i></dt>
+<dd>
+URL for the plug-in (QUrl)
+</dd><dt><i>argumentNames</i></dt>
+<dd>
+list of argument names (list of strings)
+</dd><dt><i>argumentValues</i></dt>
+<dd>
+list of argument values (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created object (QWidget)
+</dd>
+</dl><dl>
+<dt>Raises <b>NotImplementedError</b>:</dt>
+<dd>
+raised to indicate that this method
+            must be implemented by subclasses
+</dd>
+</dl><a NAME="WebPluginInterface.isAnonymous" ID="WebPluginInterface.isAnonymous"></a>
+<h4>WebPluginInterface.isAnonymous</h4>
+<b>isAnonymous</b>(<i></i>)
+<p>
+        Public method to indicate an anonymous plug-in.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating anonymous state (boolean)
+</dd>
+</dl><a NAME="WebPluginInterface.metaPlugin" ID="WebPluginInterface.metaPlugin"></a>
+<h4>WebPluginInterface.metaPlugin</h4>
+<b>metaPlugin</b>(<i></i>)
+<p>
+        Public method to create a meta plug-in object containing plug-in info.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+meta plug-in object (QWebPluginFactory.Plugin)
+</dd>
+</dl><dl>
+<dt>Raises <b>NotImplementedError</b>:</dt>
+<dd>
+raised to indicate that this method
+            must be implemented by subclasses
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

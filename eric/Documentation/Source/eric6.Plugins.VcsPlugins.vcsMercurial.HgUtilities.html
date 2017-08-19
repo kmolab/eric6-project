@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgUtilities</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgUtilities</h1>
+<p>
+Module implementing some common utility functions for the Mercurial package.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#getConfigPath">getConfigPath</a></td>
+<td>Public function to get the filename of the config file.</td>
+</tr><tr>
+<td><a href="#hgVersion">hgVersion</a></td>
+<td>Public method to determine the Mercurial version.</td>
+</tr><tr>
+<td><a href="#prepareProcess">prepareProcess</a></td>
+<td>Public function to prepare the given process.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="getConfigPath" ID="getConfigPath"></a>
+<h2>getConfigPath</h2>
+<b>getConfigPath</b>(<i></i>)
+<p>
+    Public function to get the filename of the config file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename of the config file (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="hgVersion" ID="hgVersion"></a>
+<h2>hgVersion</h2>
+<b>hgVersion</b>(<i>plugin</i>)
+<p>
+    Public method to determine the Mercurial version.
+</p><dl>
+<dt><i>plugin</i> (VcsMercurialPlugin)</dt>
+<dd>
+reference to the plugin object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing the Mercurial version as a string and as a tuple
+        and an error message.
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of str, tuple of int and str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="prepareProcess" ID="prepareProcess"></a>
+<h2>prepareProcess</h2>
+<b>prepareProcess</b>(<i>proc, encoding="", language=""</i>)
+<p>
+    Public function to prepare the given process.
+</p><dl>
+<dt><i>proc</i></dt>
+<dd>
+reference to the proces to be prepared (QProcess)
+</dd><dt><i>encoding</i></dt>
+<dd>
+encoding to be used by the process (string)
+</dd><dt><i>language</i></dt>
+<dd>
+language to be set (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

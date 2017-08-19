@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.EditWatchpointDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.EditWatchpointDialog</h1>
+<p>
+Module implementing a dialog to edit watch expression properties.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#EditWatchpointDialog">EditWatchpointDialog</a></td>
+<td>Class implementing a dialog to edit watch expression properties.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="EditWatchpointDialog" ID="EditWatchpointDialog"></a>
+<h2>EditWatchpointDialog</h2>
+<p>
+    Class implementing a dialog to edit watch expression properties.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_EditWatchpointDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#EditWatchpointDialog.__init__">EditWatchpointDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#EditWatchpointDialog.__textChanged">__textChanged</a></td>
+<td>Private slot to handle the text changed signal of the condition line edit.</td>
+</tr><tr>
+<td><a href="#EditWatchpointDialog.getData">getData</a></td>
+<td>Public method to retrieve the entered data.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="EditWatchpointDialog.__init__" ID="EditWatchpointDialog.__init__"></a>
+<h4>EditWatchpointDialog (Constructor)</h4>
+<b>EditWatchpointDialog</b>(<i>properties, parent=None, name=None, modal=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>properties</i></dt>
+<dd>
+properties for the watch expression (tuple)
+            (expression, temporary flag, enabled flag, ignore count,
+            special condition)
+</dd><dt><i>parent</i></dt>
+<dd>
+the parent of this dialog
+</dd><dt><i>name</i></dt>
+<dd>
+the widget name of this dialog
+</dd><dt><i>modal</i></dt>
+<dd>
+flag indicating a modal dialog
+</dd>
+</dl><a NAME="EditWatchpointDialog.__textChanged" ID="EditWatchpointDialog.__textChanged"></a>
+<h4>EditWatchpointDialog.__textChanged</h4>
+<b>__textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle the text changed signal of the condition line
+        edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the line edit (string)
+</dd>
+</dl><a NAME="EditWatchpointDialog.getData" ID="EditWatchpointDialog.getData"></a>
+<h4>EditWatchpointDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the entered data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple containing the watch expressions new properties
+            (expression, temporary flag, enabled flag, ignore count,
+            special condition)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

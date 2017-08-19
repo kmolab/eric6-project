@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.UserAgent.UserAgentModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.UserAgent.UserAgentModel</h1>
+<p>
+Module implementing a model for user agent management.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#UserAgentModel">UserAgentModel</a></td>
+<td>Class implementing a model for user agent management.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="UserAgentModel" ID="UserAgentModel"></a>
+<h2>UserAgentModel</h2>
+<p>
+    Class implementing a model for user agent management.
+</p>
+<h3>Derived from</h3>
+QAbstractTableModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#UserAgentModel.__init__">UserAgentModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#UserAgentModel.__userAgentsChanged">__userAgentsChanged</a></td>
+<td>Private slot handling a change of the registered user agent strings.</td>
+</tr><tr>
+<td><a href="#UserAgentModel.columnCount">columnCount</a></td>
+<td>Public method to get the number of columns of the model.</td>
+</tr><tr>
+<td><a href="#UserAgentModel.data">data</a></td>
+<td>Public method to get data from the model.</td>
+</tr><tr>
+<td><a href="#UserAgentModel.headerData">headerData</a></td>
+<td>Public method to get the header data.</td>
+</tr><tr>
+<td><a href="#UserAgentModel.removeRows">removeRows</a></td>
+<td>Public method to remove entries from the model.</td>
+</tr><tr>
+<td><a href="#UserAgentModel.rowCount">rowCount</a></td>
+<td>Public method to get the number of rows of the model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="UserAgentModel.__init__" ID="UserAgentModel.__init__"></a>
+<h4>UserAgentModel (Constructor)</h4>
+<b>UserAgentModel</b>(<i>manager, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>manager</i></dt>
+<dd>
+reference to the user agent manager (UserAgentManager)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="UserAgentModel.__userAgentsChanged" ID="UserAgentModel.__userAgentsChanged"></a>
+<h4>UserAgentModel.__userAgentsChanged</h4>
+<b>__userAgentsChanged</b>(<i></i>)
+<p>
+        Private slot handling a change of the registered user agent strings.
+</p><a NAME="UserAgentModel.columnCount" ID="UserAgentModel.columnCount"></a>
+<h4>UserAgentModel.columnCount</h4>
+<b>columnCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of columns of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex) (Unused)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="UserAgentModel.data" ID="UserAgentModel.data"></a>
+<h4>UserAgentModel.data</h4>
+<b>data</b>(<i>index, role</i>)
+<p>
+        Public method to get data from the model.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index to get data for (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data to retrieve (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="UserAgentModel.headerData" ID="UserAgentModel.headerData"></a>
+<h4>UserAgentModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get the header data.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+section number (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+header orientation (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+data role (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+header data
+</dd>
+</dl><a NAME="UserAgentModel.removeRows" ID="UserAgentModel.removeRows"></a>
+<h4>UserAgentModel.removeRows</h4>
+<b>removeRows</b>(<i>row, count, parent=None</i>)
+<p>
+        Public method to remove entries from the model.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+start row (integer)
+</dd><dt><i>count</i></dt>
+<dd>
+number of rows to remove (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="UserAgentModel.rowCount" ID="UserAgentModel.rowCount"></a>
+<h4>UserAgentModel.rowCount</h4>
+<b>rowCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of rows of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of rows (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

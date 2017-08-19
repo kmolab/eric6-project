@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.PixmapCache</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.PixmapCache</h1>
+<p>
+Module implementing a pixmap cache for icons.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>pixCache</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PixmapCache">PixmapCache</a></td>
+<td>Class implementing a pixmap cache for icons.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#addSearchPath">addSearchPath</a></td>
+<td>Module function to add a path to the search path.</td>
+</tr><tr>
+<td><a href="#getCombinedIcon">getCombinedIcon</a></td>
+<td>Module function to retrieve a symbolic link icon.</td>
+</tr><tr>
+<td><a href="#getIcon">getIcon</a></td>
+<td>Module function to retrieve an icon.</td>
+</tr><tr>
+<td><a href="#getPixmap">getPixmap</a></td>
+<td>Module function to retrieve a pixmap.</td>
+</tr><tr>
+<td><a href="#getSymlinkIcon">getSymlinkIcon</a></td>
+<td>Module function to retrieve a symbolic link icon.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="PixmapCache" ID="PixmapCache"></a>
+<h2>PixmapCache</h2>
+<p>
+    Class implementing a pixmap cache for icons.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PixmapCache.__init__">PixmapCache</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PixmapCache.addSearchPath">addSearchPath</a></td>
+<td>Public method to add a path to the search path.</td>
+</tr><tr>
+<td><a href="#PixmapCache.getPixmap">getPixmap</a></td>
+<td>Public method to retrieve a pixmap.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PixmapCache.__init__" ID="PixmapCache.__init__"></a>
+<h4>PixmapCache (Constructor)</h4>
+<b>PixmapCache</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="PixmapCache.addSearchPath" ID="PixmapCache.addSearchPath"></a>
+<h4>PixmapCache.addSearchPath</h4>
+<b>addSearchPath</b>(<i>path</i>)
+<p>
+        Public method to add a path to the search path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to add (string)
+</dd>
+</dl><a NAME="PixmapCache.getPixmap" ID="PixmapCache.getPixmap"></a>
+<h4>PixmapCache.getPixmap</h4>
+<b>getPixmap</b>(<i>key</i>)
+<p>
+        Public method to retrieve a pixmap.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+name of the wanted pixmap (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested pixmap (QPixmap)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="addSearchPath" ID="addSearchPath"></a>
+<h2>addSearchPath</h2>
+<b>addSearchPath</b>(<i>path, cache=pixCache</i>)
+<p>
+    Module function to add a path to the search path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to add (string)
+</dd><dt><i>cache</i></dt>
+<dd>
+reference to the pixmap cache object (PixmapCache)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getCombinedIcon" ID="getCombinedIcon"></a>
+<h2>getCombinedIcon</h2>
+<b>getCombinedIcon</b>(<i>keys, cache=pixCache</i>)
+<p>
+    Module function to retrieve a symbolic link icon.
+</p><dl>
+<dt><i>keys</i></dt>
+<dd>
+list of names of icons (string)
+</dd><dt><i>cache</i></dt>
+<dd>
+reference to the pixmap cache object (PixmapCache)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested icon (QIcon)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getIcon" ID="getIcon"></a>
+<h2>getIcon</h2>
+<b>getIcon</b>(<i>key, cache=pixCache</i>)
+<p>
+    Module function to retrieve an icon.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+name of the wanted icon (string)
+</dd><dt><i>cache</i></dt>
+<dd>
+reference to the pixmap cache object (PixmapCache)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested icon (QIcon)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPixmap" ID="getPixmap"></a>
+<h2>getPixmap</h2>
+<b>getPixmap</b>(<i>key, cache=pixCache</i>)
+<p>
+    Module function to retrieve a pixmap.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+name of the wanted pixmap (string)
+</dd><dt><i>cache</i></dt>
+<dd>
+reference to the pixmap cache object (PixmapCache)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested pixmap (QPixmap)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getSymlinkIcon" ID="getSymlinkIcon"></a>
+<h2>getSymlinkIcon</h2>
+<b>getSymlinkIcon</b>(<i>key, cache=pixCache</i>)
+<p>
+    Module function to retrieve a symbolic link icon.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+name of the wanted icon (string)
+</dd><dt><i>cache</i></dt>
+<dd>
+reference to the pixmap cache object (PixmapCache)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested icon (QIcon)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

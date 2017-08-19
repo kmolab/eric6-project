@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.GreaseMonkey.GreaseMonkeyDownloader</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.GreaseMonkey.GreaseMonkeyDownloader</h1>
+<p>
+Module implementing the downloader for GreaseMonkey scripts.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#GreaseMonkeyDownloader">GreaseMonkeyDownloader</a></td>
+<td>Class implementing the downloader for GreaseMonkey scripts.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="GreaseMonkeyDownloader" ID="GreaseMonkeyDownloader"></a>
+<h2>GreaseMonkeyDownloader</h2>
+<p>
+    Class implementing the downloader for GreaseMonkey scripts.
+</p><h3>Signals</h3>
+<dl>
+<dt>finished()</dt>
+<dd>
+emitted to indicate the end of a script download
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#GreaseMonkeyDownloader.__init__">GreaseMonkeyDownloader</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyDownloader.__downloadRequires">__downloadRequires</a></td>
+<td>Private slot to initiate the download of required scripts.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyDownloader.__requireDownloaded">__requireDownloaded</a></td>
+<td>Private slot to handle the finished download of a required script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyDownloader.__scriptDownloaded">__scriptDownloaded</a></td>
+<td>Private slot to handle the finished download of a script.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="GreaseMonkeyDownloader.__init__" ID="GreaseMonkeyDownloader.__init__"></a>
+<h4>GreaseMonkeyDownloader (Constructor)</h4>
+<b>GreaseMonkeyDownloader</b>(<i>request, manager</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>manager</i></dt>
+<dd>
+reference to the GreaseMonkey manager
+            (GreaseMonkeyManager)
+</dd>
+</dl><a NAME="GreaseMonkeyDownloader.__downloadRequires" ID="GreaseMonkeyDownloader.__downloadRequires"></a>
+<h4>GreaseMonkeyDownloader.__downloadRequires</h4>
+<b>__downloadRequires</b>(<i></i>)
+<p>
+        Private slot to initiate the download of required scripts.
+</p><a NAME="GreaseMonkeyDownloader.__requireDownloaded" ID="GreaseMonkeyDownloader.__requireDownloaded"></a>
+<h4>GreaseMonkeyDownloader.__requireDownloaded</h4>
+<b>__requireDownloaded</b>(<i></i>)
+<p>
+        Private slot to handle the finished download of a required script.
+</p><a NAME="GreaseMonkeyDownloader.__scriptDownloaded" ID="GreaseMonkeyDownloader.__scriptDownloaded"></a>
+<h4>GreaseMonkeyDownloader.__scriptDownloaded</h4>
+<b>__scriptDownloaded</b>(<i></i>)
+<p>
+        Private slot to handle the finished download of a script.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

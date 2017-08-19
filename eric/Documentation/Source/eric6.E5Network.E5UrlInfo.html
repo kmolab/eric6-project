@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5UrlInfo</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5UrlInfo</h1>
+<p>
+Module implementing a class replacing QUrlInfo.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5UrlInfo">E5UrlInfo</a></td>
+<td>Class implementing a replacement for QUrlInfo.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5UrlInfo" ID="E5UrlInfo"></a>
+<h2>E5UrlInfo</h2>
+<p>
+    Class implementing a replacement for QUrlInfo.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ExeGroup</td></tr><tr><td>ExeOther</td></tr><tr><td>ExeOwner</td></tr><tr><td>ReadGroup</td></tr><tr><td>ReadOther</td></tr><tr><td>ReadOwner</td></tr><tr><td>WriteGroup</td></tr><tr><td>WriteOther</td></tr><tr><td>WriteOwner</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5UrlInfo.__init__">E5UrlInfo</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.group">group</a></td>
+<td>Public method to get the group.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isDir">isDir</a></td>
+<td>Public method to test, if the entry is a directory.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isExecutable">isExecutable</a></td>
+<td>Public method to test, if the entry is executable.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isFile">isFile</a></td>
+<td>Public method to test, if the entry is a file.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isReadable">isReadable</a></td>
+<td>Public method to test, if the entry is readable.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isSymLink">isSymLink</a></td>
+<td>Public method to test, if the entry is a symbolic link.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isValid">isValid</a></td>
+<td>Public method to check the validity of the object.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.isWritable">isWritable</a></td>
+<td>Public method to test, if the entry is writable.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.lastModified">lastModified</a></td>
+<td>Public method to get the last modified date and time.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.lastRead">lastRead</a></td>
+<td>Public method to get the last read date and time.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.name">name</a></td>
+<td>Public method to get the name.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.owner">owner</a></td>
+<td>Public method to get the owner.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.permissions">permissions</a></td>
+<td>Public method to get the permissions.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setDir">setDir</a></td>
+<td>Public method to indicate a directory.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setFile">setFile</a></td>
+<td>Public method to indicate a file.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setGroup">setGroup</a></td>
+<td>Public method to set the group.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setLastModified">setLastModified</a></td>
+<td>Public method to set the last modified date and time.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setLastRead">setLastRead</a></td>
+<td>Public method to set the last read date and time.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setName">setName</a></td>
+<td>Public method to set the name.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setOwner">setOwner</a></td>
+<td>Public method to set the owner.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setPermissions">setPermissions</a></td>
+<td>Public method to set the permissions.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setReadable">setReadable</a></td>
+<td>Public method to a readable entry.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setSize">setSize</a></td>
+<td>Public method to set the size.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setSymLink">setSymLink</a></td>
+<td>Public method to indicate a symbolic link.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.setWritable">setWritable</a></td>
+<td>Public method to a writable entry.</td>
+</tr><tr>
+<td><a href="#E5UrlInfo.size">size</a></td>
+<td>Public method to get the size.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5UrlInfo.__init__" ID="E5UrlInfo.__init__"></a>
+<h4>E5UrlInfo (Constructor)</h4>
+<b>E5UrlInfo</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="E5UrlInfo.group" ID="E5UrlInfo.group"></a>
+<h4>E5UrlInfo.group</h4>
+<b>group</b>(<i></i>)
+<p>
+        Public method to get the group.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+group (string)
+</dd>
+</dl><a NAME="E5UrlInfo.isDir" ID="E5UrlInfo.isDir"></a>
+<h4>E5UrlInfo.isDir</h4>
+<b>isDir</b>(<i></i>)
+<p>
+        Public method to test, if the entry is a directory.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a directory (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.isExecutable" ID="E5UrlInfo.isExecutable"></a>
+<h4>E5UrlInfo.isExecutable</h4>
+<b>isExecutable</b>(<i></i>)
+<p>
+        Public method to test, if the entry is executable.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating executable (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.isFile" ID="E5UrlInfo.isFile"></a>
+<h4>E5UrlInfo.isFile</h4>
+<b>isFile</b>(<i></i>)
+<p>
+        Public method to test, if the entry is a file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a file (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.isReadable" ID="E5UrlInfo.isReadable"></a>
+<h4>E5UrlInfo.isReadable</h4>
+<b>isReadable</b>(<i></i>)
+<p>
+        Public method to test, if the entry is readable.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating readable (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.isSymLink" ID="E5UrlInfo.isSymLink"></a>
+<h4>E5UrlInfo.isSymLink</h4>
+<b>isSymLink</b>(<i></i>)
+<p>
+        Public method to test, if the entry is a symbolic link.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a symbolic link (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.isValid" ID="E5UrlInfo.isValid"></a>
+<h4>E5UrlInfo.isValid</h4>
+<b>isValid</b>(<i></i>)
+<p>
+        Public method to check the validity of the object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating validity (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.isWritable" ID="E5UrlInfo.isWritable"></a>
+<h4>E5UrlInfo.isWritable</h4>
+<b>isWritable</b>(<i></i>)
+<p>
+        Public method to test, if the entry is writable.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating writable (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.lastModified" ID="E5UrlInfo.lastModified"></a>
+<h4>E5UrlInfo.lastModified</h4>
+<b>lastModified</b>(<i></i>)
+<p>
+        Public method to get the last modified date and time.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+last modified date and time (QDateTime)
+</dd>
+</dl><a NAME="E5UrlInfo.lastRead" ID="E5UrlInfo.lastRead"></a>
+<h4>E5UrlInfo.lastRead</h4>
+<b>lastRead</b>(<i></i>)
+<p>
+        Public method to get the last read date and time.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+last read date and time (QDateTime)
+</dd>
+</dl><a NAME="E5UrlInfo.name" ID="E5UrlInfo.name"></a>
+<h4>E5UrlInfo.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to get the name.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name (string)
+</dd>
+</dl><a NAME="E5UrlInfo.owner" ID="E5UrlInfo.owner"></a>
+<h4>E5UrlInfo.owner</h4>
+<b>owner</b>(<i></i>)
+<p>
+        Public method to get the owner.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+owner (string)
+</dd>
+</dl><a NAME="E5UrlInfo.permissions" ID="E5UrlInfo.permissions"></a>
+<h4>E5UrlInfo.permissions</h4>
+<b>permissions</b>(<i></i>)
+<p>
+        Public method to get the permissions.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+permissions (integer)
+</dd>
+</dl><a NAME="E5UrlInfo.setDir" ID="E5UrlInfo.setDir"></a>
+<h4>E5UrlInfo.setDir</h4>
+<b>setDir</b>(<i>isDir</i>)
+<p>
+        Public method to indicate a directory.
+</p><dl>
+<dt><i>isDir</i></dt>
+<dd>
+flag indicating a directory (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.setFile" ID="E5UrlInfo.setFile"></a>
+<h4>E5UrlInfo.setFile</h4>
+<b>setFile</b>(<i>isFile</i>)
+<p>
+        Public method to indicate a file.
+</p><dl>
+<dt><i>isFile</i></dt>
+<dd>
+flag indicating a file (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.setGroup" ID="E5UrlInfo.setGroup"></a>
+<h4>E5UrlInfo.setGroup</h4>
+<b>setGroup</b>(<i>group</i>)
+<p>
+        Public method to set the group.
+</p><dl>
+<dt><i>group</i></dt>
+<dd>
+group to be set (string)
+</dd>
+</dl><a NAME="E5UrlInfo.setLastModified" ID="E5UrlInfo.setLastModified"></a>
+<h4>E5UrlInfo.setLastModified</h4>
+<b>setLastModified</b>(<i>dt</i>)
+<p>
+        Public method to set the last modified date and time.
+</p><dl>
+<dt><i>dt</i></dt>
+<dd>
+date and time to set (QDateTime)
+</dd>
+</dl><a NAME="E5UrlInfo.setLastRead" ID="E5UrlInfo.setLastRead"></a>
+<h4>E5UrlInfo.setLastRead</h4>
+<b>setLastRead</b>(<i>dt</i>)
+<p>
+        Public method to set the last read date and time.
+</p><dl>
+<dt><i>dt</i></dt>
+<dd>
+date and time to set (QDateTime)
+</dd>
+</dl><a NAME="E5UrlInfo.setName" ID="E5UrlInfo.setName"></a>
+<h4>E5UrlInfo.setName</h4>
+<b>setName</b>(<i>name</i>)
+<p>
+        Public method to set the name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name to be set (string)
+</dd>
+</dl><a NAME="E5UrlInfo.setOwner" ID="E5UrlInfo.setOwner"></a>
+<h4>E5UrlInfo.setOwner</h4>
+<b>setOwner</b>(<i>owner</i>)
+<p>
+        Public method to set the owner.
+</p><dl>
+<dt><i>owner</i></dt>
+<dd>
+owner to be set (string)
+</dd>
+</dl><a NAME="E5UrlInfo.setPermissions" ID="E5UrlInfo.setPermissions"></a>
+<h4>E5UrlInfo.setPermissions</h4>
+<b>setPermissions</b>(<i>permissions</i>)
+<p>
+        Public method to set the permissions.
+</p><dl>
+<dt><i>permissions</i></dt>
+<dd>
+permissions to be set (integer)
+</dd>
+</dl><a NAME="E5UrlInfo.setReadable" ID="E5UrlInfo.setReadable"></a>
+<h4>E5UrlInfo.setReadable</h4>
+<b>setReadable</b>(<i>isReadable</i>)
+<p>
+        Public method to a readable entry.
+</p><dl>
+<dt><i>isReadable</i></dt>
+<dd>
+flag indicating a readable entry (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.setSize" ID="E5UrlInfo.setSize"></a>
+<h4>E5UrlInfo.setSize</h4>
+<b>setSize</b>(<i>size</i>)
+<p>
+        Public method to set the size.
+</p><dl>
+<dt><i>size</i></dt>
+<dd>
+size to be set (integer)
+</dd>
+</dl><a NAME="E5UrlInfo.setSymLink" ID="E5UrlInfo.setSymLink"></a>
+<h4>E5UrlInfo.setSymLink</h4>
+<b>setSymLink</b>(<i>isSymLink</i>)
+<p>
+        Public method to indicate a symbolic link.
+</p><dl>
+<dt><i>isSymLink</i></dt>
+<dd>
+flag indicating a symbolic link (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.setWritable" ID="E5UrlInfo.setWritable"></a>
+<h4>E5UrlInfo.setWritable</h4>
+<b>setWritable</b>(<i>isWritable</i>)
+<p>
+        Public method to a writable entry.
+</p><dl>
+<dt><i>isWritable</i></dt>
+<dd>
+flag indicating a writable entry (boolean)
+</dd>
+</dl><a NAME="E5UrlInfo.size" ID="E5UrlInfo.size"></a>
+<h4>E5UrlInfo.size</h4>
+<b>size</b>(<i></i>)
+<p>
+        Public method to get the size.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+size (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

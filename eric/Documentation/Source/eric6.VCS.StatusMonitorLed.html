@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.VCS.StatusMonitorLed</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.VCS.StatusMonitorLed</h1>
+<p>
+Module implementing a LED to indicate the status of the VCS status monitor
+thread.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#StatusMonitorLed">StatusMonitorLed</a></td>
+<td>Class implementing a LED to indicate the status of the VCS status monitor thread.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="StatusMonitorLed" ID="StatusMonitorLed"></a>
+<h2>StatusMonitorLed</h2>
+<p>
+    Class implementing a LED to indicate the status of the VCS status monitor
+    thread.
+</p>
+<h3>Derived from</h3>
+E5ClickableLed
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#StatusMonitorLed.__init__">StatusMonitorLed</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__checkActions">__checkActions</a></td>
+<td>Private method to set the enabled status of the context menu actions.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__checkStatus">__checkStatus</a></td>
+<td>Private slot to initiate a new status check.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__ledClicked">__ledClicked</a></td>
+<td>Private slot to react upon clicks on the LED.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__projectVcsMonitorStatus">__projectVcsMonitorStatus</a></td>
+<td>Private method to receive the status monitor status.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__setInterval">__setInterval</a></td>
+<td>Private slot to change the status check interval.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__switchOff">__switchOff</a></td>
+<td>Private slot to switch the status monitor thread to Off.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__switchOn">__switchOn</a></td>
+<td>Private slot to switch the status monitor thread to On.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed.__vcsStateChanged">__vcsStateChanged</a></td>
+<td>Private slot to handle a change in the vcs state.</td>
+</tr><tr>
+<td><a href="#StatusMonitorLed._showContextMenu">_showContextMenu</a></td>
+<td>Protected slot to show the context menu.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="StatusMonitorLed.__init__" ID="StatusMonitorLed.__init__"></a>
+<h4>StatusMonitorLed (Constructor)</h4>
+<b>StatusMonitorLed</b>(<i>project, parent</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object (Project.Project)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QWidget)
+</dd>
+</dl><a NAME="StatusMonitorLed.__checkActions" ID="StatusMonitorLed.__checkActions"></a>
+<h4>StatusMonitorLed.__checkActions</h4>
+<b>__checkActions</b>(<i></i>)
+<p>
+        Private method to set the enabled status of the context menu actions.
+</p><a NAME="StatusMonitorLed.__checkStatus" ID="StatusMonitorLed.__checkStatus"></a>
+<h4>StatusMonitorLed.__checkStatus</h4>
+<b>__checkStatus</b>(<i></i>)
+<p>
+        Private slot to initiate a new status check.
+</p><a NAME="StatusMonitorLed.__ledClicked" ID="StatusMonitorLed.__ledClicked"></a>
+<h4>StatusMonitorLed.__ledClicked</h4>
+<b>__ledClicked</b>(<i>pos</i>)
+<p>
+        Private slot to react upon clicks on the LED.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position of the click (QPoint)
+</dd>
+</dl><a NAME="StatusMonitorLed.__projectVcsMonitorStatus" ID="StatusMonitorLed.__projectVcsMonitorStatus"></a>
+<h4>StatusMonitorLed.__projectVcsMonitorStatus</h4>
+<b>__projectVcsMonitorStatus</b>(<i>status, statusMsg</i>)
+<p>
+        Private method to receive the status monitor status.
+</p><dl>
+<dt><i>status</i></dt>
+<dd>
+status of the monitoring thread (string, ok, nok or off)
+</dd><dt><i>statusMsg</i></dt>
+<dd>
+explanotory text for the signaled status (string)
+</dd>
+</dl><a NAME="StatusMonitorLed.__setInterval" ID="StatusMonitorLed.__setInterval"></a>
+<h4>StatusMonitorLed.__setInterval</h4>
+<b>__setInterval</b>(<i></i>)
+<p>
+        Private slot to change the status check interval.
+</p><a NAME="StatusMonitorLed.__switchOff" ID="StatusMonitorLed.__switchOff"></a>
+<h4>StatusMonitorLed.__switchOff</h4>
+<b>__switchOff</b>(<i></i>)
+<p>
+        Private slot to switch the status monitor thread to Off.
+</p><a NAME="StatusMonitorLed.__switchOn" ID="StatusMonitorLed.__switchOn"></a>
+<h4>StatusMonitorLed.__switchOn</h4>
+<b>__switchOn</b>(<i></i>)
+<p>
+        Private slot to switch the status monitor thread to On.
+</p><a NAME="StatusMonitorLed.__vcsStateChanged" ID="StatusMonitorLed.__vcsStateChanged"></a>
+<h4>StatusMonitorLed.__vcsStateChanged</h4>
+<b>__vcsStateChanged</b>(<i>state</i>)
+<p>
+        Private slot to handle a change in the vcs state.
+</p><dl>
+<dt><i>state</i></dt>
+<dd>
+new vcs state (string)
+</dd>
+</dl><a NAME="StatusMonitorLed._showContextMenu" ID="StatusMonitorLed._showContextMenu"></a>
+<h4>StatusMonitorLed._showContextMenu</h4>
+<b>_showContextMenu</b>(<i>coord</i>)
+<p>
+        Protected slot to show the context menu.
+</p><dl>
+<dt><i>coord</i></dt>
+<dd>
+the position of the mouse pointer (QPoint)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

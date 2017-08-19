@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5LineEdit</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5LineEdit</h1>
+<p>
+Module implementing specialized line edits.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ClearableLineEdit">E5ClearableLineEdit</a></td>
+<td>Class implementing a line edit widget showing some inactive text and a clear button, if it has some contents.</td>
+</tr><tr>
+<td><a href="#E5LineEdit">E5LineEdit</a></td>
+<td>Class implementing a line edit widget showing some inactive text.</td>
+</tr><tr>
+<td><a href="#E5LineEditSideWidget">E5LineEditSideWidget</a></td>
+<td>Class implementing the side widgets for the line edit class.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ClearableLineEdit" ID="E5ClearableLineEdit"></a>
+<h2>E5ClearableLineEdit</h2>
+<p>
+    Class implementing a line edit widget showing some inactive text and a
+    clear button, if it has some contents.
+</p>
+<h3>Derived from</h3>
+E5LineEdit
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ClearableLineEdit.__init__">E5ClearableLineEdit</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ClearableLineEdit.__textChanged">__textChanged</a></td>
+<td>Private slot to handle changes of the text.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ClearableLineEdit.__init__" ID="E5ClearableLineEdit.__init__"></a>
+<h4>E5ClearableLineEdit (Constructor)</h4>
+<b>E5ClearableLineEdit</b>(<i>parent=None, inactiveText="", side=E5LineEdit.RightSide</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd><dt><i>inactiveText=</i></dt>
+<dd>
+text to be shown on inactivity (string)
+</dd><dt><i>side=</i></dt>
+<dd>
+side the clear button should be shown at
+            (E5LineEdit.RightSide, E5LineEdit.LeftSide)
+</dd>
+</dl><a NAME="E5ClearableLineEdit.__textChanged" ID="E5ClearableLineEdit.__textChanged"></a>
+<h4>E5ClearableLineEdit.__textChanged</h4>
+<b>__textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5LineEdit" ID="E5LineEdit"></a>
+<h2>E5LineEdit</h2>
+<p>
+    Class implementing a line edit widget showing some inactive text.
+</p>
+<h3>Derived from</h3>
+QLineEdit
+<h3>Class Attributes</h3>
+<table>
+<tr><td>LeftSide</td></tr><tr><td>RightSide</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5LineEdit.__init__">E5LineEdit</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5LineEdit._updateTextMargins">_updateTextMargins</a></td>
+<td>Protected slot to update the text margins.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.addWidget">addWidget</a></td>
+<td>Public method to add a widget to a side.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.event">event</a></td>
+<td>Public method to handle events.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.inactiveText">inactiveText</a></td>
+<td>Public method to get the inactive text.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.leftMargin">leftMargin</a></td>
+<td>Public method to get the size of the left margin.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.paintEvent">paintEvent</a></td>
+<td>Protected method handling a paint event.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.removeWidget">removeWidget</a></td>
+<td>Public method to remove a widget from a side.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.setInactiveText">setInactiveText</a></td>
+<td>Public method to set the inactive text.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.setLeftMargin">setLeftMargin</a></td>
+<td>Public method to set the left margin.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.setWidgetSpacing">setWidgetSpacing</a></td>
+<td>Public method to set the side widget spacing.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.textMargin">textMargin</a></td>
+<td>Public method to get the text margin for a side.</td>
+</tr><tr>
+<td><a href="#E5LineEdit.widgetSpacing">widgetSpacing</a></td>
+<td>Public method to get the side widget spacing.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5LineEdit.__init__" ID="E5LineEdit.__init__"></a>
+<h4>E5LineEdit (Constructor)</h4>
+<b>E5LineEdit</b>(<i>parent=None, inactiveText=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd><dt><i>inactiveText</i></dt>
+<dd>
+text to be shown on inactivity (string)
+</dd>
+</dl><a NAME="E5LineEdit._updateTextMargins" ID="E5LineEdit._updateTextMargins"></a>
+<h4>E5LineEdit._updateTextMargins</h4>
+<b>_updateTextMargins</b>(<i></i>)
+<p>
+        Protected slot to update the text margins.
+</p><a NAME="E5LineEdit.addWidget" ID="E5LineEdit.addWidget"></a>
+<h4>E5LineEdit.addWidget</h4>
+<b>addWidget</b>(<i>widget, position</i>)
+<p>
+        Public method to add a widget to a side.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget to add (QWidget)
+</dd><dt><i>position</i></dt>
+<dd>
+position to add to (E5LineEdit.LeftSide,
+            E5LineEdit.RightSide)
+</dd>
+</dl><a NAME="E5LineEdit.event" ID="E5LineEdit.event"></a>
+<h4>E5LineEdit.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method to handle events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, whether the event was recognized (boolean)
+</dd>
+</dl><a NAME="E5LineEdit.inactiveText" ID="E5LineEdit.inactiveText"></a>
+<h4>E5LineEdit.inactiveText</h4>
+<b>inactiveText</b>(<i></i>)
+<p>
+        Public method to get the inactive text.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+inactive text (string)
+</dd>
+</dl><a NAME="E5LineEdit.leftMargin" ID="E5LineEdit.leftMargin"></a>
+<h4>E5LineEdit.leftMargin</h4>
+<b>leftMargin</b>(<i></i>)
+<p>
+        Public method to get the size of the left margin.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+left margin in pixel (integer)
+</dd>
+</dl><a NAME="E5LineEdit.paintEvent" ID="E5LineEdit.paintEvent"></a>
+<h4>E5LineEdit.paintEvent</h4>
+<b>paintEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling a paint event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the paint event (QPaintEvent)
+</dd>
+</dl><a NAME="E5LineEdit.removeWidget" ID="E5LineEdit.removeWidget"></a>
+<h4>E5LineEdit.removeWidget</h4>
+<b>removeWidget</b>(<i>widget</i>)
+<p>
+        Public method to remove a widget from a side.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget to remove (QWidget)
+</dd>
+</dl><a NAME="E5LineEdit.setInactiveText" ID="E5LineEdit.setInactiveText"></a>
+<h4>E5LineEdit.setInactiveText</h4>
+<b>setInactiveText</b>(<i>inactiveText</i>)
+<p>
+        Public method to set the inactive text.
+</p><dl>
+<dt><i>inactiveText</i></dt>
+<dd>
+text to be shown on inactivity (string)
+</dd>
+</dl><a NAME="E5LineEdit.setLeftMargin" ID="E5LineEdit.setLeftMargin"></a>
+<h4>E5LineEdit.setLeftMargin</h4>
+<b>setLeftMargin</b>(<i>margin</i>)
+<p>
+        Public method to set the left margin.
+</p><dl>
+<dt><i>margin</i></dt>
+<dd>
+left margin in pixel (integer)
+</dd>
+</dl><a NAME="E5LineEdit.setWidgetSpacing" ID="E5LineEdit.setWidgetSpacing"></a>
+<h4>E5LineEdit.setWidgetSpacing</h4>
+<b>setWidgetSpacing</b>(<i>spacing</i>)
+<p>
+        Public method to set the side widget spacing.
+</p><dl>
+<dt><i>spacing</i></dt>
+<dd>
+side widget spacing (integer)
+</dd>
+</dl><a NAME="E5LineEdit.textMargin" ID="E5LineEdit.textMargin"></a>
+<h4>E5LineEdit.textMargin</h4>
+<b>textMargin</b>(<i>position</i>)
+<p>
+        Public method to get the text margin for a side.
+</p><dl>
+<dt><i>position</i></dt>
+<dd>
+side to get margin for (E5LineEdit.LeftSide,
+            E5LineEdit.RightSide)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+text margin (integer)
+</dd>
+</dl><a NAME="E5LineEdit.widgetSpacing" ID="E5LineEdit.widgetSpacing"></a>
+<h4>E5LineEdit.widgetSpacing</h4>
+<b>widgetSpacing</b>(<i></i>)
+<p>
+        Public method to get the side widget spacing.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+side widget spacing (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5LineEditSideWidget" ID="E5LineEditSideWidget"></a>
+<h2>E5LineEditSideWidget</h2>
+<p>
+    Class implementing the side widgets for the line edit class.
+</p><h3>Signals</h3>
+<dl>
+<dt>sizeHintChanged()</dt>
+<dd>
+emitted to indicate a change of the size hint
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5LineEditSideWidget.__init__">E5LineEditSideWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5LineEditSideWidget.event">event</a></td>
+<td>Public method to handle events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5LineEditSideWidget.__init__" ID="E5LineEditSideWidget.__init__"></a>
+<h4>E5LineEditSideWidget (Constructor)</h4>
+<b>E5LineEditSideWidget</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5LineEditSideWidget.event" ID="E5LineEditSideWidget.event"></a>
+<h4>E5LineEditSideWidget.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method to handle events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, whether the event was recognized (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

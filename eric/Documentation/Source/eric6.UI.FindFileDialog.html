@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.FindFileDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.FindFileDialog</h1>
+<p>
+Module implementing a dialog to search for text in files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FindFileDialog">FindFileDialog</a></td>
+<td>Class implementing a dialog to search for text in files.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FindFileDialog" ID="FindFileDialog"></a>
+<h2>FindFileDialog</h2>
+<p>
+    Class implementing a dialog to search for text in files.
+</p><p>
+    The occurrences found are displayed in a QTreeWidget showing the filename,
+    the linenumber and the found text. The file will be opened upon a double
+    click onto the respective entry of the list.
+</p><h3>Signals</h3>
+<dl>
+<dt>designerFile(str)</dt>
+<dd>
+emitted to open a Qt-Designer file
+</dd><dt>sourceFile(str, int, str, int, int)</dt>
+<dd>
+emitted to open a source file
+        at a line
+</dd>
+</dl>
+<h3>Derived from</h3>
+QDialog, Ui_FindFileDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>endRole</td></tr><tr><td>lineRole</td></tr><tr><td>md5Role</td></tr><tr><td>replaceRole</td></tr><tr><td>startRole</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FindFileDialog.__init__">FindFileDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__contextMenuRequested">__contextMenuRequested</a></td>
+<td>Private slot to handle the context menu request.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__copyToClipboard">__copyToClipboard</a></td>
+<td>Private method to copy the path of an entry to the clipboard.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__createItem">__createItem</a></td>
+<td>Private method to create an entry in the file list.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__doSearch">__doSearch</a></td>
+<td>Private slot to handle the find button being pressed.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__enableFindButton">__enableFindButton</a></td>
+<td>Private slot called to enable the find button.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__getFileList">__getFileList</a></td>
+<td>Private method to get a list of files to search.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__openFile">__openFile</a></td>
+<td>Private slot to open the currently selected entry.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__stopSearch">__stopSearch</a></td>
+<td>Private slot to handle the stop button being pressed.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.__stripEol">__stripEol</a></td>
+<td>Private method to strip the eol part.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_dirButton_clicked">on_dirButton_clicked</a></td>
+<td>Private slot to handle the selection of the project radio button.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_dirPicker_editTextChanged">on_dirPicker_editTextChanged</a></td>
+<td>Private slot to handle the textChanged signal of the directory picker.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_filterCheckBox_clicked">on_filterCheckBox_clicked</a></td>
+<td>Private slot to handle the selection of the file filter check box.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_filterEdit_textEdited">on_filterEdit_textEdited</a></td>
+<td>Private slot to handle the textChanged signal of the file filter edit.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_findList_itemDoubleClicked">on_findList_itemDoubleClicked</a></td>
+<td>Private slot to handle the double click on a file item.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_findtextCombo_editTextChanged">on_findtextCombo_editTextChanged</a></td>
+<td>Private slot to handle the editTextChanged signal of the find text combo.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_projectButton_clicked">on_projectButton_clicked</a></td>
+<td>Private slot to handle the selection of the project radio button.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_replaceButton_clicked">on_replaceButton_clicked</a></td>
+<td>Private slot to perform the requested replace actions.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.on_replacetextCombo_editTextChanged">on_replacetextCombo_editTextChanged</a></td>
+<td>Private slot to handle the editTextChanged signal of the replace text combo.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.setOpenFiles">setOpenFiles</a></td>
+<td>Public slot to set the mode to search in open files.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.setSearchDirectory">setSearchDirectory</a></td>
+<td>Public slot to set the name of the directory to search in.</td>
+</tr><tr>
+<td><a href="#FindFileDialog.show">show</a></td>
+<td>Public method to enable/disable the project button.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FindFileDialog.__init__" ID="FindFileDialog.__init__"></a>
+<h4>FindFileDialog (Constructor)</h4>
+<b>FindFileDialog</b>(<i>project, replaceMode=False, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>replaceMode</i></dt>
+<dd>
+flag indicating the replace dialog mode (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd>
+</dl><a NAME="FindFileDialog.__contextMenuRequested" ID="FindFileDialog.__contextMenuRequested"></a>
+<h4>FindFileDialog.__contextMenuRequested</h4>
+<b>__contextMenuRequested</b>(<i>pos</i>)
+<p>
+        Private slot to handle the context menu request.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position the context menu shall be shown (QPoint)
+</dd>
+</dl><a NAME="FindFileDialog.__copyToClipboard" ID="FindFileDialog.__copyToClipboard"></a>
+<h4>FindFileDialog.__copyToClipboard</h4>
+<b>__copyToClipboard</b>(<i></i>)
+<p>
+        Private method to copy the path of an entry to the clipboard.
+</p><a NAME="FindFileDialog.__createItem" ID="FindFileDialog.__createItem"></a>
+<h4>FindFileDialog.__createItem</h4>
+<b>__createItem</b>(<i>file, line, text, start, end, replTxt="", md5=""</i>)
+<p>
+        Private method to create an entry in the file list.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+filename of file (string)
+</dd><dt><i>line</i></dt>
+<dd>
+line number (integer)
+</dd><dt><i>text</i></dt>
+<dd>
+text found (string)
+</dd><dt><i>start</i></dt>
+<dd>
+start position of match (integer)
+</dd><dt><i>end</i></dt>
+<dd>
+end position of match (integer)
+</dd><dt><i>replTxt</i></dt>
+<dd>
+text with replacements applied (string)
+</dd><dt><i>md5=</i></dt>
+<dd>
+MD5 hash of the file (string)
+</dd>
+</dl><a NAME="FindFileDialog.__doSearch" ID="FindFileDialog.__doSearch"></a>
+<h4>FindFileDialog.__doSearch</h4>
+<b>__doSearch</b>(<i></i>)
+<p>
+        Private slot to handle the find button being pressed.
+</p><a NAME="FindFileDialog.__enableFindButton" ID="FindFileDialog.__enableFindButton"></a>
+<h4>FindFileDialog.__enableFindButton</h4>
+<b>__enableFindButton</b>(<i></i>)
+<p>
+        Private slot called to enable the find button.
+</p><a NAME="FindFileDialog.__getFileList" ID="FindFileDialog.__getFileList"></a>
+<h4>FindFileDialog.__getFileList</h4>
+<b>__getFileList</b>(<i>path, filterRe</i>)
+<p>
+        Private method to get a list of files to search.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+the root directory to search in (string)
+</dd><dt><i>filterRe</i></dt>
+<dd>
+regular expression defining the filter
+            criteria (regexp object)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of files to be processed (list of strings)
+</dd>
+</dl><a NAME="FindFileDialog.__openFile" ID="FindFileDialog.__openFile"></a>
+<h4>FindFileDialog.__openFile</h4>
+<b>__openFile</b>(<i></i>)
+<p>
+        Private slot to open the currently selected entry.
+</p><a NAME="FindFileDialog.__stopSearch" ID="FindFileDialog.__stopSearch"></a>
+<h4>FindFileDialog.__stopSearch</h4>
+<b>__stopSearch</b>(<i></i>)
+<p>
+        Private slot to handle the stop button being pressed.
+</p><a NAME="FindFileDialog.__stripEol" ID="FindFileDialog.__stripEol"></a>
+<h4>FindFileDialog.__stripEol</h4>
+<b>__stripEol</b>(<i>txt</i>)
+<p>
+        Private method to strip the eol part.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+line of text that should be treated (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+text with eol stripped (string)
+</dd>
+</dl><a NAME="FindFileDialog.on_buttonBox_clicked" ID="FindFileDialog.on_buttonBox_clicked"></a>
+<h4>FindFileDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="FindFileDialog.on_dirButton_clicked" ID="FindFileDialog.on_dirButton_clicked"></a>
+<h4>FindFileDialog.on_dirButton_clicked</h4>
+<b>on_dirButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the selection of the project radio button.
+</p><a NAME="FindFileDialog.on_dirPicker_editTextChanged" ID="FindFileDialog.on_dirPicker_editTextChanged"></a>
+<h4>FindFileDialog.on_dirPicker_editTextChanged</h4>
+<b>on_dirPicker_editTextChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the textChanged signal of the directory
+        picker.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+(ignored)
+</dd>
+</dl><a NAME="FindFileDialog.on_filterCheckBox_clicked" ID="FindFileDialog.on_filterCheckBox_clicked"></a>
+<h4>FindFileDialog.on_filterCheckBox_clicked</h4>
+<b>on_filterCheckBox_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the selection of the file filter check box.
+</p><a NAME="FindFileDialog.on_filterEdit_textEdited" ID="FindFileDialog.on_filterEdit_textEdited"></a>
+<h4>FindFileDialog.on_filterEdit_textEdited</h4>
+<b>on_filterEdit_textEdited</b>(<i>text</i>)
+<p>
+        Private slot to handle the textChanged signal of the file filter edit.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+(ignored)
+</dd>
+</dl><a NAME="FindFileDialog.on_findList_itemDoubleClicked" ID="FindFileDialog.on_findList_itemDoubleClicked"></a>
+<h4>FindFileDialog.on_findList_itemDoubleClicked</h4>
+<b>on_findList_itemDoubleClicked</b>(<i>itm, column</i>)
+<p>
+        Private slot to handle the double click on a file item.
+</p><p>
+        It emits the signal
+        sourceFile or designerFile depending on the file extension.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+the double clicked tree item (QTreeWidgetItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column that was double clicked (integer) (ignored)
+</dd>
+</dl><a NAME="FindFileDialog.on_findtextCombo_editTextChanged" ID="FindFileDialog.on_findtextCombo_editTextChanged"></a>
+<h4>FindFileDialog.on_findtextCombo_editTextChanged</h4>
+<b>on_findtextCombo_editTextChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the editTextChanged signal of the find
+        text combo.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+(ignored)
+</dd>
+</dl><a NAME="FindFileDialog.on_projectButton_clicked" ID="FindFileDialog.on_projectButton_clicked"></a>
+<h4>FindFileDialog.on_projectButton_clicked</h4>
+<b>on_projectButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the selection of the project radio button.
+</p><a NAME="FindFileDialog.on_replaceButton_clicked" ID="FindFileDialog.on_replaceButton_clicked"></a>
+<h4>FindFileDialog.on_replaceButton_clicked</h4>
+<b>on_replaceButton_clicked</b>(<i></i>)
+<p>
+        Private slot to perform the requested replace actions.
+</p><a NAME="FindFileDialog.on_replacetextCombo_editTextChanged" ID="FindFileDialog.on_replacetextCombo_editTextChanged"></a>
+<h4>FindFileDialog.on_replacetextCombo_editTextChanged</h4>
+<b>on_replacetextCombo_editTextChanged</b>(<i>text</i>)
+<p>
+        Private slot to handle the editTextChanged signal of the replace
+        text combo.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+(ignored)
+</dd>
+</dl><a NAME="FindFileDialog.setOpenFiles" ID="FindFileDialog.setOpenFiles"></a>
+<h4>FindFileDialog.setOpenFiles</h4>
+<b>setOpenFiles</b>(<i></i>)
+<p>
+        Public slot to set the mode to search in open files.
+</p><a NAME="FindFileDialog.setSearchDirectory" ID="FindFileDialog.setSearchDirectory"></a>
+<h4>FindFileDialog.setSearchDirectory</h4>
+<b>setSearchDirectory</b>(<i>searchDir</i>)
+<p>
+        Public slot to set the name of the directory to search in.
+</p><dl>
+<dt><i>searchDir</i></dt>
+<dd>
+name of the directory to search in (string)
+</dd>
+</dl><a NAME="FindFileDialog.show" ID="FindFileDialog.show"></a>
+<h4>FindFileDialog.show</h4>
+<b>show</b>(<i>txt=""</i>)
+<p>
+        Public method to enable/disable the project button.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be shown in the searchtext combo (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

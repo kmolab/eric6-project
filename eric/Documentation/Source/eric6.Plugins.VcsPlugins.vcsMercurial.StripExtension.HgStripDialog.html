@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.StripExtension.HgStripDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.StripExtension.HgStripDialog</h1>
+<p>
+Module implementing a dialog to enter the data to strip changesets.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgStripDialog">HgStripDialog</a></td>
+<td>Class documentation goes here.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgStripDialog" ID="HgStripDialog"></a>
+<h2>HgStripDialog</h2>
+<p>
+    Class documentation goes here.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgStripDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgStripDialog.__init__">HgStripDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgStripDialog.__getRevision">__getRevision</a></td>
+<td>Private method to generate the revision.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.getData">getData</a></td>
+<td>Public method to retrieve the data for the strip action.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_branchButton_toggled">on_branchButton_toggled</a></td>
+<td>Private slot to handle changes of the Branch select button.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_branchCombo_editTextChanged">on_branchCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch combo.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_idButton_toggled">on_idButton_toggled</a></td>
+<td>Private slot to handle changes of the ID select button.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_idEdit_textChanged">on_idEdit_textChanged</a></td>
+<td>Private slot to handle changes of the ID edit.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_numberButton_toggled">on_numberButton_toggled</a></td>
+<td>Private slot to handle changes of the Number select button.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_numberSpinBox_valueChanged">on_numberSpinBox_valueChanged</a></td>
+<td>Private slot to handle changes of the Number spin box.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_tagButton_toggled">on_tagButton_toggled</a></td>
+<td>Private slot to handle changes of the Tag select button.</td>
+</tr><tr>
+<td><a href="#HgStripDialog.on_tagCombo_editTextChanged">on_tagCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgStripDialog.__init__" ID="HgStripDialog.__init__"></a>
+<h4>HgStripDialog (Constructor)</h4>
+<b>HgStripDialog</b>(<i>tagsList, branchesList, bookmarksList=None, rev="", parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>tagsList</i> (list of str)</dt>
+<dd>
+list of tags
+</dd><dt><i>branchesList</i> (list of str)</dt>
+<dd>
+list of branches
+</dd><dt><i>bookmarksList</i> (list of str)</dt>
+<dd>
+list of bookmarks
+</dd><dt><i>rev=</i> (str)</dt>
+<dd>
+revision to strip from
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="HgStripDialog.__getRevision" ID="HgStripDialog.__getRevision"></a>
+<h4>HgStripDialog.__getRevision</h4>
+<b>__getRevision</b>(<i></i>)
+<p>
+        Private method to generate the revision.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+revision
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="HgStripDialog.__updateOK" ID="HgStripDialog.__updateOK"></a>
+<h4>HgStripDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgStripDialog.getData" ID="HgStripDialog.getData"></a>
+<h4>HgStripDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the data for the strip action.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with the revision, a bookmark name, a flag indicating
+            to enforce the strip action, a flag indicating to omit the creation
+            of backup bundles and a flag indicating to not modify the working
+            directory
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple (str, str, bool, bool, bool)
+</dd>
+</dl><a NAME="HgStripDialog.on_branchButton_toggled" ID="HgStripDialog.on_branchButton_toggled"></a>
+<h4>HgStripDialog.on_branchButton_toggled</h4>
+<b>on_branchButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgStripDialog.on_branchCombo_editTextChanged" ID="HgStripDialog.on_branchCombo_editTextChanged"></a>
+<h4>HgStripDialog.on_branchCombo_editTextChanged</h4>
+<b>on_branchCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch combo.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the combo
+</dd>
+</dl><a NAME="HgStripDialog.on_idButton_toggled" ID="HgStripDialog.on_idButton_toggled"></a>
+<h4>HgStripDialog.on_idButton_toggled</h4>
+<b>on_idButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgStripDialog.on_idEdit_textChanged" ID="HgStripDialog.on_idEdit_textChanged"></a>
+<h4>HgStripDialog.on_idEdit_textChanged</h4>
+<b>on_idEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID edit.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the edit
+</dd>
+</dl><a NAME="HgStripDialog.on_numberButton_toggled" ID="HgStripDialog.on_numberButton_toggled"></a>
+<h4>HgStripDialog.on_numberButton_toggled</h4>
+<b>on_numberButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Number select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgStripDialog.on_numberSpinBox_valueChanged" ID="HgStripDialog.on_numberSpinBox_valueChanged"></a>
+<h4>HgStripDialog.on_numberSpinBox_valueChanged</h4>
+<b>on_numberSpinBox_valueChanged</b>(<i>val</i>)
+<p>
+        Private slot to handle changes of the Number spin box.
+</p><dl>
+<dt><i>val</i> (int)</dt>
+<dd>
+value of the spin box
+</dd>
+</dl><a NAME="HgStripDialog.on_tagButton_toggled" ID="HgStripDialog.on_tagButton_toggled"></a>
+<h4>HgStripDialog.on_tagButton_toggled</h4>
+<b>on_tagButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgStripDialog.on_tagCombo_editTextChanged" ID="HgStripDialog.on_tagCombo_editTextChanged"></a>
+<h4>HgStripDialog.on_tagCombo_editTextChanged</h4>
+<b>on_tagCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag combo.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the combo
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+ <id>eric6@MARKER@.desktop</id>
+ <metadata_license>CC-BY-3.0</metadata_license>
+ <project_license>GPL-3.0+</project_license>
+ <name>eric6@MARKER@</name>
+ <summary>Integrated Development Environment for Python</summary>
+ <description>
+  <p>
+    Eric is a full featured Python editor and IDE, written
+    in Python. It is based on the cross platform Qt GUI toolkit, integrating
+    the highly flexible QScintilla editor control. It is designed to be
+    usable as everdays' quick and dirty editor as well as being usable as a
+    professional project management tool integrating many advanced features
+    Python offers the professional coder. Eric includes a plug-in system, which
+    allows easy extension of the IDE functionality with plug-ins downloadable
+    from the net.
+  </p>
+ </description>
+ <screenshots>
+  <screenshot type="default" width="1931" height="1404">https://eric-ide.python-projects.org/images/eric5-screen-01.png</screenshot>
+  <screenshot width="1936" height="1404">https://eric-ide.python-projects.org/images/eric5-screen-02.png</screenshot>
+  <screenshot width="1330" height="1405">https://eric-ide.python-projects.org/images/eric5-screen-04.png</screenshot>
+  <screenshot width="1431" height="1254">https://eric-ide.python-projects.org/images/eric5-screen-10.png</screenshot>
+ </screenshots>
+ <url type="homepage">https://eric-ide.python-projects.org</url>
+ <url type="bugtracker">https://die-offenbachs.homelinux.org/issues/</url>
+ <url type="translate">https://eric-ide.python-projects.org/eric-translations.html</url>
+ <url type="donation">https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Eric+Integrated+Development+Environment&amp;cmd=_donations&amp;business=detlev@die-offenbachs.de</url>
+ <update_contact>detlev_AT_die-offenbachs.de</update_contact>
+ <developer_name>Detlev Offenbach</developer_name>
+ <translation type="qt">eric6</translation>
+ <provides>
+   <binary>eric6</binary>
+   <binary>eric6_api</binary>
+   <binary>eric6_browser</binary>
+   <binary>eric6_compare</binary>
+   <binary>eric6_configure</binary>
+   <binary>eric6_diff</binary>
+   <binary>eric6_doc</binary>
+   <binary>eric6_editor</binary>
+   <binary>eric6_hexeditor</binary>
+   <binary>eric6_iconeditor</binary>
+   <binary>eric6_plugininstall</binary>
+   <binary>eric6_pluginrepository</binary>
+   <binary>eric6_pluginuninstall</binary>
+   <binary>eric6_qregexp</binary>
+   <binary>eric6_qregularexpression</binary>
+   <binary>eric6_re</binary>
+   <binary>eric6_snap</binary>
+   <binary>eric6_sqlbrowser</binary>
+   <binary>eric6_tray</binary>
+   <binary>eric6_trpreviewer</binary>
+   <binary>eric6_uipreviewer</binary>
+   <binary>eric6_unittest</binary>
+   <binary>eric6_webbrowser</binary>
+ </provides>
+ <releases>
+   <release version="17.08" date="2017-08-03" />
+ </releases>
+</component>

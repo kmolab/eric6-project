@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.Shortcuts</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.Shortcuts</h1>
+<p>
+Module implementing functions dealing with keyboard shortcuts.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__readShortcut">__readShortcut</a></td>
+<td>Private function to read a single keyboard shortcut from the settings.</td>
+</tr><tr>
+<td><a href="#__saveShortcut">__saveShortcut</a></td>
+<td>Private function to write a single keyboard shortcut to the settings.</td>
+</tr><tr>
+<td><a href="#__setAction">__setAction</a></td>
+<td>Private function to write a single keyboard shortcut to the settings.</td>
+</tr><tr>
+<td><a href="#exportShortcuts">exportShortcuts</a></td>
+<td>Module function to export the keyboard shortcuts for the defined QActions.</td>
+</tr><tr>
+<td><a href="#importShortcuts">importShortcuts</a></td>
+<td>Module function to import the keyboard shortcuts for the defined E5Actions.</td>
+</tr><tr>
+<td><a href="#readShortcuts">readShortcuts</a></td>
+<td>Module function to read the keyboard shortcuts for the defined QActions.</td>
+</tr><tr>
+<td><a href="#saveShortcuts">saveShortcuts</a></td>
+<td>Module function to write the keyboard shortcuts for the defined QActions.</td>
+</tr><tr>
+<td><a href="#setActions">setActions</a></td>
+<td>Module function to set actions based on new format shortcuts file.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__readShortcut" ID="__readShortcut"></a>
+<h2>__readShortcut</h2>
+<b>__readShortcut</b>(<i>act, category, prefClass</i>)
+<p>
+    Private function to read a single keyboard shortcut from the settings.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action object (E5Action)
+</dd><dt><i>category</i></dt>
+<dd>
+category the action belongs to (string)
+</dd><dt><i>prefClass</i></dt>
+<dd>
+preferences class used as the storage area
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__saveShortcut" ID="__saveShortcut"></a>
+<h2>__saveShortcut</h2>
+<b>__saveShortcut</b>(<i>act, category, prefClass</i>)
+<p>
+    Private function to write a single keyboard shortcut to the settings.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action object (E5Action)
+</dd><dt><i>category</i></dt>
+<dd>
+category the action belongs to (string)
+</dd><dt><i>prefClass</i></dt>
+<dd>
+preferences class used as the storage area
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__setAction" ID="__setAction"></a>
+<h2>__setAction</h2>
+<b>__setAction</b>(<i>actions, sdict</i>)
+<p>
+    Private function to write a single keyboard shortcut to the settings.
+</p><dl>
+<dt><i>actions</i></dt>
+<dd>
+list of actions to set (list of E5Action)
+</dd><dt><i>sdict</i></dt>
+<dd>
+dictionary containg accelerator information for one category
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="exportShortcuts" ID="exportShortcuts"></a>
+<h2>exportShortcuts</h2>
+<b>exportShortcuts</b>(<i>fn</i>)
+<p>
+    Module function to export the keyboard shortcuts for the defined QActions.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the export file (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="importShortcuts" ID="importShortcuts"></a>
+<h2>importShortcuts</h2>
+<b>importShortcuts</b>(<i>fn</i>)
+<p>
+    Module function to import the keyboard shortcuts for the defined E5Actions.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the import file (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readShortcuts" ID="readShortcuts"></a>
+<h2>readShortcuts</h2>
+<b>readShortcuts</b>(<i>prefClass=Prefs, helpViewer=None, pluginName=None, helpViewerCategory=""</i>)
+<p>
+    Module function to read the keyboard shortcuts for the defined QActions.
+</p><dl>
+<dt><i>prefClass=</i></dt>
+<dd>
+preferences class used as the storage area
+</dd><dt><i>helpViewer=</i></dt>
+<dd>
+reference to the help window object
+</dd><dt><i>pluginName=</i></dt>
+<dd>
+name of the plugin for which to load shortcuts
+        (string)
+</dd><dt><i>helpViewerCategory=</i></dt>
+<dd>
+name of the help viewer category (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="saveShortcuts" ID="saveShortcuts"></a>
+<h2>saveShortcuts</h2>
+<b>saveShortcuts</b>(<i>prefClass=Prefs</i>)
+<p>
+    Module function to write the keyboard shortcuts for the defined QActions.
+</p><dl>
+<dt><i>prefClass</i></dt>
+<dd>
+preferences class used as the storage area
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="setActions" ID="setActions"></a>
+<h2>setActions</h2>
+<b>setActions</b>(<i>shortcuts</i>)
+<p>
+    Module function to set actions based on new format shortcuts file.
+</p><dl>
+<dt><i>shortcuts</i></dt>
+<dd>
+dictionary containing the accelerator information
+        read from a XML file
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

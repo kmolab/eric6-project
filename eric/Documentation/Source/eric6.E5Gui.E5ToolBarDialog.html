@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ToolBarDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ToolBarDialog</h1>
+<p>
+Module implementing a toolbar configuration dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ToolBarDialog">E5ToolBarDialog</a></td>
+<td>Class implementing a toolbar configuration dialog.</td>
+</tr><tr>
+<td><a href="#E5ToolBarItem">E5ToolBarItem</a></td>
+<td>Class storing data belonging to a toolbar entry of the toolbar dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ToolBarDialog" ID="E5ToolBarDialog"></a>
+<h2>E5ToolBarDialog</h2>
+<p>
+    Class implementing a toolbar configuration dialog.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_E5ToolBarDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ActionIdRole</td></tr><tr><td>WidgetActionRole</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ToolBarDialog.__init__">E5ToolBarDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.__resetCurrentToolbar">__resetCurrentToolbar</a></td>
+<td>Private method to revert all changes made to the current toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.__restoreCurrentToolbar">__restoreCurrentToolbar</a></td>
+<td>Private methdo to restore the current toolbar to the given list of actions.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.__restoreCurrentToolbarToDefault">__restoreCurrentToolbarToDefault</a></td>
+<td>Private method to set the current toolbar to its default configuration.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.__saveToolBars">__saveToolBars</a></td>
+<td>Private method to save the configured toolbars.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.__setupButtons">__setupButtons</a></td>
+<td>Private slot to set the buttons state.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.__toolbarComboBox_currentIndexChanged">__toolbarComboBox_currentIndexChanged</a></td>
+<td>Private slot called upon a selection of the current toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_actionsTree_currentItemChanged">on_actionsTree_currentItemChanged</a></td>
+<td>Private slot called, when the currently selected action changes.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called, when a button of the button box was clicked.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_downButton_clicked">on_downButton_clicked</a></td>
+<td>Private slot used to move an action down in the list.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_leftButton_clicked">on_leftButton_clicked</a></td>
+<td>Private slot to delete an action from the list.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_newButton_clicked">on_newButton_clicked</a></td>
+<td>Private slot to create a new toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_removeButton_clicked">on_removeButton_clicked</a></td>
+<td>Private slot to remove a custom toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_renameButton_clicked">on_renameButton_clicked</a></td>
+<td>Private slot to rename a custom toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_rightButton_clicked">on_rightButton_clicked</a></td>
+<td>Private slot to add an action to the list.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_toolbarActionsList_currentItemChanged">on_toolbarActionsList_currentItemChanged</a></td>
+<td>Private slot to handle a change of the current item.</td>
+</tr><tr>
+<td><a href="#E5ToolBarDialog.on_upButton_clicked">on_upButton_clicked</a></td>
+<td>Private slot used to move an action up in the list.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ToolBarDialog.__init__" ID="E5ToolBarDialog.__init__"></a>
+<h4>E5ToolBarDialog (Constructor)</h4>
+<b>E5ToolBarDialog</b>(<i>toolBarManager, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>toolBarManager</i></dt>
+<dd>
+reference to a toolbar manager object
+            (E5ToolBarManager)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5ToolBarDialog.__resetCurrentToolbar" ID="E5ToolBarDialog.__resetCurrentToolbar"></a>
+<h4>E5ToolBarDialog.__resetCurrentToolbar</h4>
+<b>__resetCurrentToolbar</b>(<i></i>)
+<p>
+        Private method to revert all changes made to the current toolbar.
+</p><a NAME="E5ToolBarDialog.__restoreCurrentToolbar" ID="E5ToolBarDialog.__restoreCurrentToolbar"></a>
+<h4>E5ToolBarDialog.__restoreCurrentToolbar</h4>
+<b>__restoreCurrentToolbar</b>(<i>actions</i>)
+<p>
+        Private methdo to restore the current toolbar to the given list of
+        actions.
+</p><dl>
+<dt><i>actions</i></dt>
+<dd>
+list of actions to set for the current toolbar
+        (list of QAction)
+</dd>
+</dl><a NAME="E5ToolBarDialog.__restoreCurrentToolbarToDefault" ID="E5ToolBarDialog.__restoreCurrentToolbarToDefault"></a>
+<h4>E5ToolBarDialog.__restoreCurrentToolbarToDefault</h4>
+<b>__restoreCurrentToolbarToDefault</b>(<i></i>)
+<p>
+        Private method to set the current toolbar to its default configuration.
+</p><a NAME="E5ToolBarDialog.__saveToolBars" ID="E5ToolBarDialog.__saveToolBars"></a>
+<h4>E5ToolBarDialog.__saveToolBars</h4>
+<b>__saveToolBars</b>(<i></i>)
+<p>
+        Private method to save the configured toolbars.
+</p><dl>
+<dt>Raises <b>RuntimeError</b>:</dt>
+<dd>
+raised to indicate an invalid action
+</dd>
+</dl><a NAME="E5ToolBarDialog.__setupButtons" ID="E5ToolBarDialog.__setupButtons"></a>
+<h4>E5ToolBarDialog.__setupButtons</h4>
+<b>__setupButtons</b>(<i></i>)
+<p>
+        Private slot to set the buttons state.
+</p><a NAME="E5ToolBarDialog.__toolbarComboBox_currentIndexChanged" ID="E5ToolBarDialog.__toolbarComboBox_currentIndexChanged"></a>
+<h4>E5ToolBarDialog.__toolbarComboBox_currentIndexChanged</h4>
+<b>__toolbarComboBox_currentIndexChanged</b>(<i>index</i>)
+<p>
+        Private slot called upon a selection of the current toolbar.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the new current toolbar (integer)
+</dd>
+</dl><a NAME="E5ToolBarDialog.on_actionsTree_currentItemChanged" ID="E5ToolBarDialog.on_actionsTree_currentItemChanged"></a>
+<h4>E5ToolBarDialog.on_actionsTree_currentItemChanged</h4>
+<b>on_actionsTree_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot called, when the currently selected action changes.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+reference to the current item (QTreeWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+reference to the previous current item
+            (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5ToolBarDialog.on_buttonBox_clicked" ID="E5ToolBarDialog.on_buttonBox_clicked"></a>
+<h4>E5ToolBarDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called, when a button of the button box was clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+reference to the button clicked (QAbstractButton)
+</dd>
+</dl><a NAME="E5ToolBarDialog.on_downButton_clicked" ID="E5ToolBarDialog.on_downButton_clicked"></a>
+<h4>E5ToolBarDialog.on_downButton_clicked</h4>
+<b>on_downButton_clicked</b>(<i></i>)
+<p>
+        Private slot used to move an action down in the list.
+</p><a NAME="E5ToolBarDialog.on_leftButton_clicked" ID="E5ToolBarDialog.on_leftButton_clicked"></a>
+<h4>E5ToolBarDialog.on_leftButton_clicked</h4>
+<b>on_leftButton_clicked</b>(<i></i>)
+<p>
+        Private slot to delete an action from the list.
+</p><a NAME="E5ToolBarDialog.on_newButton_clicked" ID="E5ToolBarDialog.on_newButton_clicked"></a>
+<h4>E5ToolBarDialog.on_newButton_clicked</h4>
+<b>on_newButton_clicked</b>(<i></i>)
+<p>
+        Private slot to create a new toolbar.
+</p><a NAME="E5ToolBarDialog.on_removeButton_clicked" ID="E5ToolBarDialog.on_removeButton_clicked"></a>
+<h4>E5ToolBarDialog.on_removeButton_clicked</h4>
+<b>on_removeButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove a custom toolbar.
+</p><a NAME="E5ToolBarDialog.on_renameButton_clicked" ID="E5ToolBarDialog.on_renameButton_clicked"></a>
+<h4>E5ToolBarDialog.on_renameButton_clicked</h4>
+<b>on_renameButton_clicked</b>(<i></i>)
+<p>
+        Private slot to rename a custom toolbar.
+</p><a NAME="E5ToolBarDialog.on_rightButton_clicked" ID="E5ToolBarDialog.on_rightButton_clicked"></a>
+<h4>E5ToolBarDialog.on_rightButton_clicked</h4>
+<b>on_rightButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add an action to the list.
+</p><a NAME="E5ToolBarDialog.on_toolbarActionsList_currentItemChanged" ID="E5ToolBarDialog.on_toolbarActionsList_currentItemChanged"></a>
+<h4>E5ToolBarDialog.on_toolbarActionsList_currentItemChanged</h4>
+<b>on_toolbarActionsList_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot to handle a change of the current item.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+reference to the current item (QListWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+reference to the previous current item
+            (QListWidgetItem)
+</dd>
+</dl><a NAME="E5ToolBarDialog.on_upButton_clicked" ID="E5ToolBarDialog.on_upButton_clicked"></a>
+<h4>E5ToolBarDialog.on_upButton_clicked</h4>
+<b>on_upButton_clicked</b>(<i></i>)
+<p>
+        Private slot used to move an action up in the list.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5ToolBarItem" ID="E5ToolBarItem"></a>
+<h2>E5ToolBarItem</h2>
+<p>
+    Class storing data belonging to a toolbar entry of the toolbar dialog.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ToolBarItem.__init__">E5ToolBarItem</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ToolBarItem.__init__" ID="E5ToolBarItem.__init__"></a>
+<h4>E5ToolBarItem (Constructor)</h4>
+<b>E5ToolBarItem</b>(<i>toolBarId, actionIDs, default</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>toolBarId</i></dt>
+<dd>
+id of the toolbar object (integer)
+</dd><dt><i>actionIDs</i></dt>
+<dd>
+list of action IDs belonging to the toolbar
+            (list of integer)
+</dd><dt><i>default</i></dt>
+<dd>
+flag indicating a default toolbar (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

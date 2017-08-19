@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.PluginCodeStyleChecker</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.PluginCodeStyleChecker</h1>
+<p>
+Module implementing the code style checker plug-in.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>author</td></tr><tr><td>autoactivate</td></tr><tr><td>className</td></tr><tr><td>deactivateable</td></tr><tr><td>error</td></tr><tr><td>longDescription</td></tr><tr><td>name</td></tr><tr><td>packageName</td></tr><tr><td>pyqtApi</td></tr><tr><td>python2Compatible</td></tr><tr><td>shortDescription</td></tr><tr><td>version</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CodeStyleCheckerPlugin">CodeStyleCheckerPlugin</a></td>
+<td>Class implementing the code style checker plug-in.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CodeStyleCheckerPlugin" ID="CodeStyleCheckerPlugin"></a>
+<h2>CodeStyleCheckerPlugin</h2>
+<p>
+    Class implementing the code style checker plug-in.
+</p><h3>Signals</h3>
+<dl>
+<dt>batchFinished()</dt>
+<dd>
+emitted when a style check batch is done
+</dd><dt>error(str, str)</dt>
+<dd>
+emitted in case of an error
+</dd><dt>styleChecked(str, dict, int, list)</dt>
+<dd>
+emitted when the style check was
+        done for a file.
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CodeStyleCheckerPlugin.__init__">CodeStyleCheckerPlugin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__editorClosed">__editorClosed</a></td>
+<td>Private slot called, when an editor was closed.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__editorCodeStyleCheck">__editorCodeStyleCheck</a></td>
+<td>Private slot to handle the code style check context menu action of the editors.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__editorOpened">__editorOpened</a></td>
+<td>Private slot called, when a new editor was opened.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__editorShowMenu">__editorShowMenu</a></td>
+<td>Private slot called, when the the editor context menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__initialize">__initialize</a></td>
+<td>Private slot to (re)initialize the plugin.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__projectBrowserCodeStyleCheck">__projectBrowserCodeStyleCheck</a></td>
+<td>Private method to handle the code style check context menu action of the project sources browser.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__projectBrowserShowMenu">__projectBrowserShowMenu</a></td>
+<td>Private slot called, when the the project browser menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__projectCodeStyleCheck">__projectCodeStyleCheck</a></td>
+<td>Private slot used to check the project files for code style.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__projectShowMenu">__projectShowMenu</a></td>
+<td>Private slot called, when the the project menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__serviceError">__serviceError</a></td>
+<td>Private slot handling service errors.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.__translateStyleCheck">__translateStyleCheck</a></td>
+<td>Private slot called after perfoming a style check on one file.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.activate">activate</a></td>
+<td>Public method to activate this plugin.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.batchJobDone">batchJobDone</a></td>
+<td>Public slot handling the completion of a batch job.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.cancelStyleBatchCheck">cancelStyleBatchCheck</a></td>
+<td>Public method to cancel all batch jobs.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.deactivate">deactivate</a></td>
+<td>Public method to deactivate this plugin.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.serviceErrorPy2">serviceErrorPy2</a></td>
+<td>Public slot handling service errors for Python 2.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.serviceErrorPy3">serviceErrorPy3</a></td>
+<td>Public slot handling service errors for Python 2.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.styleBatchCheck">styleBatchCheck</a></td>
+<td>Public method to prepare a style check on multiple Python source files.</td>
+</tr><tr>
+<td><a href="#CodeStyleCheckerPlugin.styleCheck">styleCheck</a></td>
+<td>Public method to prepare a style check on one Python source file.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CodeStyleCheckerPlugin.__init__" ID="CodeStyleCheckerPlugin.__init__"></a>
+<h4>CodeStyleCheckerPlugin (Constructor)</h4>
+<b>CodeStyleCheckerPlugin</b>(<i>ui</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>ui</i></dt>
+<dd>
+reference to the user interface object (UI.UserInterface)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__editorClosed" ID="CodeStyleCheckerPlugin.__editorClosed"></a>
+<h4>CodeStyleCheckerPlugin.__editorClosed</h4>
+<b>__editorClosed</b>(<i>editor</i>)
+<p>
+        Private slot called, when an editor was closed.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the editor (QScintilla.Editor)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__editorCodeStyleCheck" ID="CodeStyleCheckerPlugin.__editorCodeStyleCheck"></a>
+<h4>CodeStyleCheckerPlugin.__editorCodeStyleCheck</h4>
+<b>__editorCodeStyleCheck</b>(<i></i>)
+<p>
+        Private slot to handle the code style check context menu action
+        of the editors.
+</p><a NAME="CodeStyleCheckerPlugin.__editorOpened" ID="CodeStyleCheckerPlugin.__editorOpened"></a>
+<h4>CodeStyleCheckerPlugin.__editorOpened</h4>
+<b>__editorOpened</b>(<i>editor</i>)
+<p>
+        Private slot called, when a new editor was opened.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the new editor (QScintilla.Editor)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__editorShowMenu" ID="CodeStyleCheckerPlugin.__editorShowMenu"></a>
+<h4>CodeStyleCheckerPlugin.__editorShowMenu</h4>
+<b>__editorShowMenu</b>(<i>menuName, menu, editor</i>)
+<p>
+        Private slot called, when the the editor context menu or a submenu is
+        about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd><dt><i>editor</i></dt>
+<dd>
+reference to the editor
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__initialize" ID="CodeStyleCheckerPlugin.__initialize"></a>
+<h4>CodeStyleCheckerPlugin.__initialize</h4>
+<b>__initialize</b>(<i></i>)
+<p>
+        Private slot to (re)initialize the plugin.
+</p><a NAME="CodeStyleCheckerPlugin.__projectBrowserCodeStyleCheck" ID="CodeStyleCheckerPlugin.__projectBrowserCodeStyleCheck"></a>
+<h4>CodeStyleCheckerPlugin.__projectBrowserCodeStyleCheck</h4>
+<b>__projectBrowserCodeStyleCheck</b>(<i></i>)
+<p>
+        Private method to handle the code style check context menu action of
+        the project sources browser.
+</p><a NAME="CodeStyleCheckerPlugin.__projectBrowserShowMenu" ID="CodeStyleCheckerPlugin.__projectBrowserShowMenu"></a>
+<h4>CodeStyleCheckerPlugin.__projectBrowserShowMenu</h4>
+<b>__projectBrowserShowMenu</b>(<i>menuName, menu</i>)
+<p>
+        Private slot called, when the the project browser menu or a submenu is
+        about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__projectCodeStyleCheck" ID="CodeStyleCheckerPlugin.__projectCodeStyleCheck"></a>
+<h4>CodeStyleCheckerPlugin.__projectCodeStyleCheck</h4>
+<b>__projectCodeStyleCheck</b>(<i></i>)
+<p>
+        Private slot used to check the project files for code style.
+</p><a NAME="CodeStyleCheckerPlugin.__projectShowMenu" ID="CodeStyleCheckerPlugin.__projectShowMenu"></a>
+<h4>CodeStyleCheckerPlugin.__projectShowMenu</h4>
+<b>__projectShowMenu</b>(<i>menuName, menu</i>)
+<p>
+        Private slot called, when the the project menu or a submenu is
+        about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__serviceError" ID="CodeStyleCheckerPlugin.__serviceError"></a>
+<h4>CodeStyleCheckerPlugin.__serviceError</h4>
+<b>__serviceError</b>(<i>fn, msg</i>)
+<p>
+        Private slot handling service errors.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+file name (string)
+</dd><dt><i>msg</i></dt>
+<dd>
+message text (string)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.__translateStyleCheck" ID="CodeStyleCheckerPlugin.__translateStyleCheck"></a>
+<h4>CodeStyleCheckerPlugin.__translateStyleCheck</h4>
+<b>__translateStyleCheck</b>(<i>fn, codeStyleCheckerStats, results</i>)
+<p>
+        Private slot called after perfoming a style check on one file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the just checked file (str)
+</dd><dt><i>codeStyleCheckerStats</i></dt>
+<dd>
+stats of style and name check (dict)
+</dd><dt><i>results</i></dt>
+<dd>
+tuple for each found violation of style (tuple of
+            lineno (int), position (int), text (str), fixed (bool),
+            autofixing (bool), fixedMsg (str))
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.activate" ID="CodeStyleCheckerPlugin.activate"></a>
+<h4>CodeStyleCheckerPlugin.activate</h4>
+<b>activate</b>(<i></i>)
+<p>
+        Public method to activate this plugin.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of None and activation status (boolean)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.batchJobDone" ID="CodeStyleCheckerPlugin.batchJobDone"></a>
+<h4>CodeStyleCheckerPlugin.batchJobDone</h4>
+<b>batchJobDone</b>(<i>fx, lang</i>)
+<p>
+        Public slot handling the completion of a batch job.
+</p><dl>
+<dt><i>fx</i></dt>
+<dd>
+service name (string)
+</dd><dt><i>lang</i></dt>
+<dd>
+language (string)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.cancelStyleBatchCheck" ID="CodeStyleCheckerPlugin.cancelStyleBatchCheck"></a>
+<h4>CodeStyleCheckerPlugin.cancelStyleBatchCheck</h4>
+<b>cancelStyleBatchCheck</b>(<i></i>)
+<p>
+        Public method to cancel all batch jobs.
+</p><a NAME="CodeStyleCheckerPlugin.deactivate" ID="CodeStyleCheckerPlugin.deactivate"></a>
+<h4>CodeStyleCheckerPlugin.deactivate</h4>
+<b>deactivate</b>(<i></i>)
+<p>
+        Public method to deactivate this plugin.
+</p><a NAME="CodeStyleCheckerPlugin.serviceErrorPy2" ID="CodeStyleCheckerPlugin.serviceErrorPy2"></a>
+<h4>CodeStyleCheckerPlugin.serviceErrorPy2</h4>
+<b>serviceErrorPy2</b>(<i>fx, lang, fn, msg</i>)
+<p>
+        Public slot handling service errors for Python 2.
+</p><dl>
+<dt><i>fx</i></dt>
+<dd>
+service name (string)
+</dd><dt><i>lang</i></dt>
+<dd>
+language (string)
+</dd><dt><i>fn</i></dt>
+<dd>
+file name (string)
+</dd><dt><i>msg</i></dt>
+<dd>
+message text (string)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.serviceErrorPy3" ID="CodeStyleCheckerPlugin.serviceErrorPy3"></a>
+<h4>CodeStyleCheckerPlugin.serviceErrorPy3</h4>
+<b>serviceErrorPy3</b>(<i>fx, lang, fn, msg</i>)
+<p>
+        Public slot handling service errors for Python 2.
+</p><dl>
+<dt><i>fx</i></dt>
+<dd>
+service name (string)
+</dd><dt><i>lang</i></dt>
+<dd>
+language (string)
+</dd><dt><i>fn</i></dt>
+<dd>
+file name (string)
+</dd><dt><i>msg</i></dt>
+<dd>
+message text (string)
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.styleBatchCheck" ID="CodeStyleCheckerPlugin.styleBatchCheck"></a>
+<h4>CodeStyleCheckerPlugin.styleBatchCheck</h4>
+<b>styleBatchCheck</b>(<i>argumentsList</i>)
+<p>
+        Public method to prepare a style check on multiple Python source files.
+</p><dl>
+<dt><i>argumentsList</i></dt>
+<dd>
+list of arguments tuples with each tuple
+            containing filename, source and args as given in styleCheck()
+            method
+</dd>
+</dl><a NAME="CodeStyleCheckerPlugin.styleCheck" ID="CodeStyleCheckerPlugin.styleCheck"></a>
+<h4>CodeStyleCheckerPlugin.styleCheck</h4>
+<b>styleCheck</b>(<i>lang, filename, source, args</i>)
+<p>
+        Public method to prepare a style check on one Python source file.
+</p><dl>
+<dt><i>lang</i></dt>
+<dd>
+language of the file or None to determine by internal
+            algorithm (str or None)
+</dd><dt><i>filename</i></dt>
+<dd>
+source filename (string)
+</dd><dt><i>source</i></dt>
+<dd>
+string containing the code to check (string)
+</dd><dt><i>args</i></dt>
+<dd>
+arguments used by the codeStyleCheck function (list of
+            excludeMessages (str), includeMessages (str), repeatMessages
+            (bool), fixCodes (str), noFixCodes (str), fixIssues (bool),
+            maxLineLength (int), hangClosing (bool), docType (str), errors
+            (list of str), eol (str), encoding (str))
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

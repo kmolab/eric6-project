@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.DiffDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.DiffDialog</h1>
+<p>
+Module implementing a dialog to compare two files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#DiffDialog">DiffDialog</a></td>
+<td>Class implementing a dialog to compare two files.</td>
+</tr><tr>
+<td><a href="#DiffWindow">DiffWindow</a></td>
+<td>Main window class for the standalone dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#context_diff">context_diff</a></td>
+<td>Compare two sequences of lines; generate the delta as a context diff.</td>
+</tr><tr>
+<td><a href="#unified_diff">unified_diff</a></td>
+<td>Compare two sequences of lines; generate the delta as a unified diff.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="DiffDialog" ID="DiffDialog"></a>
+<h2>DiffDialog</h2>
+<p>
+    Class implementing a dialog to compare two files.
+</p>
+<h3>Derived from</h3>
+QWidget, Ui_DiffDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DiffDialog.__init__">DiffDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#DiffDialog.__appendText">__appendText</a></td>
+<td>Private method to append text to the end of the contents pane.</td>
+</tr><tr>
+<td><a href="#DiffDialog.__fileChanged">__fileChanged</a></td>
+<td>Private slot to enable/disable the Compare button.</td>
+</tr><tr>
+<td><a href="#DiffDialog.__generateContextDiff">__generateContextDiff</a></td>
+<td>Private slot to generate a context diff output.</td>
+</tr><tr>
+<td><a href="#DiffDialog.__generateUnifiedDiff">__generateUnifiedDiff</a></td>
+<td>Private slot to generate a unified diff output.</td>
+</tr><tr>
+<td><a href="#DiffDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#DiffDialog.on_diffButton_clicked">on_diffButton_clicked</a></td>
+<td>Private slot to handle the Compare button press.</td>
+</tr><tr>
+<td><a href="#DiffDialog.on_saveButton_clicked">on_saveButton_clicked</a></td>
+<td>Private slot to handle the Save button press.</td>
+</tr><tr>
+<td><a href="#DiffDialog.show">show</a></td>
+<td>Public slot to show the dialog.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="DiffDialog.__init__" ID="DiffDialog.__init__"></a>
+<h4>DiffDialog (Constructor)</h4>
+<b>DiffDialog</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="DiffDialog.__appendText" ID="DiffDialog.__appendText"></a>
+<h4>DiffDialog.__appendText</h4>
+<b>__appendText</b>(<i>txt</i>)
+<p>
+        Private method to append text to the end of the contents pane.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to insert (string)
+</dd>
+</dl><a NAME="DiffDialog.__fileChanged" ID="DiffDialog.__fileChanged"></a>
+<h4>DiffDialog.__fileChanged</h4>
+<b>__fileChanged</b>(<i></i>)
+<p>
+        Private slot to enable/disable the Compare button.
+</p><a NAME="DiffDialog.__generateContextDiff" ID="DiffDialog.__generateContextDiff"></a>
+<h4>DiffDialog.__generateContextDiff</h4>
+<b>__generateContextDiff</b>(<i>a, b, fromfile, tofile, fromfiledate, tofiledate</i>)
+<p>
+        Private slot to generate a context diff output.
+</p><dl>
+<dt><i>a</i></dt>
+<dd>
+first sequence of lines (list of strings)
+</dd><dt><i>b</i></dt>
+<dd>
+second sequence of lines (list of strings)
+</dd><dt><i>fromfile</i></dt>
+<dd>
+filename of the first file (string)
+</dd><dt><i>tofile</i></dt>
+<dd>
+filename of the second file (string)
+</dd><dt><i>fromfiledate</i></dt>
+<dd>
+modification time of the first file (string)
+</dd><dt><i>tofiledate</i></dt>
+<dd>
+modification time of the second file (string)
+</dd>
+</dl><a NAME="DiffDialog.__generateUnifiedDiff" ID="DiffDialog.__generateUnifiedDiff"></a>
+<h4>DiffDialog.__generateUnifiedDiff</h4>
+<b>__generateUnifiedDiff</b>(<i>a, b, fromfile, tofile, fromfiledate, tofiledate</i>)
+<p>
+        Private slot to generate a unified diff output.
+</p><dl>
+<dt><i>a</i></dt>
+<dd>
+first sequence of lines (list of strings)
+</dd><dt><i>b</i></dt>
+<dd>
+second sequence of lines (list of strings)
+</dd><dt><i>fromfile</i></dt>
+<dd>
+filename of the first file (string)
+</dd><dt><i>tofile</i></dt>
+<dd>
+filename of the second file (string)
+</dd><dt><i>fromfiledate</i></dt>
+<dd>
+modification time of the first file (string)
+</dd><dt><i>tofiledate</i></dt>
+<dd>
+modification time of the second file (string)
+</dd>
+</dl><a NAME="DiffDialog.on_buttonBox_clicked" ID="DiffDialog.on_buttonBox_clicked"></a>
+<h4>DiffDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="DiffDialog.on_diffButton_clicked" ID="DiffDialog.on_diffButton_clicked"></a>
+<h4>DiffDialog.on_diffButton_clicked</h4>
+<b>on_diffButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the Compare button press.
+</p><a NAME="DiffDialog.on_saveButton_clicked" ID="DiffDialog.on_saveButton_clicked"></a>
+<h4>DiffDialog.on_saveButton_clicked</h4>
+<b>on_saveButton_clicked</b>(<i></i>)
+<p>
+        Private slot to handle the Save button press.
+</p><p>
+        It saves the diff shown in the dialog to a file in the local
+        filesystem.
+</p><a NAME="DiffDialog.show" ID="DiffDialog.show"></a>
+<h4>DiffDialog.show</h4>
+<b>show</b>(<i>filename=None</i>)
+<p>
+        Public slot to show the dialog.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of a file to use as the first file (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="DiffWindow" ID="DiffWindow"></a>
+<h2>DiffWindow</h2>
+<p>
+    Main window class for the standalone dialog.
+</p>
+<h3>Derived from</h3>
+E5MainWindow
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DiffWindow.__init__">DiffWindow</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#DiffWindow.eventFilter">eventFilter</a></td>
+<td>Public method to filter events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="DiffWindow.__init__" ID="DiffWindow.__init__"></a>
+<h4>DiffWindow (Constructor)</h4>
+<b>DiffWindow</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="DiffWindow.eventFilter" ID="DiffWindow.eventFilter"></a>
+<h4>DiffWindow.eventFilter</h4>
+<b>eventFilter</b>(<i>obj, event</i>)
+<p>
+        Public method to filter events.
+</p><dl>
+<dt><i>obj</i></dt>
+<dd>
+reference to the object the event is meant for (QObject)
+</dd><dt><i>event</i></dt>
+<dd>
+reference to the event object (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, whether the event was handled (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="context_diff" ID="context_diff"></a>
+<h2>context_diff</h2>
+<b>context_diff</b>(<i>a, b, fromfile='', tofile='', fromfiledate='', tofiledate='', n=3, lineterm='\n'</i>)
+<p>
+    Compare two sequences of lines; generate the delta as a context diff.
+</p><p>
+    Context diffs are a compact way of showing line changes and a few
+    lines of context.  The number of context lines is set by 'n' which
+    defaults to three.
+</p><p>
+    By default, the diff control lines (those with *** or ---) are
+    created with a trailing newline.  This is helpful so that inputs
+    created from file.readlines() result in diffs that are suitable for
+    file.writelines() since both the inputs and outputs have trailing
+    newlines.
+</p><p>
+    For inputs that do not have trailing newlines, set the lineterm
+    argument to "" so that the output will be uniformly newline free.
+</p><p>
+    The context diff format normally has a header for filenames and
+    modification times.  Any or all of these may be specified using
+    strings for 'fromfile', 'tofile', 'fromfiledate', and 'tofiledate'.
+    The modification times are normally expressed in the format returned
+    by time.ctime().  If not specified, the strings default to blanks.
+</p><p>
+    Example:
+</p><p>
+    <pre>
+    &gt;&gt;&gt; print ''.join(
+    ...       context_diff('one\ntwo\nthree\nfour\n'.splitlines(1),
+    ...       'zero\none\ntree\nfour\n'.splitlines(1), 'Original', 'Current',
+    ...       'Sat Jan 26 23:30:50 1991', 'Fri Jun 06 10:22:46 2003')),
+    *** Original Sat Jan 26 23:30:50 1991
+    --- Current Fri Jun 06 10:22:46 2003
+    ***************
+    *** 1,4 ****
+      one
+    ! two
+    ! three
+      four
+    --- 1,4 ----
+    + zero
+      one
+    ! tree
+      four
+    </pre>
+</p><dl>
+<dt><i>a</i></dt>
+<dd>
+first sequence of lines (list of strings)
+</dd><dt><i>b</i></dt>
+<dd>
+second sequence of lines (list of strings)
+</dd><dt><i>fromfile</i></dt>
+<dd>
+filename of the first file (string)
+</dd><dt><i>tofile</i></dt>
+<dd>
+filename of the second file (string)
+</dd><dt><i>fromfiledate</i></dt>
+<dd>
+modification time of the first file (string)
+</dd><dt><i>tofiledate</i></dt>
+<dd>
+modification time of the second file (string)
+</dd><dt><i>n</i></dt>
+<dd>
+number of lines of context (integer)
+</dd><dt><i>lineterm</i></dt>
+<dd>
+line termination string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a generator yielding lines of differences
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="unified_diff" ID="unified_diff"></a>
+<h2>unified_diff</h2>
+<b>unified_diff</b>(<i>a, b, fromfile='', tofile='', fromfiledate='', tofiledate='', n=3, lineterm='\n'</i>)
+<p>
+    Compare two sequences of lines; generate the delta as a unified diff.
+</p><p>
+    Unified diffs are a compact way of showing line changes and a few
+    lines of context.  The number of context lines is set by 'n' which
+    defaults to three.
+</p><p>
+    By default, the diff control lines (those with ---, +++, or @@) are
+    created with a trailing newline.  This is helpful so that inputs
+    created from file.readlines() result in diffs that are suitable for
+    file.writelines() since both the inputs and outputs have trailing
+    newlines.
+</p><p>
+    For inputs that do not have trailing newlines, set the lineterm
+    argument to "" so that the output will be uniformly newline free.
+</p><p>
+    The unidiff format normally has a header for filenames and modification
+    times.  Any or all of these may be specified using strings for
+    'fromfile', 'tofile', 'fromfiledate', and 'tofiledate'.  The modification
+    times are normally expressed in the format returned by time.ctime().
+</p><p>
+    Example:
+</p><p>
+    <pre>
+    &gt;&gt;&gt; for line in unified_diff('one two three four'.split(),
+    ...             'zero one tree four'.split(), 'Original', 'Current',
+    ...             'Sat Jan 26 23:30:50 1991', 'Fri Jun 06 10:20:52 2003',
+    ...             lineterm=''):
+    ...     print line
+    --- Original Sat Jan 26 23:30:50 1991
+    +++ Current Fri Jun 06 10:20:52 2003
+@ -1,4 +1,4 @@
+    +zero
+     one
+    -two
+    -three
+    +tree
+     four
+    </pre>
+</p><dl>
+<dt><i>a</i></dt>
+<dd>
+first sequence of lines (list of strings)
+</dd><dt><i>b</i></dt>
+<dd>
+second sequence of lines (list of strings)
+</dd><dt><i>fromfile</i></dt>
+<dd>
+filename of the first file (string)
+</dd><dt><i>tofile</i></dt>
+<dd>
+filename of the second file (string)
+</dd><dt><i>fromfiledate</i></dt>
+<dd>
+modification time of the first file (string)
+</dd><dt><i>tofiledate</i></dt>
+<dd>
+modification time of the second file (string)
+</dd><dt><i>n</i></dt>
+<dd>
+number of lines of context (integer)
+</dd><dt><i>lineterm</i></dt>
+<dd>
+line termination string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a generator yielding lines of differences
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

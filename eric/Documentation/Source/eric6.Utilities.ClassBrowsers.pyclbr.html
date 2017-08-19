@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.ClassBrowsers.pyclbr</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.ClassBrowsers.pyclbr</h1>
+<p>
+Parse a Python file and retrieve classes, functions/methods and attributes.
+</p><p>
+Parse enough of a Python file to recognize class and method definitions and
+to find out the superclasses of a class as well as its attributes.
+</p><p>
+This is module is based on pyclbr found in the Python 2.2.2 distribution.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>SUPPORTED_TYPES</td></tr><tr><td>TABWIDTH</td></tr><tr><td>_commentsub</td></tr><tr><td>_getnext</td></tr><tr><td>_modules</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Attribute">Attribute</a></td>
+<td>Class to represent a class attribute.</td>
+</tr><tr>
+<td><a href="#Class">Class</a></td>
+<td>Class to represent a Python class.</td>
+</tr><tr>
+<td><a href="#Function">Function</a></td>
+<td>Class to represent a Python function.</td>
+</tr><tr>
+<td><a href="#ImportedModule">ImportedModule</a></td>
+<td>Class to represent an imported module.</td>
+</tr><tr>
+<td><a href="#Imports">Imports</a></td>
+<td>Class to represent the list of imported modules.</td>
+</tr><tr>
+<td><a href="#Publics">Publics</a></td>
+<td>Class to represent the list of public identifiers.</td>
+</tr><tr>
+<td><a href="#VisibilityMixin">VisibilityMixin</a></td>
+<td>Mixin class implementing the notion of visibility.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#_indent">_indent</a></td>
+<td>Module function to return the indentation depth.</td>
+</tr><tr>
+<td><a href="#readmodule_ex">readmodule_ex</a></td>
+<td>Read a module file and return a dictionary of classes.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="Attribute" ID="Attribute"></a>
+<h2>Attribute</h2>
+<p>
+    Class to represent a class attribute.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Attribute, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Attribute.__init__">Attribute</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Attribute.__init__" ID="Attribute.__init__"></a>
+<h4>Attribute (Constructor)</h4>
+<b>Attribute</b>(<i>module, name, file, lineno</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this class
+</dd><dt><i>name</i></dt>
+<dd>
+name of this class
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this attribute
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Class" ID="Class"></a>
+<h2>Class</h2>
+<p>
+    Class to represent a Python class.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Class, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Class.__init__">Class</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Class.__init__" ID="Class.__init__"></a>
+<h4>Class (Constructor)</h4>
+<b>Class</b>(<i>module, name, superClasses, file, lineno</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this class
+</dd><dt><i>name</i></dt>
+<dd>
+name of this class
+</dd><dt><i>superClasses</i></dt>
+<dd>
+list of class names this class is inherited from
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this class
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Function" ID="Function"></a>
+<h2>Function</h2>
+<p>
+    Class to represent a Python function.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.Function, VisibilityMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Function.__init__">Function</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Function.__init__" ID="Function.__init__"></a>
+<h4>Function (Constructor)</h4>
+<b>Function</b>(<i>module, name, file, lineno, signature='', separator=', ', modifierType=ClbrBaseClasses.Function.General, annotation=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this function
+</dd><dt><i>name</i></dt>
+<dd>
+name of this function
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this class
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd><dt><i>signature</i></dt>
+<dd>
+parameterlist of the method
+</dd><dt><i>separator</i></dt>
+<dd>
+string separating the parameters
+</dd><dt><i>modifierType</i></dt>
+<dd>
+type of the function
+</dd><dt><i>annotation</i></dt>
+<dd>
+return annotation
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ImportedModule" ID="ImportedModule"></a>
+<h2>ImportedModule</h2>
+<p>
+    Class to represent an imported module.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ImportedModule.__init__">ImportedModule</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ImportedModule.addImport">addImport</a></td>
+<td>Public method to add a list of imported names.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ImportedModule.__init__" ID="ImportedModule.__init__"></a>
+<h4>ImportedModule (Constructor)</h4>
+<b>ImportedModule</b>(<i>module, file, importedModule</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing the import (string)
+</dd><dt><i>file</i></dt>
+<dd>
+file name containing the import (string)
+</dd><dt><i>importedModule</i></dt>
+<dd>
+name of the imported module (string)
+</dd>
+</dl><a NAME="ImportedModule.addImport" ID="ImportedModule.addImport"></a>
+<h4>ImportedModule.addImport</h4>
+<b>addImport</b>(<i>lineno, importedNames</i>)
+<p>
+        Public method to add a list of imported names.
+</p><dl>
+<dt><i>lineno</i></dt>
+<dd>
+line number of the import
+</dd><dt><i>importedNames</i></dt>
+<dd>
+list of imported names (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Imports" ID="Imports"></a>
+<h2>Imports</h2>
+<p>
+    Class to represent the list of imported modules.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Imports.__init__">Imports</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Imports.addImport">addImport</a></td>
+<td>Public method to add a list of imported names.</td>
+</tr><tr>
+<td><a href="#Imports.getImport">getImport</a></td>
+<td>Public method to get an imported module item.</td>
+</tr><tr>
+<td><a href="#Imports.getImports">getImports</a></td>
+<td>Public method to get all imported module names.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Imports.__init__" ID="Imports.__init__"></a>
+<h4>Imports (Constructor)</h4>
+<b>Imports</b>(<i>module, file</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing the import (string)
+</dd><dt><i>file</i></dt>
+<dd>
+file name containing the import (string)
+</dd>
+</dl><a NAME="Imports.addImport" ID="Imports.addImport"></a>
+<h4>Imports.addImport</h4>
+<b>addImport</b>(<i>moduleName, names, lineno</i>)
+<p>
+        Public method to add a list of imported names.
+</p><dl>
+<dt><i>moduleName</i></dt>
+<dd>
+name of the imported module (string)
+</dd><dt><i>names</i></dt>
+<dd>
+list of names (list of strings)
+</dd><dt><i>lineno</i></dt>
+<dd>
+line number of the import
+</dd>
+</dl><a NAME="Imports.getImport" ID="Imports.getImport"></a>
+<h4>Imports.getImport</h4>
+<b>getImport</b>(<i>moduleName</i>)
+<p>
+        Public method to get an imported module item.
+</p><dl>
+<dt><i>moduleName</i></dt>
+<dd>
+name of the imported module (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+imported module item (ImportedModule) or None
+</dd>
+</dl><a NAME="Imports.getImports" ID="Imports.getImports"></a>
+<h4>Imports.getImports</h4>
+<b>getImports</b>(<i></i>)
+<p>
+        Public method to get all imported module names.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary of imported module names with name as key and list
+            of line numbers of imports as value
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Publics" ID="Publics"></a>
+<h2>Publics</h2>
+<p>
+    Class to represent the list of public identifiers.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Publics.__init__">Publics</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Publics.__init__" ID="Publics.__init__"></a>
+<h4>Publics (Constructor)</h4>
+<b>Publics</b>(<i>module, file, lineno, idents</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module containing this function
+</dd><dt><i>file</i></dt>
+<dd>
+filename containing this class
+</dd><dt><i>lineno</i></dt>
+<dd>
+linenumber of the class definition
+</dd><dt><i>idents</i></dt>
+<dd>
+list of public identifiers
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="VisibilityMixin" ID="VisibilityMixin"></a>
+<h2>VisibilityMixin</h2>
+<p>
+    Mixin class implementing the notion of visibility.
+</p>
+<h3>Derived from</h3>
+ClbrBaseClasses.ClbrVisibilityMixinBase
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VisibilityMixin.__init__">VisibilityMixin</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VisibilityMixin.__init__" ID="VisibilityMixin.__init__"></a>
+<h4>VisibilityMixin (Constructor)</h4>
+<b>VisibilityMixin</b>(<i></i>)
+<p>
+        Constructor
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="_indent" ID="_indent"></a>
+<h2>_indent</h2>
+<b>_indent</b>(<i>ws</i>)
+<p>
+    Module function to return the indentation depth.
+</p><dl>
+<dt><i>ws</i></dt>
+<dd>
+the whitespace to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+length of the whitespace string (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readmodule_ex" ID="readmodule_ex"></a>
+<h2>readmodule_ex</h2>
+<b>readmodule_ex</b>(<i>module, path=None, inpackage=False, isPyFile=False</i>)
+<p>
+    Read a module file and return a dictionary of classes.
+</p><p>
+    Search for MODULE in PATH and sys.path, read and parse the
+    module and return a dictionary with one entry for each class
+    found in the module.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the module file (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path the module should be searched in (list of strings)
+</dd><dt><i>inpackage</i></dt>
+<dd>
+flag indicating a module inside a package is scanned
+</dd><dt><i>isPyFile</i></dt>
+<dd>
+flag indicating a Python file (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the resulting dictionary
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

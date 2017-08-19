@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.AdBlock.AdBlockBlockedNetworkReply</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.AdBlock.AdBlockBlockedNetworkReply</h1>
+<p>
+Module implementing a QNetworkReply subclass reporting a blocked request.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#AdBlockBlockedNetworkReply">AdBlockBlockedNetworkReply</a></td>
+<td>Class implementing a QNetworkReply subclass reporting a blocked request.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="AdBlockBlockedNetworkReply" ID="AdBlockBlockedNetworkReply"></a>
+<h2>AdBlockBlockedNetworkReply</h2>
+<p>
+    Class implementing a QNetworkReply subclass reporting a blocked request.
+</p>
+<h3>Derived from</h3>
+QNetworkReply
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AdBlockBlockedNetworkReply.__init__">AdBlockBlockedNetworkReply</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#AdBlockBlockedNetworkReply.__fireSignals">__fireSignals</a></td>
+<td>Private method to send some signals to end the connection.</td>
+</tr><tr>
+<td><a href="#AdBlockBlockedNetworkReply.abort">abort</a></td>
+<td>Public slot to abort the operation.</td>
+</tr><tr>
+<td><a href="#AdBlockBlockedNetworkReply.readData">readData</a></td>
+<td>Public method to retrieve data from the reply object.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AdBlockBlockedNetworkReply.__init__" ID="AdBlockBlockedNetworkReply.__init__"></a>
+<h4>AdBlockBlockedNetworkReply (Constructor)</h4>
+<b>AdBlockBlockedNetworkReply</b>(<i>request, subscription, rule, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>subscription</i></dt>
+<dd>
+subscription containing the matched rule
+            (AdBlockSubscription)
+</dd><dt><i>rule</i></dt>
+<dd>
+matching rule (AdBlockRule)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="AdBlockBlockedNetworkReply.__fireSignals" ID="AdBlockBlockedNetworkReply.__fireSignals"></a>
+<h4>AdBlockBlockedNetworkReply.__fireSignals</h4>
+<b>__fireSignals</b>(<i></i>)
+<p>
+        Private method to send some signals to end the connection.
+</p><a NAME="AdBlockBlockedNetworkReply.abort" ID="AdBlockBlockedNetworkReply.abort"></a>
+<h4>AdBlockBlockedNetworkReply.abort</h4>
+<b>abort</b>(<i></i>)
+<p>
+        Public slot to abort the operation.
+</p><a NAME="AdBlockBlockedNetworkReply.readData" ID="AdBlockBlockedNetworkReply.readData"></a>
+<h4>AdBlockBlockedNetworkReply.readData</h4>
+<b>readData</b>(<i>maxlen</i>)
+<p>
+        Public method to retrieve data from the reply object.
+</p><dl>
+<dt><i>maxlen</i></dt>
+<dd>
+maximum number of bytes to read (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string containing the data (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

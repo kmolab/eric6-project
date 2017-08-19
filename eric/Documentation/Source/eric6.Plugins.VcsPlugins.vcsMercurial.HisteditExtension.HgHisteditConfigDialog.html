@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HisteditExtension.HgHisteditConfigDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HisteditExtension.HgHisteditConfigDialog</h1>
+<p>
+Module implementing a dialog to enter the histedit parameters.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgHisteditConfigDialog">HgHisteditConfigDialog</a></td>
+<td>Class implementing a dialog to enter the histedit parameters.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgHisteditConfigDialog" ID="HgHisteditConfigDialog"></a>
+<h2>HgHisteditConfigDialog</h2>
+<p>
+    Class implementing a dialog to enter the histedit parameters.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgHisteditConfigDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgHisteditConfigDialog.__init__">HgHisteditConfigDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.__getRevision">__getRevision</a></td>
+<td>Private method to generate the revision.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.getData">getData</a></td>
+<td>Public method to retrieve the data for the strip action.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_bookmarkButton_toggled">on_bookmarkButton_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_bookmarkCombo_editTextChanged">on_bookmarkCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark combo.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_branch1Button_toggled">on_branch1Button_toggled</a></td>
+<td>Private slot to handle changes of the Branch select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_branchCombo_editTextChanged">on_branchCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch combo.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_defaultButton_toggled">on_defaultButton_toggled</a></td>
+<td>Private slot to handle changes of the Default select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_idButton_toggled">on_idButton_toggled</a></td>
+<td>Private slot to handle changes of the ID select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_idEdit_textChanged">on_idEdit_textChanged</a></td>
+<td>Private slot to handle changes of the ID edit.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_numberSpinBox_valueChanged">on_numberSpinBox_valueChanged</a></td>
+<td>Private slot to handle changes of the Number spin box.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_outgoingButton_toggled">on_outgoingButton_toggled</a></td>
+<td>Private slot to handle changes of the Outgoing select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_revisionButton_toggled">on_revisionButton_toggled</a></td>
+<td>Private slot to handle changes of the Revision select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_tagButton_toggled">on_tagButton_toggled</a></td>
+<td>Private slot to handle changes of the Tag select button.</td>
+</tr><tr>
+<td><a href="#HgHisteditConfigDialog.on_tagCombo_editTextChanged">on_tagCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgHisteditConfigDialog.__init__" ID="HgHisteditConfigDialog.__init__"></a>
+<h4>HgHisteditConfigDialog (Constructor)</h4>
+<b>HgHisteditConfigDialog</b>(<i>tagsList, branchesList, bookmarksList=None, rev="", parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>tagsList</i> (list of str)</dt>
+<dd>
+list of tags
+</dd><dt><i>branchesList</i> (list of str)</dt>
+<dd>
+list of branches
+</dd><dt><i>bookmarksList</i> (list of str)</dt>
+<dd>
+list of bookmarks
+</dd><dt><i>rev=</i> (str)</dt>
+<dd>
+revision to strip from
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.__getRevision" ID="HgHisteditConfigDialog.__getRevision"></a>
+<h4>HgHisteditConfigDialog.__getRevision</h4>
+<b>__getRevision</b>(<i></i>)
+<p>
+        Private method to generate the revision.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+revision
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.__updateOK" ID="HgHisteditConfigDialog.__updateOK"></a>
+<h4>HgHisteditConfigDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgHisteditConfigDialog.getData" ID="HgHisteditConfigDialog.getData"></a>
+<h4>HgHisteditConfigDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the data for the strip action.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with the revision, a flag indicating to to outgoing and a
+            flag indicating to keep old nodes
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple (str, bool, bool)
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_bookmarkButton_toggled" ID="HgHisteditConfigDialog.on_bookmarkButton_toggled"></a>
+<h4>HgHisteditConfigDialog.on_bookmarkButton_toggled</h4>
+<b>on_bookmarkButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_bookmarkCombo_editTextChanged" ID="HgHisteditConfigDialog.on_bookmarkCombo_editTextChanged"></a>
+<h4>HgHisteditConfigDialog.on_bookmarkCombo_editTextChanged</h4>
+<b>on_bookmarkCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark combo.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the combo
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_branch1Button_toggled" ID="HgHisteditConfigDialog.on_branch1Button_toggled"></a>
+<h4>HgHisteditConfigDialog.on_branch1Button_toggled</h4>
+<b>on_branch1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_branchCombo_editTextChanged" ID="HgHisteditConfigDialog.on_branchCombo_editTextChanged"></a>
+<h4>HgHisteditConfigDialog.on_branchCombo_editTextChanged</h4>
+<b>on_branchCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch combo.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the combo
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_defaultButton_toggled" ID="HgHisteditConfigDialog.on_defaultButton_toggled"></a>
+<h4>HgHisteditConfigDialog.on_defaultButton_toggled</h4>
+<b>on_defaultButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Default select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_idButton_toggled" ID="HgHisteditConfigDialog.on_idButton_toggled"></a>
+<h4>HgHisteditConfigDialog.on_idButton_toggled</h4>
+<b>on_idButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_idEdit_textChanged" ID="HgHisteditConfigDialog.on_idEdit_textChanged"></a>
+<h4>HgHisteditConfigDialog.on_idEdit_textChanged</h4>
+<b>on_idEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID edit.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the edit
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_numberSpinBox_valueChanged" ID="HgHisteditConfigDialog.on_numberSpinBox_valueChanged"></a>
+<h4>HgHisteditConfigDialog.on_numberSpinBox_valueChanged</h4>
+<b>on_numberSpinBox_valueChanged</b>(<i>val</i>)
+<p>
+        Private slot to handle changes of the Number spin box.
+</p><dl>
+<dt><i>val</i> (int)</dt>
+<dd>
+value of the spin box
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_outgoingButton_toggled" ID="HgHisteditConfigDialog.on_outgoingButton_toggled"></a>
+<h4>HgHisteditConfigDialog.on_outgoingButton_toggled</h4>
+<b>on_outgoingButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Outgoing select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_revisionButton_toggled" ID="HgHisteditConfigDialog.on_revisionButton_toggled"></a>
+<h4>HgHisteditConfigDialog.on_revisionButton_toggled</h4>
+<b>on_revisionButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Revision select button.
+</p><dl>
+<dt><i>checked</i> (bool)</dt>
+<dd>
+state of the button
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_tagButton_toggled" ID="HgHisteditConfigDialog.on_tagButton_toggled"></a>
+<h4>HgHisteditConfigDialog.on_tagButton_toggled</h4>
+<b>on_tagButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgHisteditConfigDialog.on_tagCombo_editTextChanged" ID="HgHisteditConfigDialog.on_tagCombo_editTextChanged"></a>
+<h4>HgHisteditConfigDialog.on_tagCombo_editTextChanged</h4>
+<b>on_tagCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag combo.
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text of the combo
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgDialog</h1>
+<p>
+Module implementing a dialog starting a process and showing its output.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgDialog">HgDialog</a></td>
+<td>Class implementing a dialog starting a process and showing its output.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgDialog" ID="HgDialog"></a>
+<h2>HgDialog</h2>
+<p>
+    Class implementing a dialog starting a process and showing its output.
+</p><p>
+    It starts a QProcess and displays a dialog that
+    shows the output of the process. The dialog is modal,
+    which causes a synchronized execution of the process.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgDialog.__init__">HgDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgDialog.__finish">__finish</a></td>
+<td>Private slot called when the process finished or the user pressed the button.</td>
+</tr><tr>
+<td><a href="#HgDialog.__procFinished">__procFinished</a></td>
+<td>Private slot connected to the finished signal.</td>
+</tr><tr>
+<td><a href="#HgDialog.__readStderr">__readStderr</a></td>
+<td>Private slot to handle the readyReadStandardError signal.</td>
+</tr><tr>
+<td><a href="#HgDialog.__readStdout">__readStdout</a></td>
+<td>Private slot to handle the readyReadStandardOutput signal.</td>
+</tr><tr>
+<td><a href="#HgDialog.__showError">__showError</a></td>
+<td>Private slot to show some error.</td>
+</tr><tr>
+<td><a href="#HgDialog.__showOutput">__showOutput</a></td>
+<td>Private slot to show some output.</td>
+</tr><tr>
+<td><a href="#HgDialog.hasAddOrDelete">hasAddOrDelete</a></td>
+<td>Public method to check, if the last action contained an add or delete.</td>
+</tr><tr>
+<td><a href="#HgDialog.keyPressEvent">keyPressEvent</a></td>
+<td>Protected slot to handle a key press event.</td>
+</tr><tr>
+<td><a href="#HgDialog.normalExit">normalExit</a></td>
+<td>Public method to check for a normal process termination.</td>
+</tr><tr>
+<td><a href="#HgDialog.normalExitWithoutErrors">normalExitWithoutErrors</a></td>
+<td>Public method to check for a normal process termination without error messages.</td>
+</tr><tr>
+<td><a href="#HgDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#HgDialog.on_input_returnPressed">on_input_returnPressed</a></td>
+<td>Private slot to handle the press of the return key in the input field.</td>
+</tr><tr>
+<td><a href="#HgDialog.on_passwordCheckBox_toggled">on_passwordCheckBox_toggled</a></td>
+<td>Private slot to handle the password checkbox toggled.</td>
+</tr><tr>
+<td><a href="#HgDialog.on_sendButton_clicked">on_sendButton_clicked</a></td>
+<td>Private slot to send the input to the Mercurial process.</td>
+</tr><tr>
+<td><a href="#HgDialog.startProcess">startProcess</a></td>
+<td>Public slot used to start the process.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgDialog.__init__" ID="HgDialog.__init__"></a>
+<h4>HgDialog (Constructor)</h4>
+<b>HgDialog</b>(<i>text, hg=None, useClient=True, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be shown by the label (string)
+</dd><dt><i>hg</i></dt>
+<dd>
+reference to the Mercurial interface object (Hg)
+</dd><dt><i>useClient</i></dt>
+<dd>
+flag indicating to use the command server client
+            if possible (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="HgDialog.__finish" ID="HgDialog.__finish"></a>
+<h4>HgDialog.__finish</h4>
+<b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the process finished or the user pressed
+        the button.
+</p><a NAME="HgDialog.__procFinished" ID="HgDialog.__procFinished"></a>
+<h4>HgDialog.__procFinished</h4>
+<b>__procFinished</b>(<i>exitCode, exitStatus</i>)
+<p>
+        Private slot connected to the finished signal.
+</p><dl>
+<dt><i>exitCode</i></dt>
+<dd>
+exit code of the process (integer)
+</dd><dt><i>exitStatus</i></dt>
+<dd>
+exit status of the process (QProcess.ExitStatus)
+</dd>
+</dl><a NAME="HgDialog.__readStderr" ID="HgDialog.__readStderr"></a>
+<h4>HgDialog.__readStderr</h4>
+<b>__readStderr</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStandardError signal.
+</p><p>
+        It reads the error output of the process and inserts it into the
+        error pane.
+</p><a NAME="HgDialog.__readStdout" ID="HgDialog.__readStdout"></a>
+<h4>HgDialog.__readStdout</h4>
+<b>__readStdout</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStandardOutput signal.
+</p><p>
+        It reads the output of the process, formats it and inserts it into
+        the contents pane.
+</p><a NAME="HgDialog.__showError" ID="HgDialog.__showError"></a>
+<h4>HgDialog.__showError</h4>
+<b>__showError</b>(<i>out</i>)
+<p>
+        Private slot to show some error.
+</p><dl>
+<dt><i>out</i></dt>
+<dd>
+error to be shown (string)
+</dd>
+</dl><a NAME="HgDialog.__showOutput" ID="HgDialog.__showOutput"></a>
+<h4>HgDialog.__showOutput</h4>
+<b>__showOutput</b>(<i>out</i>)
+<p>
+        Private slot to show some output.
+</p><dl>
+<dt><i>out</i></dt>
+<dd>
+output to be shown (string)
+</dd>
+</dl><a NAME="HgDialog.hasAddOrDelete" ID="HgDialog.hasAddOrDelete"></a>
+<h4>HgDialog.hasAddOrDelete</h4>
+<b>hasAddOrDelete</b>(<i></i>)
+<p>
+        Public method to check, if the last action contained an add or delete.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of an add or delete (boolean)
+</dd>
+</dl><a NAME="HgDialog.keyPressEvent" ID="HgDialog.keyPressEvent"></a>
+<h4>HgDialog.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>evt</i>)
+<p>
+        Protected slot to handle a key press event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+the key press event (QKeyEvent)
+</dd>
+</dl><a NAME="HgDialog.normalExit" ID="HgDialog.normalExit"></a>
+<h4>HgDialog.normalExit</h4>
+<b>normalExit</b>(<i></i>)
+<p>
+        Public method to check for a normal process termination.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating normal process termination (boolean)
+</dd>
+</dl><a NAME="HgDialog.normalExitWithoutErrors" ID="HgDialog.normalExitWithoutErrors"></a>
+<h4>HgDialog.normalExitWithoutErrors</h4>
+<b>normalExitWithoutErrors</b>(<i></i>)
+<p>
+        Public method to check for a normal process termination without
+        error messages.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating normal process termination (boolean)
+</dd>
+</dl><a NAME="HgDialog.on_buttonBox_clicked" ID="HgDialog.on_buttonBox_clicked"></a>
+<h4>HgDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="HgDialog.on_input_returnPressed" ID="HgDialog.on_input_returnPressed"></a>
+<h4>HgDialog.on_input_returnPressed</h4>
+<b>on_input_returnPressed</b>(<i></i>)
+<p>
+        Private slot to handle the press of the return key in the input field.
+</p><a NAME="HgDialog.on_passwordCheckBox_toggled" ID="HgDialog.on_passwordCheckBox_toggled"></a>
+<h4>HgDialog.on_passwordCheckBox_toggled</h4>
+<b>on_passwordCheckBox_toggled</b>(<i>isOn</i>)
+<p>
+        Private slot to handle the password checkbox toggled.
+</p><dl>
+<dt><i>isOn</i></dt>
+<dd>
+flag indicating the status of the check box (boolean)
+</dd>
+</dl><a NAME="HgDialog.on_sendButton_clicked" ID="HgDialog.on_sendButton_clicked"></a>
+<h4>HgDialog.on_sendButton_clicked</h4>
+<b>on_sendButton_clicked</b>(<i></i>)
+<p>
+        Private slot to send the input to the Mercurial process.
+</p><a NAME="HgDialog.startProcess" ID="HgDialog.startProcess"></a>
+<h4>HgDialog.startProcess</h4>
+<b>startProcess</b>(<i>args, workingDir=None, showArgs=True, environment=None</i>)
+<p>
+        Public slot used to start the process.
+</p><dl>
+<dt><i>args</i></dt>
+<dd>
+list of arguments for the process (list of strings)
+</dd><dt><i>workingDir=</i></dt>
+<dd>
+working directory for the process (string)
+</dd><dt><i>showArgs=</i></dt>
+<dd>
+flag indicating to show the arguments (boolean)
+</dd><dt><i>environment=</i></dt>
+<dd>
+dictionary of environment settings to add
+            or change for the git process (dict of string and string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successful start of the process
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

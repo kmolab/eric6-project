@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.eric6</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.eric6</h1>
+<p>
+Eric6 Python IDE.
+</p><p>
+This is the main Python script that performs the necessary initialization
+of the IDE and starts the Qt event loop.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>args</td></tr><tr><td>inMainLoop</td></tr><tr><td>mainWindow</td></tr><tr><td>restartArgs</td></tr><tr><td>restartArgsList</td></tr><tr><td>splash</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#excepthook">excepthook</a></td>
+<td>Global function to catch unhandled exceptions.</td>
+</tr><tr>
+<td><a href="#handleSingleApplication">handleSingleApplication</a></td>
+<td>Global function to handle the single application mode.</td>
+</tr><tr>
+<td><a href="#main">main</a></td>
+<td>Main entry point into the application.</td>
+</tr><tr>
+<td><a href="#uiStartUp">uiStartUp</a></td>
+<td>Global function to finalize the start up of the main UI.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="excepthook" ID="excepthook"></a>
+<h2>excepthook</h2>
+<b>excepthook</b>(<i>excType, excValue, tracebackobj</i>)
+<p>
+    Global function to catch unhandled exceptions.
+</p><dl>
+<dt><i>excType</i></dt>
+<dd>
+exception type
+</dd><dt><i>excValue</i></dt>
+<dd>
+exception value
+</dd><dt><i>tracebackobj</i></dt>
+<dd>
+traceback object
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="handleSingleApplication" ID="handleSingleApplication"></a>
+<h2>handleSingleApplication</h2>
+<b>handleSingleApplication</b>(<i>ddindex</i>)
+<p>
+    Global function to handle the single application mode.
+</p><dl>
+<dt><i>ddindex</i></dt>
+<dd>
+index of a '--' option in the options list
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="main" ID="main"></a>
+<h2>main</h2>
+<b>main</b>(<i></i>)
+<p>
+    Main entry point into the application.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="uiStartUp" ID="uiStartUp"></a>
+<h2>uiStartUp</h2>
+<b>uiStartUp</b>(<i></i>)
+<p>
+    Global function to finalize the start up of the main UI.
+</p><p>
+    Note: It is activated by a zero timeout single-shot timer.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

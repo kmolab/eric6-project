@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.WebPlugins.ClickToFlash.ClickToFlashPlugin</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.WebPlugins.ClickToFlash.ClickToFlashPlugin</h1>
+<p>
+Module implementing the Flash blocker plug-in.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ClickToFlashPlugin">ClickToFlashPlugin</a></td>
+<td>Class implementing the flash blocker plug-in.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ClickToFlashPlugin" ID="ClickToFlashPlugin"></a>
+<h2>ClickToFlashPlugin</h2>
+<p>
+    Class implementing the flash blocker plug-in.
+</p>
+<h3>Derived from</h3>
+WebPluginInterface
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ClickToFlashData</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr>
+<td><a href="#ClickToFlashPlugin.getIconName">getIconName</a></td>
+<td>Class method to get the icon name for the mime type.</td>
+</tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ClickToFlashPlugin.__init__">ClickToFlashPlugin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.__enabled">__enabled</a></td>
+<td>Private method to check, if the plug-in is enabled.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.__load">__load</a></td>
+<td>Private method to load the configuration.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.__save">__save</a></td>
+<td>Private method to save the configuration.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.addToWhitelist">addToWhitelist</a></td>
+<td>Public method to add a host to the whitelist.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.configure">configure</a></td>
+<td>Public method to configure the plug-in.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.create">create</a></td>
+<td>Public method to create a plug-in instance for the given data.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.isAnonymous">isAnonymous</a></td>
+<td>Public method to indicate an anonymous plug-in.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.metaPlugin">metaPlugin</a></td>
+<td>Public method to create a meta plug-in object containing plug-in info.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.onWhitelist">onWhitelist</a></td>
+<td>Public method to check, if a host is on the whitelist.</td>
+</tr><tr>
+<td><a href="#ClickToFlashPlugin.removeFromWhitelist">removeFromWhitelist</a></td>
+<td>Public method to remove a host from the whitelist.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ClickToFlashPlugin.getIconName" ID="ClickToFlashPlugin.getIconName"></a>
+<h4>ClickToFlashPlugin.getIconName (class method)</h4>
+<b>getIconName</b>(<i>mimeType</i>)
+<p>
+        Class method to get the icon name for the mime type.
+</p><dl>
+<dt><i>mimeType</i></dt>
+<dd>
+mime type to get the icon for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of the icon file (string)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.__init__" ID="ClickToFlashPlugin.__init__"></a>
+<h4>ClickToFlashPlugin (Constructor)</h4>
+<b>ClickToFlashPlugin</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="ClickToFlashPlugin.__enabled" ID="ClickToFlashPlugin.__enabled"></a>
+<h4>ClickToFlashPlugin.__enabled</h4>
+<b>__enabled</b>(<i></i>)
+<p>
+        Private method to check, if the plug-in is enabled.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+enabled status (boolean)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.__load" ID="ClickToFlashPlugin.__load"></a>
+<h4>ClickToFlashPlugin.__load</h4>
+<b>__load</b>(<i></i>)
+<p>
+        Private method to load the configuration.
+</p><a NAME="ClickToFlashPlugin.__save" ID="ClickToFlashPlugin.__save"></a>
+<h4>ClickToFlashPlugin.__save</h4>
+<b>__save</b>(<i></i>)
+<p>
+        Private method to save the configuration.
+</p><a NAME="ClickToFlashPlugin.addToWhitelist" ID="ClickToFlashPlugin.addToWhitelist"></a>
+<h4>ClickToFlashPlugin.addToWhitelist</h4>
+<b>addToWhitelist</b>(<i>host</i>)
+<p>
+        Public method to add a host to the whitelist.
+</p><dl>
+<dt><i>host</i></dt>
+<dd>
+host to be added (string)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.configure" ID="ClickToFlashPlugin.configure"></a>
+<h4>ClickToFlashPlugin.configure</h4>
+<b>configure</b>(<i></i>)
+<p>
+        Public method to configure the plug-in.
+</p><a NAME="ClickToFlashPlugin.create" ID="ClickToFlashPlugin.create"></a>
+<h4>ClickToFlashPlugin.create</h4>
+<b>create</b>(<i>mimeType, url, argumentNames, argumentValues</i>)
+<p>
+        Public method to create a plug-in instance for the given data.
+</p><dl>
+<dt><i>mimeType</i></dt>
+<dd>
+MIME type for the plug-in (string)
+</dd><dt><i>url</i></dt>
+<dd>
+URL for the plug-in (QUrl)
+</dd><dt><i>argumentNames</i></dt>
+<dd>
+list of argument names (list of strings)
+</dd><dt><i>argumentValues</i></dt>
+<dd>
+list of argument values (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created object (QWidget)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.isAnonymous" ID="ClickToFlashPlugin.isAnonymous"></a>
+<h4>ClickToFlashPlugin.isAnonymous</h4>
+<b>isAnonymous</b>(<i></i>)
+<p>
+        Public method to indicate an anonymous plug-in.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating anonymous state (boolean)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.metaPlugin" ID="ClickToFlashPlugin.metaPlugin"></a>
+<h4>ClickToFlashPlugin.metaPlugin</h4>
+<b>metaPlugin</b>(<i></i>)
+<p>
+        Public method to create a meta plug-in object containing plug-in info.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+meta plug-in object (QWebPluginFactory.Plugin)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.onWhitelist" ID="ClickToFlashPlugin.onWhitelist"></a>
+<h4>ClickToFlashPlugin.onWhitelist</h4>
+<b>onWhitelist</b>(<i>host</i>)
+<p>
+        Public method to check, if a host is on the whitelist.
+</p><dl>
+<dt><i>host</i></dt>
+<dd>
+host to check for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating presence in the whitelist (boolean)
+</dd>
+</dl><a NAME="ClickToFlashPlugin.removeFromWhitelist" ID="ClickToFlashPlugin.removeFromWhitelist"></a>
+<h4>ClickToFlashPlugin.removeFromWhitelist</h4>
+<b>removeFromWhitelist</b>(<i>host</i>)
+<p>
+        Public method to remove a host from the whitelist.
+</p><dl>
+<dt><i>host</i></dt>
+<dd>
+host to be removed (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

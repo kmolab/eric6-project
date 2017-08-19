@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.OfflineStorage.WebDatabasesModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.OfflineStorage.WebDatabasesModel</h1>
+<p>
+Module implementing the web databases model.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#WebDatabasesModel">WebDatabasesModel</a></td>
+<td>Class implementing the web databases model.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="WebDatabasesModel" ID="WebDatabasesModel"></a>
+<h2>WebDatabasesModel</h2>
+<p>
+    Class implementing the web databases model.
+</p>
+<h3>Derived from</h3>
+QAbstractItemModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#WebDatabasesModel.__init__">WebDatabasesModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.__dataString">__dataString</a></td>
+<td>Private method to generate a formatted data string.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.columnCount">columnCount</a></td>
+<td>Public method to get the number of columns.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.data">data</a></td>
+<td>Public method to get data from the model.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.hasChildren">hasChildren</a></td>
+<td>Public method to check, if a parent node has some children.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.headerData">headerData</a></td>
+<td>Public method to get the header data.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.index">index</a></td>
+<td>Public method to get a model index for an entry.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.parent">parent</a></td>
+<td>Public method to get the index of the parent entry.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.removeRows">removeRows</a></td>
+<td>Public method to remove databases from the model.</td>
+</tr><tr>
+<td><a href="#WebDatabasesModel.rowCount">rowCount</a></td>
+<td>Public method to determine the number of rows.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="WebDatabasesModel.__init__" ID="WebDatabasesModel.__init__"></a>
+<h4>WebDatabasesModel (Constructor)</h4>
+<b>WebDatabasesModel</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="WebDatabasesModel.__dataString" ID="WebDatabasesModel.__dataString"></a>
+<h4>WebDatabasesModel.__dataString</h4>
+<b>__dataString</b>(<i>size</i>)
+<p>
+        Private method to generate a formatted data string.
+</p><dl>
+<dt><i>size</i></dt>
+<dd>
+size to be formatted (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted data string (string)
+</dd>
+</dl><a NAME="WebDatabasesModel.columnCount" ID="WebDatabasesModel.columnCount"></a>
+<h4>WebDatabasesModel.columnCount</h4>
+<b>columnCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of columns.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of parent (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="WebDatabasesModel.data" ID="WebDatabasesModel.data"></a>
+<h4>WebDatabasesModel.data</h4>
+<b>data</b>(<i>index, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get data from the model.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of entry to get data for (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+data role (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+entry data
+</dd>
+</dl><a NAME="WebDatabasesModel.hasChildren" ID="WebDatabasesModel.hasChildren"></a>
+<h4>WebDatabasesModel.hasChildren</h4>
+<b>hasChildren</b>(<i>parent=None</i>)
+<p>
+        Public method to check, if a parent node has some children.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of the parent node (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of children (boolean)
+</dd>
+</dl><a NAME="WebDatabasesModel.headerData" ID="WebDatabasesModel.headerData"></a>
+<h4>WebDatabasesModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get the header data.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+section number (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+header orientation (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+data role (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+header data
+</dd>
+</dl><a NAME="WebDatabasesModel.index" ID="WebDatabasesModel.index"></a>
+<h4>WebDatabasesModel.index</h4>
+<b>index</b>(<i>row, column, parent=None</i>)
+<p>
+        Public method to get a model index for an entry.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+row number (integer)
+</dd><dt><i>column</i></dt>
+<dd>
+column number (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+index of the parent (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index (QModelIndex)
+</dd>
+</dl><a NAME="WebDatabasesModel.parent" ID="WebDatabasesModel.parent"></a>
+<h4>WebDatabasesModel.parent</h4>
+<b>parent</b>(<i>index=None</i>)
+<p>
+        Public method to get the index of the parent entry.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the child entry (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the parent entry (QModelIndex)
+</dd>
+</dl><a NAME="WebDatabasesModel.removeRows" ID="WebDatabasesModel.removeRows"></a>
+<h4>WebDatabasesModel.removeRows</h4>
+<b>removeRows</b>(<i>row, count, parent=None</i>)
+<p>
+        Public method to remove databases from the model.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+row of the first database to remove (integer)
+</dd><dt><i>count</i></dt>
+<dd>
+number of databases to remove (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+index of the security origin (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating successful removal (boolean)
+</dd>
+</dl><a NAME="WebDatabasesModel.rowCount" ID="WebDatabasesModel.rowCount"></a>
+<h4>WebDatabasesModel.rowCount</h4>
+<b>rowCount</b>(<i>parent=None</i>)
+<p>
+        Public method to determine the number of rows.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of parent (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of rows (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

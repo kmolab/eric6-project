@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.PluginManager.PluginManager</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.PluginManager.PluginManager</h1>
+<p>
+Module implementing the Plugin Manager.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PluginManager">PluginManager</a></td>
+<td>Class implementing the Plugin Manager.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="PluginManager" ID="PluginManager"></a>
+<h2>PluginManager</h2>
+<p>
+    Class implementing the Plugin Manager.
+</p><h3>Signals</h3>
+<dl>
+<dt>allPlugginsActivated()</dt>
+<dd>
+emitted at startup after all plugins have
+        been activated
+</dd><dt>pluginAboutToBeActivated(modulName, pluginObject)</dt>
+<dd>
+emitted just
+        before a plugin is activated
+</dd><dt>pluginAboutToBeDeactivated(moduleName, pluginObject)</dt>
+<dd>
+emitted just
+        before a plugin is deactivated
+</dd><dt>pluginActivated(moduleName, pluginObject)</dt>
+<dd>
+emitted just after
+        a plugin was activated
+</dd><dt>pluginDeactivated(moduleName, pluginObject)</dt>
+<dd>
+emitted just after
+        a plugin was deactivated
+</dd><dt>shutdown()</dt>
+<dd>
+emitted at shutdown of the IDE
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PluginManager.__init__">PluginManager</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PluginManager.__canActivatePlugin">__canActivatePlugin</a></td>
+<td>Private method to check, if a plugin can be activated.</td>
+</tr><tr>
+<td><a href="#PluginManager.__canDeactivatePlugin">__canDeactivatePlugin</a></td>
+<td>Private method to check, if a plugin can be deactivated.</td>
+</tr><tr>
+<td><a href="#PluginManager.__checkPluginsDownloadDirectory">__checkPluginsDownloadDirectory</a></td>
+<td>Private slot to check for the existence of the plugins download directory.</td>
+</tr><tr>
+<td><a href="#PluginManager.__downloadRepositoryFileDone">__downloadRepositoryFileDone</a></td>
+<td>Private method called after the repository file was downloaded.</td>
+</tr><tr>
+<td><a href="#PluginManager.__getShortInfo">__getShortInfo</a></td>
+<td>Private method to extract the short info from a module.</td>
+</tr><tr>
+<td><a href="#PluginManager.__insertPluginsPaths">__insertPluginsPaths</a></td>
+<td>Private method to insert the valid plugin paths intos the search path.</td>
+</tr><tr>
+<td><a href="#PluginManager.__loadPlugins">__loadPlugins</a></td>
+<td>Private method to load the plugins found.</td>
+</tr><tr>
+<td><a href="#PluginManager.__onlineStateChanged">__onlineStateChanged</a></td>
+<td>Private slot handling changes in online state.</td>
+</tr><tr>
+<td><a href="#PluginManager.__pluginDirectoriesExist">__pluginDirectoriesExist</a></td>
+<td>Private method to check, if the plugin folders exist.</td>
+</tr><tr>
+<td><a href="#PluginManager.__pluginModulesExist">__pluginModulesExist</a></td>
+<td>Private method to check, if there are plugins available.</td>
+</tr><tr>
+<td><a href="#PluginManager.__sslErrors">__sslErrors</a></td>
+<td>Private slot to handle SSL errors.</td>
+</tr><tr>
+<td><a href="#PluginManager.activatePlugin">activatePlugin</a></td>
+<td>Public method to activate a plugin.</td>
+</tr><tr>
+<td><a href="#PluginManager.activatePlugins">activatePlugins</a></td>
+<td>Public method to activate all plugins having the "autoactivate" attribute set to True.</td>
+</tr><tr>
+<td><a href="#PluginManager.checkPluginEntry">checkPluginEntry</a></td>
+<td>Public method to check a plug-in's data for an update.</td>
+</tr><tr>
+<td><a href="#PluginManager.checkPluginUpdatesAvailable">checkPluginUpdatesAvailable</a></td>
+<td>Public method to check the availability of updates of plug-ins.</td>
+</tr><tr>
+<td><a href="#PluginManager.clearPluginsPrivateData">clearPluginsPrivateData</a></td>
+<td>Public method to clear the private data of plug-ins of a specified type.</td>
+</tr><tr>
+<td><a href="#PluginManager.deactivatePlugin">deactivatePlugin</a></td>
+<td>Public method to deactivate a plugin.</td>
+</tr><tr>
+<td><a href="#PluginManager.deactivateVcsPlugins">deactivateVcsPlugins</a></td>
+<td>Public method to deactivated all activated VCS plugins.</td>
+</tr><tr>
+<td><a href="#PluginManager.doShutdown">doShutdown</a></td>
+<td>Public method called to perform actions upon shutdown of the IDE.</td>
+</tr><tr>
+<td><a href="#PluginManager.finalizeSetup">finalizeSetup</a></td>
+<td>Public method to finalize the setup of the plugin manager.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginApiFiles">getPluginApiFiles</a></td>
+<td>Public method to get the list of API files installed by a plugin.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginConfigData">getPluginConfigData</a></td>
+<td>Public method to get the config data of all active, non on-demand plugins used by the configuration dialog.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginDetails">getPluginDetails</a></td>
+<td>Public method to get detailed information about a plugin.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginDir">getPluginDir</a></td>
+<td>Public method to get the path of a plugin directory.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginDisplayStrings">getPluginDisplayStrings</a></td>
+<td>Public method to get the display strings of all plugins of a specific type.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginExeDisplayData">getPluginExeDisplayData</a></td>
+<td>Public method to get data to display information about a plugins external tool.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginInfos">getPluginInfos</a></td>
+<td>Public method to get infos about all loaded plugins.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginModules">getPluginModules</a></td>
+<td>Public method to get a list of plugin modules.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginObject">getPluginObject</a></td>
+<td>Public method to activate an ondemand plugin given by type and typename.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginPreviewPixmap">getPluginPreviewPixmap</a></td>
+<td>Public method to get a preview pixmap of a plugin of a specific type.</td>
+</tr><tr>
+<td><a href="#PluginManager.getPluginQtHelpFiles">getPluginQtHelpFiles</a></td>
+<td>Public method to get the list of QtHelp documentation files provided by a plug-in.</td>
+</tr><tr>
+<td><a href="#PluginManager.getVcsSystemIndicators">getVcsSystemIndicators</a></td>
+<td>Public method to get the Vcs System indicators.</td>
+</tr><tr>
+<td><a href="#PluginManager.initOnDemandPlugin">initOnDemandPlugin</a></td>
+<td>Public method to create a plugin object for the named on demand plugin.</td>
+</tr><tr>
+<td><a href="#PluginManager.initOnDemandPlugins">initOnDemandPlugins</a></td>
+<td>Public method to create plugin objects for all on demand plugins.</td>
+</tr><tr>
+<td><a href="#PluginManager.initPluginToolbars">initPluginToolbars</a></td>
+<td>Public method to initialize plug-in toolbars.</td>
+</tr><tr>
+<td><a href="#PluginManager.isPluginActive">isPluginActive</a></td>
+<td>Public method to check, if a certain plugin is active.</td>
+</tr><tr>
+<td><a href="#PluginManager.isPluginLoaded">isPluginLoaded</a></td>
+<td>Public method to check, if a certain plugin is loaded.</td>
+</tr><tr>
+<td><a href="#PluginManager.isValidPluginName">isValidPluginName</a></td>
+<td>Public methode to check, if a file name is a valid plugin name.</td>
+</tr><tr>
+<td><a href="#PluginManager.loadPlugin">loadPlugin</a></td>
+<td>Public method to load a plugin module.</td>
+</tr><tr>
+<td><a href="#PluginManager.preferencesChanged">preferencesChanged</a></td>
+<td>Public slot to react to changes in configuration.</td>
+</tr><tr>
+<td><a href="#PluginManager.removePluginFromSysModules">removePluginFromSysModules</a></td>
+<td>Public method to remove a plugin and all related modules from sys.modules.</td>
+</tr><tr>
+<td><a href="#PluginManager.unloadPlugin">unloadPlugin</a></td>
+<td>Public method to unload a plugin module.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PluginManager.__init__" ID="PluginManager.__init__"></a>
+<h4>PluginManager (Constructor)</h4>
+<b>PluginManager</b>(<i>parent=None, doLoadPlugins=True, develPlugin=None</i>)
+<p>
+        Constructor
+</p><p>
+        The Plugin Manager deals with three different plugin directories.
+        The first is the one, that is part of eric6 (eric6/Plugins). The
+        second one is the global plugin directory called 'eric6plugins',
+        which is located inside the site-packages directory. The last one
+        is the user plugin directory located inside the .eric6 directory
+        of the users home directory.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd><dt><i>doLoadPlugins=</i></dt>
+<dd>
+flag indicating, that plugins should
+            be loaded (boolean)
+</dd><dt><i>develPlugin=</i></dt>
+<dd>
+filename of a plugin to be loaded for
+            development (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>PluginModulesError</b>:</dt>
+<dd>
+raised to indicate the absence of
+            plug-in modules
+</dd><dt>Raises <b>PluginPathError</b>:</dt>
+<dd>
+raised to indicate an invalid plug-in path
+</dd>
+</dl><a NAME="PluginManager.__canActivatePlugin" ID="PluginManager.__canActivatePlugin"></a>
+<h4>PluginManager.__canActivatePlugin</h4>
+<b>__canActivatePlugin</b>(<i>module</i>)
+<p>
+        Private method to check, if a plugin can be activated.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+reference to the module to be activated
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the module satisfies all requirements
+            for being activated (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>PluginClassFormatError</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plug-in class format
+</dd><dt>Raises <b>PluginModuleFormatError</b>:</dt>
+<dd>
+raised to indicate an invalid
+            plug-in module format
+</dd>
+</dl><a NAME="PluginManager.__canDeactivatePlugin" ID="PluginManager.__canDeactivatePlugin"></a>
+<h4>PluginManager.__canDeactivatePlugin</h4>
+<b>__canDeactivatePlugin</b>(<i>module</i>)
+<p>
+        Private method to check, if a plugin can be deactivated.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+reference to the module to be deactivated
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the module satisfies all requirements
+            for being deactivated (boolean)
+</dd>
+</dl><a NAME="PluginManager.__checkPluginsDownloadDirectory" ID="PluginManager.__checkPluginsDownloadDirectory"></a>
+<h4>PluginManager.__checkPluginsDownloadDirectory</h4>
+<b>__checkPluginsDownloadDirectory</b>(<i></i>)
+<p>
+        Private slot to check for the existence of the plugins download
+        directory.
+</p><a NAME="PluginManager.__downloadRepositoryFileDone" ID="PluginManager.__downloadRepositoryFileDone"></a>
+<h4>PluginManager.__downloadRepositoryFileDone</h4>
+<b>__downloadRepositoryFileDone</b>(<i></i>)
+<p>
+        Private method called after the repository file was downloaded.
+</p><a NAME="PluginManager.__getShortInfo" ID="PluginManager.__getShortInfo"></a>
+<h4>PluginManager.__getShortInfo</h4>
+<b>__getShortInfo</b>(<i>module</i>)
+<p>
+        Private method to extract the short info from a module.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+module to extract short info from
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+short info as a tuple giving plugin name (string),
+            short description (string), error flag (boolean) and
+            version (string)
+</dd>
+</dl><a NAME="PluginManager.__insertPluginsPaths" ID="PluginManager.__insertPluginsPaths"></a>
+<h4>PluginManager.__insertPluginsPaths</h4>
+<b>__insertPluginsPaths</b>(<i></i>)
+<p>
+        Private method to insert the valid plugin paths intos the search path.
+</p><a NAME="PluginManager.__loadPlugins" ID="PluginManager.__loadPlugins"></a>
+<h4>PluginManager.__loadPlugins</h4>
+<b>__loadPlugins</b>(<i></i>)
+<p>
+        Private method to load the plugins found.
+</p><a NAME="PluginManager.__onlineStateChanged" ID="PluginManager.__onlineStateChanged"></a>
+<h4>PluginManager.__onlineStateChanged</h4>
+<b>__onlineStateChanged</b>(<i>online</i>)
+<p>
+        Private slot handling changes in online state.
+</p><dl>
+<dt><i>online</i> (bool)</dt>
+<dd>
+flag indicating the online state
+</dd>
+</dl><a NAME="PluginManager.__pluginDirectoriesExist" ID="PluginManager.__pluginDirectoriesExist"></a>
+<h4>PluginManager.__pluginDirectoriesExist</h4>
+<b>__pluginDirectoriesExist</b>(<i></i>)
+<p>
+        Private method to check, if the plugin folders exist.
+</p><p>
+        If the plugin folders don't exist, they are created (if possible).
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of a flag indicating existence of any of the plugin
+            directories (boolean) and a message (string)
+</dd>
+</dl><a NAME="PluginManager.__pluginModulesExist" ID="PluginManager.__pluginModulesExist"></a>
+<h4>PluginManager.__pluginModulesExist</h4>
+<b>__pluginModulesExist</b>(<i></i>)
+<p>
+        Private method to check, if there are plugins available.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the availability of plugins (boolean)
+</dd>
+</dl><a NAME="PluginManager.__sslErrors" ID="PluginManager.__sslErrors"></a>
+<h4>PluginManager.__sslErrors</h4>
+<b>__sslErrors</b>(<i>reply, errors</i>)
+<p>
+        Private slot to handle SSL errors.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>errors</i></dt>
+<dd>
+list of SSL errors (list of QSslError)
+</dd>
+</dl><a NAME="PluginManager.activatePlugin" ID="PluginManager.activatePlugin"></a>
+<h4>PluginManager.activatePlugin</h4>
+<b>activatePlugin</b>(<i>name, onDemand=False</i>)
+<p>
+        Public method to activate a plugin.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the module to be activated
+</dd><dt><i>onDemand=</i></dt>
+<dd>
+flag indicating activation of an
+            on demand plugin (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the initialized plugin object
+</dd>
+</dl><dl>
+<dt>Raises <b>PluginActivationError</b>:</dt>
+<dd>
+raised to indicate an issue during the
+            plug-in activation
+</dd>
+</dl><a NAME="PluginManager.activatePlugins" ID="PluginManager.activatePlugins"></a>
+<h4>PluginManager.activatePlugins</h4>
+<b>activatePlugins</b>(<i></i>)
+<p>
+        Public method to activate all plugins having the "autoactivate"
+        attribute set to True.
+</p><a NAME="PluginManager.checkPluginEntry" ID="PluginManager.checkPluginEntry"></a>
+<h4>PluginManager.checkPluginEntry</h4>
+<b>checkPluginEntry</b>(<i>name, short, description, url, author, version, filename, status</i>)
+<p>
+        Public method to check a plug-in's data for an update.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+data for the name field (string)
+</dd><dt><i>short</i></dt>
+<dd>
+data for the short field (string)
+</dd><dt><i>description</i></dt>
+<dd>
+data for the description field (list of strings)
+</dd><dt><i>url</i></dt>
+<dd>
+data for the url field (string)
+</dd><dt><i>author</i></dt>
+<dd>
+data for the author field (string)
+</dd><dt><i>version</i></dt>
+<dd>
+data for the version field (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+data for the filename field (string)
+</dd><dt><i>status</i></dt>
+<dd>
+status of the plugin (string [stable, unstable, unknown])
+</dd>
+</dl><a NAME="PluginManager.checkPluginUpdatesAvailable" ID="PluginManager.checkPluginUpdatesAvailable"></a>
+<h4>PluginManager.checkPluginUpdatesAvailable</h4>
+<b>checkPluginUpdatesAvailable</b>(<i></i>)
+<p>
+        Public method to check the availability of updates of plug-ins.
+</p><a NAME="PluginManager.clearPluginsPrivateData" ID="PluginManager.clearPluginsPrivateData"></a>
+<h4>PluginManager.clearPluginsPrivateData</h4>
+<b>clearPluginsPrivateData</b>(<i>type_</i>)
+<p>
+        Public method to clear the private data of plug-ins of a specified
+        type.
+</p><p>
+        Plugins supporting this functionality must support the module function
+        clearPrivateData() and have the module level attribute pluginType.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the plugin to be activated (string)
+</dd>
+</dl><a NAME="PluginManager.deactivatePlugin" ID="PluginManager.deactivatePlugin"></a>
+<h4>PluginManager.deactivatePlugin</h4>
+<b>deactivatePlugin</b>(<i>name, onDemand=False</i>)
+<p>
+        Public method to deactivate a plugin.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the module to be deactivated
+</dd><dt><i>onDemand=</i></dt>
+<dd>
+flag indicating deactivation of an
+            on demand plugin (boolean)
+</dd>
+</dl><a NAME="PluginManager.deactivateVcsPlugins" ID="PluginManager.deactivateVcsPlugins"></a>
+<h4>PluginManager.deactivateVcsPlugins</h4>
+<b>deactivateVcsPlugins</b>(<i></i>)
+<p>
+        Public method to deactivated all activated VCS plugins.
+</p><a NAME="PluginManager.doShutdown" ID="PluginManager.doShutdown"></a>
+<h4>PluginManager.doShutdown</h4>
+<b>doShutdown</b>(<i></i>)
+<p>
+        Public method called to perform actions upon shutdown of the IDE.
+</p><a NAME="PluginManager.finalizeSetup" ID="PluginManager.finalizeSetup"></a>
+<h4>PluginManager.finalizeSetup</h4>
+<b>finalizeSetup</b>(<i></i>)
+<p>
+        Public method to finalize the setup of the plugin manager.
+</p><a NAME="PluginManager.getPluginApiFiles" ID="PluginManager.getPluginApiFiles"></a>
+<h4>PluginManager.getPluginApiFiles</h4>
+<b>getPluginApiFiles</b>(<i>language</i>)
+<p>
+        Public method to get the list of API files installed by a plugin.
+</p><dl>
+<dt><i>language</i></dt>
+<dd>
+language of the requested API files (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of API filenames (list of string)
+</dd>
+</dl><a NAME="PluginManager.getPluginConfigData" ID="PluginManager.getPluginConfigData"></a>
+<h4>PluginManager.getPluginConfigData</h4>
+<b>getPluginConfigData</b>(<i></i>)
+<p>
+        Public method to get the config data of all active, non on-demand
+        plugins used by the configuration dialog.
+</p><p>
+        Plugins supporting this functionality must provide the plugin module
+        function 'getConfigData' returning a dictionary with unique keys
+        of lists with the following list contents:
+        <dl>
+          <dt>display string</dt>
+          <dd>string shown in the selection area of the configuration page.
+              This should be a localized string</dd>
+          <dt>pixmap name</dt>
+          <dd>filename of the pixmap to be shown next to the display
+              string</dd>
+          <dt>page creation function</dt>
+          <dd>plugin module function to be called to create the configuration
+              page. The page must be subclasses from
+              Preferences.ConfigurationPages.ConfigurationPageBase and must
+              implement a method called 'save' to save the settings. A parent
+              entry will be created in the selection list, if this value is
+              None.</dd>
+          <dt>parent key</dt>
+          <dd>dictionary key of the parent entry or None, if this defines a
+              toplevel entry.</dd>
+          <dt>reference to configuration page</dt>
+          <dd>This will be used by the configuration dialog and must always
+              be None</dd>
+        </dl>
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+plug-in configuration data
+</dd>
+</dl><a NAME="PluginManager.getPluginDetails" ID="PluginManager.getPluginDetails"></a>
+<h4>PluginManager.getPluginDetails</h4>
+<b>getPluginDetails</b>(<i>name</i>)
+<p>
+        Public method to get detailed information about a plugin.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the module to get detailed infos about (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+details of the plugin as a dictionary
+</dd>
+</dl><a NAME="PluginManager.getPluginDir" ID="PluginManager.getPluginDir"></a>
+<h4>PluginManager.getPluginDir</h4>
+<b>getPluginDir</b>(<i>key</i>)
+<p>
+        Public method to get the path of a plugin directory.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key of the plug-in directory (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+path of the requested plugin directory (string)
+</dd>
+</dl><a NAME="PluginManager.getPluginDisplayStrings" ID="PluginManager.getPluginDisplayStrings"></a>
+<h4>PluginManager.getPluginDisplayStrings</h4>
+<b>getPluginDisplayStrings</b>(<i>type_</i>)
+<p>
+        Public method to get the display strings of all plugins of a specific
+        type.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the plugins (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary with name as key and display string as value
+            (dictionary of string)
+</dd>
+</dl><a NAME="PluginManager.getPluginExeDisplayData" ID="PluginManager.getPluginExeDisplayData"></a>
+<h4>PluginManager.getPluginExeDisplayData</h4>
+<b>getPluginExeDisplayData</b>(<i></i>)
+<p>
+        Public method to get data to display information about a plugins
+        external tool.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of dictionaries containing the data. Each dictionary must
+            either contain data for the determination or the data to be
+            displayed.<br />
+            A dictionary of the first form must have the following entries:
+            <ul>
+                <li>programEntry - indicator for this dictionary form
+                   (boolean), always True</li>
+                <li>header - string to be diplayed as a header (string)</li>
+                <li>exe - the executable (string)</li>
+                <li>versionCommand - commandline parameter for the exe
+                    (string)</li>
+                <li>versionStartsWith - indicator for the output line
+                    containing the version (string)</li>
+                <li>versionPosition - number of element containing the
+                    version (integer)</li>
+                <li>version - version to be used as default (string)</li>
+                <li>versionCleanup - tuple of two integers giving string
+                    positions start and stop for the version string
+                    (tuple of integers)</li>
+            </ul>
+            A dictionary of the second form must have the following entries:
+            <ul>
+                <li>programEntry - indicator for this dictionary form
+                    (boolean), always False</li>
+                <li>header - string to be diplayed as a header (string)</li>
+                <li>text - entry text to be shown (string)</li>
+                <li>version - version text to be shown (string)</li>
+            </ul>
+</dd>
+</dl><a NAME="PluginManager.getPluginInfos" ID="PluginManager.getPluginInfos"></a>
+<h4>PluginManager.getPluginInfos</h4>
+<b>getPluginInfos</b>(<i></i>)
+<p>
+        Public method to get infos about all loaded plugins.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of tuples giving module name (string), plugin name
+            (string), version (string), autoactivate (boolean), active
+            (boolean), short description (string), error flag (boolean)
+</dd>
+</dl><a NAME="PluginManager.getPluginModules" ID="PluginManager.getPluginModules"></a>
+<h4>PluginManager.getPluginModules</h4>
+<b>getPluginModules</b>(<i>pluginPath</i>)
+<p>
+        Public method to get a list of plugin modules.
+</p><dl>
+<dt><i>pluginPath</i></dt>
+<dd>
+name of the path to search (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of plugin module names (list of string)
+</dd>
+</dl><a NAME="PluginManager.getPluginObject" ID="PluginManager.getPluginObject"></a>
+<h4>PluginManager.getPluginObject</h4>
+<b>getPluginObject</b>(<i>type_, typename, maybeActive=False</i>)
+<p>
+        Public method to activate an ondemand plugin given by type and
+        typename.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the plugin to be activated (string)
+</dd><dt><i>typename</i></dt>
+<dd>
+name of the plugin within the type category (string)
+</dd><dt><i>maybeActive=</i></dt>
+<dd>
+flag indicating, that the plugin may be active
+            already (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the initialized plugin object
+</dd>
+</dl><a NAME="PluginManager.getPluginPreviewPixmap" ID="PluginManager.getPluginPreviewPixmap"></a>
+<h4>PluginManager.getPluginPreviewPixmap</h4>
+<b>getPluginPreviewPixmap</b>(<i>type_, name</i>)
+<p>
+        Public method to get a preview pixmap of a plugin of a specific type.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the plugin (string)
+</dd><dt><i>name</i></dt>
+<dd>
+name of the plugin type (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+preview pixmap (QPixmap)
+</dd>
+</dl><a NAME="PluginManager.getPluginQtHelpFiles" ID="PluginManager.getPluginQtHelpFiles"></a>
+<h4>PluginManager.getPluginQtHelpFiles</h4>
+<b>getPluginQtHelpFiles</b>(<i></i>)
+<p>
+        Public method to get the list of QtHelp documentation files provided
+        by a plug-in.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary with documentation type as key and list of files
+            as value
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+dict (key: str, value: list of str)
+</dd>
+</dl><a NAME="PluginManager.getVcsSystemIndicators" ID="PluginManager.getVcsSystemIndicators"></a>
+<h4>PluginManager.getVcsSystemIndicators</h4>
+<b>getVcsSystemIndicators</b>(<i></i>)
+<p>
+        Public method to get the Vcs System indicators.
+</p><p>
+        Plugins supporting this functionality must support the module function
+        getVcsSystemIndicator returning a dictionary with indicator as key and
+        a tuple with the vcs name (string) and vcs display string (string).
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary with indicator as key and a list of tuples as
+            values. Each tuple contains the vcs name (string) and vcs display
+            string (string).
+</dd>
+</dl><a NAME="PluginManager.initOnDemandPlugin" ID="PluginManager.initOnDemandPlugin"></a>
+<h4>PluginManager.initOnDemandPlugin</h4>
+<b>initOnDemandPlugin</b>(<i>name</i>)
+<p>
+        Public method to create a plugin object for the named on demand plugin.
+</p><p>
+        Note: The plug-in is not activated.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plug-in (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>PluginActivationError</b>:</dt>
+<dd>
+raised to indicate an issue during the
+            plug-in activation
+</dd>
+</dl><a NAME="PluginManager.initOnDemandPlugins" ID="PluginManager.initOnDemandPlugins"></a>
+<h4>PluginManager.initOnDemandPlugins</h4>
+<b>initOnDemandPlugins</b>(<i></i>)
+<p>
+        Public method to create plugin objects for all on demand plugins.
+</p><p>
+        Note: The plugins are not activated.
+</p><a NAME="PluginManager.initPluginToolbars" ID="PluginManager.initPluginToolbars"></a>
+<h4>PluginManager.initPluginToolbars</h4>
+<b>initPluginToolbars</b>(<i>toolbarManager</i>)
+<p>
+        Public method to initialize plug-in toolbars.
+</p><dl>
+<dt><i>toolbarManager</i></dt>
+<dd>
+reference to the toolbar manager object
+            (E5ToolBarManager)
+</dd>
+</dl><a NAME="PluginManager.isPluginActive" ID="PluginManager.isPluginActive"></a>
+<h4>PluginManager.isPluginActive</h4>
+<b>isPluginActive</b>(<i>pluginName</i>)
+<p>
+        Public method to check, if a certain plugin is active.
+</p><dl>
+<dt><i>pluginName</i></dt>
+<dd>
+name of the plugin to check for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the plugin is active (boolean)
+</dd>
+</dl><a NAME="PluginManager.isPluginLoaded" ID="PluginManager.isPluginLoaded"></a>
+<h4>PluginManager.isPluginLoaded</h4>
+<b>isPluginLoaded</b>(<i>pluginName</i>)
+<p>
+        Public method to check, if a certain plugin is loaded.
+</p><dl>
+<dt><i>pluginName</i></dt>
+<dd>
+name of the plugin to check for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the plugin is loaded (boolean)
+</dd>
+</dl><a NAME="PluginManager.isValidPluginName" ID="PluginManager.isValidPluginName"></a>
+<h4>PluginManager.isValidPluginName</h4>
+<b>isValidPluginName</b>(<i>pluginName</i>)
+<p>
+        Public methode to check, if a file name is a valid plugin name.
+</p><p>
+        Plugin modules must start with "Plugin" and have the extension ".py".
+</p><dl>
+<dt><i>pluginName</i></dt>
+<dd>
+name of the file to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a valid plugin name (boolean)
+</dd>
+</dl><a NAME="PluginManager.loadPlugin" ID="PluginManager.loadPlugin"></a>
+<h4>PluginManager.loadPlugin</h4>
+<b>loadPlugin</b>(<i>name, directory, reload_=False</i>)
+<p>
+        Public method to load a plugin module.
+</p><p>
+        Initially all modules are inactive. Modules that are requested on
+        demand are sorted out and are added to the on demand list. Some
+        basic validity checks are performed as well. Modules failing these
+        checks are added to the failed modules list.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the module to be loaded (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+name of the plugin directory (string)
+</dd><dt><i>reload_</i></dt>
+<dd>
+flag indicating to reload the module (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>PluginLoadError</b>:</dt>
+<dd>
+raised to indicate an issue loading
+            the plug-in
+</dd><dt>Raises <b>PluginPy2IncompatibleError</b>:</dt>
+<dd>
+raised to indicate the Python 2
+            incompatibility of a plug-in
+</dd>
+</dl><a NAME="PluginManager.preferencesChanged" ID="PluginManager.preferencesChanged"></a>
+<h4>PluginManager.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public slot to react to changes in configuration.
+</p><a NAME="PluginManager.removePluginFromSysModules" ID="PluginManager.removePluginFromSysModules"></a>
+<h4>PluginManager.removePluginFromSysModules</h4>
+<b>removePluginFromSysModules</b>(<i>pluginName, package, internalPackages</i>)
+<p>
+        Public method to remove a plugin and all related modules from
+        sys.modules.
+</p><dl>
+<dt><i>pluginName</i></dt>
+<dd>
+name of the plugin module (string)
+</dd><dt><i>package</i></dt>
+<dd>
+name of the plugin package (string)
+</dd><dt><i>internalPackages</i></dt>
+<dd>
+list of intenal packages (list of string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the plugin module was found in sys.modules
+            (boolean)
+</dd>
+</dl><a NAME="PluginManager.unloadPlugin" ID="PluginManager.unloadPlugin"></a>
+<h4>PluginManager.unloadPlugin</h4>
+<b>unloadPlugin</b>(<i>name</i>)
+<p>
+        Public method to unload a plugin module.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the module to be unloaded (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.Tools.FilePrinter</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.Tools.FilePrinter</h1>
+<p>
+Module implementing an object for printing of files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>_FilePrintJobs</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FilePrinter">FilePrinter</a></td>
+<td>Class implementing methods for printing on *nix systems.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#isCupsAvailable">isCupsAvailable</a></td>
+<td>Static method to test the availability of CUPS.</td>
+</tr><tr>
+<td><a href="#printFile">printFile</a></td>
+<td>Static method to print a file.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="FilePrinter" ID="FilePrinter"></a>
+<h2>FilePrinter</h2>
+<p>
+    Class implementing methods for printing on *nix systems.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ApplicationDeletesFiles</td></tr><tr><td>ApplicationSelectsPages</td></tr><tr><td>SystemDeletesFiles</td></tr><tr><td>SystemSelectsPages</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FilePrinter.__init__">FilePrinter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FilePrinter.__doCleanup">__doCleanup</a></td>
+<td>Private method to perform some internal cleanup actions.</td>
+</tr><tr>
+<td><a href="#FilePrinter.__processError">__processError</a></td>
+<td>Private slot handling process errors.</td>
+</tr><tr>
+<td><a href="#FilePrinter.__processFinished">__processFinished</a></td>
+<td>Private slot handling the end of the process.</td>
+</tr><tr>
+<td><a href="#FilePrinter._copies">_copies</a></td>
+<td>Protected method to assemble the number of copies arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._cupsOptions">_cupsOptions</a></td>
+<td>Protected method to assemble the CUPS specific arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._deleteFile">_deleteFile</a></td>
+<td>Protected method to assemble the jobname arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._destination">_destination</a></td>
+<td>Protected method to assemble the printer destination arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._doPrintFile">_doPrintFile</a></td>
+<td>Protected method to print a file.</td>
+</tr><tr>
+<td><a href="#FilePrinter._jobname">_jobname</a></td>
+<td>Protected method to assemble the jobname arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._mediaPageSize">_mediaPageSize</a></td>
+<td>Protected method to get the page size argument.</td>
+</tr><tr>
+<td><a href="#FilePrinter._mediaPaperSource">_mediaPaperSource</a></td>
+<td>Protected method to get the paper source argument.</td>
+</tr><tr>
+<td><a href="#FilePrinter._optionCollateCopies">_optionCollateCopies</a></td>
+<td>Protected method to assemble the collate copies arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._optionCupsProperties">_optionCupsProperties</a></td>
+<td>Protected method to assemble the CUPS properties arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._optionDoubleSidedPrinting">_optionDoubleSidedPrinting</a></td>
+<td>Protected method to assemble the double sided printing arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._optionMedia">_optionMedia</a></td>
+<td>Protected method to assemble the print media arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._optionPageOrder">_optionPageOrder</a></td>
+<td>Protected method to assemble the page order arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._pages">_pages</a></td>
+<td>Protected method to assemble the page range(s) arguments.</td>
+</tr><tr>
+<td><a href="#FilePrinter._printArguments">_printArguments</a></td>
+<td>Protected method to assemble the command line arguments for the print command.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FilePrinter.__init__" ID="FilePrinter.__init__"></a>
+<h4>FilePrinter (Constructor)</h4>
+<b>FilePrinter</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="FilePrinter.__doCleanup" ID="FilePrinter.__doCleanup"></a>
+<h4>FilePrinter.__doCleanup</h4>
+<b>__doCleanup</b>(<i>deleteFile</i>)
+<p>
+        Private method to perform some internal cleanup actions.
+</p><dl>
+<dt><i>deleteFile</i> (bool)</dt>
+<dd>
+flag indicating to delete the print file
+</dd>
+</dl><a NAME="FilePrinter.__processError" ID="FilePrinter.__processError"></a>
+<h4>FilePrinter.__processError</h4>
+<b>__processError</b>(<i>error</i>)
+<p>
+        Private slot handling process errors.
+</p><dl>
+<dt><i>error</i> (QProcess.ProcessError)</dt>
+<dd>
+error value
+</dd>
+</dl><a NAME="FilePrinter.__processFinished" ID="FilePrinter.__processFinished"></a>
+<h4>FilePrinter.__processFinished</h4>
+<b>__processFinished</b>(<i>exitCode, exitStatus</i>)
+<p>
+        Private slot handling the end of the process.
+</p><dl>
+<dt><i>exitCode</i> (int)</dt>
+<dd>
+exit code of the process
+</dd><dt><i>exitStatus</i> (QProcess.ExitStatus)</dt>
+<dd>
+exit status of the process
+</dd>
+</dl><a NAME="FilePrinter._copies" ID="FilePrinter._copies"></a>
+<h4>FilePrinter._copies</h4>
+<b>_copies</b>(<i>printer, variant</i>)
+<p>
+        Protected method to assemble the number of copies arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>variant</i> (str)</dt>
+<dd>
+string identifying the print command variant
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled number of copies arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._cupsOptions" ID="FilePrinter._cupsOptions"></a>
+<h4>FilePrinter._cupsOptions</h4>
+<b>_cupsOptions</b>(<i>printer</i>)
+<p>
+        Protected method to assemble the CUPS specific arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled CUPS arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._deleteFile" ID="FilePrinter._deleteFile"></a>
+<h4>FilePrinter._deleteFile</h4>
+<b>_deleteFile</b>(<i>printer, fileDeletePolicy, variant</i>)
+<p>
+        Protected method to assemble the jobname arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>fileDeletePolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who deletes the file to be
+            printed (application or system)
+</dd><dt><i>variant</i> (str)</dt>
+<dd>
+string identifying the print command variant
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled jobname arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._destination" ID="FilePrinter._destination"></a>
+<h4>FilePrinter._destination</h4>
+<b>_destination</b>(<i>printer, variant</i>)
+<p>
+        Protected method to assemble the printer destination arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>variant</i> (str)</dt>
+<dd>
+string identifying the print command variant
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled printer destination arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._doPrintFile" ID="FilePrinter._doPrintFile"></a>
+<h4>FilePrinter._doPrintFile</h4>
+<b>_doPrintFile</b>(<i>printer, fileName, fileDeletePolicy, pageSelectPolicy, pageRange</i>)
+<p>
+        Protected method to print a file.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>fileName</i> (str)</dt>
+<dd>
+name (path) of the file to be printed
+</dd><dt><i>fileDeletePolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who deletes the file to be
+            printed (application or system)
+</dd><dt><i>pageSelectPolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who selects the pages to be
+            printed (application or system)
+</dd><dt><i>pageRange</i> (str)</dt>
+<dd>
+string determining the page range(s) to be printed, if
+            SystemSelectsPages was given for pageSelectPolicy and user chose
+            Selection in print dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating successful print job submission
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="FilePrinter._jobname" ID="FilePrinter._jobname"></a>
+<h4>FilePrinter._jobname</h4>
+<b>_jobname</b>(<i>printer, variant</i>)
+<p>
+        Protected method to assemble the jobname arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>variant</i> (str)</dt>
+<dd>
+string identifying the print command variant
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled jobname arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._mediaPageSize" ID="FilePrinter._mediaPageSize"></a>
+<h4>FilePrinter._mediaPageSize</h4>
+<b>_mediaPageSize</b>(<i>printer</i>)
+<p>
+        Protected method to get the page size argument.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+page size argument
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="FilePrinter._mediaPaperSource" ID="FilePrinter._mediaPaperSource"></a>
+<h4>FilePrinter._mediaPaperSource</h4>
+<b>_mediaPaperSource</b>(<i>printer</i>)
+<p>
+        Protected method to get the paper source argument.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+paper source argument
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="FilePrinter._optionCollateCopies" ID="FilePrinter._optionCollateCopies"></a>
+<h4>FilePrinter._optionCollateCopies</h4>
+<b>_optionCollateCopies</b>(<i>printer</i>)
+<p>
+        Protected method to assemble the collate copies arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled collate copies arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._optionCupsProperties" ID="FilePrinter._optionCupsProperties"></a>
+<h4>FilePrinter._optionCupsProperties</h4>
+<b>_optionCupsProperties</b>(<i>printer</i>)
+<p>
+        Protected method to assemble the CUPS properties arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled CUPS properties arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._optionDoubleSidedPrinting" ID="FilePrinter._optionDoubleSidedPrinting"></a>
+<h4>FilePrinter._optionDoubleSidedPrinting</h4>
+<b>_optionDoubleSidedPrinting</b>(<i>printer</i>)
+<p>
+        Protected method to assemble the double sided printing arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled double sided printing arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._optionMedia" ID="FilePrinter._optionMedia"></a>
+<h4>FilePrinter._optionMedia</h4>
+<b>_optionMedia</b>(<i>printer</i>)
+<p>
+        Protected method to assemble the print media arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled print media arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._optionPageOrder" ID="FilePrinter._optionPageOrder"></a>
+<h4>FilePrinter._optionPageOrder</h4>
+<b>_optionPageOrder</b>(<i>printer</i>)
+<p>
+        Protected method to assemble the page order arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled page order arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._pages" ID="FilePrinter._pages"></a>
+<h4>FilePrinter._pages</h4>
+<b>_pages</b>(<i>printer, pageSelectPolicy, pageRange, useCupsOptions, variant</i>)
+<p>
+        Protected method to assemble the page range(s) arguments.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>pageSelectPolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who selects the pages to be
+            printed (application or system)
+</dd><dt><i>pageRange</i> (str)</dt>
+<dd>
+string determining the page range(s) to be printed, if
+            SystemSelectsPages was given for pageSelectPolicy and user chose
+            Selection in print dialog
+</dd><dt><i>useCupsOptions</i> (bool)</dt>
+<dd>
+flag indicating to assemble the arguments for
+            CUPS
+</dd><dt><i>variant</i> (str)</dt>
+<dd>
+string identifying the print command variant
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled page range(s) arguments
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FilePrinter._printArguments" ID="FilePrinter._printArguments"></a>
+<h4>FilePrinter._printArguments</h4>
+<b>_printArguments</b>(<i>printer, fileDeletePolicy, pageSelectPolicy, useCupsOptions, pageRange, variant</i>)
+<p>
+        Protected method to assemble the command line arguments for the print
+        command.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>fileDeletePolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who deletes the file to be
+            printed (application or system)
+</dd><dt><i>pageSelectPolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who selects the pages to be
+            printed (application or system)
+</dd><dt><i>useCupsOptions</i> (bool)</dt>
+<dd>
+flag indicating to assemble the arguments for
+            CUPS
+</dd><dt><i>pageRange</i> (str)</dt>
+<dd>
+string determining the page range(s) to be printed, if
+            SystemSelectsPages was given for pageSelectPolicy and user chose
+            Selection in print dialog
+</dd><dt><i>variant</i> (str)</dt>
+<dd>
+string identifying the print command variant
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+assembled command line arguments for the print command
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isCupsAvailable" ID="isCupsAvailable"></a>
+<h2>isCupsAvailable</h2>
+<b>isCupsAvailable</b>(<i></i>)
+<p>
+    Static method to test the availability of CUPS.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the availability of CUPS
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="printFile" ID="printFile"></a>
+<h2>printFile</h2>
+<b>printFile</b>(<i>printer, fileName, fileDeletePolicy=FilePrinter.ApplicationDeletesFiles, pageSelectPolicy=FilePrinter.ApplicationSelectsPages, pageRange=""</i>)
+<p>
+    Static method to print a file.
+</p><p>
+    Note: Only CUPS and LPR on *nix systems is supported.
+</p><dl>
+<dt><i>printer</i> (QPrinter)</dt>
+<dd>
+reference to the printer to print to
+</dd><dt><i>fileName</i> (str)</dt>
+<dd>
+name (path) of the file to be printed
+</dd><dt><i>fileDeletePolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who deletes the file to be
+        printed (application or system)
+</dd><dt><i>pageSelectPolicy</i> (int (0 or 1))</dt>
+<dd>
+policy determining who selects the pages to be
+        printed (application or system)
+</dd><dt><i>pageRange</i> (str)</dt>
+<dd>
+string determining the page range(s) to be printed, if
+        SystemSelectsPages was given for pageSelectPolicy and user chose
+        Selection in print dialog
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

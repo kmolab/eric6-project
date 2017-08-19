@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.ShelveExtension.HgShelvesSelectionDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.ShelveExtension.HgShelvesSelectionDialog</h1>
+<p>
+Module implementing a dialog to select multiple shelve names.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgShelvesSelectionDialog">HgShelvesSelectionDialog</a></td>
+<td>Class implementing a dialog to select multiple shelve names.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgShelvesSelectionDialog" ID="HgShelvesSelectionDialog"></a>
+<h2>HgShelvesSelectionDialog</h2>
+<p>
+    Class implementing a dialog to select multiple shelve names.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgShelvesSelectionDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgShelvesSelectionDialog.__init__">HgShelvesSelectionDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgShelvesSelectionDialog.getSelectedShelves">getSelectedShelves</a></td>
+<td>Public method to retrieve the selected shelve names.</td>
+</tr><tr>
+<td><a href="#HgShelvesSelectionDialog.on_shelvesList_itemSelectionChanged">on_shelvesList_itemSelectionChanged</a></td>
+<td>Private slot to enabled the OK button if items have been selected.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgShelvesSelectionDialog.__init__" ID="HgShelvesSelectionDialog.__init__"></a>
+<h4>HgShelvesSelectionDialog (Constructor)</h4>
+<b>HgShelvesSelectionDialog</b>(<i>message, shelveNames, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>message</i></dt>
+<dd>
+message to be shown (string)
+</dd><dt><i>shelveNames</i></dt>
+<dd>
+list of shelve names (list of string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgShelvesSelectionDialog.getSelectedShelves" ID="HgShelvesSelectionDialog.getSelectedShelves"></a>
+<h4>HgShelvesSelectionDialog.getSelectedShelves</h4>
+<b>getSelectedShelves</b>(<i></i>)
+<p>
+        Public method to retrieve the selected shelve names.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+selected shelve names (list of string)
+</dd>
+</dl><a NAME="HgShelvesSelectionDialog.on_shelvesList_itemSelectionChanged" ID="HgShelvesSelectionDialog.on_shelvesList_itemSelectionChanged"></a>
+<h4>HgShelvesSelectionDialog.on_shelvesList_itemSelectionChanged</h4>
+<b>on_shelvesList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot to enabled the OK button if items have been selected.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

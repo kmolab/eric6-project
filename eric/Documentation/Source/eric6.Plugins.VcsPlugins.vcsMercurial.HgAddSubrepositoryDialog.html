@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgAddSubrepositoryDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgAddSubrepositoryDialog</h1>
+<p>
+Module implementing a dialog to add a sub-repository.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgAddSubrepositoryDialog">HgAddSubrepositoryDialog</a></td>
+<td>Class implementing a dialog to add a sub-repository.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgAddSubrepositoryDialog" ID="HgAddSubrepositoryDialog"></a>
+<h2>HgAddSubrepositoryDialog</h2>
+<p>
+    Class implementing a dialog to add a sub-repository.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgAddSubrepositoryDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgAddSubrepositoryDialog.__init__">HgAddSubrepositoryDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgAddSubrepositoryDialog.__updateOk">__updateOk</a></td>
+<td>Private slot to update the state of the OK button.</td>
+</tr><tr>
+<td><a href="#HgAddSubrepositoryDialog.getData">getData</a></td>
+<td>Public method to get the data.</td>
+</tr><tr>
+<td><a href="#HgAddSubrepositoryDialog.on_pathPicker_pathSelected">on_pathPicker_pathSelected</a></td>
+<td>Private slot handling the selection of a subrepository path.</td>
+</tr><tr>
+<td><a href="#HgAddSubrepositoryDialog.on_pathPicker_textChanged">on_pathPicker_textChanged</a></td>
+<td>Private slot to handle the update of the path.</td>
+</tr><tr>
+<td><a href="#HgAddSubrepositoryDialog.on_urlEdit_textChanged">on_urlEdit_textChanged</a></td>
+<td>Private slot to handle the update of the URL.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgAddSubrepositoryDialog.__init__" ID="HgAddSubrepositoryDialog.__init__"></a>
+<h4>HgAddSubrepositoryDialog (Constructor)</h4>
+<b>HgAddSubrepositoryDialog</b>(<i>projectPath, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>projectPath</i></dt>
+<dd>
+project directory name (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgAddSubrepositoryDialog.__updateOk" ID="HgAddSubrepositoryDialog.__updateOk"></a>
+<h4>HgAddSubrepositoryDialog.__updateOk</h4>
+<b>__updateOk</b>(<i></i>)
+<p>
+        Private slot to update the state of the OK button.
+</p><a NAME="HgAddSubrepositoryDialog.getData" ID="HgAddSubrepositoryDialog.getData"></a>
+<h4>HgAddSubrepositoryDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to get the data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing the relative path within the project, the
+            sub-repository type and the sub-repository URL (string, string,
+            string)
+</dd>
+</dl><a NAME="HgAddSubrepositoryDialog.on_pathPicker_pathSelected" ID="HgAddSubrepositoryDialog.on_pathPicker_pathSelected"></a>
+<h4>HgAddSubrepositoryDialog.on_pathPicker_pathSelected</h4>
+<b>on_pathPicker_pathSelected</b>(<i>path</i>)
+<p>
+        Private slot handling the selection of a subrepository path.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+path of the subrepository
+</dd>
+</dl><a NAME="HgAddSubrepositoryDialog.on_pathPicker_textChanged" ID="HgAddSubrepositoryDialog.on_pathPicker_textChanged"></a>
+<h4>HgAddSubrepositoryDialog.on_pathPicker_textChanged</h4>
+<b>on_pathPicker_textChanged</b>(<i>p0</i>)
+<p>
+        Private slot to handle the update of the path.
+</p><dl>
+<dt><i>p0</i></dt>
+<dd>
+text of the path edit (string)
+</dd>
+</dl><a NAME="HgAddSubrepositoryDialog.on_urlEdit_textChanged" ID="HgAddSubrepositoryDialog.on_urlEdit_textChanged"></a>
+<h4>HgAddSubrepositoryDialog.on_urlEdit_textChanged</h4>
+<b>on_urlEdit_textChanged</b>(<i>p0</i>)
+<p>
+        Private slot to handle the update of the URL.
+</p><dl>
+<dt><i>p0</i></dt>
+<dd>
+text of the URL edit (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

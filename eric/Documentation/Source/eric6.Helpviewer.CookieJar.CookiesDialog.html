@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.CookieJar.CookiesDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.CookieJar.CookiesDialog</h1>
+<p>
+Module implementing a dialog to show all cookies.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CookiesDialog">CookiesDialog</a></td>
+<td>Class implementing a dialog to show all cookies.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CookiesDialog" ID="CookiesDialog"></a>
+<h2>CookiesDialog</h2>
+<p>
+    Class implementing a dialog to show all cookies.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_CookiesDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CookiesDialog.__init__">CookiesDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CookiesDialog.__showCookieDetails">__showCookieDetails</a></td>
+<td>Private slot to show a dialog with the cookie details.</td>
+</tr><tr>
+<td><a href="#CookiesDialog.__tableModelReset">__tableModelReset</a></td>
+<td>Private slot to handle a reset of the cookies table.</td>
+</tr><tr>
+<td><a href="#CookiesDialog.__tableSelectionChanged">__tableSelectionChanged</a></td>
+<td>Private slot to handle a change of selected items.</td>
+</tr><tr>
+<td><a href="#CookiesDialog.on_addButton_clicked">on_addButton_clicked</a></td>
+<td>Private slot to add a new exception.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CookiesDialog.__init__" ID="CookiesDialog.__init__"></a>
+<h4>CookiesDialog (Constructor)</h4>
+<b>CookiesDialog</b>(<i>cookieJar, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>cookieJar</i></dt>
+<dd>
+reference to the cookie jar (CookieJar)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="CookiesDialog.__showCookieDetails" ID="CookiesDialog.__showCookieDetails"></a>
+<h4>CookiesDialog.__showCookieDetails</h4>
+<b>__showCookieDetails</b>(<i>index</i>)
+<p>
+        Private slot to show a dialog with the cookie details.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the entry to show (QModelIndex)
+</dd>
+</dl><a NAME="CookiesDialog.__tableModelReset" ID="CookiesDialog.__tableModelReset"></a>
+<h4>CookiesDialog.__tableModelReset</h4>
+<b>__tableModelReset</b>(<i></i>)
+<p>
+        Private slot to handle a reset of the cookies table.
+</p><a NAME="CookiesDialog.__tableSelectionChanged" ID="CookiesDialog.__tableSelectionChanged"></a>
+<h4>CookiesDialog.__tableSelectionChanged</h4>
+<b>__tableSelectionChanged</b>(<i>selected, deselected</i>)
+<p>
+        Private slot to handle a change of selected items.
+</p><dl>
+<dt><i>selected</i></dt>
+<dd>
+selected indexes (QItemSelection)
+</dd><dt><i>deselected</i></dt>
+<dd>
+deselected indexes (QItemSelection)
+</dd>
+</dl><a NAME="CookiesDialog.on_addButton_clicked" ID="CookiesDialog.on_addButton_clicked"></a>
+<h4>CookiesDialog.on_addButton_clicked</h4>
+<b>on_addButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add a new exception.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

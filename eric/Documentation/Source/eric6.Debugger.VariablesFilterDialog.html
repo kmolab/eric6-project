@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.VariablesFilterDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.VariablesFilterDialog</h1>
+<p>
+Module implementing the variables filter dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#VariablesFilterDialog">VariablesFilterDialog</a></td>
+<td>Class implementing the variables filter dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="VariablesFilterDialog" ID="VariablesFilterDialog"></a>
+<h2>VariablesFilterDialog</h2>
+<p>
+    Class implementing the variables filter dialog.
+</p><p>
+    It opens a dialog window for the configuration of the variables type
+    filter to be applied during a debugging session.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_VariablesFilterDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#VariablesFilterDialog.__init__">VariablesFilterDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#VariablesFilterDialog.getSelection">getSelection</a></td>
+<td>Public slot to retrieve the current selections.</td>
+</tr><tr>
+<td><a href="#VariablesFilterDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#VariablesFilterDialog.setSelection">setSelection</a></td>
+<td>Public slot to set the current selection.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="VariablesFilterDialog.__init__" ID="VariablesFilterDialog.__init__"></a>
+<h4>VariablesFilterDialog (Constructor)</h4>
+<b>VariablesFilterDialog</b>(<i>parent=None, name=None, modal=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+name of this dialog (string)
+</dd><dt><i>modal</i></dt>
+<dd>
+flag to indicate a modal dialog (boolean)
+</dd>
+</dl><a NAME="VariablesFilterDialog.getSelection" ID="VariablesFilterDialog.getSelection"></a>
+<h4>VariablesFilterDialog.getSelection</h4>
+<b>getSelection</b>(<i></i>)
+<p>
+        Public slot to retrieve the current selections.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+A tuple of lists of integer values. The first list is the
+            locals variables filter, the second the globals variables filter.
+</dd>
+</dl><a NAME="VariablesFilterDialog.on_buttonBox_clicked" ID="VariablesFilterDialog.on_buttonBox_clicked"></a>
+<h4>VariablesFilterDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="VariablesFilterDialog.setSelection" ID="VariablesFilterDialog.setSelection"></a>
+<h4>VariablesFilterDialog.setSelection</h4>
+<b>setSelection</b>(<i>lList, gList</i>)
+<p>
+        Public slot to set the current selection.
+</p><dl>
+<dt><i>lList</i></dt>
+<dd>
+local variables filter (list of int)
+</dd><dt><i>gList</i></dt>
+<dd>
+global variables filter (list of int)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

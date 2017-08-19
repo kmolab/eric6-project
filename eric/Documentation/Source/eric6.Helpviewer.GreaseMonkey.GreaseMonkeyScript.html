@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.GreaseMonkey.GreaseMonkeyScript</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.GreaseMonkey.GreaseMonkeyScript</h1>
+<p>
+Module implementing the GreaseMonkey script.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#GreaseMonkeyScript">GreaseMonkeyScript</a></td>
+<td>Class implementing the GreaseMonkey script.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="GreaseMonkeyScript" ID="GreaseMonkeyScript"></a>
+<h2>GreaseMonkeyScript</h2>
+<p>
+    Class implementing the GreaseMonkey script.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>DocumentEnd</td></tr><tr><td>DocumentStart</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#GreaseMonkeyScript.__init__">GreaseMonkeyScript</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.__parseScript">__parseScript</a></td>
+<td>Private method to parse the given script and populate the data structure.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.description">description</a></td>
+<td>Public method to get the description of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.downloadUrl">downloadUrl</a></td>
+<td>Public method to get the download URL of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.exclude">exclude</a></td>
+<td>Public method to get the list of excluded URLs.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.fileName">fileName</a></td>
+<td>Public method to get the path of the Javascript file.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.fullName">fullName</a></td>
+<td>Public method to get the full name of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.include">include</a></td>
+<td>Public method to get the list of included URLs.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.isEnabled">isEnabled</a></td>
+<td>Public method to check, if the script is enabled.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.isValid">isValid</a></td>
+<td>Public method to check the validity of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.match">match</a></td>
+<td>Public method to check, if the script matches the given URL.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.name">name</a></td>
+<td>Public method to get the name of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.nameSpace">nameSpace</a></td>
+<td>Public method to get the name space of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.script">script</a></td>
+<td>Public method to get the Javascript source.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.setEnabled">setEnabled</a></td>
+<td>Public method to enable a script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.startAt">startAt</a></td>
+<td>Public method to get the start point of the script.</td>
+</tr><tr>
+<td><a href="#GreaseMonkeyScript.version">version</a></td>
+<td>Public method to get the version of the script.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="GreaseMonkeyScript.__init__" ID="GreaseMonkeyScript.__init__"></a>
+<h4>GreaseMonkeyScript (Constructor)</h4>
+<b>GreaseMonkeyScript</b>(<i>manager, path</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>manager</i></dt>
+<dd>
+reference to the manager object (GreaseMonkeyManager)
+</dd><dt><i>path</i></dt>
+<dd>
+path of the Javascript file (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.__parseScript" ID="GreaseMonkeyScript.__parseScript"></a>
+<h4>GreaseMonkeyScript.__parseScript</h4>
+<b>__parseScript</b>(<i>path</i>)
+<p>
+        Private method to parse the given script and populate the data
+        structure.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path of the Javascript file (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.description" ID="GreaseMonkeyScript.description"></a>
+<h4>GreaseMonkeyScript.description</h4>
+<b>description</b>(<i></i>)
+<p>
+        Public method to get the description of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+description of the script (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.downloadUrl" ID="GreaseMonkeyScript.downloadUrl"></a>
+<h4>GreaseMonkeyScript.downloadUrl</h4>
+<b>downloadUrl</b>(<i></i>)
+<p>
+        Public method to get the download URL of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+download URL of the script (QUrl)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.exclude" ID="GreaseMonkeyScript.exclude"></a>
+<h4>GreaseMonkeyScript.exclude</h4>
+<b>exclude</b>(<i></i>)
+<p>
+        Public method to get the list of excluded URLs.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of excluded URLs (list of strings)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.fileName" ID="GreaseMonkeyScript.fileName"></a>
+<h4>GreaseMonkeyScript.fileName</h4>
+<b>fileName</b>(<i></i>)
+<p>
+        Public method to get the path of the Javascript file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path path of the Javascript file (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.fullName" ID="GreaseMonkeyScript.fullName"></a>
+<h4>GreaseMonkeyScript.fullName</h4>
+<b>fullName</b>(<i></i>)
+<p>
+        Public method to get the full name of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+full name of the script (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.include" ID="GreaseMonkeyScript.include"></a>
+<h4>GreaseMonkeyScript.include</h4>
+<b>include</b>(<i></i>)
+<p>
+        Public method to get the list of included URLs.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of included URLs (list of strings)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.isEnabled" ID="GreaseMonkeyScript.isEnabled"></a>
+<h4>GreaseMonkeyScript.isEnabled</h4>
+<b>isEnabled</b>(<i></i>)
+<p>
+        Public method to check, if the script is enabled.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an enabled state (boolean)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.isValid" ID="GreaseMonkeyScript.isValid"></a>
+<h4>GreaseMonkeyScript.isValid</h4>
+<b>isValid</b>(<i></i>)
+<p>
+        Public method to check the validity of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a valid script (boolean)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.match" ID="GreaseMonkeyScript.match"></a>
+<h4>GreaseMonkeyScript.match</h4>
+<b>match</b>(<i>urlString</i>)
+<p>
+        Public method to check, if the script matches the given URL.
+</p><dl>
+<dt><i>urlString</i></dt>
+<dd>
+URL (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a match (boolean)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.name" ID="GreaseMonkeyScript.name"></a>
+<h4>GreaseMonkeyScript.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to get the name of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the script (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.nameSpace" ID="GreaseMonkeyScript.nameSpace"></a>
+<h4>GreaseMonkeyScript.nameSpace</h4>
+<b>nameSpace</b>(<i></i>)
+<p>
+        Public method to get the name space of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name space of the script (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.script" ID="GreaseMonkeyScript.script"></a>
+<h4>GreaseMonkeyScript.script</h4>
+<b>script</b>(<i></i>)
+<p>
+        Public method to get the Javascript source.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+Javascript source (string)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.setEnabled" ID="GreaseMonkeyScript.setEnabled"></a>
+<h4>GreaseMonkeyScript.setEnabled</h4>
+<b>setEnabled</b>(<i>enable</i>)
+<p>
+        Public method to enable a script.
+</p><dl>
+<dt><i>enable</i></dt>
+<dd>
+flag indicating the new enabled state (boolean)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.startAt" ID="GreaseMonkeyScript.startAt"></a>
+<h4>GreaseMonkeyScript.startAt</h4>
+<b>startAt</b>(<i></i>)
+<p>
+        Public method to get the start point of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+start point of the script (DocumentStart or DocumentEnd)
+</dd>
+</dl><a NAME="GreaseMonkeyScript.version" ID="GreaseMonkeyScript.version"></a>
+<h4>GreaseMonkeyScript.version</h4>
+<b>version</b>(<i></i>)
+<p>
+        Public method to get the version of the script.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+version of the script (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

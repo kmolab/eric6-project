@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.ClosedTabsManager</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.ClosedTabsManager</h1>
+<p>
+Module implementing a class to manage closed tabs.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ClosedTab">ClosedTab</a></td>
+<td>Class implementing a structure to store data about a closed tab.</td>
+</tr><tr>
+<td><a href="#ClosedTabsManager">ClosedTabsManager</a></td>
+<td>Class implementing a manager for closed tabs.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ClosedTab" ID="ClosedTab"></a>
+<h2>ClosedTab</h2>
+<p>
+    Class implementing a structure to store data about a closed tab.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ClosedTab.__init__">ClosedTab</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ClosedTab.__eq__">__eq__</a></td>
+<td>Special method implementing the equality operator.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ClosedTab.__init__" ID="ClosedTab.__init__"></a>
+<h4>ClosedTab (Constructor)</h4>
+<b>ClosedTab</b>(<i>url=None, title="", position=-1</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL of the closed tab (QUrl)
+</dd><dt><i>title</i></dt>
+<dd>
+title of the closed tab (string)
+</dd><dt><i>position</i></dt>
+<dd>
+index of the closed tab (integer)
+</dd>
+</dl><a NAME="ClosedTab.__eq__" ID="ClosedTab.__eq__"></a>
+<h4>ClosedTab.__eq__</h4>
+<b>__eq__</b>(<i>other</i>)
+<p>
+        Special method implementing the equality operator.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to the object to compare against (ClosedTab)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating equality of the tabs (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ClosedTabsManager" ID="ClosedTabsManager"></a>
+<h2>ClosedTabsManager</h2>
+<p>
+    Class implementing a manager for closed tabs.
+</p><h3>Signals</h3>
+<dl>
+<dt>closedTabAvailable(boolean)</dt>
+<dd>
+emitted to signal a change of
+        availability of closed tabs
+</dd>
+</dl>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ClosedTabsManager.__init__">ClosedTabsManager</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ClosedTabsManager.allClosedTabs">allClosedTabs</a></td>
+<td>Public method to get a list of all closed tabs.</td>
+</tr><tr>
+<td><a href="#ClosedTabsManager.clearList">clearList</a></td>
+<td>Public method to clear the list of closed tabs.</td>
+</tr><tr>
+<td><a href="#ClosedTabsManager.getClosedTabAt">getClosedTabAt</a></td>
+<td>Public method to get the indexed closed tab.</td>
+</tr><tr>
+<td><a href="#ClosedTabsManager.isClosedTabAvailable">isClosedTabAvailable</a></td>
+<td>Public method to check for closed tabs.</td>
+</tr><tr>
+<td><a href="#ClosedTabsManager.recordBrowser">recordBrowser</a></td>
+<td>Public method to record the data of a browser about to be closed.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ClosedTabsManager.__init__" ID="ClosedTabsManager.__init__"></a>
+<h4>ClosedTabsManager (Constructor)</h4>
+<b>ClosedTabsManager</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="ClosedTabsManager.allClosedTabs" ID="ClosedTabsManager.allClosedTabs"></a>
+<h4>ClosedTabsManager.allClosedTabs</h4>
+<b>allClosedTabs</b>(<i></i>)
+<p>
+        Public method to get a list of all closed tabs.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of closed tabs (list of ClosedTab)
+</dd>
+</dl><a NAME="ClosedTabsManager.clearList" ID="ClosedTabsManager.clearList"></a>
+<h4>ClosedTabsManager.clearList</h4>
+<b>clearList</b>(<i></i>)
+<p>
+        Public method to clear the list of closed tabs.
+</p><a NAME="ClosedTabsManager.getClosedTabAt" ID="ClosedTabsManager.getClosedTabAt"></a>
+<h4>ClosedTabsManager.getClosedTabAt</h4>
+<b>getClosedTabAt</b>(<i>index</i>)
+<p>
+        Public method to get the indexed closed tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the tab to return (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested tab (ClosedTab)
+</dd>
+</dl><a NAME="ClosedTabsManager.isClosedTabAvailable" ID="ClosedTabsManager.isClosedTabAvailable"></a>
+<h4>ClosedTabsManager.isClosedTabAvailable</h4>
+<b>isClosedTabAvailable</b>(<i></i>)
+<p>
+        Public method to check for closed tabs.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the availability of closed tab data (boolean)
+</dd>
+</dl><a NAME="ClosedTabsManager.recordBrowser" ID="ClosedTabsManager.recordBrowser"></a>
+<h4>ClosedTabsManager.recordBrowser</h4>
+<b>recordBrowser</b>(<i>browser, position</i>)
+<p>
+        Public method to record the data of a browser about to be closed.
+</p><dl>
+<dt><i>browser</i></dt>
+<dd>
+reference to the browser to be closed (HelpBrowser)
+</dd><dt><i>position</i></dt>
+<dd>
+index of the tab to be closed (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

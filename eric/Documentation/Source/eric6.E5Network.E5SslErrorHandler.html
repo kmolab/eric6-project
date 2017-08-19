@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5SslErrorHandler</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5SslErrorHandler</h1>
+<p>
+Module implementing a SSL error handler.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5SslErrorHandler">E5SslErrorHandler</a></td>
+<td>Class implementing a handler for SSL errors.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5SslErrorHandler" ID="E5SslErrorHandler"></a>
+<h2>E5SslErrorHandler</h2>
+<p>
+    Class implementing a handler for SSL errors.
+</p><p>
+    It also initializes the default SSL configuration with certificates
+    permanently accepted by the user already.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>NotIgnored</td></tr><tr><td>SystemIgnored</td></tr><tr><td>UserIgnored</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5SslErrorHandler.__init__">E5SslErrorHandler</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5SslErrorHandler.__certToString">__certToString</a></td>
+<td>Private method to convert a certificate to a formatted string.</td>
+</tr><tr>
+<td><a href="#E5SslErrorHandler.__getSystemCaCertificates">__getSystemCaCertificates</a></td>
+<td>Private method to get the list of system certificates.</td>
+</tr><tr>
+<td><a href="#E5SslErrorHandler.sslErrors">sslErrors</a></td>
+<td>Public method to handle SSL errors.</td>
+</tr><tr>
+<td><a href="#E5SslErrorHandler.sslErrorsReply">sslErrorsReply</a></td>
+<td>Public slot to handle SSL errors for a network reply.</td>
+</tr><tr>
+<td><a href="#E5SslErrorHandler.sslErrorsReplySlot">sslErrorsReplySlot</a></td>
+<td>Public slot to handle SSL errors for a network reply.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5SslErrorHandler.__init__" ID="E5SslErrorHandler.__init__"></a>
+<h4>E5SslErrorHandler (Constructor)</h4>
+<b>E5SslErrorHandler</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="E5SslErrorHandler.__certToString" ID="E5SslErrorHandler.__certToString"></a>
+<h4>E5SslErrorHandler.__certToString</h4>
+<b>__certToString</b>(<i>cert</i>)
+<p>
+        Private method to convert a certificate to a formatted string.
+</p><dl>
+<dt><i>cert</i></dt>
+<dd>
+certificate to convert (QSslCertificate)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted string (string)
+</dd>
+</dl><a NAME="E5SslErrorHandler.__getSystemCaCertificates" ID="E5SslErrorHandler.__getSystemCaCertificates"></a>
+<h4>E5SslErrorHandler.__getSystemCaCertificates</h4>
+<b>__getSystemCaCertificates</b>(<i></i>)
+<p>
+        Private method to get the list of system certificates.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of system certificates (list of QSslCertificate)
+</dd>
+</dl><a NAME="E5SslErrorHandler.sslErrors" ID="E5SslErrorHandler.sslErrors"></a>
+<h4>E5SslErrorHandler.sslErrors</h4>
+<b>sslErrors</b>(<i>errors, server, port=-1</i>)
+<p>
+        Public method to handle SSL errors.
+</p><dl>
+<dt><i>errors</i></dt>
+<dd>
+list of SSL errors (list of QSslError)
+</dd><dt><i>server</i></dt>
+<dd>
+name of the server (string)
+</dd><dt><i>port=</i></dt>
+<dd>
+value of the port (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple indicating to ignore the SSL errors (one of NotIgnored,
+            SystemIgnored or UserIgnored) and indicating a change of the
+            default SSL configuration (boolean)
+</dd>
+</dl><a NAME="E5SslErrorHandler.sslErrorsReply" ID="E5SslErrorHandler.sslErrorsReply"></a>
+<h4>E5SslErrorHandler.sslErrorsReply</h4>
+<b>sslErrorsReply</b>(<i>reply, errors</i>)
+<p>
+        Public slot to handle SSL errors for a network reply.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>errors</i></dt>
+<dd>
+list of SSL errors (list of QSslError)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple indicating to ignore the SSL errors (one of NotIgnored,
+            SystemIgnored or UserIgnored) and indicating a change of the
+            default SSL configuration (boolean)
+</dd>
+</dl><a NAME="E5SslErrorHandler.sslErrorsReplySlot" ID="E5SslErrorHandler.sslErrorsReplySlot"></a>
+<h4>E5SslErrorHandler.sslErrorsReplySlot</h4>
+<b>sslErrorsReplySlot</b>(<i>reply, errors</i>)
+<p>
+        Public slot to handle SSL errors for a network reply.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>errors</i></dt>
+<dd>
+list of SSL errors (list of QSslError)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

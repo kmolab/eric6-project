@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Cooperation.CooperationServer</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Cooperation.CooperationServer</h1>
+<p>
+Module implementing the cooperation server.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CooperationServer">CooperationServer</a></td>
+<td>Class implementing the cooperation server.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CooperationServer" ID="CooperationServer"></a>
+<h2>CooperationServer</h2>
+<p>
+    Class implementing the cooperation server.
+</p><h3>Signals</h3>
+<dl>
+<dt>newConnection(connection)</dt>
+<dd>
+emitted after a new connection was
+        received (Connection)
+</dd>
+</dl>
+<h3>Derived from</h3>
+QTcpServer
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CooperationServer.__init__">CooperationServer</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CooperationServer.incomingConnection">incomingConnection</a></td>
+<td>Public method handling an incoming connection.</td>
+</tr><tr>
+<td><a href="#CooperationServer.startListening">startListening</a></td>
+<td>Public method to start listening for new connections.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CooperationServer.__init__" ID="CooperationServer.__init__"></a>
+<h4>CooperationServer (Constructor)</h4>
+<b>CooperationServer</b>(<i>address, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>address</i></dt>
+<dd>
+address the server should listen on (QHostAddress)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="CooperationServer.incomingConnection" ID="CooperationServer.incomingConnection"></a>
+<h4>CooperationServer.incomingConnection</h4>
+<b>incomingConnection</b>(<i>socketDescriptor</i>)
+<p>
+        Public method handling an incoming connection.
+</p><dl>
+<dt><i>socketDescriptor</i></dt>
+<dd>
+native socket descriptor (integer)
+</dd>
+</dl><a NAME="CooperationServer.startListening" ID="CooperationServer.startListening"></a>
+<h4>CooperationServer.startListening</h4>
+<b>startListening</b>(<i>port=-1, findFreePort=False</i>)
+<p>
+        Public method to start listening for new connections.
+</p><dl>
+<dt><i>port</i></dt>
+<dd>
+port to listen on (integer)
+</dd><dt><i>findFreePort</i></dt>
+<dd>
+flag indicating to search for a free port
+            depending on the configuration (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving a flag indicating success (boolean) and
+            the port the server listens on
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

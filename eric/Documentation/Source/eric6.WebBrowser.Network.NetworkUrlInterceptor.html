@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.Network.NetworkUrlInterceptor</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.Network.NetworkUrlInterceptor</h1>
+<p>
+Module implementing a class to handle URL requests before they get processed
+by QtWebEngine.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#NetworkUrlInterceptor">NetworkUrlInterceptor</a></td>
+<td>Class implementing an URL request handler.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="NetworkUrlInterceptor" ID="NetworkUrlInterceptor"></a>
+<h2>NetworkUrlInterceptor</h2>
+<p>
+    Class implementing an URL request handler.
+</p>
+<h3>Derived from</h3>
+QWebEngineUrlRequestInterceptor
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#NetworkUrlInterceptor.__init__">NetworkUrlInterceptor</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#NetworkUrlInterceptor.__loadSettings">__loadSettings</a></td>
+<td>Private method to load the Network Manager settings.</td>
+</tr><tr>
+<td><a href="#NetworkUrlInterceptor.installUrlInterceptor">installUrlInterceptor</a></td>
+<td>Public method to install an URL interceptor.</td>
+</tr><tr>
+<td><a href="#NetworkUrlInterceptor.interceptRequest">interceptRequest</a></td>
+<td>Public method handling an URL request.</td>
+</tr><tr>
+<td><a href="#NetworkUrlInterceptor.preferencesChanged">preferencesChanged</a></td>
+<td>Public slot to handle a change of preferences.</td>
+</tr><tr>
+<td><a href="#NetworkUrlInterceptor.removeUrlInterceptor">removeUrlInterceptor</a></td>
+<td>Public method to remove an URL interceptor.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="NetworkUrlInterceptor.__init__" ID="NetworkUrlInterceptor.__init__"></a>
+<h4>NetworkUrlInterceptor (Constructor)</h4>
+<b>NetworkUrlInterceptor</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i> (QObject)</dt>
+<dd>
+reference to the parent object
+</dd>
+</dl><a NAME="NetworkUrlInterceptor.__loadSettings" ID="NetworkUrlInterceptor.__loadSettings"></a>
+<h4>NetworkUrlInterceptor.__loadSettings</h4>
+<b>__loadSettings</b>(<i></i>)
+<p>
+        Private method to load the Network Manager settings.
+</p><a NAME="NetworkUrlInterceptor.installUrlInterceptor" ID="NetworkUrlInterceptor.installUrlInterceptor"></a>
+<h4>NetworkUrlInterceptor.installUrlInterceptor</h4>
+<b>installUrlInterceptor</b>(<i>interceptor</i>)
+<p>
+        Public method to install an URL interceptor.
+</p><dl>
+<dt><i>interceptor</i> (UrlInterceptor)</dt>
+<dd>
+URL interceptor to be installed
+</dd>
+</dl><a NAME="NetworkUrlInterceptor.interceptRequest" ID="NetworkUrlInterceptor.interceptRequest"></a>
+<h4>NetworkUrlInterceptor.interceptRequest</h4>
+<b>interceptRequest</b>(<i>info</i>)
+<p>
+        Public method handling an URL request.
+</p><dl>
+<dt><i>info</i> (QWebEngineUrlRequestInfo)</dt>
+<dd>
+URL request information
+</dd>
+</dl><a NAME="NetworkUrlInterceptor.preferencesChanged" ID="NetworkUrlInterceptor.preferencesChanged"></a>
+<h4>NetworkUrlInterceptor.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public slot to handle a change of preferences.
+</p><a NAME="NetworkUrlInterceptor.removeUrlInterceptor" ID="NetworkUrlInterceptor.removeUrlInterceptor"></a>
+<h4>NetworkUrlInterceptor.removeUrlInterceptor</h4>
+<b>removeUrlInterceptor</b>(<i>interceptor</i>)
+<p>
+        Public method to remove an URL interceptor.
+</p><dl>
+<dt><i>interceptor</i> (UrlInterceptor)</dt>
+<dd>
+URL interceptor to be removed
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

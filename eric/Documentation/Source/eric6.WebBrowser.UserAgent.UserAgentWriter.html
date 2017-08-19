@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.UserAgent.UserAgentWriter</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.UserAgent.UserAgentWriter</h1>
+<p>
+Module implementing a class to write user agent data files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#UserAgentWriter">UserAgentWriter</a></td>
+<td>Class implementing a writer object to generate user agent data files.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="UserAgentWriter" ID="UserAgentWriter"></a>
+<h2>UserAgentWriter</h2>
+<p>
+    Class implementing a writer object to generate user agent data files.
+</p>
+<h3>Derived from</h3>
+QXmlStreamWriter
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#UserAgentWriter.__init__">UserAgentWriter</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#UserAgentWriter.__write">__write</a></td>
+<td>Private method to write a user agent file.</td>
+</tr><tr>
+<td><a href="#UserAgentWriter.write">write</a></td>
+<td>Public method to write a user agent data file.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="UserAgentWriter.__init__" ID="UserAgentWriter.__init__"></a>
+<h4>UserAgentWriter (Constructor)</h4>
+<b>UserAgentWriter</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="UserAgentWriter.__write" ID="UserAgentWriter.__write"></a>
+<h4>UserAgentWriter.__write</h4>
+<b>__write</b>(<i>agents</i>)
+<p>
+        Private method to write a user agent file.
+</p><dl>
+<dt><i>agents</i></dt>
+<dd>
+dictionary with user agent data (host as key, agent
+            string as value)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="UserAgentWriter.write" ID="UserAgentWriter.write"></a>
+<h4>UserAgentWriter.write</h4>
+<b>write</b>(<i>fileNameOrDevice, agents</i>)
+<p>
+        Public method to write a user agent data file.
+</p><dl>
+<dt><i>fileNameOrDevice</i></dt>
+<dd>
+name of the file to write (string)
+            or device to write to (QIODevice)
+</dd><dt><i>agents</i></dt>
+<dd>
+dictionary with user agent data (host as key, agent
+            string as value)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.PluginEricdoc</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.PluginEricdoc</h1>
+<p>
+Module implementing the Ericdoc plugin.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>author</td></tr><tr><td>autoactivate</td></tr><tr><td>className</td></tr><tr><td>deactivateable</td></tr><tr><td>error</td></tr><tr><td>longDescription</td></tr><tr><td>name</td></tr><tr><td>packageName</td></tr><tr><td>pyqtApi</td></tr><tr><td>python2Compatible</td></tr><tr><td>shortDescription</td></tr><tr><td>version</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#EricdocPlugin">EricdocPlugin</a></td>
+<td>Class implementing the Ericdoc plugin.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#exeDisplayDataList">exeDisplayDataList</a></td>
+<td>Public method to support the display of some executable info.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="EricdocPlugin" ID="EricdocPlugin"></a>
+<h2>EricdocPlugin</h2>
+<p>
+    Class implementing the Ericdoc plugin.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#EricdocPlugin.__init__">EricdocPlugin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#EricdocPlugin.__doEricdoc">__doEricdoc</a></td>
+<td>Private slot to perform the eric6_doc api documentation generation.</td>
+</tr><tr>
+<td><a href="#EricdocPlugin.__initialize">__initialize</a></td>
+<td>Private slot to (re)initialize the plugin.</td>
+</tr><tr>
+<td><a href="#EricdocPlugin.__projectShowMenu">__projectShowMenu</a></td>
+<td>Private slot called, when the the project menu or a submenu is about to be shown.</td>
+</tr><tr>
+<td><a href="#EricdocPlugin.activate">activate</a></td>
+<td>Public method to activate this plugin.</td>
+</tr><tr>
+<td><a href="#EricdocPlugin.deactivate">deactivate</a></td>
+<td>Public method to deactivate this plugin.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="EricdocPlugin.__init__" ID="EricdocPlugin.__init__"></a>
+<h4>EricdocPlugin (Constructor)</h4>
+<b>EricdocPlugin</b>(<i>ui</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>ui</i></dt>
+<dd>
+reference to the user interface object (UI.UserInterface)
+</dd>
+</dl><a NAME="EricdocPlugin.__doEricdoc" ID="EricdocPlugin.__doEricdoc"></a>
+<h4>EricdocPlugin.__doEricdoc</h4>
+<b>__doEricdoc</b>(<i></i>)
+<p>
+        Private slot to perform the eric6_doc api documentation generation.
+</p><a NAME="EricdocPlugin.__initialize" ID="EricdocPlugin.__initialize"></a>
+<h4>EricdocPlugin.__initialize</h4>
+<b>__initialize</b>(<i></i>)
+<p>
+        Private slot to (re)initialize the plugin.
+</p><a NAME="EricdocPlugin.__projectShowMenu" ID="EricdocPlugin.__projectShowMenu"></a>
+<h4>EricdocPlugin.__projectShowMenu</h4>
+<b>__projectShowMenu</b>(<i>menuName, menu</i>)
+<p>
+        Private slot called, when the the project menu or a submenu is
+        about to be shown.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu to be shown (string)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu (QMenu)
+</dd>
+</dl><a NAME="EricdocPlugin.activate" ID="EricdocPlugin.activate"></a>
+<h4>EricdocPlugin.activate</h4>
+<b>activate</b>(<i></i>)
+<p>
+        Public method to activate this plugin.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of None and activation status (boolean)
+</dd>
+</dl><a NAME="EricdocPlugin.deactivate" ID="EricdocPlugin.deactivate"></a>
+<h4>EricdocPlugin.deactivate</h4>
+<b>deactivate</b>(<i></i>)
+<p>
+        Public method to deactivate this plugin.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="exeDisplayDataList" ID="exeDisplayDataList"></a>
+<h2>exeDisplayDataList</h2>
+<b>exeDisplayDataList</b>(<i></i>)
+<p>
+    Public method to support the display of some executable info.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary containing the data to query the presence of
+        the executable
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

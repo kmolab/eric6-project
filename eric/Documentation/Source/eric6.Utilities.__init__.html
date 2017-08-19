@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.__init__</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.__init__</h1>
+<p>
+Package implementing various functions/classes needed everywhere within eric6.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>_escape</td></tr><tr><td>_escape_map</td></tr><tr><td>_uescape</td></tr><tr><td>_uunescape</td></tr><tr><td>codingBytes_regexps</td></tr><tr><td>coding_regexps</td></tr><tr><td>configDir</td></tr><tr><td>supportedCodecs</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CodingError">CodingError</a></td>
+<td>Class implementing an exception, which is raised, if a given coding is incorrect.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__showwarning">__showwarning</a></td>
+<td>Module function to raise a SyntaxError for a SyntaxWarning.</td>
+</tr><tr>
+<td><a href="#_percentReplacementFunc">_percentReplacementFunc</a></td>
+<td>Protected function called for replacing % codes.</td>
+</tr><tr>
+<td><a href="#absolutePath">absolutePath</a></td>
+<td>Public method to convert a path relative to a start path to an absolute path.</td>
+</tr><tr>
+<td><a href="#absoluteUniversalPath">absoluteUniversalPath</a></td>
+<td>Public method to convert a path relative to a start path with universal separators to an absolute path.</td>
+</tr><tr>
+<td><a href="#checkPyside">checkPyside</a></td>
+<td>Module function to check the presence of PySide.</td>
+</tr><tr>
+<td><a href="#compactPath">compactPath</a></td>
+<td>Function to return a compacted path fitting inside the given width.</td>
+</tr><tr>
+<td><a href="#convertLineEnds">convertLineEnds</a></td>
+<td>Function to convert the end of line characters.</td>
+</tr><tr>
+<td><a href="#decode">decode</a></td>
+<td>Function to decode some byte text into a string.</td>
+</tr><tr>
+<td><a href="#decodeBytes">decodeBytes</a></td>
+<td>Function to decode some byte text into a string.</td>
+</tr><tr>
+<td><a href="#decodeString">decodeString</a></td>
+<td>Function to decode a string containing Unicode encoded characters.</td>
+</tr><tr>
+<td><a href="#determinePythonVersion">determinePythonVersion</a></td>
+<td>Function to determine the python version of a given file.</td>
+</tr><tr>
+<td><a href="#direntries">direntries</a></td>
+<td>Function returning a list of all files and directories.</td>
+</tr><tr>
+<td><a href="#encode">encode</a></td>
+<td>Function to encode text into a byte text.</td>
+</tr><tr>
+<td><a href="#escape_entities">escape_entities</a></td>
+<td>Function to encode html entities.</td>
+</tr><tr>
+<td><a href="#escape_uentities">escape_uentities</a></td>
+<td>Function to encode html entities.</td>
+</tr><tr>
+<td><a href="#extractFlags">extractFlags</a></td>
+<td>Function to extract eric specific flags out of the given text.</td>
+</tr><tr>
+<td><a href="#extractFlagsFromFile">extractFlagsFromFile</a></td>
+<td>Function to extract eric specific flags out of the given file.</td>
+</tr><tr>
+<td><a href="#extractLineFlags">extractLineFlags</a></td>
+<td>Function to extract flags starting and ending with '__' from a line comment.</td>
+</tr><tr>
+<td><a href="#filterAnsiSequences">filterAnsiSequences</a></td>
+<td>Function to filter out ANSI escape sequences (color only).</td>
+</tr><tr>
+<td><a href="#fromNativeSeparators">fromNativeSeparators</a></td>
+<td>Function returning a path, that is using "/" separator characters.</td>
+</tr><tr>
+<td><a href="#generateDistroInfo">generateDistroInfo</a></td>
+<td>Module function to generate a string with distribution infos.</td>
+</tr><tr>
+<td><a href="#generatePluginsVersionInfo">generatePluginsVersionInfo</a></td>
+<td>Module function to generate a string with plugins version infos.</td>
+</tr><tr>
+<td><a href="#generatePyQtToolPath">generatePyQtToolPath</a></td>
+<td>Module function to generate the executable path for a PyQt tool.</td>
+</tr><tr>
+<td><a href="#generatePySideToolPath">generatePySideToolPath</a></td>
+<td>Module function to generate the executable path for a PySide tool.</td>
+</tr><tr>
+<td><a href="#generateQtToolName">generateQtToolName</a></td>
+<td>Module function to generate the executable name for a Qt tool like designer.</td>
+</tr><tr>
+<td><a href="#generateVersionInfo">generateVersionInfo</a></td>
+<td>Module function to generate a string with various version infos.</td>
+</tr><tr>
+<td><a href="#getDirs">getDirs</a></td>
+<td>Function returning a list of all directories below path.</td>
+</tr><tr>
+<td><a href="#getEnvironmentEntry">getEnvironmentEntry</a></td>
+<td>Module function to get an environment entry.</td>
+</tr><tr>
+<td><a href="#getExecutablePath">getExecutablePath</a></td>
+<td>Function to build the full path of an executable file from the environment.</td>
+</tr><tr>
+<td><a href="#getExecutablePaths">getExecutablePaths</a></td>
+<td>Function to build all full path of an executable file from the environment.</td>
+</tr><tr>
+<td><a href="#getHomeDir">getHomeDir</a></td>
+<td>Function to get a users home directory.</td>
+</tr><tr>
+<td><a href="#getPercentReplacement">getPercentReplacement</a></td>
+<td>Function to get the replacement for code.</td>
+</tr><tr>
+<td><a href="#getPercentReplacementHelp">getPercentReplacementHelp</a></td>
+<td>Function to get the help text for the supported %-codes.</td>
+</tr><tr>
+<td><a href="#getPythonLibPath">getPythonLibPath</a></td>
+<td>Function to determine the path to Python's library.</td>
+</tr><tr>
+<td><a href="#getPythonVersion">getPythonVersion</a></td>
+<td>Function to get the Python version (major, minor) as an integer value.</td>
+</tr><tr>
+<td><a href="#getQtMacBundle">getQtMacBundle</a></td>
+<td>Module function to determine the correct Mac OS X bundle name for Qt tools.</td>
+</tr><tr>
+<td><a href="#getRealName">getRealName</a></td>
+<td>Function to get the real name of the user.</td>
+</tr><tr>
+<td><a href="#getTestFileName">getTestFileName</a></td>
+<td>Function to build the filename of a unittest file.</td>
+</tr><tr>
+<td><a href="#getUserName">getUserName</a></td>
+<td>Function to get the user name.</td>
+</tr><tr>
+<td><a href="#getWindowsExecutablePath">getWindowsExecutablePath</a></td>
+<td>Function to build the full path of an executable file from the environment on Windows platforms.</td>
+</tr><tr>
+<td><a href="#get_coding">get_coding</a></td>
+<td>Function to get the coding of a text.</td>
+</tr><tr>
+<td><a href="#get_codingBytes">get_codingBytes</a></td>
+<td>Function to get the coding of a bytes text.</td>
+</tr><tr>
+<td><a href="#hasEnvironmentEntry">hasEnvironmentEntry</a></td>
+<td>Module function to check, if the environment contains an entry.</td>
+</tr><tr>
+<td><a href="#html_encode">html_encode</a></td>
+<td>Function to correctly encode a text for html.</td>
+</tr><tr>
+<td><a href="#html_udecode">html_udecode</a></td>
+<td>Function to correctly decode a html text to a unicode text.</td>
+</tr><tr>
+<td><a href="#html_uencode">html_uencode</a></td>
+<td>Function to correctly encode a unicode text for html.</td>
+</tr><tr>
+<td><a href="#isDrive">isDrive</a></td>
+<td>Function to check, if a path is a Windows drive.</td>
+</tr><tr>
+<td><a href="#isExecutable">isExecutable</a></td>
+<td>Function to check, if a file is executable.</td>
+</tr><tr>
+<td><a href="#isinpath">isinpath</a></td>
+<td>Function to check for an executable file.</td>
+</tr><tr>
+<td><a href="#joinext">joinext</a></td>
+<td>Function to join a file extension to a path.</td>
+</tr><tr>
+<td><a href="#linesep">linesep</a></td>
+<td>Function to return the lineseparator used by the editor.</td>
+</tr><tr>
+<td><a href="#normabsjoinpath">normabsjoinpath</a></td>
+<td>Function returning a normalized, absolute path of the joined parts passed into it.</td>
+</tr><tr>
+<td><a href="#normabspath">normabspath</a></td>
+<td>Function returning a normalized, absolute path.</td>
+</tr><tr>
+<td><a href="#normcaseabspath">normcaseabspath</a></td>
+<td>Function returning an absolute path, that is normalized with respect to its case and references.</td>
+</tr><tr>
+<td><a href="#normcasepath">normcasepath</a></td>
+<td>Function returning a path, that is normalized with respect to its case and references.</td>
+</tr><tr>
+<td><a href="#normjoinpath">normjoinpath</a></td>
+<td>Function returning a normalized path of the joined parts passed into it.</td>
+</tr><tr>
+<td><a href="#parseEnvironmentString">parseEnvironmentString</a></td>
+<td>Function used to convert an environment string into a list of environment settings.</td>
+</tr><tr>
+<td><a href="#parseOptionString">parseOptionString</a></td>
+<td>Function used to convert an option string into a list of options.</td>
+</tr><tr>
+<td><a href="#parseString">parseString</a></td>
+<td>Function used to convert a string into a list.</td>
+</tr><tr>
+<td><a href="#prepareQtMacBundle">prepareQtMacBundle</a></td>
+<td>Module function for starting Qt tools that are Mac OS X bundles.</td>
+</tr><tr>
+<td><a href="#quote">quote</a></td>
+<td>Replacement for the urllib.quote function because of unicode problems.</td>
+</tr><tr>
+<td><a href="#readEncodedFile">readEncodedFile</a></td>
+<td>Function to read a file and decode its contents into proper text.</td>
+</tr><tr>
+<td><a href="#readEncodedFileWithEncoding">readEncodedFileWithEncoding</a></td>
+<td>Function to read a file and decode its contents into proper text.</td>
+</tr><tr>
+<td><a href="#readEncodedFileWithHash">readEncodedFileWithHash</a></td>
+<td>Function to read a file, calculate a hash value and decode its contents into proper text.</td>
+</tr><tr>
+<td><a href="#readStringFromStream">readStringFromStream</a></td>
+<td>Module function to read a string from the given stream.</td>
+</tr><tr>
+<td><a href="#relativePath">relativePath</a></td>
+<td>Function to convert a file path to a path relative to a start path.</td>
+</tr><tr>
+<td><a href="#relativeUniversalPath">relativeUniversalPath</a></td>
+<td>Function to convert a file path to a path relative to a start path with universal separators.</td>
+</tr><tr>
+<td><a href="#relpath">relpath</a></td>
+<td>Return a relative version of a path.</td>
+</tr><tr>
+<td><a href="#samefilepath">samefilepath</a></td>
+<td>Function to compare two paths.</td>
+</tr><tr>
+<td><a href="#samepath">samepath</a></td>
+<td>Function to compare two paths.</td>
+</tr><tr>
+<td><a href="#splitPath">splitPath</a></td>
+<td>Function to split a pathname into a directory part and a file part.</td>
+</tr><tr>
+<td><a href="#startswithPath">startswithPath</a></td>
+<td>Function to check, if a path starts with a given start path.</td>
+</tr><tr>
+<td><a href="#toBool">toBool</a></td>
+<td>Module function to convert a string to a boolean value.</td>
+</tr><tr>
+<td><a href="#toNativeSeparators">toNativeSeparators</a></td>
+<td>Function returning a path, that is using native separator characters.</td>
+</tr><tr>
+<td><a href="#unescape_uentities">unescape_uentities</a></td>
+<td>Function to decode html entities.</td>
+</tr><tr>
+<td><a href="#win32_GetUserName">win32_GetUserName</a></td>
+<td>Function to get the user name under Win32.</td>
+</tr><tr>
+<td><a href="#win32_Kill">win32_Kill</a></td>
+<td>Function to provide an os.kill equivalent for Win32.</td>
+</tr><tr>
+<td><a href="#win32_getRealName">win32_getRealName</a></td>
+<td>Function to get the user's real name (aka.</td>
+</tr><tr>
+<td><a href="#writeEncodedFile">writeEncodedFile</a></td>
+<td>Function to write a file with properly encoded text.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="CodingError" ID="CodingError"></a>
+<h2>CodingError</h2>
+<p>
+    Class implementing an exception, which is raised, if a given coding is
+    incorrect.
+</p>
+<h3>Derived from</h3>
+Exception
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CodingError.__init__">CodingError</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CodingError.__repr__">__repr__</a></td>
+<td>Special method returning a representation of the exception.</td>
+</tr><tr>
+<td><a href="#CodingError.__str__">__str__</a></td>
+<td>Special method returning a string representation of the exception.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CodingError.__init__" ID="CodingError.__init__"></a>
+<h4>CodingError (Constructor)</h4>
+<b>CodingError</b>(<i>coding</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>coding</i></dt>
+<dd>
+coding to include in the message (string)
+</dd>
+</dl><a NAME="CodingError.__repr__" ID="CodingError.__repr__"></a>
+<h4>CodingError.__repr__</h4>
+<b>__repr__</b>(<i></i>)
+<p>
+        Special method returning a representation of the exception.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+string representing the error message
+</dd>
+</dl><a NAME="CodingError.__str__" ID="CodingError.__str__"></a>
+<h4>CodingError.__str__</h4>
+<b>__str__</b>(<i></i>)
+<p>
+        Special method returning a string representation of the exception.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+string representing the error message
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="__showwarning" ID="__showwarning"></a>
+<h2>__showwarning</h2>
+<b>__showwarning</b>(<i>message, category, filename, lineno, file=None, line=""</i>)
+<p>
+    Module function to raise a SyntaxError for a SyntaxWarning.
+</p><dl>
+<dt><i>message</i></dt>
+<dd>
+warning object
+</dd><dt><i>category</i></dt>
+<dd>
+type object of the warning
+</dd><dt><i>filename</i></dt>
+<dd>
+name of the file causing the warning (string)
+</dd><dt><i>lineno</i></dt>
+<dd>
+line number causing the warning (integer)
+</dd><dt><i>file</i></dt>
+<dd>
+file to write the warning message to (ignored)
+</dd><dt><i>line</i></dt>
+<dd>
+line causing the warning (ignored)
+</dd>
+</dl><dl>
+<dt>Raises <b>SyntaxError</b>:</dt>
+<dd>
+
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="_percentReplacementFunc" ID="_percentReplacementFunc"></a>
+<h2>_percentReplacementFunc</h2>
+<b>_percentReplacementFunc</b>(<i>matchobj</i>)
+<p>
+    Protected function called for replacing % codes.
+</p><dl>
+<dt><i>matchobj</i></dt>
+<dd>
+matchobject for the code
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+replacement string
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="absolutePath" ID="absolutePath"></a>
+<h2>absolutePath</h2>
+<b>absolutePath</b>(<i>path, start</i>)
+<p>
+    Public method to convert a path relative to a start path to an
+    absolute path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd><dt><i>start</i></dt>
+<dd>
+start path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="absoluteUniversalPath" ID="absoluteUniversalPath"></a>
+<h2>absoluteUniversalPath</h2>
+<b>absoluteUniversalPath</b>(<i>path, start</i>)
+<p>
+    Public method to convert a path relative to a start path with
+    universal separators to an absolute path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd><dt><i>start</i></dt>
+<dd>
+start path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute path with native separators (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="checkPyside" ID="checkPyside"></a>
+<h2>checkPyside</h2>
+<b>checkPyside</b>(<i></i>)
+<p>
+    Module function to check the presence of PySide.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of two flags indicating the presence of PySide for Python2
+        and PySide for Python3 (boolean, boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="compactPath" ID="compactPath"></a>
+<h2>compactPath</h2>
+<b>compactPath</b>(<i>path, width, measure=len</i>)
+<p>
+    Function to return a compacted path fitting inside the given width.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be compacted (string)
+</dd><dt><i>width</i></dt>
+<dd>
+width for the compacted path (integer)
+</dd><dt><i>measure</i></dt>
+<dd>
+reference to a function used to measure the length of the
+        string
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+compacted path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="convertLineEnds" ID="convertLineEnds"></a>
+<h2>convertLineEnds</h2>
+<b>convertLineEnds</b>(<i>text, eol</i>)
+<p>
+    Function to convert the end of line characters.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be converted (string)
+</dd><dt><i>eol</i></dt>
+<dd>
+new eol setting (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+text with converted eols (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="decode" ID="decode"></a>
+<h2>decode</h2>
+<b>decode</b>(<i>text</i>)
+<p>
+    Function to decode some byte text into a string.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+byte text to decode (bytes)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of decoded text and encoding (string, string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="decodeBytes" ID="decodeBytes"></a>
+<h2>decodeBytes</h2>
+<b>decodeBytes</b>(<i>buffer</i>)
+<p>
+    Function to decode some byte text into a string.
+</p><dl>
+<dt><i>buffer</i></dt>
+<dd>
+byte buffer to decode (bytes)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+decoded text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="decodeString" ID="decodeString"></a>
+<h2>decodeString</h2>
+<b>decodeString</b>(<i>text</i>)
+<p>
+    Function to decode a string containing Unicode encoded characters.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text containing encoded chars (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+decoded text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="determinePythonVersion" ID="determinePythonVersion"></a>
+<h2>determinePythonVersion</h2>
+<b>determinePythonVersion</b>(<i>filename, source, editor=None</i>)
+<p>
+    Function to determine the python version of a given file.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file with extension (str)
+</dd><dt><i>source</i></dt>
+<dd>
+of the file (str)
+</dd><dt><i>editor=</i></dt>
+<dd>
+reference to the editor, if the file is opened
+        already (Editor object)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+Python version if file is Python2 or Python3 (int)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="direntries" ID="direntries"></a>
+<h2>direntries</h2>
+<b>direntries</b>(<i>path, filesonly=False, pattern=None, followsymlinks=True, checkStop=None</i>)
+<p>
+    Function returning a list of all files and directories.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+root of the tree to check
+</dd><dt><i>filesonly</i></dt>
+<dd>
+flag indicating that only files are wanted
+</dd><dt><i>pattern</i></dt>
+<dd>
+a filename pattern to check against
+</dd><dt><i>followsymlinks</i></dt>
+<dd>
+flag indicating whether symbolic links
+            should be followed
+</dd><dt><i>checkStop</i></dt>
+<dd>
+function to be called to check for a stop
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of all files and directories in the tree rooted
+        at path. The names are expanded to start with path.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="encode" ID="encode"></a>
+<h2>encode</h2>
+<b>encode</b>(<i>text, orig_coding</i>)
+<p>
+    Function to encode text into a byte text.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be encoded (string)
+</dd><dt><i>orig_coding</i></dt>
+<dd>
+type of the original encoding (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of encoded text and encoding used (bytes, string)
+</dd>
+</dl><dl>
+<dt>Raises <b>CodingError</b>:</dt>
+<dd>
+raised to indicate an invalid encoding
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="escape_entities" ID="escape_entities"></a>
+<h2>escape_entities</h2>
+<b>escape_entities</b>(<i>m, escmap=_escape_map</i>)
+<p>
+    Function to encode html entities.
+</p><dl>
+<dt><i>m</i></dt>
+<dd>
+the match object
+</dd><dt><i>escmap</i></dt>
+<dd>
+the map of entities to encode
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the converted text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="escape_uentities" ID="escape_uentities"></a>
+<h2>escape_uentities</h2>
+<b>escape_uentities</b>(<i>m</i>)
+<p>
+    Function to encode html entities.
+</p><dl>
+<dt><i>m</i></dt>
+<dd>
+the match object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the converted text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="extractFlags" ID="extractFlags"></a>
+<h2>extractFlags</h2>
+<b>extractFlags</b>(<i>text</i>)
+<p>
+    Function to extract eric specific flags out of the given text.
+</p><p>
+    Flags are contained in comments and are introduced by 'eflag:'.
+    The rest of the line is interpreted as 'key = value'. value is
+    analyzed for being an integer or float value. If that fails, it
+    is assumed to be a string. If a key does not contain a '='
+    character, it is assumed to be a boolean flag. Flags are expected
+    at the very end of a file. The search is ended, if a line without
+    the 'eflag:' marker is found.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be scanned (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary of string, boolean, complex, float and int
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="extractFlagsFromFile" ID="extractFlagsFromFile"></a>
+<h2>extractFlagsFromFile</h2>
+<b>extractFlagsFromFile</b>(<i>filename</i>)
+<p>
+    Function to extract eric specific flags out of the given file.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file to be scanned (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary of string, boolean, complex, float and int
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="extractLineFlags" ID="extractLineFlags"></a>
+<h2>extractLineFlags</h2>
+<b>extractLineFlags</b>(<i>line, startComment="</i>)
+<p>
+    Function to extract flags starting and ending with '__' from a line
+    comment.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line to extract flags from (string)
+</dd><dt><i>startComment=</i></dt>
+<dd>
+string identifying the start of the comment (string)
+</dd><dt><i>endComment=</i></dt>
+<dd>
+string identifying the end of a comment (string)
+</dd><dt><i>flagsLine=</i></dt>
+<dd>
+flag indicating to check for a flags only line (bool)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list containing the extracted flags (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="filterAnsiSequences" ID="filterAnsiSequences"></a>
+<h2>filterAnsiSequences</h2>
+<b>filterAnsiSequences</b>(<i>txt</i>)
+<p>
+    Function to filter out ANSI escape sequences (color only).
+</p><dl>
+<dt><i>txt</i> (str)</dt>
+<dd>
+text to be filtered
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+text without ANSI escape sequences
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="fromNativeSeparators" ID="fromNativeSeparators"></a>
+<h2>fromNativeSeparators</h2>
+<b>fromNativeSeparators</b>(<i>path</i>)
+<p>
+    Function returning a path, that is using "/" separator characters.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be converted (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+path with converted separator characters (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="generateDistroInfo" ID="generateDistroInfo"></a>
+<h2>generateDistroInfo</h2>
+<b>generateDistroInfo</b>(<i>linesep='\n'</i>)
+<p>
+    Module function to generate a string with distribution infos.
+</p><dl>
+<dt><i>linesep</i></dt>
+<dd>
+string to be used to separate lines (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string with plugins version infos (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="generatePluginsVersionInfo" ID="generatePluginsVersionInfo"></a>
+<h2>generatePluginsVersionInfo</h2>
+<b>generatePluginsVersionInfo</b>(<i>linesep='\n'</i>)
+<p>
+    Module function to generate a string with plugins version infos.
+</p><dl>
+<dt><i>linesep</i></dt>
+<dd>
+string to be used to separate lines (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string with plugins version infos (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="generatePyQtToolPath" ID="generatePyQtToolPath"></a>
+<h2>generatePyQtToolPath</h2>
+<b>generatePyQtToolPath</b>(<i>toolname</i>)
+<p>
+    Module function to generate the executable path for a PyQt tool.
+</p><dl>
+<dt><i>toolname</i> (str)</dt>
+<dd>
+base name of the tool
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+executable path name of the tool
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="generatePySideToolPath" ID="generatePySideToolPath"></a>
+<h2>generatePySideToolPath</h2>
+<b>generatePySideToolPath</b>(<i>toolname</i>)
+<p>
+    Module function to generate the executable path for a PySide tool.
+</p><dl>
+<dt><i>toolname</i></dt>
+<dd>
+base name of the tool (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the PySide tool path with extension (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="generateQtToolName" ID="generateQtToolName"></a>
+<h2>generateQtToolName</h2>
+<b>generateQtToolName</b>(<i>toolname</i>)
+<p>
+    Module function to generate the executable name for a Qt tool like
+    designer.
+</p><dl>
+<dt><i>toolname</i></dt>
+<dd>
+base name of the tool (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the Qt tool name without extension (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="generateVersionInfo" ID="generateVersionInfo"></a>
+<h2>generateVersionInfo</h2>
+<b>generateVersionInfo</b>(<i>linesep='\n'</i>)
+<p>
+    Module function to generate a string with various version infos.
+</p><dl>
+<dt><i>linesep</i></dt>
+<dd>
+string to be used to separate lines (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string with version infos (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getDirs" ID="getDirs"></a>
+<h2>getDirs</h2>
+<b>getDirs</b>(<i>path, excludeDirs</i>)
+<p>
+    Function returning a list of all directories below path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+root of the tree to check
+</dd><dt><i>excludeDirs</i></dt>
+<dd>
+basename of directories to ignore
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of all directories found
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getEnvironmentEntry" ID="getEnvironmentEntry"></a>
+<h2>getEnvironmentEntry</h2>
+<b>getEnvironmentEntry</b>(<i>key, default=None</i>)
+<p>
+    Module function to get an environment entry.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key of the requested environment entry (string)
+</dd><dt><i>default</i></dt>
+<dd>
+value to be returned, if the environment doesn't contain
+        the requested entry (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested entry or the default value, if the entry wasn't
+        found (string or None)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getExecutablePath" ID="getExecutablePath"></a>
+<h2>getExecutablePath</h2>
+<b>getExecutablePath</b>(<i>file</i>)
+<p>
+    Function to build the full path of an executable file from the environment.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+filename of the executable to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+full executable name, if the executable file is accessible
+        via the searchpath defined by the PATH environment variable, or an
+        empty string otherwise.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getExecutablePaths" ID="getExecutablePaths"></a>
+<h2>getExecutablePaths</h2>
+<b>getExecutablePaths</b>(<i>file</i>)
+<p>
+    Function to build all full path of an executable file from the environment.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+filename of the executable (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of full executable names (list of strings), if the executable
+        file is accessible via the searchpath defined by the PATH environment
+        variable, or an empty list otherwise.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getHomeDir" ID="getHomeDir"></a>
+<h2>getHomeDir</h2>
+<b>getHomeDir</b>(<i></i>)
+<p>
+    Function to get a users home directory.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+home directory (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPercentReplacement" ID="getPercentReplacement"></a>
+<h2>getPercentReplacement</h2>
+<b>getPercentReplacement</b>(<i>code</i>)
+<p>
+    Function to get the replacement for code.
+</p><dl>
+<dt><i>code</i></dt>
+<dd>
+code indicator (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+replacement string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPercentReplacementHelp" ID="getPercentReplacementHelp"></a>
+<h2>getPercentReplacementHelp</h2>
+<b>getPercentReplacementHelp</b>(<i></i>)
+<p>
+    Function to get the help text for the supported %-codes.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+help text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPythonLibPath" ID="getPythonLibPath"></a>
+<h2>getPythonLibPath</h2>
+<b>getPythonLibPath</b>(<i></i>)
+<p>
+    Function to determine the path to Python's library.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path to the Python library (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getPythonVersion" ID="getPythonVersion"></a>
+<h2>getPythonVersion</h2>
+<b>getPythonVersion</b>(<i></i>)
+<p>
+    Function to get the Python version (major, minor) as an integer value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+An integer representing major and minor version number (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getQtMacBundle" ID="getQtMacBundle"></a>
+<h2>getQtMacBundle</h2>
+<b>getQtMacBundle</b>(<i>toolname</i>)
+<p>
+    Module function to determine the correct Mac OS X bundle name for Qt tools.
+</p><dl>
+<dt><i>toolname</i></dt>
+<dd>
+plain name of the tool (e.g. "designer") (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+bundle name of the Qt tool (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getRealName" ID="getRealName"></a>
+<h2>getRealName</h2>
+<b>getRealName</b>(<i></i>)
+<p>
+    Function to get the real name of the user.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+real name of the user (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getTestFileName" ID="getTestFileName"></a>
+<h2>getTestFileName</h2>
+<b>getTestFileName</b>(<i>fn</i>)
+<p>
+    Function to build the filename of a unittest file.
+</p><p>
+    The filename for the unittest file is built by prepending
+    the string "test" to the filename passed into this function.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename basis to be used for the unittest filename (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+filename of the corresponding unittest file (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getUserName" ID="getUserName"></a>
+<h2>getUserName</h2>
+<b>getUserName</b>(<i></i>)
+<p>
+    Function to get the user name.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+user name (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getWindowsExecutablePath" ID="getWindowsExecutablePath"></a>
+<h2>getWindowsExecutablePath</h2>
+<b>getWindowsExecutablePath</b>(<i>file</i>)
+<p>
+    Function to build the full path of an executable file from the environment
+    on Windows platforms.
+</p><p>
+    First an executable with the extension .exe is searched for, thereafter one
+    with the extension .bat and finally the given file name as is. The first
+    match is returned.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+filename of the executable to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+full executable name, if the executable file is accessible
+        via the searchpath defined by the PATH environment variable, or an
+        empty string otherwise.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="get_coding" ID="get_coding"></a>
+<h2>get_coding</h2>
+<b>get_coding</b>(<i>text</i>)
+<p>
+    Function to get the coding of a text.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to inspect (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+coding string
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="get_codingBytes" ID="get_codingBytes"></a>
+<h2>get_codingBytes</h2>
+<b>get_codingBytes</b>(<i>text</i>)
+<p>
+    Function to get the coding of a bytes text.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+bytes text to inspect (bytes)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+coding string
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="hasEnvironmentEntry" ID="hasEnvironmentEntry"></a>
+<h2>hasEnvironmentEntry</h2>
+<b>hasEnvironmentEntry</b>(<i>key</i>)
+<p>
+    Module function to check, if the environment contains an entry.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key of the requested environment entry (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of the requested entry (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="html_encode" ID="html_encode"></a>
+<h2>html_encode</h2>
+<b>html_encode</b>(<i>text, pattern=_escape</i>)
+<p>
+    Function to correctly encode a text for html.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be encoded (string)
+</dd><dt><i>pattern</i></dt>
+<dd>
+search pattern for text to be encoded (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the encoded text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="html_udecode" ID="html_udecode"></a>
+<h2>html_udecode</h2>
+<b>html_udecode</b>(<i>text, pattern=_uunescape</i>)
+<p>
+    Function to correctly decode a html text to a unicode text.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be decoded (string)
+</dd><dt><i>pattern</i></dt>
+<dd>
+search pattern for text to be decoded (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the decoded text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="html_uencode" ID="html_uencode"></a>
+<h2>html_uencode</h2>
+<b>html_uencode</b>(<i>text, pattern=_uescape</i>)
+<p>
+    Function to correctly encode a unicode text for html.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be encoded (string)
+</dd><dt><i>pattern</i></dt>
+<dd>
+search pattern for text to be encoded (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the encoded text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isDrive" ID="isDrive"></a>
+<h2>isDrive</h2>
+<b>isDrive</b>(<i>path</i>)
+<p>
+    Function to check, if a path is a Windows drive.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+path name to be checked
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Windows drive
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isExecutable" ID="isExecutable"></a>
+<h2>isExecutable</h2>
+<b>isExecutable</b>(<i>exe</i>)
+<p>
+    Function to check, if a file is executable.
+</p><dl>
+<dt><i>exe</i></dt>
+<dd>
+filename of the executable to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating executable status (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="isinpath" ID="isinpath"></a>
+<h2>isinpath</h2>
+<b>isinpath</b>(<i>file</i>)
+<p>
+    Function to check for an executable file.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+filename of the executable to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag to indicate, if the executable file is accessible
+        via the searchpath defined by the PATH environment variable.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="joinext" ID="joinext"></a>
+<h2>joinext</h2>
+<b>joinext</b>(<i>prefix, ext</i>)
+<p>
+    Function to join a file extension to a path.
+</p><p>
+    The leading "." of ext is replaced by a platform specific extension
+    separator if necessary.
+</p><dl>
+<dt><i>prefix</i></dt>
+<dd>
+the basepart of the filename (string)
+</dd><dt><i>ext</i></dt>
+<dd>
+the extension part (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the complete filename (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="linesep" ID="linesep"></a>
+<h2>linesep</h2>
+<b>linesep</b>(<i></i>)
+<p>
+    Function to return the lineseparator used by the editor.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line separator used by the editor (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="normabsjoinpath" ID="normabsjoinpath"></a>
+<h2>normabsjoinpath</h2>
+<b>normabsjoinpath</b>(<i>a, *p</i>)
+<p>
+    Function returning a normalized, absolute path of the joined parts passed
+    into it.
+</p><dl>
+<dt><i>a</i></dt>
+<dd>
+first path to be joined (string)
+</dd><dt><i>p</i></dt>
+<dd>
+variable number of path parts to be joind (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute, normalized path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="normabspath" ID="normabspath"></a>
+<h2>normabspath</h2>
+<b>normabspath</b>(<i>path</i>)
+<p>
+    Function returning a normalized, absolute path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute, normalized path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="normcaseabspath" ID="normcaseabspath"></a>
+<h2>normcaseabspath</h2>
+<b>normcaseabspath</b>(<i>path</i>)
+<p>
+    Function returning an absolute path, that is normalized with respect to
+    its case and references.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+absolute, normalized path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="normcasepath" ID="normcasepath"></a>
+<h2>normcasepath</h2>
+<b>normcasepath</b>(<i>path</i>)
+<p>
+    Function returning a path, that is normalized with respect to its case
+    and references.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+case normalized path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="normjoinpath" ID="normjoinpath"></a>
+<h2>normjoinpath</h2>
+<b>normjoinpath</b>(<i>a, *p</i>)
+<p>
+    Function returning a normalized path of the joined parts passed into it.
+</p><dl>
+<dt><i>a</i></dt>
+<dd>
+first path to be joined (string)
+</dd><dt><i>p</i></dt>
+<dd>
+variable number of path parts to be joind (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+normalized path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="parseEnvironmentString" ID="parseEnvironmentString"></a>
+<h2>parseEnvironmentString</h2>
+<b>parseEnvironmentString</b>(<i>s</i>)
+<p>
+    Function used to convert an environment string into a list of environment
+    settings.
+</p><dl>
+<dt><i>s</i></dt>
+<dd>
+environment string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of environment settings (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="parseOptionString" ID="parseOptionString"></a>
+<h2>parseOptionString</h2>
+<b>parseOptionString</b>(<i>s</i>)
+<p>
+    Function used to convert an option string into a list of options.
+</p><dl>
+<dt><i>s</i></dt>
+<dd>
+option string (string or string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of options (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="parseString" ID="parseString"></a>
+<h2>parseString</h2>
+<b>parseString</b>(<i>s, rx</i>)
+<p>
+    Function used to convert a string into a list.
+</p><dl>
+<dt><i>s</i></dt>
+<dd>
+string to be parsed (string)
+</dd><dt><i>rx</i></dt>
+<dd>
+regex defining the parse pattern (QRegExp)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of parsed data (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="prepareQtMacBundle" ID="prepareQtMacBundle"></a>
+<h2>prepareQtMacBundle</h2>
+<b>prepareQtMacBundle</b>(<i>toolname, version, args</i>)
+<p>
+    Module function for starting Qt tools that are Mac OS X bundles.
+</p><dl>
+<dt><i>toolname</i></dt>
+<dd>
+plain name of the tool (e.g. "designer") (string)
+</dd><dt><i>version</i></dt>
+<dd>
+indication for the requested version (Qt 4) (integer)
+</dd><dt><i>args</i></dt>
+<dd>
+name of input file for tool, if any (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+command-name and args for QProcess (tuple)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="quote" ID="quote"></a>
+<h2>quote</h2>
+<b>quote</b>(<i>url</i>)
+<p>
+        Replacement for the urllib.quote function because of unicode problems.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+text to quote (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+quoted url (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readEncodedFile" ID="readEncodedFile"></a>
+<h2>readEncodedFile</h2>
+<b>readEncodedFile</b>(<i>filename</i>)
+<p>
+    Function to read a file and decode its contents into proper text.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file to read (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of decoded text and encoding (string, string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readEncodedFileWithEncoding" ID="readEncodedFileWithEncoding"></a>
+<h2>readEncodedFileWithEncoding</h2>
+<b>readEncodedFileWithEncoding</b>(<i>filename, encoding</i>)
+<p>
+    Function to read a file and decode its contents into proper text.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file to read (string)
+</dd><dt><i>encoding=</i></dt>
+<dd>
+encoding to be used to read the file (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of decoded text and encoding (string, string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readEncodedFileWithHash" ID="readEncodedFileWithHash"></a>
+<h2>readEncodedFileWithHash</h2>
+<b>readEncodedFileWithHash</b>(<i>filename</i>)
+<p>
+    Function to read a file, calculate a hash value and decode its contents
+    into proper text.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file to read (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of decoded text, encoding and hash value (string, string,
+        string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readStringFromStream" ID="readStringFromStream"></a>
+<h2>readStringFromStream</h2>
+<b>readStringFromStream</b>(<i>stream</i>)
+<p>
+    Module function to read a string from the given stream.
+</p><dl>
+<dt><i>stream</i></dt>
+<dd>
+data stream opened for reading (QDataStream)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string read from the stream (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="relativePath" ID="relativePath"></a>
+<h2>relativePath</h2>
+<b>relativePath</b>(<i>path, start</i>)
+<p>
+    Function to convert a file path to a path relative to a start path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd><dt><i>start</i></dt>
+<dd>
+start path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+relative path or unchanged path, if path does not start with
+        the start path (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="relativeUniversalPath" ID="relativeUniversalPath"></a>
+<h2>relativeUniversalPath</h2>
+<b>relativeUniversalPath</b>(<i>path, start</i>)
+<p>
+    Function to convert a file path to a path relative to a start path
+    with universal separators.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+file or directory name to convert (string)
+</dd><dt><i>start</i></dt>
+<dd>
+start path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+relative path or unchanged path, if path does not start with
+        the start path with universal separators (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="relpath" ID="relpath"></a>
+<h2>relpath</h2>
+<b>relpath</b>(<i>path, start=os.path.curdir</i>)
+<p>
+    Return a relative version of a path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to make relative (string)
+</dd><dt><i>start</i></dt>
+<dd>
+path to make relative from (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+relative path (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised to indicate an invalid path
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="samefilepath" ID="samefilepath"></a>
+<h2>samefilepath</h2>
+<b>samefilepath</b>(<i>f1, f2</i>)
+<p>
+    Function to compare two paths. Strips the filename.
+</p><dl>
+<dt><i>f1</i></dt>
+<dd>
+first filepath for the compare (string)
+</dd><dt><i>f2</i></dt>
+<dd>
+second filepath for the compare (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating whether the two paths represent the
+        same path on disk.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="samepath" ID="samepath"></a>
+<h2>samepath</h2>
+<b>samepath</b>(<i>f1, f2</i>)
+<p>
+    Function to compare two paths.
+</p><dl>
+<dt><i>f1</i></dt>
+<dd>
+first path for the compare (string)
+</dd><dt><i>f2</i></dt>
+<dd>
+second path for the compare (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating whether the two paths represent the
+        same path on disk.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="splitPath" ID="splitPath"></a>
+<h2>splitPath</h2>
+<b>splitPath</b>(<i>name</i>)
+<p>
+    Function to split a pathname into a directory part and a file part.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+path name (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple of 2 strings (dirname, filename).
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="startswithPath" ID="startswithPath"></a>
+<h2>startswithPath</h2>
+<b>startswithPath</b>(<i>path, start</i>)
+<p>
+    Function to check, if a path starts with a given start path.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be checked (string)
+</dd><dt><i>start</i></dt>
+<dd>
+start path (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the path starts with the given start
+        path (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="toBool" ID="toBool"></a>
+<h2>toBool</h2>
+<b>toBool</b>(<i>dataStr</i>)
+<p>
+    Module function to convert a string to a boolean value.
+</p><dl>
+<dt><i>dataStr</i></dt>
+<dd>
+string to be converted (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+converted boolean value (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="toNativeSeparators" ID="toNativeSeparators"></a>
+<h2>toNativeSeparators</h2>
+<b>toNativeSeparators</b>(<i>path</i>)
+<p>
+    Function returning a path, that is using native separator characters.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be converted (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+path with converted separator characters (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="unescape_uentities" ID="unescape_uentities"></a>
+<h2>unescape_uentities</h2>
+<b>unescape_uentities</b>(<i>m</i>)
+<p>
+    Function to decode html entities.
+</p><dl>
+<dt><i>m</i></dt>
+<dd>
+the match object
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the converted text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="win32_GetUserName" ID="win32_GetUserName"></a>
+<h2>win32_GetUserName</h2>
+<b>win32_GetUserName</b>(<i></i>)
+<p>
+    Function to get the user name under Win32.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+user name (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="win32_Kill" ID="win32_Kill"></a>
+<h2>win32_Kill</h2>
+<b>win32_Kill</b>(<i>pid</i>)
+<p>
+    Function to provide an os.kill equivalent for Win32.
+</p><dl>
+<dt><i>pid</i></dt>
+<dd>
+process id (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+result of the kill (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="win32_getRealName" ID="win32_getRealName"></a>
+<h2>win32_getRealName</h2>
+<b>win32_getRealName</b>(<i></i>)
+<p>
+    Function to get the user's real name (aka. display name) under Win32.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+real name of the current user (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="writeEncodedFile" ID="writeEncodedFile"></a>
+<h2>writeEncodedFile</h2>
+<b>writeEncodedFile</b>(<i>filename, text, orig_coding</i>)
+<p>
+    Function to write a file with properly encoded text.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+name of the file to read (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be written (string)
+</dd><dt><i>orig_coding</i></dt>
+<dd>
+type of the original encoding (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encoding used for writing the file (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

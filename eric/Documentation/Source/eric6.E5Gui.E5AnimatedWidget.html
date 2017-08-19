@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5AnimatedWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5AnimatedWidget</h1>
+<p>
+Module implementing an animated widget.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5AnimatedWidget">E5AnimatedWidget</a></td>
+<td>Class implementing an animated widget.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5AnimatedWidget" ID="E5AnimatedWidget"></a>
+<h2>E5AnimatedWidget</h2>
+<p>
+    Class implementing an animated widget.
+</p>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>DirectionDown</td></tr><tr><td>DirectionUp</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5AnimatedWidget.__init__">E5AnimatedWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5AnimatedWidget.__animateFrame">__animateFrame</a></td>
+<td>Private slot to animate the next frame.</td>
+</tr><tr>
+<td><a href="#E5AnimatedWidget.hide">hide</a></td>
+<td>Public slot to hide the animated widget.</td>
+</tr><tr>
+<td><a href="#E5AnimatedWidget.resizeEvent">resizeEvent</a></td>
+<td>Protected method to handle a resize event.</td>
+</tr><tr>
+<td><a href="#E5AnimatedWidget.startAnimation">startAnimation</a></td>
+<td>Public slot to start the animation.</td>
+</tr><tr>
+<td><a href="#E5AnimatedWidget.widget">widget</a></td>
+<td>Public method to get a reference to the animated widget.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5AnimatedWidget.__init__" ID="E5AnimatedWidget.__init__"></a>
+<h4>E5AnimatedWidget (Constructor)</h4>
+<b>E5AnimatedWidget</b>(<i>direction=DirectionDown, duration=300, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>direction</i> (int (one of DirectionDown or DirectionUp))</dt>
+<dd>
+direction of the animation
+</dd><dt><i>duration</i> (int)</dt>
+<dd>
+duration of the animation
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="E5AnimatedWidget.__animateFrame" ID="E5AnimatedWidget.__animateFrame"></a>
+<h4>E5AnimatedWidget.__animateFrame</h4>
+<b>__animateFrame</b>(<i>frame</i>)
+<p>
+        Private slot to animate the next frame.
+</p><dl>
+<dt><i>frame</i> (int)</dt>
+<dd>
+frame number
+</dd>
+</dl><a NAME="E5AnimatedWidget.hide" ID="E5AnimatedWidget.hide"></a>
+<h4>E5AnimatedWidget.hide</h4>
+<b>hide</b>(<i></i>)
+<p>
+        Public slot to hide the animated widget.
+</p><a NAME="E5AnimatedWidget.resizeEvent" ID="E5AnimatedWidget.resizeEvent"></a>
+<h4>E5AnimatedWidget.resizeEvent</h4>
+<b>resizeEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle a resize event.
+</p><dl>
+<dt><i>evt</i> (QResizeEvent)</dt>
+<dd>
+reference to the event object
+</dd>
+</dl><a NAME="E5AnimatedWidget.startAnimation" ID="E5AnimatedWidget.startAnimation"></a>
+<h4>E5AnimatedWidget.startAnimation</h4>
+<b>startAnimation</b>(<i></i>)
+<p>
+        Public slot to start the animation.
+</p><a NAME="E5AnimatedWidget.widget" ID="E5AnimatedWidget.widget"></a>
+<h4>E5AnimatedWidget.widget</h4>
+<b>widget</b>(<i></i>)
+<p>
+        Public method to get a reference to the animated widget.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the animated widget
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QWidget
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

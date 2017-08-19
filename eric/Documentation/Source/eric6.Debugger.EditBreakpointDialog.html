@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.EditBreakpointDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.EditBreakpointDialog</h1>
+<p>
+Module implementing a dialog to edit breakpoint properties.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#EditBreakpointDialog">EditBreakpointDialog</a></td>
+<td>Class implementing a dialog to edit breakpoint properties.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="EditBreakpointDialog" ID="EditBreakpointDialog"></a>
+<h2>EditBreakpointDialog</h2>
+<p>
+    Class implementing a dialog to edit breakpoint properties.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_EditBreakpointDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#EditBreakpointDialog.__init__">EditBreakpointDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#EditBreakpointDialog.getAddData">getAddData</a></td>
+<td>Public method to retrieve the entered data for an add.</td>
+</tr><tr>
+<td><a href="#EditBreakpointDialog.getData">getData</a></td>
+<td>Public method to retrieve the entered data.</td>
+</tr><tr>
+<td><a href="#EditBreakpointDialog.on_filenamePicker_editTextChanged">on_filenamePicker_editTextChanged</a></td>
+<td>Private slot to handle the change of the filename.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="EditBreakpointDialog.__init__" ID="EditBreakpointDialog.__init__"></a>
+<h4>EditBreakpointDialog (Constructor)</h4>
+<b>EditBreakpointDialog</b>(<i>breakPointId, properties, condHistory, parent=None, name=None, modal=False, addMode=False, filenameHistory=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>breakPointId</i></dt>
+<dd>
+id of the breakpoint (tuple)
+                (filename, linenumber)
+</dd><dt><i>properties</i></dt>
+<dd>
+properties for the breakpoint (tuple)
+                (condition, temporary flag, enabled flag, ignore count)
+</dd><dt><i>condHistory</i></dt>
+<dd>
+the list of conditionals history (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+the parent of this dialog (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+the widget name of this dialog (string)
+</dd><dt><i>modal</i></dt>
+<dd>
+flag indicating a modal dialog (boolean)
+</dd><dt><i>addMode</i></dt>
+<dd>
+flag indicating the add mode (boolean)
+</dd><dt><i>filenameHistory</i></dt>
+<dd>
+list of recently used file names
+            (list of strings)
+</dd>
+</dl><a NAME="EditBreakpointDialog.getAddData" ID="EditBreakpointDialog.getAddData"></a>
+<h4>EditBreakpointDialog.getAddData</h4>
+<b>getAddData</b>(<i></i>)
+<p>
+        Public method to retrieve the entered data for an add.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple containing the new breakpoints properties
+            (filename, lineno, condition, temporary flag, enabled flag,
+            ignore count)
+</dd>
+</dl><a NAME="EditBreakpointDialog.getData" ID="EditBreakpointDialog.getData"></a>
+<h4>EditBreakpointDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the entered data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple containing the breakpoints new properties
+            (condition, temporary flag, enabled flag, ignore count)
+</dd>
+</dl><a NAME="EditBreakpointDialog.on_filenamePicker_editTextChanged" ID="EditBreakpointDialog.on_filenamePicker_editTextChanged"></a>
+<h4>EditBreakpointDialog.on_filenamePicker_editTextChanged</h4>
+<b>on_filenamePicker_editTextChanged</b>(<i>fn</i>)
+<p>
+        Private slot to handle the change of the filename.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+text of the filename edit (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

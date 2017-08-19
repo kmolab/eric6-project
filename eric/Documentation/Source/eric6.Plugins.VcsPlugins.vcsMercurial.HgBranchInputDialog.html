@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgBranchInputDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgBranchInputDialog</h1>
+<p>
+Module implementing a dialog to enter the data for a branch operation.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgBranchInputDialog">HgBranchInputDialog</a></td>
+<td>Class implementing a dialog to enter the data for a branch operation.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgBranchInputDialog" ID="HgBranchInputDialog"></a>
+<h2>HgBranchInputDialog</h2>
+<p>
+    Class implementing a dialog to enter the data for a branch operation.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgBranchInputDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgBranchInputDialog.__init__">HgBranchInputDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgBranchInputDialog.getData">getData</a></td>
+<td>Public method to get the data.</td>
+</tr><tr>
+<td><a href="#HgBranchInputDialog.on_branchComboBox_editTextChanged">on_branchComboBox_editTextChanged</a></td>
+<td>Private slot handling a change of the branch name.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgBranchInputDialog.__init__" ID="HgBranchInputDialog.__init__"></a>
+<h4>HgBranchInputDialog (Constructor)</h4>
+<b>HgBranchInputDialog</b>(<i>branches, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>branches</i></dt>
+<dd>
+branch names to populate the branch list with
+            (list of string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgBranchInputDialog.getData" ID="HgBranchInputDialog.getData"></a>
+<h4>HgBranchInputDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to get the data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of branch name (string) and a flag indicating to
+            commit the branch (boolean)
+</dd>
+</dl><a NAME="HgBranchInputDialog.on_branchComboBox_editTextChanged" ID="HgBranchInputDialog.on_branchComboBox_editTextChanged"></a>
+<h4>HgBranchInputDialog.on_branchComboBox_editTextChanged</h4>
+<b>on_branchComboBox_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot handling a change of the branch name.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+contents of the branch combo box (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

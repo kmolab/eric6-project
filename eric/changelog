@@ -1,0 +1,394 @@
+Change Log
+----------
+Version 17.08:
+- bug fixes
+- Shell
+  -- added support for different history navigation styles (disabled, Linux,
+     Windows)
+  -- improved shell history dialog
+- Templates
+  - added some new predefined template variables (time, path_name_rel,
+    dir_name_rel)
+- Web Browser (NG)
+  -- added support for sessions
+
+Version 17.07:
+- bug fixes
+- Background Services
+  -- added functionality to limit the number of processes used for background
+     services
+- Bug Reporting / Feature Request (Email)
+  -- added the capability to send these emails via Google Mail using OAuth2
+     authentication
+- Configuration
+  -- made the colors of the diff dialogs configurable
+- Third Party packages
+  -- updated chardet to 3.0.4
+
+Version 17.06:
+- bug fixes
+- Checkers
+  -- extended the source documentation checker to check for raised/documented
+     exceptions and defined/documented signals
+- Editor
+  -- reintroduced the highlighting of current instruction line and the error
+     line using colored background. It is configurable whether to use these
+     backgrounds or the arrows.
+  -- added capability to perform the various replace methods via keyboard
+     shortcuts
+- Plugin Manager
+  -- added an option to cleanup the plug-ins download area during startup
+- Qt Tools
+  -- added code to auto-discover the presence of the new 'pyqt5-tools' wheel
+     (Windows only) (thanks to Kyle Altendorf for providing this wheel)
+- Web Browser (NG)
+  -- united the stop and reload buttons of the navigation bar
+  -- added a super menu to modernize the look & feel
+  -- added Ctrl-Click and middle click actions to the navigation buttons
+     to perform the action in a new tab
+
+Version 17.05:
+- bug fixes
+- Editor
+  -- changed the indication of the current instruction line and the error line
+     to use a green or red arrow instead of a colored background
+- PyQt Tools
+  -- added a configuration option for the path of the PyQt tools
+- Shell
+  -- added a standalone shell window
+- Web Browser (NG)
+  -- added the last visited time and date to the bookmark properties dialog
+  -- added a visit count to the history entries (shown in the history dialog)
+  -- made full screen mode really full screen
+- Third Party packages
+  -- updated Pygments to 2.2.0
+  -- updated chardet to 3.0.2
+
+Version 17.04.1:
+- bug fixes
+
+Version 17.04:
+- bug fixes
+- General
+  -- increased minimum required Python versions to prevent usage
+     with very old versions (i.e. eric was never tested with)
+     min. versions: Python 2 - 2.7.10; Python 3 - 3.4.0
+- Checkers
+  -- added checks for shadowed Python builtins and unneccessary comprehensions
+     and generators to the code style checker
+  -- added a checker to check for lines of code of too high complexity
+  -- added capability to place line flags (e.g. __IGNORE...) on the line
+     following the one to be ignored
+- Debugger
+  -- shell autocompleter takes the right global variables into account now
+  -- move the instruction pointer within the current function (Hotkey: F12)
+  -- report syntax and indentation errors raised by an application or module
+     in the correct manner
+  -- avoid crashes on using greenlets
+- Mercurial Interface
+  -- extended the user configuration dialog
+  -- added support for the 'zstd' compression for bundles (as of 4.1.0)
+
+Version 17.03.1:
+- bug fixes
+
+Version 17.03:
+- bug fixes
+- Checkers
+  -- upgraded pycodestyle to version 2.3.1
+  -- upgraded pyflakes to version 1.5.0
+- Debugger
+  -- prevent stepping into print statements if checkbox for debugging into
+     interpreter libraries is checked
+  -- catch unhandled exceptions again
+  -- support for PySide2 added
+  -- atexit handling works as specified in any condition
+  -- prevent ordinary breakpoints to steal the focus from an exception
+- Mercurial Interface
+  -- improved the log browser in several ways
+  -- improved the status dialog
+- Project
+  -- added capability to remember previously used entries in the project
+     debugger properties dialog
+- Web Browser (NG)
+  - added support for new options provided by Qt 5.8.0
+  - added support for spell checking as of Qt 5.8.0
+
+Version 17.02.1:
+- bug fixes
+
+Version 17.02:
+- bug fixes
+- Checkers
+  -- upgraded pycodestyle to version 2.2.0+
+- Debugger
+  -- changed the variables filter dialog to be more user friendly
+- Editor
+  -- added a bar with formatting options for HTML, Markdown and reStructured
+     Text files
+  -- added support for the new QScintilla JSON lexer
+  -- added support for the new QScintilla Markdown lexer
+- Email
+  -- added capability to use the SSL encryption method (next to StartTLS) in
+     the built in Email dialog
+- Mercurial Interface
+  -- added clickable links to the log browser details pane
+  -- added up and down buttons to move the current entry to the log browser
+  -- added the capability to configure the length of the log message shown
+     in the message column of the log browser list
+- Subversion interface
+  -- added up and down buttons to move the current entry to the log browser
+- Web Browser
+  -- added functionality to manage the plug-in provided documentation sets
+
+Version 17.01:
+- bug fixes
+- General
+  -- added capability to save a global session to disk and restore it
+  -- added capability to save a crash session in order to restore the
+     current state in case of a crash
+  -- added option to configure the crash session startup behavior and
+     added the '--no-crash' option to suppress looking for a crash session
+  -- added the '--disable-crash' option to temporarily disable the crash
+     session support through the command line
+  -- changed some options: --noopen to --no-open, --nosplash to --no-splash
+- Debugger
+  -- added capability to edit the history lists of the start dialogs of the
+     debugger
+- Editor
+  -- added support for project type specific auto-completion and calltips
+     including the respective configuration (Editor->APIs page)
+
+Version 16.12:
+- bug fixes
+- Mercurial Interface
+  -- added context menu actions to the tags/branches list dialog
+  -- added bookmark actions to the Log Browser tools menu
+  -- added context menu actions to the bookmark list dialog
+  -- added possibility to enter a commit author and commit date/time
+  -- added capability to enforce a tagging operation
+- Third Party packages
+  -- updated chardet to 2.3.0
+
+Version 16.11.1:
+- fixed a PyQt5 compatibility issue on Windows platforms
+
+Version 16.11:
+- bug fixes
+- General
+  -- added a status bar icon to show the online status to the main window
+  -- added an action to clear the private data of the IDE
+- Checkers
+  -- added capaibility to ignore warnings by code (use
+     __IGNORE_WARNING_<code>__, e.g. __IGNORE_WARNING_M613__)
+- Debugger
+  -- added a debugger interface registry to allow debuggers being
+     implemented as plug-ins
+  -- Python Debuggers:
+     --- changed the protocol to a JSONRPC style protocol to be more robust
+     --- massive speed gain of the debug client (Tobias Rzepka)
+     --- unified the debugger clients for Python 2 and 3 (Tobias Rzepka)
+     --- unified the standard and threaded debugger clients (Tobias Rzepka)
+     --- added debug support for QThread threads (Tobias Rzepka)
+  -- Ruby Debugger:
+     --- removed the Ruby debugger (the interface doesn't work with recent
+         Ruby versions anymore)
+  -- Call Trace Viewer
+     --- added capability to stop recording upon exit of the client script
+  -- Variables Viewer
+     --- added capability to refresh the view via the context menu
+- Hex Editor
+  -- added a nice little hex editor tool (usable as a standalone tool
+     as well)
+- Icon Editor
+  -- added capability to close all other icon editor windows
+- Project
+  -- added a dialog to quickly search for files in the list of project files
+     (thanks to Mike C. Fletcher for contributing the majority of this)
+  -- added an option to rescan the project for tasks upon open
+- Project Browser
+  -- added capability to search the file tree via the keyboard (directories and
+     files only)
+- Tools
+  -- Tray Starter
+     --- added an entry to show the version information
+- Version Control System Interfaces
+  -- Mercurial
+     --- added support for pulling and pushing the current bookmark
+     --- added support for the strip extension
+     --- added support for the histedit extension
+     --- added support for the strip and fetch extensions to the log browser
+     --- added an action to the administration menu to clean out the backup
+         bundles
+- Web Browser
+  -- added capability to remember the zoom values for each site (incl. a
+     dialog to manage these)
+  -- added a status bar icon to show the online status
+- Web Browser (NG)
+  -- ported the web browser to QtWebEngine as of Qt 5.6.0 because starting
+     with this version QtWebKit is no longer (officially) supported
+- Third Party packages
+  -- updated Pygments to 2.1.3
+  -- updated pep8 to 2.1.0dev0 and renamed it to pycodestyle
+  -- updated coverage.py to 4.1.0
+  -- updated pyflakes to 1.2.3+
+
+Version 6.1.0:
+- bug fixes
+- General
+  -- added a configuration page to edit the list of mime types to
+     be opened in an eric editor
+  -- added the '--settings=' command line switch to store the
+     settings files in a non-standard directory
+- Checkers
+  -- added a batch mode to the code style checker to make use of
+     multiple CPUs/CPU-Cores
+  -- added a batch mode to the syntax checker to make use of
+     multiple CPUs/CPU-Cores
+  -- added a batch mode to the indentation checker to make use of
+     multiple CPUs/CPU-Cores
+  -- added a code complexity checker iaw. McCabe to the code style
+     checker
+  -- added miscellaneous checks to the code style checker (coding
+     comment, copyright, blind except, print statements, one element
+     tuples, __future__ imports, old style string formats, string
+     format strings)
+- Debugger
+  -- added signal handlers for the Python debug clients
+- Editor
+  -- added capability to configure the indentation guides colors
+  -- added capability to ask multiple completion list and call-tip
+     providers
+  -- added support for mouse click handlers to be provided by plug-ins
+  -- added the search markers to the marker map
+  -- added capability to save a copy of the editor contents
+  -- Lexers
+     --- added support for the new C++ lexer properties (as of
+         QScintilla V. 2.9.0)
+- File Browser
+  -- added capability to show imports of a Python script
+- Log Viewer
+  -- added a message filter including a configuration page
+- Mini Editor
+  -- added capability to save a copy of the editor contents
+- Preferences Dialog
+  -- changed the 'filter' function to a 'search' function disabling
+     all entries, that don't contain the entered string
+  -- changed the handling of the configuration page list entries
+     to be collapsed on first show and remember the expanded ones
+     while eric is running (but not between invocations)
+- Previewers
+  -- added capability to use 'Sphinx' to preview ReST files
+- Project
+  -- added functionality to reorganize the files automatically,
+     when the project type or file type associations are changed
+- Project Browser
+  -- added capability to show imports of a Python script
+- Source Code Documentor
+  -- added tags to describe the type of parameters (@type, @ptype)
+     and return values (@rtype)
+- Task Viewer
+  -- added capability to add sub-tasks (i.e. a task hierarchy) for
+     manually generated tasks
+- Tools
+  -- Diff Dialog
+     --- added capability to search in the output
+- Version Control System Interfaces
+  -- All
+     --- added capability to search in the output of Diff dialogs
+  -- Mercurial
+     --- enhanced the log browser functionality by a search mode
+     --- enhanced the log browser functionality by pull and push actions
+     --- enhanced the status dialog functionality by a diff view
+- Web Browser
+  -- added support for HTML5 feature permissions
+  -- improved parsing of the content disposition header analog to
+     the way it is done in qutebrowser
+  -- modified and extended the VirusTotal interface for the v2 API
+  -- added our own web inspector window to overcome a Qt weekness
+  -- added a manager for Flash Cookies
+- Third Party packages
+  -- updated coverage to 4.0
+  -- updated Pygments to 2.0.2
+
+Version 6.0.0:
+- bug fixes
+- Debugger
+  -- added capability to show exceptions in the shell window
+
+Version 6.0.0-RC1:
+- bug fixes
+- General
+  -- added Portugese translations provided by Candido Fontes
+  -- extended the code base to be usable with PyQt4 as well
+- Multi Project
+  -- changed multi project file format to contain relative paths to
+     the contained project files
+- Project Forms Browser
+  -- added functionality to modify some form code creation options (see
+     Qt configuration page)
+- Web Browser
+  -- added DuckDuckGo to the list of default search engines
+
+Version 6.0-snapshot-20140720:
+- bug fixes
+- General
+  -- ported from eric5 to be used with PyQt5
+  -- changed the eric mascot to be a Python (i.e. the snake). New icons
+     and pixmaps provided by Thimo Kraemer.
+  -- changed the code to be executed with Python 2 as well (thanks to
+     Tobias Rzepka)
+  -- implemented a background service which execute Python2 and Python3 scripts
+     in the background independent of the current interpreter
+- Checkers
+  -- updated pep8 to 1.5.6
+  -- updated pyflakes to version 0.8.1 (Python 3.4.0 compatible)
+  -- added syntax checker for JavaScript files
+  -- added capability to check multiple files from the project sources browser
+- Debugger
+  -- updated coverage to 3.7.1
+  -- enabled coverage info in Python2 projects
+- Editor
+  -- added a scrolling map like display showing all markers
+  -- added a context menu entry to reload a file with a given encoding
+  -- added a lexer for Qt style sheet files (when upgrading from older
+     eric versions a change of the lexer association for *.qss files needs
+     to be done via the configuration dialog)
+  -- added support for the QScintilla Gettext lexer (QsciLexerPO) as of
+     QScintilla 2.8.2
+  -- added support for the QScintilla CoffeeScript lexer
+     (QsciLexerCoffeeScript) as of QScintilla 2.8.3
+- Multi Project
+  -- added support for the categorisation of projects and changed the
+     multi project file format
+- Plugin Manager
+  -- extended the plugin repository dialog to allow to hide unwanted entries
+     and cleanup the plugin downloads area
+  -- implemented the Python2 compatibility check for plug-ins (new boolean flag
+     'python2Compatible'
+- Project
+  -- added support for JavaScript projects
+  -- added code to move deleted files/directories to the recycle bin falling
+     back to removing them (os.remove), if send2trash cannot be imported due
+     to missing dependencies
+- Version Control System Interfaces
+  -- All
+     --- made the status LED (right lower corner) clickable (depending on
+         overall VCS status it will show the log browser or the status dialog)
+  -- Mercurial
+     --- enhanced the tag dialog and extended the log browser to allow
+         tagging of a specific revision
+     --- added dialogs to enter the contents for initial .hgrc/mercurial.ini
+         and .hg/hgrc files
+     --- added a configuration option to enforce the usage of the internal
+         merge tool
+     --- made availablity of push/pull related actions dependent on configured
+         remote repository (default/default-push in .hg/hgrc)
+     --- extended the log browser by an action to switch to the selected
+         revision
+     --- added support for the shelve extension (as of Mercurial 2.8)
+     --- added support for the largefiles extension (as of Mercurial 2.0)
+     --- added support for Mercurial queues summary
+     --- added support for various 'resolve' subcommands
+- Third Party packages
+  -- updated CharDet to 2.2.1

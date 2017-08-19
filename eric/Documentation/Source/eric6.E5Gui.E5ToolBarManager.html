@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ToolBarManager</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ToolBarManager</h1>
+<p>
+Module implementing a toolbar manager class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ToolBarManager">E5ToolBarManager</a></td>
+<td>Class implementing a toolbar manager.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ToolBarManager" ID="E5ToolBarManager"></a>
+<h2>E5ToolBarManager</h2>
+<p>
+    Class implementing a toolbar manager.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>CustomToolBarMarker</td></tr><tr><td>ToolBarMarker</td></tr><tr><td>VersionMarker</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ToolBarManager.__init__">E5ToolBarManager</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.__findAction">__findAction</a></td>
+<td>Private method to find an action by name.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.__findDefaultToolBar">__findDefaultToolBar</a></td>
+<td>Private method to find a default toolbar by name.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.__toolBarByName">__toolBarByName</a></td>
+<td>Private slot to get a toolbar by its object name.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.actionById">actionById</a></td>
+<td>Public method to get an action given its id.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.addAction">addAction</a></td>
+<td>Public method to add an action to be managed.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.addActions">addActions</a></td>
+<td>Public method to add actions to be managed.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.addToolBar">addToolBar</a></td>
+<td>Public method to add a toolbar to be managed.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.categories">categories</a></td>
+<td>Public method to get the list of categories.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.categoryActions">categoryActions</a></td>
+<td>Public method to get the actions belonging to a category.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.createToolBar">createToolBar</a></td>
+<td>Public method to create a custom toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.defaultToolBarActions">defaultToolBarActions</a></td>
+<td>Public method to get a default toolbar's actions given its id.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.defaultToolBars">defaultToolBars</a></td>
+<td>Public method to get all toolbars added with addToolBar().</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.deleteToolBar">deleteToolBar</a></td>
+<td>Public method to remove a custom toolbar created with createToolBar().</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.isDefaultToolBar">isDefaultToolBar</a></td>
+<td>Public method to check, if a toolbar was added with addToolBar().</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.isWidgetAction">isWidgetAction</a></td>
+<td>Public method to check, if action is a widget action.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.mainWindow">mainWindow</a></td>
+<td>Public method to get the reference to the main window.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.removeAction">removeAction</a></td>
+<td>Public method to remove an action from the manager.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.removeCategoryActions">removeCategoryActions</a></td>
+<td>Public method to remove the actions belonging to a category.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.removeToolBar">removeToolBar</a></td>
+<td>Public method to remove a toolbar added with addToolBar().</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.removeWidgetActions">removeWidgetActions</a></td>
+<td>Public method to remove widget actions.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.renameToolBar">renameToolBar</a></td>
+<td>Public method to give a toolbar a new title.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.resetAllToolBars">resetAllToolBars</a></td>
+<td>Public method to reset all toolbars to their default state.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.resetToolBar">resetToolBar</a></td>
+<td>Public method to reset a toolbar to its default state.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.restoreState">restoreState</a></td>
+<td>Public method to restore the state of the toolbar manager.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.saveState">saveState</a></td>
+<td>Public method to save the state of the toolbar manager.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.setMainWindow">setMainWindow</a></td>
+<td>Public method to set the reference to the main window.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.setToolBar">setToolBar</a></td>
+<td>Public method to set the actions of a toolbar.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.setToolBars">setToolBars</a></td>
+<td>Public method to set the actions of several toolbars.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.toolBarActions">toolBarActions</a></td>
+<td>Public method to get a toolbar's actions given its id.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.toolBarById">toolBarById</a></td>
+<td>Public method to get a toolbar given its id.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.toolBarWidgetAction">toolBarWidgetAction</a></td>
+<td>Public method to get the toolbar for a widget action.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.toolBars">toolBars</a></td>
+<td>Public method to get all toolbars.</td>
+</tr><tr>
+<td><a href="#E5ToolBarManager.toolBarsActions">toolBarsActions</a></td>
+<td>Public method to get all toolbars and their actions.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ToolBarManager.__init__" ID="E5ToolBarManager.__init__"></a>
+<h4>E5ToolBarManager (Constructor)</h4>
+<b>E5ToolBarManager</b>(<i>ui=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>ui</i></dt>
+<dd>
+reference to the user interface object (UI.UserInterface)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="E5ToolBarManager.__findAction" ID="E5ToolBarManager.__findAction"></a>
+<h4>E5ToolBarManager.__findAction</h4>
+<b>__findAction</b>(<i>name</i>)
+<p>
+        Private method to find an action by name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the action to search for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the action (QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.__findDefaultToolBar" ID="E5ToolBarManager.__findDefaultToolBar"></a>
+<h4>E5ToolBarManager.__findDefaultToolBar</h4>
+<b>__findDefaultToolBar</b>(<i>name</i>)
+<p>
+        Private method to find a default toolbar by name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the default toolbar to search for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the default toolbar (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.__toolBarByName" ID="E5ToolBarManager.__toolBarByName"></a>
+<h4>E5ToolBarManager.__toolBarByName</h4>
+<b>__toolBarByName</b>(<i>name</i>)
+<p>
+        Private slot to get a toolbar by its object name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+object name of the toolbar (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the toolbar (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.actionById" ID="E5ToolBarManager.actionById"></a>
+<h4>E5ToolBarManager.actionById</h4>
+<b>actionById</b>(<i>aID</i>)
+<p>
+        Public method to get an action given its id.
+</p><dl>
+<dt><i>aID</i></dt>
+<dd>
+id of the action object (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the action (QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.addAction" ID="E5ToolBarManager.addAction"></a>
+<h4>E5ToolBarManager.addAction</h4>
+<b>addAction</b>(<i>action, category</i>)
+<p>
+        Public method to add an action to be managed.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action to be managed (QAction)
+</dd><dt><i>category</i></dt>
+<dd>
+category for the toolbar (string)
+</dd>
+</dl><a NAME="E5ToolBarManager.addActions" ID="E5ToolBarManager.addActions"></a>
+<h4>E5ToolBarManager.addActions</h4>
+<b>addActions</b>(<i>actions, category</i>)
+<p>
+        Public method to add actions to be managed.
+</p><dl>
+<dt><i>actions</i> (list of QAction)</dt>
+<dd>
+list of actions to be managed
+</dd><dt><i>category</i> (str)</dt>
+<dd>
+category for the toolbar
+</dd>
+</dl><a NAME="E5ToolBarManager.addToolBar" ID="E5ToolBarManager.addToolBar"></a>
+<h4>E5ToolBarManager.addToolBar</h4>
+<b>addToolBar</b>(<i>toolBar, category</i>)
+<p>
+        Public method to add a toolbar to be managed.
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to be managed (QToolBar)
+</dd><dt><i>category</i></dt>
+<dd>
+category for the toolbar (string)
+</dd>
+</dl><a NAME="E5ToolBarManager.categories" ID="E5ToolBarManager.categories"></a>
+<h4>E5ToolBarManager.categories</h4>
+<b>categories</b>(<i></i>)
+<p>
+        Public method to get the list of categories.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of categories (list of string)
+</dd>
+</dl><a NAME="E5ToolBarManager.categoryActions" ID="E5ToolBarManager.categoryActions"></a>
+<h4>E5ToolBarManager.categoryActions</h4>
+<b>categoryActions</b>(<i>category</i>)
+<p>
+        Public method to get the actions belonging to a category.
+</p><dl>
+<dt><i>category</i></dt>
+<dd>
+category for the actions (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of actions (list of QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.createToolBar" ID="E5ToolBarManager.createToolBar"></a>
+<h4>E5ToolBarManager.createToolBar</h4>
+<b>createToolBar</b>(<i>title, name=""</i>)
+<p>
+        Public method to create a custom toolbar.
+</p><dl>
+<dt><i>title</i></dt>
+<dd>
+title to be used for the toolbar (string)
+</dd><dt><i>name</i></dt>
+<dd>
+optional name for the new toolbar (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created toolbar (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.defaultToolBarActions" ID="E5ToolBarManager.defaultToolBarActions"></a>
+<h4>E5ToolBarManager.defaultToolBarActions</h4>
+<b>defaultToolBarActions</b>(<i>tbID</i>)
+<p>
+        Public method to get a default toolbar's actions given its id.
+</p><dl>
+<dt><i>tbID</i></dt>
+<dd>
+id of the default toolbar object (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of actions (list of QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.defaultToolBars" ID="E5ToolBarManager.defaultToolBars"></a>
+<h4>E5ToolBarManager.defaultToolBars</h4>
+<b>defaultToolBars</b>(<i></i>)
+<p>
+        Public method to get all toolbars added with addToolBar().
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of all default toolbars (list of QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.deleteToolBar" ID="E5ToolBarManager.deleteToolBar"></a>
+<h4>E5ToolBarManager.deleteToolBar</h4>
+<b>deleteToolBar</b>(<i>toolBar</i>)
+<p>
+        Public method to remove a custom toolbar created with createToolBar().
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to be managed (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.isDefaultToolBar" ID="E5ToolBarManager.isDefaultToolBar"></a>
+<h4>E5ToolBarManager.isDefaultToolBar</h4>
+<b>isDefaultToolBar</b>(<i>toolBar</i>)
+<p>
+        Public method to check, if a toolbar was added with addToolBar().
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to be checked (QToolBar)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an added toolbar (boolean)
+</dd>
+</dl><a NAME="E5ToolBarManager.isWidgetAction" ID="E5ToolBarManager.isWidgetAction"></a>
+<h4>E5ToolBarManager.isWidgetAction</h4>
+<b>isWidgetAction</b>(<i>action</i>)
+<p>
+        Public method to check, if action is a widget action.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action to be checked (QAction)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a widget action (boolean)
+</dd>
+</dl><a NAME="E5ToolBarManager.mainWindow" ID="E5ToolBarManager.mainWindow"></a>
+<h4>E5ToolBarManager.mainWindow</h4>
+<b>mainWindow</b>(<i></i>)
+<p>
+        Public method to get the reference to the main window.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the main window (QMainWindow)
+</dd>
+</dl><a NAME="E5ToolBarManager.removeAction" ID="E5ToolBarManager.removeAction"></a>
+<h4>E5ToolBarManager.removeAction</h4>
+<b>removeAction</b>(<i>action</i>)
+<p>
+        Public method to remove an action from the manager.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action to be removed (QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.removeCategoryActions" ID="E5ToolBarManager.removeCategoryActions"></a>
+<h4>E5ToolBarManager.removeCategoryActions</h4>
+<b>removeCategoryActions</b>(<i>category</i>)
+<p>
+        Public method to remove the actions belonging to a category.
+</p><dl>
+<dt><i>category</i></dt>
+<dd>
+category for the actions (string)
+</dd>
+</dl><a NAME="E5ToolBarManager.removeToolBar" ID="E5ToolBarManager.removeToolBar"></a>
+<h4>E5ToolBarManager.removeToolBar</h4>
+<b>removeToolBar</b>(<i>toolBar</i>)
+<p>
+        Public method to remove a toolbar added with addToolBar().
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to be removed (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.removeWidgetActions" ID="E5ToolBarManager.removeWidgetActions"></a>
+<h4>E5ToolBarManager.removeWidgetActions</h4>
+<b>removeWidgetActions</b>(<i>actions</i>)
+<p>
+        Public method to remove widget actions.
+</p><dl>
+<dt><i>actions</i></dt>
+<dd>
+dictionary with toolbar id as key and
+            a list of widget actions as value
+</dd>
+</dl><a NAME="E5ToolBarManager.renameToolBar" ID="E5ToolBarManager.renameToolBar"></a>
+<h4>E5ToolBarManager.renameToolBar</h4>
+<b>renameToolBar</b>(<i>toolBar, title</i>)
+<p>
+        Public method to give a toolbar a new title.
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to be managed (QToolBar)
+</dd><dt><i>title</i></dt>
+<dd>
+title to be used for the toolbar (string)
+</dd>
+</dl><a NAME="E5ToolBarManager.resetAllToolBars" ID="E5ToolBarManager.resetAllToolBars"></a>
+<h4>E5ToolBarManager.resetAllToolBars</h4>
+<b>resetAllToolBars</b>(<i></i>)
+<p>
+        Public method to reset all toolbars to their default state.
+</p><a NAME="E5ToolBarManager.resetToolBar" ID="E5ToolBarManager.resetToolBar"></a>
+<h4>E5ToolBarManager.resetToolBar</h4>
+<b>resetToolBar</b>(<i>toolBar</i>)
+<p>
+        Public method to reset a toolbar to its default state.
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to configure (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.restoreState" ID="E5ToolBarManager.restoreState"></a>
+<h4>E5ToolBarManager.restoreState</h4>
+<b>restoreState</b>(<i>state, version=0</i>)
+<p>
+        Public method to restore the state of the toolbar manager.
+</p><dl>
+<dt><i>state</i></dt>
+<dd>
+byte array containing the saved state (QByteArray)
+</dd><dt><i>version</i></dt>
+<dd>
+version number stored with the data (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="E5ToolBarManager.saveState" ID="E5ToolBarManager.saveState"></a>
+<h4>E5ToolBarManager.saveState</h4>
+<b>saveState</b>(<i>version=0</i>)
+<p>
+        Public method to save the state of the toolbar manager.
+</p><dl>
+<dt><i>version</i></dt>
+<dd>
+version number stored with the data (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+saved state as a byte array (QByteArray)
+</dd>
+</dl><a NAME="E5ToolBarManager.setMainWindow" ID="E5ToolBarManager.setMainWindow"></a>
+<h4>E5ToolBarManager.setMainWindow</h4>
+<b>setMainWindow</b>(<i>mainWindow</i>)
+<p>
+        Public method to set the reference to the main window.
+</p><dl>
+<dt><i>mainWindow</i></dt>
+<dd>
+reference to the main window (QMainWindow)
+</dd>
+</dl><a NAME="E5ToolBarManager.setToolBar" ID="E5ToolBarManager.setToolBar"></a>
+<h4>E5ToolBarManager.setToolBar</h4>
+<b>setToolBar</b>(<i>toolBar, actions</i>)
+<p>
+        Public method to set the actions of a toolbar.
+</p><dl>
+<dt><i>toolBar</i></dt>
+<dd>
+reference to the toolbar to configure (QToolBar)
+</dd><dt><i>actions</i></dt>
+<dd>
+list of actions to be set (list of QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.setToolBars" ID="E5ToolBarManager.setToolBars"></a>
+<h4>E5ToolBarManager.setToolBars</h4>
+<b>setToolBars</b>(<i>toolBars</i>)
+<p>
+        Public method to set the actions of several toolbars.
+</p><dl>
+<dt><i>toolBars</i></dt>
+<dd>
+dictionary with toolbar id as key and
+            a list of actions as value
+</dd>
+</dl><a NAME="E5ToolBarManager.toolBarActions" ID="E5ToolBarManager.toolBarActions"></a>
+<h4>E5ToolBarManager.toolBarActions</h4>
+<b>toolBarActions</b>(<i>tbID</i>)
+<p>
+        Public method to get a toolbar's actions given its id.
+</p><dl>
+<dt><i>tbID</i></dt>
+<dd>
+id of the toolbar object (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of actions (list of QAction)
+</dd>
+</dl><a NAME="E5ToolBarManager.toolBarById" ID="E5ToolBarManager.toolBarById"></a>
+<h4>E5ToolBarManager.toolBarById</h4>
+<b>toolBarById</b>(<i>tbID</i>)
+<p>
+        Public method to get a toolbar given its id.
+</p><dl>
+<dt><i>tbID</i></dt>
+<dd>
+id of the toolbar object (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the toolbar (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.toolBarWidgetAction" ID="E5ToolBarManager.toolBarWidgetAction"></a>
+<h4>E5ToolBarManager.toolBarWidgetAction</h4>
+<b>toolBarWidgetAction</b>(<i>action</i>)
+<p>
+        Public method to get the toolbar for a widget action.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+widget action to check for (QAction)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the toolbar containing action (QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.toolBars" ID="E5ToolBarManager.toolBars"></a>
+<h4>E5ToolBarManager.toolBars</h4>
+<b>toolBars</b>(<i></i>)
+<p>
+        Public method to get all toolbars.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of all toolbars (list of QToolBar)
+</dd>
+</dl><a NAME="E5ToolBarManager.toolBarsActions" ID="E5ToolBarManager.toolBarsActions"></a>
+<h4>E5ToolBarManager.toolBarsActions</h4>
+<b>toolBarsActions</b>(<i></i>)
+<p>
+        Public method to get all toolbars and their actions.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to dictionary of toolbar IDs as key and list
+            of actions as values
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

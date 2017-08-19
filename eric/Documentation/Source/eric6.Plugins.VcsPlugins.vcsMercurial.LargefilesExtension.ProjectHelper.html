@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.LargefilesExtension.ProjectHelper</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.LargefilesExtension.ProjectHelper</h1>
+<p>
+Module implementing the shelve extension project helper.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#LargefilesProjectHelper">LargefilesProjectHelper</a></td>
+<td>Class implementing the queues extension project helper.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="LargefilesProjectHelper" ID="LargefilesProjectHelper"></a>
+<h2>LargefilesProjectHelper</h2>
+<p>
+    Class implementing the queues extension project helper.
+</p>
+<h3>Derived from</h3>
+HgExtensionProjectHelper
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#LargefilesProjectHelper.__init__">LargefilesProjectHelper</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.__hgLfPull">__hgLfPull</a></td>
+<td>Private slot to pull missing large files into the local repository.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.__hgLfSummary">__hgLfSummary</a></td>
+<td>Private slot to show a working directory summary.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.__hgLfVerify">__hgLfVerify</a></td>
+<td>Private slot to verify large files integrity.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.__hgLfconvert">__hgLfconvert</a></td>
+<td>Private slot to convert the repository format of the current project.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.initActions">initActions</a></td>
+<td>Public method to generate the action objects.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.initMenu">initMenu</a></td>
+<td>Public method to generate the extension menu.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.menuTitle">menuTitle</a></td>
+<td>Public method to get the menu title.</td>
+</tr><tr>
+<td><a href="#LargefilesProjectHelper.shutdown">shutdown</a></td>
+<td>Public method to perform shutdown actions.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="LargefilesProjectHelper.__init__" ID="LargefilesProjectHelper.__init__"></a>
+<h4>LargefilesProjectHelper (Constructor)</h4>
+<b>LargefilesProjectHelper</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="LargefilesProjectHelper.__hgLfPull" ID="LargefilesProjectHelper.__hgLfPull"></a>
+<h4>LargefilesProjectHelper.__hgLfPull</h4>
+<b>__hgLfPull</b>(<i></i>)
+<p>
+        Private slot to pull missing large files into the local repository.
+</p><a NAME="LargefilesProjectHelper.__hgLfSummary" ID="LargefilesProjectHelper.__hgLfSummary"></a>
+<h4>LargefilesProjectHelper.__hgLfSummary</h4>
+<b>__hgLfSummary</b>(<i></i>)
+<p>
+        Private slot to show a working directory summary.
+</p><a NAME="LargefilesProjectHelper.__hgLfVerify" ID="LargefilesProjectHelper.__hgLfVerify"></a>
+<h4>LargefilesProjectHelper.__hgLfVerify</h4>
+<b>__hgLfVerify</b>(<i>mode</i>)
+<p>
+        Private slot to verify large files integrity.
+</p><dl>
+<dt><i>mode</i></dt>
+<dd>
+verify mode (string; one of 'large', 'lfa' or 'lfc')
+</dd>
+</dl><a NAME="LargefilesProjectHelper.__hgLfconvert" ID="LargefilesProjectHelper.__hgLfconvert"></a>
+<h4>LargefilesProjectHelper.__hgLfconvert</h4>
+<b>__hgLfconvert</b>(<i>direction</i>)
+<p>
+        Private slot to convert the repository format of the current project.
+</p><dl>
+<dt><i>direction</i></dt>
+<dd>
+direction of the conversion (string; one of
+            'largefiles' or 'normal')
+</dd>
+</dl><a NAME="LargefilesProjectHelper.initActions" ID="LargefilesProjectHelper.initActions"></a>
+<h4>LargefilesProjectHelper.initActions</h4>
+<b>initActions</b>(<i></i>)
+<p>
+        Public method to generate the action objects.
+</p><a NAME="LargefilesProjectHelper.initMenu" ID="LargefilesProjectHelper.initMenu"></a>
+<h4>LargefilesProjectHelper.initMenu</h4>
+<b>initMenu</b>(<i>mainMenu</i>)
+<p>
+        Public method to generate the extension menu.
+</p><dl>
+<dt><i>mainMenu</i></dt>
+<dd>
+reference to the main menu (QMenu)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+populated menu (QMenu)
+</dd>
+</dl><a NAME="LargefilesProjectHelper.menuTitle" ID="LargefilesProjectHelper.menuTitle"></a>
+<h4>LargefilesProjectHelper.menuTitle</h4>
+<b>menuTitle</b>(<i></i>)
+<p>
+        Public method to get the menu title.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+title of the menu (string)
+</dd>
+</dl><a NAME="LargefilesProjectHelper.shutdown" ID="LargefilesProjectHelper.shutdown"></a>
+<h4>LargefilesProjectHelper.shutdown</h4>
+<b>shutdown</b>(<i></i>)
+<p>
+        Public method to perform shutdown actions.
+</p><p>
+        Note: Derived class may implement this method if needed.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

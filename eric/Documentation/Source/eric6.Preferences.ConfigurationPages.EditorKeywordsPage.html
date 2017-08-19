@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ConfigurationPages.EditorKeywordsPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ConfigurationPages.EditorKeywordsPage</h1>
+<p>
+Module implementing the editor highlighter keywords configuration page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#EditorKeywordsPage">EditorKeywordsPage</a></td>
+<td>Class implementing the editor highlighter keywords configuration page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#create">create</a></td>
+<td>Module function to create the configuration page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="EditorKeywordsPage" ID="EditorKeywordsPage"></a>
+<h2>EditorKeywordsPage</h2>
+<p>
+    Class implementing the editor highlighter keywords configuration page.
+</p>
+<h3>Derived from</h3>
+ConfigurationPageBase, Ui_EditorKeywordsPage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#EditorKeywordsPage.__init__">EditorKeywordsPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#EditorKeywordsPage.on_languageCombo_activated">on_languageCombo_activated</a></td>
+<td>Private slot to fill the keywords edit.</td>
+</tr><tr>
+<td><a href="#EditorKeywordsPage.on_setSpinBox_valueChanged">on_setSpinBox_valueChanged</a></td>
+<td>Private slot to fill the keywords edit.</td>
+</tr><tr>
+<td><a href="#EditorKeywordsPage.save">save</a></td>
+<td>Public slot to save the editor highlighter keywords configuration.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="EditorKeywordsPage.__init__" ID="EditorKeywordsPage.__init__"></a>
+<h4>EditorKeywordsPage (Constructor)</h4>
+<b>EditorKeywordsPage</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="EditorKeywordsPage.on_languageCombo_activated" ID="EditorKeywordsPage.on_languageCombo_activated"></a>
+<h4>EditorKeywordsPage.on_languageCombo_activated</h4>
+<b>on_languageCombo_activated</b>(<i>language</i>)
+<p>
+        Private slot to fill the keywords edit.
+</p><dl>
+<dt><i>language</i></dt>
+<dd>
+selected language (string)
+</dd>
+</dl><a NAME="EditorKeywordsPage.on_setSpinBox_valueChanged" ID="EditorKeywordsPage.on_setSpinBox_valueChanged"></a>
+<h4>EditorKeywordsPage.on_setSpinBox_valueChanged</h4>
+<b>on_setSpinBox_valueChanged</b>(<i>kwSet</i>)
+<p>
+        Private slot to fill the keywords edit.
+</p><dl>
+<dt><i>kwSet</i></dt>
+<dd>
+number of the selected keyword set (integer)
+</dd>
+</dl><a NAME="EditorKeywordsPage.save" ID="EditorKeywordsPage.save"></a>
+<h4>EditorKeywordsPage.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public slot to save the editor highlighter keywords configuration.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="create" ID="create"></a>
+<h2>create</h2>
+<b>create</b>(<i>dlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>dlg</i></dt>
+<dd>
+reference to the configuration dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated page (ConfigurationPageBase)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

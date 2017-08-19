@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ShortcutDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ShortcutDialog</h1>
+<p>
+Module implementing a dialog for the configuration of a keyboard shortcut.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ShortcutDialog">ShortcutDialog</a></td>
+<td>Class implementing a dialog for the configuration of a keyboard shortcut.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ShortcutDialog" ID="ShortcutDialog"></a>
+<h2>ShortcutDialog</h2>
+<p>
+    Class implementing a dialog for the configuration of a keyboard shortcut.
+</p><h3>Signals</h3>
+<dl>
+<dt>shortcutChanged(QKeySequence, QKeySequence, bool, string)</dt>
+<dd>
+emitted
+        after the OK button was pressed
+</dd>
+</dl>
+<h3>Derived from</h3>
+QDialog, Ui_ShortcutDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ShortcutDialog.__init__">ShortcutDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.__clear">__clear</a></td>
+<td>Private slot to handle the Clear button press.</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.__setKeyEditText">__setKeyEditText</a></td>
+<td>Private method to set the text of a key edit.</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.__typeChanged">__typeChanged</a></td>
+<td>Private slot to handle the change of the shortcuts type.</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.eventFilter">eventFilter</a></td>
+<td>Public method called to filter the event queue.</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.keyPressEvent">keyPressEvent</a></td>
+<td>Protected method to handle a key press event.</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.on_buttonBox_accepted">on_buttonBox_accepted</a></td>
+<td>Private slot to handle the OK button press.</td>
+</tr><tr>
+<td><a href="#ShortcutDialog.setKeys">setKeys</a></td>
+<td>Public method to set the key to be configured.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ShortcutDialog.__init__" ID="ShortcutDialog.__init__"></a>
+<h4>ShortcutDialog (Constructor)</h4>
+<b>ShortcutDialog</b>(<i>parent=None, name=None, modal=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+The parent widget of this dialog. (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+The name of this dialog. (string)
+</dd><dt><i>modal</i></dt>
+<dd>
+Flag indicating a modal dialog. (boolean)
+</dd>
+</dl><a NAME="ShortcutDialog.__clear" ID="ShortcutDialog.__clear"></a>
+<h4>ShortcutDialog.__clear</h4>
+<b>__clear</b>(<i></i>)
+<p>
+        Private slot to handle the Clear button press.
+</p><a NAME="ShortcutDialog.__setKeyEditText" ID="ShortcutDialog.__setKeyEditText"></a>
+<h4>ShortcutDialog.__setKeyEditText</h4>
+<b>__setKeyEditText</b>(<i>txt</i>)
+<p>
+        Private method to set the text of a key edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be set (string)
+</dd>
+</dl><a NAME="ShortcutDialog.__typeChanged" ID="ShortcutDialog.__typeChanged"></a>
+<h4>ShortcutDialog.__typeChanged</h4>
+<b>__typeChanged</b>(<i></i>)
+<p>
+        Private slot to handle the change of the shortcuts type.
+</p><a NAME="ShortcutDialog.eventFilter" ID="ShortcutDialog.eventFilter"></a>
+<h4>ShortcutDialog.eventFilter</h4>
+<b>eventFilter</b>(<i>watched, event</i>)
+<p>
+        Public method called to filter the event queue.
+</p><dl>
+<dt><i>watched</i></dt>
+<dd>
+the QObject being watched
+</dd><dt><i>event</i></dt>
+<dd>
+the event that occurred
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+always False
+</dd>
+</dl><a NAME="ShortcutDialog.keyPressEvent" ID="ShortcutDialog.keyPressEvent"></a>
+<h4>ShortcutDialog.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle a key press event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+the key event (QKeyEvent)
+</dd>
+</dl><a NAME="ShortcutDialog.on_buttonBox_accepted" ID="ShortcutDialog.on_buttonBox_accepted"></a>
+<h4>ShortcutDialog.on_buttonBox_accepted</h4>
+<b>on_buttonBox_accepted</b>(<i></i>)
+<p>
+        Private slot to handle the OK button press.
+</p><a NAME="ShortcutDialog.setKeys" ID="ShortcutDialog.setKeys"></a>
+<h4>ShortcutDialog.setKeys</h4>
+<b>setKeys</b>(<i>key, alternateKey, noCheck, objectType</i>)
+<p>
+        Public method to set the key to be configured.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key sequence to be changed (QKeySequence)
+</dd><dt><i>alternateKey</i></dt>
+<dd>
+alternate key sequence to be changed (QKeySequence)
+</dd><dt><i>noCheck</i></dt>
+<dd>
+flag indicating that no uniqueness check should
+            be performed (boolean)
+</dd><dt><i>objectType</i></dt>
+<dd>
+type of the object (string).
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

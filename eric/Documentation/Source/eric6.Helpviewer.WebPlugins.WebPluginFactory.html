@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.WebPlugins.WebPluginFactory</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.WebPlugins.WebPluginFactory</h1>
+<p>
+Module implementing the web plug-in factory.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#WebPluginFactory">WebPluginFactory</a></td>
+<td>Class implementing the web plug-in factory.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="WebPluginFactory" ID="WebPluginFactory"></a>
+<h2>WebPluginFactory</h2>
+<p>
+    Class implementing the web plug-in factory.
+</p>
+<h3>Derived from</h3>
+QWebPluginFactory
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#WebPluginFactory.__init__">WebPluginFactory</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#WebPluginFactory.__initialize">__initialize</a></td>
+<td>Private method to initialize the factory.</td>
+</tr><tr>
+<td><a href="#WebPluginFactory.create">create</a></td>
+<td>Public method to create a plug-in instance for the given MIME type with the given data.</td>
+</tr><tr>
+<td><a href="#WebPluginFactory.plugin">plugin</a></td>
+<td>Public method to get a reference to the named plug-in.</td>
+</tr><tr>
+<td><a href="#WebPluginFactory.plugins">plugins</a></td>
+<td>Public method to get a list of plug-ins.</td>
+</tr><tr>
+<td><a href="#WebPluginFactory.refreshPlugins">refreshPlugins</a></td>
+<td>Public method to refresh the list of supported plug-ins.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="WebPluginFactory.__init__" ID="WebPluginFactory.__init__"></a>
+<h4>WebPluginFactory (Constructor)</h4>
+<b>WebPluginFactory</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="WebPluginFactory.__initialize" ID="WebPluginFactory.__initialize"></a>
+<h4>WebPluginFactory.__initialize</h4>
+<b>__initialize</b>(<i></i>)
+<p>
+        Private method to initialize the factory.
+</p><a NAME="WebPluginFactory.create" ID="WebPluginFactory.create"></a>
+<h4>WebPluginFactory.create</h4>
+<b>create</b>(<i>mimeType, url, argumentNames, argumentValues</i>)
+<p>
+        Public method to create a plug-in instance for the given MIME type with
+        the given data.
+</p><dl>
+<dt><i>mimeType</i></dt>
+<dd>
+MIME type for the plug-in (string)
+</dd><dt><i>url</i></dt>
+<dd>
+URL for the plug-in (QUrl)
+</dd><dt><i>argumentNames</i></dt>
+<dd>
+list of argument names (list of strings)
+</dd><dt><i>argumentValues</i></dt>
+<dd>
+list of argument values (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created object (QObject)
+</dd>
+</dl><a NAME="WebPluginFactory.plugin" ID="WebPluginFactory.plugin"></a>
+<h4>WebPluginFactory.plugin</h4>
+<b>plugin</b>(<i>name</i>)
+<p>
+        Public method to get a reference to the named plug-in.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plug-in (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the named plug-in
+</dd>
+</dl><a NAME="WebPluginFactory.plugins" ID="WebPluginFactory.plugins"></a>
+<h4>WebPluginFactory.plugins</h4>
+<b>plugins</b>(<i></i>)
+<p>
+        Public method to get a list of plug-ins.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of plug-ins (list of QWebPluginFactory.Plugin)
+</dd>
+</dl><a NAME="WebPluginFactory.refreshPlugins" ID="WebPluginFactory.refreshPlugins"></a>
+<h4>WebPluginFactory.refreshPlugins</h4>
+<b>refreshPlugins</b>(<i></i>)
+<p>
+        Public method to refresh the list of supported plug-ins.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ModelMenu</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ModelMenu</h1>
+<p>
+Module implementing a menu populated from a QAbstractItemModel.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ModelMenu">E5ModelMenu</a></td>
+<td>Class implementing a menu populated from a QAbstractItemModel.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ModelMenu" ID="E5ModelMenu"></a>
+<h2>E5ModelMenu</h2>
+<p>
+    Class implementing a menu populated from a QAbstractItemModel.
+</p><h3>Signals</h3>
+<dl>
+<dt>activated(QModelIndex)</dt>
+<dd>
+emitted when an action has been triggered
+</dd>
+</dl>
+<h3>Derived from</h3>
+QMenu
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ModelMenu.__init__">E5ModelMenu</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.__aboutToShow">__aboutToShow</a></td>
+<td>Private slot to show the menu.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.__actionTriggered">__actionTriggered</a></td>
+<td>Private slot to handle the triggering of an action.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.__makeAction">__makeAction</a></td>
+<td>Private method to create an action.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.createBaseMenu">createBaseMenu</a></td>
+<td>Public method to get the menu that is used to populate sub menu's.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.createMenu">createMenu</a></td>
+<td>Public method to put all the children of a parent into a menu of a given length.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.dragEnterEvent">dragEnterEvent</a></td>
+<td>Protected method to handle drag enter events.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.dropEvent">dropEvent</a></td>
+<td>Protected method to handle drop events.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.firstSeparator">firstSeparator</a></td>
+<td>Public method to get the first separator.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.index">index</a></td>
+<td>Public method to get the index of an action.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.makeAction">makeAction</a></td>
+<td>Public method to create an action.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.maxRows">maxRows</a></td>
+<td>Public method to get the maximum number of entries to show.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.model">model</a></td>
+<td>Public method to get a reference to the model.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.mouseMoveEvent">mouseMoveEvent</a></td>
+<td>Protected method to handle mouse move events.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method handling mouse press events.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.mouseReleaseEvent">mouseReleaseEvent</a></td>
+<td>Protected method handling mouse release events.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.postPopulated">postPopulated</a></td>
+<td>Public method to add any actions after the tree.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.prePopulated">prePopulated</a></td>
+<td>Public method to add any actions before the tree.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.removeEntry">removeEntry</a></td>
+<td>Public method to remove a menu entry.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.resetFlags">resetFlags</a></td>
+<td>Public method to reset the saved internal state.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.rootIndex">rootIndex</a></td>
+<td>Public method to get the index of the root item.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.separatorRole">separatorRole</a></td>
+<td>Public method to get the role of the separator.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.setFirstSeparator">setFirstSeparator</a></td>
+<td>Public method to set the first separator.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.setMaxRows">setMaxRows</a></td>
+<td>Public method to set the maximum number of entries to show.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.setModel">setModel</a></td>
+<td>Public method to set the model for the menu.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.setRootIndex">setRootIndex</a></td>
+<td>Public method to set the index of the root item.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.setSeparatorRole">setSeparatorRole</a></td>
+<td>Public method to set the role of the separator.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.setStatusBarTextRole">setStatusBarTextRole</a></td>
+<td>Public method to set the role of the status bar text.</td>
+</tr><tr>
+<td><a href="#E5ModelMenu.statusBarTextRole">statusBarTextRole</a></td>
+<td>Public method to get the role of the status bar text.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ModelMenu.__init__" ID="E5ModelMenu.__init__"></a>
+<h4>E5ModelMenu (Constructor)</h4>
+<b>E5ModelMenu</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5ModelMenu.__aboutToShow" ID="E5ModelMenu.__aboutToShow"></a>
+<h4>E5ModelMenu.__aboutToShow</h4>
+<b>__aboutToShow</b>(<i></i>)
+<p>
+        Private slot to show the menu.
+</p><a NAME="E5ModelMenu.__actionTriggered" ID="E5ModelMenu.__actionTriggered"></a>
+<h4>E5ModelMenu.__actionTriggered</h4>
+<b>__actionTriggered</b>(<i>action</i>)
+<p>
+        Private slot to handle the triggering of an action.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action that was triggered (QAction)
+</dd>
+</dl><a NAME="E5ModelMenu.__makeAction" ID="E5ModelMenu.__makeAction"></a>
+<h4>E5ModelMenu.__makeAction</h4>
+<b>__makeAction</b>(<i>idx</i>)
+<p>
+        Private method to create an action.
+</p><dl>
+<dt><i>idx</i></dt>
+<dd>
+index of the item to create an action for (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created action (QAction)
+</dd>
+</dl><a NAME="E5ModelMenu.createBaseMenu" ID="E5ModelMenu.createBaseMenu"></a>
+<h4>E5ModelMenu.createBaseMenu</h4>
+<b>createBaseMenu</b>(<i></i>)
+<p>
+        Public method to get the menu that is used to populate sub menu's.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the menu (E5ModelMenu)
+</dd>
+</dl><a NAME="E5ModelMenu.createMenu" ID="E5ModelMenu.createMenu"></a>
+<h4>E5ModelMenu.createMenu</h4>
+<b>createMenu</b>(<i>parent, max_, parentMenu=None, menu=None</i>)
+<p>
+        Public method to put all the children of a parent into a menu of a
+        given length.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of the parent item (QModelIndex)
+</dd><dt><i>max_</i></dt>
+<dd>
+maximum number of entries (integer)
+</dd><dt><i>parentMenu</i></dt>
+<dd>
+reference to the parent menu (QMenu)
+</dd><dt><i>menu</i></dt>
+<dd>
+reference to the menu to be populated (QMenu)
+</dd>
+</dl><a NAME="E5ModelMenu.dragEnterEvent" ID="E5ModelMenu.dragEnterEvent"></a>
+<h4>E5ModelMenu.dragEnterEvent</h4>
+<b>dragEnterEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle drag enter events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QDragEnterEvent)
+</dd>
+</dl><a NAME="E5ModelMenu.dropEvent" ID="E5ModelMenu.dropEvent"></a>
+<h4>E5ModelMenu.dropEvent</h4>
+<b>dropEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle drop events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QDropEvent)
+</dd>
+</dl><a NAME="E5ModelMenu.firstSeparator" ID="E5ModelMenu.firstSeparator"></a>
+<h4>E5ModelMenu.firstSeparator</h4>
+<b>firstSeparator</b>(<i></i>)
+<p>
+        Public method to get the first separator.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+row number of the first separator (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.index" ID="E5ModelMenu.index"></a>
+<h4>E5ModelMenu.index</h4>
+<b>index</b>(<i>action</i>)
+<p>
+        Public method to get the index of an action.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action to get the index for (QAction)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the action (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelMenu.makeAction" ID="E5ModelMenu.makeAction"></a>
+<h4>E5ModelMenu.makeAction</h4>
+<b>makeAction</b>(<i>icon, text, parent</i>)
+<p>
+        Public method to create an action.
+</p><dl>
+<dt><i>icon</i></dt>
+<dd>
+icon of the action (QIcon)
+</dd><dt><i>text</i></dt>
+<dd>
+text of the action (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created action (QAction)
+</dd>
+</dl><a NAME="E5ModelMenu.maxRows" ID="E5ModelMenu.maxRows"></a>
+<h4>E5ModelMenu.maxRows</h4>
+<b>maxRows</b>(<i></i>)
+<p>
+        Public method to get the maximum number of entries to show.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+maximum number of entries to show (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.model" ID="E5ModelMenu.model"></a>
+<h4>E5ModelMenu.model</h4>
+<b>model</b>(<i></i>)
+<p>
+        Public method to get a reference to the model.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the model (QAbstractItemModel)
+</dd>
+</dl><a NAME="E5ModelMenu.mouseMoveEvent" ID="E5ModelMenu.mouseMoveEvent"></a>
+<h4>E5ModelMenu.mouseMoveEvent</h4>
+<b>mouseMoveEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse move events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QMouseEvent)
+</dd>
+</dl><a NAME="E5ModelMenu.mousePressEvent" ID="E5ModelMenu.mousePressEvent"></a>
+<h4>E5ModelMenu.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling mouse press events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event object (QMouseEvent)
+</dd>
+</dl><a NAME="E5ModelMenu.mouseReleaseEvent" ID="E5ModelMenu.mouseReleaseEvent"></a>
+<h4>E5ModelMenu.mouseReleaseEvent</h4>
+<b>mouseReleaseEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling mouse release events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event object (QMouseEvent)
+</dd>
+</dl><a NAME="E5ModelMenu.postPopulated" ID="E5ModelMenu.postPopulated"></a>
+<h4>E5ModelMenu.postPopulated</h4>
+<b>postPopulated</b>(<i></i>)
+<p>
+        Public method to add any actions after the tree.
+</p><a NAME="E5ModelMenu.prePopulated" ID="E5ModelMenu.prePopulated"></a>
+<h4>E5ModelMenu.prePopulated</h4>
+<b>prePopulated</b>(<i></i>)
+<p>
+        Public method to add any actions before the tree.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating if any actions were added
+</dd>
+</dl><a NAME="E5ModelMenu.removeEntry" ID="E5ModelMenu.removeEntry"></a>
+<h4>E5ModelMenu.removeEntry</h4>
+<b>removeEntry</b>(<i>idx</i>)
+<p>
+        Public method to remove a menu entry.
+</p><dl>
+<dt><i>idx</i></dt>
+<dd>
+index of the entry to be removed (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelMenu.resetFlags" ID="E5ModelMenu.resetFlags"></a>
+<h4>E5ModelMenu.resetFlags</h4>
+<b>resetFlags</b>(<i></i>)
+<p>
+        Public method to reset the saved internal state.
+</p><a NAME="E5ModelMenu.rootIndex" ID="E5ModelMenu.rootIndex"></a>
+<h4>E5ModelMenu.rootIndex</h4>
+<b>rootIndex</b>(<i></i>)
+<p>
+        Public method to get the index of the root item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+index of the root item (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelMenu.separatorRole" ID="E5ModelMenu.separatorRole"></a>
+<h4>E5ModelMenu.separatorRole</h4>
+<b>separatorRole</b>(<i></i>)
+<p>
+        Public method to get the role of the separator.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+role of the separator (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.setFirstSeparator" ID="E5ModelMenu.setFirstSeparator"></a>
+<h4>E5ModelMenu.setFirstSeparator</h4>
+<b>setFirstSeparator</b>(<i>offset</i>)
+<p>
+        Public method to set the first separator.
+</p><dl>
+<dt><i>offset</i></dt>
+<dd>
+row number of the first separator (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.setMaxRows" ID="E5ModelMenu.setMaxRows"></a>
+<h4>E5ModelMenu.setMaxRows</h4>
+<b>setMaxRows</b>(<i>rows</i>)
+<p>
+        Public method to set the maximum number of entries to show.
+</p><dl>
+<dt><i>rows</i></dt>
+<dd>
+maximum number of entries to show (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.setModel" ID="E5ModelMenu.setModel"></a>
+<h4>E5ModelMenu.setModel</h4>
+<b>setModel</b>(<i>model</i>)
+<p>
+        Public method to set the model for the menu.
+</p><dl>
+<dt><i>model</i></dt>
+<dd>
+reference to the model (QAbstractItemModel)
+</dd>
+</dl><a NAME="E5ModelMenu.setRootIndex" ID="E5ModelMenu.setRootIndex"></a>
+<h4>E5ModelMenu.setRootIndex</h4>
+<b>setRootIndex</b>(<i>index</i>)
+<p>
+        Public method to set the index of the root item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the root item (QModelIndex)
+</dd>
+</dl><a NAME="E5ModelMenu.setSeparatorRole" ID="E5ModelMenu.setSeparatorRole"></a>
+<h4>E5ModelMenu.setSeparatorRole</h4>
+<b>setSeparatorRole</b>(<i>role</i>)
+<p>
+        Public method to set the role of the separator.
+</p><dl>
+<dt><i>role</i></dt>
+<dd>
+role of the separator (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.setStatusBarTextRole" ID="E5ModelMenu.setStatusBarTextRole"></a>
+<h4>E5ModelMenu.setStatusBarTextRole</h4>
+<b>setStatusBarTextRole</b>(<i>role</i>)
+<p>
+        Public method to set the role of the status bar text.
+</p><dl>
+<dt><i>role</i></dt>
+<dd>
+role of the status bar text (integer)
+</dd>
+</dl><a NAME="E5ModelMenu.statusBarTextRole" ID="E5ModelMenu.statusBarTextRole"></a>
+<h4>E5ModelMenu.statusBarTextRole</h4>
+<b>statusBarTextRole</b>(<i></i>)
+<p>
+        Public method to get the role of the status bar text.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+role of the status bar text (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

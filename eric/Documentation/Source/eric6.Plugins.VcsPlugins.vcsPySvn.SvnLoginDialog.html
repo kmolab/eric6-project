@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsPySvn.SvnLoginDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsPySvn.SvnLoginDialog</h1>
+<p>
+Module implementing the login dialog for pysvn.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SvnLoginDialog">SvnLoginDialog</a></td>
+<td>Class implementing the login dialog for pysvn.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SvnLoginDialog" ID="SvnLoginDialog"></a>
+<h2>SvnLoginDialog</h2>
+<p>
+    Class implementing the login dialog for pysvn.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_SvnLoginDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SvnLoginDialog.__init__">SvnLoginDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SvnLoginDialog.getData">getData</a></td>
+<td>Public method to retrieve the login data.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SvnLoginDialog.__init__" ID="SvnLoginDialog.__init__"></a>
+<h4>SvnLoginDialog (Constructor)</h4>
+<b>SvnLoginDialog</b>(<i>realm, username, may_save, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>realm</i></dt>
+<dd>
+name of the realm of the requested credentials (string)
+</dd><dt><i>username</i></dt>
+<dd>
+username as supplied by subversion (string)
+</dd><dt><i>may_save</i></dt>
+<dd>
+flag indicating, that subversion is willing to save
+            the answers returned (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="SvnLoginDialog.getData" ID="SvnLoginDialog.getData"></a>
+<h4>SvnLoginDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the login data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of three values (username, password, save)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

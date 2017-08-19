@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.DebuggerInterfacePython2</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.DebuggerInterfacePython2</h1>
+<p>
+Module implementing the Python debugger interface for the debug server.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>ClientDefaultCapabilities</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#DebuggerInterfacePython2">DebuggerInterfacePython2</a></td>
+<td>Class implementing the Python 2 debugger interface for the debug server.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#createDebuggerInterfacePython2">createDebuggerInterfacePython2</a></td>
+<td>Module function to create a debugger interface instance.</td>
+</tr><tr>
+<td><a href="#getRegistryData">getRegistryData</a></td>
+<td>Module function to get characterizing data for the debugger interface.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="DebuggerInterfacePython2" ID="DebuggerInterfacePython2"></a>
+<h2>DebuggerInterfacePython2</h2>
+<p>
+    Class implementing the Python 2 debugger interface for the debug server.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DebuggerInterfacePython2.__init__">DebuggerInterfacePython2</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__askForkTo">__askForkTo</a></td>
+<td>Private method to ask the user which branch of a fork to follow.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__handleJsonCommand">__handleJsonCommand</a></td>
+<td>Private method to handle a command or response serialized as a JSON string.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__identityTranslation">__identityTranslation</a></td>
+<td>Private method to perform the identity path translation.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__parseClientLine">__parseClientLine</a></td>
+<td>Private method to handle data from the client.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__remoteTranslation">__remoteTranslation</a></td>
+<td>Private method to perform the path translation.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__sendJsonCommand">__sendJsonCommand</a></td>
+<td>Private method to send a single command to the client.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.__startProcess">__startProcess</a></td>
+<td>Private method to start the debugger client process.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.flush">flush</a></td>
+<td>Public slot to flush the queue.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.getClientCapabilities">getClientCapabilities</a></td>
+<td>Public method to retrieve the debug clients capabilities.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.isConnected">isConnected</a></td>
+<td>Public method to test, if a debug client has connected.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.newConnection">newConnection</a></td>
+<td>Public slot to handle a new connection.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteBanner">remoteBanner</a></td>
+<td>Public slot to get the banner info of the remote client.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteBreakpoint">remoteBreakpoint</a></td>
+<td>Public method to set or clear a breakpoint.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteBreakpointEnable">remoteBreakpointEnable</a></td>
+<td>Public method to enable or disable a breakpoint.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteBreakpointIgnore">remoteBreakpointIgnore</a></td>
+<td>Public method to ignore a breakpoint the next couple of occurrences.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteCapabilities">remoteCapabilities</a></td>
+<td>Public slot to get the debug clients capabilities.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteClientSetFilter">remoteClientSetFilter</a></td>
+<td>Public method to set a variables filter list.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteClientVariable">remoteClientVariable</a></td>
+<td>Public method to request the variables of the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteClientVariables">remoteClientVariables</a></td>
+<td>Public method to request the variables of the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteCompletion">remoteCompletion</a></td>
+<td>Public slot to get the a list of possible commandline completions from the remote client.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteContinue">remoteContinue</a></td>
+<td>Public method to continue the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteCoverage">remoteCoverage</a></td>
+<td>Public method to load a new program to collect coverage data.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteEnvironment">remoteEnvironment</a></td>
+<td>Public method to set the environment for a program to debug, run, ...</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteLoad">remoteLoad</a></td>
+<td>Public method to load a new program to debug.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteMoveIP">remoteMoveIP</a></td>
+<td>Public method to move the instruction pointer to a different line.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteProfile">remoteProfile</a></td>
+<td>Public method to load a new program to collect profiling data.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteRawInput">remoteRawInput</a></td>
+<td>Public method to send the raw input to the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteRun">remoteRun</a></td>
+<td>Public method to load a new program to run.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteSetThread">remoteSetThread</a></td>
+<td>Public method to request to set the given thread as current thread.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteStatement">remoteStatement</a></td>
+<td>Public method to execute a Python statement.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteStep">remoteStep</a></td>
+<td>Public method to single step the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteStepOut">remoteStepOut</a></td>
+<td>Public method to step out the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteStepOver">remoteStepOver</a></td>
+<td>Public method to step over the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteStepQuit">remoteStepQuit</a></td>
+<td>Public method to stop the debugged program.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteThreadList">remoteThreadList</a></td>
+<td>Public method to request the list of threads from the client.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteUTPrepare">remoteUTPrepare</a></td>
+<td>Public method to prepare a new unittest run.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteUTRun">remoteUTRun</a></td>
+<td>Public method to start a unittest run.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteUTStop">remoteUTStop</a></td>
+<td>Public method to stop a unittest run.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteWatchpoint">remoteWatchpoint</a></td>
+<td>Public method to set or clear a watch expression.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteWatchpointEnable">remoteWatchpointEnable</a></td>
+<td>Public method to enable or disable a watch expression.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.remoteWatchpointIgnore">remoteWatchpointIgnore</a></td>
+<td>Public method to ignore a watch expression the next couple of occurrences.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.setCallTraceEnabled">setCallTraceEnabled</a></td>
+<td>Public method to set the call trace state.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.shutdown">shutdown</a></td>
+<td>Public method to cleanly shut down.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.startRemote">startRemote</a></td>
+<td>Public method to start a remote Python interpreter.</td>
+</tr><tr>
+<td><a href="#DebuggerInterfacePython2.startRemoteForProject">startRemoteForProject</a></td>
+<td>Public method to start a remote Python interpreter for a project.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="DebuggerInterfacePython2.__init__" ID="DebuggerInterfacePython2.__init__"></a>
+<h4>DebuggerInterfacePython2 (Constructor)</h4>
+<b>DebuggerInterfacePython2</b>(<i>debugServer, passive</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>debugServer</i></dt>
+<dd>
+reference to the debug server (DebugServer)
+</dd><dt><i>passive</i></dt>
+<dd>
+flag indicating passive connection mode (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.__askForkTo" ID="DebuggerInterfacePython2.__askForkTo"></a>
+<h4>DebuggerInterfacePython2.__askForkTo</h4>
+<b>__askForkTo</b>(<i></i>)
+<p>
+        Private method to ask the user which branch of a fork to follow.
+</p><a NAME="DebuggerInterfacePython2.__handleJsonCommand" ID="DebuggerInterfacePython2.__handleJsonCommand"></a>
+<h4>DebuggerInterfacePython2.__handleJsonCommand</h4>
+<b>__handleJsonCommand</b>(<i>jsonStr</i>)
+<p>
+        Private method to handle a command or response serialized as a
+        JSON string.
+</p><dl>
+<dt><i>jsonStr</i> (str)</dt>
+<dd>
+string containing the command or response received
+            from the debug backend
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.__identityTranslation" ID="DebuggerInterfacePython2.__identityTranslation"></a>
+<h4>DebuggerInterfacePython2.__identityTranslation</h4>
+<b>__identityTranslation</b>(<i>fn, remote2local=True</i>)
+<p>
+        Private method to perform the identity path translation.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be translated (string)
+</dd><dt><i>remote2local</i></dt>
+<dd>
+flag indicating the direction of translation
+            (False = local to remote, True = remote to local [default])
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+translated filename (string)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.__parseClientLine" ID="DebuggerInterfacePython2.__parseClientLine"></a>
+<h4>DebuggerInterfacePython2.__parseClientLine</h4>
+<b>__parseClientLine</b>(<i></i>)
+<p>
+        Private method to handle data from the client.
+</p><a NAME="DebuggerInterfacePython2.__remoteTranslation" ID="DebuggerInterfacePython2.__remoteTranslation"></a>
+<h4>DebuggerInterfacePython2.__remoteTranslation</h4>
+<b>__remoteTranslation</b>(<i>fn, remote2local=True</i>)
+<p>
+        Private method to perform the path translation.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be translated (string)
+</dd><dt><i>remote2local</i></dt>
+<dd>
+flag indicating the direction of translation
+            (False = local to remote, True = remote to local [default])
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+translated filename (string)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.__sendJsonCommand" ID="DebuggerInterfacePython2.__sendJsonCommand"></a>
+<h4>DebuggerInterfacePython2.__sendJsonCommand</h4>
+<b>__sendJsonCommand</b>(<i>command, params</i>)
+<p>
+        Private method to send a single command to the client.
+</p><dl>
+<dt><i>command</i> (str)</dt>
+<dd>
+command name to be sent
+</dd><dt><i>params</i> (dict)</dt>
+<dd>
+dictionary of named parameters for the command
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.__startProcess" ID="DebuggerInterfacePython2.__startProcess"></a>
+<h4>DebuggerInterfacePython2.__startProcess</h4>
+<b>__startProcess</b>(<i>program, arguments, environment=None</i>)
+<p>
+        Private method to start the debugger client process.
+</p><dl>
+<dt><i>program</i></dt>
+<dd>
+name of the executable to start (string)
+</dd><dt><i>arguments</i></dt>
+<dd>
+arguments to be passed to the program (list of string)
+</dd><dt><i>environment</i></dt>
+<dd>
+dictionary of environment settings to pass
+            (dict of string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the process object (QProcess) or None
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.flush" ID="DebuggerInterfacePython2.flush"></a>
+<h4>DebuggerInterfacePython2.flush</h4>
+<b>flush</b>(<i></i>)
+<p>
+        Public slot to flush the queue.
+</p><a NAME="DebuggerInterfacePython2.getClientCapabilities" ID="DebuggerInterfacePython2.getClientCapabilities"></a>
+<h4>DebuggerInterfacePython2.getClientCapabilities</h4>
+<b>getClientCapabilities</b>(<i></i>)
+<p>
+        Public method to retrieve the debug clients capabilities.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+debug client capabilities (integer)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.isConnected" ID="DebuggerInterfacePython2.isConnected"></a>
+<h4>DebuggerInterfacePython2.isConnected</h4>
+<b>isConnected</b>(<i></i>)
+<p>
+        Public method to test, if a debug client has connected.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the connection status (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.newConnection" ID="DebuggerInterfacePython2.newConnection"></a>
+<h4>DebuggerInterfacePython2.newConnection</h4>
+<b>newConnection</b>(<i>sock</i>)
+<p>
+        Public slot to handle a new connection.
+</p><dl>
+<dt><i>sock</i></dt>
+<dd>
+reference to the socket object (QTcpSocket)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteBanner" ID="DebuggerInterfacePython2.remoteBanner"></a>
+<h4>DebuggerInterfacePython2.remoteBanner</h4>
+<b>remoteBanner</b>(<i></i>)
+<p>
+        Public slot to get the banner info of the remote client.
+</p><a NAME="DebuggerInterfacePython2.remoteBreakpoint" ID="DebuggerInterfacePython2.remoteBreakpoint"></a>
+<h4>DebuggerInterfacePython2.remoteBreakpoint</h4>
+<b>remoteBreakpoint</b>(<i>fn, line, setBreakpoint, cond=None, temp=False</i>)
+<p>
+        Public method to set or clear a breakpoint.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename the breakpoint belongs to (string)
+</dd><dt><i>line</i></dt>
+<dd>
+linenumber of the breakpoint (int)
+</dd><dt><i>setBreakpoint</i></dt>
+<dd>
+flag indicating setting or resetting a
+            breakpoint (boolean)
+</dd><dt><i>cond</i></dt>
+<dd>
+condition of the breakpoint (string)
+</dd><dt><i>temp</i></dt>
+<dd>
+flag indicating a temporary breakpoint (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteBreakpointEnable" ID="DebuggerInterfacePython2.remoteBreakpointEnable"></a>
+<h4>DebuggerInterfacePython2.remoteBreakpointEnable</h4>
+<b>remoteBreakpointEnable</b>(<i>fn, line, enable</i>)
+<p>
+        Public method to enable or disable a breakpoint.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename the breakpoint belongs to (string)
+</dd><dt><i>line</i></dt>
+<dd>
+linenumber of the breakpoint (int)
+</dd><dt><i>enable</i></dt>
+<dd>
+flag indicating enabling or disabling a breakpoint
+            (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteBreakpointIgnore" ID="DebuggerInterfacePython2.remoteBreakpointIgnore"></a>
+<h4>DebuggerInterfacePython2.remoteBreakpointIgnore</h4>
+<b>remoteBreakpointIgnore</b>(<i>fn, line, count</i>)
+<p>
+        Public method to ignore a breakpoint the next couple of occurrences.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename the breakpoint belongs to (string)
+</dd><dt><i>line</i></dt>
+<dd>
+linenumber of the breakpoint (int)
+</dd><dt><i>count</i></dt>
+<dd>
+number of occurrences to ignore (int)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteCapabilities" ID="DebuggerInterfacePython2.remoteCapabilities"></a>
+<h4>DebuggerInterfacePython2.remoteCapabilities</h4>
+<b>remoteCapabilities</b>(<i></i>)
+<p>
+        Public slot to get the debug clients capabilities.
+</p><a NAME="DebuggerInterfacePython2.remoteClientSetFilter" ID="DebuggerInterfacePython2.remoteClientSetFilter"></a>
+<h4>DebuggerInterfacePython2.remoteClientSetFilter</h4>
+<b>remoteClientSetFilter</b>(<i>scope, filterStr</i>)
+<p>
+        Public method to set a variables filter list.
+</p><dl>
+<dt><i>scope</i></dt>
+<dd>
+the scope of the variables (0 = local, 1 = global)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+regexp string for variable names to filter out
+            (string)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteClientVariable" ID="DebuggerInterfacePython2.remoteClientVariable"></a>
+<h4>DebuggerInterfacePython2.remoteClientVariable</h4>
+<b>remoteClientVariable</b>(<i>scope, filterList, var, framenr=0</i>)
+<p>
+        Public method to request the variables of the debugged program.
+</p><dl>
+<dt><i>scope</i></dt>
+<dd>
+the scope of the variables (0 = local, 1 = global)
+</dd><dt><i>filterList</i></dt>
+<dd>
+list of variable types to filter out (list of int)
+</dd><dt><i>var</i></dt>
+<dd>
+list encoded name of variable to retrieve (string)
+</dd><dt><i>framenr</i></dt>
+<dd>
+framenumber of the variables to retrieve (int)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteClientVariables" ID="DebuggerInterfacePython2.remoteClientVariables"></a>
+<h4>DebuggerInterfacePython2.remoteClientVariables</h4>
+<b>remoteClientVariables</b>(<i>scope, filterList, framenr=0</i>)
+<p>
+        Public method to request the variables of the debugged program.
+</p><dl>
+<dt><i>scope</i></dt>
+<dd>
+the scope of the variables (0 = local, 1 = global)
+</dd><dt><i>filterList</i></dt>
+<dd>
+list of variable types to filter out (list of int)
+</dd><dt><i>framenr</i></dt>
+<dd>
+framenumber of the variables to retrieve (int)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteCompletion" ID="DebuggerInterfacePython2.remoteCompletion"></a>
+<h4>DebuggerInterfacePython2.remoteCompletion</h4>
+<b>remoteCompletion</b>(<i>text</i>)
+<p>
+        Public slot to get the a list of possible commandline completions
+        from the remote client.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+the text to be completed (string)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteContinue" ID="DebuggerInterfacePython2.remoteContinue"></a>
+<h4>DebuggerInterfacePython2.remoteContinue</h4>
+<b>remoteContinue</b>(<i>special=False</i>)
+<p>
+        Public method to continue the debugged program.
+</p><dl>
+<dt><i>special</i></dt>
+<dd>
+flag indicating a special continue operation (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteCoverage" ID="DebuggerInterfacePython2.remoteCoverage"></a>
+<h4>DebuggerInterfacePython2.remoteCoverage</h4>
+<b>remoteCoverage</b>(<i>fn, argv, wd, erase=False</i>)
+<p>
+        Public method to load a new program to collect coverage data.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+the filename to run (string)
+</dd><dt><i>argv</i></dt>
+<dd>
+the commandline arguments to pass to the program (string)
+</dd><dt><i>wd</i></dt>
+<dd>
+the working directory for the program (string)
+</dd><dt><i>erase=</i></dt>
+<dd>
+flag indicating that coverage info should be
+            cleared first (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteEnvironment" ID="DebuggerInterfacePython2.remoteEnvironment"></a>
+<h4>DebuggerInterfacePython2.remoteEnvironment</h4>
+<b>remoteEnvironment</b>(<i>env</i>)
+<p>
+        Public method to set the environment for a program to debug, run, ...
+</p><dl>
+<dt><i>env</i></dt>
+<dd>
+environment settings (dictionary)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteLoad" ID="DebuggerInterfacePython2.remoteLoad"></a>
+<h4>DebuggerInterfacePython2.remoteLoad</h4>
+<b>remoteLoad</b>(<i>fn, argv, wd, traceInterpreter=False, autoContinue=True, autoFork=False, forkChild=False</i>)
+<p>
+        Public method to load a new program to debug.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+the filename to debug (string)
+</dd><dt><i>argv</i></dt>
+<dd>
+the commandline arguments to pass to the program (string)
+</dd><dt><i>wd</i></dt>
+<dd>
+the working directory for the program (string)
+</dd><dt><i>traceInterpreter=</i></dt>
+<dd>
+flag indicating if the interpreter library
+            should be traced as well (boolean)
+</dd><dt><i>autoContinue=</i></dt>
+<dd>
+flag indicating, that the debugger should not
+            stop at the first executable line (boolean)
+</dd><dt><i>autoFork=</i></dt>
+<dd>
+flag indicating the automatic fork mode (boolean)
+</dd><dt><i>forkChild=</i></dt>
+<dd>
+flag indicating to debug the child after forking
+            (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteMoveIP" ID="DebuggerInterfacePython2.remoteMoveIP"></a>
+<h4>DebuggerInterfacePython2.remoteMoveIP</h4>
+<b>remoteMoveIP</b>(<i>line</i>)
+<p>
+        Public method to move the instruction pointer to a different line.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+the new line, where execution should be continued
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteProfile" ID="DebuggerInterfacePython2.remoteProfile"></a>
+<h4>DebuggerInterfacePython2.remoteProfile</h4>
+<b>remoteProfile</b>(<i>fn, argv, wd, erase=False</i>)
+<p>
+        Public method to load a new program to collect profiling data.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+the filename to run (string)
+</dd><dt><i>argv</i></dt>
+<dd>
+the commandline arguments to pass to the program (string)
+</dd><dt><i>wd</i></dt>
+<dd>
+the working directory for the program (string)
+</dd><dt><i>erase=</i></dt>
+<dd>
+flag indicating that timing info should be cleared
+            first (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteRawInput" ID="DebuggerInterfacePython2.remoteRawInput"></a>
+<h4>DebuggerInterfacePython2.remoteRawInput</h4>
+<b>remoteRawInput</b>(<i>s</i>)
+<p>
+        Public method to send the raw input to the debugged program.
+</p><dl>
+<dt><i>s</i></dt>
+<dd>
+the raw input (string)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteRun" ID="DebuggerInterfacePython2.remoteRun"></a>
+<h4>DebuggerInterfacePython2.remoteRun</h4>
+<b>remoteRun</b>(<i>fn, argv, wd, autoFork=False, forkChild=False</i>)
+<p>
+        Public method to load a new program to run.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+the filename to run (string)
+</dd><dt><i>argv</i></dt>
+<dd>
+the commandline arguments to pass to the program (string)
+</dd><dt><i>wd</i></dt>
+<dd>
+the working directory for the program (string)
+</dd><dt><i>autoFork=</i></dt>
+<dd>
+flag indicating the automatic fork mode (boolean)
+</dd><dt><i>forkChild=</i></dt>
+<dd>
+flag indicating to debug the child after forking
+            (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteSetThread" ID="DebuggerInterfacePython2.remoteSetThread"></a>
+<h4>DebuggerInterfacePython2.remoteSetThread</h4>
+<b>remoteSetThread</b>(<i>tid</i>)
+<p>
+        Public method to request to set the given thread as current thread.
+</p><dl>
+<dt><i>tid</i></dt>
+<dd>
+id of the thread (integer)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteStatement" ID="DebuggerInterfacePython2.remoteStatement"></a>
+<h4>DebuggerInterfacePython2.remoteStatement</h4>
+<b>remoteStatement</b>(<i>stmt</i>)
+<p>
+        Public method to execute a Python statement.
+</p><dl>
+<dt><i>stmt</i></dt>
+<dd>
+the Python statement to execute (string). It
+              should not have a trailing newline.
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteStep" ID="DebuggerInterfacePython2.remoteStep"></a>
+<h4>DebuggerInterfacePython2.remoteStep</h4>
+<b>remoteStep</b>(<i></i>)
+<p>
+        Public method to single step the debugged program.
+</p><a NAME="DebuggerInterfacePython2.remoteStepOut" ID="DebuggerInterfacePython2.remoteStepOut"></a>
+<h4>DebuggerInterfacePython2.remoteStepOut</h4>
+<b>remoteStepOut</b>(<i></i>)
+<p>
+        Public method to step out the debugged program.
+</p><a NAME="DebuggerInterfacePython2.remoteStepOver" ID="DebuggerInterfacePython2.remoteStepOver"></a>
+<h4>DebuggerInterfacePython2.remoteStepOver</h4>
+<b>remoteStepOver</b>(<i></i>)
+<p>
+        Public method to step over the debugged program.
+</p><a NAME="DebuggerInterfacePython2.remoteStepQuit" ID="DebuggerInterfacePython2.remoteStepQuit"></a>
+<h4>DebuggerInterfacePython2.remoteStepQuit</h4>
+<b>remoteStepQuit</b>(<i></i>)
+<p>
+        Public method to stop the debugged program.
+</p><a NAME="DebuggerInterfacePython2.remoteThreadList" ID="DebuggerInterfacePython2.remoteThreadList"></a>
+<h4>DebuggerInterfacePython2.remoteThreadList</h4>
+<b>remoteThreadList</b>(<i></i>)
+<p>
+        Public method to request the list of threads from the client.
+</p><a NAME="DebuggerInterfacePython2.remoteUTPrepare" ID="DebuggerInterfacePython2.remoteUTPrepare"></a>
+<h4>DebuggerInterfacePython2.remoteUTPrepare</h4>
+<b>remoteUTPrepare</b>(<i>fn, tn, tfn, failed, cov, covname, coverase</i>)
+<p>
+        Public method to prepare a new unittest run.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+the filename to load (string)
+</dd><dt><i>tn</i></dt>
+<dd>
+the testname to load (string)
+</dd><dt><i>tfn</i></dt>
+<dd>
+the test function name to load tests from (string)
+</dd><dt><i>failed</i></dt>
+<dd>
+list of failed test, if only failed test should be run
+            (list of strings)
+</dd><dt><i>cov</i></dt>
+<dd>
+flag indicating collection of coverage data is requested
+            (boolean)
+</dd><dt><i>covname</i></dt>
+<dd>
+filename to be used to assemble the coverage caches
+            filename (string)
+</dd><dt><i>coverase</i></dt>
+<dd>
+flag indicating erasure of coverage data is requested
+            (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteUTRun" ID="DebuggerInterfacePython2.remoteUTRun"></a>
+<h4>DebuggerInterfacePython2.remoteUTRun</h4>
+<b>remoteUTRun</b>(<i></i>)
+<p>
+        Public method to start a unittest run.
+</p><a NAME="DebuggerInterfacePython2.remoteUTStop" ID="DebuggerInterfacePython2.remoteUTStop"></a>
+<h4>DebuggerInterfacePython2.remoteUTStop</h4>
+<b>remoteUTStop</b>(<i></i>)
+<p>
+        Public method to stop a unittest run.
+</p><a NAME="DebuggerInterfacePython2.remoteWatchpoint" ID="DebuggerInterfacePython2.remoteWatchpoint"></a>
+<h4>DebuggerInterfacePython2.remoteWatchpoint</h4>
+<b>remoteWatchpoint</b>(<i>cond, setWatch, temp=False</i>)
+<p>
+        Public method to set or clear a watch expression.
+</p><dl>
+<dt><i>cond</i></dt>
+<dd>
+expression of the watch expression (string)
+</dd><dt><i>setWatch</i></dt>
+<dd>
+flag indicating setting or resetting a watch expression
+            (boolean)
+</dd><dt><i>temp</i></dt>
+<dd>
+flag indicating a temporary watch expression (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteWatchpointEnable" ID="DebuggerInterfacePython2.remoteWatchpointEnable"></a>
+<h4>DebuggerInterfacePython2.remoteWatchpointEnable</h4>
+<b>remoteWatchpointEnable</b>(<i>cond, enable</i>)
+<p>
+        Public method to enable or disable a watch expression.
+</p><dl>
+<dt><i>cond</i></dt>
+<dd>
+expression of the watch expression (string)
+</dd><dt><i>enable</i></dt>
+<dd>
+flag indicating enabling or disabling a watch expression
+            (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.remoteWatchpointIgnore" ID="DebuggerInterfacePython2.remoteWatchpointIgnore"></a>
+<h4>DebuggerInterfacePython2.remoteWatchpointIgnore</h4>
+<b>remoteWatchpointIgnore</b>(<i>cond, count</i>)
+<p>
+        Public method to ignore a watch expression the next couple of
+        occurrences.
+</p><dl>
+<dt><i>cond</i></dt>
+<dd>
+expression of the watch expression (string)
+</dd><dt><i>count</i></dt>
+<dd>
+number of occurrences to ignore (int)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.setCallTraceEnabled" ID="DebuggerInterfacePython2.setCallTraceEnabled"></a>
+<h4>DebuggerInterfacePython2.setCallTraceEnabled</h4>
+<b>setCallTraceEnabled</b>(<i>on</i>)
+<p>
+        Public method to set the call trace state.
+</p><dl>
+<dt><i>on</i></dt>
+<dd>
+flag indicating to enable the call trace function (boolean)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.shutdown" ID="DebuggerInterfacePython2.shutdown"></a>
+<h4>DebuggerInterfacePython2.shutdown</h4>
+<b>shutdown</b>(<i></i>)
+<p>
+        Public method to cleanly shut down.
+</p><p>
+        It closes our socket and shuts down
+        the debug client. (Needed on Win OS)
+</p><a NAME="DebuggerInterfacePython2.startRemote" ID="DebuggerInterfacePython2.startRemote"></a>
+<h4>DebuggerInterfacePython2.startRemote</h4>
+<b>startRemote</b>(<i>port, runInConsole</i>)
+<p>
+        Public method to start a remote Python interpreter.
+</p><dl>
+<dt><i>port</i></dt>
+<dd>
+portnumber the debug server is listening on (integer)
+</dd><dt><i>runInConsole</i></dt>
+<dd>
+flag indicating to start the debugger in a
+            console window (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+client process object (QProcess), a flag to indicate
+            a network connection (boolean) and the name of the interpreter
+            in case of a local execution (string)
+</dd>
+</dl><a NAME="DebuggerInterfacePython2.startRemoteForProject" ID="DebuggerInterfacePython2.startRemoteForProject"></a>
+<h4>DebuggerInterfacePython2.startRemoteForProject</h4>
+<b>startRemoteForProject</b>(<i>port, runInConsole</i>)
+<p>
+        Public method to start a remote Python interpreter for a project.
+</p><dl>
+<dt><i>port</i></dt>
+<dd>
+portnumber the debug server is listening on (integer)
+</dd><dt><i>runInConsole</i></dt>
+<dd>
+flag indicating to start the debugger in a
+            console window (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+client process object (QProcess), a flag to indicate
+            a network connection (boolean) and the name of the interpreter
+            in case of a local execution (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="createDebuggerInterfacePython2" ID="createDebuggerInterfacePython2"></a>
+<h2>createDebuggerInterfacePython2</h2>
+<b>createDebuggerInterfacePython2</b>(<i>debugServer, passive</i>)
+<p>
+    Module function to create a debugger interface instance.
+</p><p>
+
+</p><dl>
+<dt><i>debugServer</i> (DebugServer)</dt>
+<dd>
+reference to the debug server
+</dd><dt><i>passive</i> (bool)</dt>
+<dd>
+flag indicating passive connection mode
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+instantiated debugger interface
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+DebuggerInterfacePython
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getRegistryData" ID="getRegistryData"></a>
+<h2>getRegistryData</h2>
+<b>getRegistryData</b>(<i></i>)
+<p>
+    Module function to get characterizing data for the debugger interface.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple containing  client type, client capabilities, client file
+        type associations and reference to creation function
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of (str, int, list of str, function)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

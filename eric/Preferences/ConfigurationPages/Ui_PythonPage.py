@@ -1,0 +1,113 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'E:\project\github\eric6-17.08\eric\Preferences\ConfigurationPages\PythonPage.ui'
+#
+# Created by: PyQt5 UI code generator 5.9
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_PythonPage(object):
+    def setupUi(self, PythonPage):
+        PythonPage.setObjectName("PythonPage")
+        PythonPage.resize(482, 473)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(PythonPage)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.headerLabel = QtWidgets.QLabel(PythonPage)
+        self.headerLabel.setObjectName("headerLabel")
+        self.verticalLayout_2.addWidget(self.headerLabel)
+        self.line11_2_2_2_2 = QtWidgets.QFrame(PythonPage)
+        self.line11_2_2_2_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line11_2_2_2_2.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line11_2_2_2_2.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line11_2_2_2_2.setObjectName("line11_2_2_2_2")
+        self.verticalLayout_2.addWidget(self.line11_2_2_2_2)
+        self.groupBox = QtWidgets.QGroupBox(PythonPage)
+        self.groupBox.setObjectName("groupBox")
+        self.gridLayout = QtWidgets.QGridLayout(self.groupBox)
+        self.gridLayout.setObjectName("gridLayout")
+        self.label = QtWidgets.QLabel(self.groupBox)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.stringEncodingComboBox = QtWidgets.QComboBox(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.stringEncodingComboBox.sizePolicy().hasHeightForWidth())
+        self.stringEncodingComboBox.setSizePolicy(sizePolicy)
+        self.stringEncodingComboBox.setObjectName("stringEncodingComboBox")
+        self.gridLayout.addWidget(self.stringEncodingComboBox, 0, 1, 1, 1)
+        self.label_2 = QtWidgets.QLabel(self.groupBox)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.ioEncodingComboBox = QtWidgets.QComboBox(self.groupBox)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ioEncodingComboBox.sizePolicy().hasHeightForWidth())
+        self.ioEncodingComboBox.setSizePolicy(sizePolicy)
+        self.ioEncodingComboBox.setObjectName("ioEncodingComboBox")
+        self.gridLayout.addWidget(self.ioEncodingComboBox, 1, 1, 1, 1)
+        self.verticalLayout_2.addWidget(self.groupBox)
+        self.groupBox_3 = QtWidgets.QGroupBox(PythonPage)
+        self.groupBox_3.setObjectName("groupBox_3")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.groupBox_3)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.label_3 = QtWidgets.QLabel(self.groupBox_3)
+        self.label_3.setWordWrap(True)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_2.addWidget(self.label_3, 0, 0, 1, 2)
+        self.label_4 = QtWidgets.QLabel(self.groupBox_3)
+        self.label_4.setObjectName("label_4")
+        self.gridLayout_2.addWidget(self.label_4, 1, 0, 1, 1)
+        self.py2ExtensionsEdit = QtWidgets.QLineEdit(self.groupBox_3)
+        self.py2ExtensionsEdit.setObjectName("py2ExtensionsEdit")
+        self.gridLayout_2.addWidget(self.py2ExtensionsEdit, 1, 1, 1, 1)
+        self.label_5 = QtWidgets.QLabel(self.groupBox_3)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout_2.addWidget(self.label_5, 2, 0, 1, 1)
+        self.py3ExtensionsEdit = QtWidgets.QLineEdit(self.groupBox_3)
+        self.py3ExtensionsEdit.setObjectName("py3ExtensionsEdit")
+        self.gridLayout_2.addWidget(self.py3ExtensionsEdit, 2, 1, 1, 1)
+        self.verticalLayout_2.addWidget(self.groupBox_3)
+        self.groupBox_2 = QtWidgets.QGroupBox(PythonPage)
+        self.groupBox_2.setObjectName("groupBox_2")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.groupBox_2)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_6 = QtWidgets.QLabel(self.groupBox_2)
+        self.label_6.setWordWrap(True)
+        self.label_6.setObjectName("label_6")
+        self.verticalLayout.addWidget(self.label_6)
+        self.verticalLayout_2.addWidget(self.groupBox_2)
+        spacerItem = QtWidgets.QSpacerItem(464, 41, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_2.addItem(spacerItem)
+
+        self.retranslateUi(PythonPage)
+        QtCore.QMetaObject.connectSlotsByName(PythonPage)
+
+    def retranslateUi(self, PythonPage):
+        _translate = QtCore.QCoreApplication.translate
+        self.headerLabel.setText(_translate("PythonPage", "<b>Configure Python</b>"))
+        self.groupBox.setTitle(_translate("PythonPage", "Encoding"))
+        self.label.setText(_translate("PythonPage", "String Encoding:"))
+        self.stringEncodingComboBox.setToolTip(_translate("PythonPage", "Select the string encoding to be used."))
+        self.label_2.setText(_translate("PythonPage", "I/O Encoding:"))
+        self.ioEncodingComboBox.setToolTip(_translate("PythonPage", "Select the string encoding used by commandline tools."))
+        self.groupBox_3.setTitle(_translate("PythonPage", "Source association"))
+        self.label_3.setText(_translate("PythonPage", "Enter the file extensions to be associated with the Python versions separated by a space. They must not overlap with each other."))
+        self.label_4.setText(_translate("PythonPage", "Python 2:"))
+        self.label_5.setText(_translate("PythonPage", "Python 3:"))
+        self.groupBox_2.setTitle(_translate("PythonPage", "Python 2 Interpreter"))
+        self.label_6.setText(_translate("PythonPage", "Please configure the Python 2 interpreter on the \'Python 2 Debugger\' page."))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    PythonPage = QtWidgets.QWidget()
+    ui = Ui_PythonPage()
+    ui.setupUi(PythonPage)
+    PythonPage.show()
+    sys.exit(app.exec_())
+

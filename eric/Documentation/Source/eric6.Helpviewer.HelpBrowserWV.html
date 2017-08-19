@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.HelpBrowserWV</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.HelpBrowserWV</h1>
+<p>
+Module implementing the helpbrowser using QWebView.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpBrowser">HelpBrowser</a></td>
+<td>Class implementing the helpbrowser widget.</td>
+</tr><tr>
+<td><a href="#HelpWebPage">HelpWebPage</a></td>
+<td>Class implementing an enhanced web page.</td>
+</tr><tr>
+<td><a href="#JavaScriptEricObject">JavaScriptEricObject</a></td>
+<td>Class implementing an external javascript object to search via the startpage.</td>
+</tr><tr>
+<td><a href="#JavaScriptExternalObject">JavaScriptExternalObject</a></td>
+<td>Class implementing an external javascript object to add search providers.</td>
+</tr><tr>
+<td><a href="#LinkedResource">LinkedResource</a></td>
+<td>Class defining a data structure for linked resources.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#contentSniff">contentSniff</a></td>
+<td>Module function to do some content sniffing to check, if the data is HTML.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="HelpBrowser" ID="HelpBrowser"></a>
+<h2>HelpBrowser</h2>
+<p>
+    Class implementing the helpbrowser widget.
+</p><p>
+    This is a subclass of the Qt QWebView to implement an
+    interface compatible with the QTextBrowser based variant.
+</p><h3>Signals</h3>
+<dl>
+<dt>backwardAvailable(bool)</dt>
+<dd>
+emitted after the current URL has changed
+</dd><dt>forwardAvailable(bool)</dt>
+<dd>
+emitted after the current URL has changed
+</dd><dt>highlighted(str)</dt>
+<dd>
+emitted, when the mouse hovers over a link
+</dd><dt>search(QUrl)</dt>
+<dd>
+emitted, when a search is requested
+</dd><dt>sourceChanged(QUrl)</dt>
+<dd>
+emitted after the current URL has changed
+</dd><dt>zoomValueChanged(int)</dt>
+<dd>
+emitted to signal a change of the zoom value
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWebView
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ZoomLevelDefault</td></tr><tr><td>ZoomLevels</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpBrowser.__init__">HelpBrowser</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__accessKeyShortcut">__accessKeyShortcut</a></td>
+<td>Private slot to switch the display of access keys.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__addExternalBinding">__addExternalBinding</a></td>
+<td>Private slot to add javascript bindings for adding search providers.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__addSearchEngine">__addSearchEngine</a></td>
+<td>Private slot to add a new search engine.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__addSpeedDial">__addSpeedDial</a></td>
+<td>Private slot to add a new speed dial.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__applyZoom">__applyZoom</a></td>
+<td>Private slot to apply the current zoom factor.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__blockImage">__blockImage</a></td>
+<td>Private slot to add a block rule for an image URL.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__bookmarkLink">__bookmarkLink</a></td>
+<td>Private slot to bookmark a link via the context menu.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__checkForAccessKey">__checkForAccessKey</a></td>
+<td>Private method to check the existence of an access key and activate the corresponding link.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__configureSpeedDial">__configureSpeedDial</a></td>
+<td>Private slot to configure the speed dial.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__copyImage">__copyImage</a></td>
+<td>Private slot to copy an image to the clipboard.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__copyLink">__copyLink</a></td>
+<td>Private slot to copy a link to the clipboard.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__copyLocation">__copyLocation</a></td>
+<td>Private slot to copy an image or media location to the clipboard.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__currentEngineChanged">__currentEngineChanged</a></td>
+<td>Private slot to track a change of the current search engine.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__dataString">__dataString</a></td>
+<td>Private method to generate a formatted data string.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__databaseQuotaExceeded">__databaseQuotaExceeded</a></td>
+<td>Private slot to handle the case, where the database quota is exceeded.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__downloadImage">__downloadImage</a></td>
+<td>Private slot to download an image and save it to disk.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__downloadLink">__downloadLink</a></td>
+<td>Private slot to download a link and save it to disk.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__downloadMedia">__downloadMedia</a></td>
+<td>Private slot to download a media and save it to disk.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__downloadRequested">__downloadRequested</a></td>
+<td>Private slot to handle a download request.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__featurePermissionRequested">__featurePermissionRequested</a></td>
+<td>Private slot handling a feature permission request.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__generatePrintPreviewClickedFrame">__generatePrintPreviewClickedFrame</a></td>
+<td>Private slot to generate a print preview of the clicked frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__hideAccessKeys">__hideAccessKeys</a></td>
+<td>Private slot to hide the access key labels.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__isMediaElement">__isMediaElement</a></td>
+<td>Private method to check, if the given element is a media element.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__isUrlValid">__isUrlValid</a></td>
+<td>Private method to check a URL for validity.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__levelForZoom">__levelForZoom</a></td>
+<td>Private method determining the zoom level index given a zoom factor.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__linkHovered">__linkHovered</a></td>
+<td>Private slot to handle the linkHovered signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__loadClickedFrame">__loadClickedFrame</a></td>
+<td>Private slot to load the selected frame only.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__loadFinished">__loadFinished</a></td>
+<td>Private method to handle the loadFinished signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__loadProgress">__loadProgress</a></td>
+<td>Private method to handle the loadProgress signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__loadStarted">__loadStarted</a></td>
+<td>Private method to handle the loadStarted signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__makeAccessLabel">__makeAccessLabel</a></td>
+<td>Private method to generate the access label for an element.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__muteMedia">__muteMedia</a></td>
+<td>Private slot to (un)mute the selected media.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__openLinkInNewTab">__openLinkInNewTab</a></td>
+<td>Private method called by the context menu to open a link in a new window.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__pauseMedia">__pauseMedia</a></td>
+<td>Private slot to pause or play the selected media.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__printClickedFrame">__printClickedFrame</a></td>
+<td>Private slot to print the selected frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__printPdfClickedFrame">__printPdfClickedFrame</a></td>
+<td>Private slot to print the selected frame to PDF.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__printPreviewClickedFrame">__printPreviewClickedFrame</a></td>
+<td>Private slot to show a print preview of the clicked frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__reloadAllSpeedDials">__reloadAllSpeedDials</a></td>
+<td>Private slot to reload all speed dials.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__resetSpeedDials">__resetSpeedDials</a></td>
+<td>Private slot to reset all speed dials to the default pages.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__searchRequested">__searchRequested</a></td>
+<td>Private slot to search for some text with a selected search engine.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__sendLink">__sendLink</a></td>
+<td>Private slot to send a link via email.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__showAccessKeys">__showAccessKeys</a></td>
+<td>Private method to show the access key labels.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__showClickedFrameSource">__showClickedFrameSource</a></td>
+<td>Private slot to show the source of the clicked frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__statusBarMessage">__statusBarMessage</a></td>
+<td>Private slot to handle the statusBarMessage signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__unsupportedContent">__unsupportedContent</a></td>
+<td>Private slot to handle the unsupportedContent signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__urlChanged">__urlChanged</a></td>
+<td>Private slot to handle the urlChanged signal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__virusTotal">__virusTotal</a></td>
+<td>Private slot to scan the selected URL with VirusTotal.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__webInspector">__webInspector</a></td>
+<td>Private slot to show the web inspector window.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__zoomInClickedFrame">__zoomInClickedFrame</a></td>
+<td>Private slot to zoom into the clicked frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__zoomOutClickedFrame">__zoomOutClickedFrame</a></td>
+<td>Private slot to zoom out of the clicked frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.__zoomResetClickedFrame">__zoomResetClickedFrame</a></td>
+<td>Private slot to reset the zoom factor of the clicked frame.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.addBookmark">addBookmark</a></td>
+<td>Public slot to bookmark the current page.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.backward">backward</a></td>
+<td>Public slot to move backwards in history.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.checkRSS">checkRSS</a></td>
+<td>Public method to check, if the loaded page contains feed links.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.clearHistory">clearHistory</a></td>
+<td>Public slot to clear the history.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.closeWebInspector">closeWebInspector</a></td>
+<td>Public slot to close the web inspector.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.contextMenuEvent">contextMenuEvent</a></td>
+<td>Protected method called to create a context menu.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.copy">copy</a></td>
+<td>Public slot to copy the selected text.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.createWindow">createWindow</a></td>
+<td>Public method called, when a new window should be created.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.documentTitle">documentTitle</a></td>
+<td>Public method to return the title of the loaded page.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.dragEnterEvent">dragEnterEvent</a></td>
+<td>Protected method called by a drag enter event.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.dragMoveEvent">dragMoveEvent</a></td>
+<td>Protected method called by a drag move event.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.dropEvent">dropEvent</a></td>
+<td>Protected method called by a drop event.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.event">event</a></td>
+<td>Public method handling events.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.findNextPrev">findNextPrev</a></td>
+<td>Public slot to find the next occurrence of a text.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.focusOutEvent">focusOutEvent</a></td>
+<td>Protected method called by a focus out event.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.forward">forward</a></td>
+<td>Public slot to move forward in history.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.gestureEvent">gestureEvent</a></td>
+<td>Protected method handling gesture events.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.getRSS">getRSS</a></td>
+<td>Public method to get the extracted RSS feeds.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.hasRSS">hasRSS</a></td>
+<td>Public method to check, if the loaded page has RSS links.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.hasSelection">hasSelection</a></td>
+<td>Public method to determine, if there is some text selected.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.home">home</a></td>
+<td>Public slot to move to the first page loaded.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.isBackwardAvailable">isBackwardAvailable</a></td>
+<td>Public method to determine, if a backwards move in history is possible.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.isForwardAvailable">isForwardAvailable</a></td>
+<td>Public method to determine, if a forward move in history is possible.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.isLoading">isLoading</a></td>
+<td>Public method to get the loading state.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.keyPressEvent">keyPressEvent</a></td>
+<td>Protected method called by a key press.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.keyReleaseEvent">keyReleaseEvent</a></td>
+<td>Protected method called by a key release.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.linkedResources">linkedResources</a></td>
+<td>Public method to extract linked resources.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method called by a mouse press event.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.mouseReleaseEvent">mouseReleaseEvent</a></td>
+<td>Protected method called by a mouse release event.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.preferencesChanged">preferencesChanged</a></td>
+<td>Public method to indicate a change of the settings.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.progress">progress</a></td>
+<td>Public method to get the load progress.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.reload">reload</a></td>
+<td>Public slot to reload the current page.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.saveAs">saveAs</a></td>
+<td>Public method to save the current page to a file.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.setSource">setSource</a></td>
+<td>Public method used to set the source to be displayed.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.setZoomValue">setZoomValue</a></td>
+<td>Public method to set the zoom value.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.source">source</a></td>
+<td>Public method to return the URL of the loaded page.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.wheelEvent">wheelEvent</a></td>
+<td>Protected method to handle wheel events.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.zoomIn">zoomIn</a></td>
+<td>Public slot to zoom into the page.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.zoomOut">zoomOut</a></td>
+<td>Public slot to zoom out of the page.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.zoomReset">zoomReset</a></td>
+<td>Public method to reset the zoom factor.</td>
+</tr><tr>
+<td><a href="#HelpBrowser.zoomValue">zoomValue</a></td>
+<td>Public method to get the current zoom value.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpBrowser.__init__" ID="HelpBrowser.__init__"></a>
+<h4>HelpBrowser (Constructor)</h4>
+<b>HelpBrowser</b>(<i>mainWindow, parent=None, name=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>mainWindow</i></dt>
+<dd>
+reference to the main window (HelpWindow)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this window (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+name of this window (string)
+</dd>
+</dl><a NAME="HelpBrowser.__accessKeyShortcut" ID="HelpBrowser.__accessKeyShortcut"></a>
+<h4>HelpBrowser.__accessKeyShortcut</h4>
+<b>__accessKeyShortcut</b>(<i></i>)
+<p>
+        Private slot to switch the display of access keys.
+</p><a NAME="HelpBrowser.__addExternalBinding" ID="HelpBrowser.__addExternalBinding"></a>
+<h4>HelpBrowser.__addExternalBinding</h4>
+<b>__addExternalBinding</b>(<i>frame=None</i>)
+<p>
+        Private slot to add javascript bindings for adding search providers.
+</p><dl>
+<dt><i>frame</i></dt>
+<dd>
+reference to the web frame (QWebFrame)
+</dd>
+</dl><a NAME="HelpBrowser.__addSearchEngine" ID="HelpBrowser.__addSearchEngine"></a>
+<h4>HelpBrowser.__addSearchEngine</h4>
+<b>__addSearchEngine</b>(<i></i>)
+<p>
+        Private slot to add a new search engine.
+</p><a NAME="HelpBrowser.__addSpeedDial" ID="HelpBrowser.__addSpeedDial"></a>
+<h4>HelpBrowser.__addSpeedDial</h4>
+<b>__addSpeedDial</b>(<i></i>)
+<p>
+        Private slot to add a new speed dial.
+</p><a NAME="HelpBrowser.__applyZoom" ID="HelpBrowser.__applyZoom"></a>
+<h4>HelpBrowser.__applyZoom</h4>
+<b>__applyZoom</b>(<i></i>)
+<p>
+        Private slot to apply the current zoom factor.
+</p><a NAME="HelpBrowser.__blockImage" ID="HelpBrowser.__blockImage"></a>
+<h4>HelpBrowser.__blockImage</h4>
+<b>__blockImage</b>(<i></i>)
+<p>
+        Private slot to add a block rule for an image URL.
+</p><a NAME="HelpBrowser.__bookmarkLink" ID="HelpBrowser.__bookmarkLink"></a>
+<h4>HelpBrowser.__bookmarkLink</h4>
+<b>__bookmarkLink</b>(<i></i>)
+<p>
+        Private slot to bookmark a link via the context menu.
+</p><a NAME="HelpBrowser.__checkForAccessKey" ID="HelpBrowser.__checkForAccessKey"></a>
+<h4>HelpBrowser.__checkForAccessKey</h4>
+<b>__checkForAccessKey</b>(<i>evt</i>)
+<p>
+        Private method to check the existence of an access key and activate the
+        corresponding link.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the key event (QKeyEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the event was handled (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.__configureSpeedDial" ID="HelpBrowser.__configureSpeedDial"></a>
+<h4>HelpBrowser.__configureSpeedDial</h4>
+<b>__configureSpeedDial</b>(<i></i>)
+<p>
+        Private slot to configure the speed dial.
+</p><a NAME="HelpBrowser.__copyImage" ID="HelpBrowser.__copyImage"></a>
+<h4>HelpBrowser.__copyImage</h4>
+<b>__copyImage</b>(<i></i>)
+<p>
+        Private slot to copy an image to the clipboard.
+</p><a NAME="HelpBrowser.__copyLink" ID="HelpBrowser.__copyLink"></a>
+<h4>HelpBrowser.__copyLink</h4>
+<b>__copyLink</b>(<i></i>)
+<p>
+        Private slot to copy a link to the clipboard.
+</p><a NAME="HelpBrowser.__copyLocation" ID="HelpBrowser.__copyLocation"></a>
+<h4>HelpBrowser.__copyLocation</h4>
+<b>__copyLocation</b>(<i></i>)
+<p>
+        Private slot to copy an image or media location to the clipboard.
+</p><a NAME="HelpBrowser.__currentEngineChanged" ID="HelpBrowser.__currentEngineChanged"></a>
+<h4>HelpBrowser.__currentEngineChanged</h4>
+<b>__currentEngineChanged</b>(<i></i>)
+<p>
+        Private slot to track a change of the current search engine.
+</p><a NAME="HelpBrowser.__dataString" ID="HelpBrowser.__dataString"></a>
+<h4>HelpBrowser.__dataString</h4>
+<b>__dataString</b>(<i>size</i>)
+<p>
+        Private method to generate a formatted data string.
+</p><dl>
+<dt><i>size</i></dt>
+<dd>
+size to be formatted (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted data string (string)
+</dd>
+</dl><a NAME="HelpBrowser.__databaseQuotaExceeded" ID="HelpBrowser.__databaseQuotaExceeded"></a>
+<h4>HelpBrowser.__databaseQuotaExceeded</h4>
+<b>__databaseQuotaExceeded</b>(<i>frame, databaseName</i>)
+<p>
+        Private slot to handle the case, where the database quota is exceeded.
+</p><dl>
+<dt><i>frame</i></dt>
+<dd>
+reference to the frame (QWebFrame)
+</dd><dt><i>databaseName</i></dt>
+<dd>
+name of the web database (string)
+</dd>
+</dl><a NAME="HelpBrowser.__downloadImage" ID="HelpBrowser.__downloadImage"></a>
+<h4>HelpBrowser.__downloadImage</h4>
+<b>__downloadImage</b>(<i></i>)
+<p>
+        Private slot to download an image and save it to disk.
+</p><a NAME="HelpBrowser.__downloadLink" ID="HelpBrowser.__downloadLink"></a>
+<h4>HelpBrowser.__downloadLink</h4>
+<b>__downloadLink</b>(<i></i>)
+<p>
+        Private slot to download a link and save it to disk.
+</p><a NAME="HelpBrowser.__downloadMedia" ID="HelpBrowser.__downloadMedia"></a>
+<h4>HelpBrowser.__downloadMedia</h4>
+<b>__downloadMedia</b>(<i></i>)
+<p>
+        Private slot to download a media and save it to disk.
+</p><a NAME="HelpBrowser.__downloadRequested" ID="HelpBrowser.__downloadRequested"></a>
+<h4>HelpBrowser.__downloadRequested</h4>
+<b>__downloadRequested</b>(<i>request</i>)
+<p>
+        Private slot to handle a download request.
+</p><dl>
+<dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd>
+</dl><a NAME="HelpBrowser.__featurePermissionRequested" ID="HelpBrowser.__featurePermissionRequested"></a>
+<h4>HelpBrowser.__featurePermissionRequested</h4>
+<b>__featurePermissionRequested</b>(<i>frame, feature</i>)
+<p>
+        Private slot handling a feature permission request.
+</p><dl>
+<dt><i>frame</i> (QWebFrame)</dt>
+<dd>
+frame sending the request
+</dd><dt><i>feature</i> (QWebPage.Feature)</dt>
+<dd>
+requested feature
+</dd>
+</dl><a NAME="HelpBrowser.__generatePrintPreviewClickedFrame" ID="HelpBrowser.__generatePrintPreviewClickedFrame"></a>
+<h4>HelpBrowser.__generatePrintPreviewClickedFrame</h4>
+<b>__generatePrintPreviewClickedFrame</b>(<i>printer</i>)
+<p>
+        Private slot to generate a print preview of the clicked frame.
+</p><dl>
+<dt><i>printer</i></dt>
+<dd>
+reference to the printer object (QPrinter)
+</dd>
+</dl><a NAME="HelpBrowser.__hideAccessKeys" ID="HelpBrowser.__hideAccessKeys"></a>
+<h4>HelpBrowser.__hideAccessKeys</h4>
+<b>__hideAccessKeys</b>(<i></i>)
+<p>
+        Private slot to hide the access key labels.
+</p><a NAME="HelpBrowser.__isMediaElement" ID="HelpBrowser.__isMediaElement"></a>
+<h4>HelpBrowser.__isMediaElement</h4>
+<b>__isMediaElement</b>(<i>element</i>)
+<p>
+        Private method to check, if the given element is a media element.
+</p><dl>
+<dt><i>element</i></dt>
+<dd>
+element to be checked (QWebElement)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a media element (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.__isUrlValid" ID="HelpBrowser.__isUrlValid"></a>
+<h4>HelpBrowser.__isUrlValid</h4>
+<b>__isUrlValid</b>(<i>url</i>)
+<p>
+        Private method to check a URL for validity.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to be checked (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a valid URL (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.__levelForZoom" ID="HelpBrowser.__levelForZoom"></a>
+<h4>HelpBrowser.__levelForZoom</h4>
+<b>__levelForZoom</b>(<i>zoom</i>)
+<p>
+        Private method determining the zoom level index given a zoom factor.
+</p><dl>
+<dt><i>zoom</i></dt>
+<dd>
+zoom factor (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of zoom factor (integer)
+</dd>
+</dl><a NAME="HelpBrowser.__linkHovered" ID="HelpBrowser.__linkHovered"></a>
+<h4>HelpBrowser.__linkHovered</h4>
+<b>__linkHovered</b>(<i>link, title, textContent</i>)
+<p>
+        Private slot to handle the linkHovered signal.
+</p><dl>
+<dt><i>link</i></dt>
+<dd>
+the URL of the link (string)
+</dd><dt><i>title</i></dt>
+<dd>
+the link title (string)
+</dd><dt><i>textContent</i></dt>
+<dd>
+text content of the link (string)
+</dd>
+</dl><a NAME="HelpBrowser.__loadClickedFrame" ID="HelpBrowser.__loadClickedFrame"></a>
+<h4>HelpBrowser.__loadClickedFrame</h4>
+<b>__loadClickedFrame</b>(<i></i>)
+<p>
+        Private slot to load the selected frame only.
+</p><a NAME="HelpBrowser.__loadFinished" ID="HelpBrowser.__loadFinished"></a>
+<h4>HelpBrowser.__loadFinished</h4>
+<b>__loadFinished</b>(<i>ok</i>)
+<p>
+        Private method to handle the loadFinished signal.
+</p><dl>
+<dt><i>ok</i></dt>
+<dd>
+flag indicating the result (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.__loadProgress" ID="HelpBrowser.__loadProgress"></a>
+<h4>HelpBrowser.__loadProgress</h4>
+<b>__loadProgress</b>(<i>progress</i>)
+<p>
+        Private method to handle the loadProgress signal.
+</p><dl>
+<dt><i>progress</i></dt>
+<dd>
+progress value (integer)
+</dd>
+</dl><a NAME="HelpBrowser.__loadStarted" ID="HelpBrowser.__loadStarted"></a>
+<h4>HelpBrowser.__loadStarted</h4>
+<b>__loadStarted</b>(<i></i>)
+<p>
+        Private method to handle the loadStarted signal.
+</p><a NAME="HelpBrowser.__makeAccessLabel" ID="HelpBrowser.__makeAccessLabel"></a>
+<h4>HelpBrowser.__makeAccessLabel</h4>
+<b>__makeAccessLabel</b>(<i>accessKey, element</i>)
+<p>
+        Private method to generate the access label for an element.
+</p><dl>
+<dt><i>accessKey</i></dt>
+<dd>
+access key to generate the label for (str)
+</dd><dt><i>element</i></dt>
+<dd>
+reference to the web element to create the label for
+            (QWebElement)
+</dd>
+</dl><a NAME="HelpBrowser.__muteMedia" ID="HelpBrowser.__muteMedia"></a>
+<h4>HelpBrowser.__muteMedia</h4>
+<b>__muteMedia</b>(<i></i>)
+<p>
+        Private slot to (un)mute the selected media.
+</p><a NAME="HelpBrowser.__openLinkInNewTab" ID="HelpBrowser.__openLinkInNewTab"></a>
+<h4>HelpBrowser.__openLinkInNewTab</h4>
+<b>__openLinkInNewTab</b>(<i></i>)
+<p>
+        Private method called by the context menu to open a link in a new
+        window.
+</p><a NAME="HelpBrowser.__pauseMedia" ID="HelpBrowser.__pauseMedia"></a>
+<h4>HelpBrowser.__pauseMedia</h4>
+<b>__pauseMedia</b>(<i></i>)
+<p>
+        Private slot to pause or play the selected media.
+</p><a NAME="HelpBrowser.__printClickedFrame" ID="HelpBrowser.__printClickedFrame"></a>
+<h4>HelpBrowser.__printClickedFrame</h4>
+<b>__printClickedFrame</b>(<i></i>)
+<p>
+        Private slot to print the selected frame.
+</p><a NAME="HelpBrowser.__printPdfClickedFrame" ID="HelpBrowser.__printPdfClickedFrame"></a>
+<h4>HelpBrowser.__printPdfClickedFrame</h4>
+<b>__printPdfClickedFrame</b>(<i></i>)
+<p>
+        Private slot to print the selected frame to PDF.
+</p><a NAME="HelpBrowser.__printPreviewClickedFrame" ID="HelpBrowser.__printPreviewClickedFrame"></a>
+<h4>HelpBrowser.__printPreviewClickedFrame</h4>
+<b>__printPreviewClickedFrame</b>(<i></i>)
+<p>
+        Private slot to show a print preview of the clicked frame.
+</p><a NAME="HelpBrowser.__reloadAllSpeedDials" ID="HelpBrowser.__reloadAllSpeedDials"></a>
+<h4>HelpBrowser.__reloadAllSpeedDials</h4>
+<b>__reloadAllSpeedDials</b>(<i></i>)
+<p>
+        Private slot to reload all speed dials.
+</p><a NAME="HelpBrowser.__resetSpeedDials" ID="HelpBrowser.__resetSpeedDials"></a>
+<h4>HelpBrowser.__resetSpeedDials</h4>
+<b>__resetSpeedDials</b>(<i></i>)
+<p>
+        Private slot to reset all speed dials to the default pages.
+</p><a NAME="HelpBrowser.__searchRequested" ID="HelpBrowser.__searchRequested"></a>
+<h4>HelpBrowser.__searchRequested</h4>
+<b>__searchRequested</b>(<i>act</i>)
+<p>
+        Private slot to search for some text with a selected search engine.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that triggered this slot (QAction)
+</dd>
+</dl><a NAME="HelpBrowser.__sendLink" ID="HelpBrowser.__sendLink"></a>
+<h4>HelpBrowser.__sendLink</h4>
+<b>__sendLink</b>(<i></i>)
+<p>
+        Private slot to send a link via email.
+</p><a NAME="HelpBrowser.__showAccessKeys" ID="HelpBrowser.__showAccessKeys"></a>
+<h4>HelpBrowser.__showAccessKeys</h4>
+<b>__showAccessKeys</b>(<i></i>)
+<p>
+        Private method to show the access key labels.
+</p><a NAME="HelpBrowser.__showClickedFrameSource" ID="HelpBrowser.__showClickedFrameSource"></a>
+<h4>HelpBrowser.__showClickedFrameSource</h4>
+<b>__showClickedFrameSource</b>(<i></i>)
+<p>
+        Private slot to show the source of the clicked frame.
+</p><a NAME="HelpBrowser.__statusBarMessage" ID="HelpBrowser.__statusBarMessage"></a>
+<h4>HelpBrowser.__statusBarMessage</h4>
+<b>__statusBarMessage</b>(<i>text</i>)
+<p>
+        Private slot to handle the statusBarMessage signal.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be shown in the status bar (string)
+</dd>
+</dl><a NAME="HelpBrowser.__unsupportedContent" ID="HelpBrowser.__unsupportedContent"></a>
+<h4>HelpBrowser.__unsupportedContent</h4>
+<b>__unsupportedContent</b>(<i>reply, requestFilename=None, download=False</i>)
+<p>
+        Private slot to handle the unsupportedContent signal.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>requestFilename=</i></dt>
+<dd>
+indicating to ask for a filename
+            (boolean or None). If it is None, the behavior is determined
+            by a configuration option.
+</dd><dt><i>download=</i></dt>
+<dd>
+flag indicating a download operation (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.__urlChanged" ID="HelpBrowser.__urlChanged"></a>
+<h4>HelpBrowser.__urlChanged</h4>
+<b>__urlChanged</b>(<i>url</i>)
+<p>
+        Private slot to handle the urlChanged signal.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+the new url (QUrl)
+</dd>
+</dl><a NAME="HelpBrowser.__virusTotal" ID="HelpBrowser.__virusTotal"></a>
+<h4>HelpBrowser.__virusTotal</h4>
+<b>__virusTotal</b>(<i></i>)
+<p>
+        Private slot to scan the selected URL with VirusTotal.
+</p><a NAME="HelpBrowser.__webInspector" ID="HelpBrowser.__webInspector"></a>
+<h4>HelpBrowser.__webInspector</h4>
+<b>__webInspector</b>(<i></i>)
+<p>
+        Private slot to show the web inspector window.
+</p><a NAME="HelpBrowser.__zoomInClickedFrame" ID="HelpBrowser.__zoomInClickedFrame"></a>
+<h4>HelpBrowser.__zoomInClickedFrame</h4>
+<b>__zoomInClickedFrame</b>(<i></i>)
+<p>
+        Private slot to zoom into the clicked frame.
+</p><a NAME="HelpBrowser.__zoomOutClickedFrame" ID="HelpBrowser.__zoomOutClickedFrame"></a>
+<h4>HelpBrowser.__zoomOutClickedFrame</h4>
+<b>__zoomOutClickedFrame</b>(<i></i>)
+<p>
+        Private slot to zoom out of the clicked frame.
+</p><a NAME="HelpBrowser.__zoomResetClickedFrame" ID="HelpBrowser.__zoomResetClickedFrame"></a>
+<h4>HelpBrowser.__zoomResetClickedFrame</h4>
+<b>__zoomResetClickedFrame</b>(<i></i>)
+<p>
+        Private slot to reset the zoom factor of the clicked frame.
+</p><a NAME="HelpBrowser.addBookmark" ID="HelpBrowser.addBookmark"></a>
+<h4>HelpBrowser.addBookmark</h4>
+<b>addBookmark</b>(<i></i>)
+<p>
+        Public slot to bookmark the current page.
+</p><a NAME="HelpBrowser.backward" ID="HelpBrowser.backward"></a>
+<h4>HelpBrowser.backward</h4>
+<b>backward</b>(<i></i>)
+<p>
+        Public slot to move backwards in history.
+</p><a NAME="HelpBrowser.checkRSS" ID="HelpBrowser.checkRSS"></a>
+<h4>HelpBrowser.checkRSS</h4>
+<b>checkRSS</b>(<i></i>)
+<p>
+        Public method to check, if the loaded page contains feed links.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the existence of feed links (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.clearHistory" ID="HelpBrowser.clearHistory"></a>
+<h4>HelpBrowser.clearHistory</h4>
+<b>clearHistory</b>(<i></i>)
+<p>
+        Public slot to clear the history.
+</p><a NAME="HelpBrowser.closeWebInspector" ID="HelpBrowser.closeWebInspector"></a>
+<h4>HelpBrowser.closeWebInspector</h4>
+<b>closeWebInspector</b>(<i></i>)
+<p>
+        Public slot to close the web inspector.
+</p><a NAME="HelpBrowser.contextMenuEvent" ID="HelpBrowser.contextMenuEvent"></a>
+<h4>HelpBrowser.contextMenuEvent</h4>
+<b>contextMenuEvent</b>(<i>evt</i>)
+<p>
+        Protected method called to create a context menu.
+</p><p>
+        This method is overridden from QWebView.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the context menu event object
+            (QContextMenuEvent)
+</dd>
+</dl><a NAME="HelpBrowser.copy" ID="HelpBrowser.copy"></a>
+<h4>HelpBrowser.copy</h4>
+<b>copy</b>(<i></i>)
+<p>
+        Public slot to copy the selected text.
+</p><a NAME="HelpBrowser.createWindow" ID="HelpBrowser.createWindow"></a>
+<h4>HelpBrowser.createWindow</h4>
+<b>createWindow</b>(<i>windowType</i>)
+<p>
+        Public method called, when a new window should be created.
+</p><dl>
+<dt><i>windowType</i></dt>
+<dd>
+type of the requested window (QWebPage.WebWindowType)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created browser window (HelpBrowser)
+</dd>
+</dl><a NAME="HelpBrowser.documentTitle" ID="HelpBrowser.documentTitle"></a>
+<h4>HelpBrowser.documentTitle</h4>
+<b>documentTitle</b>(<i></i>)
+<p>
+        Public method to return the title of the loaded page.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+title (string)
+</dd>
+</dl><a NAME="HelpBrowser.dragEnterEvent" ID="HelpBrowser.dragEnterEvent"></a>
+<h4>HelpBrowser.dragEnterEvent</h4>
+<b>dragEnterEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a drag enter event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the drag enter event (QDragEnterEvent)
+</dd>
+</dl><a NAME="HelpBrowser.dragMoveEvent" ID="HelpBrowser.dragMoveEvent"></a>
+<h4>HelpBrowser.dragMoveEvent</h4>
+<b>dragMoveEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a drag move event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the drag move event (QDragMoveEvent)
+</dd>
+</dl><a NAME="HelpBrowser.dropEvent" ID="HelpBrowser.dropEvent"></a>
+<h4>HelpBrowser.dropEvent</h4>
+<b>dropEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a drop event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the drop event (QDropEvent)
+</dd>
+</dl><a NAME="HelpBrowser.event" ID="HelpBrowser.event"></a>
+<h4>HelpBrowser.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method handling events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the event was handled (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.findNextPrev" ID="HelpBrowser.findNextPrev"></a>
+<h4>HelpBrowser.findNextPrev</h4>
+<b>findNextPrev</b>(<i>txt, case, backwards, wrap, highlightAll</i>)
+<p>
+        Public slot to find the next occurrence of a text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to search for (string)
+</dd><dt><i>case</i></dt>
+<dd>
+flag indicating a case sensitive search (boolean)
+</dd><dt><i>backwards</i></dt>
+<dd>
+flag indicating a backwards search (boolean)
+</dd><dt><i>wrap</i></dt>
+<dd>
+flag indicating to wrap around (boolean)
+</dd><dt><i>highlightAll</i></dt>
+<dd>
+flag indicating to highlight all occurrences
+            (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that a match was found (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.focusOutEvent" ID="HelpBrowser.focusOutEvent"></a>
+<h4>HelpBrowser.focusOutEvent</h4>
+<b>focusOutEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a focus out event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the focus event (QFocusEvent)
+</dd>
+</dl><a NAME="HelpBrowser.forward" ID="HelpBrowser.forward"></a>
+<h4>HelpBrowser.forward</h4>
+<b>forward</b>(<i></i>)
+<p>
+        Public slot to move forward in history.
+</p><a NAME="HelpBrowser.gestureEvent" ID="HelpBrowser.gestureEvent"></a>
+<h4>HelpBrowser.gestureEvent</h4>
+<b>gestureEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling gesture events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the gesture event (QGestureEvent
+</dd>
+</dl><a NAME="HelpBrowser.getRSS" ID="HelpBrowser.getRSS"></a>
+<h4>HelpBrowser.getRSS</h4>
+<b>getRSS</b>(<i></i>)
+<p>
+        Public method to get the extracted RSS feeds.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of RSS feeds (list of tuples of two strings)
+</dd>
+</dl><a NAME="HelpBrowser.hasRSS" ID="HelpBrowser.hasRSS"></a>
+<h4>HelpBrowser.hasRSS</h4>
+<b>hasRSS</b>(<i></i>)
+<p>
+        Public method to check, if the loaded page has RSS links.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of RSS links (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.hasSelection" ID="HelpBrowser.hasSelection"></a>
+<h4>HelpBrowser.hasSelection</h4>
+<b>hasSelection</b>(<i></i>)
+<p>
+        Public method to determine, if there is some text selected.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating text has been selected (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.home" ID="HelpBrowser.home"></a>
+<h4>HelpBrowser.home</h4>
+<b>home</b>(<i></i>)
+<p>
+        Public slot to move to the first page loaded.
+</p><a NAME="HelpBrowser.isBackwardAvailable" ID="HelpBrowser.isBackwardAvailable"></a>
+<h4>HelpBrowser.isBackwardAvailable</h4>
+<b>isBackwardAvailable</b>(<i></i>)
+<p>
+        Public method to determine, if a backwards move in history is possible.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating move backwards is possible (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.isForwardAvailable" ID="HelpBrowser.isForwardAvailable"></a>
+<h4>HelpBrowser.isForwardAvailable</h4>
+<b>isForwardAvailable</b>(<i></i>)
+<p>
+        Public method to determine, if a forward move in history is possible.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating move forward is possible (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.isLoading" ID="HelpBrowser.isLoading"></a>
+<h4>HelpBrowser.isLoading</h4>
+<b>isLoading</b>(<i></i>)
+<p>
+        Public method to get the loading state.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the loading state (boolean)
+</dd>
+</dl><a NAME="HelpBrowser.keyPressEvent" ID="HelpBrowser.keyPressEvent"></a>
+<h4>HelpBrowser.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a key press.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the key event (QKeyEvent)
+</dd>
+</dl><a NAME="HelpBrowser.keyReleaseEvent" ID="HelpBrowser.keyReleaseEvent"></a>
+<h4>HelpBrowser.keyReleaseEvent</h4>
+<b>keyReleaseEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a key release.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the key event (QKeyEvent)
+</dd>
+</dl><a NAME="HelpBrowser.linkedResources" ID="HelpBrowser.linkedResources"></a>
+<h4>HelpBrowser.linkedResources</h4>
+<b>linkedResources</b>(<i>relation=""</i>)
+<p>
+        Public method to extract linked resources.
+</p><dl>
+<dt><i>relation</i></dt>
+<dd>
+relation to extract (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of linked resources (list of LinkedResource)
+</dd>
+</dl><a NAME="HelpBrowser.mousePressEvent" ID="HelpBrowser.mousePressEvent"></a>
+<h4>HelpBrowser.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a mouse press event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the mouse event (QMouseEvent)
+</dd>
+</dl><a NAME="HelpBrowser.mouseReleaseEvent" ID="HelpBrowser.mouseReleaseEvent"></a>
+<h4>HelpBrowser.mouseReleaseEvent</h4>
+<b>mouseReleaseEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a mouse release event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the mouse event (QMouseEvent)
+</dd>
+</dl><a NAME="HelpBrowser.preferencesChanged" ID="HelpBrowser.preferencesChanged"></a>
+<h4>HelpBrowser.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public method to indicate a change of the settings.
+</p><a NAME="HelpBrowser.progress" ID="HelpBrowser.progress"></a>
+<h4>HelpBrowser.progress</h4>
+<b>progress</b>(<i></i>)
+<p>
+        Public method to get the load progress.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+load progress (integer)
+</dd>
+</dl><a NAME="HelpBrowser.reload" ID="HelpBrowser.reload"></a>
+<h4>HelpBrowser.reload</h4>
+<b>reload</b>(<i></i>)
+<p>
+        Public slot to reload the current page.
+</p><a NAME="HelpBrowser.saveAs" ID="HelpBrowser.saveAs"></a>
+<h4>HelpBrowser.saveAs</h4>
+<b>saveAs</b>(<i></i>)
+<p>
+        Public method to save the current page to a file.
+</p><a NAME="HelpBrowser.setSource" ID="HelpBrowser.setSource"></a>
+<h4>HelpBrowser.setSource</h4>
+<b>setSource</b>(<i>name, requestData=None</i>)
+<p>
+        Public method used to set the source to be displayed.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename to be shown (QUrl)
+</dd><dt><i>requestData</i></dt>
+<dd>
+tuple containing the request data (QNetworkRequest,
+            QNetworkAccessManager.Operation, QByteArray)
+</dd>
+</dl><a NAME="HelpBrowser.setZoomValue" ID="HelpBrowser.setZoomValue"></a>
+<h4>HelpBrowser.setZoomValue</h4>
+<b>setZoomValue</b>(<i>value, saveValue=True</i>)
+<p>
+        Public method to set the zoom value.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+zoom value (integer)
+</dd><dt><i>saveValue=</i> (bool)</dt>
+<dd>
+flag indicating to save the zoom value with the
+            zoom manager
+</dd>
+</dl><a NAME="HelpBrowser.source" ID="HelpBrowser.source"></a>
+<h4>HelpBrowser.source</h4>
+<b>source</b>(<i></i>)
+<p>
+        Public method to return the URL of the loaded page.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+URL loaded in the help browser (QUrl)
+</dd>
+</dl><a NAME="HelpBrowser.wheelEvent" ID="HelpBrowser.wheelEvent"></a>
+<h4>HelpBrowser.wheelEvent</h4>
+<b>wheelEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle wheel events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the wheel event (QWheelEvent)
+</dd>
+</dl><a NAME="HelpBrowser.zoomIn" ID="HelpBrowser.zoomIn"></a>
+<h4>HelpBrowser.zoomIn</h4>
+<b>zoomIn</b>(<i></i>)
+<p>
+        Public slot to zoom into the page.
+</p><a NAME="HelpBrowser.zoomOut" ID="HelpBrowser.zoomOut"></a>
+<h4>HelpBrowser.zoomOut</h4>
+<b>zoomOut</b>(<i></i>)
+<p>
+        Public slot to zoom out of the page.
+</p><a NAME="HelpBrowser.zoomReset" ID="HelpBrowser.zoomReset"></a>
+<h4>HelpBrowser.zoomReset</h4>
+<b>zoomReset</b>(<i></i>)
+<p>
+        Public method to reset the zoom factor.
+</p><a NAME="HelpBrowser.zoomValue" ID="HelpBrowser.zoomValue"></a>
+<h4>HelpBrowser.zoomValue</h4>
+<b>zoomValue</b>(<i></i>)
+<p>
+        Public method to get the current zoom value.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+zoom value (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="HelpWebPage" ID="HelpWebPage"></a>
+<h2>HelpWebPage</h2>
+<p>
+    Class implementing an enhanced web page.
+</p>
+<h3>Derived from</h3>
+QWebPage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>_webPluginFactory</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpWebPage.webPluginFactory">webPluginFactory</a></td>
+<td>Class method to get a reference to the web plug-in factory instance.</td>
+</tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpWebPage.__init__">HelpWebPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpWebPage.__loadStarted">__loadStarted</a></td>
+<td>Private method to handle the loadStarted signal.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.__managerFinished">__managerFinished</a></td>
+<td>Private slot to handle a finished reply.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.__restoreFrameStateRequested">__restoreFrameStateRequested</a></td>
+<td>Private slot to restore scroll position and zoom level from history.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.__saveFrameStateRequested">__saveFrameStateRequested</a></td>
+<td>Private slot to save the page state (i.e.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.acceptNavigationRequest">acceptNavigationRequest</a></td>
+<td>Public method to determine, if a request may be accepted.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.addAdBlockRule">addAdBlockRule</a></td>
+<td>Public slot to add an AdBlock rule to the page.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.event">event</a></td>
+<td>Public method implementing the event handler.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.extension">extension</a></td>
+<td>Public method to implement a specific extension.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.getAdBlockedPageEntries">getAdBlockedPageEntries</a></td>
+<td>Public method to get the list of AdBlock page entries.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.getSslCertificate">getSslCertificate</a></td>
+<td>Public method to get a reference to the SSL certificate.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.getSslCertificateChain">getSslCertificateChain</a></td>
+<td>Public method to get a reference to the SSL certificate chain.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.getSslConfiguration">getSslConfiguration</a></td>
+<td>Public method to return a reference to the current SSL configuration.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.hasValidSslInfo">hasValidSslInfo</a></td>
+<td>Public method to check, if the page has a valid SSL certificate.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.pageAttributeId">pageAttributeId</a></td>
+<td>Public method to get the attribute id of the page attribute.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.populateNetworkRequest">populateNetworkRequest</a></td>
+<td>Public method to add data to a network request.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.setUserAgent">setUserAgent</a></td>
+<td>Public method to set the global user agent string.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.showSslInfo">showSslInfo</a></td>
+<td>Public slot to show some SSL information for the loaded page.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.supportsExtension">supportsExtension</a></td>
+<td>Public method to check the support for an extension.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.url">url</a></td>
+<td>Public method to get the URL of the page.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.userAgent">userAgent</a></td>
+<td>Public method to get the global user agent setting.</td>
+</tr><tr>
+<td><a href="#HelpWebPage.userAgentForUrl">userAgentForUrl</a></td>
+<td>Public method to determine the user agent for the given URL.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpWebPage.webPluginFactory" ID="HelpWebPage.webPluginFactory"></a>
+<h4>HelpWebPage.webPluginFactory (class method)</h4>
+<b>webPluginFactory</b>(<i></i>)
+<p>
+        Class method to get a reference to the web plug-in factory
+        instance.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the web plug-in factory instance (WebPluginFactory
+</dd>
+</dl><a NAME="HelpWebPage.__init__" ID="HelpWebPage.__init__"></a>
+<h4>HelpWebPage (Constructor)</h4>
+<b>HelpWebPage</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of this window (QWidget)
+</dd>
+</dl><a NAME="HelpWebPage.__loadStarted" ID="HelpWebPage.__loadStarted"></a>
+<h4>HelpWebPage.__loadStarted</h4>
+<b>__loadStarted</b>(<i></i>)
+<p>
+        Private method to handle the loadStarted signal.
+</p><a NAME="HelpWebPage.__managerFinished" ID="HelpWebPage.__managerFinished"></a>
+<h4>HelpWebPage.__managerFinished</h4>
+<b>__managerFinished</b>(<i>reply</i>)
+<p>
+        Private slot to handle a finished reply.
+</p><p>
+        This slot is used to get SSL related information for a reply.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the finished reply (QNetworkReply)
+</dd>
+</dl><a NAME="HelpWebPage.__restoreFrameStateRequested" ID="HelpWebPage.__restoreFrameStateRequested"></a>
+<h4>HelpWebPage.__restoreFrameStateRequested</h4>
+<b>__restoreFrameStateRequested</b>(<i>frame</i>)
+<p>
+        Private slot to restore scroll position and zoom level from
+        history.
+</p><p>
+        Note: Code is based on qutebrowser.
+</p><dl>
+<dt><i>frame</i> (QWebFrame)</dt>
+<dd>
+frame to be restored
+</dd>
+</dl><a NAME="HelpWebPage.__saveFrameStateRequested" ID="HelpWebPage.__saveFrameStateRequested"></a>
+<h4>HelpWebPage.__saveFrameStateRequested</h4>
+<b>__saveFrameStateRequested</b>(<i>frame, itm</i>)
+<p>
+        Private slot to save the page state (i.e. zoom level and scroll
+        position).
+</p><p>
+        Note: Code is based on qutebrowser.
+</p><dl>
+<dt><i>frame</i> (QWebFrame)</dt>
+<dd>
+frame to be saved
+</dd><dt><i>itm</i> (QWebHistoryItem)</dt>
+<dd>
+web history item to be saved
+</dd>
+</dl><a NAME="HelpWebPage.acceptNavigationRequest" ID="HelpWebPage.acceptNavigationRequest"></a>
+<h4>HelpWebPage.acceptNavigationRequest</h4>
+<b>acceptNavigationRequest</b>(<i>frame, request, type_</i>)
+<p>
+        Public method to determine, if a request may be accepted.
+</p><dl>
+<dt><i>frame</i></dt>
+<dd>
+reference to the frame sending the request (QWebFrame)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>type_</i></dt>
+<dd>
+type of the navigation request (QWebPage.NavigationType)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating acceptance (boolean)
+</dd>
+</dl><a NAME="HelpWebPage.addAdBlockRule" ID="HelpWebPage.addAdBlockRule"></a>
+<h4>HelpWebPage.addAdBlockRule</h4>
+<b>addAdBlockRule</b>(<i>rule, url</i>)
+<p>
+        Public slot to add an AdBlock rule to the page.
+</p><dl>
+<dt><i>rule</i></dt>
+<dd>
+AdBlock rule to add (AdBlockRule)
+</dd><dt><i>url</i></dt>
+<dd>
+URL that matched the rule (QUrl)
+</dd>
+</dl><a NAME="HelpWebPage.event" ID="HelpWebPage.event"></a>
+<h4>HelpWebPage.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method implementing the event handler.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the event was handled (boolean)
+</dd>
+</dl><a NAME="HelpWebPage.extension" ID="HelpWebPage.extension"></a>
+<h4>HelpWebPage.extension</h4>
+<b>extension</b>(<i>extension, option, output</i>)
+<p>
+        Public method to implement a specific extension.
+</p><dl>
+<dt><i>extension</i></dt>
+<dd>
+extension to be executed (QWebPage.Extension)
+</dd><dt><i>option</i></dt>
+<dd>
+provides input to the extension
+            (QWebPage.ExtensionOption)
+</dd><dt><i>output</i></dt>
+<dd>
+stores the output results (QWebPage.ExtensionReturn)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successful call of the extension (boolean)
+</dd>
+</dl><a NAME="HelpWebPage.getAdBlockedPageEntries" ID="HelpWebPage.getAdBlockedPageEntries"></a>
+<h4>HelpWebPage.getAdBlockedPageEntries</h4>
+<b>getAdBlockedPageEntries</b>(<i></i>)
+<p>
+        Public method to get the list of AdBlock page entries.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of AdBlock page entries (list of AdBlockedPageEntry)
+</dd>
+</dl><a NAME="HelpWebPage.getSslCertificate" ID="HelpWebPage.getSslCertificate"></a>
+<h4>HelpWebPage.getSslCertificate</h4>
+<b>getSslCertificate</b>(<i></i>)
+<p>
+        Public method to get a reference to the SSL certificate.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+amended SSL certificate (QSslCertificate)
+</dd>
+</dl><a NAME="HelpWebPage.getSslCertificateChain" ID="HelpWebPage.getSslCertificateChain"></a>
+<h4>HelpWebPage.getSslCertificateChain</h4>
+<b>getSslCertificateChain</b>(<i></i>)
+<p>
+        Public method to get a reference to the SSL certificate chain.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+SSL certificate chain (list of QSslCertificate)
+</dd>
+</dl><a NAME="HelpWebPage.getSslConfiguration" ID="HelpWebPage.getSslConfiguration"></a>
+<h4>HelpWebPage.getSslConfiguration</h4>
+<b>getSslConfiguration</b>(<i></i>)
+<p>
+        Public method to return a reference to the current SSL configuration.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the SSL configuration in use (QSslConfiguration)
+</dd>
+</dl><a NAME="HelpWebPage.hasValidSslInfo" ID="HelpWebPage.hasValidSslInfo"></a>
+<h4>HelpWebPage.hasValidSslInfo</h4>
+<b>hasValidSslInfo</b>(<i></i>)
+<p>
+        Public method to check, if the page has a valid SSL certificate.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a valid SSL certificate (boolean)
+</dd>
+</dl><a NAME="HelpWebPage.pageAttributeId" ID="HelpWebPage.pageAttributeId"></a>
+<h4>HelpWebPage.pageAttributeId</h4>
+<b>pageAttributeId</b>(<i></i>)
+<p>
+        Public method to get the attribute id of the page attribute.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+attribute id of the page attribute (integer)
+</dd>
+</dl><a NAME="HelpWebPage.populateNetworkRequest" ID="HelpWebPage.populateNetworkRequest"></a>
+<h4>HelpWebPage.populateNetworkRequest</h4>
+<b>populateNetworkRequest</b>(<i>request</i>)
+<p>
+        Public method to add data to a network request.
+</p><dl>
+<dt><i>request</i></dt>
+<dd>
+reference to the network request object
+            (QNetworkRequest)
+</dd>
+</dl><a NAME="HelpWebPage.setUserAgent" ID="HelpWebPage.setUserAgent"></a>
+<h4>HelpWebPage.setUserAgent</h4>
+<b>setUserAgent</b>(<i>agent</i>)
+<p>
+        Public method to set the global user agent string.
+</p><dl>
+<dt><i>agent</i></dt>
+<dd>
+new current user agent string (string)
+</dd>
+</dl><a NAME="HelpWebPage.showSslInfo" ID="HelpWebPage.showSslInfo"></a>
+<h4>HelpWebPage.showSslInfo</h4>
+<b>showSslInfo</b>(<i>pos</i>)
+<p>
+        Public slot to show some SSL information for the loaded page.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position to show the info at (QPoint)
+</dd>
+</dl><a NAME="HelpWebPage.supportsExtension" ID="HelpWebPage.supportsExtension"></a>
+<h4>HelpWebPage.supportsExtension</h4>
+<b>supportsExtension</b>(<i>extension</i>)
+<p>
+        Public method to check the support for an extension.
+</p><dl>
+<dt><i>extension</i></dt>
+<dd>
+extension to test for (QWebPage.Extension)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the support of extension (boolean)
+</dd>
+</dl><a NAME="HelpWebPage.url" ID="HelpWebPage.url"></a>
+<h4>HelpWebPage.url</h4>
+<b>url</b>(<i></i>)
+<p>
+        Public method to get the URL of the page.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+URL of the page (QUrl)
+</dd>
+</dl><a NAME="HelpWebPage.userAgent" ID="HelpWebPage.userAgent"></a>
+<h4>HelpWebPage.userAgent</h4>
+<b>userAgent</b>(<i>resolveEmpty=False</i>)
+<p>
+        Public method to get the global user agent setting.
+</p><dl>
+<dt><i>resolveEmpty</i></dt>
+<dd>
+flag indicating to resolve an empty
+            user agent (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+user agent string (string)
+</dd>
+</dl><a NAME="HelpWebPage.userAgentForUrl" ID="HelpWebPage.userAgentForUrl"></a>
+<h4>HelpWebPage.userAgentForUrl</h4>
+<b>userAgentForUrl</b>(<i>url</i>)
+<p>
+        Public method to determine the user agent for the given URL.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to determine user agent for (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+user agent string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="JavaScriptEricObject" ID="JavaScriptEricObject"></a>
+<h2>JavaScriptEricObject</h2>
+<p>
+    Class implementing an external javascript object to search via the
+    startpage.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>translations</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#JavaScriptEricObject.__init__">JavaScriptEricObject</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#JavaScriptEricObject.providerString">providerString</a></td>
+<td>Public method to get a string for the search provider.</td>
+</tr><tr>
+<td><a href="#JavaScriptEricObject.searchUrl">searchUrl</a></td>
+<td>Public method to get the search URL for the given search term.</td>
+</tr><tr>
+<td><a href="#JavaScriptEricObject.translate">translate</a></td>
+<td>Public method to translate the given string.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="JavaScriptEricObject.__init__" ID="JavaScriptEricObject.__init__"></a>
+<h4>JavaScriptEricObject (Constructor)</h4>
+<b>JavaScriptEricObject</b>(<i>mw, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>mw</i></dt>
+<dd>
+reference to the main window 8HelpWindow)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="JavaScriptEricObject.providerString" ID="JavaScriptEricObject.providerString"></a>
+<h4>JavaScriptEricObject.providerString</h4>
+<b>providerString</b>(<i></i>)
+<p>
+        Public method to get a string for the search provider.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+string for the search provider (string)
+</dd>
+</dl><a NAME="JavaScriptEricObject.searchUrl" ID="JavaScriptEricObject.searchUrl"></a>
+<h4>JavaScriptEricObject.searchUrl</h4>
+<b>searchUrl</b>(<i>searchStr</i>)
+<p>
+        Public method to get the search URL for the given search term.
+</p><dl>
+<dt><i>searchStr</i></dt>
+<dd>
+search term (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+search URL (string)
+</dd>
+</dl><a NAME="JavaScriptEricObject.translate" ID="JavaScriptEricObject.translate"></a>
+<h4>JavaScriptEricObject.translate</h4>
+<b>translate</b>(<i>trans</i>)
+<p>
+        Public method to translate the given string.
+</p><dl>
+<dt><i>trans</i></dt>
+<dd>
+string to be translated (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+translation (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="JavaScriptExternalObject" ID="JavaScriptExternalObject"></a>
+<h2>JavaScriptExternalObject</h2>
+<p>
+    Class implementing an external javascript object to add search providers.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#JavaScriptExternalObject.__init__">JavaScriptExternalObject</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#JavaScriptExternalObject.AddSearchProvider">AddSearchProvider</a></td>
+<td>Public slot to add a search provider.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="JavaScriptExternalObject.__init__" ID="JavaScriptExternalObject.__init__"></a>
+<h4>JavaScriptExternalObject (Constructor)</h4>
+<b>JavaScriptExternalObject</b>(<i>mw, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>mw</i></dt>
+<dd>
+reference to the main window 8HelpWindow)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="JavaScriptExternalObject.AddSearchProvider" ID="JavaScriptExternalObject.AddSearchProvider"></a>
+<h4>JavaScriptExternalObject.AddSearchProvider</h4>
+<b>AddSearchProvider</b>(<i>url</i>)
+<p>
+        Public slot to add a search provider.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+url of the XML file defining the search provider (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="LinkedResource" ID="LinkedResource"></a>
+<h2>LinkedResource</h2>
+<p>
+    Class defining a data structure for linked resources.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#LinkedResource.__init__">LinkedResource</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="LinkedResource.__init__" ID="LinkedResource.__init__"></a>
+<h4>LinkedResource (Constructor)</h4>
+<b>LinkedResource</b>(<i></i>)
+<p>
+        Constructor
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="contentSniff" ID="contentSniff"></a>
+<h2>contentSniff</h2>
+<b>contentSniff</b>(<i>data</i>)
+<p>
+    Module function to do some content sniffing to check, if the data is HTML.
+</p><dl>
+<dt><i>data</i></dt>
+<dd>
+data block to sniff at (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating HTML content (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

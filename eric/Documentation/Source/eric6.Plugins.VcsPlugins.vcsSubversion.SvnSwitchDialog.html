@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsSubversion.SvnSwitchDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsSubversion.SvnSwitchDialog</h1>
+<p>
+Module implementing a dialog to enter the data for a switch operation.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SvnSwitchDialog">SvnSwitchDialog</a></td>
+<td>Class implementing a dialog to enter the data for a switch operation.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SvnSwitchDialog" ID="SvnSwitchDialog"></a>
+<h2>SvnSwitchDialog</h2>
+<p>
+    Class implementing a dialog to enter the data for a switch operation.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_SvnSwitchDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SvnSwitchDialog.__init__">SvnSwitchDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SvnSwitchDialog.getParameters">getParameters</a></td>
+<td>Public method to retrieve the tag data.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SvnSwitchDialog.__init__" ID="SvnSwitchDialog.__init__"></a>
+<h4>SvnSwitchDialog (Constructor)</h4>
+<b>SvnSwitchDialog</b>(<i>taglist, reposURL, standardLayout, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>taglist</i></dt>
+<dd>
+list of previously entered tags (list of strings)
+</dd><dt><i>reposURL</i></dt>
+<dd>
+repository path (string) or None
+</dd><dt><i>standardLayout</i></dt>
+<dd>
+flag indicating the layout of the
+            repository (boolean)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="SvnSwitchDialog.getParameters" ID="SvnSwitchDialog.getParameters"></a>
+<h4>SvnSwitchDialog.getParameters</h4>
+<b>getParameters</b>(<i></i>)
+<p>
+        Public method to retrieve the tag data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of string and int (tag, tag type)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

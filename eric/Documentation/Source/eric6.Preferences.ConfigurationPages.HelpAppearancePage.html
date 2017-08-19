@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ConfigurationPages.HelpAppearancePage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ConfigurationPages.HelpAppearancePage</h1>
+<p>
+Module implementing the Help Viewers configuration page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpAppearancePage">HelpAppearancePage</a></td>
+<td>Class implementing the Help Viewer Appearance page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#create">create</a></td>
+<td>Module function to create the configuration page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="HelpAppearancePage" ID="HelpAppearancePage"></a>
+<h2>HelpAppearancePage</h2>
+<p>
+    Class implementing the Help Viewer Appearance page.
+</p>
+<h3>Derived from</h3>
+ConfigurationPageBase, Ui_HelpAppearancePage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpAppearancePage.__init__">HelpAppearancePage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpAppearancePage.on_fixedFontButton_clicked">on_fixedFontButton_clicked</a></td>
+<td>Private method used to select the fixed-width font.</td>
+</tr><tr>
+<td><a href="#HelpAppearancePage.on_standardFontButton_clicked">on_standardFontButton_clicked</a></td>
+<td>Private method used to select the standard font.</td>
+</tr><tr>
+<td><a href="#HelpAppearancePage.save">save</a></td>
+<td>Public slot to save the Help Viewers configuration.</td>
+</tr><tr>
+<td><a href="#HelpAppearancePage.setMode">setMode</a></td>
+<td>Public method to perform mode dependent setups.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpAppearancePage.__init__" ID="HelpAppearancePage.__init__"></a>
+<h4>HelpAppearancePage (Constructor)</h4>
+<b>HelpAppearancePage</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="HelpAppearancePage.on_fixedFontButton_clicked" ID="HelpAppearancePage.on_fixedFontButton_clicked"></a>
+<h4>HelpAppearancePage.on_fixedFontButton_clicked</h4>
+<b>on_fixedFontButton_clicked</b>(<i></i>)
+<p>
+        Private method used to select the fixed-width font.
+</p><a NAME="HelpAppearancePage.on_standardFontButton_clicked" ID="HelpAppearancePage.on_standardFontButton_clicked"></a>
+<h4>HelpAppearancePage.on_standardFontButton_clicked</h4>
+<b>on_standardFontButton_clicked</b>(<i></i>)
+<p>
+        Private method used to select the standard font.
+</p><a NAME="HelpAppearancePage.save" ID="HelpAppearancePage.save"></a>
+<h4>HelpAppearancePage.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public slot to save the Help Viewers configuration.
+</p><a NAME="HelpAppearancePage.setMode" ID="HelpAppearancePage.setMode"></a>
+<h4>HelpAppearancePage.setMode</h4>
+<b>setMode</b>(<i>displayMode</i>)
+<p>
+        Public method to perform mode dependent setups.
+</p><dl>
+<dt><i>displayMode</i></dt>
+<dd>
+mode of the configuration dialog
+            (ConfigurationWidget.DefaultMode,
+             ConfigurationWidget.HelpBrowserMode,
+             ConfigurationWidget.TrayStarterMode)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="create" ID="create"></a>
+<h2>create</h2>
+<b>create</b>(<i>dlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>dlg</i></dt>
+<dd>
+reference to the configuration dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated page (ConfigurationPageBase)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

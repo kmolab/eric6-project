@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5RFC6266</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5RFC6266</h1>
+<p>
+Module implementing a Content-Disposition parser iaw. RFC 6266.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Charset">Charset</a></td>
+<td>A charset (RFC5987, Section 3.2.1).</td>
+</tr><tr>
+<td><a href="#ContentDisposition">ContentDisposition</a></td>
+<td>Records various indications and hints about content disposition.</td>
+</tr><tr>
+<td><a href="#ContentDispositionValue">ContentDispositionValue</a></td>
+<td>A complete Content-Disposition value (RFC 6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#ContentDisposition_1">ContentDisposition</a></td>
+<td>Records various indications and hints about content disposition.</td>
+</tr><tr>
+<td><a href="#DispositionParm">DispositionParm</a></td>
+<td>A parameter for the Disposition-Type header (RFC6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#DispositionParmList">DispositionParmList</a></td>
+<td>A list of disposition parameters (RFC6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#DispositionType">DispositionType</a></td>
+<td>The disposition type (RFC6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#DuplicateParamError">DuplicateParamError</a></td>
+<td>Exception raised when a parameter has been given twice.</td>
+</tr><tr>
+<td><a href="#ExtDispositionParm">ExtDispositionParm</a></td>
+<td>An extended parameter (RFC6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#ExtToken">ExtToken</a></td>
+<td>A token introducing an extended value (RFC 6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#ExtValue">ExtValue</a></td>
+<td>An ext-value of an attribute (RFC 5987, Section 3.2).</td>
+</tr><tr>
+<td><a href="#InvalidISO8859Error">InvalidISO8859Error</a></td>
+<td>Exception raised when a byte is invalid in ISO-8859-1.</td>
+</tr><tr>
+<td><a href="#Language">Language</a></td>
+<td>A language-tag (RFC 5646, Section 2.1).</td>
+</tr><tr>
+<td><a href="#NoExtToken">NoExtToken</a></td>
+<td>A token introducing a normal value (RFC 6266, Section 4.1).</td>
+</tr><tr>
+<td><a href="#QuotedString">QuotedString</a></td>
+<td>A quoted string (RFC 2616, Section 2.2).</td>
+</tr><tr>
+<td><a href="#Token">Token</a></td>
+<td>A token (RFC 2616, Section 2.2).</td>
+</tr><tr>
+<td><a href="#UniqueNamespace">UniqueNamespace</a></td>
+<td>A pyPEG2 namespace which prevents setting a value twice.</td>
+</tr><tr>
+<td><a href="#Value">Value</a></td>
+<td>A value.</td>
+</tr><tr>
+<td><a href="#ValueChars">ValueChars</a></td>
+<td>A value of an attribute.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#normalize_ws">normalize_ws</a></td>
+<td>Do LWS (linear whitespace) folding.</td>
+</tr><tr>
+<td><a href="#parse_ext_value">parse_ext_value</a></td>
+<td>Parse the value of an extended attribute.</td>
+</tr><tr>
+<td><a href="#parse_headers">parse_headers</a></td>
+<td>Build a ContentDisposition from header values.</td>
+</tr><tr>
+<td><a href="#parse_headers_1">parse_headers</a></td>
+<td>Build a ContentDisposition from header values.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="Charset" ID="Charset"></a>
+<h2>Charset</h2>
+<p>
+        A charset (RFC5987, Section 3.2.1).
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ContentDisposition" ID="ContentDisposition"></a>
+<h2>ContentDisposition</h2>
+<p>
+        Records various indications and hints about content disposition.
+</p><p>
+        These can be used to know if a file should be downloaded or
+        displayed directly, and to hint what filename it should have
+        in the download case.
+</p>
+<h3>Derived from</h3>
+None
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ContentDisposition.__init__">ContentDisposition</a></td>
+<td>Used internally after parsing the header.</td>
+</tr><tr>
+<td><a href="#ContentDisposition.filename">filename</a></td>
+<td>The filename from the Content-Disposition header or None.</td>
+</tr><tr>
+<td><a href="#ContentDisposition.is_inline">is_inline</a></td>
+<td>Return if the file should be handled inline.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ContentDisposition.__init__" ID="ContentDisposition.__init__"></a>
+<h4>ContentDisposition (Constructor)</h4>
+<b>ContentDisposition</b>(<i>disposition='inline', assocs=None</i>)
+<p>
+            Used internally after parsing the header.
+</p><p>
+            Instances should generally be created from a factory
+            function, such as parse_headers and its variants.
+</p><a NAME="ContentDisposition.filename" ID="ContentDisposition.filename"></a>
+<h4>ContentDisposition.filename</h4>
+<b>filename</b>(<i></i>)
+<p>
+            The filename from the Content-Disposition header or None.
+</p><p>
+            On safety:
+            This property records the intent of the sender.
+</p><p>
+            You shouldn't use this sender-controlled value as a filesystem
+            path, it can be insecure. Serving files with this filename can be
+            dangerous as well, due to a certain browser using the part after
+            the dot for mime-sniffing.  Saving it to a database is fine by
+            itself though.
+</p><a NAME="ContentDisposition.is_inline" ID="ContentDisposition.is_inline"></a>
+<h4>ContentDisposition.is_inline</h4>
+<b>is_inline</b>(<i></i>)
+<p>
+            Return if the file should be handled inline.
+</p><p>
+            If not, and unless your application supports other dispositions
+            than the standard inline and attachment, it should be handled
+            as an attachment.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ContentDispositionValue" ID="ContentDispositionValue"></a>
+<h2>ContentDispositionValue</h2>
+<p>
+        A complete Content-Disposition value (RFC 6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+None
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ContentDisposition_1" ID="ContentDisposition_1"></a>
+<h2>ContentDisposition</h2>
+<p>
+        Records various indications and hints about content disposition.
+</p><p>
+        These can be used to know if a file should be downloaded or
+        displayed directly, and to hint what filename it should have
+        in the download case.
+</p>
+<h3>Derived from</h3>
+None
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ContentDisposition_1.__init__">ContentDisposition</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ContentDisposition_1.filename">filename</a></td>
+<td>Public method to get the stored file name</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ContentDisposition_1.__init__" ID="ContentDisposition_1.__init__"></a>
+<h4>ContentDisposition (Constructor)</h4>
+<b>ContentDisposition</b>(<i>filename</i>)
+<p>
+            Constructor
+</p><dl>
+<dt><i>filename</i> (str)</dt>
+<dd>
+file name to be stored in this surrogate class
+</dd>
+</dl><a NAME="ContentDisposition_1.filename" ID="ContentDisposition_1.filename"></a>
+<h4>ContentDisposition.filename</h4>
+<b>filename</b>(<i></i>)
+<p>
+            Public method to get the stored file name
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+file name
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="DispositionParm" ID="DispositionParm"></a>
+<h2>DispositionParm</h2>
+<p>
+        A parameter for the Disposition-Type header (RFC6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="DispositionParmList" ID="DispositionParmList"></a>
+<h2>DispositionParmList</h2>
+<p>
+        A list of disposition parameters (RFC6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+UniqueNamespace
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="DispositionType" ID="DispositionType"></a>
+<h2>DispositionType</h2>
+<p>
+        The disposition type (RFC6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+peg.List
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="DuplicateParamError" ID="DuplicateParamError"></a>
+<h2>DuplicateParamError</h2>
+<p>
+        Exception raised when a parameter has been given twice.
+</p>
+<h3>Derived from</h3>
+Exception
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ExtDispositionParm" ID="ExtDispositionParm"></a>
+<h2>ExtDispositionParm</h2>
+<p>
+        An extended parameter (RFC6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+None
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ExtDispositionParm.__init__">ExtDispositionParm</a></td>
+<td></td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ExtDispositionParm.__init__" ID="ExtDispositionParm.__init__"></a>
+<h4>ExtDispositionParm (Constructor)</h4>
+<b>ExtDispositionParm</b>(<i>value, name=None</i>)
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ExtToken" ID="ExtToken"></a>
+<h2>ExtToken</h2>
+<p>
+        A token introducing an extended value (RFC 6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+peg.Symbol
+<h3>Class Attributes</h3>
+<table>
+<tr><td>regex</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ExtToken.__str__">__str__</a></td>
+<td></td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ExtToken.__str__" ID="ExtToken.__str__"></a>
+<h4>ExtToken.__str__</h4>
+<b>__str__</b>(<i></i>)
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ExtValue" ID="ExtValue"></a>
+<h2>ExtValue</h2>
+<p>
+        An ext-value of an attribute (RFC 5987, Section 3.2).
+</p>
+<h3>Derived from</h3>
+peg.List
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="InvalidISO8859Error" ID="InvalidISO8859Error"></a>
+<h2>InvalidISO8859Error</h2>
+<p>
+        Exception raised when a byte is invalid in ISO-8859-1.
+</p>
+<h3>Derived from</h3>
+Exception
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Language" ID="Language"></a>
+<h2>Language</h2>
+<p>
+        A language-tag (RFC 5646, Section 2.1).
+</p><p>
+        Fixme: This grammar is not 100% correct yet.
+        https://github.com/The-Compiler/qutebrowser/issues/105
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="NoExtToken" ID="NoExtToken"></a>
+<h2>NoExtToken</h2>
+<p>
+        A token introducing a normal value (RFC 6266, Section 4.1).
+</p>
+<h3>Derived from</h3>
+peg.Symbol
+<h3>Class Attributes</h3>
+<table>
+<tr><td>regex</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#NoExtToken.__str__">__str__</a></td>
+<td></td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="NoExtToken.__str__" ID="NoExtToken.__str__"></a>
+<h4>NoExtToken.__str__</h4>
+<b>__str__</b>(<i></i>)
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="QuotedString" ID="QuotedString"></a>
+<h2>QuotedString</h2>
+<p>
+        A quoted string (RFC 2616, Section 2.2).
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QuotedString.__str__">__str__</a></td>
+<td></td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QuotedString.__str__" ID="QuotedString.__str__"></a>
+<h4>QuotedString.__str__</h4>
+<b>__str__</b>(<i></i>)
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Token" ID="Token"></a>
+<h2>Token</h2>
+<p>
+        A token (RFC 2616, Section 2.2).
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="UniqueNamespace" ID="UniqueNamespace"></a>
+<h2>UniqueNamespace</h2>
+<p>
+        A pyPEG2 namespace which prevents setting a value twice.
+</p>
+<h3>Derived from</h3>
+peg.Namespace
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#UniqueNamespace.__setitem__">__setitem__</a></td>
+<td>Special method to set an item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="UniqueNamespace.__setitem__" ID="UniqueNamespace.__setitem__"></a>
+<h4>UniqueNamespace.__setitem__</h4>
+<b>__setitem__</b>(<i>key, value</i>)
+<p>
+            Special method to set an item.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key for the item
+</dd><dt><i>value</i></dt>
+<dd>
+value of the item
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="Value" ID="Value"></a>
+<h2>Value</h2>
+<p>
+        A value. (RFC 2616, Section 3.6).
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ValueChars" ID="ValueChars"></a>
+<h2>ValueChars</h2>
+<p>
+        A value of an attribute.
+</p><p>
+        Fixme: Can we merge this with Value?
+        https://github.com/The-Compiler/qutebrowser/issues/105
+</p>
+<h3>Derived from</h3>
+str
+<h3>Class Attributes</h3>
+<table>
+<tr><td>grammar</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="normalize_ws" ID="normalize_ws"></a>
+<h2>normalize_ws</h2>
+<b>normalize_ws</b>(<i>text</i>)
+<p>
+        Do LWS (linear whitespace) folding.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="parse_ext_value" ID="parse_ext_value"></a>
+<h2>parse_ext_value</h2>
+<b>parse_ext_value</b>(<i>val</i>)
+<p>
+        Parse the value of an extended attribute.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="parse_headers" ID="parse_headers"></a>
+<h2>parse_headers</h2>
+<b>parse_headers</b>(<i>content_disposition</i>)
+<p>
+        Build a ContentDisposition from header values.
+</p><dl>
+<dt><i>content_disposition</i> (bytes)</dt>
+<dd>
+contents of the disposition header
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="parse_headers_1" ID="parse_headers_1"></a>
+<h2>parse_headers</h2>
+<b>parse_headers</b>(<i>content_disposition</i>)
+<p>
+        Build a ContentDisposition from header values.
+</p><dl>
+<dt><i>content_disposition</i> (bytes)</dt>
+<dd>
+contents of the disposition header
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

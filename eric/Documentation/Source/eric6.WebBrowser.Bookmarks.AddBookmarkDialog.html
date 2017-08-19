@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.Bookmarks.AddBookmarkDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.Bookmarks.AddBookmarkDialog</h1>
+<p>
+Module implementing a dialog to add a bookmark or a bookmark folder.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#AddBookmarkDialog">AddBookmarkDialog</a></td>
+<td>Class implementing a dialog to add a bookmark or a bookmark folder.</td>
+</tr><tr>
+<td><a href="#AddBookmarkProxyModel">AddBookmarkProxyModel</a></td>
+<td>Class implementing a proxy model used by the AddBookmarkDialog dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="AddBookmarkDialog" ID="AddBookmarkDialog"></a>
+<h2>AddBookmarkDialog</h2>
+<p>
+    Class implementing a dialog to add a bookmark or a bookmark folder.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_AddBookmarkDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AddBookmarkDialog.__init__">AddBookmarkDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.accept">accept</a></td>
+<td>Public slot handling the acceptance of the dialog.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.addedNode">addedNode</a></td>
+<td>Public method to get a reference to the added bookmark node.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.currentIndex">currentIndex</a></td>
+<td>Public method to get the current index.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.description">description</a></td>
+<td>Public method to get the description of the bookmark.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.isFolder">isFolder</a></td>
+<td>Public method to test, if the dialog is in "Add Folder" mode.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.setCurrentIndex">setCurrentIndex</a></td>
+<td>Public method to set the current index.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.setDescription">setDescription</a></td>
+<td>Public method to set the description of the new bookmark.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.setFolder">setFolder</a></td>
+<td>Public method to set the dialog to "Add Folder" mode.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.setTitle">setTitle</a></td>
+<td>Public method to set the title of the new bookmark.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.setUrl">setUrl</a></td>
+<td>Public slot to set the URL of the new bookmark.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.title">title</a></td>
+<td>Public method to get the title of the bookmark.</td>
+</tr><tr>
+<td><a href="#AddBookmarkDialog.url">url</a></td>
+<td>Public method to get the URL of the bookmark.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AddBookmarkDialog.__init__" ID="AddBookmarkDialog.__init__"></a>
+<h4>AddBookmarkDialog (Constructor)</h4>
+<b>AddBookmarkDialog</b>(<i>parent=None, bookmarksManager=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd><dt><i>bookmarksManager</i></dt>
+<dd>
+reference to the bookmarks manager
+            object (BookmarksManager)
+</dd>
+</dl><a NAME="AddBookmarkDialog.accept" ID="AddBookmarkDialog.accept"></a>
+<h4>AddBookmarkDialog.accept</h4>
+<b>accept</b>(<i></i>)
+<p>
+        Public slot handling the acceptance of the dialog.
+</p><a NAME="AddBookmarkDialog.addedNode" ID="AddBookmarkDialog.addedNode"></a>
+<h4>AddBookmarkDialog.addedNode</h4>
+<b>addedNode</b>(<i></i>)
+<p>
+        Public method to get a reference to the added bookmark node.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the added bookmark node (BookmarkNode)
+</dd>
+</dl><a NAME="AddBookmarkDialog.currentIndex" ID="AddBookmarkDialog.currentIndex"></a>
+<h4>AddBookmarkDialog.currentIndex</h4>
+<b>currentIndex</b>(<i></i>)
+<p>
+        Public method to get the current index.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+current index (QModelIndex)
+</dd>
+</dl><a NAME="AddBookmarkDialog.description" ID="AddBookmarkDialog.description"></a>
+<h4>AddBookmarkDialog.description</h4>
+<b>description</b>(<i></i>)
+<p>
+        Public method to get the description of the bookmark.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+description of the bookamrk (string)
+</dd>
+</dl><a NAME="AddBookmarkDialog.isFolder" ID="AddBookmarkDialog.isFolder"></a>
+<h4>AddBookmarkDialog.isFolder</h4>
+<b>isFolder</b>(<i></i>)
+<p>
+        Public method to test, if the dialog is in "Add Folder" mode.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating "Add Folder" mode (boolean)
+</dd>
+</dl><a NAME="AddBookmarkDialog.setCurrentIndex" ID="AddBookmarkDialog.setCurrentIndex"></a>
+<h4>AddBookmarkDialog.setCurrentIndex</h4>
+<b>setCurrentIndex</b>(<i>idx</i>)
+<p>
+        Public method to set the current index.
+</p><dl>
+<dt><i>idx</i></dt>
+<dd>
+current index to be set (QModelIndex)
+</dd>
+</dl><a NAME="AddBookmarkDialog.setDescription" ID="AddBookmarkDialog.setDescription"></a>
+<h4>AddBookmarkDialog.setDescription</h4>
+<b>setDescription</b>(<i>description</i>)
+<p>
+        Public method to set the description of the new bookmark.
+</p><dl>
+<dt><i>description</i></dt>
+<dd>
+description of the bookamrk (string)
+</dd>
+</dl><a NAME="AddBookmarkDialog.setFolder" ID="AddBookmarkDialog.setFolder"></a>
+<h4>AddBookmarkDialog.setFolder</h4>
+<b>setFolder</b>(<i>folder</i>)
+<p>
+        Public method to set the dialog to "Add Folder" mode.
+</p><dl>
+<dt><i>folder</i></dt>
+<dd>
+flag indicating "Add Folder" mode (boolean)
+</dd>
+</dl><a NAME="AddBookmarkDialog.setTitle" ID="AddBookmarkDialog.setTitle"></a>
+<h4>AddBookmarkDialog.setTitle</h4>
+<b>setTitle</b>(<i>title</i>)
+<p>
+        Public method to set the title of the new bookmark.
+</p><dl>
+<dt><i>title</i></dt>
+<dd>
+title of the bookmark (string)
+</dd>
+</dl><a NAME="AddBookmarkDialog.setUrl" ID="AddBookmarkDialog.setUrl"></a>
+<h4>AddBookmarkDialog.setUrl</h4>
+<b>setUrl</b>(<i>url</i>)
+<p>
+        Public slot to set the URL of the new bookmark.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL of the bookmark (string)
+</dd>
+</dl><a NAME="AddBookmarkDialog.title" ID="AddBookmarkDialog.title"></a>
+<h4>AddBookmarkDialog.title</h4>
+<b>title</b>(<i></i>)
+<p>
+        Public method to get the title of the bookmark.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+title of the bookmark (string)
+</dd>
+</dl><a NAME="AddBookmarkDialog.url" ID="AddBookmarkDialog.url"></a>
+<h4>AddBookmarkDialog.url</h4>
+<b>url</b>(<i></i>)
+<p>
+        Public method to get the URL of the bookmark.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+URL of the bookmark (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="AddBookmarkProxyModel" ID="AddBookmarkProxyModel"></a>
+<h2>AddBookmarkProxyModel</h2>
+<p>
+    Class implementing a proxy model used by the AddBookmarkDialog dialog.
+</p>
+<h3>Derived from</h3>
+QSortFilterProxyModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AddBookmarkProxyModel.__init__">AddBookmarkProxyModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#AddBookmarkProxyModel.columnCount">columnCount</a></td>
+<td>Public method to return the number of columns.</td>
+</tr><tr>
+<td><a href="#AddBookmarkProxyModel.filterAcceptsColumn">filterAcceptsColumn</a></td>
+<td>Public method to determine, if the column is acceptable.</td>
+</tr><tr>
+<td><a href="#AddBookmarkProxyModel.filterAcceptsRow">filterAcceptsRow</a></td>
+<td>Public method to determine, if the row is acceptable.</td>
+</tr><tr>
+<td><a href="#AddBookmarkProxyModel.hasChildren">hasChildren</a></td>
+<td>Public method to check, if a parent node has some children.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AddBookmarkProxyModel.__init__" ID="AddBookmarkProxyModel.__init__"></a>
+<h4>AddBookmarkProxyModel (Constructor)</h4>
+<b>AddBookmarkProxyModel</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="AddBookmarkProxyModel.columnCount" ID="AddBookmarkProxyModel.columnCount"></a>
+<h4>AddBookmarkProxyModel.columnCount</h4>
+<b>columnCount</b>(<i>parent</i>)
+<p>
+        Public method to return the number of columns.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of the parent (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="AddBookmarkProxyModel.filterAcceptsColumn" ID="AddBookmarkProxyModel.filterAcceptsColumn"></a>
+<h4>AddBookmarkProxyModel.filterAcceptsColumn</h4>
+<b>filterAcceptsColumn</b>(<i>sourceColumn, sourceParent</i>)
+<p>
+        Public method to determine, if the column is acceptable.
+</p><dl>
+<dt><i>sourceColumn</i></dt>
+<dd>
+column number in the source model (integer)
+</dd><dt><i>sourceParent</i></dt>
+<dd>
+index of the source item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating acceptance (boolean)
+</dd>
+</dl><a NAME="AddBookmarkProxyModel.filterAcceptsRow" ID="AddBookmarkProxyModel.filterAcceptsRow"></a>
+<h4>AddBookmarkProxyModel.filterAcceptsRow</h4>
+<b>filterAcceptsRow</b>(<i>sourceRow, sourceParent</i>)
+<p>
+        Public method to determine, if the row is acceptable.
+</p><dl>
+<dt><i>sourceRow</i></dt>
+<dd>
+row number in the source model (integer)
+</dd><dt><i>sourceParent</i></dt>
+<dd>
+index of the source item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating acceptance (boolean)
+</dd>
+</dl><a NAME="AddBookmarkProxyModel.hasChildren" ID="AddBookmarkProxyModel.hasChildren"></a>
+<h4>AddBookmarkProxyModel.hasChildren</h4>
+<b>hasChildren</b>(<i>parent=None</i>)
+<p>
+        Public method to check, if a parent node has some children.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of the parent node (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of children (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

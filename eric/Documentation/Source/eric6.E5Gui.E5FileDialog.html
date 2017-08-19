@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5FileDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5FileDialog</h1>
+<p>
+Module implementing alternative functions for the QFileDialog static methods
+to cope with distributor's usage of KDE wrapper dialogs for Qt file dialogs.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>DontConfirmOverwrite</td></tr><tr><td>DontResolveSymlinks</td></tr><tr><td>DontUseNativeDialog</td></tr><tr><td>DontUseSheet</td></tr><tr><td>HideNameFilterDetails</td></tr><tr><td>Option</td></tr><tr><td>Options</td></tr><tr><td>ReadOnly</td></tr><tr><td>ShowDirsOnly</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__reorderFilter">__reorderFilter</a></td>
+<td>Private function to reorder the file filter to cope with a KDE issue introduced by distributor's usage of KDE file dialogs.</td>
+</tr><tr>
+<td><a href="#getExistingDirectory">getExistingDirectory</a></td>
+<td>Module function to get the name of a directory.</td>
+</tr><tr>
+<td><a href="#getOpenFileName">getOpenFileName</a></td>
+<td>Module function to get the name of a file for opening it.</td>
+</tr><tr>
+<td><a href="#getOpenFileNameAndFilter">getOpenFileNameAndFilter</a></td>
+<td>Module function to get the name of a file for opening it and the selected file name filter.</td>
+</tr><tr>
+<td><a href="#getOpenFileNames">getOpenFileNames</a></td>
+<td>Module function to get a list of names of files for opening.</td>
+</tr><tr>
+<td><a href="#getOpenFileNamesAndFilter">getOpenFileNamesAndFilter</a></td>
+<td>Module function to get a list of names of files for opening and the selected file name filter.</td>
+</tr><tr>
+<td><a href="#getSaveFileName">getSaveFileName</a></td>
+<td>Module function to get the name of a file for saving it.</td>
+</tr><tr>
+<td><a href="#getSaveFileNameAndFilter">getSaveFileNameAndFilter</a></td>
+<td>Module function to get the name of a file for saving it and the selected file name filter.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__reorderFilter" ID="__reorderFilter"></a>
+<h2>__reorderFilter</h2>
+<b>__reorderFilter</b>(<i>filterStr, initialFilter=""</i>)
+<p>
+    Private function to reorder the file filter to cope with a KDE issue
+    introduced by distributor's usage of KDE file dialogs.
+</p><dl>
+<dt><i>filterStr</i></dt>
+<dd>
+Qt file filter (string)
+</dd><dt><i>initialFilter</i></dt>
+<dd>
+initial filter (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the rearranged Qt file filter (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getExistingDirectory" ID="getExistingDirectory"></a>
+<h2>getExistingDirectory</h2>
+<b>getExistingDirectory</b>(<i>parent=None, caption="", directory="", options=QFileDialog.ShowDirsOnly</i>)
+<p>
+    Module function to get the name of a directory.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of selected directory (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getOpenFileName" ID="getOpenFileName"></a>
+<h2>getOpenFileName</h2>
+<b>getOpenFileName</b>(<i>parent=None, caption="", directory="", filterStr="", options=None</i>)
+<p>
+    Module function to get the name of a file for opening it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be opened (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getOpenFileNameAndFilter" ID="getOpenFileNameAndFilter"></a>
+<h2>getOpenFileNameAndFilter</h2>
+<b>getOpenFileNameAndFilter</b>(<i>parent=None, caption="", directory="", filterStr="", initialFilter="", options=None</i>)
+<p>
+    Module function to get the name of a file for opening it and the selected
+    file name filter.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>initialFilter</i></dt>
+<dd>
+initial filter for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be opened and selected filter (string, string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getOpenFileNames" ID="getOpenFileNames"></a>
+<h2>getOpenFileNames</h2>
+<b>getOpenFileNames</b>(<i>parent=None, caption="", directory="", filterStr="", options=None</i>)
+<p>
+    Module function to get a list of names of files for opening.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of file names to be opened (list of string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getOpenFileNamesAndFilter" ID="getOpenFileNamesAndFilter"></a>
+<h2>getOpenFileNamesAndFilter</h2>
+<b>getOpenFileNamesAndFilter</b>(<i>parent=None, caption="", directory="", filterStr="", initialFilter="", options=None</i>)
+<p>
+    Module function to get a list of names of files for opening and the
+    selected file name filter.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>initialFilter</i></dt>
+<dd>
+initial filter for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of file names to be opened and selected filter
+        (list of string, string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getSaveFileName" ID="getSaveFileName"></a>
+<h2>getSaveFileName</h2>
+<b>getSaveFileName</b>(<i>parent=None, caption="", directory="", filterStr="", options=None</i>)
+<p>
+    Module function to get the name of a file for saving it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be saved (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getSaveFileNameAndFilter" ID="getSaveFileNameAndFilter"></a>
+<h2>getSaveFileNameAndFilter</h2>
+<b>getSaveFileNameAndFilter</b>(<i>parent=None, caption="", directory="", filterStr="", initialFilter="", options=None</i>)
+<p>
+    Module function to get the name of a file for saving it and the selected
+    file name filter.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filterStr</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>initialFilter</i></dt>
+<dd>
+initial filter for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+name of file to be saved and selected filter (string, string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

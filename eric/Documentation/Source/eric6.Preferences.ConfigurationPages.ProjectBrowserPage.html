@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ConfigurationPages.ProjectBrowserPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ConfigurationPages.ProjectBrowserPage</h1>
+<p>
+Module implementing the Project Browser configuration page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserPage">ProjectBrowserPage</a></td>
+<td>Class implementing the Project Browser configuration page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#create">create</a></td>
+<td>Module function to create the configuration page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="ProjectBrowserPage" ID="ProjectBrowserPage"></a>
+<h2>ProjectBrowserPage</h2>
+<p>
+    Class implementing the Project Browser configuration page.
+</p>
+<h3>Derived from</h3>
+ConfigurationPageBase, Ui_ProjectBrowserPage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserPage.__init__">ProjectBrowserPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ProjectBrowserPage.__setProjectBrowsersCheckBoxes">__setProjectBrowsersCheckBoxes</a></td>
+<td>Private method to set the checkboxes according to the selected project type.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserPage.__storeProjectBrowserFlags">__storeProjectBrowserFlags</a></td>
+<td>Private method to store the flags for the selected project type.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserPage.on_followCursorLineCheckBox_toggled">on_followCursorLineCheckBox_toggled</a></td>
+<td>Private slot to handle the change of the 'Follow Cursor Line' checkbox.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserPage.on_followEditorCheckBox_toggled">on_followEditorCheckBox_toggled</a></td>
+<td>Private slot to handle the change of the 'Follow Editor' checkbox.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserPage.on_projectTypeCombo_activated">on_projectTypeCombo_activated</a></td>
+<td>Private slot to set the browser checkboxes according to the selected project type.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserPage.save">save</a></td>
+<td>Public slot to save the Project Browser configuration.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowserPage.__init__" ID="ProjectBrowserPage.__init__"></a>
+<h4>ProjectBrowserPage (Constructor)</h4>
+<b>ProjectBrowserPage</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="ProjectBrowserPage.__setProjectBrowsersCheckBoxes" ID="ProjectBrowserPage.__setProjectBrowsersCheckBoxes"></a>
+<h4>ProjectBrowserPage.__setProjectBrowsersCheckBoxes</h4>
+<b>__setProjectBrowsersCheckBoxes</b>(<i>projectType</i>)
+<p>
+        Private method to set the checkboxes according to the selected project
+        type.
+</p><dl>
+<dt><i>projectType</i></dt>
+<dd>
+type of the selected project (string)
+</dd>
+</dl><a NAME="ProjectBrowserPage.__storeProjectBrowserFlags" ID="ProjectBrowserPage.__storeProjectBrowserFlags"></a>
+<h4>ProjectBrowserPage.__storeProjectBrowserFlags</h4>
+<b>__storeProjectBrowserFlags</b>(<i>projectType</i>)
+<p>
+        Private method to store the flags for the selected project type.
+</p><dl>
+<dt><i>projectType</i></dt>
+<dd>
+type of the selected project (string)
+</dd>
+</dl><a NAME="ProjectBrowserPage.on_followCursorLineCheckBox_toggled" ID="ProjectBrowserPage.on_followCursorLineCheckBox_toggled"></a>
+<h4>ProjectBrowserPage.on_followCursorLineCheckBox_toggled</h4>
+<b>on_followCursorLineCheckBox_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle the change of the 'Follow Cursor Line' checkbox.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the state of the checkbox
+</dd>
+</dl><a NAME="ProjectBrowserPage.on_followEditorCheckBox_toggled" ID="ProjectBrowserPage.on_followEditorCheckBox_toggled"></a>
+<h4>ProjectBrowserPage.on_followEditorCheckBox_toggled</h4>
+<b>on_followEditorCheckBox_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle the change of the 'Follow Editor' checkbox.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the state of the checkbox
+</dd>
+</dl><a NAME="ProjectBrowserPage.on_projectTypeCombo_activated" ID="ProjectBrowserPage.on_projectTypeCombo_activated"></a>
+<h4>ProjectBrowserPage.on_projectTypeCombo_activated</h4>
+<b>on_projectTypeCombo_activated</b>(<i>index</i>)
+<p>
+        Private slot to set the browser checkboxes according to the selected
+        project type.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the selected project type (integer)
+</dd>
+</dl><a NAME="ProjectBrowserPage.save" ID="ProjectBrowserPage.save"></a>
+<h4>ProjectBrowserPage.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public slot to save the Project Browser configuration.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="create" ID="create"></a>
+<h2>create</h2>
+<b>create</b>(<i>dlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>dlg</i></dt>
+<dd>
+reference to the configuration dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated page (ConfigurationPageBase)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

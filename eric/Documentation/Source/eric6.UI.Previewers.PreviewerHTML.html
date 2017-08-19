@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.UI.Previewers.PreviewerHTML</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.UI.Previewers.PreviewerHTML</h1>
+<p>
+Module implementing a previewer widget for HTML, Markdown and ReST files.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PreviewProcessingThread">PreviewProcessingThread</a></td>
+<td>Class implementing a thread to process some text into HTML usable by the previewer view.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML">PreviewerHTML</a></td>
+<td>Class implementing a previewer widget for HTML, Markdown and ReST files.</td>
+</tr><tr>
+<td><a href="#_StrikeThroughExtension">_StrikeThroughExtension</a></td>
+<td>Class is placed here, because it depends on imported markdown, and markdown import is lazy.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="PreviewProcessingThread" ID="PreviewProcessingThread"></a>
+<h2>PreviewProcessingThread</h2>
+<p>
+    Class implementing a thread to process some text into HTML usable by the
+    previewer view.
+</p><h3>Signals</h3>
+<dl>
+<dt>htmlReady(str,str)</dt>
+<dd>
+emitted with the file name and processed HTML
+        to signal the availability of the processed HTML
+</dd>
+</dl>
+<h3>Derived from</h3>
+QThread
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PreviewProcessingThread.__init__">PreviewProcessingThread</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.__convertMarkdown">__convertMarkdown</a></td>
+<td>Private method to convert Markdown text into HTML.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.__convertReST">__convertReST</a></td>
+<td>Private method to convert ReST text into HTML.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.__convertReSTDocutils">__convertReSTDocutils</a></td>
+<td>Private method to convert ReST text into HTML using 'docutils'.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.__convertReSTSphinx">__convertReSTSphinx</a></td>
+<td>Private method to convert ReST text into HTML using 'sphinx'.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.__getHtml">__getHtml</a></td>
+<td>Private method to process the given text depending upon the given language.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.__processSSI">__processSSI</a></td>
+<td>Private method to process the given text for SSI statements.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.process">process</a></td>
+<td>Public method to convert the given text to HTML.</td>
+</tr><tr>
+<td><a href="#PreviewProcessingThread.run">run</a></td>
+<td>Public thread method to convert the stored data.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PreviewProcessingThread.__init__" ID="PreviewProcessingThread.__init__"></a>
+<h4>PreviewProcessingThread (Constructor)</h4>
+<b>PreviewProcessingThread</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="PreviewProcessingThread.__convertMarkdown" ID="PreviewProcessingThread.__convertMarkdown"></a>
+<h4>PreviewProcessingThread.__convertMarkdown</h4>
+<b>__convertMarkdown</b>(<i>text</i>)
+<p>
+        Private method to convert Markdown text into HTML.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be processed (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed HTML (string)
+</dd>
+</dl><a NAME="PreviewProcessingThread.__convertReST" ID="PreviewProcessingThread.__convertReST"></a>
+<h4>PreviewProcessingThread.__convertReST</h4>
+<b>__convertReST</b>(<i>text, useSphinx</i>)
+<p>
+        Private method to convert ReST text into HTML.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be processed (string)
+</dd><dt><i>useSphinx</i></dt>
+<dd>
+flag indicating to use Sphinx to generate the
+            ReST preview (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed HTML (string)
+</dd>
+</dl><a NAME="PreviewProcessingThread.__convertReSTDocutils" ID="PreviewProcessingThread.__convertReSTDocutils"></a>
+<h4>PreviewProcessingThread.__convertReSTDocutils</h4>
+<b>__convertReSTDocutils</b>(<i>text</i>)
+<p>
+        Private method to convert ReST text into HTML using 'docutils'.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be processed (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed HTML (string)
+</dd>
+</dl><a NAME="PreviewProcessingThread.__convertReSTSphinx" ID="PreviewProcessingThread.__convertReSTSphinx"></a>
+<h4>PreviewProcessingThread.__convertReSTSphinx</h4>
+<b>__convertReSTSphinx</b>(<i>text</i>)
+<p>
+        Private method to convert ReST text into HTML using 'sphinx'.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to be processed (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed HTML (string)
+</dd>
+</dl><a NAME="PreviewProcessingThread.__getHtml" ID="PreviewProcessingThread.__getHtml"></a>
+<h4>PreviewProcessingThread.__getHtml</h4>
+<b>__getHtml</b>(<i>language, text, ssiEnabled, filePath, rootPath, useSphinx</i>)
+<p>
+        Private method to process the given text depending upon the given
+        language.
+</p><dl>
+<dt><i>language</i></dt>
+<dd>
+language of the text (string)
+</dd><dt><i>text</i></dt>
+<dd>
+to be processed (string)
+</dd><dt><i>ssiEnabled</i></dt>
+<dd>
+flag indicating to do some (limited) SSI processing
+            (boolean)
+</dd><dt><i>filePath</i></dt>
+<dd>
+file path of the text (string)
+</dd><dt><i>rootPath</i></dt>
+<dd>
+root path to be used for SSI processing (str)
+</dd><dt><i>useSphinx</i></dt>
+<dd>
+flag indicating to use Sphinx to generate the
+            ReST preview (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed HTML text (string)
+</dd>
+</dl><a NAME="PreviewProcessingThread.__processSSI" ID="PreviewProcessingThread.__processSSI"></a>
+<h4>PreviewProcessingThread.__processSSI</h4>
+<b>__processSSI</b>(<i>txt, filename, root</i>)
+<p>
+        Private method to process the given text for SSI statements.
+</p><p>
+        Note: Only a limited subset of SSI statements are supported.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be processed (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+name of the file associated with the given text
+            (string)
+</dd><dt><i>root</i></dt>
+<dd>
+directory of the document root (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+processed HTML (string)
+</dd>
+</dl><a NAME="PreviewProcessingThread.process" ID="PreviewProcessingThread.process"></a>
+<h4>PreviewProcessingThread.process</h4>
+<b>process</b>(<i>filePath, language, text, ssiEnabled, rootPath, useSphinx</i>)
+<p>
+        Public method to convert the given text to HTML.
+</p><dl>
+<dt><i>filePath</i></dt>
+<dd>
+file path of the text (string)
+</dd><dt><i>language</i></dt>
+<dd>
+language of the text (string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to be processed (string)
+</dd><dt><i>ssiEnabled</i></dt>
+<dd>
+flag indicating to do some (limited) SSI processing
+            (boolean)
+</dd><dt><i>rootPath</i></dt>
+<dd>
+root path to be used for SSI processing (str)
+</dd><dt><i>useSphinx</i></dt>
+<dd>
+flag indicating to use Sphinx to generate the
+            ReST preview (boolean)
+</dd>
+</dl><a NAME="PreviewProcessingThread.run" ID="PreviewProcessingThread.run"></a>
+<h4>PreviewProcessingThread.run</h4>
+<b>run</b>(<i></i>)
+<p>
+        Public thread method to convert the stored data.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PreviewerHTML" ID="PreviewerHTML"></a>
+<h2>PreviewerHTML</h2>
+<p>
+    Class implementing a previewer widget for HTML, Markdown and ReST files.
+</p>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PreviewerHTML.__init__">PreviewerHTML</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.__execJavaScript">__execJavaScript</a></td>
+<td>Private function to execute a JavaScript function Synchroneously.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.__restoreScrollBarPositions">__restoreScrollBarPositions</a></td>
+<td>Private method to restore scroll bar positions for a previewed editor.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.__saveScrollBarPositions">__saveScrollBarPositions</a></td>
+<td>Private method to save scroll bar positions for a previewed editor.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.__setHtml">__setHtml</a></td>
+<td>Private method to set the HTML to the view and restore the scroll bars positions.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.__setJavaScriptEnabled">__setJavaScriptEnabled</a></td>
+<td>Private method to enable/disable JavaScript.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.on_jsCheckBox_clicked">on_jsCheckBox_clicked</a></td>
+<td>Private slot to enable/disable JavaScript.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.on_previewView_linkClicked">on_previewView_linkClicked</a></td>
+<td>Private slot handling the clicking of a link.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.on_previewView_titleChanged">on_previewView_titleChanged</a></td>
+<td>Private slot to handle a change of the title.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.on_ssiCheckBox_clicked">on_ssiCheckBox_clicked</a></td>
+<td>Private slot to enable/disable SSI.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.processEditor">processEditor</a></td>
+<td>Public slot to process an editor's text.</td>
+</tr><tr>
+<td><a href="#PreviewerHTML.resultCallback">resultCallback</a></td>
+<td></td>
+</tr><tr>
+<td><a href="#PreviewerHTML.shutdown">shutdown</a></td>
+<td>Public method to perform shutdown actions.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PreviewerHTML.__init__" ID="PreviewerHTML.__init__"></a>
+<h4>PreviewerHTML (Constructor)</h4>
+<b>PreviewerHTML</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="PreviewerHTML.__execJavaScript" ID="PreviewerHTML.__execJavaScript"></a>
+<h4>PreviewerHTML.__execJavaScript</h4>
+<b>__execJavaScript</b>(<i>script</i>)
+<p>
+        Private function to execute a JavaScript function Synchroneously.
+</p><dl>
+<dt><i>script</i> (str)</dt>
+<dd>
+JavaScript script source to be executed
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+result of the script
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+depending upon script result
+</dd>
+</dl><a NAME="PreviewerHTML.__restoreScrollBarPositions" ID="PreviewerHTML.__restoreScrollBarPositions"></a>
+<h4>PreviewerHTML.__restoreScrollBarPositions</h4>
+<b>__restoreScrollBarPositions</b>(<i></i>)
+<p>
+        Private method to restore scroll bar positions for a previewed editor.
+</p><a NAME="PreviewerHTML.__saveScrollBarPositions" ID="PreviewerHTML.__saveScrollBarPositions"></a>
+<h4>PreviewerHTML.__saveScrollBarPositions</h4>
+<b>__saveScrollBarPositions</b>(<i></i>)
+<p>
+        Private method to save scroll bar positions for a previewed editor.
+</p><a NAME="PreviewerHTML.__setHtml" ID="PreviewerHTML.__setHtml"></a>
+<h4>PreviewerHTML.__setHtml</h4>
+<b>__setHtml</b>(<i>filePath, html</i>)
+<p>
+        Private method to set the HTML to the view and restore the scroll bars
+        positions.
+</p><dl>
+<dt><i>filePath</i></dt>
+<dd>
+file path of the previewed editor (string)
+</dd><dt><i>html</i></dt>
+<dd>
+processed HTML text ready to be shown (string)
+</dd>
+</dl><a NAME="PreviewerHTML.__setJavaScriptEnabled" ID="PreviewerHTML.__setJavaScriptEnabled"></a>
+<h4>PreviewerHTML.__setJavaScriptEnabled</h4>
+<b>__setJavaScriptEnabled</b>(<i>enable</i>)
+<p>
+        Private method to enable/disable JavaScript.
+</p><dl>
+<dt><i>enable</i></dt>
+<dd>
+flag indicating the enable state (boolean)
+</dd>
+</dl><a NAME="PreviewerHTML.on_jsCheckBox_clicked" ID="PreviewerHTML.on_jsCheckBox_clicked"></a>
+<h4>PreviewerHTML.on_jsCheckBox_clicked</h4>
+<b>on_jsCheckBox_clicked</b>(<i>checked</i>)
+<p>
+        Private slot to enable/disable JavaScript.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the checkbox (boolean)
+</dd>
+</dl><a NAME="PreviewerHTML.on_previewView_linkClicked" ID="PreviewerHTML.on_previewView_linkClicked"></a>
+<h4>PreviewerHTML.on_previewView_linkClicked</h4>
+<b>on_previewView_linkClicked</b>(<i>url</i>)
+<p>
+        Private slot handling the clicking of a link.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+url of the clicked link (QUrl)
+</dd>
+</dl><a NAME="PreviewerHTML.on_previewView_titleChanged" ID="PreviewerHTML.on_previewView_titleChanged"></a>
+<h4>PreviewerHTML.on_previewView_titleChanged</h4>
+<b>on_previewView_titleChanged</b>(<i>title</i>)
+<p>
+        Private slot to handle a change of the title.
+</p><dl>
+<dt><i>title</i></dt>
+<dd>
+new title (string)
+</dd>
+</dl><a NAME="PreviewerHTML.on_ssiCheckBox_clicked" ID="PreviewerHTML.on_ssiCheckBox_clicked"></a>
+<h4>PreviewerHTML.on_ssiCheckBox_clicked</h4>
+<b>on_ssiCheckBox_clicked</b>(<i>checked</i>)
+<p>
+        Private slot to enable/disable SSI.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the checkbox (boolean)
+</dd>
+</dl><a NAME="PreviewerHTML.processEditor" ID="PreviewerHTML.processEditor"></a>
+<h4>PreviewerHTML.processEditor</h4>
+<b>processEditor</b>(<i>editor=None</i>)
+<p>
+        Public slot to process an editor's text.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+editor to be processed (Editor)
+</dd>
+</dl><a NAME="PreviewerHTML.resultCallback" ID="PreviewerHTML.resultCallback"></a>
+<h4>PreviewerHTML.resultCallback</h4>
+<b>resultCallback</b>(<i>resDict=resultDict</i>)
+<a NAME="PreviewerHTML.shutdown" ID="PreviewerHTML.shutdown"></a>
+<h4>PreviewerHTML.shutdown</h4>
+<b>shutdown</b>(<i></i>)
+<p>
+        Public method to perform shutdown actions.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="_StrikeThroughExtension" ID="_StrikeThroughExtension"></a>
+<h2>_StrikeThroughExtension</h2>
+<p>
+                Class is placed here, because it depends on imported markdown,
+                and markdown import is lazy.
+</p><p>
+                (see http://achinghead.com/
+                python-markdown-adding-insert-delete.html this page for
+                details)
+</p>
+<h3>Derived from</h3>
+markdown.Extension
+<h3>Class Attributes</h3>
+<table>
+<tr><td>DEL_RE</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#_StrikeThroughExtension.extendMarkdown">extendMarkdown</a></td>
+<td></td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="_StrikeThroughExtension.extendMarkdown" ID="_StrikeThroughExtension.extendMarkdown"></a>
+<h4>_StrikeThroughExtension.extendMarkdown</h4>
+<b>extendMarkdown</b>(<i>md, md_globals</i>)
+
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

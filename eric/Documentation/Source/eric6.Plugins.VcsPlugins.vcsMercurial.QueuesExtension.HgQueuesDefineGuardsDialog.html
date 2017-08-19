@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.QueuesExtension.HgQueuesDefineGuardsDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.QueuesExtension.HgQueuesDefineGuardsDialog</h1>
+<p>
+Module implementing a dialog to define guards for patches.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgQueuesDefineGuardsDialog">HgQueuesDefineGuardsDialog</a></td>
+<td>Class implementing a dialog to define guards for patches.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgQueuesDefineGuardsDialog" ID="HgQueuesDefineGuardsDialog"></a>
+<h2>HgQueuesDefineGuardsDialog</h2>
+<p>
+    Class implementing a dialog to define guards for patches.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgQueuesDefineGuardsDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgQueuesDefineGuardsDialog.__init__">HgQueuesDefineGuardsDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.__applyGuards">__applyGuards</a></td>
+<td>Private slot to apply the defined guards to the current patch.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.__getGuard">__getGuard</a></td>
+<td>Private method to get a reference to a named guard.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.closeEvent">closeEvent</a></td>
+<td>Protected slot implementing a close event handler.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.on_addButton_clicked">on_addButton_clicked</a></td>
+<td>Private slot to add a guard definition to the list or change it.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.on_guardCombo_editTextChanged">on_guardCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the text of the guard combo.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.on_guardsList_itemSelectionChanged">on_guardsList_itemSelectionChanged</a></td>
+<td>Private slot to handle changes of the selection of guards.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.on_patchSelector_activated">on_patchSelector_activated</a></td>
+<td>Private slot to get the list of guards defined for the given patch name.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.on_removeButton_clicked">on_removeButton_clicked</a></td>
+<td>Private slot to remove guard definitions from the list.</td>
+</tr><tr>
+<td><a href="#HgQueuesDefineGuardsDialog.start">start</a></td>
+<td>Public slot to start the list command.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgQueuesDefineGuardsDialog.__init__" ID="HgQueuesDefineGuardsDialog.__init__"></a>
+<h4>HgQueuesDefineGuardsDialog (Constructor)</h4>
+<b>HgQueuesDefineGuardsDialog</b>(<i>vcs, extension, patchesList, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i></dt>
+<dd>
+reference to the vcs object
+</dd><dt><i>extension</i></dt>
+<dd>
+reference to the extension module (Queues)
+</dd><dt><i>patchesList</i></dt>
+<dd>
+list of patches (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgQueuesDefineGuardsDialog.__applyGuards" ID="HgQueuesDefineGuardsDialog.__applyGuards"></a>
+<h4>HgQueuesDefineGuardsDialog.__applyGuards</h4>
+<b>__applyGuards</b>(<i></i>)
+<p>
+        Private slot to apply the defined guards to the current patch.
+</p><a NAME="HgQueuesDefineGuardsDialog.__getGuard" ID="HgQueuesDefineGuardsDialog.__getGuard"></a>
+<h4>HgQueuesDefineGuardsDialog.__getGuard</h4>
+<b>__getGuard</b>(<i>guard</i>)
+<p>
+        Private method to get a reference to a named guard.
+</p><dl>
+<dt><i>guard</i></dt>
+<dd>
+name of the guard (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the guard item (QListWidgetItem)
+</dd>
+</dl><a NAME="HgQueuesDefineGuardsDialog.closeEvent" ID="HgQueuesDefineGuardsDialog.closeEvent"></a>
+<h4>HgQueuesDefineGuardsDialog.closeEvent</h4>
+<b>closeEvent</b>(<i>e</i>)
+<p>
+        Protected slot implementing a close event handler.
+</p><dl>
+<dt><i>e</i></dt>
+<dd>
+close event (QCloseEvent)
+</dd>
+</dl><a NAME="HgQueuesDefineGuardsDialog.on_addButton_clicked" ID="HgQueuesDefineGuardsDialog.on_addButton_clicked"></a>
+<h4>HgQueuesDefineGuardsDialog.on_addButton_clicked</h4>
+<b>on_addButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add a guard definition to the list or change it.
+</p><a NAME="HgQueuesDefineGuardsDialog.on_buttonBox_clicked" ID="HgQueuesDefineGuardsDialog.on_buttonBox_clicked"></a>
+<h4>HgQueuesDefineGuardsDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="HgQueuesDefineGuardsDialog.on_guardCombo_editTextChanged" ID="HgQueuesDefineGuardsDialog.on_guardCombo_editTextChanged"></a>
+<h4>HgQueuesDefineGuardsDialog.on_guardCombo_editTextChanged</h4>
+<b>on_guardCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the text of the guard combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+contents of the guard combo line edit (string)
+</dd>
+</dl><a NAME="HgQueuesDefineGuardsDialog.on_guardsList_itemSelectionChanged" ID="HgQueuesDefineGuardsDialog.on_guardsList_itemSelectionChanged"></a>
+<h4>HgQueuesDefineGuardsDialog.on_guardsList_itemSelectionChanged</h4>
+<b>on_guardsList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot to handle changes of the selection of guards.
+</p><a NAME="HgQueuesDefineGuardsDialog.on_patchSelector_activated" ID="HgQueuesDefineGuardsDialog.on_patchSelector_activated"></a>
+<h4>HgQueuesDefineGuardsDialog.on_patchSelector_activated</h4>
+<b>on_patchSelector_activated</b>(<i>patch</i>)
+<p>
+        Private slot to get the list of guards defined for the given patch
+        name.
+</p><dl>
+<dt><i>patch</i></dt>
+<dd>
+selected patch name (empty for current patch)
+</dd>
+</dl><a NAME="HgQueuesDefineGuardsDialog.on_removeButton_clicked" ID="HgQueuesDefineGuardsDialog.on_removeButton_clicked"></a>
+<h4>HgQueuesDefineGuardsDialog.on_removeButton_clicked</h4>
+<b>on_removeButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove guard definitions from the list.
+</p><a NAME="HgQueuesDefineGuardsDialog.start" ID="HgQueuesDefineGuardsDialog.start"></a>
+<h4>HgQueuesDefineGuardsDialog.start</h4>
+<b>start</b>(<i>path</i>)
+<p>
+        Public slot to start the list command.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+name of directory to be listed (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

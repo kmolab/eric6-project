@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HgCommitDialog</class>
+ <widget class="QWidget" name="HgCommitDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Mercurial</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QGroupBox" name="logGroup">
+     <property name="title">
+      <string>Commit Message</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QTextEdit" name="logEdit">
+        <property name="toolTip">
+         <string>Enter the log message.</string>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;b&gt;Log Message&lt;/b&gt;
+&lt;p&gt;Enter the log message for the commit action.&lt;/p&gt;</string>
+        </property>
+        <property name="tabChangesFocus">
+         <bool>true</bool>
+        </property>
+        <property name="acceptRichText">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Recent commit messages</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="recentComboBox">
+        <property name="toolTip">
+         <string>Select a recent commit message to use</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="amendCheckBox">
+     <property name="toolTip">
+      <string>Select to amend the last commit (leave message empty to keep it)</string>
+     </property>
+     <property name="text">
+      <string>Amend the last commit</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="subrepoCheckBox">
+     <property name="toolTip">
+      <string>Select to commit sub-repositories as well</string>
+     </property>
+     <property name="text">
+      <string>Commit sub-repositories</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Author</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Enter author name to override the configured user:</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="authorComboBox">
+        <property name="toolTip">
+         <string>Enter an author name in order to override the configured one</string>
+        </property>
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="dateTimeGroup">
+     <property name="toolTip">
+      <string>Select to give date and time information</string>
+     </property>
+     <property name="title">
+      <string>Date and Time</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>241</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Date/Time:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDateTimeEdit" name="dateTimeEdit">
+        <property name="toolTip">
+         <string>Enter the date and time to be used</string>
+        </property>
+        <property name="displayFormat">
+         <string notr="true">yyyy-MM-dd hh:mm</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Close|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <tabstops>
+  <tabstop>logEdit</tabstop>
+  <tabstop>recentComboBox</tabstop>
+  <tabstop>amendCheckBox</tabstop>
+  <tabstop>subrepoCheckBox</tabstop>
+  <tabstop>authorComboBox</tabstop>
+  <tabstop>dateTimeGroup</tabstop>
+  <tabstop>dateTimeEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

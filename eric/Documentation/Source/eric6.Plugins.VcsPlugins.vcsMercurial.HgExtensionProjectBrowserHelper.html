@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgExtensionProjectBrowserHelper</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgExtensionProjectBrowserHelper</h1>
+<p>
+Module implementing the project browser helper base for Mercurial extension
+interfaces.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgExtensionProjectBrowserHelper">HgExtensionProjectBrowserHelper</a></td>
+<td>Class implementing the project browser helper base for Mercurial extension interfaces.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgExtensionProjectBrowserHelper" ID="HgExtensionProjectBrowserHelper"></a>
+<h2>HgExtensionProjectBrowserHelper</h2>
+<p>
+    Class implementing the project browser helper base for Mercurial extension
+    interfaces.
+</p><p>
+    Note: The methods initMenus() and menuTitle() have to be reimplemented by
+    derived classes.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgExtensionProjectBrowserHelper.__init__">HgExtensionProjectBrowserHelper</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgExtensionProjectBrowserHelper._updateVCSStatus">_updateVCSStatus</a></td>
+<td>Protected method to update the VCS status of an item.</td>
+</tr><tr>
+<td><a href="#HgExtensionProjectBrowserHelper.initMenus">initMenus</a></td>
+<td>Public method to generate the extension menus.</td>
+</tr><tr>
+<td><a href="#HgExtensionProjectBrowserHelper.menuTitle">menuTitle</a></td>
+<td>Public method to get the menu title.</td>
+</tr><tr>
+<td><a href="#HgExtensionProjectBrowserHelper.showExtensionMenu">showExtensionMenu</a></td>
+<td>Public method to prepare the extension menu for display.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgExtensionProjectBrowserHelper.__init__" ID="HgExtensionProjectBrowserHelper.__init__"></a>
+<h4>HgExtensionProjectBrowserHelper (Constructor)</h4>
+<b>HgExtensionProjectBrowserHelper</b>(<i>vcsObject, browserObject, projectObject</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcsObject</i></dt>
+<dd>
+reference to the vcs object
+</dd><dt><i>browserObject</i></dt>
+<dd>
+reference to the project browser object
+</dd><dt><i>projectObject</i></dt>
+<dd>
+reference to the project object
+</dd>
+</dl><a NAME="HgExtensionProjectBrowserHelper._updateVCSStatus" ID="HgExtensionProjectBrowserHelper._updateVCSStatus"></a>
+<h4>HgExtensionProjectBrowserHelper._updateVCSStatus</h4>
+<b>_updateVCSStatus</b>(<i>name</i>)
+<p>
+        Protected method to update the VCS status of an item.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename or directoryname of the item to be updated
+            (string)
+</dd>
+</dl><a NAME="HgExtensionProjectBrowserHelper.initMenus" ID="HgExtensionProjectBrowserHelper.initMenus"></a>
+<h4>HgExtensionProjectBrowserHelper.initMenus</h4>
+<b>initMenus</b>(<i></i>)
+<p>
+        Public method to generate the extension menus.
+</p><p>
+        Note: Derived class must implement this method.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary of populated menu (dict of QMenu). The dict
+            must have the keys 'mainMenu', 'multiMenu', 'backMenu', 'dirMenu'
+            and 'dirMultiMenu'.
+</dd>
+</dl><dl>
+<dt>Raises <b>NotImplementedError</b>:</dt>
+<dd>
+raised if the class has not been
+            reimplemented
+</dd>
+</dl><a NAME="HgExtensionProjectBrowserHelper.menuTitle" ID="HgExtensionProjectBrowserHelper.menuTitle"></a>
+<h4>HgExtensionProjectBrowserHelper.menuTitle</h4>
+<b>menuTitle</b>(<i></i>)
+<p>
+        Public method to get the menu title.
+</p><p>
+        Note: Derived class must implement this method.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+title of the menu (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>NotImplementedError</b>:</dt>
+<dd>
+raised if the class has not been
+            reimplemented
+</dd>
+</dl><a NAME="HgExtensionProjectBrowserHelper.showExtensionMenu" ID="HgExtensionProjectBrowserHelper.showExtensionMenu"></a>
+<h4>HgExtensionProjectBrowserHelper.showExtensionMenu</h4>
+<b>showExtensionMenu</b>(<i>key, controlled</i>)
+<p>
+        Public method to prepare the extension menu for display.
+</p><p>
+        Note: Derived class must implement this method to adjust the
+        enabled states of its menus.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+menu key (string, one of 'mainMenu', 'multiMenu',
+            'backMenu', 'dirMenu' or 'dirMultiMenu')
+</dd><dt><i>controlled</i></dt>
+<dd>
+flag indicating to prepare the menu for a
+            version controlled entry or a non-version controlled entry
+            (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>NotImplementedError</b>:</dt>
+<dd>
+raised if the class has not been
+            reimplemented
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

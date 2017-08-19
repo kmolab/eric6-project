@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.OpenSearch.OpenSearchEngineModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.OpenSearch.OpenSearchEngineModel</h1>
+<p>
+Module implementing a model for search engines.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#OpenSearchEngineModel">OpenSearchEngineModel</a></td>
+<td>Class implementing a model for search engines.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="OpenSearchEngineModel" ID="OpenSearchEngineModel"></a>
+<h2>OpenSearchEngineModel</h2>
+<p>
+    Class implementing a model for search engines.
+</p>
+<h3>Derived from</h3>
+QAbstractTableModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#OpenSearchEngineModel.__init__">OpenSearchEngineModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.__enginesChanged">__enginesChanged</a></td>
+<td>Private slot handling a change of the registered engines.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.columnCount">columnCount</a></td>
+<td>Public method to get the number of columns of the model.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.data">data</a></td>
+<td>Public method to get data from the model.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.flags">flags</a></td>
+<td>Public method to get flags for a model cell.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.headerData">headerData</a></td>
+<td>Public method to get the header data.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.removeRows">removeRows</a></td>
+<td>Public method to remove entries from the model.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.rowCount">rowCount</a></td>
+<td>Public method to get the number of rows of the model.</td>
+</tr><tr>
+<td><a href="#OpenSearchEngineModel.setData">setData</a></td>
+<td>Public method to set the data of a model cell.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="OpenSearchEngineModel.__init__" ID="OpenSearchEngineModel.__init__"></a>
+<h4>OpenSearchEngineModel (Constructor)</h4>
+<b>OpenSearchEngineModel</b>(<i>manager, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>manager</i></dt>
+<dd>
+reference to the search engine manager
+            (OpenSearchManager)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="OpenSearchEngineModel.__enginesChanged" ID="OpenSearchEngineModel.__enginesChanged"></a>
+<h4>OpenSearchEngineModel.__enginesChanged</h4>
+<b>__enginesChanged</b>(<i></i>)
+<p>
+        Private slot handling a change of the registered engines.
+</p><a NAME="OpenSearchEngineModel.columnCount" ID="OpenSearchEngineModel.columnCount"></a>
+<h4>OpenSearchEngineModel.columnCount</h4>
+<b>columnCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of columns of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex) (Unused)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="OpenSearchEngineModel.data" ID="OpenSearchEngineModel.data"></a>
+<h4>OpenSearchEngineModel.data</h4>
+<b>data</b>(<i>index, role</i>)
+<p>
+        Public method to get data from the model.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index to get data for (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data to retrieve (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="OpenSearchEngineModel.flags" ID="OpenSearchEngineModel.flags"></a>
+<h4>OpenSearchEngineModel.flags</h4>
+<b>flags</b>(<i>index</i>)
+<p>
+        Public method to get flags for a model cell.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the model cell (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flags (Qt.ItemFlags)
+</dd>
+</dl><a NAME="OpenSearchEngineModel.headerData" ID="OpenSearchEngineModel.headerData"></a>
+<h4>OpenSearchEngineModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get the header data.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+section number (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+header orientation (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+data role (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+header data
+</dd>
+</dl><a NAME="OpenSearchEngineModel.removeRows" ID="OpenSearchEngineModel.removeRows"></a>
+<h4>OpenSearchEngineModel.removeRows</h4>
+<b>removeRows</b>(<i>row, count, parent=None</i>)
+<p>
+        Public method to remove entries from the model.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+start row (integer)
+</dd><dt><i>count</i></dt>
+<dd>
+number of rows to remove (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="OpenSearchEngineModel.rowCount" ID="OpenSearchEngineModel.rowCount"></a>
+<h4>OpenSearchEngineModel.rowCount</h4>
+<b>rowCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of rows of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of rows (integer)
+</dd>
+</dl><a NAME="OpenSearchEngineModel.setData" ID="OpenSearchEngineModel.setData"></a>
+<h4>OpenSearchEngineModel.setData</h4>
+<b>setData</b>(<i>index, value, role=Qt.EditRole</i>)
+<p>
+        Public method to set the data of a model cell.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the model cell (QModelIndex)
+</dd><dt><i>value</i></dt>
+<dd>
+value to be set
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

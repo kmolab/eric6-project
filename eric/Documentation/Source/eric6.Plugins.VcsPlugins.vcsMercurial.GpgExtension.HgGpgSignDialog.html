@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.GpgExtension.HgGpgSignDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.GpgExtension.HgGpgSignDialog</h1>
+<p>
+Module implementing a dialog to enter data for signing a revision.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgGpgSignDialog">HgGpgSignDialog</a></td>
+<td>Class implementing a dialog to enter data for signing a revision.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgGpgSignDialog" ID="HgGpgSignDialog"></a>
+<h2>HgGpgSignDialog</h2>
+<p>
+    Class implementing a dialog to enter data for signing a revision.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgGpgSignDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgGpgSignDialog.__init__">HgGpgSignDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.getData">getData</a></td>
+<td>Public method to retrieve the entered data.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_bookmarkButton_toggled">on_bookmarkButton_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark select button.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_bookmarkCombo_editTextChanged">on_bookmarkCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark combo.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_branchButton_toggled">on_branchButton_toggled</a></td>
+<td>Private slot to handle changes of the Branch select button.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_branchCombo_editTextChanged">on_branchCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch combo.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_idButton_toggled">on_idButton_toggled</a></td>
+<td>Private slot to handle changes of the ID select button.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_idEdit_textChanged">on_idEdit_textChanged</a></td>
+<td>Private slot to handle changes of the ID edit.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_tagButton_toggled">on_tagButton_toggled</a></td>
+<td>Private slot to handle changes of the Tag select button.</td>
+</tr><tr>
+<td><a href="#HgGpgSignDialog.on_tagCombo_editTextChanged">on_tagCombo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgGpgSignDialog.__init__" ID="HgGpgSignDialog.__init__"></a>
+<h4>HgGpgSignDialog (Constructor)</h4>
+<b>HgGpgSignDialog</b>(<i>tagsList, branchesList, bookmarksList=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>tagsList</i></dt>
+<dd>
+list of tags (list of strings)
+</dd><dt><i>branchesList</i></dt>
+<dd>
+list of branches (list of strings)
+</dd><dt><i>bookmarksList</i></dt>
+<dd>
+list of bookmarks (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgGpgSignDialog.__updateOK" ID="HgGpgSignDialog.__updateOK"></a>
+<h4>HgGpgSignDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgGpgSignDialog.getData" ID="HgGpgSignDialog.getData"></a>
+<h4>HgGpgSignDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the entered data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving the revision, a flag indicating not to commit
+            the signature, a commit message, an ID of the key to be used,
+            a flag indicating a local signature and a flag indicating a forced
+            signature (string, boolean, string, string, boolean, boolean)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_bookmarkButton_toggled" ID="HgGpgSignDialog.on_bookmarkButton_toggled"></a>
+<h4>HgGpgSignDialog.on_bookmarkButton_toggled</h4>
+<b>on_bookmarkButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_bookmarkCombo_editTextChanged" ID="HgGpgSignDialog.on_bookmarkCombo_editTextChanged"></a>
+<h4>HgGpgSignDialog.on_bookmarkCombo_editTextChanged</h4>
+<b>on_bookmarkCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_branchButton_toggled" ID="HgGpgSignDialog.on_branchButton_toggled"></a>
+<h4>HgGpgSignDialog.on_branchButton_toggled</h4>
+<b>on_branchButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_branchCombo_editTextChanged" ID="HgGpgSignDialog.on_branchCombo_editTextChanged"></a>
+<h4>HgGpgSignDialog.on_branchCombo_editTextChanged</h4>
+<b>on_branchCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_idButton_toggled" ID="HgGpgSignDialog.on_idButton_toggled"></a>
+<h4>HgGpgSignDialog.on_idButton_toggled</h4>
+<b>on_idButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_idEdit_textChanged" ID="HgGpgSignDialog.on_idEdit_textChanged"></a>
+<h4>HgGpgSignDialog.on_idEdit_textChanged</h4>
+<b>on_idEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_tagButton_toggled" ID="HgGpgSignDialog.on_tagButton_toggled"></a>
+<h4>HgGpgSignDialog.on_tagButton_toggled</h4>
+<b>on_tagButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgGpgSignDialog.on_tagCombo_editTextChanged" ID="HgGpgSignDialog.on_tagCombo_editTextChanged"></a>
+<h4>HgGpgSignDialog.on_tagCombo_editTextChanged</h4>
+<b>on_tagCombo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

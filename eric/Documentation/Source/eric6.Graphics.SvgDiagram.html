@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Graphics.SvgDiagram</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Graphics.SvgDiagram</h1>
+<p>
+Module implementing a dialog showing a SVG graphic.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SvgDiagram">SvgDiagram</a></td>
+<td>Class implementing a dialog showing a SVG graphic.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SvgDiagram" ID="SvgDiagram"></a>
+<h2>SvgDiagram</h2>
+<p>
+    Class implementing a dialog showing a SVG graphic.
+</p>
+<h3>Derived from</h3>
+E5MainWindow
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ZoomLevelDefault</td></tr><tr><td>ZoomLevels</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SvgDiagram.__init__">SvgDiagram</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__adjustScrollBar">__adjustScrollBar</a></td>
+<td>Private method to adjust a scrollbar by a certain factor.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__doZoom">__doZoom</a></td>
+<td>Private method to set the zoom value in percent.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__initActions">__initActions</a></td>
+<td>Private method to initialize the view actions.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__initContextMenu">__initContextMenu</a></td>
+<td>Private method to initialize the context menu.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__initToolBars">__initToolBars</a></td>
+<td>Private method to populate the toolbars with our actions.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__levelForZoom">__levelForZoom</a></td>
+<td>Private method determining the zoom level index given a zoom factor.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__print">__print</a></td>
+<td>Private slot to the actual printing.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__printDiagram">__printDiagram</a></td>
+<td>Private slot called to print the diagram.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__printPreviewDiagram">__printPreviewDiagram</a></td>
+<td>Private slot called to show a print preview of the diagram.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot to show the context menu of the listview.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__zoom">__zoom</a></td>
+<td>Private method to get the current zoom factor in percent.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__zoomIn">__zoomIn</a></td>
+<td>Private method to zoom into the SVG.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__zoomOut">__zoomOut</a></td>
+<td>Private method to zoom out of the SVG.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.__zoomReset">__zoomReset</a></td>
+<td>Private method to reset the zoom value.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.event">event</a></td>
+<td>Public method handling events.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.gestureEvent">gestureEvent</a></td>
+<td>Protected method handling gesture events.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.getDiagramName">getDiagramName</a></td>
+<td>Public method to retrieve a name for the diagram.</td>
+</tr><tr>
+<td><a href="#SvgDiagram.wheelEvent">wheelEvent</a></td>
+<td>Protected method to handle wheel events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SvgDiagram.__init__" ID="SvgDiagram.__init__"></a>
+<h4>SvgDiagram (Constructor)</h4>
+<b>SvgDiagram</b>(<i>svgFile, parent=None, name=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>svgFile</i></dt>
+<dd>
+filename of a SVG graphics file to show (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of the view (QWidget)
+</dd><dt><i>name</i></dt>
+<dd>
+name of the view widget (string)
+</dd>
+</dl><a NAME="SvgDiagram.__adjustScrollBar" ID="SvgDiagram.__adjustScrollBar"></a>
+<h4>SvgDiagram.__adjustScrollBar</h4>
+<b>__adjustScrollBar</b>(<i>scrollBar, factor</i>)
+<p>
+        Private method to adjust a scrollbar by a certain factor.
+</p><dl>
+<dt><i>scrollBar</i></dt>
+<dd>
+reference to the scrollbar object (QScrollBar)
+</dd><dt><i>factor</i></dt>
+<dd>
+factor to adjust by (float)
+</dd>
+</dl><a NAME="SvgDiagram.__doZoom" ID="SvgDiagram.__doZoom"></a>
+<h4>SvgDiagram.__doZoom</h4>
+<b>__doZoom</b>(<i>value</i>)
+<p>
+        Private method to set the zoom value in percent.
+</p><dl>
+<dt><i>value</i></dt>
+<dd>
+zoom value in percent (integer)
+</dd>
+</dl><a NAME="SvgDiagram.__initActions" ID="SvgDiagram.__initActions"></a>
+<h4>SvgDiagram.__initActions</h4>
+<b>__initActions</b>(<i></i>)
+<p>
+        Private method to initialize the view actions.
+</p><a NAME="SvgDiagram.__initContextMenu" ID="SvgDiagram.__initContextMenu"></a>
+<h4>SvgDiagram.__initContextMenu</h4>
+<b>__initContextMenu</b>(<i></i>)
+<p>
+        Private method to initialize the context menu.
+</p><a NAME="SvgDiagram.__initToolBars" ID="SvgDiagram.__initToolBars"></a>
+<h4>SvgDiagram.__initToolBars</h4>
+<b>__initToolBars</b>(<i></i>)
+<p>
+        Private method to populate the toolbars with our actions.
+</p><a NAME="SvgDiagram.__levelForZoom" ID="SvgDiagram.__levelForZoom"></a>
+<h4>SvgDiagram.__levelForZoom</h4>
+<b>__levelForZoom</b>(<i>zoom</i>)
+<p>
+        Private method determining the zoom level index given a zoom factor.
+</p><dl>
+<dt><i>zoom</i></dt>
+<dd>
+zoom factor (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of zoom factor (integer)
+</dd>
+</dl><a NAME="SvgDiagram.__print" ID="SvgDiagram.__print"></a>
+<h4>SvgDiagram.__print</h4>
+<b>__print</b>(<i>printer</i>)
+<p>
+        Private slot to the actual printing.
+</p><dl>
+<dt><i>printer</i></dt>
+<dd>
+reference to the printer object (QPrinter)
+</dd>
+</dl><a NAME="SvgDiagram.__printDiagram" ID="SvgDiagram.__printDiagram"></a>
+<h4>SvgDiagram.__printDiagram</h4>
+<b>__printDiagram</b>(<i></i>)
+<p>
+        Private slot called to print the diagram.
+</p><a NAME="SvgDiagram.__printPreviewDiagram" ID="SvgDiagram.__printPreviewDiagram"></a>
+<h4>SvgDiagram.__printPreviewDiagram</h4>
+<b>__printPreviewDiagram</b>(<i></i>)
+<p>
+        Private slot called to show a print preview of the diagram.
+</p><a NAME="SvgDiagram.__showContextMenu" ID="SvgDiagram.__showContextMenu"></a>
+<h4>SvgDiagram.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i>coord</i>)
+<p>
+        Private slot to show the context menu of the listview.
+</p><dl>
+<dt><i>coord</i></dt>
+<dd>
+the position of the mouse pointer (QPoint)
+</dd>
+</dl><a NAME="SvgDiagram.__zoom" ID="SvgDiagram.__zoom"></a>
+<h4>SvgDiagram.__zoom</h4>
+<b>__zoom</b>(<i></i>)
+<p>
+        Private method to get the current zoom factor in percent.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+current zoom factor in percent (integer)
+</dd>
+</dl><a NAME="SvgDiagram.__zoomIn" ID="SvgDiagram.__zoomIn"></a>
+<h4>SvgDiagram.__zoomIn</h4>
+<b>__zoomIn</b>(<i></i>)
+<p>
+        Private method to zoom into the SVG.
+</p><a NAME="SvgDiagram.__zoomOut" ID="SvgDiagram.__zoomOut"></a>
+<h4>SvgDiagram.__zoomOut</h4>
+<b>__zoomOut</b>(<i></i>)
+<p>
+        Private method to zoom out of the SVG.
+</p><a NAME="SvgDiagram.__zoomReset" ID="SvgDiagram.__zoomReset"></a>
+<h4>SvgDiagram.__zoomReset</h4>
+<b>__zoomReset</b>(<i></i>)
+<p>
+        Private method to reset the zoom value.
+</p><a NAME="SvgDiagram.event" ID="SvgDiagram.event"></a>
+<h4>SvgDiagram.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method handling events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the event was handled (boolean)
+</dd>
+</dl><a NAME="SvgDiagram.gestureEvent" ID="SvgDiagram.gestureEvent"></a>
+<h4>SvgDiagram.gestureEvent</h4>
+<b>gestureEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling gesture events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the gesture event (QGestureEvent
+</dd>
+</dl><a NAME="SvgDiagram.getDiagramName" ID="SvgDiagram.getDiagramName"></a>
+<h4>SvgDiagram.getDiagramName</h4>
+<b>getDiagramName</b>(<i></i>)
+<p>
+        Public method to retrieve a name for the diagram.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name for the diagram
+</dd>
+</dl><a NAME="SvgDiagram.wheelEvent" ID="SvgDiagram.wheelEvent"></a>
+<h4>SvgDiagram.wheelEvent</h4>
+<b>wheelEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle wheel events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the wheel event (QWheelEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

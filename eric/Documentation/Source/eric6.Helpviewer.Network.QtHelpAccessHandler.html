@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Network.QtHelpAccessHandler</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Network.QtHelpAccessHandler</h1>
+<p>
+Module implementing a scheme access handler for QtHelp.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>ExtensionMap</td></tr><tr><td>QtDocPath</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#QtHelpAccessHandler">QtHelpAccessHandler</a></td>
+<td>Class implementing a scheme access handler for QtHelp.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="QtHelpAccessHandler" ID="QtHelpAccessHandler"></a>
+<h2>QtHelpAccessHandler</h2>
+<p>
+    Class implementing a scheme access handler for QtHelp.
+</p>
+<h3>Derived from</h3>
+SchemeAccessHandler
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QtHelpAccessHandler.__init__">QtHelpAccessHandler</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#QtHelpAccessHandler.__mimeFromUrl">__mimeFromUrl</a></td>
+<td>Private method to guess the mime type given an URL.</td>
+</tr><tr>
+<td><a href="#QtHelpAccessHandler.createRequest">createRequest</a></td>
+<td>Public method to create a request.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QtHelpAccessHandler.__init__" ID="QtHelpAccessHandler.__init__"></a>
+<h4>QtHelpAccessHandler (Constructor)</h4>
+<b>QtHelpAccessHandler</b>(<i>engine, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>engine</i></dt>
+<dd>
+reference to the help engine (QHelpEngine)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="QtHelpAccessHandler.__mimeFromUrl" ID="QtHelpAccessHandler.__mimeFromUrl"></a>
+<h4>QtHelpAccessHandler.__mimeFromUrl</h4>
+<b>__mimeFromUrl</b>(<i>url</i>)
+<p>
+        Private method to guess the mime type given an URL.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to guess the mime type from (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+mime type for the given URL (string)
+</dd>
+</dl><a NAME="QtHelpAccessHandler.createRequest" ID="QtHelpAccessHandler.createRequest"></a>
+<h4>QtHelpAccessHandler.createRequest</h4>
+<b>createRequest</b>(<i>op, request, outgoingData=None</i>)
+<p>
+        Public method to create a request.
+</p><dl>
+<dt><i>op</i></dt>
+<dd>
+the operation to be performed
+            (QNetworkAccessManager.Operation)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>outgoingData</i></dt>
+<dd>
+reference to an IODevice containing data to be sent
+            (QIODevice)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the created reply object (QNetworkReply)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

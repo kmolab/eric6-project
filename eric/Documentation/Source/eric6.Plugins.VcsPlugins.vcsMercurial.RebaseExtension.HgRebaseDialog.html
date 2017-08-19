@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.RebaseExtension.HgRebaseDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.RebaseExtension.HgRebaseDialog</h1>
+<p>
+Module implementing a dialog to enter the data for a rebase session.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgRebaseDialog">HgRebaseDialog</a></td>
+<td>Class implementing a dialog to enter the data for a rebase session.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgRebaseDialog" ID="HgRebaseDialog"></a>
+<h2>HgRebaseDialog</h2>
+<p>
+    Class implementing a dialog to enter the data for a rebase session.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgRebaseDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgRebaseDialog.__init__">HgRebaseDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.__getRevision">__getRevision</a></td>
+<td>Private method to generate the revision.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.getData">getData</a></td>
+<td>Public method to retrieve the data for the rebase session.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_bookmark1Button_toggled">on_bookmark1Button_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark1 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_bookmark1Combo_editTextChanged">on_bookmark1Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark1 combo.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_bookmark2Button_toggled">on_bookmark2Button_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark2 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_bookmark2Combo_editTextChanged">on_bookmark2Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark2 combo.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_branch1Button_toggled">on_branch1Button_toggled</a></td>
+<td>Private slot to handle changes of the Branch1 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_branch1Combo_editTextChanged">on_branch1Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch1 combo.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_branch2Button_toggled">on_branch2Button_toggled</a></td>
+<td>Private slot to handle changes of the Branch2 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_branch2Combo_editTextChanged">on_branch2Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch2 combo.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_id1Button_toggled">on_id1Button_toggled</a></td>
+<td>Private slot to handle changes of the ID1 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_id1Edit_textChanged">on_id1Edit_textChanged</a></td>
+<td>Private slot to handle changes of the ID1 edit.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_id2Button_toggled">on_id2Button_toggled</a></td>
+<td>Private slot to handle changes of the ID2 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_id2Edit_textChanged">on_id2Edit_textChanged</a></td>
+<td>Private slot to handle changes of the ID2 edit.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_tag1Button_toggled">on_tag1Button_toggled</a></td>
+<td>Private slot to handle changes of the Tag1 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_tag1Combo_editTextChanged">on_tag1Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag1 combo.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_tag2Button_toggled">on_tag2Button_toggled</a></td>
+<td>Private slot to handle changes of the Tag2 select button.</td>
+</tr><tr>
+<td><a href="#HgRebaseDialog.on_tag2Combo_editTextChanged">on_tag2Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag2 combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgRebaseDialog.__init__" ID="HgRebaseDialog.__init__"></a>
+<h4>HgRebaseDialog (Constructor)</h4>
+<b>HgRebaseDialog</b>(<i>tagsList, branchesList, bookmarksList=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>tagsList</i></dt>
+<dd>
+list of tags (list of strings)
+</dd><dt><i>branchesList</i></dt>
+<dd>
+list of branches (list of strings)
+</dd><dt><i>bookmarksList</i></dt>
+<dd>
+list of bookmarks (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HgRebaseDialog.__getRevision" ID="HgRebaseDialog.__getRevision"></a>
+<h4>HgRebaseDialog.__getRevision</h4>
+<b>__getRevision</b>(<i>no</i>)
+<p>
+        Private method to generate the revision.
+</p><dl>
+<dt><i>no</i></dt>
+<dd>
+revision number to generate (1 or 2)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+revision (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.__updateOK" ID="HgRebaseDialog.__updateOK"></a>
+<h4>HgRebaseDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgRebaseDialog.getData" ID="HgRebaseDialog.getData"></a>
+<h4>HgRebaseDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the data for the rebase session.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with a source indicator of "S" or "B", the source
+            revision, the destination revision, a flag indicating to collapse,
+            a flag indicating to keep the original changesets, a flag
+            indicating to keep the original branch name and a flag indicating
+            to detach the source (string, string, string, boolean, boolean,
+            boolean, boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_bookmark1Button_toggled" ID="HgRebaseDialog.on_bookmark1Button_toggled"></a>
+<h4>HgRebaseDialog.on_bookmark1Button_toggled</h4>
+<b>on_bookmark1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_bookmark1Combo_editTextChanged" ID="HgRebaseDialog.on_bookmark1Combo_editTextChanged"></a>
+<h4>HgRebaseDialog.on_bookmark1Combo_editTextChanged</h4>
+<b>on_bookmark1Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark1 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_bookmark2Button_toggled" ID="HgRebaseDialog.on_bookmark2Button_toggled"></a>
+<h4>HgRebaseDialog.on_bookmark2Button_toggled</h4>
+<b>on_bookmark2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_bookmark2Combo_editTextChanged" ID="HgRebaseDialog.on_bookmark2Combo_editTextChanged"></a>
+<h4>HgRebaseDialog.on_bookmark2Combo_editTextChanged</h4>
+<b>on_bookmark2Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark2 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_branch1Button_toggled" ID="HgRebaseDialog.on_branch1Button_toggled"></a>
+<h4>HgRebaseDialog.on_branch1Button_toggled</h4>
+<b>on_branch1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_branch1Combo_editTextChanged" ID="HgRebaseDialog.on_branch1Combo_editTextChanged"></a>
+<h4>HgRebaseDialog.on_branch1Combo_editTextChanged</h4>
+<b>on_branch1Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch1 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_branch2Button_toggled" ID="HgRebaseDialog.on_branch2Button_toggled"></a>
+<h4>HgRebaseDialog.on_branch2Button_toggled</h4>
+<b>on_branch2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_branch2Combo_editTextChanged" ID="HgRebaseDialog.on_branch2Combo_editTextChanged"></a>
+<h4>HgRebaseDialog.on_branch2Combo_editTextChanged</h4>
+<b>on_branch2Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch2 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_id1Button_toggled" ID="HgRebaseDialog.on_id1Button_toggled"></a>
+<h4>HgRebaseDialog.on_id1Button_toggled</h4>
+<b>on_id1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_id1Edit_textChanged" ID="HgRebaseDialog.on_id1Edit_textChanged"></a>
+<h4>HgRebaseDialog.on_id1Edit_textChanged</h4>
+<b>on_id1Edit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID1 edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_id2Button_toggled" ID="HgRebaseDialog.on_id2Button_toggled"></a>
+<h4>HgRebaseDialog.on_id2Button_toggled</h4>
+<b>on_id2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_id2Edit_textChanged" ID="HgRebaseDialog.on_id2Edit_textChanged"></a>
+<h4>HgRebaseDialog.on_id2Edit_textChanged</h4>
+<b>on_id2Edit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID2 edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_tag1Button_toggled" ID="HgRebaseDialog.on_tag1Button_toggled"></a>
+<h4>HgRebaseDialog.on_tag1Button_toggled</h4>
+<b>on_tag1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_tag1Combo_editTextChanged" ID="HgRebaseDialog.on_tag1Combo_editTextChanged"></a>
+<h4>HgRebaseDialog.on_tag1Combo_editTextChanged</h4>
+<b>on_tag1Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag1 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_tag2Button_toggled" ID="HgRebaseDialog.on_tag2Button_toggled"></a>
+<h4>HgRebaseDialog.on_tag2Button_toggled</h4>
+<b>on_tag2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRebaseDialog.on_tag2Combo_editTextChanged" ID="HgRebaseDialog.on_tag2Combo_editTextChanged"></a>
+<h4>HgRebaseDialog.on_tag2Combo_editTextChanged</h4>
+<b>on_tag2Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag2 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.WizardPlugins.QRegularExpressionWizard.QRegularExpressionWizardServer</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.WizardPlugins.QRegularExpressionWizard.QRegularExpressionWizardServer</h1>
+<p>
+Module implementing the PyQt5 server part of the QRegularExpression wizzard.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#main">main</a></td>
+<td>Function containing the main routine.</td>
+</tr><tr>
+<td><a href="#rxExecute">rxExecute</a></td>
+<td>Function to execute the given regular expression for a given text.</td>
+</tr><tr>
+<td><a href="#rxValidate">rxValidate</a></td>
+<td>Function to validate the given regular expression.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="main" ID="main"></a>
+<h2>main</h2>
+<b>main</b>(<i></i>)
+<p>
+    Function containing the main routine.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="rxExecute" ID="rxExecute"></a>
+<h2>rxExecute</h2>
+<b>rxExecute</b>(<i>regexp, options, text, startpos</i>)
+<p>
+    Function to execute the given regular expression for a given text.
+</p><dl>
+<dt><i>regexp</i></dt>
+<dd>
+regular expression to validate (string)
+</dd><dt><i>options</i></dt>
+<dd>
+list of options (list of string)
+</dd><dt><i>text</i></dt>
+<dd>
+text to execute on (string)
+</dd><dt><i>startpos</i></dt>
+<dd>
+start position for the execution (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of a flag indicating a successful match (boolean) and
+        a list of captures containing the complete match as matched string
+        (string), match start (integer), match end (integer) and match length
+        (integer) for each entry
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="rxValidate" ID="rxValidate"></a>
+<h2>rxValidate</h2>
+<b>rxValidate</b>(<i>regexp, options</i>)
+<p>
+    Function to validate the given regular expression.
+</p><dl>
+<dt><i>regexp</i></dt>
+<dd>
+regular expression to validate (string)
+</dd><dt><i>options</i></dt>
+<dd>
+list of options (list of string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of flag indicating validity (boolean), error
+        string (string) and error offset (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

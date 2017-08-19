@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.uninstall</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.uninstall</h1>
+<p>
+Uninstallation script for the eric6 IDE and all eric6 related tools.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>PythonMarkers</td></tr><tr><td>currDir</td></tr><tr><td>defaultMacAppBundleName</td></tr><tr><td>defaultMacAppBundlePath</td></tr><tr><td>includePythonVariant</td></tr><tr><td>progLanguages</td></tr><tr><td>progName</td></tr><tr><td>pyModDir</td></tr><tr><td>settingsNameGlobal</td></tr><tr><td>settingsNameOrganization</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#exit">exit</a></td>
+<td>Exit the uninstall script.</td>
+</tr><tr>
+<td><a href="#getConfigDir">getConfigDir</a></td>
+<td>Module function to get the name of the directory storing the config data.</td>
+</tr><tr>
+<td><a href="#initGlobals">initGlobals</a></td>
+<td>Set the values of globals that need more than a simple assignment.</td>
+</tr><tr>
+<td><a href="#main">main</a></td>
+<td>The main function of the script.</td>
+</tr><tr>
+<td><a href="#removeConfigurationData">removeConfigurationData</a></td>
+<td>Remove the eric configuration directory.</td>
+</tr><tr>
+<td><a href="#removeDataDirectory">removeDataDirectory</a></td>
+<td>Remove the eric data directory.</td>
+</tr><tr>
+<td><a href="#removePluginDirectories">removePluginDirectories</a></td>
+<td>Remove the plug-in directories.</td>
+</tr><tr>
+<td><a href="#uninstallEric">uninstallEric</a></td>
+<td>Uninstall the eric files.</td>
+</tr><tr>
+<td><a href="#usage">usage</a></td>
+<td>Display a usage message and exit.</td>
+</tr><tr>
+<td><a href="#wrapperName">wrapperName</a></td>
+<td>Create the platform specific name for the wrapper script.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="exit" ID="exit"></a>
+<h2>exit</h2>
+<b>exit</b>(<i>rcode=0</i>)
+<p>
+    Exit the uninstall script.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+result code to report back (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getConfigDir" ID="getConfigDir"></a>
+<h2>getConfigDir</h2>
+<b>getConfigDir</b>(<i></i>)
+<p>
+    Module function to get the name of the directory storing the config data.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+directory name of the config dir (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="initGlobals" ID="initGlobals"></a>
+<h2>initGlobals</h2>
+<b>initGlobals</b>(<i></i>)
+<p>
+    Set the values of globals that need more than a simple assignment.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="main" ID="main"></a>
+<h2>main</h2>
+<b>main</b>(<i>argv</i>)
+<p>
+    The main function of the script.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+list of command line arguments
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="removeConfigurationData" ID="removeConfigurationData"></a>
+<h2>removeConfigurationData</h2>
+<b>removeConfigurationData</b>(<i></i>)
+<p>
+    Remove the eric configuration directory.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="removeDataDirectory" ID="removeDataDirectory"></a>
+<h2>removeDataDirectory</h2>
+<b>removeDataDirectory</b>(<i></i>)
+<p>
+    Remove the eric data directory.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="removePluginDirectories" ID="removePluginDirectories"></a>
+<h2>removePluginDirectories</h2>
+<b>removePluginDirectories</b>(<i></i>)
+<p>
+    Remove the plug-in directories.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="uninstallEric" ID="uninstallEric"></a>
+<h2>uninstallEric</h2>
+<b>uninstallEric</b>(<i></i>)
+<p>
+    Uninstall the eric files.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="usage" ID="usage"></a>
+<h2>usage</h2>
+<b>usage</b>(<i>rcode=2</i>)
+<p>
+    Display a usage message and exit.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+return code passed back to the calling process (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="wrapperName" ID="wrapperName"></a>
+<h2>wrapperName</h2>
+<b>wrapperName</b>(<i>dname, wfile</i>)
+<p>
+    Create the platform specific name for the wrapper script.
+</p><dl>
+<dt><i>dname</i></dt>
+<dd>
+name of the directory to place the wrapper into
+</dd><dt><i>wfile</i></dt>
+<dd>
+basename (without extension) of the wrapper script
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the name of the wrapper script
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

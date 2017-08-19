@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Detlev Offenbach &lt;detlev@die-offenbachs.de&gt;</author>
+ <class>VariablesFilterDialog</class>
+ <widget class="QDialog" name="VariablesFilterDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Variables Type Filter</string>
+  </property>
+  <property name="whatsThis">
+   <string>&lt;b&gt;Filter Dialog&lt;/b&gt;
+&lt;p&gt; This dialog gives the user the possibility to select what kind of variables should &lt;b&gt;not&lt;/b&gt; be shown during a debugging session.&lt;/p&gt;</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Select the variable types to be shown in the variables viewers:</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="localsLabel">
+     <property name="text">
+      <string>&amp;Locals Viewer</string>
+     </property>
+     <property name="buddy">
+      <cstring>localsList</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="globalsLabel">
+     <property name="text">
+      <string>&amp;Globals Viewer</string>
+     </property>
+     <property name="buddy">
+      <cstring>globalsList</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QListWidget" name="localsList">
+     <property name="toolTip">
+      <string>Locals Filter List</string>
+     </property>
+     <property name="whatsThis">
+      <string>&lt;b&gt;Locals Filter List&lt;/b&gt;
+&lt;p&gt;Select the variable types you want to be shown in the local variables viewer.&lt;/p&lt;</string>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QListWidget" name="globalsList">
+     <property name="toolTip">
+      <string>Globals Filter List</string>
+     </property>
+     <property name="whatsThis">
+      <string>&lt;b&gt;Globals Filter List&lt;/b&gt;
+&lt;p&gt;Select the variable types you want to be shown in the global variables viewer.&lt;/p&lt;</string>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="sortingEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <tabstops>
+  <tabstop>localsList</tabstop>
+  <tabstop>globalsList</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>VariablesFilterDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>14</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>15</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>VariablesFilterDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>317</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>84</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

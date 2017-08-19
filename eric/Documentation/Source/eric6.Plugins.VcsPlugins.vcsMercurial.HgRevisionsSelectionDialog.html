@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgRevisionsSelectionDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgRevisionsSelectionDialog</h1>
+<p>
+Module implementing a dialog to enter the revisions for the hg diff command.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgRevisionsSelectionDialog">HgRevisionsSelectionDialog</a></td>
+<td>Class implementing a dialog to enter the revisions for the hg diff command.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgRevisionsSelectionDialog" ID="HgRevisionsSelectionDialog"></a>
+<h2>HgRevisionsSelectionDialog</h2>
+<p>
+    Class implementing a dialog to enter the revisions for the hg diff command.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgRevisionsSelectionDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgRevisionsSelectionDialog.__init__">HgRevisionsSelectionDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.__getRevision">__getRevision</a></td>
+<td>Private method to generate the revision.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.__updateOK">__updateOK</a></td>
+<td>Private slot to update the OK button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.getRevisions">getRevisions</a></td>
+<td>Public method to get the revisions.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_bookmark1Button_toggled">on_bookmark1Button_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark1 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_bookmark1Combo_editTextChanged">on_bookmark1Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark1 combo.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_bookmark2Button_toggled">on_bookmark2Button_toggled</a></td>
+<td>Private slot to handle changes of the Bookmark2 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_bookmark2Combo_editTextChanged">on_bookmark2Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Bookmark2 combo.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_branch1Button_toggled">on_branch1Button_toggled</a></td>
+<td>Private slot to handle changes of the Branch1 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_branch1Combo_editTextChanged">on_branch1Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch1 combo.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_branch2Button_toggled">on_branch2Button_toggled</a></td>
+<td>Private slot to handle changes of the Branch2 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_branch2Combo_editTextChanged">on_branch2Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Branch2 combo.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_id1Button_toggled">on_id1Button_toggled</a></td>
+<td>Private slot to handle changes of the ID1 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_id1Edit_textChanged">on_id1Edit_textChanged</a></td>
+<td>Private slot to handle changes of the ID1 edit.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_id2Button_toggled">on_id2Button_toggled</a></td>
+<td>Private slot to handle changes of the ID2 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_id2Edit_textChanged">on_id2Edit_textChanged</a></td>
+<td>Private slot to handle changes of the ID2 edit.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_tag1Button_toggled">on_tag1Button_toggled</a></td>
+<td>Private slot to handle changes of the Tag1 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_tag1Combo_editTextChanged">on_tag1Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag1 combo.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_tag2Button_toggled">on_tag2Button_toggled</a></td>
+<td>Private slot to handle changes of the Tag2 select button.</td>
+</tr><tr>
+<td><a href="#HgRevisionsSelectionDialog.on_tag2Combo_editTextChanged">on_tag2Combo_editTextChanged</a></td>
+<td>Private slot to handle changes of the Tag2 combo.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgRevisionsSelectionDialog.__init__" ID="HgRevisionsSelectionDialog.__init__"></a>
+<h4>HgRevisionsSelectionDialog (Constructor)</h4>
+<b>HgRevisionsSelectionDialog</b>(<i>tagsList, branchesList, bookmarksList=None, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>tagsList</i></dt>
+<dd>
+list of tags (list of strings)
+</dd><dt><i>branchesList</i></dt>
+<dd>
+list of branches (list of strings)
+</dd><dt><i>bookmarksList</i></dt>
+<dd>
+list of bookmarks (list of strings)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.__getRevision" ID="HgRevisionsSelectionDialog.__getRevision"></a>
+<h4>HgRevisionsSelectionDialog.__getRevision</h4>
+<b>__getRevision</b>(<i>no</i>)
+<p>
+        Private method to generate the revision.
+</p><dl>
+<dt><i>no</i></dt>
+<dd>
+revision number to generate (1 or 2)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+revision (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.__updateOK" ID="HgRevisionsSelectionDialog.__updateOK"></a>
+<h4>HgRevisionsSelectionDialog.__updateOK</h4>
+<b>__updateOK</b>(<i></i>)
+<p>
+        Private slot to update the OK button.
+</p><a NAME="HgRevisionsSelectionDialog.getRevisions" ID="HgRevisionsSelectionDialog.getRevisions"></a>
+<h4>HgRevisionsSelectionDialog.getRevisions</h4>
+<b>getRevisions</b>(<i></i>)
+<p>
+        Public method to get the revisions.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list two strings
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_bookmark1Button_toggled" ID="HgRevisionsSelectionDialog.on_bookmark1Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_bookmark1Button_toggled</h4>
+<b>on_bookmark1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_bookmark1Combo_editTextChanged" ID="HgRevisionsSelectionDialog.on_bookmark1Combo_editTextChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_bookmark1Combo_editTextChanged</h4>
+<b>on_bookmark1Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark1 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_bookmark2Button_toggled" ID="HgRevisionsSelectionDialog.on_bookmark2Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_bookmark2Button_toggled</h4>
+<b>on_bookmark2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Bookmark2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_bookmark2Combo_editTextChanged" ID="HgRevisionsSelectionDialog.on_bookmark2Combo_editTextChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_bookmark2Combo_editTextChanged</h4>
+<b>on_bookmark2Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Bookmark2 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_branch1Button_toggled" ID="HgRevisionsSelectionDialog.on_branch1Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_branch1Button_toggled</h4>
+<b>on_branch1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_branch1Combo_editTextChanged" ID="HgRevisionsSelectionDialog.on_branch1Combo_editTextChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_branch1Combo_editTextChanged</h4>
+<b>on_branch1Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch1 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_branch2Button_toggled" ID="HgRevisionsSelectionDialog.on_branch2Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_branch2Button_toggled</h4>
+<b>on_branch2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Branch2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_branch2Combo_editTextChanged" ID="HgRevisionsSelectionDialog.on_branch2Combo_editTextChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_branch2Combo_editTextChanged</h4>
+<b>on_branch2Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Branch2 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_id1Button_toggled" ID="HgRevisionsSelectionDialog.on_id1Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_id1Button_toggled</h4>
+<b>on_id1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_id1Edit_textChanged" ID="HgRevisionsSelectionDialog.on_id1Edit_textChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_id1Edit_textChanged</h4>
+<b>on_id1Edit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID1 edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_id2Button_toggled" ID="HgRevisionsSelectionDialog.on_id2Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_id2Button_toggled</h4>
+<b>on_id2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the ID2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_id2Edit_textChanged" ID="HgRevisionsSelectionDialog.on_id2Edit_textChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_id2Edit_textChanged</h4>
+<b>on_id2Edit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the ID2 edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the edit (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_tag1Button_toggled" ID="HgRevisionsSelectionDialog.on_tag1Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_tag1Button_toggled</h4>
+<b>on_tag1Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag1 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_tag1Combo_editTextChanged" ID="HgRevisionsSelectionDialog.on_tag1Combo_editTextChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_tag1Combo_editTextChanged</h4>
+<b>on_tag1Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag1 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_tag2Button_toggled" ID="HgRevisionsSelectionDialog.on_tag2Button_toggled"></a>
+<h4>HgRevisionsSelectionDialog.on_tag2Button_toggled</h4>
+<b>on_tag2Button_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to handle changes of the Tag2 select button.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the button (boolean)
+</dd>
+</dl><a NAME="HgRevisionsSelectionDialog.on_tag2Combo_editTextChanged" ID="HgRevisionsSelectionDialog.on_tag2Combo_editTextChanged"></a>
+<h4>HgRevisionsSelectionDialog.on_tag2Combo_editTextChanged</h4>
+<b>on_tag2Combo_editTextChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the Tag2 combo.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the combo (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

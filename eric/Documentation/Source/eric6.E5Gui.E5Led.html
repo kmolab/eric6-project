@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5Led</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5Led</h1>
+<p>
+Module implementing a LED widget.
+</p><p>
+It was inspired by KLed.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>E5LedCircular</td></tr><tr><td>E5LedRectangular</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ClickableLed">E5ClickableLed</a></td>
+<td>Class implementing a clickable LED widget.</td>
+</tr><tr>
+<td><a href="#E5Led">E5Led</a></td>
+<td>Class implementing a LED widget.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ClickableLed" ID="E5ClickableLed"></a>
+<h2>E5ClickableLed</h2>
+<p>
+    Class implementing a clickable LED widget.
+</p><h3>Signals</h3>
+<dl>
+<dt>clicked(QPoint)</dt>
+<dd>
+emitted upon a click on the LED with the
+        left button
+</dd><dt>middleClicked(QPoint)</dt>
+<dd>
+emitted upon a click on the LED with
+        the middle button or CTRL and left button
+</dd>
+</dl>
+<h3>Derived from</h3>
+E5Led
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ClickableLed.__init__">E5ClickableLed</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ClickableLed.mouseReleaseEvent">mouseReleaseEvent</a></td>
+<td>Protected method handling mouse release events.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ClickableLed.__init__" ID="E5ClickableLed.__init__"></a>
+<h4>E5ClickableLed (Constructor)</h4>
+<b>E5ClickableLed</b>(<i>parent=None, color=None, shape=E5LedCircular, rectRatio=1</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to parent widget (QWidget)
+</dd><dt><i>color</i></dt>
+<dd>
+color of the LED (QColor)
+</dd><dt><i>shape</i></dt>
+<dd>
+shape of the LED (E5LedCircular, E5LedRectangular)
+</dd><dt><i>rectRatio</i></dt>
+<dd>
+ratio width to height, if shape is rectangular (float)
+</dd>
+</dl><a NAME="E5ClickableLed.mouseReleaseEvent" ID="E5ClickableLed.mouseReleaseEvent"></a>
+<h4>E5ClickableLed.mouseReleaseEvent</h4>
+<b>mouseReleaseEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling mouse release events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+mouse event (QMouseEvent)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5Led" ID="E5Led"></a>
+<h2>E5Led</h2>
+<p>
+    Class implementing a LED widget.
+</p>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5Led.__init__">E5Led</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5Led.__getBestRoundSize">__getBestRoundSize</a></td>
+<td>Private method to calculate the width of the LED.</td>
+</tr><tr>
+<td><a href="#E5Led.__paintRectangular">__paintRectangular</a></td>
+<td>Private method to paint a rectangular raised LED.</td>
+</tr><tr>
+<td><a href="#E5Led.__paintRound">__paintRound</a></td>
+<td>Private method to paint a round raised LED.</td>
+</tr><tr>
+<td><a href="#E5Led.color">color</a></td>
+<td>Public method to return the LED color.</td>
+</tr><tr>
+<td><a href="#E5Led.darkFactor">darkFactor</a></td>
+<td>Public method to return the dark factor.</td>
+</tr><tr>
+<td><a href="#E5Led.isFramed">isFramed</a></td>
+<td>Public method to return the framed state.</td>
+</tr><tr>
+<td><a href="#E5Led.isOn">isOn</a></td>
+<td>Public method to return the LED state.</td>
+</tr><tr>
+<td><a href="#E5Led.minimumSizeHint">minimumSizeHint</a></td>
+<td>Public method to give a hint about our minimum size.</td>
+</tr><tr>
+<td><a href="#E5Led.off">off</a></td>
+<td>Public slot to set the LED to off.</td>
+</tr><tr>
+<td><a href="#E5Led.on">on</a></td>
+<td>Public slot to set the LED to on.</td>
+</tr><tr>
+<td><a href="#E5Led.paintEvent">paintEvent</a></td>
+<td>Protected slot handling the paint event.</td>
+</tr><tr>
+<td><a href="#E5Led.ratio">ratio</a></td>
+<td>Public method to return the LED rectangular ratio [= width / height].</td>
+</tr><tr>
+<td><a href="#E5Led.setColor">setColor</a></td>
+<td>Public method to set the LED color.</td>
+</tr><tr>
+<td><a href="#E5Led.setDarkFactor">setDarkFactor</a></td>
+<td>Public method to set the dark factor.</td>
+</tr><tr>
+<td><a href="#E5Led.setFramed">setFramed</a></td>
+<td>Public slot to set the __framedLed attribute.</td>
+</tr><tr>
+<td><a href="#E5Led.setOn">setOn</a></td>
+<td>Public method to set the LED to on.</td>
+</tr><tr>
+<td><a href="#E5Led.setRatio">setRatio</a></td>
+<td>Public method to set the LED rectangular ratio (width / height).</td>
+</tr><tr>
+<td><a href="#E5Led.setShape">setShape</a></td>
+<td>Public method to set the LED shape.</td>
+</tr><tr>
+<td><a href="#E5Led.shape">shape</a></td>
+<td>Public method to return the LED shape.</td>
+</tr><tr>
+<td><a href="#E5Led.sizeHint">sizeHint</a></td>
+<td>Public method to give a hint about our desired size.</td>
+</tr><tr>
+<td><a href="#E5Led.toggle">toggle</a></td>
+<td>Public slot to toggle the LED state.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5Led.__init__" ID="E5Led.__init__"></a>
+<h4>E5Led (Constructor)</h4>
+<b>E5Led</b>(<i>parent=None, color=None, shape=E5LedCircular, rectRatio=1</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to parent widget (QWidget)
+</dd><dt><i>color</i></dt>
+<dd>
+color of the LED (QColor)
+</dd><dt><i>shape</i></dt>
+<dd>
+shape of the LED (E5LedCircular, E5LedRectangular)
+</dd><dt><i>rectRatio</i></dt>
+<dd>
+ratio width to height, if shape is rectangular (float)
+</dd>
+</dl><a NAME="E5Led.__getBestRoundSize" ID="E5Led.__getBestRoundSize"></a>
+<h4>E5Led.__getBestRoundSize</h4>
+<b>__getBestRoundSize</b>(<i></i>)
+<p>
+        Private method to calculate the width of the LED.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+new width of the LED (integer)
+</dd>
+</dl><a NAME="E5Led.__paintRectangular" ID="E5Led.__paintRectangular"></a>
+<h4>E5Led.__paintRectangular</h4>
+<b>__paintRectangular</b>(<i></i>)
+<p>
+        Private method to paint a rectangular raised LED.
+</p><a NAME="E5Led.__paintRound" ID="E5Led.__paintRound"></a>
+<h4>E5Led.__paintRound</h4>
+<b>__paintRound</b>(<i></i>)
+<p>
+        Private method to paint a round raised LED.
+</p><a NAME="E5Led.color" ID="E5Led.color"></a>
+<h4>E5Led.color</h4>
+<b>color</b>(<i></i>)
+<p>
+        Public method to return the LED color.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+color of the LED (QColor)
+</dd>
+</dl><a NAME="E5Led.darkFactor" ID="E5Led.darkFactor"></a>
+<h4>E5Led.darkFactor</h4>
+<b>darkFactor</b>(<i></i>)
+<p>
+        Public method to return the dark factor.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the current dark factor (integer)
+</dd>
+</dl><a NAME="E5Led.isFramed" ID="E5Led.isFramed"></a>
+<h4>E5Led.isFramed</h4>
+<b>isFramed</b>(<i></i>)
+<p>
+        Public method to return the framed state.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the current framed state (boolean)
+</dd>
+</dl><a NAME="E5Led.isOn" ID="E5Led.isOn"></a>
+<h4>E5Led.isOn</h4>
+<b>isOn</b>(<i></i>)
+<p>
+        Public method to return the LED state.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the light state (boolean)
+</dd>
+</dl><a NAME="E5Led.minimumSizeHint" ID="E5Led.minimumSizeHint"></a>
+<h4>E5Led.minimumSizeHint</h4>
+<b>minimumSizeHint</b>(<i></i>)
+<p>
+        Public method to give a hint about our minimum size.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+size hint (QSize)
+</dd>
+</dl><a NAME="E5Led.off" ID="E5Led.off"></a>
+<h4>E5Led.off</h4>
+<b>off</b>(<i></i>)
+<p>
+        Public slot to set the LED to off.
+</p><a NAME="E5Led.on" ID="E5Led.on"></a>
+<h4>E5Led.on</h4>
+<b>on</b>(<i></i>)
+<p>
+        Public slot to set the LED to on.
+</p><a NAME="E5Led.paintEvent" ID="E5Led.paintEvent"></a>
+<h4>E5Led.paintEvent</h4>
+<b>paintEvent</b>(<i>evt</i>)
+<p>
+        Protected slot handling the paint event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+paint event object (QPaintEvent)
+</dd>
+</dl><dl>
+<dt>Raises <b>TypeError</b>:</dt>
+<dd>
+The E5Led has an unsupported shape type.
+</dd>
+</dl><a NAME="E5Led.ratio" ID="E5Led.ratio"></a>
+<h4>E5Led.ratio</h4>
+<b>ratio</b>(<i></i>)
+<p>
+        Public method to return the LED rectangular ratio [= width / height].
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+LED rectangular ratio (float)
+</dd>
+</dl><a NAME="E5Led.setColor" ID="E5Led.setColor"></a>
+<h4>E5Led.setColor</h4>
+<b>setColor</b>(<i>color</i>)
+<p>
+        Public method to set the LED color.
+</p><dl>
+<dt><i>color</i></dt>
+<dd>
+color for the LED (QColor)
+</dd>
+</dl><a NAME="E5Led.setDarkFactor" ID="E5Led.setDarkFactor"></a>
+<h4>E5Led.setDarkFactor</h4>
+<b>setDarkFactor</b>(<i>darkfactor</i>)
+<p>
+        Public method to set the dark factor.
+</p><dl>
+<dt><i>darkfactor</i></dt>
+<dd>
+value to set for the dark factor (integer)
+</dd>
+</dl><a NAME="E5Led.setFramed" ID="E5Led.setFramed"></a>
+<h4>E5Led.setFramed</h4>
+<b>setFramed</b>(<i>framed</i>)
+<p>
+        Public slot to set the __framedLed attribute.
+</p><dl>
+<dt><i>framed</i></dt>
+<dd>
+flag indicating the framed state (boolean)
+</dd>
+</dl><a NAME="E5Led.setOn" ID="E5Led.setOn"></a>
+<h4>E5Led.setOn</h4>
+<b>setOn</b>(<i>state</i>)
+<p>
+        Public method to set the LED to on.
+</p><dl>
+<dt><i>state</i></dt>
+<dd>
+new state of the LED (boolean)
+</dd>
+</dl><a NAME="E5Led.setRatio" ID="E5Led.setRatio"></a>
+<h4>E5Led.setRatio</h4>
+<b>setRatio</b>(<i>ratio</i>)
+<p>
+        Public method to set the LED rectangular ratio (width / height).
+</p><dl>
+<dt><i>ratio</i></dt>
+<dd>
+new LED rectangular ratio (float)
+</dd>
+</dl><a NAME="E5Led.setShape" ID="E5Led.setShape"></a>
+<h4>E5Led.setShape</h4>
+<b>setShape</b>(<i>shape</i>)
+<p>
+        Public method to set the LED shape.
+</p><dl>
+<dt><i>shape</i></dt>
+<dd>
+new LED shape (E5LedCircular, E5LedRectangular)
+</dd>
+</dl><a NAME="E5Led.shape" ID="E5Led.shape"></a>
+<h4>E5Led.shape</h4>
+<b>shape</b>(<i></i>)
+<p>
+        Public method to return the LED shape.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+LED shape (E5LedCircular, E5LedRectangular)
+</dd>
+</dl><a NAME="E5Led.sizeHint" ID="E5Led.sizeHint"></a>
+<h4>E5Led.sizeHint</h4>
+<b>sizeHint</b>(<i></i>)
+<p>
+        Public method to give a hint about our desired size.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+size hint (QSize)
+</dd>
+</dl><a NAME="E5Led.toggle" ID="E5Led.toggle"></a>
+<h4>E5Led.toggle</h4>
+<b>toggle</b>(<i></i>)
+<p>
+        Public slot to toggle the LED state.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

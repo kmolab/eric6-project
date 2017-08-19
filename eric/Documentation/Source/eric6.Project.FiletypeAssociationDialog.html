@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Project.FiletypeAssociationDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Project.FiletypeAssociationDialog</h1>
+<p>
+Module implementing a dialog to enter filetype associations for the project.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FiletypeAssociationDialog">FiletypeAssociationDialog</a></td>
+<td>Class implementing a dialog to enter filetype associations for the project.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FiletypeAssociationDialog" ID="FiletypeAssociationDialog"></a>
+<h2>FiletypeAssociationDialog</h2>
+<p>
+    Class implementing a dialog to enter filetype associations for the project.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_FiletypeAssociationDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FiletypeAssociationDialog.__init__">FiletypeAssociationDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.__createItem">__createItem</a></td>
+<td>Private slot to create a new entry in the association list.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.__reformat">__reformat</a></td>
+<td>Private method to reformat the tree.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.__resort">__resort</a></td>
+<td>Private method to resort the tree.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.on_addAssociationButton_clicked">on_addAssociationButton_clicked</a></td>
+<td>Private slot to add the association displayed to the list.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.on_deleteAssociationButton_clicked">on_deleteAssociationButton_clicked</a></td>
+<td>Private slot to delete the currently selected association of the listbox.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.on_filePatternEdit_textChanged">on_filePatternEdit_textChanged</a></td>
+<td>Private slot to handle the textChanged signal of the pattern lineedit.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.on_filetypeAssociationList_currentItemChanged">on_filetypeAssociationList_currentItemChanged</a></td>
+<td>Private slot to handle the currentItemChanged signal of the association list.</td>
+</tr><tr>
+<td><a href="#FiletypeAssociationDialog.transferData">transferData</a></td>
+<td>Public slot to transfer the associations into the projects data structure.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FiletypeAssociationDialog.__init__" ID="FiletypeAssociationDialog.__init__"></a>
+<h4>FiletypeAssociationDialog (Constructor)</h4>
+<b>FiletypeAssociationDialog</b>(<i>project, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="FiletypeAssociationDialog.__createItem" ID="FiletypeAssociationDialog.__createItem"></a>
+<h4>FiletypeAssociationDialog.__createItem</h4>
+<b>__createItem</b>(<i>pattern, filetype</i>)
+<p>
+        Private slot to create a new entry in the association list.
+</p><dl>
+<dt><i>pattern</i></dt>
+<dd>
+pattern of the entry (string)
+</dd><dt><i>filetype</i></dt>
+<dd>
+file type of the entry (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the newly generated entry (QTreeWidgetItem)
+</dd>
+</dl><a NAME="FiletypeAssociationDialog.__reformat" ID="FiletypeAssociationDialog.__reformat"></a>
+<h4>FiletypeAssociationDialog.__reformat</h4>
+<b>__reformat</b>(<i></i>)
+<p>
+        Private method to reformat the tree.
+</p><a NAME="FiletypeAssociationDialog.__resort" ID="FiletypeAssociationDialog.__resort"></a>
+<h4>FiletypeAssociationDialog.__resort</h4>
+<b>__resort</b>(<i></i>)
+<p>
+        Private method to resort the tree.
+</p><a NAME="FiletypeAssociationDialog.on_addAssociationButton_clicked" ID="FiletypeAssociationDialog.on_addAssociationButton_clicked"></a>
+<h4>FiletypeAssociationDialog.on_addAssociationButton_clicked</h4>
+<b>on_addAssociationButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add the association displayed to the list.
+</p><a NAME="FiletypeAssociationDialog.on_deleteAssociationButton_clicked" ID="FiletypeAssociationDialog.on_deleteAssociationButton_clicked"></a>
+<h4>FiletypeAssociationDialog.on_deleteAssociationButton_clicked</h4>
+<b>on_deleteAssociationButton_clicked</b>(<i></i>)
+<p>
+        Private slot to delete the currently selected association of the
+        listbox.
+</p><a NAME="FiletypeAssociationDialog.on_filePatternEdit_textChanged" ID="FiletypeAssociationDialog.on_filePatternEdit_textChanged"></a>
+<h4>FiletypeAssociationDialog.on_filePatternEdit_textChanged</h4>
+<b>on_filePatternEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle the textChanged signal of the pattern lineedit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the lineedit (string)
+</dd>
+</dl><a NAME="FiletypeAssociationDialog.on_filetypeAssociationList_currentItemChanged" ID="FiletypeAssociationDialog.on_filetypeAssociationList_currentItemChanged"></a>
+<h4>FiletypeAssociationDialog.on_filetypeAssociationList_currentItemChanged</h4>
+<b>on_filetypeAssociationList_currentItemChanged</b>(<i>itm, prevItm</i>)
+<p>
+        Private slot to handle the currentItemChanged signal of the
+        association list.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+reference to the new current item (QTreeWidgetItem)
+</dd><dt><i>prevItm</i></dt>
+<dd>
+reference to the previous current item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="FiletypeAssociationDialog.transferData" ID="FiletypeAssociationDialog.transferData"></a>
+<h4>FiletypeAssociationDialog.transferData</h4>
+<b>transferData</b>(<i></i>)
+<p>
+        Public slot to transfer the associations into the projects data
+        structure.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

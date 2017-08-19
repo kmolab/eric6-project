@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ToolBox</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ToolBox</h1>
+<p>
+Module implementing a horizontal and a vertical toolbox class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5HorizontalToolBox">E5HorizontalToolBox</a></td>
+<td>Class implementing a vertical QToolBox like widget.</td>
+</tr><tr>
+<td><a href="#E5VerticalToolBox">E5VerticalToolBox</a></td>
+<td>Class implementing a ToolBox class substituting QToolBox to support wheel events.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5HorizontalToolBox" ID="E5HorizontalToolBox"></a>
+<h2>E5HorizontalToolBox</h2>
+<p>
+    Class implementing a vertical QToolBox like widget.
+</p>
+<h3>Derived from</h3>
+E5TabWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5HorizontalToolBox.__init__">E5HorizontalToolBox</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5HorizontalToolBox.addItem">addItem</a></td>
+<td>Public method to add a widget to the toolbox.</td>
+</tr><tr>
+<td><a href="#E5HorizontalToolBox.insertItem">insertItem</a></td>
+<td>Public method to add a widget to the toolbox.</td>
+</tr><tr>
+<td><a href="#E5HorizontalToolBox.removeItem">removeItem</a></td>
+<td>Public method to remove a widget from the toolbox.</td>
+</tr><tr>
+<td><a href="#E5HorizontalToolBox.setItemEnabled">setItemEnabled</a></td>
+<td>Public method to set the enabled state of an item.</td>
+</tr><tr>
+<td><a href="#E5HorizontalToolBox.setItemToolTip">setItemToolTip</a></td>
+<td>Public method to set the tooltip of an item.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5HorizontalToolBox.__init__" ID="E5HorizontalToolBox.__init__"></a>
+<h4>E5HorizontalToolBox (Constructor)</h4>
+<b>E5HorizontalToolBox</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5HorizontalToolBox.addItem" ID="E5HorizontalToolBox.addItem"></a>
+<h4>E5HorizontalToolBox.addItem</h4>
+<b>addItem</b>(<i>widget, icon, text</i>)
+<p>
+        Public method to add a widget to the toolbox.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget to be added (QWidget)
+</dd><dt><i>icon</i></dt>
+<dd>
+the icon to be shown (QIcon)
+</dd><dt><i>text</i></dt>
+<dd>
+the text to be shown (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the added widget (integer)
+</dd>
+</dl><a NAME="E5HorizontalToolBox.insertItem" ID="E5HorizontalToolBox.insertItem"></a>
+<h4>E5HorizontalToolBox.insertItem</h4>
+<b>insertItem</b>(<i>index, widget, icon, text</i>)
+<p>
+        Public method to add a widget to the toolbox.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+position at which the widget should be inserted (integer)
+</dd><dt><i>widget</i></dt>
+<dd>
+reference to the widget to be added (QWidget)
+</dd><dt><i>icon</i></dt>
+<dd>
+the icon to be shown (QIcon)
+</dd><dt><i>text</i></dt>
+<dd>
+the text to be shown (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the added widget (integer)
+</dd>
+</dl><a NAME="E5HorizontalToolBox.removeItem" ID="E5HorizontalToolBox.removeItem"></a>
+<h4>E5HorizontalToolBox.removeItem</h4>
+<b>removeItem</b>(<i>index</i>)
+<p>
+        Public method to remove a widget from the toolbox.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the widget to remove (integer)
+</dd>
+</dl><a NAME="E5HorizontalToolBox.setItemEnabled" ID="E5HorizontalToolBox.setItemEnabled"></a>
+<h4>E5HorizontalToolBox.setItemEnabled</h4>
+<b>setItemEnabled</b>(<i>index, enabled</i>)
+<p>
+        Public method to set the enabled state of an item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the item (integer)
+</dd><dt><i>enabled</i></dt>
+<dd>
+flag indicating the enabled state (boolean)
+</dd>
+</dl><a NAME="E5HorizontalToolBox.setItemToolTip" ID="E5HorizontalToolBox.setItemToolTip"></a>
+<h4>E5HorizontalToolBox.setItemToolTip</h4>
+<b>setItemToolTip</b>(<i>index, toolTip</i>)
+<p>
+        Public method to set the tooltip of an item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the item (integer)
+</dd><dt><i>toolTip</i></dt>
+<dd>
+tooltip text to be set (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5VerticalToolBox" ID="E5VerticalToolBox"></a>
+<h2>E5VerticalToolBox</h2>
+<p>
+    Class implementing a ToolBox class substituting QToolBox to support wheel
+    events.
+</p>
+<h3>Derived from</h3>
+QToolBox
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5VerticalToolBox.__init__">E5VerticalToolBox</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5VerticalToolBox.__init__" ID="E5VerticalToolBox.__init__"></a>
+<h4>E5VerticalToolBox (Constructor)</h4>
+<b>E5VerticalToolBox</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

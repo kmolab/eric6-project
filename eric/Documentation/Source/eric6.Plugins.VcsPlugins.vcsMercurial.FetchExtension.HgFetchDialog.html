@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.FetchExtension.HgFetchDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.FetchExtension.HgFetchDialog</h1>
+<p>
+Module implementing a dialog to enter data to be used for a fetch operation.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgFetchDialog">HgFetchDialog</a></td>
+<td>Class implementing a dialog to enter data to be used for a fetch operation.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgFetchDialog" ID="HgFetchDialog"></a>
+<h2>HgFetchDialog</h2>
+<p>
+    Class implementing a dialog to enter data to be used for a fetch operation.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgFetchDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgFetchDialog.__init__">HgFetchDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgFetchDialog.getData">getData</a></td>
+<td>Public method to get the data for the fetch operation.</td>
+</tr><tr>
+<td><a href="#HgFetchDialog.on_recentComboBox_activated">on_recentComboBox_activated</a></td>
+<td>Private slot to select a commit message from recent ones.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgFetchDialog.__init__" ID="HgFetchDialog.__init__"></a>
+<h4>HgFetchDialog (Constructor)</h4>
+<b>HgFetchDialog</b>(<i>vcs, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i> (Hg)</dt>
+<dd>
+reference to the Mercurial vcs object
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="HgFetchDialog.getData" ID="HgFetchDialog.getData"></a>
+<h4>HgFetchDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to get the data for the fetch operation.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with the commit message and a flag indicating to switch
+            the merge order (string, boolean)
+</dd>
+</dl><a NAME="HgFetchDialog.on_recentComboBox_activated" ID="HgFetchDialog.on_recentComboBox_activated"></a>
+<h4>HgFetchDialog.on_recentComboBox_activated</h4>
+<b>on_recentComboBox_activated</b>(<i>txt</i>)
+<p>
+        Private slot to select a commit message from recent ones.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the selected entry (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

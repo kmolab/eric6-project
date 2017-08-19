@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.CookieJar.CookieJar</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.CookieJar.CookieJar</h1>
+<p>
+Module implementing a QNetworkCookieJar subclass with various accept policies.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CookieJar">CookieJar</a></td>
+<td>Class implementing a QNetworkCookieJar subclass with various accept policies.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CookieJar" ID="CookieJar"></a>
+<h2>CookieJar</h2>
+<p>
+    Class implementing a QNetworkCookieJar subclass with various accept
+    policies.
+</p><h3>Signals</h3>
+<dl>
+<dt>cookiesChanged()</dt>
+<dd>
+emitted after the cookies have been changed
+</dd>
+</dl>
+<h3>Derived from</h3>
+QNetworkCookieJar
+<h3>Class Attributes</h3>
+<table>
+<tr><td>AcceptAlways</td></tr><tr><td>AcceptNever</td></tr><tr><td>AcceptOnlyFromSitesNavigatedTo</td></tr><tr><td>Allow</td></tr><tr><td>AllowForSession</td></tr><tr><td>Block</td></tr><tr><td>JAR_VERSION</td></tr><tr><td>KeepUntilExit</td></tr><tr><td>KeepUntilExpire</td></tr><tr><td>KeepUntilTimeLimit</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CookieJar.__init__">CookieJar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CookieJar.__applyRules">__applyRules</a></td>
+<td>Private method to apply the cookie rules.</td>
+</tr><tr>
+<td><a href="#CookieJar.__isOnDomainList">__isOnDomainList</a></td>
+<td>Private method to check, if either the rule matches the domain exactly or the domain ends with ".rule".</td>
+</tr><tr>
+<td><a href="#CookieJar.__purgeOldCookies">__purgeOldCookies</a></td>
+<td>Private method to purge old cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.acceptPolicy">acceptPolicy</a></td>
+<td>Public method to get the accept policy.</td>
+</tr><tr>
+<td><a href="#CookieJar.allowForSessionCookies">allowForSessionCookies</a></td>
+<td>Public method to return the allowed session cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.allowedCookies">allowedCookies</a></td>
+<td>Public method to return the allowed cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.blockedCookies">blockedCookies</a></td>
+<td>Public method to return the blocked cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.clear">clear</a></td>
+<td>Public method to clear all cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.close">close</a></td>
+<td>Public slot to close the cookie jar.</td>
+</tr><tr>
+<td><a href="#CookieJar.cookies">cookies</a></td>
+<td>Public method to get the cookies of the cookie jar.</td>
+</tr><tr>
+<td><a href="#CookieJar.cookiesForUrl">cookiesForUrl</a></td>
+<td>Public method to get the cookies for a URL.</td>
+</tr><tr>
+<td><a href="#CookieJar.filterTrackingCookies">filterTrackingCookies</a></td>
+<td>Public method to get the filter tracking cookies flag.</td>
+</tr><tr>
+<td><a href="#CookieJar.keepPolicy">keepPolicy</a></td>
+<td>Public method to get the keep policy.</td>
+</tr><tr>
+<td><a href="#CookieJar.load">load</a></td>
+<td>Public method to load the cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.loadCookies">loadCookies</a></td>
+<td>Public method to restore the saved cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.save">save</a></td>
+<td>Public method to save the cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.saveCookies">saveCookies</a></td>
+<td>Public method to save the cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.setAcceptPolicy">setAcceptPolicy</a></td>
+<td>Public method to set the accept policy.</td>
+</tr><tr>
+<td><a href="#CookieJar.setAllowForSessionCookies">setAllowForSessionCookies</a></td>
+<td>Public method to set the list of allowed session cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.setAllowedCookies">setAllowedCookies</a></td>
+<td>Public method to set the list of allowed cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.setBlockedCookies">setBlockedCookies</a></td>
+<td>Public method to set the list of blocked cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.setCookies">setCookies</a></td>
+<td>Public method to set all cookies.</td>
+</tr><tr>
+<td><a href="#CookieJar.setCookiesFromUrl">setCookiesFromUrl</a></td>
+<td>Public method to set cookies for a URL.</td>
+</tr><tr>
+<td><a href="#CookieJar.setFilterTrackingCookies">setFilterTrackingCookies</a></td>
+<td>Public method to set the filter tracking cookies flag.</td>
+</tr><tr>
+<td><a href="#CookieJar.setKeepPolicy">setKeepPolicy</a></td>
+<td>Public method to set the keep policy.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CookieJar.__init__" ID="CookieJar.__init__"></a>
+<h4>CookieJar (Constructor)</h4>
+<b>CookieJar</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="CookieJar.__applyRules" ID="CookieJar.__applyRules"></a>
+<h4>CookieJar.__applyRules</h4>
+<b>__applyRules</b>(<i></i>)
+<p>
+        Private method to apply the cookie rules.
+</p><a NAME="CookieJar.__isOnDomainList" ID="CookieJar.__isOnDomainList"></a>
+<h4>CookieJar.__isOnDomainList</h4>
+<b>__isOnDomainList</b>(<i>rules, domain</i>)
+<p>
+        Private method to check, if either the rule matches the domain exactly
+        or the domain ends with ".rule".
+</p><dl>
+<dt><i>rules</i></dt>
+<dd>
+list of rules (list of strings)
+</dd><dt><i>domain</i></dt>
+<dd>
+domain name to check (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a match (boolean)
+</dd>
+</dl><a NAME="CookieJar.__purgeOldCookies" ID="CookieJar.__purgeOldCookies"></a>
+<h4>CookieJar.__purgeOldCookies</h4>
+<b>__purgeOldCookies</b>(<i></i>)
+<p>
+        Private method to purge old cookies.
+</p><a NAME="CookieJar.acceptPolicy" ID="CookieJar.acceptPolicy"></a>
+<h4>CookieJar.acceptPolicy</h4>
+<b>acceptPolicy</b>(<i></i>)
+<p>
+        Public method to get the accept policy.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+current accept policy
+</dd>
+</dl><a NAME="CookieJar.allowForSessionCookies" ID="CookieJar.allowForSessionCookies"></a>
+<h4>CookieJar.allowForSessionCookies</h4>
+<b>allowForSessionCookies</b>(<i></i>)
+<p>
+        Public method to return the allowed session cookies.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of allowed session cookies (list of strings)
+</dd>
+</dl><a NAME="CookieJar.allowedCookies" ID="CookieJar.allowedCookies"></a>
+<h4>CookieJar.allowedCookies</h4>
+<b>allowedCookies</b>(<i></i>)
+<p>
+        Public method to return the allowed cookies.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of allowed cookies (list of strings)
+</dd>
+</dl><a NAME="CookieJar.blockedCookies" ID="CookieJar.blockedCookies"></a>
+<h4>CookieJar.blockedCookies</h4>
+<b>blockedCookies</b>(<i></i>)
+<p>
+        Public method to return the blocked cookies.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of blocked cookies (list of strings)
+</dd>
+</dl><a NAME="CookieJar.clear" ID="CookieJar.clear"></a>
+<h4>CookieJar.clear</h4>
+<b>clear</b>(<i></i>)
+<p>
+        Public method to clear all cookies.
+</p><a NAME="CookieJar.close" ID="CookieJar.close"></a>
+<h4>CookieJar.close</h4>
+<b>close</b>(<i></i>)
+<p>
+        Public slot to close the cookie jar.
+</p><a NAME="CookieJar.cookies" ID="CookieJar.cookies"></a>
+<h4>CookieJar.cookies</h4>
+<b>cookies</b>(<i></i>)
+<p>
+        Public method to get the cookies of the cookie jar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of all cookies (list of QNetworkCookie)
+</dd>
+</dl><a NAME="CookieJar.cookiesForUrl" ID="CookieJar.cookiesForUrl"></a>
+<h4>CookieJar.cookiesForUrl</h4>
+<b>cookiesForUrl</b>(<i>url</i>)
+<p>
+        Public method to get the cookies for a URL.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL to get cookies for (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of cookies (list of QNetworkCookie)
+</dd>
+</dl><a NAME="CookieJar.filterTrackingCookies" ID="CookieJar.filterTrackingCookies"></a>
+<h4>CookieJar.filterTrackingCookies</h4>
+<b>filterTrackingCookies</b>(<i></i>)
+<p>
+        Public method to get the filter tracking cookies flag.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filter tracking cookies flag (boolean)
+</dd>
+</dl><a NAME="CookieJar.keepPolicy" ID="CookieJar.keepPolicy"></a>
+<h4>CookieJar.keepPolicy</h4>
+<b>keepPolicy</b>(<i></i>)
+<p>
+        Public method to get the keep policy.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+keep policy
+</dd>
+</dl><a NAME="CookieJar.load" ID="CookieJar.load"></a>
+<h4>CookieJar.load</h4>
+<b>load</b>(<i></i>)
+<p>
+        Public method to load the cookies.
+</p><a NAME="CookieJar.loadCookies" ID="CookieJar.loadCookies"></a>
+<h4>CookieJar.loadCookies</h4>
+<b>loadCookies</b>(<i>cookies</i>)
+<p>
+        Public method to restore the saved cookies.
+</p><dl>
+<dt><i>cookies</i></dt>
+<dd>
+byte array containing the saved cookies (QByteArray)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of cookies
+</dd>
+</dl><a NAME="CookieJar.save" ID="CookieJar.save"></a>
+<h4>CookieJar.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public method to save the cookies.
+</p><a NAME="CookieJar.saveCookies" ID="CookieJar.saveCookies"></a>
+<h4>CookieJar.saveCookies</h4>
+<b>saveCookies</b>(<i>cookiesList</i>)
+<p>
+        Public method to save the cookies.
+</p><dl>
+<dt><i>cookiesList</i></dt>
+<dd>
+list of cookies to be saved
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+saved cookies as a byte array (QByteArray)
+</dd>
+</dl><a NAME="CookieJar.setAcceptPolicy" ID="CookieJar.setAcceptPolicy"></a>
+<h4>CookieJar.setAcceptPolicy</h4>
+<b>setAcceptPolicy</b>(<i>policy</i>)
+<p>
+        Public method to set the accept policy.
+</p><dl>
+<dt><i>policy</i></dt>
+<dd>
+accept policy to be set
+</dd>
+</dl><a NAME="CookieJar.setAllowForSessionCookies" ID="CookieJar.setAllowForSessionCookies"></a>
+<h4>CookieJar.setAllowForSessionCookies</h4>
+<b>setAllowForSessionCookies</b>(<i>list_</i>)
+<p>
+        Public method to set the list of allowed session cookies.
+</p><dl>
+<dt><i>list_</i></dt>
+<dd>
+list of allowed session cookies (list of strings)
+</dd>
+</dl><a NAME="CookieJar.setAllowedCookies" ID="CookieJar.setAllowedCookies"></a>
+<h4>CookieJar.setAllowedCookies</h4>
+<b>setAllowedCookies</b>(<i>list_</i>)
+<p>
+        Public method to set the list of allowed cookies.
+</p><dl>
+<dt><i>list_</i></dt>
+<dd>
+list of allowed cookies (list of strings)
+</dd>
+</dl><a NAME="CookieJar.setBlockedCookies" ID="CookieJar.setBlockedCookies"></a>
+<h4>CookieJar.setBlockedCookies</h4>
+<b>setBlockedCookies</b>(<i>list_</i>)
+<p>
+        Public method to set the list of blocked cookies.
+</p><dl>
+<dt><i>list_</i></dt>
+<dd>
+list of blocked cookies (list of strings)
+</dd>
+</dl><a NAME="CookieJar.setCookies" ID="CookieJar.setCookies"></a>
+<h4>CookieJar.setCookies</h4>
+<b>setCookies</b>(<i>cookies</i>)
+<p>
+        Public method to set all cookies.
+</p><dl>
+<dt><i>cookies</i></dt>
+<dd>
+list of cookies to be set (list of QNetworkCookie)
+</dd>
+</dl><a NAME="CookieJar.setCookiesFromUrl" ID="CookieJar.setCookiesFromUrl"></a>
+<h4>CookieJar.setCookiesFromUrl</h4>
+<b>setCookiesFromUrl</b>(<i>cookieList, url</i>)
+<p>
+        Public method to set cookies for a URL.
+</p><dl>
+<dt><i>cookieList</i></dt>
+<dd>
+list of cookies to set (list of QNetworkCookie)
+</dd><dt><i>url</i></dt>
+<dd>
+url to set cookies for (QUrl)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating cookies were set (boolean)
+</dd>
+</dl><a NAME="CookieJar.setFilterTrackingCookies" ID="CookieJar.setFilterTrackingCookies"></a>
+<h4>CookieJar.setFilterTrackingCookies</h4>
+<b>setFilterTrackingCookies</b>(<i>filterTrackingCookies</i>)
+<p>
+        Public method to set the filter tracking cookies flag.
+</p><dl>
+<dt><i>filterTrackingCookies</i></dt>
+<dd>
+filter tracking cookies flag (boolean)
+</dd>
+</dl><a NAME="CookieJar.setKeepPolicy" ID="CookieJar.setKeepPolicy"></a>
+<h4>CookieJar.setKeepPolicy</h4>
+<b>setKeepPolicy</b>(<i>policy</i>)
+<p>
+        Public method to set the keep policy.
+</p><dl>
+<dt><i>policy</i></dt>
+<dd>
+keep policy to be set
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

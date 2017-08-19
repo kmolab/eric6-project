@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.FlashCookieManager.FlashCookieManager</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.FlashCookieManager.FlashCookieManager</h1>
+<p>
+Module implementing the Flash cookie manager.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieManager">FlashCookieManager</a></td>
+<td>Class implementing the Flash cookie manager object.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FlashCookieManager" ID="FlashCookieManager"></a>
+<h2>FlashCookieManager</h2>
+<p>
+    Class implementing the Flash cookie manager object.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>RefreshInterval</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FlashCookieManager.__init__">FlashCookieManager</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__autoRefresh">__autoRefresh</a></td>
+<td>Private slot to refresh the list of cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__extractOriginFrom">__extractOriginFrom</a></td>
+<td>Private method to extract the cookie origin given its file name.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__insertFlashCookie">__insertFlashCookie</a></td>
+<td>Private method to insert a Flash cookie into the cache.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__isBlacklisted">__isBlacklisted</a></td>
+<td>Private method to check for a blacklisted cookie.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__isWhitelisted">__isWhitelisted</a></td>
+<td>Private method to check for a whitelisted cookie.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__loadFlashCookies">__loadFlashCookies</a></td>
+<td>Private slot to load the Flash cookies to be cached.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__loadFlashCookiesFromPath">__loadFlashCookiesFromPath</a></td>
+<td>Private slot to load the Flash cookies from a path.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__removeAllButWhitelisted">__removeAllButWhitelisted</a></td>
+<td>Private method to remove all non-whitelisted cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__sharedObjectDirName">__sharedObjectDirName</a></td>
+<td>Private slot to determine the path of the shared data objects.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.__startStopTimer">__startStopTimer</a></td>
+<td>Private slot to start or stop the auto refresh timer.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.clearCache">clearCache</a></td>
+<td>Public method to clear the list of cached Flash cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.clearNewOrigins">clearNewOrigins</a></td>
+<td>Public method to clear the list of newly detected Flash cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.flashCookies">flashCookies</a></td>
+<td>Public method to get the list of cached Flash cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.flashPlayerDataPath">flashPlayerDataPath</a></td>
+<td>Public method to get the Flash Player data path.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.newCookiesList">newCookiesList</a></td>
+<td>Public method to get the list of newly detected Flash cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.preferencesChanged">preferencesChanged</a></td>
+<td>Public slot to handle a change of preferences.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.removeCookie">removeCookie</a></td>
+<td>Public method to remove a cookie of the list of cached cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.setFlashCookies">setFlashCookies</a></td>
+<td>Public method to set the list of cached Flash cookies.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.showFlashCookieManagerDialog">showFlashCookieManagerDialog</a></td>
+<td>Public method to show the Flash cookies management dialog.</td>
+</tr><tr>
+<td><a href="#FlashCookieManager.shutdown">shutdown</a></td>
+<td>Public method to perform shutdown actions.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FlashCookieManager.__init__" ID="FlashCookieManager.__init__"></a>
+<h4>FlashCookieManager (Constructor)</h4>
+<b>FlashCookieManager</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i> (QObject)</dt>
+<dd>
+reference to the parent object
+</dd>
+</dl><a NAME="FlashCookieManager.__autoRefresh" ID="FlashCookieManager.__autoRefresh"></a>
+<h4>FlashCookieManager.__autoRefresh</h4>
+<b>__autoRefresh</b>(<i></i>)
+<p>
+        Private slot to refresh the list of cookies.
+</p><a NAME="FlashCookieManager.__extractOriginFrom" ID="FlashCookieManager.__extractOriginFrom"></a>
+<h4>FlashCookieManager.__extractOriginFrom</h4>
+<b>__extractOriginFrom</b>(<i>path</i>)
+<p>
+        Private method to extract the cookie origin given its file name.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+file name of the cookie file
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+cookie origin
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="FlashCookieManager.__insertFlashCookie" ID="FlashCookieManager.__insertFlashCookie"></a>
+<h4>FlashCookieManager.__insertFlashCookie</h4>
+<b>__insertFlashCookie</b>(<i>path</i>)
+<p>
+        Private method to insert a Flash cookie into the cache.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+Flash cookies path
+</dd>
+</dl><a NAME="FlashCookieManager.__isBlacklisted" ID="FlashCookieManager.__isBlacklisted"></a>
+<h4>FlashCookieManager.__isBlacklisted</h4>
+<b>__isBlacklisted</b>(<i>cookie</i>)
+<p>
+        Private method to check for a blacklisted cookie.
+</p><dl>
+<dt><i>cookie</i> (FlashCookie)</dt>
+<dd>
+Flash cookie to be tested
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a blacklisted cookie
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="FlashCookieManager.__isWhitelisted" ID="FlashCookieManager.__isWhitelisted"></a>
+<h4>FlashCookieManager.__isWhitelisted</h4>
+<b>__isWhitelisted</b>(<i>cookie</i>)
+<p>
+        Private method to check for a whitelisted cookie.
+</p><dl>
+<dt><i>cookie</i> (FlashCookie)</dt>
+<dd>
+Flash cookie to be tested
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a whitelisted cookie
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="FlashCookieManager.__loadFlashCookies" ID="FlashCookieManager.__loadFlashCookies"></a>
+<h4>FlashCookieManager.__loadFlashCookies</h4>
+<b>__loadFlashCookies</b>(<i></i>)
+<p>
+        Private slot to load the Flash cookies to be cached.
+</p><a NAME="FlashCookieManager.__loadFlashCookiesFromPath" ID="FlashCookieManager.__loadFlashCookiesFromPath"></a>
+<h4>FlashCookieManager.__loadFlashCookiesFromPath</h4>
+<b>__loadFlashCookiesFromPath</b>(<i>path</i>)
+<p>
+        Private slot to load the Flash cookies from a path.
+</p><dl>
+<dt><i>path</i> (str)</dt>
+<dd>
+Flash cookies path
+</dd>
+</dl><a NAME="FlashCookieManager.__removeAllButWhitelisted" ID="FlashCookieManager.__removeAllButWhitelisted"></a>
+<h4>FlashCookieManager.__removeAllButWhitelisted</h4>
+<b>__removeAllButWhitelisted</b>(<i></i>)
+<p>
+        Private method to remove all non-whitelisted cookies.
+</p><a NAME="FlashCookieManager.__sharedObjectDirName" ID="FlashCookieManager.__sharedObjectDirName"></a>
+<h4>FlashCookieManager.__sharedObjectDirName</h4>
+<b>__sharedObjectDirName</b>(<i></i>)
+<p>
+        Private slot to determine the path of the shared data objects.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+path of the shared data objects
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="FlashCookieManager.__startStopTimer" ID="FlashCookieManager.__startStopTimer"></a>
+<h4>FlashCookieManager.__startStopTimer</h4>
+<b>__startStopTimer</b>(<i></i>)
+<p>
+        Private slot to start or stop the auto refresh timer.
+</p><a NAME="FlashCookieManager.clearCache" ID="FlashCookieManager.clearCache"></a>
+<h4>FlashCookieManager.clearCache</h4>
+<b>clearCache</b>(<i></i>)
+<p>
+        Public method to clear the list of cached Flash cookies.
+</p><a NAME="FlashCookieManager.clearNewOrigins" ID="FlashCookieManager.clearNewOrigins"></a>
+<h4>FlashCookieManager.clearNewOrigins</h4>
+<b>clearNewOrigins</b>(<i></i>)
+<p>
+        Public method to clear the list of newly detected Flash cookies.
+</p><a NAME="FlashCookieManager.flashCookies" ID="FlashCookieManager.flashCookies"></a>
+<h4>FlashCookieManager.flashCookies</h4>
+<b>flashCookies</b>(<i></i>)
+<p>
+        Public method to get the list of cached Flash cookies.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of Flash cookies
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of FlashCookie
+</dd>
+</dl><a NAME="FlashCookieManager.flashPlayerDataPath" ID="FlashCookieManager.flashPlayerDataPath"></a>
+<h4>FlashCookieManager.flashPlayerDataPath</h4>
+<b>flashPlayerDataPath</b>(<i></i>)
+<p>
+        Public method to get the Flash Player data path.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+Flash Player data path
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="FlashCookieManager.newCookiesList" ID="FlashCookieManager.newCookiesList"></a>
+<h4>FlashCookieManager.newCookiesList</h4>
+<b>newCookiesList</b>(<i></i>)
+<p>
+        Public method to get the list of newly detected Flash cookies.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of newly detected Flash cookies
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of str
+</dd>
+</dl><a NAME="FlashCookieManager.preferencesChanged" ID="FlashCookieManager.preferencesChanged"></a>
+<h4>FlashCookieManager.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public slot to handle a change of preferences.
+</p><a NAME="FlashCookieManager.removeCookie" ID="FlashCookieManager.removeCookie"></a>
+<h4>FlashCookieManager.removeCookie</h4>
+<b>removeCookie</b>(<i>cookie</i>)
+<p>
+        Public method to remove a cookie of the list of cached cookies.
+</p><dl>
+<dt><i>cookie</i> (FlashCookie)</dt>
+<dd>
+Flash cookie to be removed
+</dd>
+</dl><a NAME="FlashCookieManager.setFlashCookies" ID="FlashCookieManager.setFlashCookies"></a>
+<h4>FlashCookieManager.setFlashCookies</h4>
+<b>setFlashCookies</b>(<i>cookies</i>)
+<p>
+        Public method to set the list of cached Flash cookies.
+</p><dl>
+<dt><i>cookies</i> (list of FlashCookie)</dt>
+<dd>
+list of Flash cookies to store
+</dd>
+</dl><a NAME="FlashCookieManager.showFlashCookieManagerDialog" ID="FlashCookieManager.showFlashCookieManagerDialog"></a>
+<h4>FlashCookieManager.showFlashCookieManagerDialog</h4>
+<b>showFlashCookieManagerDialog</b>(<i></i>)
+<p>
+        Public method to show the Flash cookies management dialog.
+</p><a NAME="FlashCookieManager.shutdown" ID="FlashCookieManager.shutdown"></a>
+<h4>FlashCookieManager.shutdown</h4>
+<b>shutdown</b>(<i></i>)
+<p>
+        Public method to perform shutdown actions.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

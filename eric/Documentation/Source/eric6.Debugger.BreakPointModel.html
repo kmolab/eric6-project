@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.BreakPointModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.BreakPointModel</h1>
+<p>
+Module implementing the Breakpoint model.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#BreakPointModel">BreakPointModel</a></td>
+<td>Class implementing a custom model for breakpoints.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="BreakPointModel" ID="BreakPointModel"></a>
+<h2>BreakPointModel</h2>
+<p>
+    Class implementing a custom model for breakpoints.
+</p><h3>Signals</h3>
+<dl>
+<dt>dataAboutToBeChanged(QModelIndex, QModelIndex)</dt>
+<dd>
+emitted to indicate
+        a change of the data
+</dd>
+</dl>
+<h3>Derived from</h3>
+QAbstractItemModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#BreakPointModel.__init__">BreakPointModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#BreakPointModel.addBreakPoint">addBreakPoint</a></td>
+<td>Public method to add a new breakpoint to the list.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.columnCount">columnCount</a></td>
+<td>Public method to get the current column count.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.data">data</a></td>
+<td>Public method to get the requested data.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.deleteAll">deleteAll</a></td>
+<td>Public method to delete all breakpoints.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.deleteBreakPointByIndex">deleteBreakPointByIndex</a></td>
+<td>Public method to set the values of a breakpoint given by index.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.deleteBreakPoints">deleteBreakPoints</a></td>
+<td>Public method to delete a list of breakpoints given by their indexes.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.flags">flags</a></td>
+<td>Public method to get item flags.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.getBreakPointByIndex">getBreakPointByIndex</a></td>
+<td>Public method to get the values of a breakpoint given by index.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.getBreakPointIndex">getBreakPointIndex</a></td>
+<td>Public method to get the index of a breakpoint given by filename and line number.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.hasChildren">hasChildren</a></td>
+<td>Public method to check for the presence of child items.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.headerData">headerData</a></td>
+<td>Public method to get header data.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.index">index</a></td>
+<td>Public method to create an index.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.isBreakPointTemporaryByIndex">isBreakPointTemporaryByIndex</a></td>
+<td>Public method to test, if a breakpoint given by its index is temporary.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.parent">parent</a></td>
+<td>Public method to get the parent index.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.rowCount">rowCount</a></td>
+<td>Public method to get the current row count.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.setBreakPointByIndex">setBreakPointByIndex</a></td>
+<td>Public method to set the values of a breakpoint given by index.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.setBreakPointEnabledByIndex">setBreakPointEnabledByIndex</a></td>
+<td>Public method to set the enabled state of a breakpoint given by index.</td>
+</tr><tr>
+<td><a href="#BreakPointModel.setData">setData</a></td>
+<td>Public method to change data in the model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="BreakPointModel.__init__" ID="BreakPointModel.__init__"></a>
+<h4>BreakPointModel (Constructor)</h4>
+<b>BreakPointModel</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QObject)
+</dd>
+</dl><a NAME="BreakPointModel.addBreakPoint" ID="BreakPointModel.addBreakPoint"></a>
+<h4>BreakPointModel.addBreakPoint</h4>
+<b>addBreakPoint</b>(<i>fn, line, properties</i>)
+<p>
+        Public method to add a new breakpoint to the list.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the breakpoint (string)
+</dd><dt><i>line</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd><dt><i>properties</i></dt>
+<dd>
+properties of the breakpoint
+            (tuple of condition (string), temporary flag (bool),
+             enabled flag (bool), ignore count (integer))
+</dd>
+</dl><a NAME="BreakPointModel.columnCount" ID="BreakPointModel.columnCount"></a>
+<h4>BreakPointModel.columnCount</h4>
+<b>columnCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the current column count.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to parent index (QModelIndex) (Unused)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+column count (integer)
+</dd>
+</dl><a NAME="BreakPointModel.data" ID="BreakPointModel.data"></a>
+<h4>BreakPointModel.data</h4>
+<b>data</b>(<i>index, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get the requested data.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the requested data (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the requested data (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the requested data
+</dd>
+</dl><a NAME="BreakPointModel.deleteAll" ID="BreakPointModel.deleteAll"></a>
+<h4>BreakPointModel.deleteAll</h4>
+<b>deleteAll</b>(<i></i>)
+<p>
+        Public method to delete all breakpoints.
+</p><a NAME="BreakPointModel.deleteBreakPointByIndex" ID="BreakPointModel.deleteBreakPointByIndex"></a>
+<h4>BreakPointModel.deleteBreakPointByIndex</h4>
+<b>deleteBreakPointByIndex</b>(<i>index</i>)
+<p>
+        Public method to set the values of a breakpoint given by index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the breakpoint (QModelIndex)
+</dd>
+</dl><a NAME="BreakPointModel.deleteBreakPoints" ID="BreakPointModel.deleteBreakPoints"></a>
+<h4>BreakPointModel.deleteBreakPoints</h4>
+<b>deleteBreakPoints</b>(<i>idxList</i>)
+<p>
+        Public method to delete a list of breakpoints given by their indexes.
+</p><dl>
+<dt><i>idxList</i></dt>
+<dd>
+list of breakpoint indexes (list of QModelIndex)
+</dd>
+</dl><a NAME="BreakPointModel.flags" ID="BreakPointModel.flags"></a>
+<h4>BreakPointModel.flags</h4>
+<b>flags</b>(<i>index</i>)
+<p>
+        Public method to get item flags.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the requested flags (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+item flags for the given index (Qt.ItemFlags)
+</dd>
+</dl><a NAME="BreakPointModel.getBreakPointByIndex" ID="BreakPointModel.getBreakPointByIndex"></a>
+<h4>BreakPointModel.getBreakPointByIndex</h4>
+<b>getBreakPointByIndex</b>(<i>index</i>)
+<p>
+        Public method to get the values of a breakpoint given by index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the breakpoint (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+breakpoint (list of seven values (filename, line number,
+            condition, temporary flag, enabled flag, ignore count))
+</dd>
+</dl><a NAME="BreakPointModel.getBreakPointIndex" ID="BreakPointModel.getBreakPointIndex"></a>
+<h4>BreakPointModel.getBreakPointIndex</h4>
+<b>getBreakPointIndex</b>(<i>fn, lineno</i>)
+<p>
+        Public method to get the index of a breakpoint given by filename and
+        line number.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the breakpoint (string)
+</dd><dt><i>lineno</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index (QModelIndex)
+</dd>
+</dl><a NAME="BreakPointModel.hasChildren" ID="BreakPointModel.hasChildren"></a>
+<h4>BreakPointModel.hasChildren</h4>
+<b>hasChildren</b>(<i>parent=None</i>)
+<p>
+        Public method to check for the presence of child items.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of child items (boolean)
+</dd>
+</dl><a NAME="BreakPointModel.headerData" ID="BreakPointModel.headerData"></a>
+<h4>BreakPointModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get header data.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+section number of the requested header data (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+orientation of the header (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the requested data (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+header data
+</dd>
+</dl><a NAME="BreakPointModel.index" ID="BreakPointModel.index"></a>
+<h4>BreakPointModel.index</h4>
+<b>index</b>(<i>row, column, parent=None</i>)
+<p>
+        Public method to create an index.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+row number for the index (integer)
+</dd><dt><i>column</i></dt>
+<dd>
+column number for the index (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+index of the parent item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested index (QModelIndex)
+</dd>
+</dl><a NAME="BreakPointModel.isBreakPointTemporaryByIndex" ID="BreakPointModel.isBreakPointTemporaryByIndex"></a>
+<h4>BreakPointModel.isBreakPointTemporaryByIndex</h4>
+<b>isBreakPointTemporaryByIndex</b>(<i>index</i>)
+<p>
+        Public method to test, if a breakpoint given by its index is temporary.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the breakpoint to test (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a temporary breakpoint (boolean)
+</dd>
+</dl><a NAME="BreakPointModel.parent" ID="BreakPointModel.parent"></a>
+<h4>BreakPointModel.parent</h4>
+<b>parent</b>(<i>index</i>)
+<p>
+        Public method to get the parent index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of item to get parent (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of parent (QModelIndex)
+</dd>
+</dl><a NAME="BreakPointModel.rowCount" ID="BreakPointModel.rowCount"></a>
+<h4>BreakPointModel.rowCount</h4>
+<b>rowCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the current row count.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+row count (integer)
+</dd>
+</dl><a NAME="BreakPointModel.setBreakPointByIndex" ID="BreakPointModel.setBreakPointByIndex"></a>
+<h4>BreakPointModel.setBreakPointByIndex</h4>
+<b>setBreakPointByIndex</b>(<i>index, fn, line, properties</i>)
+<p>
+        Public method to set the values of a breakpoint given by index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the breakpoint (QModelIndex)
+</dd><dt><i>fn</i></dt>
+<dd>
+filename of the breakpoint (string)
+</dd><dt><i>line</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd><dt><i>properties</i></dt>
+<dd>
+properties of the breakpoint
+            (tuple of condition (string), temporary flag (bool),
+             enabled flag (bool), ignore count (integer))
+</dd>
+</dl><a NAME="BreakPointModel.setBreakPointEnabledByIndex" ID="BreakPointModel.setBreakPointEnabledByIndex"></a>
+<h4>BreakPointModel.setBreakPointEnabledByIndex</h4>
+<b>setBreakPointEnabledByIndex</b>(<i>index, enabled</i>)
+<p>
+        Public method to set the enabled state of a breakpoint given by index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the breakpoint (QModelIndex)
+</dd><dt><i>enabled</i></dt>
+<dd>
+flag giving the enabled state (boolean)
+</dd>
+</dl><a NAME="BreakPointModel.setData" ID="BreakPointModel.setData"></a>
+<h4>BreakPointModel.setData</h4>
+<b>setData</b>(<i>index, value, role=Qt.EditRole</i>)
+<p>
+        Public method to change data in the model.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the changed data (QModelIndex)
+</dd><dt><i>value</i></dt>
+<dd>
+value of the changed data
+</dd><dt><i>role</i></dt>
+<dd>
+role of the changed data (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

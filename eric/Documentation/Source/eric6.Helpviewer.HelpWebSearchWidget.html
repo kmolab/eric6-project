@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.HelpWebSearchWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.HelpWebSearchWidget</h1>
+<p>
+Module implementing a web search widget for the web browser.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpWebSearchWidget">HelpWebSearchWidget</a></td>
+<td>Class implementing a web search widget for the web browser.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HelpWebSearchWidget" ID="HelpWebSearchWidget"></a>
+<h2>HelpWebSearchWidget</h2>
+<p>
+    Class implementing a web search widget for the web browser.
+</p><h3>Signals</h3>
+<dl>
+<dt>search(QUrl)</dt>
+<dd>
+emitted when the search should be done
+</dd>
+</dl>
+<h3>Derived from</h3>
+E5ClearableLineEdit
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpWebSearchWidget.__init__">HelpWebSearchWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__addEngineFromUrl">__addEngineFromUrl</a></td>
+<td>Private slot to add a search engine given its URL.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__changeCurrentEngine">__changeCurrentEngine</a></td>
+<td>Private slot to handle the selection of a search engine.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__completerActivated">__completerActivated</a></td>
+<td>Private slot handling the selection of an entry from the completer.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__completerHighlighted">__completerHighlighted</a></td>
+<td>Private slot handling the highlighting of an entry of the completer.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__currentEngineChanged">__currentEngineChanged</a></td>
+<td>Private slot to track a change of the current search engine.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__engineImageChanged">__engineImageChanged</a></td>
+<td>Private slot to handle a change of the current search engine icon.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__getSuggestions">__getSuggestions</a></td>
+<td>Private slot to get search suggestions from the configured search engine.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__loadSearches">__loadSearches</a></td>
+<td>Private method to load the recently performed web searches.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__newSuggestions">__newSuggestions</a></td>
+<td>Private slot to receive a new list of suggestions.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__searchButtonClicked">__searchButtonClicked</a></td>
+<td>Private slot to show the search menu via the search button.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__searchNow">__searchNow</a></td>
+<td>Private slot to perform the web search.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__setupCompleterMenu">__setupCompleterMenu</a></td>
+<td>Private method to create the completer menu.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__showEnginesMenu">__showEnginesMenu</a></td>
+<td>Private slot to handle the display of the engines menu.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.__textEdited">__textEdited</a></td>
+<td>Private slot to handle changes of the search text.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.clear">clear</a></td>
+<td>Public method to clear all private data.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method called by a mouse press event.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.openSearchManager">openSearchManager</a></td>
+<td>Public method to get a reference to the opensearch manager object.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.preferencesChanged">preferencesChanged</a></td>
+<td>Public method to handle the change of preferences.</td>
+</tr><tr>
+<td><a href="#HelpWebSearchWidget.saveSearches">saveSearches</a></td>
+<td>Public method to save the recently performed web searches.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpWebSearchWidget.__init__" ID="HelpWebSearchWidget.__init__"></a>
+<h4>HelpWebSearchWidget (Constructor)</h4>
+<b>HelpWebSearchWidget</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.__addEngineFromUrl" ID="HelpWebSearchWidget.__addEngineFromUrl"></a>
+<h4>HelpWebSearchWidget.__addEngineFromUrl</h4>
+<b>__addEngineFromUrl</b>(<i></i>)
+<p>
+        Private slot to add a search engine given its URL.
+</p><a NAME="HelpWebSearchWidget.__changeCurrentEngine" ID="HelpWebSearchWidget.__changeCurrentEngine"></a>
+<h4>HelpWebSearchWidget.__changeCurrentEngine</h4>
+<b>__changeCurrentEngine</b>(<i></i>)
+<p>
+        Private slot to handle the selection of a search engine.
+</p><a NAME="HelpWebSearchWidget.__completerActivated" ID="HelpWebSearchWidget.__completerActivated"></a>
+<h4>HelpWebSearchWidget.__completerActivated</h4>
+<b>__completerActivated</b>(<i>index</i>)
+<p>
+        Private slot handling the selection of an entry from the completer.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the item (QModelIndex)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.__completerHighlighted" ID="HelpWebSearchWidget.__completerHighlighted"></a>
+<h4>HelpWebSearchWidget.__completerHighlighted</h4>
+<b>__completerHighlighted</b>(<i>index</i>)
+<p>
+        Private slot handling the highlighting of an entry of the completer.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the item (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flah indicating a successful highlighting (boolean)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.__currentEngineChanged" ID="HelpWebSearchWidget.__currentEngineChanged"></a>
+<h4>HelpWebSearchWidget.__currentEngineChanged</h4>
+<b>__currentEngineChanged</b>(<i></i>)
+<p>
+        Private slot to track a change of the current search engine.
+</p><a NAME="HelpWebSearchWidget.__engineImageChanged" ID="HelpWebSearchWidget.__engineImageChanged"></a>
+<h4>HelpWebSearchWidget.__engineImageChanged</h4>
+<b>__engineImageChanged</b>(<i></i>)
+<p>
+        Private slot to handle a change of the current search engine icon.
+</p><a NAME="HelpWebSearchWidget.__getSuggestions" ID="HelpWebSearchWidget.__getSuggestions"></a>
+<h4>HelpWebSearchWidget.__getSuggestions</h4>
+<b>__getSuggestions</b>(<i></i>)
+<p>
+        Private slot to get search suggestions from the configured search
+        engine.
+</p><a NAME="HelpWebSearchWidget.__loadSearches" ID="HelpWebSearchWidget.__loadSearches"></a>
+<h4>HelpWebSearchWidget.__loadSearches</h4>
+<b>__loadSearches</b>(<i></i>)
+<p>
+        Private method to load the recently performed web searches.
+</p><a NAME="HelpWebSearchWidget.__newSuggestions" ID="HelpWebSearchWidget.__newSuggestions"></a>
+<h4>HelpWebSearchWidget.__newSuggestions</h4>
+<b>__newSuggestions</b>(<i>suggestions</i>)
+<p>
+        Private slot to receive a new list of suggestions.
+</p><dl>
+<dt><i>suggestions</i></dt>
+<dd>
+list of suggestions (list of strings)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.__searchButtonClicked" ID="HelpWebSearchWidget.__searchButtonClicked"></a>
+<h4>HelpWebSearchWidget.__searchButtonClicked</h4>
+<b>__searchButtonClicked</b>(<i></i>)
+<p>
+        Private slot to show the search menu via the search button.
+</p><a NAME="HelpWebSearchWidget.__searchNow" ID="HelpWebSearchWidget.__searchNow"></a>
+<h4>HelpWebSearchWidget.__searchNow</h4>
+<b>__searchNow</b>(<i></i>)
+<p>
+        Private slot to perform the web search.
+</p><a NAME="HelpWebSearchWidget.__setupCompleterMenu" ID="HelpWebSearchWidget.__setupCompleterMenu"></a>
+<h4>HelpWebSearchWidget.__setupCompleterMenu</h4>
+<b>__setupCompleterMenu</b>(<i></i>)
+<p>
+        Private method to create the completer menu.
+</p><a NAME="HelpWebSearchWidget.__showEnginesMenu" ID="HelpWebSearchWidget.__showEnginesMenu"></a>
+<h4>HelpWebSearchWidget.__showEnginesMenu</h4>
+<b>__showEnginesMenu</b>(<i></i>)
+<p>
+        Private slot to handle the display of the engines menu.
+</p><a NAME="HelpWebSearchWidget.__textEdited" ID="HelpWebSearchWidget.__textEdited"></a>
+<h4>HelpWebSearchWidget.__textEdited</h4>
+<b>__textEdited</b>(<i>txt</i>)
+<p>
+        Private slot to handle changes of the search text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+search text (string)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.clear" ID="HelpWebSearchWidget.clear"></a>
+<h4>HelpWebSearchWidget.clear</h4>
+<b>clear</b>(<i></i>)
+<p>
+        Public method to clear all private data.
+</p><a NAME="HelpWebSearchWidget.mousePressEvent" ID="HelpWebSearchWidget.mousePressEvent"></a>
+<h4>HelpWebSearchWidget.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>evt</i>)
+<p>
+        Protected method called by a mouse press event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the mouse event (QMouseEvent)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.openSearchManager" ID="HelpWebSearchWidget.openSearchManager"></a>
+<h4>HelpWebSearchWidget.openSearchManager</h4>
+<b>openSearchManager</b>(<i></i>)
+<p>
+        Public method to get a reference to the opensearch manager object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the opensearch manager object (OpenSearchManager)
+</dd>
+</dl><a NAME="HelpWebSearchWidget.preferencesChanged" ID="HelpWebSearchWidget.preferencesChanged"></a>
+<h4>HelpWebSearchWidget.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public method to handle the change of preferences.
+</p><a NAME="HelpWebSearchWidget.saveSearches" ID="HelpWebSearchWidget.saveSearches"></a>
+<h4>HelpWebSearchWidget.saveSearches</h4>
+<b>saveSearches</b>(<i></i>)
+<p>
+        Public method to save the recently performed web searches.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

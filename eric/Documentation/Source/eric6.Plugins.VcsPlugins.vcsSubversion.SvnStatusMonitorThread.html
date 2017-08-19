@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsSubversion.SvnStatusMonitorThread</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsSubversion.SvnStatusMonitorThread</h1>
+<p>
+Module implementing the VCS status monitor thread class for Subversion.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SvnStatusMonitorThread">SvnStatusMonitorThread</a></td>
+<td>Class implementing the VCS status monitor thread class for Subversion.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="SvnStatusMonitorThread" ID="SvnStatusMonitorThread"></a>
+<h2>SvnStatusMonitorThread</h2>
+<p>
+    Class implementing the VCS status monitor thread class for Subversion.
+</p>
+<h3>Derived from</h3>
+VcsStatusMonitorThread
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SvnStatusMonitorThread.__init__">SvnStatusMonitorThread</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SvnStatusMonitorThread._performMonitor">_performMonitor</a></td>
+<td>Protected method implementing the monitoring action.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SvnStatusMonitorThread.__init__" ID="SvnStatusMonitorThread.__init__"></a>
+<h4>SvnStatusMonitorThread (Constructor)</h4>
+<b>SvnStatusMonitorThread</b>(<i>interval, project, vcs, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>interval</i></dt>
+<dd>
+new interval in seconds (integer)
+</dd><dt><i>project</i></dt>
+<dd>
+reference to the project object (Project)
+</dd><dt><i>vcs</i></dt>
+<dd>
+reference to the version control object
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="SvnStatusMonitorThread._performMonitor" ID="SvnStatusMonitorThread._performMonitor"></a>
+<h4>SvnStatusMonitorThread._performMonitor</h4>
+<b>_performMonitor</b>(<i></i>)
+<p>
+        Protected method implementing the monitoring action.
+</p><p>
+        This method populates the statusList member variable
+        with a list of strings giving the status in the first column and the
+        path relative to the project directory starting with the third column.
+        The allowed status flags are:
+        <ul>
+            <li>"A" path was added but not yet comitted</li>
+            <li>"M" path has local changes</li>
+            <li>"O" path was removed</li>
+            <li>"R" path was deleted and then re-added</li>
+            <li>"U" path needs an update</li>
+            <li>"Z" path contains a conflict</li>
+            <li>" " path is back at normal</li>
+        </ul>
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of flag indicating successful operation (boolean) and
+            a status message in case of non successful operation (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

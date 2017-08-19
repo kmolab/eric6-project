@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.WizardPlugins.FileDialogWizard.FileDialogWizardDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.WizardPlugins.FileDialogWizard.FileDialogWizardDialog</h1>
+<p>
+Module implementing the file dialog wizard dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FileDialogWizardDialog">FileDialogWizardDialog</a></td>
+<td>Class implementing the color dialog wizard dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FileDialogWizardDialog" ID="FileDialogWizardDialog"></a>
+<h2>FileDialogWizardDialog</h2>
+<p>
+    Class implementing the color dialog wizard dialog.
+</p><p>
+    It displays a dialog for entering the parameters
+    for the QFileDialog code generator.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_FileDialogWizardDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FileDialogWizardDialog.__init__">FileDialogWizardDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.__adjustOptions">__adjustOptions</a></td>
+<td>Private method to adjust the file dialog options.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.__toggleConfirmCheckBox">__toggleConfirmCheckBox</a></td>
+<td>Private slot to enable/disable the confirmation check box.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.__toggleGroupsAndTest">__toggleGroupsAndTest</a></td>
+<td>Private slot to enable/disable certain groups and the test button.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.__toggleInitialFilterAndResult">__toggleInitialFilterAndResult</a></td>
+<td>Private slot to enable/disable the initial filter elements and the results entries.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.getCode">getCode</a></td>
+<td>Public method to get the source code for Qt4 and Qt5.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.on_bTest_clicked">on_bTest_clicked</a></td>
+<td>Private method to test the selected options.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#FileDialogWizardDialog.on_pyqtComboBox_currentIndexChanged">on_pyqtComboBox_currentIndexChanged</a></td>
+<td>Private slot to setup the dialog for the selected PyQt variant.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FileDialogWizardDialog.__init__" ID="FileDialogWizardDialog.__init__"></a>
+<h4>FileDialogWizardDialog (Constructor)</h4>
+<b>FileDialogWizardDialog</b>(<i>pyqtVariant, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>pyqtVariant</i></dt>
+<dd>
+variant of PyQt (integer; 0, 4 or 5)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="FileDialogWizardDialog.__adjustOptions" ID="FileDialogWizardDialog.__adjustOptions"></a>
+<h4>FileDialogWizardDialog.__adjustOptions</h4>
+<b>__adjustOptions</b>(<i>options</i>)
+<p>
+        Private method to adjust the file dialog options.
+</p><dl>
+<dt><i>options</i></dt>
+<dd>
+file dialog options (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+modified options (QFileDialog.Options)
+</dd>
+</dl><a NAME="FileDialogWizardDialog.__toggleConfirmCheckBox" ID="FileDialogWizardDialog.__toggleConfirmCheckBox"></a>
+<h4>FileDialogWizardDialog.__toggleConfirmCheckBox</h4>
+<b>__toggleConfirmCheckBox</b>(<i></i>)
+<p>
+        Private slot to enable/disable the confirmation check box.
+</p><a NAME="FileDialogWizardDialog.__toggleGroupsAndTest" ID="FileDialogWizardDialog.__toggleGroupsAndTest"></a>
+<h4>FileDialogWizardDialog.__toggleGroupsAndTest</h4>
+<b>__toggleGroupsAndTest</b>(<i></i>)
+<p>
+        Private slot to enable/disable certain groups and the test button.
+</p><a NAME="FileDialogWizardDialog.__toggleInitialFilterAndResult" ID="FileDialogWizardDialog.__toggleInitialFilterAndResult"></a>
+<h4>FileDialogWizardDialog.__toggleInitialFilterAndResult</h4>
+<b>__toggleInitialFilterAndResult</b>(<i>checkedId</i>)
+<p>
+        Private slot to enable/disable the initial filter elements and the
+        results entries.
+</p><dl>
+<dt><i>checkedId</i></dt>
+<dd>
+id of the clicked button (integer)
+</dd>
+</dl><a NAME="FileDialogWizardDialog.getCode" ID="FileDialogWizardDialog.getCode"></a>
+<h4>FileDialogWizardDialog.getCode</h4>
+<b>getCode</b>(<i>indLevel, indString</i>)
+<p>
+        Public method to get the source code for Qt4 and Qt5.
+</p><dl>
+<dt><i>indLevel</i></dt>
+<dd>
+indentation level (int)
+</dd><dt><i>indString</i></dt>
+<dd>
+string used for indentation (space or tab) (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+generated code (string)
+</dd>
+</dl><a NAME="FileDialogWizardDialog.on_bTest_clicked" ID="FileDialogWizardDialog.on_bTest_clicked"></a>
+<h4>FileDialogWizardDialog.on_bTest_clicked</h4>
+<b>on_bTest_clicked</b>(<i></i>)
+<p>
+        Private method to test the selected options.
+</p><a NAME="FileDialogWizardDialog.on_buttonBox_clicked" ID="FileDialogWizardDialog.on_buttonBox_clicked"></a>
+<h4>FileDialogWizardDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="FileDialogWizardDialog.on_pyqtComboBox_currentIndexChanged" ID="FileDialogWizardDialog.on_pyqtComboBox_currentIndexChanged"></a>
+<h4>FileDialogWizardDialog.on_pyqtComboBox_currentIndexChanged</h4>
+<b>on_pyqtComboBox_currentIndexChanged</b>(<i>txt</i>)
+<p>
+        Private slot to setup the dialog for the selected PyQt variant.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text of the selected combo box entry (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

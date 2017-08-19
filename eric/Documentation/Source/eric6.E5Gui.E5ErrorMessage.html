@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ErrorMessage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ErrorMessage</h1>
+<p>
+Module implementing a specialized error message dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>__msgHandlerDialog</td></tr><tr><td>__origMsgHandler</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ErrorMessage">E5ErrorMessage</a></td>
+<td>Class implementing a specialized error message dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#editMessageFilters">editMessageFilters</a></td>
+<td>Module function to edit the list of message filters.</td>
+</tr><tr>
+<td><a href="#messageHandler">messageHandler</a></td>
+<td>Module function handling messages.</td>
+</tr><tr>
+<td><a href="#messageHandlerInstalled">messageHandlerInstalled</a></td>
+<td>Module function to check, if a message handler was installed.</td>
+</tr><tr>
+<td><a href="#qtHandler">qtHandler</a></td>
+<td>Module function to install an E5ErrorMessage dialog as the global message handler.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="E5ErrorMessage" ID="E5ErrorMessage"></a>
+<h2>E5ErrorMessage</h2>
+<p>
+    Class implementing a specialized error message dialog.
+</p>
+<h3>Derived from</h3>
+QErrorMessage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ErrorMessage.__init__">E5ErrorMessage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ErrorMessage.__filterMessage">__filterMessage</a></td>
+<td>Private method to filter messages.</td>
+</tr><tr>
+<td><a href="#E5ErrorMessage.editMessageFilters">editMessageFilters</a></td>
+<td>Public method to edit the list of message filters.</td>
+</tr><tr>
+<td><a href="#E5ErrorMessage.showMessage">showMessage</a></td>
+<td>Public method to show a message.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ErrorMessage.__init__" ID="E5ErrorMessage.__init__"></a>
+<h4>E5ErrorMessage (Constructor)</h4>
+<b>E5ErrorMessage</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5ErrorMessage.__filterMessage" ID="E5ErrorMessage.__filterMessage"></a>
+<h4>E5ErrorMessage.__filterMessage</h4>
+<b>__filterMessage</b>(<i>message</i>)
+<p>
+        Private method to filter messages.
+</p><dl>
+<dt><i>message</i></dt>
+<dd>
+message to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the message should be filtered out
+            (boolean)
+</dd>
+</dl><a NAME="E5ErrorMessage.editMessageFilters" ID="E5ErrorMessage.editMessageFilters"></a>
+<h4>E5ErrorMessage.editMessageFilters</h4>
+<b>editMessageFilters</b>(<i></i>)
+<p>
+        Public method to edit the list of message filters.
+</p><a NAME="E5ErrorMessage.showMessage" ID="E5ErrorMessage.showMessage"></a>
+<h4>E5ErrorMessage.showMessage</h4>
+<b>showMessage</b>(<i>message, msgType=""</i>)
+<p>
+        Public method to show a message.
+</p><dl>
+<dt><i>message</i></dt>
+<dd>
+error message to be shown (string)
+</dd><dt><i>msgType</i></dt>
+<dd>
+type of the error message (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="editMessageFilters" ID="editMessageFilters"></a>
+<h2>editMessageFilters</h2>
+<b>editMessageFilters</b>(<i></i>)
+<p>
+    Module function to edit the list of message filters.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="messageHandler" ID="messageHandler"></a>
+<h2>messageHandler</h2>
+<b>messageHandler</b>(<i>msgType, *args</i>)
+<p>
+    Module function handling messages.
+</p><dl>
+<dt><i>msgType</i></dt>
+<dd>
+type of the message (integer, QtMsgType)
+</dd><dt><i>args</i></dt>
+<dd>
+message handler arguments, for PyQt4 message to be shown
+        (bytes), for PyQt5 context information (QMessageLogContext) and
+        message to be shown (bytes)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="messageHandlerInstalled" ID="messageHandlerInstalled"></a>
+<h2>messageHandlerInstalled</h2>
+<b>messageHandlerInstalled</b>(<i></i>)
+<p>
+    Module function to check, if a message handler was installed.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating an installed message handler (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="qtHandler" ID="qtHandler"></a>
+<h2>qtHandler</h2>
+<b>qtHandler</b>(<i></i>)
+<p>
+    Module function to install an E5ErrorMessage dialog as the global
+    message handler.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the message handler dialog (E5ErrorMessage)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.ClassBrowsers.__init__</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.ClassBrowsers.__init__</h1>
+<p>
+Package implementing class browsers for various languages.
+</p><p>
+Currently it offers class browser support for the following
+programming languages.
+</p><p>
+<ul>
+<li>CORBA IDL</li>
+<li>Python</li>
+<li>Ruby</li>
+</ul>
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>IDL_SOURCE</td></tr><tr><td>JS_SOURCE</td></tr><tr><td>PTL_SOURCE</td></tr><tr><td>PY_SOURCE</td></tr><tr><td>RB_SOURCE</td></tr><tr><td>SUPPORTED_TYPES</td></tr><tr><td>__extensions</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#find_module">find_module</a></td>
+<td>Module function to extend the Python module finding mechanism.</td>
+</tr><tr>
+<td><a href="#readmodule">readmodule</a></td>
+<td>Read a source file and return a dictionary of classes, functions, modules, etc.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="find_module" ID="find_module"></a>
+<h2>find_module</h2>
+<b>find_module</b>(<i>name, path, isPyFile=False</i>)
+<p>
+    Module function to extend the Python module finding mechanism.
+</p><p>
+    This function searches for files in the given path. If the filename
+    doesn't have an extension or an extension of .py, the normal search
+    implemented in the imp module is used. For all other supported files
+    only path is searched.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename or modulename to search for (string)
+</dd><dt><i>path</i></dt>
+<dd>
+search path (list of strings)
+</dd><dt><i>isPyFile</i></dt>
+<dd>
+flag indicating a Python file (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of the open file, pathname and description. Description
+        is a tuple of file suffix, file mode and file type)
+</dd>
+</dl><dl>
+<dt>Raises <b>ImportError</b>:</dt>
+<dd>
+The file or module wasn't found.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="readmodule" ID="readmodule"></a>
+<h2>readmodule</h2>
+<b>readmodule</b>(<i>module, path=None, isPyFile=False</i>)
+<p>
+    Read a source file and return a dictionary of classes, functions, modules,
+    etc. .
+</p><p>
+    The real work of parsing the source file is delegated to the individual
+    file parsers.
+</p><dl>
+<dt><i>module</i></dt>
+<dd>
+name of the source file (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path the file should be searched in (list of strings)
+</dd><dt><i>isPyFile</i></dt>
+<dd>
+flag indicating a Python file (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the resulting dictionary
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

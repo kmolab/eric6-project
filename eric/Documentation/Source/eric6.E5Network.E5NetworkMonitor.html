@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Network.E5NetworkMonitor</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Network.E5NetworkMonitor</h1>
+<p>
+Module implementing a network monitor dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5NetworkMonitor">E5NetworkMonitor</a></td>
+<td>Class implementing a network monitor dialog.</td>
+</tr><tr>
+<td><a href="#E5NetworkRequest">E5NetworkRequest</a></td>
+<td>Class for storing all data related to a specific request.</td>
+</tr><tr>
+<td><a href="#E5RequestModel">E5RequestModel</a></td>
+<td>Class implementing a model storing request objects.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5NetworkMonitor" ID="E5NetworkMonitor"></a>
+<h2>E5NetworkMonitor</h2>
+<p>
+    Class implementing a network monitor dialog.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_E5NetworkMonitor
+<h3>Class Attributes</h3>
+<table>
+<tr><td>_monitor</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr>
+<td><a href="#E5NetworkMonitor.closeMonitor">closeMonitor</a></td>
+<td>Class method to close the monitor dialog.</td>
+</tr><tr>
+<td><a href="#E5NetworkMonitor.instance">instance</a></td>
+<td>Class method to get a reference to our singleton.</td>
+</tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5NetworkMonitor.__init__">E5NetworkMonitor</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5NetworkMonitor.__currentChanged">__currentChanged</a></td>
+<td>Private slot to handle a change of the current index.</td>
+</tr><tr>
+<td><a href="#E5NetworkMonitor.__showHeaderDetails">__showHeaderDetails</a></td>
+<td>Private slot to show a dialog with the header details.</td>
+</tr><tr>
+<td><a href="#E5NetworkMonitor.closeEvent">closeEvent</a></td>
+<td>Protected method called upon closing the dialog.</td>
+</tr><tr>
+<td><a href="#E5NetworkMonitor.reject">reject</a></td>
+<td>Public slot to close the dialog with a Reject status.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5NetworkMonitor.closeMonitor" ID="E5NetworkMonitor.closeMonitor"></a>
+<h4>E5NetworkMonitor.closeMonitor (class method)</h4>
+<b>closeMonitor</b>(<i></i>)
+<p>
+        Class method to close the monitor dialog.
+</p><a NAME="E5NetworkMonitor.instance" ID="E5NetworkMonitor.instance"></a>
+<h4>E5NetworkMonitor.instance (class method)</h4>
+<b>instance</b>(<i>networkAccessManager</i>)
+<p>
+        Class method to get a reference to our singleton.
+</p><dl>
+<dt><i>networkAccessManager</i></dt>
+<dd>
+reference to the network access manager
+            (QNetworkAccessManager)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the network monitor singleton (E5NetworkMonitor)
+</dd>
+</dl><a NAME="E5NetworkMonitor.__init__" ID="E5NetworkMonitor.__init__"></a>
+<h4>E5NetworkMonitor (Constructor)</h4>
+<b>E5NetworkMonitor</b>(<i>networkAccessManager, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>networkAccessManager</i></dt>
+<dd>
+reference to the network access manager
+            (QNetworkAccessManager)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5NetworkMonitor.__currentChanged" ID="E5NetworkMonitor.__currentChanged"></a>
+<h4>E5NetworkMonitor.__currentChanged</h4>
+<b>__currentChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot to handle a change of the current index.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+new current index (QModelIndex)
+</dd><dt><i>previous</i></dt>
+<dd>
+old current index (QModelIndex)
+</dd>
+</dl><a NAME="E5NetworkMonitor.__showHeaderDetails" ID="E5NetworkMonitor.__showHeaderDetails"></a>
+<h4>E5NetworkMonitor.__showHeaderDetails</h4>
+<b>__showHeaderDetails</b>(<i>index</i>)
+<p>
+        Private slot to show a dialog with the header details.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the entry to show (QModelIndex)
+</dd>
+</dl><a NAME="E5NetworkMonitor.closeEvent" ID="E5NetworkMonitor.closeEvent"></a>
+<h4>E5NetworkMonitor.closeEvent</h4>
+<b>closeEvent</b>(<i>evt</i>)
+<p>
+        Protected method called upon closing the dialog.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the close event object (QCloseEvent)
+</dd>
+</dl><a NAME="E5NetworkMonitor.reject" ID="E5NetworkMonitor.reject"></a>
+<h4>E5NetworkMonitor.reject</h4>
+<b>reject</b>(<i></i>)
+<p>
+        Public slot to close the dialog with a Reject status.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5NetworkRequest" ID="E5NetworkRequest"></a>
+<h2>E5NetworkRequest</h2>
+<p>
+    Class for storing all data related to a specific request.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5NetworkRequest.__init__">E5NetworkRequest</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5NetworkRequest.__init__" ID="E5NetworkRequest.__init__"></a>
+<h4>E5NetworkRequest (Constructor)</h4>
+<b>E5NetworkRequest</b>(<i></i>)
+<p>
+        Constructor
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="E5RequestModel" ID="E5RequestModel"></a>
+<h2>E5RequestModel</h2>
+<p>
+    Class implementing a model storing request objects.
+</p>
+<h3>Derived from</h3>
+QAbstractTableModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5RequestModel.__init__">E5RequestModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5RequestModel.__addReply">__addReply</a></td>
+<td>Private slot to add the reply data to the model.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.__addRequest">__addRequest</a></td>
+<td>Private method to add a request object to the model.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.__requestCreated">__requestCreated</a></td>
+<td>Private slot handling the creation of a network request.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.columnCount">columnCount</a></td>
+<td>Public method to get the number of columns of the model.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.data">data</a></td>
+<td>Public method to get data from the model.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.headerData">headerData</a></td>
+<td>Public method to get header data from the model.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.removeRows">removeRows</a></td>
+<td>Public method to remove entries from the model.</td>
+</tr><tr>
+<td><a href="#E5RequestModel.rowCount">rowCount</a></td>
+<td>Public method to get the number of rows of the model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5RequestModel.__init__" ID="E5RequestModel.__init__"></a>
+<h4>E5RequestModel (Constructor)</h4>
+<b>E5RequestModel</b>(<i>networkAccessManager, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>networkAccessManager</i></dt>
+<dd>
+reference to the network access manager
+            (QNetworkAccessManager)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="E5RequestModel.__addReply" ID="E5RequestModel.__addReply"></a>
+<h4>E5RequestModel.__addReply</h4>
+<b>__addReply</b>(<i></i>)
+<p>
+        Private slot to add the reply data to the model.
+</p><a NAME="E5RequestModel.__addRequest" ID="E5RequestModel.__addRequest"></a>
+<h4>E5RequestModel.__addRequest</h4>
+<b>__addRequest</b>(<i>req</i>)
+<p>
+        Private method to add a request object to the model.
+</p><dl>
+<dt><i>req</i></dt>
+<dd>
+reference to the request object (E5NetworkRequest)
+</dd>
+</dl><a NAME="E5RequestModel.__requestCreated" ID="E5RequestModel.__requestCreated"></a>
+<h4>E5RequestModel.__requestCreated</h4>
+<b>__requestCreated</b>(<i>operation, request, reply</i>)
+<p>
+        Private slot handling the creation of a network request.
+</p><dl>
+<dt><i>operation</i></dt>
+<dd>
+network operation (QNetworkAccessManager.Operation)
+</dd><dt><i>request</i></dt>
+<dd>
+reference to the request object (QNetworkRequest)
+</dd><dt><i>reply</i></dt>
+<dd>
+reference to the reply object(QNetworkReply)
+</dd>
+</dl><a NAME="E5RequestModel.columnCount" ID="E5RequestModel.columnCount"></a>
+<h4>E5RequestModel.columnCount</h4>
+<b>columnCount</b>(<i>parent</i>)
+<p>
+        Public method to get the number of columns of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="E5RequestModel.data" ID="E5RequestModel.data"></a>
+<h4>E5RequestModel.data</h4>
+<b>data</b>(<i>index, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get data from the model.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index to get data for (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data to retrieve (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="E5RequestModel.headerData" ID="E5RequestModel.headerData"></a>
+<h4>E5RequestModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role=Qt.DisplayRole</i>)
+<p>
+        Public method to get header data from the model.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+section number (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+orientation (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data to retrieve (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="E5RequestModel.removeRows" ID="E5RequestModel.removeRows"></a>
+<h4>E5RequestModel.removeRows</h4>
+<b>removeRows</b>(<i>row, count, parent</i>)
+<p>
+        Public method to remove entries from the model.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+start row (integer)
+</dd><dt><i>count</i></dt>
+<dd>
+number of rows to remove (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="E5RequestModel.rowCount" ID="E5RequestModel.rowCount"></a>
+<h4>E5RequestModel.rowCount</h4>
+<b>rowCount</b>(<i>parent</i>)
+<p>
+        Public method to get the number of rows of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

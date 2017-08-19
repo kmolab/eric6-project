@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.DataViews.PyCoverageDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.DataViews.PyCoverageDialog</h1>
+<p>
+Module implementing a Python code coverage dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PyCoverageDialog">PyCoverageDialog</a></td>
+<td>Class implementing a dialog to display the collected code coverage data.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="PyCoverageDialog" ID="PyCoverageDialog"></a>
+<h2>PyCoverageDialog</h2>
+<p>
+    Class implementing a dialog to display the collected code coverage data.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_PyCoverageDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PyCoverageDialog.__init__">PyCoverageDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__annotate">__annotate</a></td>
+<td>Private slot to handle the annotate context menu action.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__annotateAll">__annotateAll</a></td>
+<td>Private slot to handle the annotate all context menu action.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__createResultItem">__createResultItem</a></td>
+<td>Private method to create an entry in the result list.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__deleteAnnotated">__deleteAnnotated</a></td>
+<td>Private slot to handle the delete annotated context menu action.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__erase">__erase</a></td>
+<td>Private slot to handle the erase context menu action.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__finish">__finish</a></td>
+<td>Private slot called when the action finished or the user pressed the button.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__format_lines">__format_lines</a></td>
+<td>Private method to format a list of integers into string by coalescing groups.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__openFile">__openFile</a></td>
+<td>Private slot to open the selected file.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot to show the context menu of the listview.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.on_reloadButton_clicked">on_reloadButton_clicked</a></td>
+<td>Private slot to reload the coverage info.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.on_resultList_itemActivated">on_resultList_itemActivated</a></td>
+<td>Private slot to handle the activation of an item.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.start">start</a></td>
+<td>Public slot to start the coverage data evaluation.</td>
+</tr><tr>
+<td><a href="#PyCoverageDialog.stringify">stringify</a></td>
+<td>Private helper function to generate a string representation of a pair.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PyCoverageDialog.__init__" ID="PyCoverageDialog.__init__"></a>
+<h4>PyCoverageDialog (Constructor)</h4>
+<b>PyCoverageDialog</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="PyCoverageDialog.__annotate" ID="PyCoverageDialog.__annotate"></a>
+<h4>PyCoverageDialog.__annotate</h4>
+<b>__annotate</b>(<i></i>)
+<p>
+        Private slot to handle the annotate context menu action.
+</p><p>
+        This method produce an annotated coverage file of the
+        selected file.
+</p><a NAME="PyCoverageDialog.__annotateAll" ID="PyCoverageDialog.__annotateAll"></a>
+<h4>PyCoverageDialog.__annotateAll</h4>
+<b>__annotateAll</b>(<i></i>)
+<p>
+        Private slot to handle the annotate all context menu action.
+</p><p>
+        This method produce an annotated coverage file of every
+        file listed in the listview.
+</p><a NAME="PyCoverageDialog.__createResultItem" ID="PyCoverageDialog.__createResultItem"></a>
+<h4>PyCoverageDialog.__createResultItem</h4>
+<b>__createResultItem</b>(<i>file, statements, executed, coverage, excluded, missing</i>)
+<p>
+        Private method to create an entry in the result list.
+</p><dl>
+<dt><i>file</i></dt>
+<dd>
+filename of file (string)
+</dd><dt><i>statements</i></dt>
+<dd>
+amount of statements (integer)
+</dd><dt><i>executed</i></dt>
+<dd>
+amount of executed statements (integer)
+</dd><dt><i>coverage</i></dt>
+<dd>
+percent of coverage (integer)
+</dd><dt><i>excluded</i></dt>
+<dd>
+list of excluded lines (string)
+</dd><dt><i>missing</i></dt>
+<dd>
+list of lines without coverage (string)
+</dd>
+</dl><a NAME="PyCoverageDialog.__deleteAnnotated" ID="PyCoverageDialog.__deleteAnnotated"></a>
+<h4>PyCoverageDialog.__deleteAnnotated</h4>
+<b>__deleteAnnotated</b>(<i></i>)
+<p>
+        Private slot to handle the delete annotated context menu action.
+</p><p>
+        This method deletes all annotated files. These are files
+        ending with ',cover'.
+</p><a NAME="PyCoverageDialog.__erase" ID="PyCoverageDialog.__erase"></a>
+<h4>PyCoverageDialog.__erase</h4>
+<b>__erase</b>(<i></i>)
+<p>
+        Private slot to handle the erase context menu action.
+</p><p>
+        This method erases the collected coverage data that is
+        stored in the .coverage file.
+</p><a NAME="PyCoverageDialog.__finish" ID="PyCoverageDialog.__finish"></a>
+<h4>PyCoverageDialog.__finish</h4>
+<b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the action finished or the user pressed the
+        button.
+</p><a NAME="PyCoverageDialog.__format_lines" ID="PyCoverageDialog.__format_lines"></a>
+<h4>PyCoverageDialog.__format_lines</h4>
+<b>__format_lines</b>(<i>lines</i>)
+<p>
+        Private method to format a list of integers into string by coalescing
+        groups.
+</p><dl>
+<dt><i>lines</i></dt>
+<dd>
+list of integers
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string representing the list
+</dd>
+</dl><a NAME="PyCoverageDialog.__openFile" ID="PyCoverageDialog.__openFile"></a>
+<h4>PyCoverageDialog.__openFile</h4>
+<b>__openFile</b>(<i>itm=None</i>)
+<p>
+        Private slot to open the selected file.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+reference to the item to be opened (QTreeWidgetItem)
+</dd>
+</dl><a NAME="PyCoverageDialog.__showContextMenu" ID="PyCoverageDialog.__showContextMenu"></a>
+<h4>PyCoverageDialog.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i>coord</i>)
+<p>
+        Private slot to show the context menu of the listview.
+</p><dl>
+<dt><i>coord</i></dt>
+<dd>
+the position of the mouse pointer (QPoint)
+</dd>
+</dl><a NAME="PyCoverageDialog.on_buttonBox_clicked" ID="PyCoverageDialog.on_buttonBox_clicked"></a>
+<h4>PyCoverageDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="PyCoverageDialog.on_reloadButton_clicked" ID="PyCoverageDialog.on_reloadButton_clicked"></a>
+<h4>PyCoverageDialog.on_reloadButton_clicked</h4>
+<b>on_reloadButton_clicked</b>(<i></i>)
+<p>
+        Private slot to reload the coverage info.
+</p><a NAME="PyCoverageDialog.on_resultList_itemActivated" ID="PyCoverageDialog.on_resultList_itemActivated"></a>
+<h4>PyCoverageDialog.on_resultList_itemActivated</h4>
+<b>on_resultList_itemActivated</b>(<i>item, column</i>)
+<p>
+        Private slot to handle the activation of an item.
+</p><dl>
+<dt><i>item</i></dt>
+<dd>
+reference to the activated item (QTreeWidgetItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column the item was activated in (integer)
+</dd>
+</dl><a NAME="PyCoverageDialog.start" ID="PyCoverageDialog.start"></a>
+<h4>PyCoverageDialog.start</h4>
+<b>start</b>(<i>cfn, fn</i>)
+<p>
+        Public slot to start the coverage data evaluation.
+</p><dl>
+<dt><i>cfn</i></dt>
+<dd>
+basename of the coverage file (string)
+</dd><dt><i>fn</i></dt>
+<dd>
+file or list of files or directory to be checked
+                (string or list of strings)
+</dd>
+</dl><a NAME="PyCoverageDialog.stringify" ID="PyCoverageDialog.stringify"></a>
+<h4>PyCoverageDialog.stringify</h4>
+<b>stringify</b>(<i></i>)
+<p>
+            Private helper function to generate a string representation of a
+            pair.
+</p><dl>
+<dt><i>pair</i></dt>
+<dd>
+pair of integers
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

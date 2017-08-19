@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.QScintilla.Lexers.LexerPython</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.QScintilla.Lexers.LexerPython</h1>
+<p>
+Module implementing a Python lexer with some additional methods.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#LexerPython">LexerPython</a></td>
+<td>Subclass to implement some additional lexer dependant methods.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="LexerPython" ID="LexerPython"></a>
+<h2>LexerPython</h2>
+<p>
+    Subclass to implement some additional lexer dependant methods.
+</p>
+<h3>Derived from</h3>
+Lexer, QsciLexerPython
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#LexerPython.__init__">LexerPython</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#LexerPython.autoCompletionWordSeparators">autoCompletionWordSeparators</a></td>
+<td>Public method to return the list of separators for autocompletion.</td>
+</tr><tr>
+<td><a href="#LexerPython.defaultKeywords">defaultKeywords</a></td>
+<td>Public method to get the default keywords.</td>
+</tr><tr>
+<td><a href="#LexerPython.getIndentationDifference">getIndentationDifference</a></td>
+<td>Public method to determine the difference for the new indentation.</td>
+</tr><tr>
+<td><a href="#LexerPython.initProperties">initProperties</a></td>
+<td>Public slot to initialize the properties.</td>
+</tr><tr>
+<td><a href="#LexerPython.isCommentStyle">isCommentStyle</a></td>
+<td>Public method to check, if a style is a comment style.</td>
+</tr><tr>
+<td><a href="#LexerPython.isStringStyle">isStringStyle</a></td>
+<td>Public method to check, if a style is a string style.</td>
+</tr><tr>
+<td><a href="#LexerPython.language">language</a></td>
+<td>Public method to get the lexer language.</td>
+</tr><tr>
+<td><a href="#LexerPython.maximumKeywordSet">maximumKeywordSet</a></td>
+<td>Public method to get the maximum keyword set.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="LexerPython.__init__" ID="LexerPython.__init__"></a>
+<h4>LexerPython (Constructor)</h4>
+<b>LexerPython</b>(<i>variant="", parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>variant</i></dt>
+<dd>
+name of the language variant (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this lexer
+</dd>
+</dl><a NAME="LexerPython.autoCompletionWordSeparators" ID="LexerPython.autoCompletionWordSeparators"></a>
+<h4>LexerPython.autoCompletionWordSeparators</h4>
+<b>autoCompletionWordSeparators</b>(<i></i>)
+<p>
+        Public method to return the list of separators for autocompletion.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of separators (list of strings)
+</dd>
+</dl><a NAME="LexerPython.defaultKeywords" ID="LexerPython.defaultKeywords"></a>
+<h4>LexerPython.defaultKeywords</h4>
+<b>defaultKeywords</b>(<i>kwSet</i>)
+<p>
+        Public method to get the default keywords.
+</p><dl>
+<dt><i>kwSet</i></dt>
+<dd>
+number of the keyword set (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+string giving the keywords (string) or None
+</dd>
+</dl><a NAME="LexerPython.getIndentationDifference" ID="LexerPython.getIndentationDifference"></a>
+<h4>LexerPython.getIndentationDifference</h4>
+<b>getIndentationDifference</b>(<i>line, editor</i>)
+<p>
+        Public method to determine the difference for the new indentation.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line to perform the calculation for (integer)
+</dd><dt><i>editor</i></dt>
+<dd>
+QScintilla editor
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+amount of difference in indentation (integer)
+</dd>
+</dl><a NAME="LexerPython.initProperties" ID="LexerPython.initProperties"></a>
+<h4>LexerPython.initProperties</h4>
+<b>initProperties</b>(<i></i>)
+<p>
+        Public slot to initialize the properties.
+</p><a NAME="LexerPython.isCommentStyle" ID="LexerPython.isCommentStyle"></a>
+<h4>LexerPython.isCommentStyle</h4>
+<b>isCommentStyle</b>(<i>style</i>)
+<p>
+        Public method to check, if a style is a comment style.
+</p><dl>
+<dt><i>style</i></dt>
+<dd>
+style to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a comment style (boolean)
+</dd>
+</dl><a NAME="LexerPython.isStringStyle" ID="LexerPython.isStringStyle"></a>
+<h4>LexerPython.isStringStyle</h4>
+<b>isStringStyle</b>(<i>style</i>)
+<p>
+        Public method to check, if a style is a string style.
+</p><dl>
+<dt><i>style</i></dt>
+<dd>
+style to check (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a string style (boolean)
+</dd>
+</dl><a NAME="LexerPython.language" ID="LexerPython.language"></a>
+<h4>LexerPython.language</h4>
+<b>language</b>(<i></i>)
+<p>
+        Public method to get the lexer language.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+lexer language (string)
+</dd>
+</dl><a NAME="LexerPython.maximumKeywordSet" ID="LexerPython.maximumKeywordSet"></a>
+<h4>LexerPython.maximumKeywordSet</h4>
+<b>maximumKeywordSet</b>(<i></i>)
+<p>
+        Public method to get the maximum keyword set.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+maximum keyword set (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

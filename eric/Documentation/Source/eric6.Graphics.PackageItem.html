@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Graphics.PackageItem</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Graphics.PackageItem</h1>
+<p>
+Module implementing a package item.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PackageItem">PackageItem</a></td>
+<td>Class implementing a package item.</td>
+</tr><tr>
+<td><a href="#PackageModel">PackageModel</a></td>
+<td>Class implementing the package model.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="PackageItem" ID="PackageItem"></a>
+<h2>PackageItem</h2>
+<p>
+    Class implementing a package item.
+</p>
+<h3>Derived from</h3>
+UMLItem
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ItemType</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PackageItem.__init__">PackageItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PackageItem.__calculateSize">__calculateSize</a></td>
+<td>Private method to calculate the size of the package widget.</td>
+</tr><tr>
+<td><a href="#PackageItem.__createTexts">__createTexts</a></td>
+<td>Private method to create the text items of the class item.</td>
+</tr><tr>
+<td><a href="#PackageItem.buildItemDataString">buildItemDataString</a></td>
+<td>Public method to build a string to persist the specific item data.</td>
+</tr><tr>
+<td><a href="#PackageItem.paint">paint</a></td>
+<td>Public method to paint the item in local coordinates.</td>
+</tr><tr>
+<td><a href="#PackageItem.parseItemDataString">parseItemDataString</a></td>
+<td>Public method to parse the given persistence data.</td>
+</tr><tr>
+<td><a href="#PackageItem.setModel">setModel</a></td>
+<td>Public method to set the package model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PackageItem.__init__" ID="PackageItem.__init__"></a>
+<h4>PackageItem (Constructor)</h4>
+<b>PackageItem</b>(<i>model=None, x=0, y=0, rounded=False, noModules=False, parent=None, scene=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>model</i></dt>
+<dd>
+package model containing the package data (PackageModel)
+</dd><dt><i>x</i></dt>
+<dd>
+x-coordinate (integer)
+</dd><dt><i>y</i></dt>
+<dd>
+y-coordinate (integer)
+</dd><dt><i>rounded</i></dt>
+<dd>
+flag indicating a rounded corner (boolean)
+</dd><dt><i>noModules=</i></dt>
+<dd>
+flag indicating, that no module names should be
+            shown (boolean)
+</dd><dt><i>parent=</i></dt>
+<dd>
+reference to the parent object (QGraphicsItem)
+</dd><dt><i>scene=</i></dt>
+<dd>
+reference to the scene object (QGraphicsScene)
+</dd>
+</dl><a NAME="PackageItem.__calculateSize" ID="PackageItem.__calculateSize"></a>
+<h4>PackageItem.__calculateSize</h4>
+<b>__calculateSize</b>(<i></i>)
+<p>
+        Private method to calculate the size of the package widget.
+</p><a NAME="PackageItem.__createTexts" ID="PackageItem.__createTexts"></a>
+<h4>PackageItem.__createTexts</h4>
+<b>__createTexts</b>(<i></i>)
+<p>
+        Private method to create the text items of the class item.
+</p><a NAME="PackageItem.buildItemDataString" ID="PackageItem.buildItemDataString"></a>
+<h4>PackageItem.buildItemDataString</h4>
+<b>buildItemDataString</b>(<i></i>)
+<p>
+        Public method to build a string to persist the specific item data.
+</p><p>
+        This string must start with ", " and should be built like
+        "attribute=value" with pairs separated by ", ". value must not
+        contain ", " or newlines.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+persistence data (string)
+</dd>
+</dl><a NAME="PackageItem.paint" ID="PackageItem.paint"></a>
+<h4>PackageItem.paint</h4>
+<b>paint</b>(<i>painter, option, widget=None</i>)
+<p>
+        Public method to paint the item in local coordinates.
+</p><dl>
+<dt><i>painter</i></dt>
+<dd>
+reference to the painter object (QPainter)
+</dd><dt><i>option</i></dt>
+<dd>
+style options (QStyleOptionGraphicsItem)
+</dd><dt><i>widget</i></dt>
+<dd>
+optional reference to the widget painted on (QWidget)
+</dd>
+</dl><a NAME="PackageItem.parseItemDataString" ID="PackageItem.parseItemDataString"></a>
+<h4>PackageItem.parseItemDataString</h4>
+<b>parseItemDataString</b>(<i>version, data</i>)
+<p>
+        Public method to parse the given persistence data.
+</p><dl>
+<dt><i>version</i></dt>
+<dd>
+version of the data (string)
+</dd><dt><i>data</i></dt>
+<dd>
+persisted data to be parsed (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="PackageItem.setModel" ID="PackageItem.setModel"></a>
+<h4>PackageItem.setModel</h4>
+<b>setModel</b>(<i>model</i>)
+<p>
+        Public method to set the package model.
+</p><dl>
+<dt><i>model</i></dt>
+<dd>
+package model containing the package data (PackageModel)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PackageModel" ID="PackageModel"></a>
+<h2>PackageModel</h2>
+<p>
+    Class implementing the package model.
+</p>
+<h3>Derived from</h3>
+UMLModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PackageModel.__init__">PackageModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PackageModel.addModule">addModule</a></td>
+<td>Public method to add a module to the package model.</td>
+</tr><tr>
+<td><a href="#PackageModel.getModules">getModules</a></td>
+<td>Public method to retrieve the modules of the package.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PackageModel.__init__" ID="PackageModel.__init__"></a>
+<h4>PackageModel (Constructor)</h4>
+<b>PackageModel</b>(<i>name, moduleslist=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+package name (string)
+</dd><dt><i>moduleslist</i></dt>
+<dd>
+list of module names (list of strings)
+</dd>
+</dl><a NAME="PackageModel.addModule" ID="PackageModel.addModule"></a>
+<h4>PackageModel.addModule</h4>
+<b>addModule</b>(<i>modulename</i>)
+<p>
+        Public method to add a module to the package model.
+</p><dl>
+<dt><i>modulename</i></dt>
+<dd>
+module name to be added (string)
+</dd>
+</dl><a NAME="PackageModel.getModules" ID="PackageModel.getModules"></a>
+<h4>PackageModel.getModules</h4>
+<b>getModules</b>(<i></i>)
+<p>
+        Public method to retrieve the modules of the package.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of module names (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

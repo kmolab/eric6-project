@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgBookmarksListDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgBookmarksListDialog</h1>
+<p>
+Module implementing a dialog to show a list of bookmarks.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgBookmarksListDialog">HgBookmarksListDialog</a></td>
+<td>Class implementing a dialog to show a list of bookmarks.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgBookmarksListDialog" ID="HgBookmarksListDialog"></a>
+<h2>HgBookmarksListDialog</h2>
+<p>
+    Class implementing a dialog to show a list of bookmarks.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgBookmarksListDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgBookmarksListDialog.__init__">HgBookmarksListDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__deleteBookmark">__deleteBookmark</a></td>
+<td>Private slot to delete the selected bookmark.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__finish">__finish</a></td>
+<td>Private slot called when the process finished or the user pressed the button.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__generateItem">__generateItem</a></td>
+<td>Private method to generate a bookmark item in the bookmarks list.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__procFinished">__procFinished</a></td>
+<td>Private slot connected to the finished signal.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__processOutputLine">__processOutputLine</a></td>
+<td>Private method to process the lines of output.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__pullBookmark">__pullBookmark</a></td>
+<td>Private slot to pull the selected bookmark.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__pushBookmark">__pushBookmark</a></td>
+<td>Private slot to push the selected bookmark.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__readStderr">__readStderr</a></td>
+<td>Private slot to handle the readyReadStderr signal.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__readStdout">__readStdout</a></td>
+<td>Private slot to handle the readyReadStdout signal.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__renameBookmark">__renameBookmark</a></td>
+<td>Private slot to rename the selected bookmark.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__resizeColumns">__resizeColumns</a></td>
+<td>Private method to resize the list columns.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__resort">__resort</a></td>
+<td>Private method to resort the tree.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__showError">__showError</a></td>
+<td>Private slot to show some error.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.__switchTo">__switchTo</a></td>
+<td>Private slot to switch the working directory to the selected revision.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.closeEvent">closeEvent</a></td>
+<td>Protected slot implementing a close event handler.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.keyPressEvent">keyPressEvent</a></td>
+<td>Protected slot to handle a key press event.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.on_bookmarksList_customContextMenuRequested">on_bookmarksList_customContextMenuRequested</a></td>
+<td>Private slot to handle the context menu request.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.on_input_returnPressed">on_input_returnPressed</a></td>
+<td>Private slot to handle the press of the return key in the input field.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.on_passwordCheckBox_toggled">on_passwordCheckBox_toggled</a></td>
+<td>Private slot to handle the password checkbox toggled.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.on_refreshButton_clicked">on_refreshButton_clicked</a></td>
+<td>Private slot to refresh the status display.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.on_sendButton_clicked">on_sendButton_clicked</a></td>
+<td>Private slot to send the input to the subversion process.</td>
+</tr><tr>
+<td><a href="#HgBookmarksListDialog.start">start</a></td>
+<td>Public slot to start the bookmarks command.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgBookmarksListDialog.__init__" ID="HgBookmarksListDialog.__init__"></a>
+<h4>HgBookmarksListDialog (Constructor)</h4>
+<b>HgBookmarksListDialog</b>(<i>vcs, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i></dt>
+<dd>
+reference to the vcs object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.__deleteBookmark" ID="HgBookmarksListDialog.__deleteBookmark"></a>
+<h4>HgBookmarksListDialog.__deleteBookmark</h4>
+<b>__deleteBookmark</b>(<i></i>)
+<p>
+        Private slot to delete the selected bookmark.
+</p><a NAME="HgBookmarksListDialog.__finish" ID="HgBookmarksListDialog.__finish"></a>
+<h4>HgBookmarksListDialog.__finish</h4>
+<b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the process finished or the user pressed
+        the button.
+</p><a NAME="HgBookmarksListDialog.__generateItem" ID="HgBookmarksListDialog.__generateItem"></a>
+<h4>HgBookmarksListDialog.__generateItem</h4>
+<b>__generateItem</b>(<i>revision, changeset, status, name</i>)
+<p>
+        Private method to generate a bookmark item in the bookmarks list.
+</p><dl>
+<dt><i>revision</i></dt>
+<dd>
+revision of the bookmark (string)
+</dd><dt><i>changeset</i></dt>
+<dd>
+changeset of the bookmark (string)
+</dd><dt><i>status</i></dt>
+<dd>
+of the bookmark (string)
+</dd><dt><i>name</i></dt>
+<dd>
+name of the bookmark (string)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.__procFinished" ID="HgBookmarksListDialog.__procFinished"></a>
+<h4>HgBookmarksListDialog.__procFinished</h4>
+<b>__procFinished</b>(<i>exitCode, exitStatus</i>)
+<p>
+        Private slot connected to the finished signal.
+</p><dl>
+<dt><i>exitCode</i></dt>
+<dd>
+exit code of the process (integer)
+</dd><dt><i>exitStatus</i></dt>
+<dd>
+exit status of the process (QProcess.ExitStatus)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.__processOutputLine" ID="HgBookmarksListDialog.__processOutputLine"></a>
+<h4>HgBookmarksListDialog.__processOutputLine</h4>
+<b>__processOutputLine</b>(<i>line</i>)
+<p>
+        Private method to process the lines of output.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+output line to be processed (string)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.__pullBookmark" ID="HgBookmarksListDialog.__pullBookmark"></a>
+<h4>HgBookmarksListDialog.__pullBookmark</h4>
+<b>__pullBookmark</b>(<i></i>)
+<p>
+        Private slot to pull the selected bookmark.
+</p><a NAME="HgBookmarksListDialog.__pushBookmark" ID="HgBookmarksListDialog.__pushBookmark"></a>
+<h4>HgBookmarksListDialog.__pushBookmark</h4>
+<b>__pushBookmark</b>(<i></i>)
+<p>
+        Private slot to push the selected bookmark.
+</p><a NAME="HgBookmarksListDialog.__readStderr" ID="HgBookmarksListDialog.__readStderr"></a>
+<h4>HgBookmarksListDialog.__readStderr</h4>
+<b>__readStderr</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStderr signal.
+</p><p>
+        It reads the error output of the process and inserts it into the
+        error pane.
+</p><a NAME="HgBookmarksListDialog.__readStdout" ID="HgBookmarksListDialog.__readStdout"></a>
+<h4>HgBookmarksListDialog.__readStdout</h4>
+<b>__readStdout</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStdout signal.
+</p><p>
+        It reads the output of the process, formats it and inserts it into
+        the contents pane.
+</p><a NAME="HgBookmarksListDialog.__renameBookmark" ID="HgBookmarksListDialog.__renameBookmark"></a>
+<h4>HgBookmarksListDialog.__renameBookmark</h4>
+<b>__renameBookmark</b>(<i></i>)
+<p>
+        Private slot to rename the selected bookmark.
+</p><a NAME="HgBookmarksListDialog.__resizeColumns" ID="HgBookmarksListDialog.__resizeColumns"></a>
+<h4>HgBookmarksListDialog.__resizeColumns</h4>
+<b>__resizeColumns</b>(<i></i>)
+<p>
+        Private method to resize the list columns.
+</p><a NAME="HgBookmarksListDialog.__resort" ID="HgBookmarksListDialog.__resort"></a>
+<h4>HgBookmarksListDialog.__resort</h4>
+<b>__resort</b>(<i></i>)
+<p>
+        Private method to resort the tree.
+</p><a NAME="HgBookmarksListDialog.__showError" ID="HgBookmarksListDialog.__showError"></a>
+<h4>HgBookmarksListDialog.__showError</h4>
+<b>__showError</b>(<i>out</i>)
+<p>
+        Private slot to show some error.
+</p><dl>
+<dt><i>out</i></dt>
+<dd>
+error to be shown (string)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.__switchTo" ID="HgBookmarksListDialog.__switchTo"></a>
+<h4>HgBookmarksListDialog.__switchTo</h4>
+<b>__switchTo</b>(<i></i>)
+<p>
+        Private slot to switch the working directory to the selected revision.
+</p><a NAME="HgBookmarksListDialog.closeEvent" ID="HgBookmarksListDialog.closeEvent"></a>
+<h4>HgBookmarksListDialog.closeEvent</h4>
+<b>closeEvent</b>(<i>e</i>)
+<p>
+        Protected slot implementing a close event handler.
+</p><dl>
+<dt><i>e</i></dt>
+<dd>
+close event (QCloseEvent)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.keyPressEvent" ID="HgBookmarksListDialog.keyPressEvent"></a>
+<h4>HgBookmarksListDialog.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>evt</i>)
+<p>
+        Protected slot to handle a key press event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+the key press event (QKeyEvent)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.on_bookmarksList_customContextMenuRequested" ID="HgBookmarksListDialog.on_bookmarksList_customContextMenuRequested"></a>
+<h4>HgBookmarksListDialog.on_bookmarksList_customContextMenuRequested</h4>
+<b>on_bookmarksList_customContextMenuRequested</b>(<i>pos</i>)
+<p>
+        Private slot to handle the context menu request.
+</p><dl>
+<dt><i>pos</i> (QPoint)</dt>
+<dd>
+position the context menu was requetsed at
+</dd>
+</dl><a NAME="HgBookmarksListDialog.on_buttonBox_clicked" ID="HgBookmarksListDialog.on_buttonBox_clicked"></a>
+<h4>HgBookmarksListDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.on_input_returnPressed" ID="HgBookmarksListDialog.on_input_returnPressed"></a>
+<h4>HgBookmarksListDialog.on_input_returnPressed</h4>
+<b>on_input_returnPressed</b>(<i></i>)
+<p>
+        Private slot to handle the press of the return key in the input field.
+</p><a NAME="HgBookmarksListDialog.on_passwordCheckBox_toggled" ID="HgBookmarksListDialog.on_passwordCheckBox_toggled"></a>
+<h4>HgBookmarksListDialog.on_passwordCheckBox_toggled</h4>
+<b>on_passwordCheckBox_toggled</b>(<i>isOn</i>)
+<p>
+        Private slot to handle the password checkbox toggled.
+</p><dl>
+<dt><i>isOn</i></dt>
+<dd>
+flag indicating the status of the check box (boolean)
+</dd>
+</dl><a NAME="HgBookmarksListDialog.on_refreshButton_clicked" ID="HgBookmarksListDialog.on_refreshButton_clicked"></a>
+<h4>HgBookmarksListDialog.on_refreshButton_clicked</h4>
+<b>on_refreshButton_clicked</b>(<i></i>)
+<p>
+        Private slot to refresh the status display.
+</p><a NAME="HgBookmarksListDialog.on_sendButton_clicked" ID="HgBookmarksListDialog.on_sendButton_clicked"></a>
+<h4>HgBookmarksListDialog.on_sendButton_clicked</h4>
+<b>on_sendButton_clicked</b>(<i></i>)
+<p>
+        Private slot to send the input to the subversion process.
+</p><a NAME="HgBookmarksListDialog.start" ID="HgBookmarksListDialog.start"></a>
+<h4>HgBookmarksListDialog.start</h4>
+<b>start</b>(<i>path, bookmarksList</i>)
+<p>
+        Public slot to start the bookmarks command.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+name of directory to be listed (string)
+</dd><dt><i>bookmarksList</i></dt>
+<dd>
+reference to string list receiving the bookmarks
+            (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

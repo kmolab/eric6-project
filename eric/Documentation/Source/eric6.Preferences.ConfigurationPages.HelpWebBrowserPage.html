@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ConfigurationPages.HelpWebBrowserPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ConfigurationPages.HelpWebBrowserPage</h1>
+<p>
+Module implementing the Help web browser configuration page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpWebBrowserPage">HelpWebBrowserPage</a></td>
+<td>Class implementing the Help web browser configuration page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#create">create</a></td>
+<td>Module function to create the configuration page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="HelpWebBrowserPage" ID="HelpWebBrowserPage"></a>
+<h2>HelpWebBrowserPage</h2>
+<p>
+    Class implementing the Help web browser configuration page.
+</p>
+<h3>Derived from</h3>
+ConfigurationPageBase, Ui_HelpWebBrowserPage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpWebBrowserPage.__init__">HelpWebBrowserPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpWebBrowserPage.on_defaultHomeButton_clicked">on_defaultHomeButton_clicked</a></td>
+<td>Private slot to set the default home page.</td>
+</tr><tr>
+<td><a href="#HelpWebBrowserPage.on_noCacheHostsButton_clicked">on_noCacheHostsButton_clicked</a></td>
+<td>Private slot to edit the list of hosts exempted from caching.</td>
+</tr><tr>
+<td><a href="#HelpWebBrowserPage.on_refererWhitelistButton_clicked">on_refererWhitelistButton_clicked</a></td>
+<td>Private slot to edit the referer whitelist.</td>
+</tr><tr>
+<td><a href="#HelpWebBrowserPage.on_setCurrentPageButton_clicked">on_setCurrentPageButton_clicked</a></td>
+<td>Private slot to set the current page as the home page.</td>
+</tr><tr>
+<td><a href="#HelpWebBrowserPage.on_startupCombo_currentIndexChanged">on_startupCombo_currentIndexChanged</a></td>
+<td>Private slot to enable elements depending on the selected startup entry.</td>
+</tr><tr>
+<td><a href="#HelpWebBrowserPage.save">save</a></td>
+<td>Public slot to save the Help Viewers configuration.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpWebBrowserPage.__init__" ID="HelpWebBrowserPage.__init__"></a>
+<h4>HelpWebBrowserPage (Constructor)</h4>
+<b>HelpWebBrowserPage</b>(<i>configDialog</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>configDialog</i></dt>
+<dd>
+reference to the configuration dialog
+            (ConfigurationDialog)
+</dd>
+</dl><a NAME="HelpWebBrowserPage.on_defaultHomeButton_clicked" ID="HelpWebBrowserPage.on_defaultHomeButton_clicked"></a>
+<h4>HelpWebBrowserPage.on_defaultHomeButton_clicked</h4>
+<b>on_defaultHomeButton_clicked</b>(<i></i>)
+<p>
+        Private slot to set the default home page.
+</p><a NAME="HelpWebBrowserPage.on_noCacheHostsButton_clicked" ID="HelpWebBrowserPage.on_noCacheHostsButton_clicked"></a>
+<h4>HelpWebBrowserPage.on_noCacheHostsButton_clicked</h4>
+<b>on_noCacheHostsButton_clicked</b>(<i></i>)
+<p>
+        Private slot to edit the list of hosts exempted from caching.
+</p><a NAME="HelpWebBrowserPage.on_refererWhitelistButton_clicked" ID="HelpWebBrowserPage.on_refererWhitelistButton_clicked"></a>
+<h4>HelpWebBrowserPage.on_refererWhitelistButton_clicked</h4>
+<b>on_refererWhitelistButton_clicked</b>(<i></i>)
+<p>
+        Private slot to edit the referer whitelist.
+</p><a NAME="HelpWebBrowserPage.on_setCurrentPageButton_clicked" ID="HelpWebBrowserPage.on_setCurrentPageButton_clicked"></a>
+<h4>HelpWebBrowserPage.on_setCurrentPageButton_clicked</h4>
+<b>on_setCurrentPageButton_clicked</b>(<i></i>)
+<p>
+        Private slot to set the current page as the home page.
+</p><a NAME="HelpWebBrowserPage.on_startupCombo_currentIndexChanged" ID="HelpWebBrowserPage.on_startupCombo_currentIndexChanged"></a>
+<h4>HelpWebBrowserPage.on_startupCombo_currentIndexChanged</h4>
+<b>on_startupCombo_currentIndexChanged</b>(<i>index</i>)
+<p>
+        Private slot to enable elements depending on the selected startup
+        entry.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the selected entry (integer)
+</dd>
+</dl><a NAME="HelpWebBrowserPage.save" ID="HelpWebBrowserPage.save"></a>
+<h4>HelpWebBrowserPage.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public slot to save the Help Viewers configuration.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="create" ID="create"></a>
+<h2>create</h2>
+<b>create</b>(<i>dlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>dlg</i></dt>
+<dd>
+reference to the configuration dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated page (ConfigurationPageBase)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

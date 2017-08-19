@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ConfigurationPages.EditorExportersPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ConfigurationPages.EditorExportersPage</h1>
+<p>
+Module implementing the Editor Exporters configuration page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#EditorExportersPage">EditorExportersPage</a></td>
+<td>Class implementing the Editor Typing configuration page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#create">create</a></td>
+<td>Module function to create the configuration page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="EditorExportersPage" ID="EditorExportersPage"></a>
+<h2>EditorExportersPage</h2>
+<p>
+    Class implementing the Editor Typing configuration page.
+</p>
+<h3>Derived from</h3>
+ConfigurationPageBase, Ui_EditorExportersPage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#EditorExportersPage.__init__">EditorExportersPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#EditorExportersPage.on_exportersCombo_activated">on_exportersCombo_activated</a></td>
+<td>Private slot to select the page related to the selected exporter.</td>
+</tr><tr>
+<td><a href="#EditorExportersPage.on_rtfFontButton_clicked">on_rtfFontButton_clicked</a></td>
+<td>Private method used to select the font for the RTF export.</td>
+</tr><tr>
+<td><a href="#EditorExportersPage.save">save</a></td>
+<td>Public slot to save the Editor Typing configuration.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="EditorExportersPage.__init__" ID="EditorExportersPage.__init__"></a>
+<h4>EditorExportersPage (Constructor)</h4>
+<b>EditorExportersPage</b>(<i></i>)
+<p>
+        Constructor
+</p><a NAME="EditorExportersPage.on_exportersCombo_activated" ID="EditorExportersPage.on_exportersCombo_activated"></a>
+<h4>EditorExportersPage.on_exportersCombo_activated</h4>
+<b>on_exportersCombo_activated</b>(<i>exporter</i>)
+<p>
+        Private slot to select the page related to the selected exporter.
+</p><dl>
+<dt><i>exporter</i></dt>
+<dd>
+name of the selected exporter (string)
+</dd>
+</dl><a NAME="EditorExportersPage.on_rtfFontButton_clicked" ID="EditorExportersPage.on_rtfFontButton_clicked"></a>
+<h4>EditorExportersPage.on_rtfFontButton_clicked</h4>
+<b>on_rtfFontButton_clicked</b>(<i></i>)
+<p>
+        Private method used to select the font for the RTF export.
+</p><a NAME="EditorExportersPage.save" ID="EditorExportersPage.save"></a>
+<h4>EditorExportersPage.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public slot to save the Editor Typing configuration.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="create" ID="create"></a>
+<h2>create</h2>
+<b>create</b>(<i>dlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>dlg</i></dt>
+<dd>
+reference to the configuration dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated page (ConfigurationPageBase)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Utilities.crypto.__init__</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Utilities.crypto.__init__</h1>
+<p>
+Package implementing cryptography related functionality.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>CryptoMarker</td></tr><tr><td>Delimiter</td></tr><tr><td>EncodeMarker</td></tr><tr><td>MasterPassword</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#__getMasterPassword">__getMasterPassword</a></td>
+<td>Private module function to get the password from the user.</td>
+</tr><tr>
+<td><a href="#changeRememberedMaster">changeRememberedMaster</a></td>
+<td>Module function to change the remembered master password.</td>
+</tr><tr>
+<td><a href="#dataDecrypt">dataDecrypt</a></td>
+<td>Module function to decrypt a password.</td>
+</tr><tr>
+<td><a href="#dataEncrypt">dataEncrypt</a></td>
+<td>Module function to encrypt a password.</td>
+</tr><tr>
+<td><a href="#pwConvert">pwConvert</a></td>
+<td>Module function to convert a plaintext password to the encoded form or vice versa.</td>
+</tr><tr>
+<td><a href="#pwDecode">pwDecode</a></td>
+<td>Module function to decode a password.</td>
+</tr><tr>
+<td><a href="#pwDecrypt">pwDecrypt</a></td>
+<td>Module function to decrypt a password.</td>
+</tr><tr>
+<td><a href="#pwEncode">pwEncode</a></td>
+<td>Module function to encode a password.</td>
+</tr><tr>
+<td><a href="#pwEncrypt">pwEncrypt</a></td>
+<td>Module function to encrypt a password.</td>
+</tr><tr>
+<td><a href="#pwRecode">pwRecode</a></td>
+<td>Module function to re-encode a password.</td>
+</tr><tr>
+<td><a href="#pwReencrypt">pwReencrypt</a></td>
+<td>Module function to re-encrypt a password.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="__getMasterPassword" ID="__getMasterPassword"></a>
+<h2>__getMasterPassword</h2>
+<b>__getMasterPassword</b>(<i></i>)
+<p>
+    Private module function to get the password from the user.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="changeRememberedMaster" ID="changeRememberedMaster"></a>
+<h2>changeRememberedMaster</h2>
+<b>changeRememberedMaster</b>(<i>newPassword</i>)
+<p>
+    Module function to change the remembered master password.
+</p><dl>
+<dt><i>newPassword</i></dt>
+<dd>
+new password to be used (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="dataDecrypt" ID="dataDecrypt"></a>
+<h2>dataDecrypt</h2>
+<b>dataDecrypt</b>(<i>edata, password, keyLength=32</i>)
+<p>
+    Module function to decrypt a password.
+</p><dl>
+<dt><i>edata</i></dt>
+<dd>
+hashed data to decrypt (string)
+</dd><dt><i>password</i></dt>
+<dd>
+password to be used for decryption (string)
+</dd><dt><i>keyLength=</i></dt>
+<dd>
+length of the key to be generated for decryption
+        (16, 24 or 32)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+decrypted data (bytes) and flag indicating
+        success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="dataEncrypt" ID="dataEncrypt"></a>
+<h2>dataEncrypt</h2>
+<b>dataEncrypt</b>(<i>data, password, keyLength=32, hashIterations=10000</i>)
+<p>
+    Module function to encrypt a password.
+</p><dl>
+<dt><i>data</i></dt>
+<dd>
+data to encrypt (bytes)
+</dd><dt><i>password</i></dt>
+<dd>
+password to be used for encryption (string)
+</dd><dt><i>keyLength=</i></dt>
+<dd>
+length of the key to be generated for encryption
+        (16, 24 or 32)
+</dd><dt><i>hashIterations=</i></dt>
+<dd>
+number of hashes to be applied to the password for
+        generating the encryption key (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encrypted data (bytes) and flag indicating
+        success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwConvert" ID="pwConvert"></a>
+<h2>pwConvert</h2>
+<b>pwConvert</b>(<i>pw, encode=True</i>)
+<p>
+    Module function to convert a plaintext password to the encoded form or
+    vice versa.
+</p><p>
+    If there is an error, an empty code is returned for the encode function
+    or the given encoded password for the decode function.
+</p><dl>
+<dt><i>pw</i></dt>
+<dd>
+password to encode (string)
+</dd><dt><i>encode</i></dt>
+<dd>
+flag indicating an encode or decode function (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encoded or decoded password (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwDecode" ID="pwDecode"></a>
+<h2>pwDecode</h2>
+<b>pwDecode</b>(<i>epw</i>)
+<p>
+    Module function to decode a password.
+</p><dl>
+<dt><i>epw</i></dt>
+<dd>
+encoded password to decode (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+decoded password (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwDecrypt" ID="pwDecrypt"></a>
+<h2>pwDecrypt</h2>
+<b>pwDecrypt</b>(<i>epw, masterPW=None</i>)
+<p>
+    Module function to decrypt a password.
+</p><dl>
+<dt><i>epw</i></dt>
+<dd>
+hashed password to decrypt (string)
+</dd><dt><i>masterPW</i></dt>
+<dd>
+password to be used for decryption (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+decrypted password (string) and flag indicating
+        success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwEncode" ID="pwEncode"></a>
+<h2>pwEncode</h2>
+<b>pwEncode</b>(<i>pw</i>)
+<p>
+    Module function to encode a password.
+</p><dl>
+<dt><i>pw</i></dt>
+<dd>
+password to encode (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encoded password (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwEncrypt" ID="pwEncrypt"></a>
+<h2>pwEncrypt</h2>
+<b>pwEncrypt</b>(<i>pw, masterPW=None</i>)
+<p>
+    Module function to encrypt a password.
+</p><dl>
+<dt><i>pw</i></dt>
+<dd>
+password to encrypt (string)
+</dd><dt><i>masterPW</i></dt>
+<dd>
+password to be used for encryption (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encrypted password (string) and flag indicating
+        success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwRecode" ID="pwRecode"></a>
+<h2>pwRecode</h2>
+<b>pwRecode</b>(<i>epw, oldPassword, newPassword</i>)
+<p>
+    Module function to re-encode a password.
+</p><p>
+    In case of an error the encoded password is returned unchanged.
+</p><dl>
+<dt><i>epw</i></dt>
+<dd>
+encoded password to re-encode (string)
+</dd><dt><i>oldPassword</i></dt>
+<dd>
+password used to encode (string)
+</dd><dt><i>newPassword</i></dt>
+<dd>
+new password to be used (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encoded password (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="pwReencrypt" ID="pwReencrypt"></a>
+<h2>pwReencrypt</h2>
+<b>pwReencrypt</b>(<i>epw, oldPassword, newPassword</i>)
+<p>
+    Module function to re-encrypt a password.
+</p><dl>
+<dt><i>epw</i></dt>
+<dd>
+hashed password to re-encrypt (string)
+</dd><dt><i>oldPassword</i></dt>
+<dd>
+password used to encrypt (string)
+</dd><dt><i>newPassword</i></dt>
+<dd>
+new password to be used (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+encrypted password (string) and flag indicating
+        success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

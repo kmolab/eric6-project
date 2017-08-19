@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.WizardPlugins.QRegExpWizard.QRegExpWizardCharactersDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.WizardPlugins.QRegExpWizard.QRegExpWizardCharactersDialog</h1>
+<p>
+Module implementing a dialog for entering character classes.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#QRegExpWizardCharactersDialog">QRegExpWizardCharactersDialog</a></td>
+<td>Class implementing a dialog for entering character classes.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="QRegExpWizardCharactersDialog" ID="QRegExpWizardCharactersDialog"></a>
+<h2>QRegExpWizardCharactersDialog</h2>
+<p>
+    Class implementing a dialog for entering character classes.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_QRegExpWizardCharactersDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>RegExpMode</td></tr><tr><td>W3CMode</td></tr><tr><td>WildcardMode</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#QRegExpWizardCharactersDialog.__init__">QRegExpWizardCharactersDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__addRangesLine">__addRangesLine</a></td>
+<td>Private slot to add a line of entry widgets for character ranges.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__addSinglesLine">__addSinglesLine</a></td>
+<td>Private slot to add a line of entry widgets for single characters.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__formatCharacter">__formatCharacter</a></td>
+<td>Private method to format the characters entered into the dialog.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__initCharacterSelectors">__initCharacterSelectors</a></td>
+<td>Private method to initialize the W3C character selector entries.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__performSelectedAction">__performSelectedAction</a></td>
+<td>Private method performing some actions depending on the input.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__populateCharTypeCombo">__populateCharTypeCombo</a></td>
+<td>Private method to populate a given character type selection combo box.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__populateW3cCharacterCombo">__populateW3cCharacterCombo</a></td>
+<td>Private method to populate a W3C character selection combo.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__rangesCharTypeSelected">__rangesCharTypeSelected</a></td>
+<td>Private slot to handle the activated(int) signal of the char ranges combo boxes.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.__singlesCharTypeSelected">__singlesCharTypeSelected</a></td>
+<td>Private slot to handle the activated(int) signal of the single chars combo boxes.</td>
+</tr><tr>
+<td><a href="#QRegExpWizardCharactersDialog.getCharacters">getCharacters</a></td>
+<td>Public method to return the character string assembled via the dialog.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="QRegExpWizardCharactersDialog.__init__" ID="QRegExpWizardCharactersDialog.__init__"></a>
+<h4>QRegExpWizardCharactersDialog (Constructor)</h4>
+<b>QRegExpWizardCharactersDialog</b>(<i>mode=RegExpMode, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>mode</i></dt>
+<dd>
+mode of the dialog (one of RegExpMode, WildcardMode,
+            W3CMode)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.__addRangesLine" ID="QRegExpWizardCharactersDialog.__addRangesLine"></a>
+<h4>QRegExpWizardCharactersDialog.__addRangesLine</h4>
+<b>__addRangesLine</b>(<i></i>)
+<p>
+        Private slot to add a line of entry widgets for character ranges.
+</p><a NAME="QRegExpWizardCharactersDialog.__addSinglesLine" ID="QRegExpWizardCharactersDialog.__addSinglesLine"></a>
+<h4>QRegExpWizardCharactersDialog.__addSinglesLine</h4>
+<b>__addSinglesLine</b>(<i></i>)
+<p>
+        Private slot to add a line of entry widgets for single characters.
+</p><a NAME="QRegExpWizardCharactersDialog.__formatCharacter" ID="QRegExpWizardCharactersDialog.__formatCharacter"></a>
+<h4>QRegExpWizardCharactersDialog.__formatCharacter</h4>
+<b>__formatCharacter</b>(<i>char, formatIdentifier</i>)
+<p>
+        Private method to format the characters entered into the dialog.
+</p><dl>
+<dt><i>char</i></dt>
+<dd>
+character string entered into the dialog (string)
+</dd><dt><i>formatIdentifier</i></dt>
+<dd>
+string giving a special format (-c, -h, -i or
+            -o) or the already formatted character (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted character string (string)
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.__initCharacterSelectors" ID="QRegExpWizardCharactersDialog.__initCharacterSelectors"></a>
+<h4>QRegExpWizardCharactersDialog.__initCharacterSelectors</h4>
+<b>__initCharacterSelectors</b>(<i></i>)
+<p>
+        Private method to initialize the W3C character selector entries.
+</p><a NAME="QRegExpWizardCharactersDialog.__performSelectedAction" ID="QRegExpWizardCharactersDialog.__performSelectedAction"></a>
+<h4>QRegExpWizardCharactersDialog.__performSelectedAction</h4>
+<b>__performSelectedAction</b>(<i>formatIdentifier, lineedit, combo</i>)
+<p>
+        Private method performing some actions depending on the input.
+</p><dl>
+<dt><i>formatIdentifier</i></dt>
+<dd>
+format of the selected entry (string)
+</dd><dt><i>lineedit</i></dt>
+<dd>
+line edit widget to act on (QLineEdit)
+</dd><dt><i>combo</i></dt>
+<dd>
+combo box widget to act on (QComboBox)
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.__populateCharTypeCombo" ID="QRegExpWizardCharactersDialog.__populateCharTypeCombo"></a>
+<h4>QRegExpWizardCharactersDialog.__populateCharTypeCombo</h4>
+<b>__populateCharTypeCombo</b>(<i>combo, isSingle</i>)
+<p>
+        Private method to populate a given character type selection combo box.
+</p><dl>
+<dt><i>combo</i></dt>
+<dd>
+reference to the combo box to be populated (QComboBox)
+</dd><dt><i>isSingle</i></dt>
+<dd>
+flag indicating a singles combo (boolean)
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.__populateW3cCharacterCombo" ID="QRegExpWizardCharactersDialog.__populateW3cCharacterCombo"></a>
+<h4>QRegExpWizardCharactersDialog.__populateW3cCharacterCombo</h4>
+<b>__populateW3cCharacterCombo</b>(<i>combo, formatIdentifier</i>)
+<p>
+        Private method to populate a W3C character selection combo.
+</p><dl>
+<dt><i>combo</i></dt>
+<dd>
+combo box to be populated (QComboBox)
+</dd><dt><i>formatIdentifier</i></dt>
+<dd>
+format identifier (one of "-ccp", "-ccn",
+            "-cbp", "-cbn")
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.__rangesCharTypeSelected" ID="QRegExpWizardCharactersDialog.__rangesCharTypeSelected"></a>
+<h4>QRegExpWizardCharactersDialog.__rangesCharTypeSelected</h4>
+<b>__rangesCharTypeSelected</b>(<i>index</i>)
+<p>
+        Private slot to handle the activated(int) signal of the char ranges
+        combo boxes.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+selected list index (integer)
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.__singlesCharTypeSelected" ID="QRegExpWizardCharactersDialog.__singlesCharTypeSelected"></a>
+<h4>QRegExpWizardCharactersDialog.__singlesCharTypeSelected</h4>
+<b>__singlesCharTypeSelected</b>(<i>index</i>)
+<p>
+        Private slot to handle the activated(int) signal of the single chars
+        combo boxes.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+selected list index (integer)
+</dd>
+</dl><a NAME="QRegExpWizardCharactersDialog.getCharacters" ID="QRegExpWizardCharactersDialog.getCharacters"></a>
+<h4>QRegExpWizardCharactersDialog.getCharacters</h4>
+<b>getCharacters</b>(<i></i>)
+<p>
+        Public method to return the character string assembled via the dialog.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+formatted string for character classes (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

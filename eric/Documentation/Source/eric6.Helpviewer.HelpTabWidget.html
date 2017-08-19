@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.HelpTabWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.HelpTabWidget</h1>
+<p>
+Module implementing the central widget showing the web pages.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpTabWidget">HelpTabWidget</a></td>
+<td>Class implementing the central widget showing the web pages.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HelpTabWidget" ID="HelpTabWidget"></a>
+<h2>HelpTabWidget</h2>
+<p>
+    Class implementing the central widget showing the web pages.
+</p><h3>Signals</h3>
+<dl>
+<dt>browserClosed(QWidget)</dt>
+<dd>
+emitted after a browser was closed
+</dd><dt>browserZoomValueChanged(int)</dt>
+<dd>
+emitted to signal a change of the
+        current browser's zoom level
+</dd><dt>showMessage(str)</dt>
+<dd>
+emitted to show a message in the main window
+        status bar
+</dd><dt>sourceChanged(HelpBrowser, QUrl)</dt>
+<dd>
+emitted after the URL of a browser
+        has changed
+</dd><dt>titleChanged(HelpBrowser, str)</dt>
+<dd>
+emitted after the title of a browser
+        has changed
+</dd>
+</dl>
+<h3>Derived from</h3>
+E5TabWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpTabWidget.__init__">HelpTabWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__aboutToShowClosedTabsMenu">__aboutToShowClosedTabsMenu</a></td>
+<td>Private slot to populate the closed tabs menu.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__closedTabAvailable">__closedTabAvailable</a></td>
+<td>Private slot to handle changes of the availability of closed tabs.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__currentChanged">__currentChanged</a></td>
+<td>Private slot to handle an index change.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__elide">__elide</a></td>
+<td>Private method to elide some text.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__guessUrlFromPath">__guessUrlFromPath</a></td>
+<td>Private method to guess an URL given a path string.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__iconChanged">__iconChanged</a></td>
+<td>Private slot to handle the icon change.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__initTabContextMenu">__initTabContextMenu</a></td>
+<td>Private method to create the tab context menu.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__lineEditReturnPressed">__lineEditReturnPressed</a></td>
+<td>Private slot to handle the entering of an URL.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__loadFinished">__loadFinished</a></td>
+<td>Private method to handle the loadFinished signal.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__loadStarted">__loadStarted</a></td>
+<td>Private method to handle the loadStarted signal.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__navigationMenuTriggered">__navigationMenuTriggered</a></td>
+<td>Private slot called to handle the navigation button menu selection.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__newBrowser">__newBrowser</a></td>
+<td>Private slot to open a new browser tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__pathSelected">__pathSelected</a></td>
+<td>Private slot called when a URL is selected from the completer.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__printPdfRequested">__printPdfRequested</a></td>
+<td>Private slot to handle a print to PDF request.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__printPreview">__printPreview</a></td>
+<td>Private slot to generate a print preview.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__printRequested">__printRequested</a></td>
+<td>Private slot to handle a print request.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot to show the tab context menu.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__showNavigationMenu">__showNavigationMenu</a></td>
+<td>Private slot to show the navigation button menu.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__sourceChanged">__sourceChanged</a></td>
+<td>Private slot to handle a change of a browsers source.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuClone">__tabContextMenuClone</a></td>
+<td>Private method to clone the selected tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuClose">__tabContextMenuClose</a></td>
+<td>Private method to close the selected tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuCloseOthers">__tabContextMenuCloseOthers</a></td>
+<td>Private slot to close all other tabs.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuMoveLeft">__tabContextMenuMoveLeft</a></td>
+<td>Private method to move a tab one position to the left.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuMoveRight">__tabContextMenuMoveRight</a></td>
+<td>Private method to move a tab one position to the right.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuPrint">__tabContextMenuPrint</a></td>
+<td>Private method to print the selected tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuPrintPdf">__tabContextMenuPrintPdf</a></td>
+<td>Private method to print the selected tab as PDF.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__tabContextMenuPrintPreview">__tabContextMenuPrintPreview</a></td>
+<td>Private method to show a print preview of the selected tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__titleChanged">__titleChanged</a></td>
+<td>Private slot to handle a change of a browsers title.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.__windowCloseRequested">__windowCloseRequested</a></td>
+<td>Private slot to handle the windowCloseRequested signal of a browser.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.browserAt">browserAt</a></td>
+<td>Public method to get a reference to the browser with the given index.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.browsers">browsers</a></td>
+<td>Public method to get a list of references to all browsers.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.canRestoreClosedTab">canRestoreClosedTab</a></td>
+<td>Public method to check, if closed tabs can be restored.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.clearClosedTabsList">clearClosedTabsList</a></td>
+<td>Public slot to clear the list of closed tabs.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.closeAllBrowsers">closeAllBrowsers</a></td>
+<td>Public slot called to handle the close all action.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.closeBrowser">closeBrowser</a></td>
+<td>Public slot called to handle the close action.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.closeBrowserAt">closeBrowserAt</a></td>
+<td>Public slot to close a browser based on its index.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.closedTabsManager">closedTabsManager</a></td>
+<td>Public slot to get a reference to the closed tabs manager.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.currentBrowser">currentBrowser</a></td>
+<td>Public method to get a reference to the current browser.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.currentUrlBar">currentUrlBar</a></td>
+<td>Public method to get a reference to the current url bar.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.getSourceFileList">getSourceFileList</a></td>
+<td>Public method to get a list of all opened source files.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.newBrowser">newBrowser</a></td>
+<td>Public method to create a new web browser tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.newBrowserAfter">newBrowserAfter</a></td>
+<td>Public method to create a new web browser tab after a given one.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.preferencesChanged">preferencesChanged</a></td>
+<td>Public slot to handle a change of preferences.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.printBrowser">printBrowser</a></td>
+<td>Public slot called to print the displayed page.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.printBrowserPdf">printBrowserPdf</a></td>
+<td>Public slot called to print the displayed page to PDF.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.printPreviewBrowser">printPreviewBrowser</a></td>
+<td>Public slot called to show a print preview of the displayed file.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.reloadAllBrowsers">reloadAllBrowsers</a></td>
+<td>Public slot to reload all browsers.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.restoreAllClosedTabs">restoreAllClosedTabs</a></td>
+<td>Public slot to restore all closed tabs.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.restoreClosedTab">restoreClosedTab</a></td>
+<td>Public slot to restore the most recently closed tab.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.shallShutDown">shallShutDown</a></td>
+<td>Public method to check, if the application should be shut down.</td>
+</tr><tr>
+<td><a href="#HelpTabWidget.stackedUrlBar">stackedUrlBar</a></td>
+<td>Public method to get a reference to the stacked url bar.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpTabWidget.__init__" ID="HelpTabWidget.__init__"></a>
+<h4>HelpTabWidget (Constructor)</h4>
+<b>HelpTabWidget</b>(<i>parent</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="HelpTabWidget.__aboutToShowClosedTabsMenu" ID="HelpTabWidget.__aboutToShowClosedTabsMenu"></a>
+<h4>HelpTabWidget.__aboutToShowClosedTabsMenu</h4>
+<b>__aboutToShowClosedTabsMenu</b>(<i></i>)
+<p>
+        Private slot to populate the closed tabs menu.
+</p><a NAME="HelpTabWidget.__closedTabAvailable" ID="HelpTabWidget.__closedTabAvailable"></a>
+<h4>HelpTabWidget.__closedTabAvailable</h4>
+<b>__closedTabAvailable</b>(<i>avail</i>)
+<p>
+        Private slot to handle changes of the availability of closed tabs.
+</p><dl>
+<dt><i>avail</i></dt>
+<dd>
+flag indicating the availability of closed tabs (boolean)
+</dd>
+</dl><a NAME="HelpTabWidget.__currentChanged" ID="HelpTabWidget.__currentChanged"></a>
+<h4>HelpTabWidget.__currentChanged</h4>
+<b>__currentChanged</b>(<i>index</i>)
+<p>
+        Private slot to handle an index change.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+new index (integer)
+</dd>
+</dl><a NAME="HelpTabWidget.__elide" ID="HelpTabWidget.__elide"></a>
+<h4>HelpTabWidget.__elide</h4>
+<b>__elide</b>(<i>txt, mode=Qt.ElideRight, length=40</i>)
+<p>
+        Private method to elide some text.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+text to be elided (string)
+</dd><dt><i>mode=</i></dt>
+<dd>
+elide mode (Qt.TextElideMode)
+</dd><dt><i>length=</i></dt>
+<dd>
+amount of characters to be used (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the elided text (string)
+</dd>
+</dl><a NAME="HelpTabWidget.__guessUrlFromPath" ID="HelpTabWidget.__guessUrlFromPath"></a>
+<h4>HelpTabWidget.__guessUrlFromPath</h4>
+<b>__guessUrlFromPath</b>(<i>path</i>)
+<p>
+        Private method to guess an URL given a path string.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path string to guess an URL for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+guessed URL (QUrl)
+</dd>
+</dl><a NAME="HelpTabWidget.__iconChanged" ID="HelpTabWidget.__iconChanged"></a>
+<h4>HelpTabWidget.__iconChanged</h4>
+<b>__iconChanged</b>(<i></i>)
+<p>
+        Private slot to handle the icon change.
+</p><a NAME="HelpTabWidget.__initTabContextMenu" ID="HelpTabWidget.__initTabContextMenu"></a>
+<h4>HelpTabWidget.__initTabContextMenu</h4>
+<b>__initTabContextMenu</b>(<i></i>)
+<p>
+        Private method to create the tab context menu.
+</p><a NAME="HelpTabWidget.__lineEditReturnPressed" ID="HelpTabWidget.__lineEditReturnPressed"></a>
+<h4>HelpTabWidget.__lineEditReturnPressed</h4>
+<b>__lineEditReturnPressed</b>(<i></i>)
+<p>
+        Private slot to handle the entering of an URL.
+</p><a NAME="HelpTabWidget.__loadFinished" ID="HelpTabWidget.__loadFinished"></a>
+<h4>HelpTabWidget.__loadFinished</h4>
+<b>__loadFinished</b>(<i>ok</i>)
+<p>
+        Private method to handle the loadFinished signal.
+</p><dl>
+<dt><i>ok</i></dt>
+<dd>
+flag indicating the result (boolean)
+</dd>
+</dl><a NAME="HelpTabWidget.__loadStarted" ID="HelpTabWidget.__loadStarted"></a>
+<h4>HelpTabWidget.__loadStarted</h4>
+<b>__loadStarted</b>(<i></i>)
+<p>
+        Private method to handle the loadStarted signal.
+</p><a NAME="HelpTabWidget.__navigationMenuTriggered" ID="HelpTabWidget.__navigationMenuTriggered"></a>
+<h4>HelpTabWidget.__navigationMenuTriggered</h4>
+<b>__navigationMenuTriggered</b>(<i>act</i>)
+<p>
+        Private slot called to handle the navigation button menu selection.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the selected action (QAction)
+</dd>
+</dl><a NAME="HelpTabWidget.__newBrowser" ID="HelpTabWidget.__newBrowser"></a>
+<h4>HelpTabWidget.__newBrowser</h4>
+<b>__newBrowser</b>(<i></i>)
+<p>
+        Private slot to open a new browser tab.
+</p><a NAME="HelpTabWidget.__pathSelected" ID="HelpTabWidget.__pathSelected"></a>
+<h4>HelpTabWidget.__pathSelected</h4>
+<b>__pathSelected</b>(<i>path</i>)
+<p>
+        Private slot called when a URL is selected from the completer.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path to be shown (string)
+</dd>
+</dl><a NAME="HelpTabWidget.__printPdfRequested" ID="HelpTabWidget.__printPdfRequested"></a>
+<h4>HelpTabWidget.__printPdfRequested</h4>
+<b>__printPdfRequested</b>(<i>frame</i>)
+<p>
+        Private slot to handle a print to PDF request.
+</p><dl>
+<dt><i>frame</i></dt>
+<dd>
+reference to the frame to be printed (QWebFrame)
+</dd>
+</dl><a NAME="HelpTabWidget.__printPreview" ID="HelpTabWidget.__printPreview"></a>
+<h4>HelpTabWidget.__printPreview</h4>
+<b>__printPreview</b>(<i>printer</i>)
+<p>
+        Private slot to generate a print preview.
+</p><dl>
+<dt><i>printer</i></dt>
+<dd>
+reference to the printer object (QPrinter)
+</dd>
+</dl><a NAME="HelpTabWidget.__printRequested" ID="HelpTabWidget.__printRequested"></a>
+<h4>HelpTabWidget.__printRequested</h4>
+<b>__printRequested</b>(<i>frame</i>)
+<p>
+        Private slot to handle a print request.
+</p><dl>
+<dt><i>frame</i></dt>
+<dd>
+reference to the frame to be printed (QWebFrame)
+</dd>
+</dl><a NAME="HelpTabWidget.__showContextMenu" ID="HelpTabWidget.__showContextMenu"></a>
+<h4>HelpTabWidget.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i>coord, index</i>)
+<p>
+        Private slot to show the tab context menu.
+</p><dl>
+<dt><i>coord</i></dt>
+<dd>
+the position of the mouse pointer (QPoint)
+</dd><dt><i>index</i></dt>
+<dd>
+index of the tab the menu is requested for (integer)
+</dd>
+</dl><a NAME="HelpTabWidget.__showNavigationMenu" ID="HelpTabWidget.__showNavigationMenu"></a>
+<h4>HelpTabWidget.__showNavigationMenu</h4>
+<b>__showNavigationMenu</b>(<i></i>)
+<p>
+        Private slot to show the navigation button menu.
+</p><a NAME="HelpTabWidget.__sourceChanged" ID="HelpTabWidget.__sourceChanged"></a>
+<h4>HelpTabWidget.__sourceChanged</h4>
+<b>__sourceChanged</b>(<i>url</i>)
+<p>
+        Private slot to handle a change of a browsers source.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL of the new site (QUrl)
+</dd>
+</dl><a NAME="HelpTabWidget.__tabContextMenuClone" ID="HelpTabWidget.__tabContextMenuClone"></a>
+<h4>HelpTabWidget.__tabContextMenuClone</h4>
+<b>__tabContextMenuClone</b>(<i></i>)
+<p>
+        Private method to clone the selected tab.
+</p><a NAME="HelpTabWidget.__tabContextMenuClose" ID="HelpTabWidget.__tabContextMenuClose"></a>
+<h4>HelpTabWidget.__tabContextMenuClose</h4>
+<b>__tabContextMenuClose</b>(<i></i>)
+<p>
+        Private method to close the selected tab.
+</p><a NAME="HelpTabWidget.__tabContextMenuCloseOthers" ID="HelpTabWidget.__tabContextMenuCloseOthers"></a>
+<h4>HelpTabWidget.__tabContextMenuCloseOthers</h4>
+<b>__tabContextMenuCloseOthers</b>(<i></i>)
+<p>
+        Private slot to close all other tabs.
+</p><a NAME="HelpTabWidget.__tabContextMenuMoveLeft" ID="HelpTabWidget.__tabContextMenuMoveLeft"></a>
+<h4>HelpTabWidget.__tabContextMenuMoveLeft</h4>
+<b>__tabContextMenuMoveLeft</b>(<i></i>)
+<p>
+        Private method to move a tab one position to the left.
+</p><a NAME="HelpTabWidget.__tabContextMenuMoveRight" ID="HelpTabWidget.__tabContextMenuMoveRight"></a>
+<h4>HelpTabWidget.__tabContextMenuMoveRight</h4>
+<b>__tabContextMenuMoveRight</b>(<i></i>)
+<p>
+        Private method to move a tab one position to the right.
+</p><a NAME="HelpTabWidget.__tabContextMenuPrint" ID="HelpTabWidget.__tabContextMenuPrint"></a>
+<h4>HelpTabWidget.__tabContextMenuPrint</h4>
+<b>__tabContextMenuPrint</b>(<i></i>)
+<p>
+        Private method to print the selected tab.
+</p><a NAME="HelpTabWidget.__tabContextMenuPrintPdf" ID="HelpTabWidget.__tabContextMenuPrintPdf"></a>
+<h4>HelpTabWidget.__tabContextMenuPrintPdf</h4>
+<b>__tabContextMenuPrintPdf</b>(<i></i>)
+<p>
+        Private method to print the selected tab as PDF.
+</p><a NAME="HelpTabWidget.__tabContextMenuPrintPreview" ID="HelpTabWidget.__tabContextMenuPrintPreview"></a>
+<h4>HelpTabWidget.__tabContextMenuPrintPreview</h4>
+<b>__tabContextMenuPrintPreview</b>(<i></i>)
+<p>
+        Private method to show a print preview of the selected tab.
+</p><a NAME="HelpTabWidget.__titleChanged" ID="HelpTabWidget.__titleChanged"></a>
+<h4>HelpTabWidget.__titleChanged</h4>
+<b>__titleChanged</b>(<i>title</i>)
+<p>
+        Private slot to handle a change of a browsers title.
+</p><dl>
+<dt><i>title</i></dt>
+<dd>
+new title (string)
+</dd>
+</dl><a NAME="HelpTabWidget.__windowCloseRequested" ID="HelpTabWidget.__windowCloseRequested"></a>
+<h4>HelpTabWidget.__windowCloseRequested</h4>
+<b>__windowCloseRequested</b>(<i></i>)
+<p>
+        Private slot to handle the windowCloseRequested signal of a browser.
+</p><a NAME="HelpTabWidget.browserAt" ID="HelpTabWidget.browserAt"></a>
+<h4>HelpTabWidget.browserAt</h4>
+<b>browserAt</b>(<i>index</i>)
+<p>
+        Public method to get a reference to the browser with the given index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the browser to get (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the indexed browser (HelpBrowser)
+</dd>
+</dl><a NAME="HelpTabWidget.browsers" ID="HelpTabWidget.browsers"></a>
+<h4>HelpTabWidget.browsers</h4>
+<b>browsers</b>(<i></i>)
+<p>
+        Public method to get a list of references to all browsers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of references to browsers (list of HelpBrowser)
+</dd>
+</dl><a NAME="HelpTabWidget.canRestoreClosedTab" ID="HelpTabWidget.canRestoreClosedTab"></a>
+<h4>HelpTabWidget.canRestoreClosedTab</h4>
+<b>canRestoreClosedTab</b>(<i></i>)
+<p>
+        Public method to check, if closed tabs can be restored.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that closed tabs can be restored (boolean)
+</dd>
+</dl><a NAME="HelpTabWidget.clearClosedTabsList" ID="HelpTabWidget.clearClosedTabsList"></a>
+<h4>HelpTabWidget.clearClosedTabsList</h4>
+<b>clearClosedTabsList</b>(<i></i>)
+<p>
+        Public slot to clear the list of closed tabs.
+</p><a NAME="HelpTabWidget.closeAllBrowsers" ID="HelpTabWidget.closeAllBrowsers"></a>
+<h4>HelpTabWidget.closeAllBrowsers</h4>
+<b>closeAllBrowsers</b>(<i></i>)
+<p>
+        Public slot called to handle the close all action.
+</p><a NAME="HelpTabWidget.closeBrowser" ID="HelpTabWidget.closeBrowser"></a>
+<h4>HelpTabWidget.closeBrowser</h4>
+<b>closeBrowser</b>(<i></i>)
+<p>
+        Public slot called to handle the close action.
+</p><a NAME="HelpTabWidget.closeBrowserAt" ID="HelpTabWidget.closeBrowserAt"></a>
+<h4>HelpTabWidget.closeBrowserAt</h4>
+<b>closeBrowserAt</b>(<i>index</i>)
+<p>
+        Public slot to close a browser based on its index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of browser to close (integer)
+</dd>
+</dl><a NAME="HelpTabWidget.closedTabsManager" ID="HelpTabWidget.closedTabsManager"></a>
+<h4>HelpTabWidget.closedTabsManager</h4>
+<b>closedTabsManager</b>(<i></i>)
+<p>
+        Public slot to get a reference to the closed tabs manager.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the closed tabs manager (ClosedTabsManager)
+</dd>
+</dl><a NAME="HelpTabWidget.currentBrowser" ID="HelpTabWidget.currentBrowser"></a>
+<h4>HelpTabWidget.currentBrowser</h4>
+<b>currentBrowser</b>(<i></i>)
+<p>
+        Public method to get a reference to the current browser.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the current browser (HelpBrowser)
+</dd>
+</dl><a NAME="HelpTabWidget.currentUrlBar" ID="HelpTabWidget.currentUrlBar"></a>
+<h4>HelpTabWidget.currentUrlBar</h4>
+<b>currentUrlBar</b>(<i></i>)
+<p>
+        Public method to get a reference to the current url bar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the current url bar (UrlBar)
+</dd>
+</dl><a NAME="HelpTabWidget.getSourceFileList" ID="HelpTabWidget.getSourceFileList"></a>
+<h4>HelpTabWidget.getSourceFileList</h4>
+<b>getSourceFileList</b>(<i></i>)
+<p>
+        Public method to get a list of all opened source files.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+dictionary with tab id as key and host/namespace as value
+</dd>
+</dl><a NAME="HelpTabWidget.newBrowser" ID="HelpTabWidget.newBrowser"></a>
+<h4>HelpTabWidget.newBrowser</h4>
+<b>newBrowser</b>(<i>link=None, requestData=None, position=-1</i>)
+<p>
+        Public method to create a new web browser tab.
+</p><dl>
+<dt><i>link</i></dt>
+<dd>
+link to be shown (string or QUrl)
+</dd><dt><i>requestData</i></dt>
+<dd>
+tuple containing the request data (QNetworkRequest,
+            QNetworkAccessManager.Operation, QByteArray)
+</dd><dt><i>position=</i></dt>
+<dd>
+position to create the new tab at or -1 to add it
+            to the end (integer)
+</dd>
+</dl><a NAME="HelpTabWidget.newBrowserAfter" ID="HelpTabWidget.newBrowserAfter"></a>
+<h4>HelpTabWidget.newBrowserAfter</h4>
+<b>newBrowserAfter</b>(<i>browser, link=None, requestData=None</i>)
+<p>
+        Public method to create a new web browser tab after a given one.
+</p><dl>
+<dt><i>browser</i></dt>
+<dd>
+reference to the browser to add after (HelpBrowser)
+</dd><dt><i>link</i></dt>
+<dd>
+link to be shown (string or QUrl)
+</dd><dt><i>requestData</i></dt>
+<dd>
+tuple containing the request data (QNetworkRequest,
+            QNetworkAccessManager.Operation, QByteArray)
+</dd>
+</dl><a NAME="HelpTabWidget.preferencesChanged" ID="HelpTabWidget.preferencesChanged"></a>
+<h4>HelpTabWidget.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public slot to handle a change of preferences.
+</p><a NAME="HelpTabWidget.printBrowser" ID="HelpTabWidget.printBrowser"></a>
+<h4>HelpTabWidget.printBrowser</h4>
+<b>printBrowser</b>(<i>browser=None</i>)
+<p>
+        Public slot called to print the displayed page.
+</p><dl>
+<dt><i>browser</i></dt>
+<dd>
+reference to the browser to be printed (HelpBrowser)
+</dd>
+</dl><a NAME="HelpTabWidget.printBrowserPdf" ID="HelpTabWidget.printBrowserPdf"></a>
+<h4>HelpTabWidget.printBrowserPdf</h4>
+<b>printBrowserPdf</b>(<i>browser=None</i>)
+<p>
+        Public slot called to print the displayed page to PDF.
+</p><dl>
+<dt><i>browser</i></dt>
+<dd>
+reference to the browser to be printed (HelpBrowser)
+</dd>
+</dl><a NAME="HelpTabWidget.printPreviewBrowser" ID="HelpTabWidget.printPreviewBrowser"></a>
+<h4>HelpTabWidget.printPreviewBrowser</h4>
+<b>printPreviewBrowser</b>(<i>browser=None</i>)
+<p>
+        Public slot called to show a print preview of the displayed file.
+</p><dl>
+<dt><i>browser</i></dt>
+<dd>
+reference to the browser to be printed (HelpBrowserWV)
+</dd>
+</dl><a NAME="HelpTabWidget.reloadAllBrowsers" ID="HelpTabWidget.reloadAllBrowsers"></a>
+<h4>HelpTabWidget.reloadAllBrowsers</h4>
+<b>reloadAllBrowsers</b>(<i></i>)
+<p>
+        Public slot to reload all browsers.
+</p><a NAME="HelpTabWidget.restoreAllClosedTabs" ID="HelpTabWidget.restoreAllClosedTabs"></a>
+<h4>HelpTabWidget.restoreAllClosedTabs</h4>
+<b>restoreAllClosedTabs</b>(<i></i>)
+<p>
+        Public slot to restore all closed tabs.
+</p><a NAME="HelpTabWidget.restoreClosedTab" ID="HelpTabWidget.restoreClosedTab"></a>
+<h4>HelpTabWidget.restoreClosedTab</h4>
+<b>restoreClosedTab</b>(<i></i>)
+<p>
+        Public slot to restore the most recently closed tab.
+</p><a NAME="HelpTabWidget.shallShutDown" ID="HelpTabWidget.shallShutDown"></a>
+<h4>HelpTabWidget.shallShutDown</h4>
+<b>shallShutDown</b>(<i></i>)
+<p>
+        Public method to check, if the application should be shut down.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a shut down (boolean)
+</dd>
+</dl><a NAME="HelpTabWidget.stackedUrlBar" ID="HelpTabWidget.stackedUrlBar"></a>
+<h4>HelpTabWidget.stackedUrlBar</h4>
+<b>stackedUrlBar</b>(<i></i>)
+<p>
+        Public method to get a reference to the stacked url bar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the stacked url bar (StackedUrlBar)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

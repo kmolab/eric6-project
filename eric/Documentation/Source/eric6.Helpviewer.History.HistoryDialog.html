@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.History.HistoryDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.History.HistoryDialog</h1>
+<p>
+Module implementing a dialog to manage history.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HistoryDialog">HistoryDialog</a></td>
+<td>Class implementing a dialog to manage history.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HistoryDialog" ID="HistoryDialog"></a>
+<h2>HistoryDialog</h2>
+<p>
+    Class implementing a dialog to manage history.
+</p><h3>Signals</h3>
+<dl>
+<dt>newUrl(QUrl, str)</dt>
+<dd>
+emitted to open a URL in a new tab
+</dd><dt>openUrl(QUrl, str)</dt>
+<dd>
+emitted to open a URL in the current tab
+</dd>
+</dl>
+<h3>Derived from</h3>
+QDialog, Ui_HistoryDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HistoryDialog.__init__">HistoryDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__activated">__activated</a></td>
+<td>Private slot to handle the activation of an entry.</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__copyHistory">__copyHistory</a></td>
+<td>Private slot to copy a history entry's URL to the clipboard.</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__customContextMenuRequested">__customContextMenuRequested</a></td>
+<td>Private slot to handle the context menu request for the bookmarks tree.</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__modelReset">__modelReset</a></td>
+<td>Private slot handling a reset of the tree view's model.</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__openHistory">__openHistory</a></td>
+<td>Private method to open a history entry.</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__openHistoryInCurrentTab">__openHistoryInCurrentTab</a></td>
+<td>Private slot to open a history entry in the current browser tab.</td>
+</tr><tr>
+<td><a href="#HistoryDialog.__openHistoryInNewTab">__openHistoryInNewTab</a></td>
+<td>Private slot to open a history entry in a new browser tab.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HistoryDialog.__init__" ID="HistoryDialog.__init__"></a>
+<h4>HistoryDialog (Constructor)</h4>
+<b>HistoryDialog</b>(<i>parent=None, manager=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget
+</dd><dt><i>manager</i></dt>
+<dd>
+reference to the history manager object (HistoryManager)
+</dd>
+</dl><a NAME="HistoryDialog.__activated" ID="HistoryDialog.__activated"></a>
+<h4>HistoryDialog.__activated</h4>
+<b>__activated</b>(<i>idx</i>)
+<p>
+        Private slot to handle the activation of an entry.
+</p><dl>
+<dt><i>idx</i></dt>
+<dd>
+reference to the entry index (QModelIndex)
+</dd>
+</dl><a NAME="HistoryDialog.__copyHistory" ID="HistoryDialog.__copyHistory"></a>
+<h4>HistoryDialog.__copyHistory</h4>
+<b>__copyHistory</b>(<i></i>)
+<p>
+        Private slot to copy a history entry's URL to the clipboard.
+</p><a NAME="HistoryDialog.__customContextMenuRequested" ID="HistoryDialog.__customContextMenuRequested"></a>
+<h4>HistoryDialog.__customContextMenuRequested</h4>
+<b>__customContextMenuRequested</b>(<i>pos</i>)
+<p>
+        Private slot to handle the context menu request for the bookmarks tree.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position the context menu was requested (QPoint)
+</dd>
+</dl><a NAME="HistoryDialog.__modelReset" ID="HistoryDialog.__modelReset"></a>
+<h4>HistoryDialog.__modelReset</h4>
+<b>__modelReset</b>(<i></i>)
+<p>
+        Private slot handling a reset of the tree view's model.
+</p><a NAME="HistoryDialog.__openHistory" ID="HistoryDialog.__openHistory"></a>
+<h4>HistoryDialog.__openHistory</h4>
+<b>__openHistory</b>(<i>newTab</i>)
+<p>
+        Private method to open a history entry.
+</p><dl>
+<dt><i>newTab</i></dt>
+<dd>
+flag indicating to open the history entry in a new tab
+            (boolean)
+</dd>
+</dl><a NAME="HistoryDialog.__openHistoryInCurrentTab" ID="HistoryDialog.__openHistoryInCurrentTab"></a>
+<h4>HistoryDialog.__openHistoryInCurrentTab</h4>
+<b>__openHistoryInCurrentTab</b>(<i></i>)
+<p>
+        Private slot to open a history entry in the current browser tab.
+</p><a NAME="HistoryDialog.__openHistoryInNewTab" ID="HistoryDialog.__openHistoryInNewTab"></a>
+<h4>HistoryDialog.__openHistoryInNewTab</h4>
+<b>__openHistoryInNewTab</b>(<i></i>)
+<p>
+        Private slot to open a history entry in a new browser tab.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

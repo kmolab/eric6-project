@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.install-debugclients</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.install-debugclients</h1>
+<p>
+Installation script for the eric6 debug clients.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>currDir</td></tr><tr><td>distDir</td></tr><tr><td>doCleanup</td></tr><tr><td>doCompile</td></tr><tr><td>installPackage</td></tr><tr><td>modDir</td></tr><tr><td>progName</td></tr><tr><td>pyModDir</td></tr><tr><td>sourceDir</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#cleanUp">cleanUp</a></td>
+<td>Uninstall the old eric debug client files.</td>
+</tr><tr>
+<td><a href="#cleanupSource">cleanupSource</a></td>
+<td>Cleanup the sources directory to get rid of leftover files and directories.</td>
+</tr><tr>
+<td><a href="#copyTree">copyTree</a></td>
+<td>Copy files of a directory tree.</td>
+</tr><tr>
+<td><a href="#exit">exit</a></td>
+<td>Exit the install script.</td>
+</tr><tr>
+<td><a href="#initGlobals">initGlobals</a></td>
+<td>Module function to set the values of globals that need more than a simple assignment.</td>
+</tr><tr>
+<td><a href="#installEricDebugClients">installEricDebugClients</a></td>
+<td>Actually perform the installation steps.</td>
+</tr><tr>
+<td><a href="#main">main</a></td>
+<td>The main function of the script.</td>
+</tr><tr>
+<td><a href="#shutilCopy">shutilCopy</a></td>
+<td>Wrapper function around shutil.copy() to ensure the permissions.</td>
+</tr><tr>
+<td><a href="#usage">usage</a></td>
+<td>Display a usage message and exit.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="cleanUp" ID="cleanUp"></a>
+<h2>cleanUp</h2>
+<b>cleanUp</b>(<i></i>)
+<p>
+    Uninstall the old eric debug client files.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="cleanupSource" ID="cleanupSource"></a>
+<h2>cleanupSource</h2>
+<b>cleanupSource</b>(<i>dirName</i>)
+<p>
+    Cleanup the sources directory to get rid of leftover files
+    and directories.
+</p><dl>
+<dt><i>dirName</i></dt>
+<dd>
+name of the directory to prune (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="copyTree" ID="copyTree"></a>
+<h2>copyTree</h2>
+<b>copyTree</b>(<i>src, dst, filters, excludeDirs=None, excludePatterns=None</i>)
+<p>
+    Copy files of a directory tree.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+name of the source directory
+</dd><dt><i>dst</i></dt>
+<dd>
+name of the destination directory
+</dd><dt><i>filters</i></dt>
+<dd>
+list of filter pattern determining the files to be copied
+</dd><dt><i>excludeDirs</i></dt>
+<dd>
+list of (sub)directories to exclude from copying
+</dd><dt><i>excludePatterns=</i></dt>
+<dd>
+list of filter pattern determining the files to
+        be skipped
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="exit" ID="exit"></a>
+<h2>exit</h2>
+<b>exit</b>(<i>rcode=0</i>)
+<p>
+    Exit the install script.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+result code to report back (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="initGlobals" ID="initGlobals"></a>
+<h2>initGlobals</h2>
+<b>initGlobals</b>(<i></i>)
+<p>
+    Module function to set the values of globals that need more than a
+    simple assignment.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="installEricDebugClients" ID="installEricDebugClients"></a>
+<h2>installEricDebugClients</h2>
+<b>installEricDebugClients</b>(<i></i>)
+<p>
+    Actually perform the installation steps.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+result code (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="main" ID="main"></a>
+<h2>main</h2>
+<b>main</b>(<i>argv</i>)
+<p>
+    The main function of the script.
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+the list of command line arguments.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="shutilCopy" ID="shutilCopy"></a>
+<h2>shutilCopy</h2>
+<b>shutilCopy</b>(<i>src, dst, perm=0o644</i>)
+<p>
+    Wrapper function around shutil.copy() to ensure the permissions.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source file name (string)
+</dd><dt><i>dst</i></dt>
+<dd>
+destination file name or directory name (string)
+</dd><dt><i>perm=</i></dt>
+<dd>
+permissions to be set (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="usage" ID="usage"></a>
+<h2>usage</h2>
+<b>usage</b>(<i>rcode=2</i>)
+<p>
+    Display a usage message and exit.
+</p><dl>
+<dt><i>rcode</i></dt>
+<dd>
+the return code passed back to the calling process.
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

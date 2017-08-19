@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.Bookmarks.BookmarksImporters.__init__</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.Bookmarks.BookmarksImporters.__init__</h1>
+<p>
+Package implementing bookmarks importers for various sources.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#getImporter">getImporter</a></td>
+<td>Module function to get an importer for the given source id.</td>
+</tr><tr>
+<td><a href="#getImporterInfo">getImporterInfo</a></td>
+<td>Module function to get information for the given source id.</td>
+</tr><tr>
+<td><a href="#getImporters">getImporters</a></td>
+<td>Module function to get a list of supported importers.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="getImporter" ID="getImporter"></a>
+<h2>getImporter</h2>
+<b>getImporter</b>(<i>sourceId, parent=None</i>)
+<p>
+    Module function to get an importer for the given source id.
+</p><dl>
+<dt><i>sourceId</i></dt>
+<dd>
+source id to get an importer for (string)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+bookmarks importer (BookmarksImporter)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised to indicate an unsupported importer
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getImporterInfo" ID="getImporterInfo"></a>
+<h2>getImporterInfo</h2>
+<b>getImporterInfo</b>(<i>sourceId</i>)
+<p>
+    Module function to get information for the given source id.
+</p><dl>
+<dt><i>sourceId</i></dt>
+<dd>
+source id to get info for (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with an icon (QPixmap), readable name (string), name of
+        the default bookmarks file (string), an info text (string),
+        a prompt (string) and the default directory of the bookmarks
+        file (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>ValueError</b>:</dt>
+<dd>
+raised to indicate an unsupported importer
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="getImporters" ID="getImporters"></a>
+<h2>getImporters</h2>
+<b>getImporters</b>(<i></i>)
+<p>
+    Module function to get a list of supported importers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of tuples with an icon (QIcon), readable name (string) and
+        internal name (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

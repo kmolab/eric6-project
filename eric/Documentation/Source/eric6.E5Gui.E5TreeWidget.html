@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5TreeWidget</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5TreeWidget</h1>
+<p>
+Module implementing specialized tree views.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5TreeWidget">E5TreeWidget</a></td>
+<td>Class implementing an extended tree widget.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5TreeWidget" ID="E5TreeWidget"></a>
+<h2>E5TreeWidget</h2>
+<p>
+    Class implementing an extended tree widget.
+</p><h3>Signals</h3>
+<dl>
+<dt>itemControlClicked(QTreeWidgetItem)</dt>
+<dd>
+emitted after a Ctrl-Click
+            on an item
+</dd><dt>itemMiddleButtonClicked(QTreeWidgetItem)</dt>
+<dd>
+emitted after a click
+            of the middle button on an item
+</dd>
+</dl>
+<h3>Derived from</h3>
+QTreeWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>ItemsCollapsed</td></tr><tr><td>ItemsExpanded</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5TreeWidget.__init__">E5TreeWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.__iterateAllItems">__iterateAllItems</a></td>
+<td>Private method to iterate over the child items of the parent.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.__scheduleRefresh">__scheduleRefresh</a></td>
+<td>Private slot to schedule a refresh of the tree.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.addTopLevelItem">addTopLevelItem</a></td>
+<td>Public method to add a top level item.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.addTopLevelItems">addTopLevelItems</a></td>
+<td>Public method to add a list of top level items.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.allItems">allItems</a></td>
+<td>Public method to get a list of all items.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.appendToParentItem">appendToParentItem</a></td>
+<td>Public method to append an item to a parent item.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.clear">clear</a></td>
+<td>Public slot to clear the tree.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.deleteItem">deleteItem</a></td>
+<td>Public method to delete an item.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.deleteItems">deleteItems</a></td>
+<td>Public method to delete a list of items.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.filterString">filterString</a></td>
+<td>Public slot to set a new filter.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.insertTopLevelItem">insertTopLevelItem</a></td>
+<td>Public method to insert a top level item.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.insertTopLevelItems">insertTopLevelItems</a></td>
+<td>Public method to insert a list of top level items.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method handling mouse press events.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.prependToParentItem">prependToParentItem</a></td>
+<td>Public method to prepend an item to a parent item.</td>
+</tr><tr>
+<td><a href="#E5TreeWidget.setDefaultItemShowMode">setDefaultItemShowMode</a></td>
+<td>Public method to set the default item show mode.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5TreeWidget.__init__" ID="E5TreeWidget.__init__"></a>
+<h4>E5TreeWidget (Constructor)</h4>
+<b>E5TreeWidget</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="E5TreeWidget.__iterateAllItems" ID="E5TreeWidget.__iterateAllItems"></a>
+<h4>E5TreeWidget.__iterateAllItems</h4>
+<b>__iterateAllItems</b>(<i>parent</i>)
+<p>
+        Private method to iterate over the child items of the parent.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item to iterate (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.__scheduleRefresh" ID="E5TreeWidget.__scheduleRefresh"></a>
+<h4>E5TreeWidget.__scheduleRefresh</h4>
+<b>__scheduleRefresh</b>(<i></i>)
+<p>
+        Private slot to schedule a refresh of the tree.
+</p><a NAME="E5TreeWidget.addTopLevelItem" ID="E5TreeWidget.addTopLevelItem"></a>
+<h4>E5TreeWidget.addTopLevelItem</h4>
+<b>addTopLevelItem</b>(<i>item</i>)
+<p>
+        Public method to add a top level item.
+</p><dl>
+<dt><i>item</i></dt>
+<dd>
+item to be added as a top level item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.addTopLevelItems" ID="E5TreeWidget.addTopLevelItems"></a>
+<h4>E5TreeWidget.addTopLevelItems</h4>
+<b>addTopLevelItems</b>(<i>items</i>)
+<p>
+        Public method to add a list of top level items.
+</p><dl>
+<dt><i>items</i></dt>
+<dd>
+items to be added as top level items
+            (list of QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.allItems" ID="E5TreeWidget.allItems"></a>
+<h4>E5TreeWidget.allItems</h4>
+<b>allItems</b>(<i></i>)
+<p>
+        Public method to get a list of all items.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of all items (list of QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.appendToParentItem" ID="E5TreeWidget.appendToParentItem"></a>
+<h4>E5TreeWidget.appendToParentItem</h4>
+<b>appendToParentItem</b>(<i>parent, item</i>)
+<p>
+        Public method to append an item to a parent item.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+text of the parent item (string) or
+            the parent item (QTreeWidgetItem)
+</dd><dt><i>item</i></dt>
+<dd>
+item to be appended (QTreeWidgetItem)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>RuntimeError</b>:</dt>
+<dd>
+raised to indicate an illegal type for
+            the parent
+</dd>
+</dl><a NAME="E5TreeWidget.clear" ID="E5TreeWidget.clear"></a>
+<h4>E5TreeWidget.clear</h4>
+<b>clear</b>(<i></i>)
+<p>
+        Public slot to clear the tree.
+</p><a NAME="E5TreeWidget.deleteItem" ID="E5TreeWidget.deleteItem"></a>
+<h4>E5TreeWidget.deleteItem</h4>
+<b>deleteItem</b>(<i>item</i>)
+<p>
+        Public method to delete an item.
+</p><dl>
+<dt><i>item</i></dt>
+<dd>
+item to be deleted (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.deleteItems" ID="E5TreeWidget.deleteItems"></a>
+<h4>E5TreeWidget.deleteItems</h4>
+<b>deleteItems</b>(<i>items</i>)
+<p>
+        Public method to delete a list of items.
+</p><dl>
+<dt><i>items</i></dt>
+<dd>
+items to be deleted (list of QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.filterString" ID="E5TreeWidget.filterString"></a>
+<h4>E5TreeWidget.filterString</h4>
+<b>filterString</b>(<i>filterStr</i>)
+<p>
+        Public slot to set a new filter.
+</p><dl>
+<dt><i>filterStr</i></dt>
+<dd>
+filter to be set (string)
+</dd>
+</dl><a NAME="E5TreeWidget.insertTopLevelItem" ID="E5TreeWidget.insertTopLevelItem"></a>
+<h4>E5TreeWidget.insertTopLevelItem</h4>
+<b>insertTopLevelItem</b>(<i>index, item</i>)
+<p>
+        Public method to insert a top level item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index for the insertion (integer)
+</dd><dt><i>item</i></dt>
+<dd>
+item to be inserted as a top level item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.insertTopLevelItems" ID="E5TreeWidget.insertTopLevelItems"></a>
+<h4>E5TreeWidget.insertTopLevelItems</h4>
+<b>insertTopLevelItems</b>(<i>index, items</i>)
+<p>
+        Public method to insert a list of top level items.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index for the insertion (integer)
+</dd><dt><i>items</i></dt>
+<dd>
+items to be inserted as top level items
+            (list of QTreeWidgetItem)
+</dd>
+</dl><a NAME="E5TreeWidget.mousePressEvent" ID="E5TreeWidget.mousePressEvent"></a>
+<h4>E5TreeWidget.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling mouse press events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+mouse press event (QMouseEvent)
+</dd>
+</dl><a NAME="E5TreeWidget.prependToParentItem" ID="E5TreeWidget.prependToParentItem"></a>
+<h4>E5TreeWidget.prependToParentItem</h4>
+<b>prependToParentItem</b>(<i>parent, item</i>)
+<p>
+        Public method to prepend an item to a parent item.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+text of the parent item (string) or
+            the parent item (QTreeWidgetItem)
+</dd><dt><i>item</i></dt>
+<dd>
+item to be prepended (QTreeWidgetItem)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><dl>
+<dt>Raises <b>RuntimeError</b>:</dt>
+<dd>
+raised to indicate an illegal type for
+            the parent
+</dd>
+</dl><a NAME="E5TreeWidget.setDefaultItemShowMode" ID="E5TreeWidget.setDefaultItemShowMode"></a>
+<h4>E5TreeWidget.setDefaultItemShowMode</h4>
+<b>setDefaultItemShowMode</b>(<i>mode</i>)
+<p>
+        Public method to set the default item show mode.
+</p><dl>
+<dt><i>mode</i></dt>
+<dd>
+default mode (ItemsCollapsed, ItemsExpanded)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

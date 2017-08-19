@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.WebBrowser.UrlBar.StackedUrlBar</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.WebBrowser.UrlBar.StackedUrlBar</h1>
+<p>
+Module implementing a widget to stack url bars.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#StackedUrlBar">StackedUrlBar</a></td>
+<td>Class implementing a widget to stack URL bars.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="StackedUrlBar" ID="StackedUrlBar"></a>
+<h2>StackedUrlBar</h2>
+<p>
+    Class implementing a widget to stack URL bars.
+</p>
+<h3>Derived from</h3>
+QStackedWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#StackedUrlBar.__init__">StackedUrlBar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#StackedUrlBar.currentUrlBar">currentUrlBar</a></td>
+<td>Public method to get a reference to the current URL bar.</td>
+</tr><tr>
+<td><a href="#StackedUrlBar.moveBar">moveBar</a></td>
+<td>Public slot to move an URL bar.</td>
+</tr><tr>
+<td><a href="#StackedUrlBar.urlBar">urlBar</a></td>
+<td>Public method to get a reference to the URL bar for a given index.</td>
+</tr><tr>
+<td><a href="#StackedUrlBar.urlBars">urlBars</a></td>
+<td>Public method to get a list of references to all URL bars.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="StackedUrlBar.__init__" ID="StackedUrlBar.__init__"></a>
+<h4>StackedUrlBar (Constructor)</h4>
+<b>StackedUrlBar</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="StackedUrlBar.currentUrlBar" ID="StackedUrlBar.currentUrlBar"></a>
+<h4>StackedUrlBar.currentUrlBar</h4>
+<b>currentUrlBar</b>(<i></i>)
+<p>
+        Public method to get a reference to the current URL bar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the current URL bar (UrlBar)
+</dd>
+</dl><a NAME="StackedUrlBar.moveBar" ID="StackedUrlBar.moveBar"></a>
+<h4>StackedUrlBar.moveBar</h4>
+<b>moveBar</b>(<i>from_, to_</i>)
+<p>
+        Public slot to move an URL bar.
+</p><dl>
+<dt><i>from_</i></dt>
+<dd>
+index of URL bar to be moved (integer)
+</dd><dt><i>to_</i></dt>
+<dd>
+index to move the URL bar to (integer)
+</dd>
+</dl><a NAME="StackedUrlBar.urlBar" ID="StackedUrlBar.urlBar"></a>
+<h4>StackedUrlBar.urlBar</h4>
+<b>urlBar</b>(<i>index</i>)
+<p>
+        Public method to get a reference to the URL bar for a given index.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the url bar (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the URL bar for the given index (UrlBar)
+</dd>
+</dl><a NAME="StackedUrlBar.urlBars" ID="StackedUrlBar.urlBars"></a>
+<h4>StackedUrlBar.urlBars</h4>
+<b>urlBars</b>(<i></i>)
+<p>
+        Public method to get a list of references to all URL bars.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of references to URL bars (list of UrlBar)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

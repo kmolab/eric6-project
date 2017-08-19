@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.PluginManager.PluginRepositoryDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.PluginManager.PluginRepositoryDialog</h1>
+<p>
+Module implementing a dialog showing the available plugins.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#PluginRepositoryDialog">PluginRepositoryDialog</a></td>
+<td>Class for the dialog variant.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget">PluginRepositoryWidget</a></td>
+<td>Class implementing a dialog showing the available plugins.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWindow">PluginRepositoryWindow</a></td>
+<td>Main window class for the standalone dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#PluginRepositoryDownloadCleanup">PluginRepositoryDownloadCleanup</a></td>
+<td>Module function to clean up the plug-in downloads area.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="PluginRepositoryDialog" ID="PluginRepositoryDialog"></a>
+<h2>PluginRepositoryDialog</h2>
+<p>
+    Class for the dialog variant.
+</p>
+<h3>Derived from</h3>
+QDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PluginRepositoryDialog.__init__">PluginRepositoryDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PluginRepositoryDialog.__closeAndInstall">__closeAndInstall</a></td>
+<td>Private slot to handle the closeAndInstall signal.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryDialog.getDownloadedPlugins">getDownloadedPlugins</a></td>
+<td>Public method to get the list of recently downloaded plugin files.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PluginRepositoryDialog.__init__" ID="PluginRepositoryDialog.__init__"></a>
+<h4>PluginRepositoryDialog (Constructor)</h4>
+<b>PluginRepositoryDialog</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="PluginRepositoryDialog.__closeAndInstall" ID="PluginRepositoryDialog.__closeAndInstall"></a>
+<h4>PluginRepositoryDialog.__closeAndInstall</h4>
+<b>__closeAndInstall</b>(<i></i>)
+<p>
+        Private slot to handle the closeAndInstall signal.
+</p><a NAME="PluginRepositoryDialog.getDownloadedPlugins" ID="PluginRepositoryDialog.getDownloadedPlugins"></a>
+<h4>PluginRepositoryDialog.getDownloadedPlugins</h4>
+<b>getDownloadedPlugins</b>(<i></i>)
+<p>
+        Public method to get the list of recently downloaded plugin files.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of plugin filenames (list of strings)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PluginRepositoryWidget" ID="PluginRepositoryWidget"></a>
+<h2>PluginRepositoryWidget</h2>
+<p>
+    Class implementing a dialog showing the available plugins.
+</p><h3>Signals</h3>
+<dl>
+<dt>closeAndInstall()</dt>
+<dd>
+emitted when the Close & Install button is
+        pressed
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget, Ui_PluginRepositoryDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>AuthorRole</td></tr><tr><td>DescrRole</td></tr><tr><td>FilenameRole</td></tr><tr><td>PluginStatusLocalUpdate</td></tr><tr><td>PluginStatusNew</td></tr><tr><td>PluginStatusRemoteUpdate</td></tr><tr><td>PluginStatusUpToDate</td></tr><tr><td>UrlRole</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PluginRepositoryWidget.__init__">PluginRepositoryWidget</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__cleanupDownloads">__cleanupDownloads</a></td>
+<td>Private slot to cleanup the plug-in downloads area.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__closeAndInstall">__closeAndInstall</a></td>
+<td>Private method to close the dialog and invoke the install dialog.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadCancel">__downloadCancel</a></td>
+<td>Private slot to cancel the current download.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadFile">__downloadFile</a></td>
+<td>Private slot to download the given file.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadFileDone">__downloadFileDone</a></td>
+<td>Private method called, after the file has been downloaded from the internet.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadPlugin">__downloadPlugin</a></td>
+<td>Private method to download the next plugin.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadPluginDone">__downloadPluginDone</a></td>
+<td>Private method called, when the download of a plugin is finished.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadPlugins">__downloadPlugins</a></td>
+<td>Private slot to download the selected plugins.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadPluginsDone">__downloadPluginsDone</a></td>
+<td>Private method called, when the download of the plugins is finished.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadProgress">__downloadProgress</a></td>
+<td>Private slot to show the download progress.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__downloadRepositoryFileDone">__downloadRepositoryFileDone</a></td>
+<td>Private method called after the repository file was downloaded.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__formatDescription">__formatDescription</a></td>
+<td>Private method to format the description.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__hasHiddenPlugins">__hasHiddenPlugins</a></td>
+<td>Private method to check, if there are any hidden plug-ins.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__hidePlugin">__hidePlugin</a></td>
+<td>Private slot to hide the current plug-in.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__hideSelectedPlugins">__hideSelectedPlugins</a></td>
+<td>Private slot to hide all selected plug-ins.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__isOnline">__isOnline</a></td>
+<td>Private method to check the online status.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__onlineStateChanged">__onlineStateChanged</a></td>
+<td>Private slot handling online state changes.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__populateList">__populateList</a></td>
+<td>Private method to populate the list of available plugins.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__resortRepositoryList">__resortRepositoryList</a></td>
+<td>Private method to resort the tree.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__selectedItems">__selectedItems</a></td>
+<td>Private method to get all selected items without the toplevel ones.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__showAllPlugins">__showAllPlugins</a></td>
+<td>Private slot to show all plug-ins.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__sslErrors">__sslErrors</a></td>
+<td>Private slot to handle SSL errors.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__updateHiddenPluginsList">__updateHiddenPluginsList</a></td>
+<td>Private method to store the list of hidden plug-ins to the settings.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__updateList">__updateList</a></td>
+<td>Private slot to download a new list and display the contents.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.__updateStatus">__updateStatus</a></td>
+<td>Private method to check, if the given archive update status.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.addEntry">addEntry</a></td>
+<td>Public method to add an entry to the list.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.getDownloadedPlugins">getDownloadedPlugins</a></td>
+<td>Public method to get the list of recently downloaded plugin files.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot to handle the click of a button of the button box.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.on_repositoryList_currentItemChanged">on_repositoryList_currentItemChanged</a></td>
+<td>Private slot to handle the change of the current item.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.on_repositoryList_customContextMenuRequested">on_repositoryList_customContextMenuRequested</a></td>
+<td>Private slot to show the context menu.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.on_repositoryList_itemSelectionChanged">on_repositoryList_itemSelectionChanged</a></td>
+<td>Private slot to handle a change of the selection.</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWidget.on_repositoryUrlEditButton_toggled">on_repositoryUrlEditButton_toggled</a></td>
+<td>Private slot to set the read only status of the repository URL line edit.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PluginRepositoryWidget.__init__" ID="PluginRepositoryWidget.__init__"></a>
+<h4>PluginRepositoryWidget (Constructor)</h4>
+<b>PluginRepositoryWidget</b>(<i>parent=None, external=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent of this dialog (QWidget)
+</dd><dt><i>external</i></dt>
+<dd>
+flag indicating an instatiation as a main
+            window (boolean)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__cleanupDownloads" ID="PluginRepositoryWidget.__cleanupDownloads"></a>
+<h4>PluginRepositoryWidget.__cleanupDownloads</h4>
+<b>__cleanupDownloads</b>(<i></i>)
+<p>
+        Private slot to cleanup the plug-in downloads area.
+</p><a NAME="PluginRepositoryWidget.__closeAndInstall" ID="PluginRepositoryWidget.__closeAndInstall"></a>
+<h4>PluginRepositoryWidget.__closeAndInstall</h4>
+<b>__closeAndInstall</b>(<i></i>)
+<p>
+        Private method to close the dialog and invoke the install dialog.
+</p><a NAME="PluginRepositoryWidget.__downloadCancel" ID="PluginRepositoryWidget.__downloadCancel"></a>
+<h4>PluginRepositoryWidget.__downloadCancel</h4>
+<b>__downloadCancel</b>(<i></i>)
+<p>
+        Private slot to cancel the current download.
+</p><a NAME="PluginRepositoryWidget.__downloadFile" ID="PluginRepositoryWidget.__downloadFile"></a>
+<h4>PluginRepositoryWidget.__downloadFile</h4>
+<b>__downloadFile</b>(<i>url, filename, doneMethod=None</i>)
+<p>
+        Private slot to download the given file.
+</p><dl>
+<dt><i>url</i></dt>
+<dd>
+URL for the download (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+local name of the file (string)
+</dd><dt><i>doneMethod</i></dt>
+<dd>
+method to be called when done
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__downloadFileDone" ID="PluginRepositoryWidget.__downloadFileDone"></a>
+<h4>PluginRepositoryWidget.__downloadFileDone</h4>
+<b>__downloadFileDone</b>(<i></i>)
+<p>
+        Private method called, after the file has been downloaded
+        from the internet.
+</p><a NAME="PluginRepositoryWidget.__downloadPlugin" ID="PluginRepositoryWidget.__downloadPlugin"></a>
+<h4>PluginRepositoryWidget.__downloadPlugin</h4>
+<b>__downloadPlugin</b>(<i></i>)
+<p>
+        Private method to download the next plugin.
+</p><a NAME="PluginRepositoryWidget.__downloadPluginDone" ID="PluginRepositoryWidget.__downloadPluginDone"></a>
+<h4>PluginRepositoryWidget.__downloadPluginDone</h4>
+<b>__downloadPluginDone</b>(<i>status, filename</i>)
+<p>
+        Private method called, when the download of a plugin is finished.
+</p><dl>
+<dt><i>status</i></dt>
+<dd>
+flag indicating a successful download (boolean)
+</dd><dt><i>filename</i></dt>
+<dd>
+full path of the downloaded file (string)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__downloadPlugins" ID="PluginRepositoryWidget.__downloadPlugins"></a>
+<h4>PluginRepositoryWidget.__downloadPlugins</h4>
+<b>__downloadPlugins</b>(<i></i>)
+<p>
+        Private slot to download the selected plugins.
+</p><a NAME="PluginRepositoryWidget.__downloadPluginsDone" ID="PluginRepositoryWidget.__downloadPluginsDone"></a>
+<h4>PluginRepositoryWidget.__downloadPluginsDone</h4>
+<b>__downloadPluginsDone</b>(<i></i>)
+<p>
+        Private method called, when the download of the plugins is finished.
+</p><a NAME="PluginRepositoryWidget.__downloadProgress" ID="PluginRepositoryWidget.__downloadProgress"></a>
+<h4>PluginRepositoryWidget.__downloadProgress</h4>
+<b>__downloadProgress</b>(<i>done, total</i>)
+<p>
+        Private slot to show the download progress.
+</p><dl>
+<dt><i>done</i></dt>
+<dd>
+number of bytes downloaded so far (integer)
+</dd><dt><i>total</i></dt>
+<dd>
+total bytes to be downloaded (integer)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__downloadRepositoryFileDone" ID="PluginRepositoryWidget.__downloadRepositoryFileDone"></a>
+<h4>PluginRepositoryWidget.__downloadRepositoryFileDone</h4>
+<b>__downloadRepositoryFileDone</b>(<i>status, filename</i>)
+<p>
+        Private method called after the repository file was downloaded.
+</p><dl>
+<dt><i>status</i></dt>
+<dd>
+flaging indicating a successful download (boolean)
+</dd><dt><i>filename</i></dt>
+<dd>
+full path of the downloaded file (string)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__formatDescription" ID="PluginRepositoryWidget.__formatDescription"></a>
+<h4>PluginRepositoryWidget.__formatDescription</h4>
+<b>__formatDescription</b>(<i>lines</i>)
+<p>
+        Private method to format the description.
+</p><dl>
+<dt><i>lines</i></dt>
+<dd>
+lines of the description (list of strings)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+formatted description (string)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__hasHiddenPlugins" ID="PluginRepositoryWidget.__hasHiddenPlugins"></a>
+<h4>PluginRepositoryWidget.__hasHiddenPlugins</h4>
+<b>__hasHiddenPlugins</b>(<i></i>)
+<p>
+        Private method to check, if there are any hidden plug-ins.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of hidden plug-ins (boolean)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__hidePlugin" ID="PluginRepositoryWidget.__hidePlugin"></a>
+<h4>PluginRepositoryWidget.__hidePlugin</h4>
+<b>__hidePlugin</b>(<i></i>)
+<p>
+        Private slot to hide the current plug-in.
+</p><a NAME="PluginRepositoryWidget.__hideSelectedPlugins" ID="PluginRepositoryWidget.__hideSelectedPlugins"></a>
+<h4>PluginRepositoryWidget.__hideSelectedPlugins</h4>
+<b>__hideSelectedPlugins</b>(<i></i>)
+<p>
+        Private slot to hide all selected plug-ins.
+</p><a NAME="PluginRepositoryWidget.__isOnline" ID="PluginRepositoryWidget.__isOnline"></a>
+<h4>PluginRepositoryWidget.__isOnline</h4>
+<b>__isOnline</b>(<i></i>)
+<p>
+        Private method to check the online status.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the online status
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__onlineStateChanged" ID="PluginRepositoryWidget.__onlineStateChanged"></a>
+<h4>PluginRepositoryWidget.__onlineStateChanged</h4>
+<b>__onlineStateChanged</b>(<i>online</i>)
+<p>
+        Private slot handling online state changes.
+</p><dl>
+<dt><i>online</i> (bool)</dt>
+<dd>
+flag indicating the online status
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__populateList" ID="PluginRepositoryWidget.__populateList"></a>
+<h4>PluginRepositoryWidget.__populateList</h4>
+<b>__populateList</b>(<i></i>)
+<p>
+        Private method to populate the list of available plugins.
+</p><a NAME="PluginRepositoryWidget.__resortRepositoryList" ID="PluginRepositoryWidget.__resortRepositoryList"></a>
+<h4>PluginRepositoryWidget.__resortRepositoryList</h4>
+<b>__resortRepositoryList</b>(<i></i>)
+<p>
+        Private method to resort the tree.
+</p><a NAME="PluginRepositoryWidget.__selectedItems" ID="PluginRepositoryWidget.__selectedItems"></a>
+<h4>PluginRepositoryWidget.__selectedItems</h4>
+<b>__selectedItems</b>(<i></i>)
+<p>
+        Private method to get all selected items without the toplevel ones.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of selected items (list)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__showAllPlugins" ID="PluginRepositoryWidget.__showAllPlugins"></a>
+<h4>PluginRepositoryWidget.__showAllPlugins</h4>
+<b>__showAllPlugins</b>(<i></i>)
+<p>
+        Private slot to show all plug-ins.
+</p><a NAME="PluginRepositoryWidget.__sslErrors" ID="PluginRepositoryWidget.__sslErrors"></a>
+<h4>PluginRepositoryWidget.__sslErrors</h4>
+<b>__sslErrors</b>(<i>reply, errors</i>)
+<p>
+        Private slot to handle SSL errors.
+</p><dl>
+<dt><i>reply</i></dt>
+<dd>
+reference to the reply object (QNetworkReply)
+</dd><dt><i>errors</i></dt>
+<dd>
+list of SSL errors (list of QSslError)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__updateHiddenPluginsList" ID="PluginRepositoryWidget.__updateHiddenPluginsList"></a>
+<h4>PluginRepositoryWidget.__updateHiddenPluginsList</h4>
+<b>__updateHiddenPluginsList</b>(<i>hideList</i>)
+<p>
+        Private method to store the list of hidden plug-ins to the settings.
+</p><dl>
+<dt><i>hideList</i></dt>
+<dd>
+list of plug-ins to add to the list of hidden ones
+            (list of string)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.__updateList" ID="PluginRepositoryWidget.__updateList"></a>
+<h4>PluginRepositoryWidget.__updateList</h4>
+<b>__updateList</b>(<i></i>)
+<p>
+        Private slot to download a new list and display the contents.
+</p><a NAME="PluginRepositoryWidget.__updateStatus" ID="PluginRepositoryWidget.__updateStatus"></a>
+<h4>PluginRepositoryWidget.__updateStatus</h4>
+<b>__updateStatus</b>(<i>filename, version</i>)
+<p>
+        Private method to check, if the given archive update status.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+data for the filename field (string)
+</dd><dt><i>version</i></dt>
+<dd>
+data for the version field (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+plug-in update status (integer, one of PluginStatusNew,
+            PluginStatusUpToDate, PluginStatusLocalUpdate,
+            PluginStatusRemoteUpdate)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.addEntry" ID="PluginRepositoryWidget.addEntry"></a>
+<h4>PluginRepositoryWidget.addEntry</h4>
+<b>addEntry</b>(<i>name, short, description, url, author, version, filename, status</i>)
+<p>
+        Public method to add an entry to the list.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+data for the name field (string)
+</dd><dt><i>short</i></dt>
+<dd>
+data for the short field (string)
+</dd><dt><i>description</i></dt>
+<dd>
+data for the description field (list of strings)
+</dd><dt><i>url</i></dt>
+<dd>
+data for the url field (string)
+</dd><dt><i>author</i></dt>
+<dd>
+data for the author field (string)
+</dd><dt><i>version</i></dt>
+<dd>
+data for the version field (string)
+</dd><dt><i>filename</i></dt>
+<dd>
+data for the filename field (string)
+</dd><dt><i>status</i></dt>
+<dd>
+status of the plugin (string [stable, unstable, unknown])
+</dd>
+</dl><a NAME="PluginRepositoryWidget.getDownloadedPlugins" ID="PluginRepositoryWidget.getDownloadedPlugins"></a>
+<h4>PluginRepositoryWidget.getDownloadedPlugins</h4>
+<b>getDownloadedPlugins</b>(<i></i>)
+<p>
+        Public method to get the list of recently downloaded plugin files.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of plugin filenames (list of strings)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.on_buttonBox_clicked" ID="PluginRepositoryWidget.on_buttonBox_clicked"></a>
+<h4>PluginRepositoryWidget.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot to handle the click of a button of the button box.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+reference to the button pressed (QAbstractButton)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.on_repositoryList_currentItemChanged" ID="PluginRepositoryWidget.on_repositoryList_currentItemChanged"></a>
+<h4>PluginRepositoryWidget.on_repositoryList_currentItemChanged</h4>
+<b>on_repositoryList_currentItemChanged</b>(<i>current, previous</i>)
+<p>
+        Private slot to handle the change of the current item.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+reference to the new current item (QTreeWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+reference to the old current item (QTreeWidgetItem)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.on_repositoryList_customContextMenuRequested" ID="PluginRepositoryWidget.on_repositoryList_customContextMenuRequested"></a>
+<h4>PluginRepositoryWidget.on_repositoryList_customContextMenuRequested</h4>
+<b>on_repositoryList_customContextMenuRequested</b>(<i>pos</i>)
+<p>
+        Private slot to show the context menu.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position to show the menu (QPoint)
+</dd>
+</dl><a NAME="PluginRepositoryWidget.on_repositoryList_itemSelectionChanged" ID="PluginRepositoryWidget.on_repositoryList_itemSelectionChanged"></a>
+<h4>PluginRepositoryWidget.on_repositoryList_itemSelectionChanged</h4>
+<b>on_repositoryList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot to handle a change of the selection.
+</p><a NAME="PluginRepositoryWidget.on_repositoryUrlEditButton_toggled" ID="PluginRepositoryWidget.on_repositoryUrlEditButton_toggled"></a>
+<h4>PluginRepositoryWidget.on_repositoryUrlEditButton_toggled</h4>
+<b>on_repositoryUrlEditButton_toggled</b>(<i>checked</i>)
+<p>
+        Private slot to set the read only status of the repository URL line
+        edit.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+state of the push button (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PluginRepositoryWindow" ID="PluginRepositoryWindow"></a>
+<h2>PluginRepositoryWindow</h2>
+<p>
+    Main window class for the standalone dialog.
+</p>
+<h3>Derived from</h3>
+E5MainWindow
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#PluginRepositoryWindow.__init__">PluginRepositoryWindow</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#PluginRepositoryWindow.__startPluginInstall">__startPluginInstall</a></td>
+<td>Private slot to start the eric6 plugin installation dialog.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="PluginRepositoryWindow.__init__" ID="PluginRepositoryWindow.__init__"></a>
+<h4>PluginRepositoryWindow (Constructor)</h4>
+<b>PluginRepositoryWindow</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (QWidget)
+</dd>
+</dl><a NAME="PluginRepositoryWindow.__startPluginInstall" ID="PluginRepositoryWindow.__startPluginInstall"></a>
+<h4>PluginRepositoryWindow.__startPluginInstall</h4>
+<b>__startPluginInstall</b>(<i></i>)
+<p>
+        Private slot to start the eric6 plugin installation dialog.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="PluginRepositoryDownloadCleanup" ID="PluginRepositoryDownloadCleanup"></a>
+<h2>PluginRepositoryDownloadCleanup</h2>
+<b>PluginRepositoryDownloadCleanup</b>(<i>quiet=False</i>)
+<p>
+    Module function to clean up the plug-in downloads area.
+</p><dl>
+<dt><i>quiet</i> (bool)</dt>
+<dd>
+flag indicating quiet operations
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

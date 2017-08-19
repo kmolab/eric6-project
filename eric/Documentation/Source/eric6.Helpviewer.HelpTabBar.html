@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.HelpTabBar</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.HelpTabBar</h1>
+<p>
+Module implementing a specialized tab bar for the web browser.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HelpTabBar">HelpTabBar</a></td>
+<td>Class implementing the tab bar of the web browser.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HelpTabBar" ID="HelpTabBar"></a>
+<h2>HelpTabBar</h2>
+<p>
+    Class implementing the tab bar of the web browser.
+</p>
+<h3>Derived from</h3>
+E5WheelTabBar
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HelpTabBar.__init__">HelpTabBar</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HelpTabBar.__showTabPreview">__showTabPreview</a></td>
+<td>Private slot to show the tab preview.</td>
+</tr><tr>
+<td><a href="#HelpTabBar.event">event</a></td>
+<td>Public method to handle event.</td>
+</tr><tr>
+<td><a href="#HelpTabBar.leaveEvent">leaveEvent</a></td>
+<td>Protected method to handle leave events.</td>
+</tr><tr>
+<td><a href="#HelpTabBar.mouseMoveEvent">mouseMoveEvent</a></td>
+<td>Protected method to handle mouse move events.</td>
+</tr><tr>
+<td><a href="#HelpTabBar.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method to handle mouse press events.</td>
+</tr><tr>
+<td><a href="#HelpTabBar.tabRemoved">tabRemoved</a></td>
+<td>Public slot to handle the removal of a tab.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HelpTabBar.__init__" ID="HelpTabBar.__init__"></a>
+<h4>HelpTabBar (Constructor)</h4>
+<b>HelpTabBar</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to the parent widget (HelpTabWidget)
+</dd>
+</dl><a NAME="HelpTabBar.__showTabPreview" ID="HelpTabBar.__showTabPreview"></a>
+<h4>HelpTabBar.__showTabPreview</h4>
+<b>__showTabPreview</b>(<i></i>)
+<p>
+        Private slot to show the tab preview.
+</p><a NAME="HelpTabBar.event" ID="HelpTabBar.event"></a>
+<h4>HelpTabBar.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method to handle event.
+</p><p>
+        This event handler just handles the tooltip event and passes the
+        handling of all others to the superclass.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event to be handled (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the event was handled (boolean)
+</dd>
+</dl><a NAME="HelpTabBar.leaveEvent" ID="HelpTabBar.leaveEvent"></a>
+<h4>HelpTabBar.leaveEvent</h4>
+<b>leaveEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle leave events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the leave event (QEvent)
+</dd>
+</dl><a NAME="HelpTabBar.mouseMoveEvent" ID="HelpTabBar.mouseMoveEvent"></a>
+<h4>HelpTabBar.mouseMoveEvent</h4>
+<b>mouseMoveEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse move events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the mouse move event (QMouseEvent)
+</dd>
+</dl><a NAME="HelpTabBar.mousePressEvent" ID="HelpTabBar.mousePressEvent"></a>
+<h4>HelpTabBar.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse press events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the mouse press event (QMouseEvent)
+</dd>
+</dl><a NAME="HelpTabBar.tabRemoved" ID="HelpTabBar.tabRemoved"></a>
+<h4>HelpTabBar.tabRemoved</h4>
+<b>tabRemoved</b>(<i>index</i>)
+<p>
+        Public slot to handle the removal of a tab.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the removed tab (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

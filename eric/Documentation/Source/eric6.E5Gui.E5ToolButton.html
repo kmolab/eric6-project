@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5ToolButton</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5ToolButton</h1>
+<p>
+Module implementing a specialized tool button subclass.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5ToolButton">E5ToolButton</a></td>
+<td>Class implementing a specialized tool button subclass.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5ToolButton" ID="E5ToolButton"></a>
+<h2>E5ToolButton</h2>
+<p>
+    Class implementing a specialized tool button subclass.
+</p><h3>Signals</h3>
+<dl>
+<dt>aboutToHideMenu()</dt>
+<dd>
+emitted before the tool button menu is hidden
+</dd><dt>aboutToShowMenu()</dt>
+<dd>
+emitted before the tool button menu is shown
+</dd><dt>controlClicked()</dt>
+<dd>
+emitted when the left mouse button was
+        clicked while pressing the Ctrl key
+</dd><dt>doubleClicked()</dt>
+<dd>
+emitted when the left mouse button was
+        double clicked
+</dd><dt>middleClicked()</dt>
+<dd>
+emitted when the middle mouse button was clicked
+</dd>
+</dl>
+<h3>Derived from</h3>
+QToolButton
+<h3>Class Attributes</h3>
+<table>
+<tr><td>NoOptions</td></tr><tr><td>ShowMenuInsideOption</td></tr><tr><td>ToolBarLookOption</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5ToolButton.__init__">E5ToolButton</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5ToolButton.__menuAboutToHide">__menuAboutToHide</a></td>
+<td>Private slot to handle the tool button menu about to be hidden.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.__showMenu">__showMenu</a></td>
+<td>Private slot to show the tool button menu.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.contextMenuEvent">contextMenuEvent</a></td>
+<td>Protected method to handle context menu events.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.menu">menu</a></td>
+<td>Public method to get a reference to the tool button menu.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.mouseDoubleClickEvent">mouseDoubleClickEvent</a></td>
+<td>Protected method to handle mouse double click events.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method to handle mouse press events.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.mouseReleaseEvent">mouseReleaseEvent</a></td>
+<td>Protected method to handle mouse release events.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.setMenu">setMenu</a></td>
+<td>Public method to set the tool button menu.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.setShowMenuInside">setShowMenuInside</a></td>
+<td>Public method to set a flag to show the menu edge aligned with the button.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.setToolbarButtonLook">setToolbarButtonLook</a></td>
+<td>Public method to set the toolbar look state.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.showMenuInside">showMenuInside</a></td>
+<td>Public method to check, if the menu edge shall be aligned with the button.</td>
+</tr><tr>
+<td><a href="#E5ToolButton.toolbarButtonLook">toolbarButtonLook</a></td>
+<td>Public method to check, if the button has the toolbar look.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5ToolButton.__init__" ID="E5ToolButton.__init__"></a>
+<h4>E5ToolButton (Constructor)</h4>
+<b>E5ToolButton</b>(<i>parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="E5ToolButton.__menuAboutToHide" ID="E5ToolButton.__menuAboutToHide"></a>
+<h4>E5ToolButton.__menuAboutToHide</h4>
+<b>__menuAboutToHide</b>(<i></i>)
+<p>
+        Private slot to handle the tool button menu about to be hidden.
+</p><a NAME="E5ToolButton.__showMenu" ID="E5ToolButton.__showMenu"></a>
+<h4>E5ToolButton.__showMenu</h4>
+<b>__showMenu</b>(<i></i>)
+<p>
+        Private slot to show the tool button menu.
+</p><a NAME="E5ToolButton.contextMenuEvent" ID="E5ToolButton.contextMenuEvent"></a>
+<h4>E5ToolButton.contextMenuEvent</h4>
+<b>contextMenuEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle context menu events.
+</p><dl>
+<dt><i>evt</i> (QContextMenuEvent)</dt>
+<dd>
+reference to the context menu event
+</dd>
+</dl><a NAME="E5ToolButton.menu" ID="E5ToolButton.menu"></a>
+<h4>E5ToolButton.menu</h4>
+<b>menu</b>(<i></i>)
+<p>
+        Public method to get a reference to the tool button menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the tool button menu
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+QMenu
+</dd>
+</dl><a NAME="E5ToolButton.mouseDoubleClickEvent" ID="E5ToolButton.mouseDoubleClickEvent"></a>
+<h4>E5ToolButton.mouseDoubleClickEvent</h4>
+<b>mouseDoubleClickEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse double click events.
+</p><dl>
+<dt><i>evt</i> (QMouseEvent)</dt>
+<dd>
+reference to the mouse event
+</dd>
+</dl><a NAME="E5ToolButton.mousePressEvent" ID="E5ToolButton.mousePressEvent"></a>
+<h4>E5ToolButton.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse press events.
+</p><dl>
+<dt><i>evt</i> (QMouseEvent)</dt>
+<dd>
+reference to the mouse event
+</dd>
+</dl><a NAME="E5ToolButton.mouseReleaseEvent" ID="E5ToolButton.mouseReleaseEvent"></a>
+<h4>E5ToolButton.mouseReleaseEvent</h4>
+<b>mouseReleaseEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle mouse release events.
+</p><dl>
+<dt><i>evt</i> (QMouseEvent)</dt>
+<dd>
+reference to the mouse event
+</dd>
+</dl><a NAME="E5ToolButton.setMenu" ID="E5ToolButton.setMenu"></a>
+<h4>E5ToolButton.setMenu</h4>
+<b>setMenu</b>(<i>menu</i>)
+<p>
+        Public method to set the tool button menu.
+</p><dl>
+<dt><i>menu</i> (QMenu)</dt>
+<dd>
+reference to the tool button menu
+</dd>
+</dl><a NAME="E5ToolButton.setShowMenuInside" ID="E5ToolButton.setShowMenuInside"></a>
+<h4>E5ToolButton.setShowMenuInside</h4>
+<b>setShowMenuInside</b>(<i>enable</i>)
+<p>
+        Public method to set a flag to show the menu edge aligned with
+        the button.
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating to align the menu edge to the button
+</dd>
+</dl><a NAME="E5ToolButton.setToolbarButtonLook" ID="E5ToolButton.setToolbarButtonLook"></a>
+<h4>E5ToolButton.setToolbarButtonLook</h4>
+<b>setToolbarButtonLook</b>(<i>enable</i>)
+<p>
+        Public method to set the toolbar look state.
+</p><dl>
+<dt><i>enable</i> (bool)</dt>
+<dd>
+flag indicating toolbar look
+</dd>
+</dl><a NAME="E5ToolButton.showMenuInside" ID="E5ToolButton.showMenuInside"></a>
+<h4>E5ToolButton.showMenuInside</h4>
+<b>showMenuInside</b>(<i></i>)
+<p>
+        Public method to check, if the menu edge shall be aligned with
+        the button.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating that the menu edge shall be aligned
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="E5ToolButton.toolbarButtonLook" ID="E5ToolButton.toolbarButtonLook"></a>
+<h4>E5ToolButton.toolbarButtonLook</h4>
+<b>toolbarButtonLook</b>(<i></i>)
+<p>
+        Public method to check, if the button has the toolbar look.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating toolbar look
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Preferences.ConfigurationPages.SecurityPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Preferences.ConfigurationPages.SecurityPage</h1>
+<p>
+Module implementing the Security configuration page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#SecurityPage">SecurityPage</a></td>
+<td>Class implementing the Security configuration page.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr>
+<td><a href="#create">create</a></td>
+<td>Module function to create the configuration page.</td>
+</tr>
+</table>
+<hr /><hr />
+<a NAME="SecurityPage" ID="SecurityPage"></a>
+<h2>SecurityPage</h2>
+<p>
+    Class implementing the Security configuration page.
+</p>
+<h3>Derived from</h3>
+ConfigurationPageBase, Ui_SecurityPage
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#SecurityPage.__init__">SecurityPage</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#SecurityPage.on_masterPasswordButton_clicked">on_masterPasswordButton_clicked</a></td>
+<td>Private slot to change the master password.</td>
+</tr><tr>
+<td><a href="#SecurityPage.on_masterPasswordCheckBox_clicked">on_masterPasswordCheckBox_clicked</a></td>
+<td>Private slot to handle the use of a master password.</td>
+</tr><tr>
+<td><a href="#SecurityPage.save">save</a></td>
+<td>Public slot to save the Help Viewers configuration.</td>
+</tr><tr>
+<td><a href="#SecurityPage.setMode">setMode</a></td>
+<td>Public method to perform mode dependent setups.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="SecurityPage.__init__" ID="SecurityPage.__init__"></a>
+<h4>SecurityPage (Constructor)</h4>
+<b>SecurityPage</b>(<i>configDialog</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>configDialog</i></dt>
+<dd>
+reference to the configuration dialog
+            (ConfigurationDialog)
+</dd>
+</dl><a NAME="SecurityPage.on_masterPasswordButton_clicked" ID="SecurityPage.on_masterPasswordButton_clicked"></a>
+<h4>SecurityPage.on_masterPasswordButton_clicked</h4>
+<b>on_masterPasswordButton_clicked</b>(<i></i>)
+<p>
+        Private slot to change the master password.
+</p><a NAME="SecurityPage.on_masterPasswordCheckBox_clicked" ID="SecurityPage.on_masterPasswordCheckBox_clicked"></a>
+<h4>SecurityPage.on_masterPasswordCheckBox_clicked</h4>
+<b>on_masterPasswordCheckBox_clicked</b>(<i>checked</i>)
+<p>
+        Private slot to handle the use of a master password.
+</p><dl>
+<dt><i>checked</i></dt>
+<dd>
+flag indicating the state of the check box (boolean)
+</dd>
+</dl><a NAME="SecurityPage.save" ID="SecurityPage.save"></a>
+<h4>SecurityPage.save</h4>
+<b>save</b>(<i></i>)
+<p>
+        Public slot to save the Help Viewers configuration.
+</p><a NAME="SecurityPage.setMode" ID="SecurityPage.setMode"></a>
+<h4>SecurityPage.setMode</h4>
+<b>setMode</b>(<i>displayMode</i>)
+<p>
+        Public method to perform mode dependent setups.
+</p><dl>
+<dt><i>displayMode</i></dt>
+<dd>
+mode of the configuration dialog
+            (ConfigurationWidget.DefaultMode,
+             ConfigurationWidget.HelpBrowserMode,
+             ConfigurationWidget.WebBrowserMode)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="create" ID="create"></a>
+<h2>create</h2>
+<b>create</b>(<i>dlg</i>)
+<p>
+    Module function to create the configuration page.
+</p><dl>
+<dt><i>dlg</i></dt>
+<dd>
+reference to the configuration dialog
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the instantiated page (ConfigurationPageBase)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

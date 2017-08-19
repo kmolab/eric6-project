@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.AdBlock.AdBlockPage</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.AdBlock.AdBlockPage</h1>
+<p>
+Module implementing a class to apply AdBlock rules to a web page.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#AdBlockPage">AdBlockPage</a></td>
+<td>Class to apply AdBlock rules to a web page.</td>
+</tr><tr>
+<td><a href="#AdBlockedPageEntry">AdBlockedPageEntry</a></td>
+<td>Class implementing a data structure for web page rules.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="AdBlockPage" ID="AdBlockPage"></a>
+<h2>AdBlockPage</h2>
+<p>
+    Class to apply AdBlock rules to a web page.
+</p>
+<h3>Derived from</h3>
+QObject
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AdBlockPage.hideBlockedPageEntries">hideBlockedPageEntries</a></td>
+<td>Public method to apply AdBlock rules to a web page.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AdBlockPage.hideBlockedPageEntries" ID="AdBlockPage.hideBlockedPageEntries"></a>
+<h4>AdBlockPage.hideBlockedPageEntries</h4>
+<b>hideBlockedPageEntries</b>(<i>page</i>)
+<p>
+        Public method to apply AdBlock rules to a web page.
+</p><dl>
+<dt><i>page</i></dt>
+<dd>
+reference to the web page (HelpWebPage)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="AdBlockedPageEntry" ID="AdBlockedPageEntry"></a>
+<h2>AdBlockedPageEntry</h2>
+<p>
+    Class implementing a data structure for web page rules.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#AdBlockedPageEntry.__init__">AdBlockedPageEntry</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#AdBlockedPageEntry.__eq__">__eq__</a></td>
+<td>Special method to test equality.</td>
+</tr><tr>
+<td><a href="#AdBlockedPageEntry.urlString">urlString</a></td>
+<td>Public method to get the URL as a string.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="AdBlockedPageEntry.__init__" ID="AdBlockedPageEntry.__init__"></a>
+<h4>AdBlockedPageEntry (Constructor)</h4>
+<b>AdBlockedPageEntry</b>(<i>rule, url</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>rule</i></dt>
+<dd>
+AdBlock rule to add (AdBlockRule)
+</dd><dt><i>url</i></dt>
+<dd>
+URL that matched the rule (QUrl)
+</dd>
+</dl><a NAME="AdBlockedPageEntry.__eq__" ID="AdBlockedPageEntry.__eq__"></a>
+<h4>AdBlockedPageEntry.__eq__</h4>
+<b>__eq__</b>(<i>other</i>)
+<p>
+        Special method to test equality.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to the other entry (AdBlockedPageEntry)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating equality (boolean)
+</dd>
+</dl><a NAME="AdBlockedPageEntry.urlString" ID="AdBlockedPageEntry.urlString"></a>
+<h4>AdBlockedPageEntry.urlString</h4>
+<b>urlString</b>(<i></i>)
+<p>
+        Public method to get the URL as a string.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+URL as a string (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.CheckerPlugins.CodeStyleChecker.NamingStyleChecker</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.CheckerPlugins.CodeStyleChecker.NamingStyleChecker</h1>
+<p>
+Module implementing a checker for naming conventions.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#NamingStyleChecker">NamingStyleChecker</a></td>
+<td>Class implementing a checker for naming conventions.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="NamingStyleChecker" ID="NamingStyleChecker"></a>
+<h2>NamingStyleChecker</h2>
+<p>
+    Class implementing a checker for naming conventions.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>CamelcaseRegexp</td></tr><tr><td>Codes</td></tr><tr><td>LowercaseRegex</td></tr><tr><td>MixedcaseRegexp</td></tr><tr><td>UppercaseRegexp</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#NamingStyleChecker.__init__">NamingStyleChecker</a></td>
+<td>Constructor (according to 'extended' pycodestyle.py API)</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkClassName">__checkClassName</a></td>
+<td>Private class to check the given node for class name conventions (N801).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkFunctionArgumentNames">__checkFunctionArgumentNames</a></td>
+<td>Private class to check the argument names of functions (N803, N804, N805, N806).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkFunctionName">__checkFunctionName</a></td>
+<td>Private class to check the given node for function name conventions (N802).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkImportAs">__checkImportAs</a></td>
+<td>Private method to check that imports don't change the naming convention (N811, N812, N813, N814).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkModule">__checkModule</a></td>
+<td>Private method to check module naming conventions (N807, N808).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkNameToBeAvoided">__checkNameToBeAvoided</a></td>
+<td>Private class to check the given node for a name to be avoided (N831).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__checkVariablesInFunction">__checkVariablesInFunction</a></td>
+<td>Private method to check local variables in functions (N821).</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__error">__error</a></td>
+<td>Private method to build the error information.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__findGlobalDefs">__findGlobalDefs</a></td>
+<td>Private method amend a node with global definitions information.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__getArgNames">__getArgNames</a></td>
+<td>Private method to get the argument names of a function node.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__isNameToBeAvoided">__isNameToBeAvoided</a></td>
+<td>Private method to check, if the given name should be avoided.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__tagClassFunctions">__tagClassFunctions</a></td>
+<td>Private method to tag functions if they are methods, class methods or static methods.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__visitNode">__visitNode</a></td>
+<td>Private method to inspect the given AST node.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.__visitTree">__visitTree</a></td>
+<td>Private method to scan the given AST tree.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.run">run</a></td>
+<td>Public method run by the pycodestyle.py checker.</td>
+</tr><tr>
+<td><a href="#NamingStyleChecker.unpackArgs">unpackArgs</a></td>
+<td>Local helper function to unpack function argument names.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="NamingStyleChecker.__init__" ID="NamingStyleChecker.__init__"></a>
+<h4>NamingStyleChecker (Constructor)</h4>
+<b>NamingStyleChecker</b>(<i>tree, filename, options</i>)
+<p>
+        Constructor (according to 'extended' pycodestyle.py API)
+</p><dl>
+<dt><i>tree</i></dt>
+<dd>
+AST tree of the source file
+</dd><dt><i>filename</i></dt>
+<dd>
+name of the source file (string)
+</dd><dt><i>options</i></dt>
+<dd>
+options as parsed by pycodestyle.StyleGuide
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkClassName" ID="NamingStyleChecker.__checkClassName"></a>
+<h4>NamingStyleChecker.__checkClassName</h4>
+<b>__checkClassName</b>(<i>node, parents</i>)
+<p>
+        Private class to check the given node for class name
+        conventions (N801).
+</p><p>
+        Almost without exception, class names use the CapWords convention.
+        Classes for internal use have a leading underscore in addition.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkFunctionArgumentNames" ID="NamingStyleChecker.__checkFunctionArgumentNames"></a>
+<h4>NamingStyleChecker.__checkFunctionArgumentNames</h4>
+<b>__checkFunctionArgumentNames</b>(<i>node, parents</i>)
+<p>
+        Private class to check the argument names of functions
+        (N803, N804, N805, N806).
+</p><p>
+        The argument names of a function should be lowercase, with words
+        separated by underscores. A class method should have 'cls' as the
+        first argument. A method should have 'self' as the first argument.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkFunctionName" ID="NamingStyleChecker.__checkFunctionName"></a>
+<h4>NamingStyleChecker.__checkFunctionName</h4>
+<b>__checkFunctionName</b>(<i>node, parents</i>)
+<p>
+        Private class to check the given node for function name
+        conventions (N802).
+</p><p>
+        Function names should be lowercase, with words separated by underscores
+        as necessary to improve readability. Functions <b>not</b> being
+        methods '__' in front and back are not allowed. Mixed case is allowed
+        only in contexts where that's already the prevailing style
+        (e.g. threading.py), to retain backwards compatibility.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkImportAs" ID="NamingStyleChecker.__checkImportAs"></a>
+<h4>NamingStyleChecker.__checkImportAs</h4>
+<b>__checkImportAs</b>(<i>node, parents</i>)
+<p>
+        Private method to check that imports don't change the
+        naming convention (N811, N812, N813, N814).
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkModule" ID="NamingStyleChecker.__checkModule"></a>
+<h4>NamingStyleChecker.__checkModule</h4>
+<b>__checkModule</b>(<i>node, parents</i>)
+<p>
+        Private method to check module naming conventions (N807, N808).
+</p><p>
+        Module and package names should be lowercase.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkNameToBeAvoided" ID="NamingStyleChecker.__checkNameToBeAvoided"></a>
+<h4>NamingStyleChecker.__checkNameToBeAvoided</h4>
+<b>__checkNameToBeAvoided</b>(<i>node, parents</i>)
+<p>
+        Private class to check the given node for a name to be avoided (N831).
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__checkVariablesInFunction" ID="NamingStyleChecker.__checkVariablesInFunction"></a>
+<h4>NamingStyleChecker.__checkVariablesInFunction</h4>
+<b>__checkVariablesInFunction</b>(<i>node, parents</i>)
+<p>
+        Private method to check local variables in functions (N821).
+</p><p>
+        Local variables in functions should be lowercase.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST note to check
+</dd><dt><i>parents</i></dt>
+<dd>
+list of parent nodes
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__error" ID="NamingStyleChecker.__error"></a>
+<h4>NamingStyleChecker.__error</h4>
+<b>__error</b>(<i>node, code</i>)
+<p>
+        Private method to build the error information.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST node to report an error for
+</dd><dt><i>code</i></dt>
+<dd>
+error code to report (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line and error code
+            (integer, integer, string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__findGlobalDefs" ID="NamingStyleChecker.__findGlobalDefs"></a>
+<h4>NamingStyleChecker.__findGlobalDefs</h4>
+<b>__findGlobalDefs</b>(<i>functionNode</i>)
+<p>
+        Private method amend a node with global definitions information.
+</p><dl>
+<dt><i>functionNode</i></dt>
+<dd>
+AST tree node to amend
+</dd>
+</dl><a NAME="NamingStyleChecker.__getArgNames" ID="NamingStyleChecker.__getArgNames"></a>
+<h4>NamingStyleChecker.__getArgNames</h4>
+<b>__getArgNames</b>(<i>node</i>)
+<p>
+        Private method to get the argument names of a function node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST node to extract arguments names from
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of argument names (list of string)
+</dd>
+</dl><a NAME="NamingStyleChecker.__isNameToBeAvoided" ID="NamingStyleChecker.__isNameToBeAvoided"></a>
+<h4>NamingStyleChecker.__isNameToBeAvoided</h4>
+<b>__isNameToBeAvoided</b>(<i>name</i>)
+<p>
+        Private method to check, if the given name should be avoided.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name to be checked (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating to avoid it (boolen)
+</dd>
+</dl><a NAME="NamingStyleChecker.__tagClassFunctions" ID="NamingStyleChecker.__tagClassFunctions"></a>
+<h4>NamingStyleChecker.__tagClassFunctions</h4>
+<b>__tagClassFunctions</b>(<i>classNode</i>)
+<p>
+        Private method to tag functions if they are methods, class methods or
+        static methods.
+</p><dl>
+<dt><i>classNode</i></dt>
+<dd>
+AST tree node to tag
+</dd>
+</dl><a NAME="NamingStyleChecker.__visitNode" ID="NamingStyleChecker.__visitNode"></a>
+<h4>NamingStyleChecker.__visitNode</h4>
+<b>__visitNode</b>(<i>node</i>)
+<p>
+        Private method to inspect the given AST node.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST tree node to inspect
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line, code and
+            checker function
+</dd>
+</dl><a NAME="NamingStyleChecker.__visitTree" ID="NamingStyleChecker.__visitTree"></a>
+<h4>NamingStyleChecker.__visitTree</h4>
+<b>__visitTree</b>(<i>node</i>)
+<p>
+        Private method to scan the given AST tree.
+</p><dl>
+<dt><i>node</i></dt>
+<dd>
+AST tree node to scan
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line, code and
+            checker function
+</dd>
+</dl><a NAME="NamingStyleChecker.run" ID="NamingStyleChecker.run"></a>
+<h4>NamingStyleChecker.run</h4>
+<b>run</b>(<i></i>)
+<p>
+        Public method run by the pycodestyle.py checker.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple giving line number, offset within line, code and
+            checker function
+</dd>
+</dl><a NAME="NamingStyleChecker.unpackArgs" ID="NamingStyleChecker.unpackArgs"></a>
+<h4>NamingStyleChecker.unpackArgs</h4>
+<b>unpackArgs</b>(<i></i>)
+<p>
+                Local helper function to unpack function argument names.
+</p><dl>
+<dt><i>args</i></dt>
+<dd>
+list of AST node arguments
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of argument names (list of string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

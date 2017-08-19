@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.CookieJar.CookieModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.CookieJar.CookieModel</h1>
+<p>
+Module implementing the cookie model.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CookieModel">CookieModel</a></td>
+<td>Class implementing the cookie model.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CookieModel" ID="CookieModel"></a>
+<h2>CookieModel</h2>
+<p>
+    Class implementing the cookie model.
+</p>
+<h3>Derived from</h3>
+QAbstractTableModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CookieModel.__init__">CookieModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CookieModel.__cookiesChanged">__cookiesChanged</a></td>
+<td>Private slot handling changes of the cookies list in the cookie jar.</td>
+</tr><tr>
+<td><a href="#CookieModel.columnCount">columnCount</a></td>
+<td>Public method to get the number of columns of the model.</td>
+</tr><tr>
+<td><a href="#CookieModel.data">data</a></td>
+<td>Public method to get data from the model.</td>
+</tr><tr>
+<td><a href="#CookieModel.headerData">headerData</a></td>
+<td>Public method to get header data from the model.</td>
+</tr><tr>
+<td><a href="#CookieModel.removeRows">removeRows</a></td>
+<td>Public method to remove entries from the model.</td>
+</tr><tr>
+<td><a href="#CookieModel.rowCount">rowCount</a></td>
+<td>Public method to get the number of rows of the model.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CookieModel.__init__" ID="CookieModel.__init__"></a>
+<h4>CookieModel (Constructor)</h4>
+<b>CookieModel</b>(<i>cookieJar, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>cookieJar</i></dt>
+<dd>
+reference to the cookie jar (CookieJar)
+</dd><dt><i>parent</i></dt>
+<dd>
+reference to the parent object (QObject)
+</dd>
+</dl><a NAME="CookieModel.__cookiesChanged" ID="CookieModel.__cookiesChanged"></a>
+<h4>CookieModel.__cookiesChanged</h4>
+<b>__cookiesChanged</b>(<i></i>)
+<p>
+        Private slot handling changes of the cookies list in the cookie jar.
+</p><a NAME="CookieModel.columnCount" ID="CookieModel.columnCount"></a>
+<h4>CookieModel.columnCount</h4>
+<b>columnCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of columns of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl><a NAME="CookieModel.data" ID="CookieModel.data"></a>
+<h4>CookieModel.data</h4>
+<b>data</b>(<i>index, role</i>)
+<p>
+        Public method to get data from the model.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index to get data for (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data to retrieve (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="CookieModel.headerData" ID="CookieModel.headerData"></a>
+<h4>CookieModel.headerData</h4>
+<b>headerData</b>(<i>section, orientation, role</i>)
+<p>
+        Public method to get header data from the model.
+</p><dl>
+<dt><i>section</i></dt>
+<dd>
+section number (integer)
+</dd><dt><i>orientation</i></dt>
+<dd>
+orientation (Qt.Orientation)
+</dd><dt><i>role</i></dt>
+<dd>
+role of the data to retrieve (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="CookieModel.removeRows" ID="CookieModel.removeRows"></a>
+<h4>CookieModel.removeRows</h4>
+<b>removeRows</b>(<i>row, count, parent=None</i>)
+<p>
+        Public method to remove entries from the model.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+start row (integer)
+</dd><dt><i>count</i></dt>
+<dd>
+number of rows to remove (integer)
+</dd><dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="CookieModel.rowCount" ID="CookieModel.rowCount"></a>
+<h4>CookieModel.rowCount</h4>
+<b>rowCount</b>(<i>parent=None</i>)
+<p>
+        Public method to get the number of rows of the model.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent index (QModelIndex)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+number of columns (integer)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

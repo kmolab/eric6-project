@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Plugins.VcsPlugins.vcsMercurial.HgSummaryDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Plugins.VcsPlugins.vcsMercurial.HgSummaryDialog</h1>
+<p>
+Module implementing a dialog to show some summary information of the working
+directory state.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#HgSummaryDialog">HgSummaryDialog</a></td>
+<td>Class implementing a dialog to show some summary information of the working directory state.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="HgSummaryDialog" ID="HgSummaryDialog"></a>
+<h2>HgSummaryDialog</h2>
+<p>
+    Class implementing a dialog to show some summary information of the working
+    directory state.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_HgSummaryDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#HgSummaryDialog.__init__">HgSummaryDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__committed">__committed</a></td>
+<td>Private slot called after the commit has finished.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__finish">__finish</a></td>
+<td>Private slot called when the process finished or the user pressed the button.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__procFinished">__procFinished</a></td>
+<td>Private slot connected to the finished signal.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__processOutput">__processOutput</a></td>
+<td>Private method to process the output into nice readable text.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__readStderr">__readStderr</a></td>
+<td>Private slot to handle the readyReadStandardError signal.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__readStdout">__readStdout</a></td>
+<td>Private slot to handle the readyReadStandardOutput signal.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.__showError">__showError</a></td>
+<td>Private slot to show some error.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.closeEvent">closeEvent</a></td>
+<td>Protected slot implementing a close event handler.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
+<td>Private slot called by a button of the button box clicked.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.on_refreshButton_clicked">on_refreshButton_clicked</a></td>
+<td>Private slot to refresh the status display.</td>
+</tr><tr>
+<td><a href="#HgSummaryDialog.start">start</a></td>
+<td>Public slot to start the hg summary command.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="HgSummaryDialog.__init__" ID="HgSummaryDialog.__init__"></a>
+<h4>HgSummaryDialog (Constructor)</h4>
+<b>HgSummaryDialog</b>(<i>vcs, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>vcs</i></dt>
+<dd>
+reference to the vcs object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd>
+</dl><a NAME="HgSummaryDialog.__committed" ID="HgSummaryDialog.__committed"></a>
+<h4>HgSummaryDialog.__committed</h4>
+<b>__committed</b>(<i></i>)
+<p>
+        Private slot called after the commit has finished.
+</p><a NAME="HgSummaryDialog.__finish" ID="HgSummaryDialog.__finish"></a>
+<h4>HgSummaryDialog.__finish</h4>
+<b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the process finished or the user pressed
+        the button.
+</p><a NAME="HgSummaryDialog.__procFinished" ID="HgSummaryDialog.__procFinished"></a>
+<h4>HgSummaryDialog.__procFinished</h4>
+<b>__procFinished</b>(<i>exitCode, exitStatus</i>)
+<p>
+        Private slot connected to the finished signal.
+</p><dl>
+<dt><i>exitCode</i></dt>
+<dd>
+exit code of the process (integer)
+</dd><dt><i>exitStatus</i></dt>
+<dd>
+exit status of the process (QProcess.ExitStatus)
+</dd>
+</dl><a NAME="HgSummaryDialog.__processOutput" ID="HgSummaryDialog.__processOutput"></a>
+<h4>HgSummaryDialog.__processOutput</h4>
+<b>__processOutput</b>(<i>output</i>)
+<p>
+        Private method to process the output into nice readable text.
+</p><dl>
+<dt><i>output</i></dt>
+<dd>
+output from the summary command (string)
+</dd>
+</dl><a NAME="HgSummaryDialog.__readStderr" ID="HgSummaryDialog.__readStderr"></a>
+<h4>HgSummaryDialog.__readStderr</h4>
+<b>__readStderr</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStandardError signal.
+</p><p>
+        It reads the error output of the process and inserts it into the
+        error pane.
+</p><a NAME="HgSummaryDialog.__readStdout" ID="HgSummaryDialog.__readStdout"></a>
+<h4>HgSummaryDialog.__readStdout</h4>
+<b>__readStdout</b>(<i></i>)
+<p>
+        Private slot to handle the readyReadStandardOutput signal.
+</p><p>
+        It reads the output of the process, formats it and inserts it into
+        the contents pane.
+</p><a NAME="HgSummaryDialog.__showError" ID="HgSummaryDialog.__showError"></a>
+<h4>HgSummaryDialog.__showError</h4>
+<b>__showError</b>(<i>out</i>)
+<p>
+        Private slot to show some error.
+</p><dl>
+<dt><i>out</i></dt>
+<dd>
+error to be shown (string)
+</dd>
+</dl><a NAME="HgSummaryDialog.closeEvent" ID="HgSummaryDialog.closeEvent"></a>
+<h4>HgSummaryDialog.closeEvent</h4>
+<b>closeEvent</b>(<i>e</i>)
+<p>
+        Protected slot implementing a close event handler.
+</p><dl>
+<dt><i>e</i></dt>
+<dd>
+close event (QCloseEvent)
+</dd>
+</dl><a NAME="HgSummaryDialog.on_buttonBox_clicked" ID="HgSummaryDialog.on_buttonBox_clicked"></a>
+<h4>HgSummaryDialog.on_buttonBox_clicked</h4>
+<b>on_buttonBox_clicked</b>(<i>button</i>)
+<p>
+        Private slot called by a button of the button box clicked.
+</p><dl>
+<dt><i>button</i></dt>
+<dd>
+button that was clicked (QAbstractButton)
+</dd>
+</dl><a NAME="HgSummaryDialog.on_refreshButton_clicked" ID="HgSummaryDialog.on_refreshButton_clicked"></a>
+<h4>HgSummaryDialog.on_refreshButton_clicked</h4>
+<b>on_refreshButton_clicked</b>(<i></i>)
+<p>
+        Private slot to refresh the status display.
+</p><a NAME="HgSummaryDialog.start" ID="HgSummaryDialog.start"></a>
+<h4>HgSummaryDialog.start</h4>
+<b>start</b>(<i>path, mq=False, largefiles=False</i>)
+<p>
+        Public slot to start the hg summary command.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path name of the working directory (string)
+</dd><dt><i>mq</i></dt>
+<dd>
+flag indicating to show the queue status as well (boolean)
+</dd><dt><i>largefiles</i></dt>
+<dd>
+flag indicating to show the largefiles status as
+            well (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

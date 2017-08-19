@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.E5Gui.E5Application</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.E5Gui.E5Application</h1>
+<p>
+Class implementing a specialized application class.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>e5App</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#E5Application">E5Application</a></td>
+<td>Eric application class with an object registry.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="E5Application" ID="E5Application"></a>
+<h2>E5Application</h2>
+<p>
+    Eric application class with an object registry.
+</p>
+<h3>Derived from</h3>
+QApplication
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#E5Application.__init__">E5Application</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#E5Application.getObject">getObject</a></td>
+<td>Public method to get a reference to a registered object.</td>
+</tr><tr>
+<td><a href="#E5Application.getPluginObject">getPluginObject</a></td>
+<td>Public method to get a reference to a registered plugin object.</td>
+</tr><tr>
+<td><a href="#E5Application.getPluginObjectType">getPluginObjectType</a></td>
+<td>Public method to get the type of a registered plugin object.</td>
+</tr><tr>
+<td><a href="#E5Application.getPluginObjects">getPluginObjects</a></td>
+<td>Public method to get a list of (name, reference) pairs of all registered plugin objects.</td>
+</tr><tr>
+<td><a href="#E5Application.registerObject">registerObject</a></td>
+<td>Public method to register an object in the object registry.</td>
+</tr><tr>
+<td><a href="#E5Application.registerPluginObject">registerPluginObject</a></td>
+<td>Public method to register a plugin object in the object registry.</td>
+</tr><tr>
+<td><a href="#E5Application.unregisterPluginObject">unregisterPluginObject</a></td>
+<td>Public method to unregister a plugin object in the object registry.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="E5Application.__init__" ID="E5Application.__init__"></a>
+<h4>E5Application (Constructor)</h4>
+<b>E5Application</b>(<i>argv</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>argv</i></dt>
+<dd>
+command line arguments
+</dd>
+</dl><a NAME="E5Application.getObject" ID="E5Application.getObject"></a>
+<h4>E5Application.getObject</h4>
+<b>getObject</b>(<i>name</i>)
+<p>
+        Public method to get a reference to a registered object.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the object (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the registered object
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is not known
+</dd>
+</dl><a NAME="E5Application.getPluginObject" ID="E5Application.getPluginObject"></a>
+<h4>E5Application.getPluginObject</h4>
+<b>getPluginObject</b>(<i>name</i>)
+<p>
+        Public method to get a reference to a registered plugin object.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the registered plugin object
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is not known
+</dd>
+</dl><a NAME="E5Application.getPluginObjectType" ID="E5Application.getPluginObjectType"></a>
+<h4>E5Application.getPluginObjectType</h4>
+<b>getPluginObjectType</b>(<i>name</i>)
+<p>
+        Public method to get the type of a registered plugin object.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+type of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is not known
+</dd>
+</dl><a NAME="E5Application.getPluginObjects" ID="E5Application.getPluginObjects"></a>
+<h4>E5Application.getPluginObjects</h4>
+<b>getPluginObjects</b>(<i></i>)
+<p>
+        Public method to get a list of (name, reference) pairs of all
+        registered plugin objects.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of (name, reference) pairs
+</dd>
+</dl><a NAME="E5Application.registerObject" ID="E5Application.registerObject"></a>
+<h4>E5Application.registerObject</h4>
+<b>registerObject</b>(<i>name, objectRef</i>)
+<p>
+        Public method to register an object in the object registry.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the object (string)
+</dd><dt><i>objectRef</i></dt>
+<dd>
+reference to the object
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is already in use
+</dd>
+</dl><a NAME="E5Application.registerPluginObject" ID="E5Application.registerPluginObject"></a>
+<h4>E5Application.registerPluginObject</h4>
+<b>registerPluginObject</b>(<i>name, objectRef, pluginType=None</i>)
+<p>
+        Public method to register a plugin object in the object registry.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd><dt><i>objectRef</i></dt>
+<dd>
+reference to the plugin object
+</dd><dt><i>pluginType=</i></dt>
+<dd>
+type of the plugin object (string)
+</dd>
+</dl><dl>
+<dt>Raises <b>KeyError</b>:</dt>
+<dd>
+raised when the given name is already in use
+</dd>
+</dl><a NAME="E5Application.unregisterPluginObject" ID="E5Application.unregisterPluginObject"></a>
+<h4>E5Application.unregisterPluginObject</h4>
+<b>unregisterPluginObject</b>(<i>name</i>)
+<p>
+        Public method to unregister a plugin object in the object registry.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the plugin object (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

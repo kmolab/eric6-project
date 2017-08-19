@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Debugger.DebugViewer</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Debugger.DebugViewer</h1>
+<p>
+Module implementing a widget containing various debug related views.
+</p><p>
+The views avaliable are:
+<ul>
+  <li>variables viewer for global variables</li>
+  <li>variables viewer for local variables</li>
+  <li>call trace viewer</li>
+  <li>viewer for breakpoints</li>
+  <li>viewer for watch expressions</li>
+  <li>viewer for exceptions</li>
+  <li>viewer for threads</li>
+  <li>a file browser (optional)</li>
+  <li>an interpreter shell (optional)</li>
+</ul>
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#DebugViewer">DebugViewer</a></td>
+<td>Class implementing a widget containing various debug related views.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="DebugViewer" ID="DebugViewer"></a>
+<h2>DebugViewer</h2>
+<p>
+    Class implementing a widget containing various debug related views.
+</p><p>
+    The individual tabs contain the interpreter shell (optional),
+    the filesystem browser (optional), the two variables viewers
+    (global and local), a breakpoint viewer, a watch expression viewer and
+    the exception logger. Additionally a list of all threads is shown.
+</p><h3>Signals</h3>
+<dl>
+<dt>sourceFile(string, int)</dt>
+<dd>
+emitted to open a source file at a line
+</dd>
+</dl>
+<h3>Derived from</h3>
+QWidget
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DebugViewer.__init__">DebugViewer</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#DebugViewer.__callStackFrameSelected">__callStackFrameSelected</a></td>
+<td>Private slot to handle the selection of a call stack entry of the call stack viewer.</td>
+</tr><tr>
+<td><a href="#DebugViewer.__frameSelected">__frameSelected</a></td>
+<td>Private slot to handle the selection of a new stack frame number.</td>
+</tr><tr>
+<td><a href="#DebugViewer.__showSource">__showSource</a></td>
+<td>Private slot to handle the source button press to show the selected file.</td>
+</tr><tr>
+<td><a href="#DebugViewer.__threadSelected">__threadSelected</a></td>
+<td>Private slot to handle the selection of a thread in the thread list.</td>
+</tr><tr>
+<td><a href="#DebugViewer.clearCallTrace">clearCallTrace</a></td>
+<td>Public method to clear the recorded call trace.</td>
+</tr><tr>
+<td><a href="#DebugViewer.currentWidget">currentWidget</a></td>
+<td>Public method to get a reference to the current widget.</td>
+</tr><tr>
+<td><a href="#DebugViewer.handleClientStack">handleClientStack</a></td>
+<td>Public slot to show the call stack of the program being debugged.</td>
+</tr><tr>
+<td><a href="#DebugViewer.handleDebuggingStarted">handleDebuggingStarted</a></td>
+<td>Public slot to handle the start of a debugging session.</td>
+</tr><tr>
+<td><a href="#DebugViewer.handleRawInput">handleRawInput</a></td>
+<td>Public slot to handle the switch to the shell in raw input mode.</td>
+</tr><tr>
+<td><a href="#DebugViewer.handleResetUI">handleResetUI</a></td>
+<td>Public method to reset the SBVviewer.</td>
+</tr><tr>
+<td><a href="#DebugViewer.initCallStackViewer">initCallStackViewer</a></td>
+<td>Public method to initialize the call stack viewer.</td>
+</tr><tr>
+<td><a href="#DebugViewer.isCallTraceEnabled">isCallTraceEnabled</a></td>
+<td>Public method to get the state of the call trace function.</td>
+</tr><tr>
+<td><a href="#DebugViewer.preferencesChanged">preferencesChanged</a></td>
+<td>Public slot to handle the preferencesChanged signal.</td>
+</tr><tr>
+<td><a href="#DebugViewer.restoreCurrentPage">restoreCurrentPage</a></td>
+<td>Public slot to restore the previously saved page.</td>
+</tr><tr>
+<td><a href="#DebugViewer.saveCurrentPage">saveCurrentPage</a></td>
+<td>Public slot to save the current page.</td>
+</tr><tr>
+<td><a href="#DebugViewer.setCallTraceToProjectMode">setCallTraceToProjectMode</a></td>
+<td>Public slot to set the call trace viewer to project mode.</td>
+</tr><tr>
+<td><a href="#DebugViewer.setCurrentWidget">setCurrentWidget</a></td>
+<td>Public slot to set the current page based on the given widget.</td>
+</tr><tr>
+<td><a href="#DebugViewer.setDebugger">setDebugger</a></td>
+<td>Public method to set a reference to the Debug UI.</td>
+</tr><tr>
+<td><a href="#DebugViewer.setGlobalsFilter">setGlobalsFilter</a></td>
+<td>Public slot to set the global variable filter.</td>
+</tr><tr>
+<td><a href="#DebugViewer.setLocalsFilter">setLocalsFilter</a></td>
+<td>Public slot to set the local variable filter.</td>
+</tr><tr>
+<td><a href="#DebugViewer.setVariablesFilter">setVariablesFilter</a></td>
+<td>Public slot to set the local variables filter.</td>
+</tr><tr>
+<td><a href="#DebugViewer.showThreadList">showThreadList</a></td>
+<td>Public method to show the thread list.</td>
+</tr><tr>
+<td><a href="#DebugViewer.showVariable">showVariable</a></td>
+<td>Public method to show the variables in the respective window.</td>
+</tr><tr>
+<td><a href="#DebugViewer.showVariables">showVariables</a></td>
+<td>Public method to show the variables in the respective window.</td>
+</tr><tr>
+<td><a href="#DebugViewer.showVariablesTab">showVariablesTab</a></td>
+<td>Public method to make a variables tab visible.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="DebugViewer.__init__" ID="DebugViewer.__init__"></a>
+<h4>DebugViewer (Constructor)</h4>
+<b>DebugViewer</b>(<i>debugServer, docked, vm, parent=None, embeddedShell=True, embeddedBrowser=True</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>debugServer</i></dt>
+<dd>
+reference to the debug server object (DebugServer)
+</dd><dt><i>docked</i></dt>
+<dd>
+flag indicating a dock window
+</dd><dt><i>vm</i></dt>
+<dd>
+reference to the viewmanager object
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget (QWidget)
+</dd><dt><i>embeddedShell</i></dt>
+<dd>
+flag indicating whether the shell should be
+            included. This flag is set to False by those layouts, that have
+            the interpreter shell in a separate window.
+</dd><dt><i>embeddedBrowser</i></dt>
+<dd>
+flag indicating whether the file browser should
+            be included. This flag is set to False by those layouts, that
+            have the file browser in a separate window or embedded
+            in the project browser instead.
+</dd>
+</dl><a NAME="DebugViewer.__callStackFrameSelected" ID="DebugViewer.__callStackFrameSelected"></a>
+<h4>DebugViewer.__callStackFrameSelected</h4>
+<b>__callStackFrameSelected</b>(<i>frameNo</i>)
+<p>
+        Private slot to handle the selection of a call stack entry of the
+        call stack viewer.
+</p><dl>
+<dt><i>frameNo</i></dt>
+<dd>
+frame number (index) of the selected entry (integer)
+</dd>
+</dl><a NAME="DebugViewer.__frameSelected" ID="DebugViewer.__frameSelected"></a>
+<h4>DebugViewer.__frameSelected</h4>
+<b>__frameSelected</b>(<i>frmnr</i>)
+<p>
+        Private slot to handle the selection of a new stack frame number.
+</p><dl>
+<dt><i>frmnr</i></dt>
+<dd>
+frame number (0 is the current frame) (int)
+</dd>
+</dl><a NAME="DebugViewer.__showSource" ID="DebugViewer.__showSource"></a>
+<h4>DebugViewer.__showSource</h4>
+<b>__showSource</b>(<i></i>)
+<p>
+        Private slot to handle the source button press to show the selected
+        file.
+</p><a NAME="DebugViewer.__threadSelected" ID="DebugViewer.__threadSelected"></a>
+<h4>DebugViewer.__threadSelected</h4>
+<b>__threadSelected</b>(<i>current, previous</i>)
+<p>
+        Private slot to handle the selection of a thread in the thread list.
+</p><dl>
+<dt><i>current</i></dt>
+<dd>
+reference to the new current item (QTreeWidgetItem)
+</dd><dt><i>previous</i></dt>
+<dd>
+reference to the previous current item
+            (QTreeWidgetItem)
+</dd>
+</dl><a NAME="DebugViewer.clearCallTrace" ID="DebugViewer.clearCallTrace"></a>
+<h4>DebugViewer.clearCallTrace</h4>
+<b>clearCallTrace</b>(<i></i>)
+<p>
+        Public method to clear the recorded call trace.
+</p><a NAME="DebugViewer.currentWidget" ID="DebugViewer.currentWidget"></a>
+<h4>DebugViewer.currentWidget</h4>
+<b>currentWidget</b>(<i></i>)
+<p>
+        Public method to get a reference to the current widget.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the current widget (QWidget)
+</dd>
+</dl><a NAME="DebugViewer.handleClientStack" ID="DebugViewer.handleClientStack"></a>
+<h4>DebugViewer.handleClientStack</h4>
+<b>handleClientStack</b>(<i>stack</i>)
+<p>
+        Public slot to show the call stack of the program being debugged.
+</p><dl>
+<dt><i>stack</i></dt>
+<dd>
+list of tuples with call stack data (file name,
+            line number, function name, formatted argument/values list)
+</dd>
+</dl><a NAME="DebugViewer.handleDebuggingStarted" ID="DebugViewer.handleDebuggingStarted"></a>
+<h4>DebugViewer.handleDebuggingStarted</h4>
+<b>handleDebuggingStarted</b>(<i></i>)
+<p>
+        Public slot to handle the start of a debugging session.
+</p><p>
+        This slot sets the variables filter expressions.
+</p><a NAME="DebugViewer.handleRawInput" ID="DebugViewer.handleRawInput"></a>
+<h4>DebugViewer.handleRawInput</h4>
+<b>handleRawInput</b>(<i></i>)
+<p>
+        Public slot to handle the switch to the shell in raw input mode.
+</p><a NAME="DebugViewer.handleResetUI" ID="DebugViewer.handleResetUI"></a>
+<h4>DebugViewer.handleResetUI</h4>
+<b>handleResetUI</b>(<i></i>)
+<p>
+        Public method to reset the SBVviewer.
+</p><a NAME="DebugViewer.initCallStackViewer" ID="DebugViewer.initCallStackViewer"></a>
+<h4>DebugViewer.initCallStackViewer</h4>
+<b>initCallStackViewer</b>(<i>projectMode</i>)
+<p>
+        Public method to initialize the call stack viewer.
+</p><dl>
+<dt><i>projectMode</i></dt>
+<dd>
+flag indicating to enable the project mode (boolean)
+</dd>
+</dl><a NAME="DebugViewer.isCallTraceEnabled" ID="DebugViewer.isCallTraceEnabled"></a>
+<h4>DebugViewer.isCallTraceEnabled</h4>
+<b>isCallTraceEnabled</b>(<i></i>)
+<p>
+        Public method to get the state of the call trace function.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the state of the call trace function (boolean)
+</dd>
+</dl><a NAME="DebugViewer.preferencesChanged" ID="DebugViewer.preferencesChanged"></a>
+<h4>DebugViewer.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public slot to handle the preferencesChanged signal.
+</p><a NAME="DebugViewer.restoreCurrentPage" ID="DebugViewer.restoreCurrentPage"></a>
+<h4>DebugViewer.restoreCurrentPage</h4>
+<b>restoreCurrentPage</b>(<i></i>)
+<p>
+        Public slot to restore the previously saved page.
+</p><a NAME="DebugViewer.saveCurrentPage" ID="DebugViewer.saveCurrentPage"></a>
+<h4>DebugViewer.saveCurrentPage</h4>
+<b>saveCurrentPage</b>(<i></i>)
+<p>
+        Public slot to save the current page.
+</p><a NAME="DebugViewer.setCallTraceToProjectMode" ID="DebugViewer.setCallTraceToProjectMode"></a>
+<h4>DebugViewer.setCallTraceToProjectMode</h4>
+<b>setCallTraceToProjectMode</b>(<i>enabled</i>)
+<p>
+        Public slot to set the call trace viewer to project mode.
+</p><p>
+        In project mode the call trace info is shown with project relative
+        path names.
+</p><dl>
+<dt><i>enabled</i></dt>
+<dd>
+flag indicating to enable the project mode (boolean)
+</dd>
+</dl><a NAME="DebugViewer.setCurrentWidget" ID="DebugViewer.setCurrentWidget"></a>
+<h4>DebugViewer.setCurrentWidget</h4>
+<b>setCurrentWidget</b>(<i>widget</i>)
+<p>
+        Public slot to set the current page based on the given widget.
+</p><dl>
+<dt><i>widget</i></dt>
+<dd>
+reference to the widget (QWidget)
+</dd>
+</dl><a NAME="DebugViewer.setDebugger" ID="DebugViewer.setDebugger"></a>
+<h4>DebugViewer.setDebugger</h4>
+<b>setDebugger</b>(<i>debugUI</i>)
+<p>
+        Public method to set a reference to the Debug UI.
+</p><dl>
+<dt><i>debugUI</i></dt>
+<dd>
+reference to the DebugUI object (DebugUI)
+</dd>
+</dl><a NAME="DebugViewer.setGlobalsFilter" ID="DebugViewer.setGlobalsFilter"></a>
+<h4>DebugViewer.setGlobalsFilter</h4>
+<b>setGlobalsFilter</b>(<i></i>)
+<p>
+        Public slot to set the global variable filter.
+</p><a NAME="DebugViewer.setLocalsFilter" ID="DebugViewer.setLocalsFilter"></a>
+<h4>DebugViewer.setLocalsFilter</h4>
+<b>setLocalsFilter</b>(<i></i>)
+<p>
+        Public slot to set the local variable filter.
+</p><a NAME="DebugViewer.setVariablesFilter" ID="DebugViewer.setVariablesFilter"></a>
+<h4>DebugViewer.setVariablesFilter</h4>
+<b>setVariablesFilter</b>(<i>globalsFilter, localsFilter</i>)
+<p>
+        Public slot to set the local variables filter.
+</p><dl>
+<dt><i>globalsFilter</i></dt>
+<dd>
+filter list for global variable types
+            (list of int)
+</dd><dt><i>localsFilter</i></dt>
+<dd>
+filter list for local variable types (list of int)
+</dd>
+</dl><a NAME="DebugViewer.showThreadList" ID="DebugViewer.showThreadList"></a>
+<h4>DebugViewer.showThreadList</h4>
+<b>showThreadList</b>(<i>currentID, threadList</i>)
+<p>
+        Public method to show the thread list.
+</p><dl>
+<dt><i>currentID</i></dt>
+<dd>
+id of the current thread (integer)
+</dd><dt><i>threadList</i></dt>
+<dd>
+list of dictionaries containing the thread data
+</dd>
+</dl><a NAME="DebugViewer.showVariable" ID="DebugViewer.showVariable"></a>
+<h4>DebugViewer.showVariable</h4>
+<b>showVariable</b>(<i>vlist, showGlobals</i>)
+<p>
+        Public method to show the variables in the respective window.
+</p><dl>
+<dt><i>vlist</i></dt>
+<dd>
+list of variables to display
+</dd><dt><i>showGlobals</i></dt>
+<dd>
+flag indicating global/local state
+</dd>
+</dl><a NAME="DebugViewer.showVariables" ID="DebugViewer.showVariables"></a>
+<h4>DebugViewer.showVariables</h4>
+<b>showVariables</b>(<i>vlist, showGlobals</i>)
+<p>
+        Public method to show the variables in the respective window.
+</p><dl>
+<dt><i>vlist</i></dt>
+<dd>
+list of variables to display
+</dd><dt><i>showGlobals</i></dt>
+<dd>
+flag indicating global/local state
+</dd>
+</dl><a NAME="DebugViewer.showVariablesTab" ID="DebugViewer.showVariablesTab"></a>
+<h4>DebugViewer.showVariablesTab</h4>
+<b>showVariablesTab</b>(<i>showGlobals</i>)
+<p>
+        Public method to make a variables tab visible.
+</p><dl>
+<dt><i>showGlobals</i></dt>
+<dd>
+flag indicating global/local state
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

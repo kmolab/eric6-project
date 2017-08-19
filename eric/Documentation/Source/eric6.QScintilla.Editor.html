@@ -1,0 +1,4494 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.QScintilla.Editor</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.QScintilla.Editor</h1>
+<p>
+Module implementing the editor component of the eric6 IDE.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>EditorAutoCompletionListID</td></tr><tr><td>TemplateCompletionListID</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#Editor">Editor</a></td>
+<td>Class implementing the editor component of the eric6 IDE.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="Editor" ID="Editor"></a>
+<h2>Editor</h2>
+<p>
+    Class implementing the editor component of the eric6 IDE.
+</p><h3>Signals</h3>
+<dl>
+<dt>autoCompletionAPIsAvailable(bool)</dt>
+<dd>
+emitted after the autocompletion
+        function has been configured
+</dd><dt>bookmarkToggled(QsciScintillaCompat)</dt>
+<dd>
+emitted when a bookmark is
+        toggled
+</dd><dt>breakpointToggled(QsciScintillaCompat)</dt>
+<dd>
+emitted when a breakpoint
+        is toggled
+</dd><dt>captionChanged(str, QsciScintillaCompat)</dt>
+<dd>
+emitted when the caption
+        is updated. Typically due to a readOnly attribute change.
+</dd><dt>changeMarkersUpdated(QsciScintillaCompat)</dt>
+<dd>
+emitted when the change
+        markers were updated
+</dd><dt>coverageMarkersShown(bool)</dt>
+<dd>
+emitted after the coverage markers have
+        been shown or cleared
+</dd><dt>cursorChanged(str, int, int)</dt>
+<dd>
+emitted when the cursor position
+        was changed
+</dd><dt>cursorLineChanged(int)</dt>
+<dd>
+emitted when the cursor line was changed
+</dd><dt>editorAboutToBeSaved(str)</dt>
+<dd>
+emitted before the editor is saved
+</dd><dt>editorRenamed(str)</dt>
+<dd>
+emitted after the editor got a new name
+        (i.e. after a 'Save As')
+</dd><dt>editorSaved(str)</dt>
+<dd>
+emitted after the editor has been saved
+</dd><dt>encodingChanged(str)</dt>
+<dd>
+emitted when the editors encoding was set. The
+            encoding name is passed as a parameter.
+</dd><dt>eolChanged(str)</dt>
+<dd>
+emitted when the editors eol type was set. The eol
+        string is passed as a parameter.
+</dd><dt>languageChanged(str)</dt>
+<dd>
+emitted when the editors language was set. The
+        language is passed as a parameter.
+</dd><dt>lastEditPositionAvailable()</dt>
+<dd>
+emitted when a last edit position is
+        available
+</dd><dt>modificationStatusChanged(bool, QsciScintillaCompat)</dt>
+<dd>
+emitted when
+        the modification status has changed
+</dd><dt>redoAvailable(bool)</dt>
+<dd>
+emitted to signal the redo availability
+</dd><dt>refreshed()</dt>
+<dd>
+emitted to signal a refresh of the editor contents
+</dd><dt>settingsRead()</dt>
+<dd>
+emitted to signal, that the settings have been read
+        and set
+</dd><dt>showMenu(str, QMenu, QsciScintillaCompat)</dt>
+<dd>
+emitted when a menu is
+        about to be shown. The name of the menu, a reference to the menu and
+        a reference to the editor are given.
+</dd><dt>syntaxerrorToggled(QsciScintillaCompat)</dt>
+<dd>
+emitted when a syntax error
+        was discovered
+</dd><dt>taskMarkersUpdated(QsciScintillaCompat)</dt>
+<dd>
+emitted when the task
+        markers were updated
+</dd><dt>undoAvailable(bool)</dt>
+<dd>
+emitted to signal the undo availability
+</dd>
+</dl>
+<h3>Derived from</h3>
+QsciScintillaCompat
+<h3>Class Attributes</h3>
+<table>
+<tr><td>AttributeID</td></tr><tr><td>AttributePrivateID</td></tr><tr><td>AttributeProtectedID</td></tr><tr><td>CancelEditToken</td></tr><tr><td>ClassID</td></tr><tr><td>ClassPrivateID</td></tr><tr><td>ClassProtectedID</td></tr><tr><td>EndEditToken</td></tr><tr><td>EnumID</td></tr><tr><td>FromDocumentID</td></tr><tr><td>MethodID</td></tr><tr><td>MethodPrivateID</td></tr><tr><td>MethodProtectedID</td></tr><tr><td>RequestSyncToken</td></tr><tr><td>Separator</td></tr><tr><td>StartEditToken</td></tr><tr><td>SyncToken</td></tr><tr><td>TemplateImageID</td></tr><tr><td>WarningCode</td></tr><tr><td>WarningStyle</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#Editor.__init__">Editor</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#Editor.__addBreakPoint">__addBreakPoint</a></td>
+<td>Private method to add a new breakpoint.</td>
+</tr><tr>
+<td><a href="#Editor.__addBreakPoints">__addBreakPoints</a></td>
+<td>Private slot to add breakpoints.</td>
+</tr><tr>
+<td><a href="#Editor.__addFileAliasResource">__addFileAliasResource</a></td>
+<td>Private method to handle the Add aliased file context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__addFileResource">__addFileResource</a></td>
+<td>Private method to handle the Add file context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__addFileResources">__addFileResources</a></td>
+<td>Private method to handle the Add files context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__addLocalizedResource">__addLocalizedResource</a></td>
+<td>Private method to handle the Add localized resource context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__addResourceFrame">__addResourceFrame</a></td>
+<td>Private method to handle the Add resource frame context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__addToSpellingDictionary">__addToSpellingDictionary</a></td>
+<td>Private slot to add the word below the spelling context menu to the dictionary.</td>
+</tr><tr>
+<td><a href="#Editor.__adjustedCallTipPosition">__adjustedCallTipPosition</a></td>
+<td>Private method to calculate an adjusted position for showing calltips.</td>
+</tr><tr>
+<td><a href="#Editor.__applyTemplate">__applyTemplate</a></td>
+<td>Private method to apply a template by name.</td>
+</tr><tr>
+<td><a href="#Editor.__autosaveEnable">__autosaveEnable</a></td>
+<td>Private slot handling the autosave enable context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__bindCompleter">__bindCompleter</a></td>
+<td>Private slot to set the correct typing completer depending on language.</td>
+</tr><tr>
+<td><a href="#Editor.__bindLexer">__bindLexer</a></td>
+<td>Private slot to set the correct lexer depending on language.</td>
+</tr><tr>
+<td><a href="#Editor.__bindName">__bindName</a></td>
+<td>Private method to generate a dummy filename for binding a lexer.</td>
+</tr><tr>
+<td><a href="#Editor.__breakPointDataAboutToBeChanged">__breakPointDataAboutToBeChanged</a></td>
+<td>Private slot to handle the dataAboutToBeChanged signal of the breakpoint model.</td>
+</tr><tr>
+<td><a href="#Editor.__calculateChanges">__calculateChanges</a></td>
+<td>Private method to determine change commands to convert old text into new text.</td>
+</tr><tr>
+<td><a href="#Editor.__callTip">__callTip</a></td>
+<td>Private method to show call tips provided by a plugin.</td>
+</tr><tr>
+<td><a href="#Editor.__changeBreakPoints">__changeBreakPoints</a></td>
+<td>Private slot to set changed breakpoints.</td>
+</tr><tr>
+<td><a href="#Editor.__charAdded">__charAdded</a></td>
+<td>Private slot called to handle the user entering a character.</td>
+</tr><tr>
+<td><a href="#Editor.__checkEncoding">__checkEncoding</a></td>
+<td>Private method to check the selected encoding of the encodings submenu.</td>
+</tr><tr>
+<td><a href="#Editor.__checkEol">__checkEol</a></td>
+<td>Private method to check the selected eol type of the eol submenu.</td>
+</tr><tr>
+<td><a href="#Editor.__checkLanguage">__checkLanguage</a></td>
+<td>Private method to check the selected language of the language submenu.</td>
+</tr><tr>
+<td><a href="#Editor.__checkSpellingSelection">__checkSpellingSelection</a></td>
+<td>Private slot to spell check the current selection.</td>
+</tr><tr>
+<td><a href="#Editor.__checkSpellingWord">__checkSpellingWord</a></td>
+<td>Private slot to check the word below the spelling context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__clearBreakpoints">__clearBreakpoints</a></td>
+<td>Private slot to clear all breakpoints.</td>
+</tr><tr>
+<td><a href="#Editor.__clearTypedWarning">__clearTypedWarning</a></td>
+<td>Private method to clear warnings of a specific kind.</td>
+</tr><tr>
+<td><a href="#Editor.__codeCoverageHideAnnotations">__codeCoverageHideAnnotations</a></td>
+<td>Private method to handle the hide code coverage annotations context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__completionListSelected">__completionListSelected</a></td>
+<td>Private slot to handle the selection from the completion list.</td>
+</tr><tr>
+<td><a href="#Editor.__contextClose">__contextClose</a></td>
+<td>Private slot handling the close context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.__contextMenuSpellingTriggered">__contextMenuSpellingTriggered</a></td>
+<td>Private slot to handle the selection of a suggestion of the spelling context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__contextOpenRejections">__contextOpenRejections</a></td>
+<td>Private slot handling the open rejections file context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.__contextSave">__contextSave</a></td>
+<td>Private slot handling the save context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.__contextSaveAs">__contextSaveAs</a></td>
+<td>Private slot handling the save as context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.__contextSaveCopy">__contextSaveCopy</a></td>
+<td>Private slot handling the save copy context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.__createChangeMarkerPixmap">__createChangeMarkerPixmap</a></td>
+<td>Private method to create a pixmap for the change markers.</td>
+</tr><tr>
+<td><a href="#Editor.__cursorPositionChanged">__cursorPositionChanged</a></td>
+<td>Private slot to handle the cursorPositionChanged signal.</td>
+</tr><tr>
+<td><a href="#Editor.__deleteAllChangeMarkers">__deleteAllChangeMarkers</a></td>
+<td>Private slot to delete all change markers.</td>
+</tr><tr>
+<td><a href="#Editor.__deleteBreakPoints">__deleteBreakPoints</a></td>
+<td>Private slot to delete breakpoints.</td>
+</tr><tr>
+<td><a href="#Editor.__deselectAll">__deselectAll</a></td>
+<td>Private slot handling the deselect all context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__dispatchCommand">__dispatchCommand</a></td>
+<td>Private method to dispatch received commands.</td>
+</tr><tr>
+<td><a href="#Editor.__encodingChanged">__encodingChanged</a></td>
+<td>Private slot to handle a change of the encoding.</td>
+</tr><tr>
+<td><a href="#Editor.__encodingsMenuTriggered">__encodingsMenuTriggered</a></td>
+<td>Private method to handle the selection of an encoding.</td>
+</tr><tr>
+<td><a href="#Editor.__eolChanged">__eolChanged</a></td>
+<td>Private slot to handle a change of the eol mode.</td>
+</tr><tr>
+<td><a href="#Editor.__eolMenuTriggered">__eolMenuTriggered</a></td>
+<td>Private method to handle the selection of an eol type.</td>
+</tr><tr>
+<td><a href="#Editor.__exportMenuTriggered">__exportMenuTriggered</a></td>
+<td>Private method to handle the selection of an export format.</td>
+</tr><tr>
+<td><a href="#Editor.__getCharacter">__getCharacter</a></td>
+<td>Private method to get the character to the left of the current position in the current line.</td>
+</tr><tr>
+<td><a href="#Editor.__getCodeCoverageFile">__getCodeCoverageFile</a></td>
+<td>Private method to get the file name of the file containing coverage info.</td>
+</tr><tr>
+<td><a href="#Editor.__getMacroName">__getMacroName</a></td>
+<td>Private method to select a macro name from the list of macros.</td>
+</tr><tr>
+<td><a href="#Editor.__getPyVersion">__getPyVersion</a></td>
+<td>Private method to return the Python main version (2 or 3) or 0 if it's not a Python file at all.</td>
+</tr><tr>
+<td><a href="#Editor.__getSaveFileName">__getSaveFileName</a></td>
+<td>Private method to get the name of the file to be saved.</td>
+</tr><tr>
+<td><a href="#Editor.__ignoreSpellingAlways">__ignoreSpellingAlways</a></td>
+<td>Private to always ignore the word below the spelling context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__indentLine">__indentLine</a></td>
+<td>Private method to indent or unindent the current line.</td>
+</tr><tr>
+<td><a href="#Editor.__indentSelection">__indentSelection</a></td>
+<td>Private method to indent or unindent the current selection.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenu">__initContextMenu</a></td>
+<td>Private method used to setup the context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuAutocompletion">__initContextMenuAutocompletion</a></td>
+<td>Private method used to setup the Checks context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuChecks">__initContextMenuChecks</a></td>
+<td>Private method used to setup the Checks context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuEncodings">__initContextMenuEncodings</a></td>
+<td>Private method used to setup the Encodings context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuEol">__initContextMenuEol</a></td>
+<td>Private method to setup the eol context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuExporters">__initContextMenuExporters</a></td>
+<td>Private method used to setup the Exporters context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuGraphics">__initContextMenuGraphics</a></td>
+<td>Private method used to setup the diagrams context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuLanguages">__initContextMenuLanguages</a></td>
+<td>Private method used to setup the Languages context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuMargins">__initContextMenuMargins</a></td>
+<td>Private method used to setup the context menu for the margins.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuReopenWithEncoding">__initContextMenuReopenWithEncoding</a></td>
+<td>Private method used to setup the Reopen With Encoding context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuResources">__initContextMenuResources</a></td>
+<td>Private method used to setup the Resources context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuSeparateMargins">__initContextMenuSeparateMargins</a></td>
+<td>Private method used to setup the context menu for the separated margins.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuShow">__initContextMenuShow</a></td>
+<td>Private method used to setup the Show context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuTools">__initContextMenuTools</a></td>
+<td>Private method used to setup the Tools context sub menu.</td>
+</tr><tr>
+<td><a href="#Editor.__initContextMenuUnifiedMargins">__initContextMenuUnifiedMargins</a></td>
+<td>Private method used to setup the context menu for the unified margins.</td>
+</tr><tr>
+<td><a href="#Editor.__initOnlineChangeTrace">__initOnlineChangeTrace</a></td>
+<td>Private slot to initialize the online change trace.</td>
+</tr><tr>
+<td><a href="#Editor.__initOnlineSyntaxCheck">__initOnlineSyntaxCheck</a></td>
+<td>Private slot to initialize the online syntax check.</td>
+</tr><tr>
+<td><a href="#Editor.__isCommentedLine">__isCommentedLine</a></td>
+<td>Private method to check, if the given line is a comment line as produced by the configured comment rules.</td>
+</tr><tr>
+<td><a href="#Editor.__isStartChar">__isStartChar</a></td>
+<td>Private method to check, if a character is an autocompletion start character.</td>
+</tr><tr>
+<td><a href="#Editor.__languageChanged">__languageChanged</a></td>
+<td>Private slot handling a change of a connected editor's language.</td>
+</tr><tr>
+<td><a href="#Editor.__languageMenuTriggered">__languageMenuTriggered</a></td>
+<td>Private method to handle the selection of a lexer language.</td>
+</tr><tr>
+<td><a href="#Editor.__lmBbookmarks">__lmBbookmarks</a></td>
+<td>Private method to handle the 'LMB toggles bookmark' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__lmBbreakpoints">__lmBbreakpoints</a></td>
+<td>Private method to handle the 'LMB toggles breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__loadDiagram">__loadDiagram</a></td>
+<td>Private slot to load a diagram from file.</td>
+</tr><tr>
+<td><a href="#Editor.__marginClicked">__marginClicked</a></td>
+<td>Private slot to handle the marginClicked signal.</td>
+</tr><tr>
+<td><a href="#Editor.__marginNumber">__marginNumber</a></td>
+<td>Private method to calculate the margin number based on a x position.</td>
+</tr><tr>
+<td><a href="#Editor.__markOccurrences">__markOccurrences</a></td>
+<td>Private method to mark all occurrences of the current word.</td>
+</tr><tr>
+<td><a href="#Editor.__menuClearBreakpoints">__menuClearBreakpoints</a></td>
+<td>Private slot to handle the 'Clear all breakpoints' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__menuToggleBreakpointEnabled">__menuToggleBreakpointEnabled</a></td>
+<td>Private slot to handle the 'Enable/Disable breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__menuToggleTemporaryBreakpoint">__menuToggleTemporaryBreakpoint</a></td>
+<td>Private slot to handle the 'Toggle temporary breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__modificationChanged">__modificationChanged</a></td>
+<td>Private slot to handle the modificationChanged signal.</td>
+</tr><tr>
+<td><a href="#Editor.__modificationReadOnly">__modificationReadOnly</a></td>
+<td>Private slot to handle the modificationAttempted signal.</td>
+</tr><tr>
+<td><a href="#Editor.__modified">__modified</a></td>
+<td>Private method to handle changes of the number of lines.</td>
+</tr><tr>
+<td><a href="#Editor.__newView">__newView</a></td>
+<td>Private slot to create a new view to an open document.</td>
+</tr><tr>
+<td><a href="#Editor.__newViewNewSplit">__newViewNewSplit</a></td>
+<td>Private slot to create a new view to an open document.</td>
+</tr><tr>
+<td><a href="#Editor.__normalizedEncoding">__normalizedEncoding</a></td>
+<td>Private method to calculate the normalized encoding string.</td>
+</tr><tr>
+<td><a href="#Editor.__onlineChangeTraceTimerTimeout">__onlineChangeTraceTimerTimeout</a></td>
+<td>Private slot to mark added and changed lines.</td>
+</tr><tr>
+<td><a href="#Editor.__printPreview">__printPreview</a></td>
+<td>Private slot to generate a print preview.</td>
+</tr><tr>
+<td><a href="#Editor.__processEndEditCommand">__processEndEditCommand</a></td>
+<td>Private slot to process a remote EndEdit command.</td>
+</tr><tr>
+<td><a href="#Editor.__processFlags">__processFlags</a></td>
+<td>Private method to extract flags and process them.</td>
+</tr><tr>
+<td><a href="#Editor.__processRequestSyncCommand">__processRequestSyncCommand</a></td>
+<td>Private slot to process a remote RequestSync command.</td>
+</tr><tr>
+<td><a href="#Editor.__processStartEditCommand">__processStartEditCommand</a></td>
+<td>Private slot to process a remote StartEdit command.</td>
+</tr><tr>
+<td><a href="#Editor.__processSyncCommand">__processSyncCommand</a></td>
+<td>Private slot to process a remote Sync command.</td>
+</tr><tr>
+<td><a href="#Editor.__processSyntaxCheckError">__processSyntaxCheckError</a></td>
+<td>Private slot to report an error message of a syntax check.</td>
+</tr><tr>
+<td><a href="#Editor.__processSyntaxCheckResult">__processSyntaxCheckResult</a></td>
+<td>Private slot to report the resulting messages of a syntax check.</td>
+</tr><tr>
+<td><a href="#Editor.__projectPropertiesChanged">__projectPropertiesChanged</a></td>
+<td>Private slot to handle changes of the project properties.</td>
+</tr><tr>
+<td><a href="#Editor.__refreshAnnotations">__refreshAnnotations</a></td>
+<td>Private method to refresh the annotations.</td>
+</tr><tr>
+<td><a href="#Editor.__registerImages">__registerImages</a></td>
+<td>Private method to register images for autocompletion lists.</td>
+</tr><tr>
+<td><a href="#Editor.__reinitOnlineChangeTrace">__reinitOnlineChangeTrace</a></td>
+<td>Private slot to re-initialize the online change trace.</td>
+</tr><tr>
+<td><a href="#Editor.__removeFromSpellingDictionary">__removeFromSpellingDictionary</a></td>
+<td>Private slot to remove the word below the context menu to the dictionary.</td>
+</tr><tr>
+<td><a href="#Editor.__removeTrailingWhitespace">__removeTrailingWhitespace</a></td>
+<td>Private method to remove trailing whitespace.</td>
+</tr><tr>
+<td><a href="#Editor.__reopenWithEncodingMenuTriggered">__reopenWithEncodingMenuTriggered</a></td>
+<td>Private method to handle the rereading of the file with a selected encoding.</td>
+</tr><tr>
+<td><a href="#Editor.__resetLanguage">__resetLanguage</a></td>
+<td>Private method used to reset the language selection.</td>
+</tr><tr>
+<td><a href="#Editor.__resetOnlineChangeTraceInfo">__resetOnlineChangeTraceInfo</a></td>
+<td>Private slot to reset the online change trace info.</td>
+</tr><tr>
+<td><a href="#Editor.__resetOnlineChangeTraceTimer">__resetOnlineChangeTraceTimer</a></td>
+<td>Private method to reset the online syntax check timer.</td>
+</tr><tr>
+<td><a href="#Editor.__resetOnlineSyntaxCheckTimer">__resetOnlineSyntaxCheckTimer</a></td>
+<td>Private method to reset the online syntax check timer.</td>
+</tr><tr>
+<td><a href="#Editor.__resizeLinenoMargin">__resizeLinenoMargin</a></td>
+<td>Private slot to resize the line numbers margin.</td>
+</tr><tr>
+<td><a href="#Editor.__restoreBreakpoints">__restoreBreakpoints</a></td>
+<td>Private method to restore the breakpoints.</td>
+</tr><tr>
+<td><a href="#Editor.__saveLastEditPosition">__saveLastEditPosition</a></td>
+<td>Private slot to record the last edit position.</td>
+</tr><tr>
+<td><a href="#Editor.__searchCurrentWord">__searchCurrentWord</a></td>
+<td>Private slot to search the next occurrence of the current word.</td>
+</tr><tr>
+<td><a href="#Editor.__selectAll">__selectAll</a></td>
+<td>Private slot handling the select all context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__selectPygmentsLexer">__selectPygmentsLexer</a></td>
+<td>Private method to select a specific pygments lexer.</td>
+</tr><tr>
+<td><a href="#Editor.__send">__send</a></td>
+<td>Private method to send an editor command to remote editors.</td>
+</tr><tr>
+<td><a href="#Editor.__setAnnotation">__setAnnotation</a></td>
+<td>Private method to set the annotations for the given line.</td>
+</tr><tr>
+<td><a href="#Editor.__setAnnotationStyles">__setAnnotationStyles</a></td>
+<td>Private slot to define the style used by inline annotations.</td>
+</tr><tr>
+<td><a href="#Editor.__setAutoCompletion">__setAutoCompletion</a></td>
+<td>Private method to configure the autocompletion function.</td>
+</tr><tr>
+<td><a href="#Editor.__setCallTips">__setCallTips</a></td>
+<td>Private method to configure the calltips function.</td>
+</tr><tr>
+<td><a href="#Editor.__setEolMode">__setEolMode</a></td>
+<td>Private method to configure the eol mode of the editor.</td>
+</tr><tr>
+<td><a href="#Editor.__setLineMarkerColours">__setLineMarkerColours</a></td>
+<td>Private method to set the line marker colours.</td>
+</tr><tr>
+<td><a href="#Editor.__setMarginsDisplay">__setMarginsDisplay</a></td>
+<td>Private method to configure margins 0 and 2.</td>
+</tr><tr>
+<td><a href="#Editor.__setSpelling">__setSpelling</a></td>
+<td>Private method to initialize the spell checking functionality.</td>
+</tr><tr>
+<td><a href="#Editor.__setSpellingLanguage">__setSpellingLanguage</a></td>
+<td>Private slot to set the spell checking language.</td>
+</tr><tr>
+<td><a href="#Editor.__setTextDisplay">__setTextDisplay</a></td>
+<td>Private method to configure the text display.</td>
+</tr><tr>
+<td><a href="#Editor.__showApplicationDiagram">__showApplicationDiagram</a></td>
+<td>Private method to handle the Imports Diagram context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showClassDiagram">__showClassDiagram</a></td>
+<td>Private method to handle the Class Diagram context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showCodeCoverage">__showCodeCoverage</a></td>
+<td>Private method to handle the code coverage context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showCodeMetrics">__showCodeMetrics</a></td>
+<td>Private method to handle the code metrics context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenu">__showContextMenu</a></td>
+<td>Private slot handling the aboutToShow signal of the context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuAutocompletion">__showContextMenuAutocompletion</a></td>
+<td>Private slot called before the autocompletion menu is shown.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuChecks">__showContextMenuChecks</a></td>
+<td>Private slot handling the aboutToShow signal of the checks context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuEncodings">__showContextMenuEncodings</a></td>
+<td>Private slot handling the aboutToShow signal of the encodings context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuEol">__showContextMenuEol</a></td>
+<td>Private slot handling the aboutToShow signal of the eol context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuGraphics">__showContextMenuGraphics</a></td>
+<td>Private slot handling the aboutToShow signal of the diagrams context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuLanguages">__showContextMenuLanguages</a></td>
+<td>Private slot handling the aboutToShow signal of the languages context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuMargin">__showContextMenuMargin</a></td>
+<td>Private slot handling the aboutToShow signal of the margins context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuResources">__showContextMenuResources</a></td>
+<td>Private slot handling the aboutToShow signal of the resources context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuShow">__showContextMenuShow</a></td>
+<td>Private slot called before the show menu is shown.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuSpelling">__showContextMenuSpelling</a></td>
+<td>Private slot to set up the spelling menu before it is shown.</td>
+</tr><tr>
+<td><a href="#Editor.__showContextMenuTools">__showContextMenuTools</a></td>
+<td>Private slot handling the aboutToShow signal of the tools context menu.</td>
+</tr><tr>
+<td><a href="#Editor.__showImportsDiagram">__showImportsDiagram</a></td>
+<td>Private method to handle the Imports Diagram context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showPackageDiagram">__showPackageDiagram</a></td>
+<td>Private method to handle the Package Diagram context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showProfileData">__showProfileData</a></td>
+<td>Private method to handle the show profile data context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showSyntaxError">__showSyntaxError</a></td>
+<td>Private slot to handle the 'Show syntax error message' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__showWarning">__showWarning</a></td>
+<td>Private slot to handle the 'Show warning' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.__spellCharAdded">__spellCharAdded</a></td>
+<td>Private slot called to handle the user entering a character.</td>
+</tr><tr>
+<td><a href="#Editor.__styleNeeded">__styleNeeded</a></td>
+<td>Private slot to handle the need for more styling.</td>
+</tr><tr>
+<td><a href="#Editor.__textChanged">__textChanged</a></td>
+<td>Private slot to handle a change of the editor text.</td>
+</tr><tr>
+<td><a href="#Editor.__toggleAutoCompletionEnable">__toggleAutoCompletionEnable</a></td>
+<td>Private slot to handle the Enable Autocompletion context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.__toggleBreakpoint">__toggleBreakpoint</a></td>
+<td>Private method to toggle a breakpoint.</td>
+</tr><tr>
+<td><a href="#Editor.__toggleBreakpointEnabled">__toggleBreakpointEnabled</a></td>
+<td>Private method to toggle a breakpoints enabled status.</td>
+</tr><tr>
+<td><a href="#Editor.__toggleTypingAids">__toggleTypingAids</a></td>
+<td>Private slot to toggle the typing aids.</td>
+</tr><tr>
+<td><a href="#Editor.__updateReadOnly">__updateReadOnly</a></td>
+<td>Private method to update the readOnly information for this editor.</td>
+</tr><tr>
+<td><a href="#Editor.addCallTipHook">addCallTipHook</a></td>
+<td>Public method to set a calltip provider.</td>
+</tr><tr>
+<td><a href="#Editor.addClone">addClone</a></td>
+<td>Public method to add a clone to our list.</td>
+</tr><tr>
+<td><a href="#Editor.addCompletionListHook">addCompletionListHook</a></td>
+<td>Public method to set an auto-completion list provider.</td>
+</tr><tr>
+<td><a href="#Editor.addedToProject">addedToProject</a></td>
+<td>Public method to signal, that this editor has been added to a project.</td>
+</tr><tr>
+<td><a href="#Editor.autoComplete">autoComplete</a></td>
+<td>Public method to start autocompletion.</td>
+</tr><tr>
+<td><a href="#Editor.autoCompleteQScintilla">autoCompleteQScintilla</a></td>
+<td>Public method to perform an autocompletion using QScintilla methods.</td>
+</tr><tr>
+<td><a href="#Editor.autoCompletionHook">autoCompletionHook</a></td>
+<td>Public method to get the autocompletion hook function.</td>
+</tr><tr>
+<td><a href="#Editor.boxCommentLine">boxCommentLine</a></td>
+<td>Public slot to box comment the current line.</td>
+</tr><tr>
+<td><a href="#Editor.boxCommentLineOrSelection">boxCommentLineOrSelection</a></td>
+<td>Public slot to box comment the current line or current selection.</td>
+</tr><tr>
+<td><a href="#Editor.boxCommentSelection">boxCommentSelection</a></td>
+<td>Public slot to box comment the current selection.</td>
+</tr><tr>
+<td><a href="#Editor.callTip">callTip</a></td>
+<td>Public method to show calltips.</td>
+</tr><tr>
+<td><a href="#Editor.callTipHook">callTipHook</a></td>
+<td>Public method to get the calltip hook function.</td>
+</tr><tr>
+<td><a href="#Editor.canAutoCompleteFromAPIs">canAutoCompleteFromAPIs</a></td>
+<td>Public method to check for API availablity.</td>
+</tr><tr>
+<td><a href="#Editor.canProvideCallTipps">canProvideCallTipps</a></td>
+<td>Public method to test the calltips availability.</td>
+</tr><tr>
+<td><a href="#Editor.canProvideDynamicAutoCompletion">canProvideDynamicAutoCompletion</a></td>
+<td>Public method to test the dynamic auto-completion availability.</td>
+</tr><tr>
+<td><a href="#Editor.cancelSharedEdit">cancelSharedEdit</a></td>
+<td>Public slot to cancel a shared edit session for the editor.</td>
+</tr><tr>
+<td><a href="#Editor.changeEvent">changeEvent</a></td>
+<td>Protected method called to process an event.</td>
+</tr><tr>
+<td><a href="#Editor.checkDirty">checkDirty</a></td>
+<td>Public method to check dirty status and open a message window.</td>
+</tr><tr>
+<td><a href="#Editor.checkSpelling">checkSpelling</a></td>
+<td>Public slot to perform an interactive spell check of the document.</td>
+</tr><tr>
+<td><a href="#Editor.checkSyntax">checkSyntax</a></td>
+<td>Public method to perform an automatic syntax check of the file.</td>
+</tr><tr>
+<td><a href="#Editor.clearBookmarks">clearBookmarks</a></td>
+<td>Public slot to handle the 'Clear all bookmarks' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.clearBreakpoint">clearBreakpoint</a></td>
+<td>Public method to clear a breakpoint.</td>
+</tr><tr>
+<td><a href="#Editor.clearFlakesWarnings">clearFlakesWarnings</a></td>
+<td>Public slot to clear all pyflakes warnings.</td>
+</tr><tr>
+<td><a href="#Editor.clearSearchIndicators">clearSearchIndicators</a></td>
+<td>Public method to clear all search indicators.</td>
+</tr><tr>
+<td><a href="#Editor.clearStyleWarnings">clearStyleWarnings</a></td>
+<td>Public slot to clear all style warnings.</td>
+</tr><tr>
+<td><a href="#Editor.clearStyles">clearStyles</a></td>
+<td>Public method to set the styles according the selected Qt style or the selected editor colours.</td>
+</tr><tr>
+<td><a href="#Editor.clearSyntaxError">clearSyntaxError</a></td>
+<td>Public slot to handle the 'Clear all syntax error' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.clearWarnings">clearWarnings</a></td>
+<td>Public slot to clear all warnings.</td>
+</tr><tr>
+<td><a href="#Editor.close">close</a></td>
+<td>Public method called when the window gets closed.</td>
+</tr><tr>
+<td><a href="#Editor.closeIt">closeIt</a></td>
+<td>Public method called by the viewmanager to finally get rid of us.</td>
+</tr><tr>
+<td><a href="#Editor.codeCoverageShowAnnotations">codeCoverageShowAnnotations</a></td>
+<td>Public method to handle the show code coverage annotations context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.commentLine">commentLine</a></td>
+<td>Public slot to comment the current line.</td>
+</tr><tr>
+<td><a href="#Editor.commentLineOrSelection">commentLineOrSelection</a></td>
+<td>Public slot to comment the current line or current selection.</td>
+</tr><tr>
+<td><a href="#Editor.commentSelection">commentSelection</a></td>
+<td>Public slot to comment the current selection.</td>
+</tr><tr>
+<td><a href="#Editor.contextMenuEvent">contextMenuEvent</a></td>
+<td>Protected method implementing the context menu event.</td>
+</tr><tr>
+<td><a href="#Editor.curLineHasBreakpoint">curLineHasBreakpoint</a></td>
+<td>Public method to check for the presence of a breakpoint at the current line.</td>
+</tr><tr>
+<td><a href="#Editor.determineFileType">determineFileType</a></td>
+<td>Public method to determine the file type using various tests.</td>
+</tr><tr>
+<td><a href="#Editor.dragEnterEvent">dragEnterEvent</a></td>
+<td>Protected method to handle the drag enter event.</td>
+</tr><tr>
+<td><a href="#Editor.dragLeaveEvent">dragLeaveEvent</a></td>
+<td>Protected method to handle the drag leave event.</td>
+</tr><tr>
+<td><a href="#Editor.dragMoveEvent">dragMoveEvent</a></td>
+<td>Protected method to handle the drag move event.</td>
+</tr><tr>
+<td><a href="#Editor.dropEvent">dropEvent</a></td>
+<td>Protected method to handle the drop event.</td>
+</tr><tr>
+<td><a href="#Editor.editorCommand">editorCommand</a></td>
+<td>Public method to perform a simple editor command.</td>
+</tr><tr>
+<td><a href="#Editor.ensureVisible">ensureVisible</a></td>
+<td>Public slot to ensure, that the specified line is visible.</td>
+</tr><tr>
+<td><a href="#Editor.ensureVisibleTop">ensureVisibleTop</a></td>
+<td>Public slot to ensure, that the specified line is visible at the top of the editor.</td>
+</tr><tr>
+<td><a href="#Editor.event">event</a></td>
+<td>Public method handling events.</td>
+</tr><tr>
+<td><a href="#Editor.exportFile">exportFile</a></td>
+<td>Public method to export the file.</td>
+</tr><tr>
+<td><a href="#Editor.extractTasks">extractTasks</a></td>
+<td>Public slot to extract all tasks.</td>
+</tr><tr>
+<td><a href="#Editor.fileRenamed">fileRenamed</a></td>
+<td>Public slot to handle the editorRenamed signal.</td>
+</tr><tr>
+<td><a href="#Editor.focusInEvent">focusInEvent</a></td>
+<td>Protected method called when the editor receives focus.</td>
+</tr><tr>
+<td><a href="#Editor.focusOutEvent">focusOutEvent</a></td>
+<td>Protected method called when the editor loses focus.</td>
+</tr><tr>
+<td><a href="#Editor.gestureEvent">gestureEvent</a></td>
+<td>Protected method handling gesture events.</td>
+</tr><tr>
+<td><a href="#Editor.getApiLanguage">getApiLanguage</a></td>
+<td>Public method to get the API language of the editor.</td>
+</tr><tr>
+<td><a href="#Editor.getBookmarkLines">getBookmarkLines</a></td>
+<td>Public method to get the lines containing a bookmark.</td>
+</tr><tr>
+<td><a href="#Editor.getBookmarks">getBookmarks</a></td>
+<td>Public method to retrieve the bookmarks.</td>
+</tr><tr>
+<td><a href="#Editor.getBreakpointLines">getBreakpointLines</a></td>
+<td>Public method to get the lines containing a breakpoint.</td>
+</tr><tr>
+<td><a href="#Editor.getCallTipHook">getCallTipHook</a></td>
+<td>Public method to get the registered calltip provider.</td>
+</tr><tr>
+<td><a href="#Editor.getChangeLines">getChangeLines</a></td>
+<td>Public method to get the lines containing a change.</td>
+</tr><tr>
+<td><a href="#Editor.getCompleter">getCompleter</a></td>
+<td>Public method to retrieve a reference to the completer object.</td>
+</tr><tr>
+<td><a href="#Editor.getCompletionListHook">getCompletionListHook</a></td>
+<td>Public method to get the registered completion list provider.</td>
+</tr><tr>
+<td><a href="#Editor.getCoverageLines">getCoverageLines</a></td>
+<td>Public method to get the lines containing a coverage marker.</td>
+</tr><tr>
+<td><a href="#Editor.getCurrentWord">getCurrentWord</a></td>
+<td>Public method to get the word at the current position.</td>
+</tr><tr>
+<td><a href="#Editor.getCurrentWordBoundaries">getCurrentWordBoundaries</a></td>
+<td>Public method to get the word boundaries at the current position.</td>
+</tr><tr>
+<td><a href="#Editor.getEncoding">getEncoding</a></td>
+<td>Public method to return the current encoding.</td>
+</tr><tr>
+<td><a href="#Editor.getFileName">getFileName</a></td>
+<td>Public method to return the name of the file being displayed.</td>
+</tr><tr>
+<td><a href="#Editor.getFileType">getFileType</a></td>
+<td>Public method to return the type of the file being displayed.</td>
+</tr><tr>
+<td><a href="#Editor.getFileTypeByFlag">getFileTypeByFlag</a></td>
+<td>Public method to return the type of the file, if it was set by an eflag: marker.</td>
+</tr><tr>
+<td><a href="#Editor.getHighlightPosition">getHighlightPosition</a></td>
+<td>Public method to return the position of the highlight bar.</td>
+</tr><tr>
+<td><a href="#Editor.getLanguage">getLanguage</a></td>
+<td>Public method to retrieve the language of the editor.</td>
+</tr><tr>
+<td><a href="#Editor.getLexer">getLexer</a></td>
+<td>Public method to retrieve a reference to the lexer object.</td>
+</tr><tr>
+<td><a href="#Editor.getMenu">getMenu</a></td>
+<td>Public method to get a reference to the main context menu or a submenu.</td>
+</tr><tr>
+<td><a href="#Editor.getMouseClickHandler">getMouseClickHandler</a></td>
+<td>Public method to get a registered mouse click handler.</td>
+</tr><tr>
+<td><a href="#Editor.getMouseClickHandlers">getMouseClickHandlers</a></td>
+<td>Public method to get all registered mouse click handlers of a plug-in.</td>
+</tr><tr>
+<td><a href="#Editor.getNoName">getNoName</a></td>
+<td>Public method to get the display string for an unnamed editor.</td>
+</tr><tr>
+<td><a href="#Editor.getSearchIndicatorLines">getSearchIndicatorLines</a></td>
+<td>Public method to get the lines containing a search indicator.</td>
+</tr><tr>
+<td><a href="#Editor.getSearchText">getSearchText</a></td>
+<td>Public method to determine the selection or the current word for the next search operation.</td>
+</tr><tr>
+<td><a href="#Editor.getSharingStatus">getSharingStatus</a></td>
+<td>Public method to get some share status info.</td>
+</tr><tr>
+<td><a href="#Editor.getSyntaxErrorLines">getSyntaxErrorLines</a></td>
+<td>Public method to get the lines containing a syntax error.</td>
+</tr><tr>
+<td><a href="#Editor.getSyntaxErrors">getSyntaxErrors</a></td>
+<td>Public method to retrieve the syntax error markers.</td>
+</tr><tr>
+<td><a href="#Editor.getTaskLines">getTaskLines</a></td>
+<td>Public method to get the lines containing a task.</td>
+</tr><tr>
+<td><a href="#Editor.getWarningLines">getWarningLines</a></td>
+<td>Public method to get the lines containing a warning.</td>
+</tr><tr>
+<td><a href="#Editor.getWarnings">getWarnings</a></td>
+<td>Public method to retrieve the warning markers.</td>
+</tr><tr>
+<td><a href="#Editor.getWord">getWord</a></td>
+<td>Public method to get the word at a position.</td>
+</tr><tr>
+<td><a href="#Editor.getWordBoundaries">getWordBoundaries</a></td>
+<td>Public method to get the word boundaries at a position.</td>
+</tr><tr>
+<td><a href="#Editor.getWordLeft">getWordLeft</a></td>
+<td>Public method to get the word to the left of a position.</td>
+</tr><tr>
+<td><a href="#Editor.getWordRight">getWordRight</a></td>
+<td>Public method to get the word to the right of a position.</td>
+</tr><tr>
+<td><a href="#Editor.gotoLastEditPosition">gotoLastEditPosition</a></td>
+<td>Public method to move the cursor to the last edit position.</td>
+</tr><tr>
+<td><a href="#Editor.gotoLine">gotoLine</a></td>
+<td>Public slot to jump to the beginning of a line.</td>
+</tr><tr>
+<td><a href="#Editor.gotoMethodClass">gotoMethodClass</a></td>
+<td>Public method to go to the next Python method or class definition.</td>
+</tr><tr>
+<td><a href="#Editor.gotoSyntaxError">gotoSyntaxError</a></td>
+<td>Public slot to handle the 'Goto syntax error' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.handleMonospacedEnable">handleMonospacedEnable</a></td>
+<td>Public slot to handle the Use Monospaced Font context menu entry.</td>
+</tr><tr>
+<td><a href="#Editor.handleRenamed">handleRenamed</a></td>
+<td>Public slot to handle the editorRenamed signal.</td>
+</tr><tr>
+<td><a href="#Editor.hasBookmarks">hasBookmarks</a></td>
+<td>Public method to check for the presence of bookmarks.</td>
+</tr><tr>
+<td><a href="#Editor.hasBreakpoints">hasBreakpoints</a></td>
+<td>Public method to check for the presence of breakpoints.</td>
+</tr><tr>
+<td><a href="#Editor.hasChangeMarkers">hasChangeMarkers</a></td>
+<td>Public method to determine, if this editor contains any change markers.</td>
+</tr><tr>
+<td><a href="#Editor.hasCoverageMarkers">hasCoverageMarkers</a></td>
+<td>Public method to test, if there are coverage markers.</td>
+</tr><tr>
+<td><a href="#Editor.hasMiniMenu">hasMiniMenu</a></td>
+<td>Public method to check the miniMenu flag.</td>
+</tr><tr>
+<td><a href="#Editor.hasSyntaxErrors">hasSyntaxErrors</a></td>
+<td>Public method to check for the presence of syntax errors.</td>
+</tr><tr>
+<td><a href="#Editor.hasTaskMarkers">hasTaskMarkers</a></td>
+<td>Public method to determine, if this editor contains any task markers.</td>
+</tr><tr>
+<td><a href="#Editor.hasWarnings">hasWarnings</a></td>
+<td>Public method to check for the presence of warnings.</td>
+</tr><tr>
+<td><a href="#Editor.highlight">highlight</a></td>
+<td>Public method to highlight [or de-highlight] a particular line.</td>
+</tr><tr>
+<td><a href="#Editor.highlightVisible">highlightVisible</a></td>
+<td>Public method to make sure that the highlight is visible.</td>
+</tr><tr>
+<td><a href="#Editor.indentLineOrSelection">indentLineOrSelection</a></td>
+<td>Public slot to indent the current line or current selection.</td>
+</tr><tr>
+<td><a href="#Editor.isJavascriptFile">isJavascriptFile</a></td>
+<td>Public method to return a flag indicating a Javascript file.</td>
+</tr><tr>
+<td><a href="#Editor.isLastEditPositionAvailable">isLastEditPositionAvailable</a></td>
+<td>Public method to check, if a last edit position is available.</td>
+</tr><tr>
+<td><a href="#Editor.isPy2File">isPy2File</a></td>
+<td>Public method to return a flag indicating a Python2 file.</td>
+</tr><tr>
+<td><a href="#Editor.isPy3File">isPy3File</a></td>
+<td>Public method to return a flag indicating a Python3 file.</td>
+</tr><tr>
+<td><a href="#Editor.isPyFile">isPyFile</a></td>
+<td>Public method to return a flag indicating a Python (2 or 3) file.</td>
+</tr><tr>
+<td><a href="#Editor.isRubyFile">isRubyFile</a></td>
+<td>Public method to return a flag indicating a Ruby file.</td>
+</tr><tr>
+<td><a href="#Editor.isSpellCheckRegion">isSpellCheckRegion</a></td>
+<td>Public method to check, if the given position is within a region, that should be spell checked.</td>
+</tr><tr>
+<td><a href="#Editor.joinLines">joinLines</a></td>
+<td>Public slot to join the current line with the next one.</td>
+</tr><tr>
+<td><a href="#Editor.keyPressEvent">keyPressEvent</a></td>
+<td>Protected method to handle the user input a key at a time.</td>
+</tr><tr>
+<td><a href="#Editor.macroDelete">macroDelete</a></td>
+<td>Public method to delete a macro.</td>
+</tr><tr>
+<td><a href="#Editor.macroLoad">macroLoad</a></td>
+<td>Public method to load a macro from a file.</td>
+</tr><tr>
+<td><a href="#Editor.macroRecordingStart">macroRecordingStart</a></td>
+<td>Public method to start macro recording.</td>
+</tr><tr>
+<td><a href="#Editor.macroRecordingStop">macroRecordingStop</a></td>
+<td>Public method to stop macro recording.</td>
+</tr><tr>
+<td><a href="#Editor.macroRun">macroRun</a></td>
+<td>Public method to execute a macro.</td>
+</tr><tr>
+<td><a href="#Editor.macroSave">macroSave</a></td>
+<td>Public method to save a macro to a file.</td>
+</tr><tr>
+<td><a href="#Editor.menuEditBreakpoint">menuEditBreakpoint</a></td>
+<td>Public slot to handle the 'Edit breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.menuNextBreakpoint">menuNextBreakpoint</a></td>
+<td>Public slot to handle the 'Next breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.menuPreviousBreakpoint">menuPreviousBreakpoint</a></td>
+<td>Public slot to handle the 'Previous breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.menuToggleBookmark">menuToggleBookmark</a></td>
+<td>Public slot to handle the 'Toggle bookmark' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.menuToggleBreakpoint">menuToggleBreakpoint</a></td>
+<td>Public slot to handle the 'Toggle breakpoint' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.mousePressEvent">mousePressEvent</a></td>
+<td>Protected method to handle the mouse press event.</td>
+</tr><tr>
+<td><a href="#Editor.mouseReleaseEvent">mouseReleaseEvent</a></td>
+<td>Protected method calling a registered mouse click handler function.</td>
+</tr><tr>
+<td><a href="#Editor.newBreakpointWithProperties">newBreakpointWithProperties</a></td>
+<td>Public method to set a new breakpoint and its properties.</td>
+</tr><tr>
+<td><a href="#Editor.nextBookmark">nextBookmark</a></td>
+<td>Public slot to handle the 'Next bookmark' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.nextChange">nextChange</a></td>
+<td>Public slot to handle the 'Next change' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.nextTask">nextTask</a></td>
+<td>Public slot to handle the 'Next task' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.nextUncovered">nextUncovered</a></td>
+<td>Public slot to handle the 'Next uncovered' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.nextWarning">nextWarning</a></td>
+<td>Public slot to handle the 'Next warning' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.previousBookmark">previousBookmark</a></td>
+<td>Public slot to handle the 'Previous bookmark' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.previousChange">previousChange</a></td>
+<td>Public slot to handle the 'Previous task' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.previousTask">previousTask</a></td>
+<td>Public slot to handle the 'Previous task' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.previousUncovered">previousUncovered</a></td>
+<td>Public slot to handle the 'Previous uncovered' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.previousWarning">previousWarning</a></td>
+<td>Public slot to handle the 'Previous warning' context menu action.</td>
+</tr><tr>
+<td><a href="#Editor.printFile">printFile</a></td>
+<td>Public slot to print the text.</td>
+</tr><tr>
+<td><a href="#Editor.printPreviewFile">printPreviewFile</a></td>
+<td>Public slot to show a print preview of the text.</td>
+</tr><tr>
+<td><a href="#Editor.projectClosed">projectClosed</a></td>
+<td>Public slot to handle the closing of a project.</td>
+</tr><tr>
+<td><a href="#Editor.projectLexerAssociationsChanged">projectLexerAssociationsChanged</a></td>
+<td>Public slot to handle changes of the project lexer associations.</td>
+</tr><tr>
+<td><a href="#Editor.projectOpened">projectOpened</a></td>
+<td>Public slot to handle the opening of a project.</td>
+</tr><tr>
+<td><a href="#Editor.readFile">readFile</a></td>
+<td>Public slot to read the text from a file.</td>
+</tr><tr>
+<td><a href="#Editor.readSettings">readSettings</a></td>
+<td>Public slot to read the settings into our lexer.</td>
+</tr><tr>
+<td><a href="#Editor.receive">receive</a></td>
+<td>Public slot to handle received editor commands.</td>
+</tr><tr>
+<td><a href="#Editor.redo">redo</a></td>
+<td>Public method to redo the last recorded change.</td>
+</tr><tr>
+<td><a href="#Editor.refresh">refresh</a></td>
+<td>Public slot to refresh the editor contents.</td>
+</tr><tr>
+<td><a href="#Editor.refreshCoverageAnnotations">refreshCoverageAnnotations</a></td>
+<td>Public method to refresh the code coverage annotations.</td>
+</tr><tr>
+<td><a href="#Editor.removeCallTipHook">removeCallTipHook</a></td>
+<td>Public method to remove a previously registered calltip provider.</td>
+</tr><tr>
+<td><a href="#Editor.removeClone">removeClone</a></td>
+<td>Public method to remove a clone from our list.</td>
+</tr><tr>
+<td><a href="#Editor.removeCompletionListHook">removeCompletionListHook</a></td>
+<td>Public method to remove a previously registered completion list provider.</td>
+</tr><tr>
+<td><a href="#Editor.removeMouseClickHandler">removeMouseClickHandler</a></td>
+<td>Public method to un-registered a mouse click handler.</td>
+</tr><tr>
+<td><a href="#Editor.removeMouseClickHandlers">removeMouseClickHandlers</a></td>
+<td>Public method to un-registered all mouse click handlers of a plug-in.</td>
+</tr><tr>
+<td><a href="#Editor.resizeEvent">resizeEvent</a></td>
+<td>Protected method handling resize events.</td>
+</tr><tr>
+<td><a href="#Editor.revertToUnmodified">revertToUnmodified</a></td>
+<td>Public method to revert back to the last saved state.</td>
+</tr><tr>
+<td><a href="#Editor.saveFile">saveFile</a></td>
+<td>Public method to save the text to a file.</td>
+</tr><tr>
+<td><a href="#Editor.saveFileAs">saveFileAs</a></td>
+<td>Public slot to save a file with a new name.</td>
+</tr><tr>
+<td><a href="#Editor.saveFileCopy">saveFileCopy</a></td>
+<td>Public method to save a copy of the file.</td>
+</tr><tr>
+<td><a href="#Editor.searchCurrentWordBackward">searchCurrentWordBackward</a></td>
+<td>Public slot to search the current word backward.</td>
+</tr><tr>
+<td><a href="#Editor.searchCurrentWordForward">searchCurrentWordForward</a></td>
+<td>Public slot to search the current word forward.</td>
+</tr><tr>
+<td><a href="#Editor.selectCurrentWord">selectCurrentWord</a></td>
+<td>Public method to select the current word.</td>
+</tr><tr>
+<td><a href="#Editor.selectWord">selectWord</a></td>
+<td>Public method to select the word at a position.</td>
+</tr><tr>
+<td><a href="#Editor.sendSharedEdit">sendSharedEdit</a></td>
+<td>Public slot to end a shared edit session for the editor and send the changes.</td>
+</tr><tr>
+<td><a href="#Editor.setAutoCompletionEnabled">setAutoCompletionEnabled</a></td>
+<td>Public method to enable/disable autocompletion.</td>
+</tr><tr>
+<td><a href="#Editor.setAutoCompletionHook">setAutoCompletionHook</a></td>
+<td>Public method to set an autocompletion hook.</td>
+</tr><tr>
+<td><a href="#Editor.setAutoSpellChecking">setAutoSpellChecking</a></td>
+<td>Public method to set the automatic spell checking.</td>
+</tr><tr>
+<td><a href="#Editor.setCallTipHook">setCallTipHook</a></td>
+<td>Public method to set a calltip hook.</td>
+</tr><tr>
+<td><a href="#Editor.setLanguage">setLanguage</a></td>
+<td>Public method to set a lexer language.</td>
+</tr><tr>
+<td><a href="#Editor.setMonospaced">setMonospaced</a></td>
+<td>Public method to set/reset a monospaced font.</td>
+</tr><tr>
+<td><a href="#Editor.setMouseClickHandler">setMouseClickHandler</a></td>
+<td>Public method to set a mouse click handler.</td>
+</tr><tr>
+<td><a href="#Editor.setNoName">setNoName</a></td>
+<td>Public method to set the display string for an unnamed editor.</td>
+</tr><tr>
+<td><a href="#Editor.setSearchIndicator">setSearchIndicator</a></td>
+<td>Public method to set a search indicator for the given range.</td>
+</tr><tr>
+<td><a href="#Editor.setSpellingForProject">setSpellingForProject</a></td>
+<td>Public method to set the spell checking options for files belonging to the current project.</td>
+</tr><tr>
+<td><a href="#Editor.shareConnected">shareConnected</a></td>
+<td>Public slot to handle a change of the connected state.</td>
+</tr><tr>
+<td><a href="#Editor.shareEditor">shareEditor</a></td>
+<td>Public slot to set the shared status of the editor.</td>
+</tr><tr>
+<td><a href="#Editor.shortenEmptyLines">shortenEmptyLines</a></td>
+<td>Public slot to compress lines consisting solely of whitespace characters.</td>
+</tr><tr>
+<td><a href="#Editor.shouldAutosave">shouldAutosave</a></td>
+<td>Public slot to check the autosave flags.</td>
+</tr><tr>
+<td><a href="#Editor.smartIndentLineOrSelection">smartIndentLineOrSelection</a></td>
+<td>Public slot to indent current line smartly.</td>
+</tr><tr>
+<td><a href="#Editor.sortLines">sortLines</a></td>
+<td>Public slot to sort the lines spanned by a rectangular selection.</td>
+</tr><tr>
+<td><a href="#Editor.startSharedEdit">startSharedEdit</a></td>
+<td>Public slot to start a shared edit session for the editor.</td>
+</tr><tr>
+<td><a href="#Editor.streamCommentLine">streamCommentLine</a></td>
+<td>Public slot to stream comment the current line.</td>
+</tr><tr>
+<td><a href="#Editor.streamCommentLineOrSelection">streamCommentLineOrSelection</a></td>
+<td>Public slot to stream comment the current line or current selection.</td>
+</tr><tr>
+<td><a href="#Editor.streamCommentSelection">streamCommentSelection</a></td>
+<td>Public slot to comment the current selection.</td>
+</tr><tr>
+<td><a href="#Editor.toggleBookmark">toggleBookmark</a></td>
+<td>Public method to toggle a bookmark.</td>
+</tr><tr>
+<td><a href="#Editor.toggleCommentBlock">toggleCommentBlock</a></td>
+<td>Public slot to toggle the comment of a block.</td>
+</tr><tr>
+<td><a href="#Editor.toggleSyntaxError">toggleSyntaxError</a></td>
+<td>Public method to toggle a syntax error indicator.</td>
+</tr><tr>
+<td><a href="#Editor.toggleWarning">toggleWarning</a></td>
+<td>Public method to toggle a warning indicator.</td>
+</tr><tr>
+<td><a href="#Editor.uncommentLine">uncommentLine</a></td>
+<td>Public slot to uncomment the current line.</td>
+</tr><tr>
+<td><a href="#Editor.uncommentLineOrSelection">uncommentLineOrSelection</a></td>
+<td>Public slot to uncomment the current line or current selection.</td>
+</tr><tr>
+<td><a href="#Editor.uncommentSelection">uncommentSelection</a></td>
+<td>Public slot to uncomment the current selection.</td>
+</tr><tr>
+<td><a href="#Editor.undo">undo</a></td>
+<td>Public method to undo the last recorded change.</td>
+</tr><tr>
+<td><a href="#Editor.unindentLineOrSelection">unindentLineOrSelection</a></td>
+<td>Public slot to unindent the current line or current selection.</td>
+</tr><tr>
+<td><a href="#Editor.unsetAutoCompletionHook">unsetAutoCompletionHook</a></td>
+<td>Public method to unset a previously installed autocompletion hook.</td>
+</tr><tr>
+<td><a href="#Editor.unsetCallTipHook">unsetCallTipHook</a></td>
+<td>Public method to unset a calltip hook.</td>
+</tr><tr>
+<td><a href="#Editor.updateMarkerMap">updateMarkerMap</a></td>
+<td>Public method to initiate an update of the marker map.</td>
+</tr><tr>
+<td><a href="#Editor.viewportEvent">viewportEvent</a></td>
+<td>Protected method handling event of the viewport.</td>
+</tr><tr>
+<td><a href="#Editor.wheelEvent">wheelEvent</a></td>
+<td>Protected method to handle wheel events.</td>
+</tr><tr>
+<td><a href="#Editor.writeFile">writeFile</a></td>
+<td>Public slot to write the text to a file.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="Editor.__init__" ID="Editor.__init__"></a>
+<h4>Editor (Constructor)</h4>
+<b>Editor</b>(<i>dbs, fn="", vm=None, filetype="", editor=None, tv=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>dbs</i></dt>
+<dd>
+reference to the debug server object
+</dd><dt><i>fn</i></dt>
+<dd>
+name of the file to be opened (string). If it is None,
+                a new (empty) editor is opened
+</dd><dt><i>vm</i></dt>
+<dd>
+reference to the view manager object
+            (ViewManager.ViewManager)
+</dd><dt><i>filetype</i></dt>
+<dd>
+type of the source file (string)
+</dd><dt><i>editor</i></dt>
+<dd>
+reference to an Editor object, if this is a cloned view
+</dd><dt><i>tv</i></dt>
+<dd>
+reference to the task viewer object
+</dd>
+</dl><dl>
+<dt>Raises <b>IOError</b>:</dt>
+<dd>
+raised to indicate an issue accessing the file
+</dd>
+</dl><a NAME="Editor.__addBreakPoint" ID="Editor.__addBreakPoint"></a>
+<h4>Editor.__addBreakPoint</h4>
+<b>__addBreakPoint</b>(<i>line, temporary</i>)
+<p>
+        Private method to add a new breakpoint.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd><dt><i>temporary</i></dt>
+<dd>
+flag indicating a temporary breakpoint (boolean)
+</dd>
+</dl><a NAME="Editor.__addBreakPoints" ID="Editor.__addBreakPoints"></a>
+<h4>Editor.__addBreakPoints</h4>
+<b>__addBreakPoints</b>(<i>parentIndex, start, end</i>)
+<p>
+        Private slot to add breakpoints.
+</p><dl>
+<dt><i>parentIndex</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd><dt><i>start</i></dt>
+<dd>
+start row (integer)
+</dd><dt><i>end</i></dt>
+<dd>
+end row (integer)
+</dd>
+</dl><a NAME="Editor.__addFileAliasResource" ID="Editor.__addFileAliasResource"></a>
+<h4>Editor.__addFileAliasResource</h4>
+<b>__addFileAliasResource</b>(<i></i>)
+<p>
+        Private method to handle the Add aliased file context menu action.
+</p><a NAME="Editor.__addFileResource" ID="Editor.__addFileResource"></a>
+<h4>Editor.__addFileResource</h4>
+<b>__addFileResource</b>(<i></i>)
+<p>
+        Private method to handle the Add file context menu action.
+</p><a NAME="Editor.__addFileResources" ID="Editor.__addFileResources"></a>
+<h4>Editor.__addFileResources</h4>
+<b>__addFileResources</b>(<i></i>)
+<p>
+        Private method to handle the Add files context menu action.
+</p><a NAME="Editor.__addLocalizedResource" ID="Editor.__addLocalizedResource"></a>
+<h4>Editor.__addLocalizedResource</h4>
+<b>__addLocalizedResource</b>(<i></i>)
+<p>
+        Private method to handle the Add localized resource context menu
+        action.
+</p><a NAME="Editor.__addResourceFrame" ID="Editor.__addResourceFrame"></a>
+<h4>Editor.__addResourceFrame</h4>
+<b>__addResourceFrame</b>(<i></i>)
+<p>
+        Private method to handle the Add resource frame context menu action.
+</p><a NAME="Editor.__addToSpellingDictionary" ID="Editor.__addToSpellingDictionary"></a>
+<h4>Editor.__addToSpellingDictionary</h4>
+<b>__addToSpellingDictionary</b>(<i></i>)
+<p>
+        Private slot to add the word below the spelling context menu to the
+        dictionary.
+</p><a NAME="Editor.__adjustedCallTipPosition" ID="Editor.__adjustedCallTipPosition"></a>
+<h4>Editor.__adjustedCallTipPosition</h4>
+<b>__adjustedCallTipPosition</b>(<i>ctshift, pos</i>)
+<p>
+        Private method to calculate an adjusted position for showing calltips.
+</p><dl>
+<dt><i>ctshift</i></dt>
+<dd>
+amount the calltip shall be shifted (integer)
+</dd><dt><i>pos</i></dt>
+<dd>
+position into the text (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+new position for the calltip (integer)
+</dd>
+</dl><a NAME="Editor.__applyTemplate" ID="Editor.__applyTemplate"></a>
+<h4>Editor.__applyTemplate</h4>
+<b>__applyTemplate</b>(<i>templateName, language</i>)
+<p>
+        Private method to apply a template by name.
+</p><dl>
+<dt><i>templateName</i></dt>
+<dd>
+name of the template to apply (string)
+</dd><dt><i>language</i></dt>
+<dd>
+name of the language (group) to get the template
+            from (string)
+</dd>
+</dl><a NAME="Editor.__autosaveEnable" ID="Editor.__autosaveEnable"></a>
+<h4>Editor.__autosaveEnable</h4>
+<b>__autosaveEnable</b>(<i></i>)
+<p>
+        Private slot handling the autosave enable context menu action.
+</p><a NAME="Editor.__bindCompleter" ID="Editor.__bindCompleter"></a>
+<h4>Editor.__bindCompleter</h4>
+<b>__bindCompleter</b>(<i>filename</i>)
+<p>
+        Private slot to set the correct typing completer depending on language.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+filename used to determine the associated typing
+            completer language (string)
+</dd>
+</dl><a NAME="Editor.__bindLexer" ID="Editor.__bindLexer"></a>
+<h4>Editor.__bindLexer</h4>
+<b>__bindLexer</b>(<i>filename, pyname=""</i>)
+<p>
+        Private slot to set the correct lexer depending on language.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+filename used to determine the associated lexer
+            language (string)
+</dd><dt><i>pyname=</i></dt>
+<dd>
+name of the pygments lexer to use (string)
+</dd>
+</dl><a NAME="Editor.__bindName" ID="Editor.__bindName"></a>
+<h4>Editor.__bindName</h4>
+<b>__bindName</b>(<i>line0</i>)
+<p>
+        Private method to generate a dummy filename for binding a lexer.
+</p><dl>
+<dt><i>line0</i></dt>
+<dd>
+first line of text to use in the generation process
+            (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+dummy file name to be used for binding a lexer (string)
+</dd>
+</dl><a NAME="Editor.__breakPointDataAboutToBeChanged" ID="Editor.__breakPointDataAboutToBeChanged"></a>
+<h4>Editor.__breakPointDataAboutToBeChanged</h4>
+<b>__breakPointDataAboutToBeChanged</b>(<i>startIndex, endIndex</i>)
+<p>
+        Private slot to handle the dataAboutToBeChanged signal of the
+        breakpoint model.
+</p><dl>
+<dt><i>startIndex</i></dt>
+<dd>
+start index of the rows to be changed (QModelIndex)
+</dd><dt><i>endIndex</i></dt>
+<dd>
+end index of the rows to be changed (QModelIndex)
+</dd>
+</dl><a NAME="Editor.__calculateChanges" ID="Editor.__calculateChanges"></a>
+<h4>Editor.__calculateChanges</h4>
+<b>__calculateChanges</b>(<i>old, new</i>)
+<p>
+        Private method to determine change commands to convert old text into
+        new text.
+</p><dl>
+<dt><i>old</i></dt>
+<dd>
+old text (string)
+</dd><dt><i>new</i></dt>
+<dd>
+new text (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+commands to change old into new (string)
+</dd>
+</dl><a NAME="Editor.__callTip" ID="Editor.__callTip"></a>
+<h4>Editor.__callTip</h4>
+<b>__callTip</b>(<i></i>)
+<p>
+        Private method to show call tips provided by a plugin.
+</p><a NAME="Editor.__changeBreakPoints" ID="Editor.__changeBreakPoints"></a>
+<h4>Editor.__changeBreakPoints</h4>
+<b>__changeBreakPoints</b>(<i>startIndex, endIndex</i>)
+<p>
+        Private slot to set changed breakpoints.
+</p><dl>
+<dt><i>startIndex</i></dt>
+<dd>
+start index of the breakpoints being changed
+            (QModelIndex)
+</dd><dt><i>endIndex</i></dt>
+<dd>
+end index of the breakpoints being changed
+            (QModelIndex)
+</dd>
+</dl><a NAME="Editor.__charAdded" ID="Editor.__charAdded"></a>
+<h4>Editor.__charAdded</h4>
+<b>__charAdded</b>(<i>charNumber</i>)
+<p>
+        Private slot called to handle the user entering a character.
+</p><dl>
+<dt><i>charNumber</i></dt>
+<dd>
+value of the character entered (integer)
+</dd>
+</dl><a NAME="Editor.__checkEncoding" ID="Editor.__checkEncoding"></a>
+<h4>Editor.__checkEncoding</h4>
+<b>__checkEncoding</b>(<i></i>)
+<p>
+        Private method to check the selected encoding of the encodings submenu.
+</p><a NAME="Editor.__checkEol" ID="Editor.__checkEol"></a>
+<h4>Editor.__checkEol</h4>
+<b>__checkEol</b>(<i></i>)
+<p>
+        Private method to check the selected eol type of the eol submenu.
+</p><a NAME="Editor.__checkLanguage" ID="Editor.__checkLanguage"></a>
+<h4>Editor.__checkLanguage</h4>
+<b>__checkLanguage</b>(<i></i>)
+<p>
+        Private method to check the selected language of the language submenu.
+</p><a NAME="Editor.__checkSpellingSelection" ID="Editor.__checkSpellingSelection"></a>
+<h4>Editor.__checkSpellingSelection</h4>
+<b>__checkSpellingSelection</b>(<i></i>)
+<p>
+        Private slot to spell check the current selection.
+</p><a NAME="Editor.__checkSpellingWord" ID="Editor.__checkSpellingWord"></a>
+<h4>Editor.__checkSpellingWord</h4>
+<b>__checkSpellingWord</b>(<i></i>)
+<p>
+        Private slot to check the word below the spelling context menu.
+</p><a NAME="Editor.__clearBreakpoints" ID="Editor.__clearBreakpoints"></a>
+<h4>Editor.__clearBreakpoints</h4>
+<b>__clearBreakpoints</b>(<i>fileName</i>)
+<p>
+        Private slot to clear all breakpoints.
+</p><dl>
+<dt><i>fileName</i></dt>
+<dd>
+name of the file (string)
+</dd>
+</dl><a NAME="Editor.__clearTypedWarning" ID="Editor.__clearTypedWarning"></a>
+<h4>Editor.__clearTypedWarning</h4>
+<b>__clearTypedWarning</b>(<i>warningKind</i>)
+<p>
+        Private method to clear warnings of a specific kind.
+</p><dl>
+<dt><i>warningKind</i></dt>
+<dd>
+kind of warning to clear (Editor.WarningCode,
+            Editor.WarningStyle)
+</dd>
+</dl><a NAME="Editor.__codeCoverageHideAnnotations" ID="Editor.__codeCoverageHideAnnotations"></a>
+<h4>Editor.__codeCoverageHideAnnotations</h4>
+<b>__codeCoverageHideAnnotations</b>(<i></i>)
+<p>
+        Private method to handle the hide code coverage annotations context
+        menu action.
+</p><a NAME="Editor.__completionListSelected" ID="Editor.__completionListSelected"></a>
+<h4>Editor.__completionListSelected</h4>
+<b>__completionListSelected</b>(<i>listId, txt</i>)
+<p>
+        Private slot to handle the selection from the completion list.
+</p><dl>
+<dt><i>listId</i></dt>
+<dd>
+the ID of the user list (should be 1 or 2) (integer)
+</dd><dt><i>txt</i></dt>
+<dd>
+the selected text (string)
+</dd>
+</dl><a NAME="Editor.__contextClose" ID="Editor.__contextClose"></a>
+<h4>Editor.__contextClose</h4>
+<b>__contextClose</b>(<i></i>)
+<p>
+        Private slot handling the close context menu entry.
+</p><a NAME="Editor.__contextMenuSpellingTriggered" ID="Editor.__contextMenuSpellingTriggered"></a>
+<h4>Editor.__contextMenuSpellingTriggered</h4>
+<b>__contextMenuSpellingTriggered</b>(<i>action</i>)
+<p>
+        Private slot to handle the selection of a suggestion of the spelling
+        context menu.
+</p><dl>
+<dt><i>action</i></dt>
+<dd>
+reference to the action that was selected (QAction)
+</dd>
+</dl><a NAME="Editor.__contextOpenRejections" ID="Editor.__contextOpenRejections"></a>
+<h4>Editor.__contextOpenRejections</h4>
+<b>__contextOpenRejections</b>(<i></i>)
+<p>
+        Private slot handling the open rejections file context menu entry.
+</p><a NAME="Editor.__contextSave" ID="Editor.__contextSave"></a>
+<h4>Editor.__contextSave</h4>
+<b>__contextSave</b>(<i></i>)
+<p>
+        Private slot handling the save context menu entry.
+</p><a NAME="Editor.__contextSaveAs" ID="Editor.__contextSaveAs"></a>
+<h4>Editor.__contextSaveAs</h4>
+<b>__contextSaveAs</b>(<i></i>)
+<p>
+        Private slot handling the save as context menu entry.
+</p><a NAME="Editor.__contextSaveCopy" ID="Editor.__contextSaveCopy"></a>
+<h4>Editor.__contextSaveCopy</h4>
+<b>__contextSaveCopy</b>(<i></i>)
+<p>
+        Private slot handling the save copy context menu entry.
+</p><a NAME="Editor.__createChangeMarkerPixmap" ID="Editor.__createChangeMarkerPixmap"></a>
+<h4>Editor.__createChangeMarkerPixmap</h4>
+<b>__createChangeMarkerPixmap</b>(<i>key, size=16, width=4</i>)
+<p>
+        Private method to create a pixmap for the change markers.
+</p><dl>
+<dt><i>key</i></dt>
+<dd>
+key of the color to use (string)
+</dd><dt><i>size</i></dt>
+<dd>
+size of the pixmap (integer)
+</dd><dt><i>width</i></dt>
+<dd>
+width of the marker line (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+create pixmap (QPixmap)
+</dd>
+</dl><a NAME="Editor.__cursorPositionChanged" ID="Editor.__cursorPositionChanged"></a>
+<h4>Editor.__cursorPositionChanged</h4>
+<b>__cursorPositionChanged</b>(<i>line, index</i>)
+<p>
+        Private slot to handle the cursorPositionChanged signal.
+</p><p>
+        It emits the signal cursorChanged with parameters fileName,
+        line and pos.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the cursor
+</dd><dt><i>index</i></dt>
+<dd>
+position in line of the cursor
+</dd>
+</dl><a NAME="Editor.__deleteAllChangeMarkers" ID="Editor.__deleteAllChangeMarkers"></a>
+<h4>Editor.__deleteAllChangeMarkers</h4>
+<b>__deleteAllChangeMarkers</b>(<i></i>)
+<p>
+        Private slot to delete all change markers.
+</p><a NAME="Editor.__deleteBreakPoints" ID="Editor.__deleteBreakPoints"></a>
+<h4>Editor.__deleteBreakPoints</h4>
+<b>__deleteBreakPoints</b>(<i>parentIndex, start, end</i>)
+<p>
+        Private slot to delete breakpoints.
+</p><dl>
+<dt><i>parentIndex</i></dt>
+<dd>
+index of parent item (QModelIndex)
+</dd><dt><i>start</i></dt>
+<dd>
+start row (integer)
+</dd><dt><i>end</i></dt>
+<dd>
+end row (integer)
+</dd>
+</dl><a NAME="Editor.__deselectAll" ID="Editor.__deselectAll"></a>
+<h4>Editor.__deselectAll</h4>
+<b>__deselectAll</b>(<i></i>)
+<p>
+        Private slot handling the deselect all context menu action.
+</p><a NAME="Editor.__dispatchCommand" ID="Editor.__dispatchCommand"></a>
+<h4>Editor.__dispatchCommand</h4>
+<b>__dispatchCommand</b>(<i>command</i>)
+<p>
+        Private method to dispatch received commands.
+</p><dl>
+<dt><i>command</i></dt>
+<dd>
+command to be processed (string)
+</dd>
+</dl><a NAME="Editor.__encodingChanged" ID="Editor.__encodingChanged"></a>
+<h4>Editor.__encodingChanged</h4>
+<b>__encodingChanged</b>(<i>encoding, propagate=True</i>)
+<p>
+        Private slot to handle a change of the encoding.
+</p><dl>
+<dt><i>encoding</i></dt>
+<dd>
+changed encoding (string)
+</dd><dt><i>propagate=</i></dt>
+<dd>
+flag indicating to propagate the change (boolean)
+</dd>
+</dl><a NAME="Editor.__encodingsMenuTriggered" ID="Editor.__encodingsMenuTriggered"></a>
+<h4>Editor.__encodingsMenuTriggered</h4>
+<b>__encodingsMenuTriggered</b>(<i>act</i>)
+<p>
+        Private method to handle the selection of an encoding.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that was triggered (QAction)
+</dd>
+</dl><a NAME="Editor.__eolChanged" ID="Editor.__eolChanged"></a>
+<h4>Editor.__eolChanged</h4>
+<b>__eolChanged</b>(<i></i>)
+<p>
+        Private slot to handle a change of the eol mode.
+</p><a NAME="Editor.__eolMenuTriggered" ID="Editor.__eolMenuTriggered"></a>
+<h4>Editor.__eolMenuTriggered</h4>
+<b>__eolMenuTriggered</b>(<i>act</i>)
+<p>
+        Private method to handle the selection of an eol type.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that was triggered (QAction)
+</dd>
+</dl><a NAME="Editor.__exportMenuTriggered" ID="Editor.__exportMenuTriggered"></a>
+<h4>Editor.__exportMenuTriggered</h4>
+<b>__exportMenuTriggered</b>(<i>act</i>)
+<p>
+        Private method to handle the selection of an export format.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that was triggered (QAction)
+</dd>
+</dl><a NAME="Editor.__getCharacter" ID="Editor.__getCharacter"></a>
+<h4>Editor.__getCharacter</h4>
+<b>__getCharacter</b>(<i>pos</i>)
+<p>
+        Private method to get the character to the left of the current position
+        in the current line.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position to get character at (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested character or "", if there are no more (string) and
+            the next position (i.e. pos - 1)
+</dd>
+</dl><a NAME="Editor.__getCodeCoverageFile" ID="Editor.__getCodeCoverageFile"></a>
+<h4>Editor.__getCodeCoverageFile</h4>
+<b>__getCodeCoverageFile</b>(<i></i>)
+<p>
+        Private method to get the file name of the file containing coverage
+        info.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+file name of the coverage file (string)
+</dd>
+</dl><a NAME="Editor.__getMacroName" ID="Editor.__getMacroName"></a>
+<h4>Editor.__getMacroName</h4>
+<b>__getMacroName</b>(<i></i>)
+<p>
+        Private method to select a macro name from the list of macros.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+Tuple of macro name and a flag, indicating, if the user
+            pressed ok or canceled the operation. (string, boolean)
+</dd>
+</dl><a NAME="Editor.__getPyVersion" ID="Editor.__getPyVersion"></a>
+<h4>Editor.__getPyVersion</h4>
+<b>__getPyVersion</b>(<i></i>)
+<p>
+        Private method to return the Python main version (2 or 3) or 0 if it's
+        not a Python file at all.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+Python version (2 or 3) or 0 if it's not a Python file (int)
+</dd>
+</dl><a NAME="Editor.__getSaveFileName" ID="Editor.__getSaveFileName"></a>
+<h4>Editor.__getSaveFileName</h4>
+<b>__getSaveFileName</b>(<i>path=None</i>)
+<p>
+        Private method to get the name of the file to be saved.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+directory to save the file in (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+file name (string)
+</dd>
+</dl><a NAME="Editor.__ignoreSpellingAlways" ID="Editor.__ignoreSpellingAlways"></a>
+<h4>Editor.__ignoreSpellingAlways</h4>
+<b>__ignoreSpellingAlways</b>(<i></i>)
+<p>
+        Private to always ignore the word below the spelling context menu.
+</p><a NAME="Editor.__indentLine" ID="Editor.__indentLine"></a>
+<h4>Editor.__indentLine</h4>
+<b>__indentLine</b>(<i>indent=True</i>)
+<p>
+        Private method to indent or unindent the current line.
+</p><dl>
+<dt><i>indent</i></dt>
+<dd>
+flag indicating an indent operation (boolean)
+                <br />If the flag is true, an indent operation is performed.
+                Otherwise the current line is unindented.
+</dd>
+</dl><a NAME="Editor.__indentSelection" ID="Editor.__indentSelection"></a>
+<h4>Editor.__indentSelection</h4>
+<b>__indentSelection</b>(<i>indent=True</i>)
+<p>
+        Private method to indent or unindent the current selection.
+</p><dl>
+<dt><i>indent</i></dt>
+<dd>
+flag indicating an indent operation (boolean)
+                <br />If the flag is true, an indent operation is performed.
+                Otherwise the current line is unindented.
+</dd>
+</dl><a NAME="Editor.__initContextMenu" ID="Editor.__initContextMenu"></a>
+<h4>Editor.__initContextMenu</h4>
+<b>__initContextMenu</b>(<i></i>)
+<p>
+        Private method used to setup the context menu.
+</p><a NAME="Editor.__initContextMenuAutocompletion" ID="Editor.__initContextMenuAutocompletion"></a>
+<h4>Editor.__initContextMenuAutocompletion</h4>
+<b>__initContextMenuAutocompletion</b>(<i></i>)
+<p>
+        Private method used to setup the Checks context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuChecks" ID="Editor.__initContextMenuChecks"></a>
+<h4>Editor.__initContextMenuChecks</h4>
+<b>__initContextMenuChecks</b>(<i></i>)
+<p>
+        Private method used to setup the Checks context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuEncodings" ID="Editor.__initContextMenuEncodings"></a>
+<h4>Editor.__initContextMenuEncodings</h4>
+<b>__initContextMenuEncodings</b>(<i></i>)
+<p>
+        Private method used to setup the Encodings context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuEol" ID="Editor.__initContextMenuEol"></a>
+<h4>Editor.__initContextMenuEol</h4>
+<b>__initContextMenuEol</b>(<i></i>)
+<p>
+        Private method to setup the eol context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuExporters" ID="Editor.__initContextMenuExporters"></a>
+<h4>Editor.__initContextMenuExporters</h4>
+<b>__initContextMenuExporters</b>(<i></i>)
+<p>
+        Private method used to setup the Exporters context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuGraphics" ID="Editor.__initContextMenuGraphics"></a>
+<h4>Editor.__initContextMenuGraphics</h4>
+<b>__initContextMenuGraphics</b>(<i></i>)
+<p>
+        Private method used to setup the diagrams context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuLanguages" ID="Editor.__initContextMenuLanguages"></a>
+<h4>Editor.__initContextMenuLanguages</h4>
+<b>__initContextMenuLanguages</b>(<i></i>)
+<p>
+        Private method used to setup the Languages context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuMargins" ID="Editor.__initContextMenuMargins"></a>
+<h4>Editor.__initContextMenuMargins</h4>
+<b>__initContextMenuMargins</b>(<i></i>)
+<p>
+        Private method used to setup the context menu for the margins.
+</p><a NAME="Editor.__initContextMenuReopenWithEncoding" ID="Editor.__initContextMenuReopenWithEncoding"></a>
+<h4>Editor.__initContextMenuReopenWithEncoding</h4>
+<b>__initContextMenuReopenWithEncoding</b>(<i></i>)
+<p>
+        Private method used to setup the Reopen With Encoding context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuResources" ID="Editor.__initContextMenuResources"></a>
+<h4>Editor.__initContextMenuResources</h4>
+<b>__initContextMenuResources</b>(<i></i>)
+<p>
+        Private method used to setup the Resources context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuSeparateMargins" ID="Editor.__initContextMenuSeparateMargins"></a>
+<h4>Editor.__initContextMenuSeparateMargins</h4>
+<b>__initContextMenuSeparateMargins</b>(<i></i>)
+<p>
+        Private method used to setup the context menu for the separated
+        margins.
+</p><a NAME="Editor.__initContextMenuShow" ID="Editor.__initContextMenuShow"></a>
+<h4>Editor.__initContextMenuShow</h4>
+<b>__initContextMenuShow</b>(<i></i>)
+<p>
+        Private method used to setup the Show context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuTools" ID="Editor.__initContextMenuTools"></a>
+<h4>Editor.__initContextMenuTools</h4>
+<b>__initContextMenuTools</b>(<i></i>)
+<p>
+        Private method used to setup the Tools context sub menu.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the generated menu (QMenu)
+</dd>
+</dl><a NAME="Editor.__initContextMenuUnifiedMargins" ID="Editor.__initContextMenuUnifiedMargins"></a>
+<h4>Editor.__initContextMenuUnifiedMargins</h4>
+<b>__initContextMenuUnifiedMargins</b>(<i></i>)
+<p>
+        Private method used to setup the context menu for the unified margins.
+</p><a NAME="Editor.__initOnlineChangeTrace" ID="Editor.__initOnlineChangeTrace"></a>
+<h4>Editor.__initOnlineChangeTrace</h4>
+<b>__initOnlineChangeTrace</b>(<i></i>)
+<p>
+        Private slot to initialize the online change trace.
+</p><a NAME="Editor.__initOnlineSyntaxCheck" ID="Editor.__initOnlineSyntaxCheck"></a>
+<h4>Editor.__initOnlineSyntaxCheck</h4>
+<b>__initOnlineSyntaxCheck</b>(<i></i>)
+<p>
+        Private slot to initialize the online syntax check.
+</p><a NAME="Editor.__isCommentedLine" ID="Editor.__isCommentedLine"></a>
+<h4>Editor.__isCommentedLine</h4>
+<b>__isCommentedLine</b>(<i>line, commentStr</i>)
+<p>
+        Private method to check, if the given line is a comment line as
+        produced by the configured comment rules.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+text of the line to check (string)
+</dd><dt><i>commentStr</i></dt>
+<dd>
+comment string to check against (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a commented line (boolean)
+</dd>
+</dl><a NAME="Editor.__isStartChar" ID="Editor.__isStartChar"></a>
+<h4>Editor.__isStartChar</h4>
+<b>__isStartChar</b>(<i>ch</i>)
+<p>
+        Private method to check, if a character is an autocompletion start
+        character.
+</p><dl>
+<dt><i>ch</i></dt>
+<dd>
+character to be checked (one character string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the result (boolean)
+</dd>
+</dl><a NAME="Editor.__languageChanged" ID="Editor.__languageChanged"></a>
+<h4>Editor.__languageChanged</h4>
+<b>__languageChanged</b>(<i>language, propagate=True</i>)
+<p>
+        Private slot handling a change of a connected editor's language.
+</p><dl>
+<dt><i>language</i></dt>
+<dd>
+language to be set (string)
+</dd><dt><i>propagate=</i></dt>
+<dd>
+flag indicating to propagate the change (boolean)
+</dd>
+</dl><a NAME="Editor.__languageMenuTriggered" ID="Editor.__languageMenuTriggered"></a>
+<h4>Editor.__languageMenuTriggered</h4>
+<b>__languageMenuTriggered</b>(<i>act</i>)
+<p>
+        Private method to handle the selection of a lexer language.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that was triggered (QAction)
+</dd>
+</dl><a NAME="Editor.__lmBbookmarks" ID="Editor.__lmBbookmarks"></a>
+<h4>Editor.__lmBbookmarks</h4>
+<b>__lmBbookmarks</b>(<i></i>)
+<p>
+        Private method to handle the 'LMB toggles bookmark' context menu
+        action.
+</p><a NAME="Editor.__lmBbreakpoints" ID="Editor.__lmBbreakpoints"></a>
+<h4>Editor.__lmBbreakpoints</h4>
+<b>__lmBbreakpoints</b>(<i></i>)
+<p>
+        Private method to handle the 'LMB toggles breakpoint' context menu
+        action.
+</p><a NAME="Editor.__loadDiagram" ID="Editor.__loadDiagram"></a>
+<h4>Editor.__loadDiagram</h4>
+<b>__loadDiagram</b>(<i></i>)
+<p>
+        Private slot to load a diagram from file.
+</p><a NAME="Editor.__marginClicked" ID="Editor.__marginClicked"></a>
+<h4>Editor.__marginClicked</h4>
+<b>__marginClicked</b>(<i>margin, line, modifiers</i>)
+<p>
+        Private slot to handle the marginClicked signal.
+</p><dl>
+<dt><i>margin</i></dt>
+<dd>
+id of the clicked margin (integer)
+</dd><dt><i>line</i></dt>
+<dd>
+line number of the click (integer)
+</dd><dt><i>modifiers</i></dt>
+<dd>
+keyboard modifiers (Qt.KeyboardModifiers)
+</dd>
+</dl><a NAME="Editor.__marginNumber" ID="Editor.__marginNumber"></a>
+<h4>Editor.__marginNumber</h4>
+<b>__marginNumber</b>(<i>xPos</i>)
+<p>
+        Private method to calculate the margin number based on a x position.
+</p><dl>
+<dt><i>xPos</i></dt>
+<dd>
+x position (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+margin number (integer, -1 for no margin)
+</dd>
+</dl><a NAME="Editor.__markOccurrences" ID="Editor.__markOccurrences"></a>
+<h4>Editor.__markOccurrences</h4>
+<b>__markOccurrences</b>(<i></i>)
+<p>
+        Private method to mark all occurrences of the current word.
+</p><a NAME="Editor.__menuClearBreakpoints" ID="Editor.__menuClearBreakpoints"></a>
+<h4>Editor.__menuClearBreakpoints</h4>
+<b>__menuClearBreakpoints</b>(<i></i>)
+<p>
+        Private slot to handle the 'Clear all breakpoints' context menu action.
+</p><a NAME="Editor.__menuToggleBreakpointEnabled" ID="Editor.__menuToggleBreakpointEnabled"></a>
+<h4>Editor.__menuToggleBreakpointEnabled</h4>
+<b>__menuToggleBreakpointEnabled</b>(<i></i>)
+<p>
+        Private slot to handle the 'Enable/Disable breakpoint' context menu
+        action.
+</p><a NAME="Editor.__menuToggleTemporaryBreakpoint" ID="Editor.__menuToggleTemporaryBreakpoint"></a>
+<h4>Editor.__menuToggleTemporaryBreakpoint</h4>
+<b>__menuToggleTemporaryBreakpoint</b>(<i></i>)
+<p>
+        Private slot to handle the 'Toggle temporary breakpoint' context menu
+        action.
+</p><a NAME="Editor.__modificationChanged" ID="Editor.__modificationChanged"></a>
+<h4>Editor.__modificationChanged</h4>
+<b>__modificationChanged</b>(<i>m</i>)
+<p>
+        Private slot to handle the modificationChanged signal.
+</p><p>
+        It emits the signal modificationStatusChanged with parameters
+        m and self.
+</p><dl>
+<dt><i>m</i></dt>
+<dd>
+modification status
+</dd>
+</dl><a NAME="Editor.__modificationReadOnly" ID="Editor.__modificationReadOnly"></a>
+<h4>Editor.__modificationReadOnly</h4>
+<b>__modificationReadOnly</b>(<i></i>)
+<p>
+        Private slot to handle the modificationAttempted signal.
+</p><a NAME="Editor.__modified" ID="Editor.__modified"></a>
+<h4>Editor.__modified</h4>
+<b>__modified</b>(<i>pos, mtype, text, length, linesAdded, line, foldNow, foldPrev, token, annotationLinesAdded</i>)
+<p>
+        Private method to handle changes of the number of lines.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+start position of change (integer)
+</dd><dt><i>mtype</i></dt>
+<dd>
+flags identifying the change (integer)
+</dd><dt><i>text</i></dt>
+<dd>
+text that is given to the Undo system (string)
+</dd><dt><i>length</i></dt>
+<dd>
+length of the change (integer)
+</dd><dt><i>linesAdded</i></dt>
+<dd>
+number of added/deleted lines (integer)
+</dd><dt><i>line</i></dt>
+<dd>
+line number of a fold level or marker change (integer)
+</dd><dt><i>foldNow</i></dt>
+<dd>
+new fold level (integer)
+</dd><dt><i>foldPrev</i></dt>
+<dd>
+previous fold level (integer)
+</dd><dt><i>token</i></dt>
+<dd>
+???
+</dd><dt><i>annotationLinesAdded</i></dt>
+<dd>
+number of added/deleted annotation lines
+            (integer)
+</dd>
+</dl><a NAME="Editor.__newView" ID="Editor.__newView"></a>
+<h4>Editor.__newView</h4>
+<b>__newView</b>(<i></i>)
+<p>
+        Private slot to create a new view to an open document.
+</p><a NAME="Editor.__newViewNewSplit" ID="Editor.__newViewNewSplit"></a>
+<h4>Editor.__newViewNewSplit</h4>
+<b>__newViewNewSplit</b>(<i></i>)
+<p>
+        Private slot to create a new view to an open document.
+</p><a NAME="Editor.__normalizedEncoding" ID="Editor.__normalizedEncoding"></a>
+<h4>Editor.__normalizedEncoding</h4>
+<b>__normalizedEncoding</b>(<i>encoding=""</i>)
+<p>
+        Private method to calculate the normalized encoding string.
+</p><dl>
+<dt><i>encoding</i></dt>
+<dd>
+encoding to be normalized (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+normalized encoding (string)
+</dd>
+</dl><a NAME="Editor.__onlineChangeTraceTimerTimeout" ID="Editor.__onlineChangeTraceTimerTimeout"></a>
+<h4>Editor.__onlineChangeTraceTimerTimeout</h4>
+<b>__onlineChangeTraceTimerTimeout</b>(<i></i>)
+<p>
+        Private slot to mark added and changed lines.
+</p><a NAME="Editor.__printPreview" ID="Editor.__printPreview"></a>
+<h4>Editor.__printPreview</h4>
+<b>__printPreview</b>(<i>printer</i>)
+<p>
+        Private slot to generate a print preview.
+</p><dl>
+<dt><i>printer</i></dt>
+<dd>
+reference to the printer object
+            (QScintilla.Printer.Printer)
+</dd>
+</dl><a NAME="Editor.__processEndEditCommand" ID="Editor.__processEndEditCommand"></a>
+<h4>Editor.__processEndEditCommand</h4>
+<b>__processEndEditCommand</b>(<i>argsString</i>)
+<p>
+        Private slot to process a remote EndEdit command.
+</p><dl>
+<dt><i>argsString</i></dt>
+<dd>
+string containing the command parameters (string)
+</dd>
+</dl><a NAME="Editor.__processFlags" ID="Editor.__processFlags"></a>
+<h4>Editor.__processFlags</h4>
+<b>__processFlags</b>(<i></i>)
+<p>
+        Private method to extract flags and process them.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of change flags (list of string)
+</dd>
+</dl><a NAME="Editor.__processRequestSyncCommand" ID="Editor.__processRequestSyncCommand"></a>
+<h4>Editor.__processRequestSyncCommand</h4>
+<b>__processRequestSyncCommand</b>(<i>argsString</i>)
+<p>
+        Private slot to process a remote RequestSync command.
+</p><dl>
+<dt><i>argsString</i></dt>
+<dd>
+string containing the command parameters (string)
+</dd>
+</dl><a NAME="Editor.__processStartEditCommand" ID="Editor.__processStartEditCommand"></a>
+<h4>Editor.__processStartEditCommand</h4>
+<b>__processStartEditCommand</b>(<i>argsString</i>)
+<p>
+        Private slot to process a remote StartEdit command.
+</p><dl>
+<dt><i>argsString</i></dt>
+<dd>
+string containing the command parameters (string)
+</dd>
+</dl><a NAME="Editor.__processSyncCommand" ID="Editor.__processSyncCommand"></a>
+<h4>Editor.__processSyncCommand</h4>
+<b>__processSyncCommand</b>(<i>argsString</i>)
+<p>
+        Private slot to process a remote Sync command.
+</p><dl>
+<dt><i>argsString</i></dt>
+<dd>
+string containing the command parameters (string)
+</dd>
+</dl><a NAME="Editor.__processSyntaxCheckError" ID="Editor.__processSyntaxCheckError"></a>
+<h4>Editor.__processSyntaxCheckError</h4>
+<b>__processSyntaxCheckError</b>(<i>fn, msg</i>)
+<p>
+        Private slot to report an error message of a syntax check.
+</p><dl>
+<dt><i>fn</i> (str)</dt>
+<dd>
+filename of the file
+</dd><dt><i>msg</i> (str)</dt>
+<dd>
+error message
+</dd>
+</dl><a NAME="Editor.__processSyntaxCheckResult" ID="Editor.__processSyntaxCheckResult"></a>
+<h4>Editor.__processSyntaxCheckResult</h4>
+<b>__processSyntaxCheckResult</b>(<i>fn, problems</i>)
+<p>
+        Private slot to report the resulting messages of a syntax check.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename of the checked file (str)
+</dd><dt><i>problems</i></dt>
+<dd>
+dictionary with the keys 'error' and 'warnings' which
+            hold a list containing details about the error/ warnings
+            (file name, line number, column, codestring (only at syntax
+            errors), the message) (dict)
+</dd>
+</dl><a NAME="Editor.__projectPropertiesChanged" ID="Editor.__projectPropertiesChanged"></a>
+<h4>Editor.__projectPropertiesChanged</h4>
+<b>__projectPropertiesChanged</b>(<i></i>)
+<p>
+        Private slot to handle changes of the project properties.
+</p><a NAME="Editor.__refreshAnnotations" ID="Editor.__refreshAnnotations"></a>
+<h4>Editor.__refreshAnnotations</h4>
+<b>__refreshAnnotations</b>(<i></i>)
+<p>
+        Private method to refresh the annotations.
+</p><a NAME="Editor.__registerImages" ID="Editor.__registerImages"></a>
+<h4>Editor.__registerImages</h4>
+<b>__registerImages</b>(<i></i>)
+<p>
+        Private method to register images for autocompletion lists.
+</p><a NAME="Editor.__reinitOnlineChangeTrace" ID="Editor.__reinitOnlineChangeTrace"></a>
+<h4>Editor.__reinitOnlineChangeTrace</h4>
+<b>__reinitOnlineChangeTrace</b>(<i></i>)
+<p>
+        Private slot to re-initialize the online change trace.
+</p><a NAME="Editor.__removeFromSpellingDictionary" ID="Editor.__removeFromSpellingDictionary"></a>
+<h4>Editor.__removeFromSpellingDictionary</h4>
+<b>__removeFromSpellingDictionary</b>(<i></i>)
+<p>
+        Private slot to remove the word below the context menu to the
+        dictionary.
+</p><a NAME="Editor.__removeTrailingWhitespace" ID="Editor.__removeTrailingWhitespace"></a>
+<h4>Editor.__removeTrailingWhitespace</h4>
+<b>__removeTrailingWhitespace</b>(<i></i>)
+<p>
+        Private method to remove trailing whitespace.
+</p><a NAME="Editor.__reopenWithEncodingMenuTriggered" ID="Editor.__reopenWithEncodingMenuTriggered"></a>
+<h4>Editor.__reopenWithEncodingMenuTriggered</h4>
+<b>__reopenWithEncodingMenuTriggered</b>(<i>act</i>)
+<p>
+        Private method to handle the rereading of the file with a selected
+        encoding.
+</p><dl>
+<dt><i>act</i></dt>
+<dd>
+reference to the action that was triggered (QAction)
+</dd>
+</dl><a NAME="Editor.__resetLanguage" ID="Editor.__resetLanguage"></a>
+<h4>Editor.__resetLanguage</h4>
+<b>__resetLanguage</b>(<i>propagate=True</i>)
+<p>
+        Private method used to reset the language selection.
+</p><dl>
+<dt><i>propagate=</i></dt>
+<dd>
+flag indicating to propagate the change (boolean)
+</dd>
+</dl><a NAME="Editor.__resetOnlineChangeTraceInfo" ID="Editor.__resetOnlineChangeTraceInfo"></a>
+<h4>Editor.__resetOnlineChangeTraceInfo</h4>
+<b>__resetOnlineChangeTraceInfo</b>(<i></i>)
+<p>
+        Private slot to reset the online change trace info.
+</p><a NAME="Editor.__resetOnlineChangeTraceTimer" ID="Editor.__resetOnlineChangeTraceTimer"></a>
+<h4>Editor.__resetOnlineChangeTraceTimer</h4>
+<b>__resetOnlineChangeTraceTimer</b>(<i></i>)
+<p>
+        Private method to reset the online syntax check timer.
+</p><a NAME="Editor.__resetOnlineSyntaxCheckTimer" ID="Editor.__resetOnlineSyntaxCheckTimer"></a>
+<h4>Editor.__resetOnlineSyntaxCheckTimer</h4>
+<b>__resetOnlineSyntaxCheckTimer</b>(<i></i>)
+<p>
+        Private method to reset the online syntax check timer.
+</p><a NAME="Editor.__resizeLinenoMargin" ID="Editor.__resizeLinenoMargin"></a>
+<h4>Editor.__resizeLinenoMargin</h4>
+<b>__resizeLinenoMargin</b>(<i></i>)
+<p>
+        Private slot to resize the line numbers margin.
+</p><a NAME="Editor.__restoreBreakpoints" ID="Editor.__restoreBreakpoints"></a>
+<h4>Editor.__restoreBreakpoints</h4>
+<b>__restoreBreakpoints</b>(<i></i>)
+<p>
+        Private method to restore the breakpoints.
+</p><a NAME="Editor.__saveLastEditPosition" ID="Editor.__saveLastEditPosition"></a>
+<h4>Editor.__saveLastEditPosition</h4>
+<b>__saveLastEditPosition</b>(<i></i>)
+<p>
+        Private slot to record the last edit position.
+</p><a NAME="Editor.__searchCurrentWord" ID="Editor.__searchCurrentWord"></a>
+<h4>Editor.__searchCurrentWord</h4>
+<b>__searchCurrentWord</b>(<i>forward=True</i>)
+<p>
+        Private slot to search the next occurrence of the current word.
+</p><dl>
+<dt><i>forward</i></dt>
+<dd>
+flag indicating the search direction (boolean)
+</dd>
+</dl><a NAME="Editor.__selectAll" ID="Editor.__selectAll"></a>
+<h4>Editor.__selectAll</h4>
+<b>__selectAll</b>(<i></i>)
+<p>
+        Private slot handling the select all context menu action.
+</p><a NAME="Editor.__selectPygmentsLexer" ID="Editor.__selectPygmentsLexer"></a>
+<h4>Editor.__selectPygmentsLexer</h4>
+<b>__selectPygmentsLexer</b>(<i></i>)
+<p>
+        Private method to select a specific pygments lexer.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the selected pygments lexer (string)
+</dd>
+</dl><a NAME="Editor.__send" ID="Editor.__send"></a>
+<h4>Editor.__send</h4>
+<b>__send</b>(<i>token, args=None</i>)
+<p>
+        Private method to send an editor command to remote editors.
+</p><dl>
+<dt><i>token</i></dt>
+<dd>
+command token (string)
+</dd><dt><i>args</i></dt>
+<dd>
+arguments for the command (string)
+</dd>
+</dl><a NAME="Editor.__setAnnotation" ID="Editor.__setAnnotation"></a>
+<h4>Editor.__setAnnotation</h4>
+<b>__setAnnotation</b>(<i>line</i>)
+<p>
+        Private method to set the annotations for the given line.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+number of the line that needs annotation (integer)
+</dd>
+</dl><a NAME="Editor.__setAnnotationStyles" ID="Editor.__setAnnotationStyles"></a>
+<h4>Editor.__setAnnotationStyles</h4>
+<b>__setAnnotationStyles</b>(<i></i>)
+<p>
+        Private slot to define the style used by inline annotations.
+</p><a NAME="Editor.__setAutoCompletion" ID="Editor.__setAutoCompletion"></a>
+<h4>Editor.__setAutoCompletion</h4>
+<b>__setAutoCompletion</b>(<i></i>)
+<p>
+        Private method to configure the autocompletion function.
+</p><a NAME="Editor.__setCallTips" ID="Editor.__setCallTips"></a>
+<h4>Editor.__setCallTips</h4>
+<b>__setCallTips</b>(<i></i>)
+<p>
+        Private method to configure the calltips function.
+</p><a NAME="Editor.__setEolMode" ID="Editor.__setEolMode"></a>
+<h4>Editor.__setEolMode</h4>
+<b>__setEolMode</b>(<i></i>)
+<p>
+        Private method to configure the eol mode of the editor.
+</p><a NAME="Editor.__setLineMarkerColours" ID="Editor.__setLineMarkerColours"></a>
+<h4>Editor.__setLineMarkerColours</h4>
+<b>__setLineMarkerColours</b>(<i></i>)
+<p>
+        Private method to set the line marker colours.
+</p><a NAME="Editor.__setMarginsDisplay" ID="Editor.__setMarginsDisplay"></a>
+<h4>Editor.__setMarginsDisplay</h4>
+<b>__setMarginsDisplay</b>(<i></i>)
+<p>
+        Private method to configure margins 0 and 2.
+</p><a NAME="Editor.__setSpelling" ID="Editor.__setSpelling"></a>
+<h4>Editor.__setSpelling</h4>
+<b>__setSpelling</b>(<i></i>)
+<p>
+        Private method to initialize the spell checking functionality.
+</p><a NAME="Editor.__setSpellingLanguage" ID="Editor.__setSpellingLanguage"></a>
+<h4>Editor.__setSpellingLanguage</h4>
+<b>__setSpellingLanguage</b>(<i>language, pwl="", pel=""</i>)
+<p>
+        Private slot to set the spell checking language.
+</p><dl>
+<dt><i>language</i></dt>
+<dd>
+spell checking language to be set (string)
+</dd><dt><i>pwl=</i></dt>
+<dd>
+name of the personal/project word list (string)
+</dd><dt><i>pel=</i></dt>
+<dd>
+name of the personal/project exclude list (string)
+</dd>
+</dl><a NAME="Editor.__setTextDisplay" ID="Editor.__setTextDisplay"></a>
+<h4>Editor.__setTextDisplay</h4>
+<b>__setTextDisplay</b>(<i></i>)
+<p>
+        Private method to configure the text display.
+</p><a NAME="Editor.__showApplicationDiagram" ID="Editor.__showApplicationDiagram"></a>
+<h4>Editor.__showApplicationDiagram</h4>
+<b>__showApplicationDiagram</b>(<i></i>)
+<p>
+        Private method to handle the Imports Diagram context menu action.
+</p><a NAME="Editor.__showClassDiagram" ID="Editor.__showClassDiagram"></a>
+<h4>Editor.__showClassDiagram</h4>
+<b>__showClassDiagram</b>(<i></i>)
+<p>
+        Private method to handle the Class Diagram context menu action.
+</p><a NAME="Editor.__showCodeCoverage" ID="Editor.__showCodeCoverage"></a>
+<h4>Editor.__showCodeCoverage</h4>
+<b>__showCodeCoverage</b>(<i></i>)
+<p>
+        Private method to handle the code coverage context menu action.
+</p><a NAME="Editor.__showCodeMetrics" ID="Editor.__showCodeMetrics"></a>
+<h4>Editor.__showCodeMetrics</h4>
+<b>__showCodeMetrics</b>(<i></i>)
+<p>
+        Private method to handle the code metrics context menu action.
+</p><a NAME="Editor.__showContextMenu" ID="Editor.__showContextMenu"></a>
+<h4>Editor.__showContextMenu</h4>
+<b>__showContextMenu</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the context menu.
+</p><a NAME="Editor.__showContextMenuAutocompletion" ID="Editor.__showContextMenuAutocompletion"></a>
+<h4>Editor.__showContextMenuAutocompletion</h4>
+<b>__showContextMenuAutocompletion</b>(<i></i>)
+<p>
+        Private slot called before the autocompletion menu is shown.
+</p><a NAME="Editor.__showContextMenuChecks" ID="Editor.__showContextMenuChecks"></a>
+<h4>Editor.__showContextMenuChecks</h4>
+<b>__showContextMenuChecks</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the checks context
+        menu.
+</p><a NAME="Editor.__showContextMenuEncodings" ID="Editor.__showContextMenuEncodings"></a>
+<h4>Editor.__showContextMenuEncodings</h4>
+<b>__showContextMenuEncodings</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the encodings context
+        menu.
+</p><a NAME="Editor.__showContextMenuEol" ID="Editor.__showContextMenuEol"></a>
+<h4>Editor.__showContextMenuEol</h4>
+<b>__showContextMenuEol</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the eol context menu.
+</p><a NAME="Editor.__showContextMenuGraphics" ID="Editor.__showContextMenuGraphics"></a>
+<h4>Editor.__showContextMenuGraphics</h4>
+<b>__showContextMenuGraphics</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the diagrams context
+        menu.
+</p><a NAME="Editor.__showContextMenuLanguages" ID="Editor.__showContextMenuLanguages"></a>
+<h4>Editor.__showContextMenuLanguages</h4>
+<b>__showContextMenuLanguages</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the languages context
+        menu.
+</p><a NAME="Editor.__showContextMenuMargin" ID="Editor.__showContextMenuMargin"></a>
+<h4>Editor.__showContextMenuMargin</h4>
+<b>__showContextMenuMargin</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the margins context
+        menu.
+</p><a NAME="Editor.__showContextMenuResources" ID="Editor.__showContextMenuResources"></a>
+<h4>Editor.__showContextMenuResources</h4>
+<b>__showContextMenuResources</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the resources context
+        menu.
+</p><a NAME="Editor.__showContextMenuShow" ID="Editor.__showContextMenuShow"></a>
+<h4>Editor.__showContextMenuShow</h4>
+<b>__showContextMenuShow</b>(<i></i>)
+<p>
+        Private slot called before the show menu is shown.
+</p><a NAME="Editor.__showContextMenuSpelling" ID="Editor.__showContextMenuSpelling"></a>
+<h4>Editor.__showContextMenuSpelling</h4>
+<b>__showContextMenuSpelling</b>(<i></i>)
+<p>
+        Private slot to set up the spelling menu before it is shown.
+</p><a NAME="Editor.__showContextMenuTools" ID="Editor.__showContextMenuTools"></a>
+<h4>Editor.__showContextMenuTools</h4>
+<b>__showContextMenuTools</b>(<i></i>)
+<p>
+        Private slot handling the aboutToShow signal of the tools context
+        menu.
+</p><a NAME="Editor.__showImportsDiagram" ID="Editor.__showImportsDiagram"></a>
+<h4>Editor.__showImportsDiagram</h4>
+<b>__showImportsDiagram</b>(<i></i>)
+<p>
+        Private method to handle the Imports Diagram context menu action.
+</p><a NAME="Editor.__showPackageDiagram" ID="Editor.__showPackageDiagram"></a>
+<h4>Editor.__showPackageDiagram</h4>
+<b>__showPackageDiagram</b>(<i></i>)
+<p>
+        Private method to handle the Package Diagram context menu action.
+</p><a NAME="Editor.__showProfileData" ID="Editor.__showProfileData"></a>
+<h4>Editor.__showProfileData</h4>
+<b>__showProfileData</b>(<i></i>)
+<p>
+        Private method to handle the show profile data context menu action.
+</p><a NAME="Editor.__showSyntaxError" ID="Editor.__showSyntaxError"></a>
+<h4>Editor.__showSyntaxError</h4>
+<b>__showSyntaxError</b>(<i>line=-1</i>)
+<p>
+        Private slot to handle the 'Show syntax error message'
+        context menu action.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number to show the syntax error for (integer)
+</dd>
+</dl><a NAME="Editor.__showWarning" ID="Editor.__showWarning"></a>
+<h4>Editor.__showWarning</h4>
+<b>__showWarning</b>(<i>line=-1</i>)
+<p>
+        Private slot to handle the 'Show warning' context menu action.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number to show the warning for (integer)
+</dd>
+</dl><a NAME="Editor.__spellCharAdded" ID="Editor.__spellCharAdded"></a>
+<h4>Editor.__spellCharAdded</h4>
+<b>__spellCharAdded</b>(<i>charNumber</i>)
+<p>
+        Private slot called to handle the user entering a character.
+</p><dl>
+<dt><i>charNumber</i></dt>
+<dd>
+value of the character entered (integer)
+</dd>
+</dl><a NAME="Editor.__styleNeeded" ID="Editor.__styleNeeded"></a>
+<h4>Editor.__styleNeeded</h4>
+<b>__styleNeeded</b>(<i>position</i>)
+<p>
+        Private slot to handle the need for more styling.
+</p><dl>
+<dt><i>position</i></dt>
+<dd>
+end position, that needs styling (integer)
+</dd>
+</dl><a NAME="Editor.__textChanged" ID="Editor.__textChanged"></a>
+<h4>Editor.__textChanged</h4>
+<b>__textChanged</b>(<i></i>)
+<p>
+        Private slot to handle a change of the editor text.
+</p><p>
+        This slot defers the handling to the next time the event loop
+        is run in order to ensure, that cursor position has been updated
+        by the underlying Scintilla editor.
+</p><a NAME="Editor.__toggleAutoCompletionEnable" ID="Editor.__toggleAutoCompletionEnable"></a>
+<h4>Editor.__toggleAutoCompletionEnable</h4>
+<b>__toggleAutoCompletionEnable</b>(<i></i>)
+<p>
+        Private slot to handle the Enable Autocompletion context menu entry.
+</p><a NAME="Editor.__toggleBreakpoint" ID="Editor.__toggleBreakpoint"></a>
+<h4>Editor.__toggleBreakpoint</h4>
+<b>__toggleBreakpoint</b>(<i>line, temporary=False</i>)
+<p>
+        Private method to toggle a breakpoint.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd><dt><i>temporary</i></dt>
+<dd>
+flag indicating a temporary breakpoint (boolean)
+</dd>
+</dl><a NAME="Editor.__toggleBreakpointEnabled" ID="Editor.__toggleBreakpointEnabled"></a>
+<h4>Editor.__toggleBreakpointEnabled</h4>
+<b>__toggleBreakpointEnabled</b>(<i>line</i>)
+<p>
+        Private method to toggle a breakpoints enabled status.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd>
+</dl><a NAME="Editor.__toggleTypingAids" ID="Editor.__toggleTypingAids"></a>
+<h4>Editor.__toggleTypingAids</h4>
+<b>__toggleTypingAids</b>(<i></i>)
+<p>
+        Private slot to toggle the typing aids.
+</p><a NAME="Editor.__updateReadOnly" ID="Editor.__updateReadOnly"></a>
+<h4>Editor.__updateReadOnly</h4>
+<b>__updateReadOnly</b>(<i>bForce=True</i>)
+<p>
+        Private method to update the readOnly information for this editor.
+</p><p>
+        If bForce is True, then updates everything regardless if
+        the attributes have actually changed, such as during
+        initialization time.  A signal is emitted after the
+        caption change.
+</p><dl>
+<dt><i>bForce</i></dt>
+<dd>
+True to force change, False to only update and emit
+                signal if there was an attribute change.
+</dd>
+</dl><a NAME="Editor.addCallTipHook" ID="Editor.addCallTipHook"></a>
+<h4>Editor.addCallTipHook</h4>
+<b>addCallTipHook</b>(<i>key, func</i>)
+<p>
+        Public method to set a calltip provider.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the provider
+</dd><dt><i>func</i> (function(editor, int, int) -> list of str)</dt>
+<dd>
+function providing calltips. func
+            should be a function taking a reference to the editor,
+            a position into the text and the amount of commas to the
+            left of the cursor. It should return the possible
+            calltips as a list of strings.
+</dd>
+</dl><a NAME="Editor.addClone" ID="Editor.addClone"></a>
+<h4>Editor.addClone</h4>
+<b>addClone</b>(<i>editor</i>)
+<p>
+        Public method to add a clone to our list.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the cloned editor (Editor)
+</dd>
+</dl><a NAME="Editor.addCompletionListHook" ID="Editor.addCompletionListHook"></a>
+<h4>Editor.addCompletionListHook</h4>
+<b>addCompletionListHook</b>(<i>key, func</i>)
+<p>
+        Public method to set an auto-completion list provider.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the provider
+</dd><dt><i>func</i> (function(editor, bool) -> list of str)</dt>
+<dd>
+function providing completion list. func
+            should be a function taking a reference to the editor and
+            a boolean indicating to complete a context. It should return
+            the possible completions as a list of strings.
+</dd>
+</dl><a NAME="Editor.addedToProject" ID="Editor.addedToProject"></a>
+<h4>Editor.addedToProject</h4>
+<b>addedToProject</b>(<i></i>)
+<p>
+        Public method to signal, that this editor has been added to a project.
+</p><a NAME="Editor.autoComplete" ID="Editor.autoComplete"></a>
+<h4>Editor.autoComplete</h4>
+<b>autoComplete</b>(<i>auto=False, context=True</i>)
+<p>
+        Public method to start autocompletion.
+</p><dl>
+<dt><i>auto=</i></dt>
+<dd>
+flag indicating a call from the __charAdded method
+            (boolean)
+</dd><dt><i>context=</i></dt>
+<dd>
+flag indicating to complete a context (boolean)
+</dd>
+</dl><a NAME="Editor.autoCompleteQScintilla" ID="Editor.autoCompleteQScintilla"></a>
+<h4>Editor.autoCompleteQScintilla</h4>
+<b>autoCompleteQScintilla</b>(<i></i>)
+<p>
+        Public method to perform an autocompletion using QScintilla methods.
+</p><a NAME="Editor.autoCompletionHook" ID="Editor.autoCompletionHook"></a>
+<h4>Editor.autoCompletionHook</h4>
+<b>autoCompletionHook</b>(<i></i>)
+<p>
+        Public method to get the autocompletion hook function.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+function set by setAutoCompletionHook()
+</dd>
+</dl><a NAME="Editor.boxCommentLine" ID="Editor.boxCommentLine"></a>
+<h4>Editor.boxCommentLine</h4>
+<b>boxCommentLine</b>(<i></i>)
+<p>
+        Public slot to box comment the current line.
+</p><a NAME="Editor.boxCommentLineOrSelection" ID="Editor.boxCommentLineOrSelection"></a>
+<h4>Editor.boxCommentLineOrSelection</h4>
+<b>boxCommentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to box comment the current line or current selection.
+</p><a NAME="Editor.boxCommentSelection" ID="Editor.boxCommentSelection"></a>
+<h4>Editor.boxCommentSelection</h4>
+<b>boxCommentSelection</b>(<i></i>)
+<p>
+        Public slot to box comment the current selection.
+</p><a NAME="Editor.callTip" ID="Editor.callTip"></a>
+<h4>Editor.callTip</h4>
+<b>callTip</b>(<i></i>)
+<p>
+        Public method to show calltips.
+</p><a NAME="Editor.callTipHook" ID="Editor.callTipHook"></a>
+<h4>Editor.callTipHook</h4>
+<b>callTipHook</b>(<i></i>)
+<p>
+        Public method to get the calltip hook function.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+function set by setCallTipHook()
+</dd>
+</dl><a NAME="Editor.canAutoCompleteFromAPIs" ID="Editor.canAutoCompleteFromAPIs"></a>
+<h4>Editor.canAutoCompleteFromAPIs</h4>
+<b>canAutoCompleteFromAPIs</b>(<i></i>)
+<p>
+        Public method to check for API availablity.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating autocompletion from APIs is available (boolean)
+</dd>
+</dl><a NAME="Editor.canProvideCallTipps" ID="Editor.canProvideCallTipps"></a>
+<h4>Editor.canProvideCallTipps</h4>
+<b>canProvideCallTipps</b>(<i></i>)
+<p>
+        Public method to test the calltips availability.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the availability of calltips (boolean)
+</dd>
+</dl><a NAME="Editor.canProvideDynamicAutoCompletion" ID="Editor.canProvideDynamicAutoCompletion"></a>
+<h4>Editor.canProvideDynamicAutoCompletion</h4>
+<b>canProvideDynamicAutoCompletion</b>(<i></i>)
+<p>
+        Public method to test the dynamic auto-completion availability.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the availability of dynamic auto-completion
+            (boolean)
+</dd>
+</dl><a NAME="Editor.cancelSharedEdit" ID="Editor.cancelSharedEdit"></a>
+<h4>Editor.cancelSharedEdit</h4>
+<b>cancelSharedEdit</b>(<i>send=True</i>)
+<p>
+        Public slot to cancel a shared edit session for the editor.
+</p><dl>
+<dt><i>send=</i></dt>
+<dd>
+flag indicating to send the CancelEdit command (boolean)
+</dd>
+</dl><a NAME="Editor.changeEvent" ID="Editor.changeEvent"></a>
+<h4>Editor.changeEvent</h4>
+<b>changeEvent</b>(<i>evt</i>)
+<p>
+        Protected method called to process an event.
+</p><p>
+        This implements special handling for the events showMaximized,
+        showMinimized and showNormal. The windows caption is shortened
+        for the minimized mode and reset to the full filename for the
+        other modes. This is to make the editor windows work nicer
+        with the QWorkspace.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+the event, that was generated (QEvent)
+</dd>
+</dl><a NAME="Editor.checkDirty" ID="Editor.checkDirty"></a>
+<h4>Editor.checkDirty</h4>
+<b>checkDirty</b>(<i></i>)
+<p>
+        Public method to check dirty status and open a message window.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating successful reset of the dirty flag (boolean)
+</dd>
+</dl><a NAME="Editor.checkSpelling" ID="Editor.checkSpelling"></a>
+<h4>Editor.checkSpelling</h4>
+<b>checkSpelling</b>(<i></i>)
+<p>
+        Public slot to perform an interactive spell check of the document.
+</p><a NAME="Editor.checkSyntax" ID="Editor.checkSyntax"></a>
+<h4>Editor.checkSyntax</h4>
+<b>checkSyntax</b>(<i></i>)
+<p>
+        Public method to perform an automatic syntax check of the file.
+</p><a NAME="Editor.clearBookmarks" ID="Editor.clearBookmarks"></a>
+<h4>Editor.clearBookmarks</h4>
+<b>clearBookmarks</b>(<i></i>)
+<p>
+        Public slot to handle the 'Clear all bookmarks' context menu action.
+</p><a NAME="Editor.clearBreakpoint" ID="Editor.clearBreakpoint"></a>
+<h4>Editor.clearBreakpoint</h4>
+<b>clearBreakpoint</b>(<i>line</i>)
+<p>
+        Public method to clear a breakpoint.
+</p><p>
+        Note: This doesn't clear the breakpoint in the debugger,
+        it just deletes it from the editor internal list of breakpoints.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+linenumber of the breakpoint (integer)
+</dd>
+</dl><a NAME="Editor.clearFlakesWarnings" ID="Editor.clearFlakesWarnings"></a>
+<h4>Editor.clearFlakesWarnings</h4>
+<b>clearFlakesWarnings</b>(<i></i>)
+<p>
+        Public slot to clear all pyflakes warnings.
+</p><a NAME="Editor.clearSearchIndicators" ID="Editor.clearSearchIndicators"></a>
+<h4>Editor.clearSearchIndicators</h4>
+<b>clearSearchIndicators</b>(<i></i>)
+<p>
+        Public method to clear all search indicators.
+</p><a NAME="Editor.clearStyleWarnings" ID="Editor.clearStyleWarnings"></a>
+<h4>Editor.clearStyleWarnings</h4>
+<b>clearStyleWarnings</b>(<i></i>)
+<p>
+        Public slot to clear all style warnings.
+</p><a NAME="Editor.clearStyles" ID="Editor.clearStyles"></a>
+<h4>Editor.clearStyles</h4>
+<b>clearStyles</b>(<i></i>)
+<p>
+        Public method to set the styles according the selected Qt style
+        or the selected editor colours.
+</p><a NAME="Editor.clearSyntaxError" ID="Editor.clearSyntaxError"></a>
+<h4>Editor.clearSyntaxError</h4>
+<b>clearSyntaxError</b>(<i></i>)
+<p>
+        Public slot to handle the 'Clear all syntax error' context menu action.
+</p><a NAME="Editor.clearWarnings" ID="Editor.clearWarnings"></a>
+<h4>Editor.clearWarnings</h4>
+<b>clearWarnings</b>(<i></i>)
+<p>
+        Public slot to clear all warnings.
+</p><a NAME="Editor.close" ID="Editor.close"></a>
+<h4>Editor.close</h4>
+<b>close</b>(<i>alsoDelete=False</i>)
+<p>
+        Public method called when the window gets closed.
+</p><p>
+        This overwritten method redirects the action to our
+        ViewManager.closeEditor, which in turn calls our closeIt
+        method.
+</p><dl>
+<dt><i>alsoDelete</i></dt>
+<dd>
+ignored
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a successful close of the editor (boolean)
+</dd>
+</dl><a NAME="Editor.closeIt" ID="Editor.closeIt"></a>
+<h4>Editor.closeIt</h4>
+<b>closeIt</b>(<i></i>)
+<p>
+        Public method called by the viewmanager to finally get rid of us.
+</p><a NAME="Editor.codeCoverageShowAnnotations" ID="Editor.codeCoverageShowAnnotations"></a>
+<h4>Editor.codeCoverageShowAnnotations</h4>
+<b>codeCoverageShowAnnotations</b>(<i>silent=False</i>)
+<p>
+        Public method to handle the show code coverage annotations context
+        menu action.
+</p><dl>
+<dt><i>silent</i></dt>
+<dd>
+flag indicating to not show any dialog (boolean)
+</dd>
+</dl><a NAME="Editor.commentLine" ID="Editor.commentLine"></a>
+<h4>Editor.commentLine</h4>
+<b>commentLine</b>(<i></i>)
+<p>
+        Public slot to comment the current line.
+</p><a NAME="Editor.commentLineOrSelection" ID="Editor.commentLineOrSelection"></a>
+<h4>Editor.commentLineOrSelection</h4>
+<b>commentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to comment the current line or current selection.
+</p><a NAME="Editor.commentSelection" ID="Editor.commentSelection"></a>
+<h4>Editor.commentSelection</h4>
+<b>commentSelection</b>(<i></i>)
+<p>
+        Public slot to comment the current selection.
+</p><a NAME="Editor.contextMenuEvent" ID="Editor.contextMenuEvent"></a>
+<h4>Editor.contextMenuEvent</h4>
+<b>contextMenuEvent</b>(<i>evt</i>)
+<p>
+        Protected method implementing the context menu event.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+the context menu event (QContextMenuEvent)
+</dd>
+</dl><a NAME="Editor.curLineHasBreakpoint" ID="Editor.curLineHasBreakpoint"></a>
+<h4>Editor.curLineHasBreakpoint</h4>
+<b>curLineHasBreakpoint</b>(<i></i>)
+<p>
+        Public method to check for the presence of a breakpoint at the current
+        line.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of a breakpoint (boolean)
+</dd>
+</dl><a NAME="Editor.determineFileType" ID="Editor.determineFileType"></a>
+<h4>Editor.determineFileType</h4>
+<b>determineFileType</b>(<i></i>)
+<p>
+        Public method to determine the file type using various tests.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+type of the displayed file or an empty string (string)
+</dd>
+</dl><a NAME="Editor.dragEnterEvent" ID="Editor.dragEnterEvent"></a>
+<h4>Editor.dragEnterEvent</h4>
+<b>dragEnterEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the drag enter event.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the drag enter event (QDragEnterEvent)
+</dd>
+</dl><a NAME="Editor.dragLeaveEvent" ID="Editor.dragLeaveEvent"></a>
+<h4>Editor.dragLeaveEvent</h4>
+<b>dragLeaveEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the drag leave event.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the drag leave event (QDragLeaveEvent)
+</dd>
+</dl><a NAME="Editor.dragMoveEvent" ID="Editor.dragMoveEvent"></a>
+<h4>Editor.dragMoveEvent</h4>
+<b>dragMoveEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the drag move event.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the drag move event (QDragMoveEvent)
+</dd>
+</dl><a NAME="Editor.dropEvent" ID="Editor.dropEvent"></a>
+<h4>Editor.dropEvent</h4>
+<b>dropEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the drop event.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the drop event (QDropEvent)
+</dd>
+</dl><a NAME="Editor.editorCommand" ID="Editor.editorCommand"></a>
+<h4>Editor.editorCommand</h4>
+<b>editorCommand</b>(<i>cmd</i>)
+<p>
+        Public method to perform a simple editor command.
+</p><dl>
+<dt><i>cmd</i></dt>
+<dd>
+the scintilla command to be performed
+</dd>
+</dl><a NAME="Editor.ensureVisible" ID="Editor.ensureVisible"></a>
+<h4>Editor.ensureVisible</h4>
+<b>ensureVisible</b>(<i>line</i>)
+<p>
+        Public slot to ensure, that the specified line is visible.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number to make visible
+</dd>
+</dl><a NAME="Editor.ensureVisibleTop" ID="Editor.ensureVisibleTop"></a>
+<h4>Editor.ensureVisibleTop</h4>
+<b>ensureVisibleTop</b>(<i>line</i>)
+<p>
+        Public slot to ensure, that the specified line is visible at the top
+        of the editor.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number to make visible
+</dd>
+</dl><a NAME="Editor.event" ID="Editor.event"></a>
+<h4>Editor.event</h4>
+<b>event</b>(<i>evt</i>)
+<p>
+        Public method handling events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating, if the event was handled (boolean)
+</dd>
+</dl><a NAME="Editor.exportFile" ID="Editor.exportFile"></a>
+<h4>Editor.exportFile</h4>
+<b>exportFile</b>(<i>exporterFormat</i>)
+<p>
+        Public method to export the file.
+</p><dl>
+<dt><i>exporterFormat</i></dt>
+<dd>
+format the file should be exported into (string)
+</dd>
+</dl><a NAME="Editor.extractTasks" ID="Editor.extractTasks"></a>
+<h4>Editor.extractTasks</h4>
+<b>extractTasks</b>(<i></i>)
+<p>
+        Public slot to extract all tasks.
+</p><a NAME="Editor.fileRenamed" ID="Editor.fileRenamed"></a>
+<h4>Editor.fileRenamed</h4>
+<b>fileRenamed</b>(<i>fn</i>)
+<p>
+        Public slot to handle the editorRenamed signal.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be set for the editor (string).
+</dd>
+</dl><a NAME="Editor.focusInEvent" ID="Editor.focusInEvent"></a>
+<h4>Editor.focusInEvent</h4>
+<b>focusInEvent</b>(<i>event</i>)
+<p>
+        Protected method called when the editor receives focus.
+</p><p>
+        This method checks for modifications of the current file and
+        rereads it upon request. The cursor is placed at the current position
+        assuming, that it is in the vicinity of the old position after the
+        reread.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the event object (QFocusEvent)
+</dd>
+</dl><a NAME="Editor.focusOutEvent" ID="Editor.focusOutEvent"></a>
+<h4>Editor.focusOutEvent</h4>
+<b>focusOutEvent</b>(<i>event</i>)
+<p>
+        Protected method called when the editor loses focus.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the event object (QFocusEvent)
+</dd>
+</dl><a NAME="Editor.gestureEvent" ID="Editor.gestureEvent"></a>
+<h4>Editor.gestureEvent</h4>
+<b>gestureEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling gesture events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the gesture event (QGestureEvent
+</dd>
+</dl><a NAME="Editor.getApiLanguage" ID="Editor.getApiLanguage"></a>
+<h4>Editor.getApiLanguage</h4>
+<b>getApiLanguage</b>(<i></i>)
+<p>
+        Public method to get the API language of the editor.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+API language
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+str
+</dd>
+</dl><a NAME="Editor.getBookmarkLines" ID="Editor.getBookmarkLines"></a>
+<h4>Editor.getBookmarkLines</h4>
+<b>getBookmarkLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a bookmark.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a bookmark (list of integer)
+</dd>
+</dl><a NAME="Editor.getBookmarks" ID="Editor.getBookmarks"></a>
+<h4>Editor.getBookmarks</h4>
+<b>getBookmarks</b>(<i></i>)
+<p>
+        Public method to retrieve the bookmarks.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+sorted list of all lines containing a bookmark
+            (list of integer)
+</dd>
+</dl><a NAME="Editor.getBreakpointLines" ID="Editor.getBreakpointLines"></a>
+<h4>Editor.getBreakpointLines</h4>
+<b>getBreakpointLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a breakpoint.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a breakpoint (list of integer)
+</dd>
+</dl><a NAME="Editor.getCallTipHook" ID="Editor.getCallTipHook"></a>
+<h4>Editor.getCallTipHook</h4>
+<b>getCallTipHook</b>(<i>key</i>)
+<p>
+        Public method to get the registered calltip provider.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the provider
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+function providing calltips
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+function or None
+</dd>
+</dl><a NAME="Editor.getChangeLines" ID="Editor.getChangeLines"></a>
+<h4>Editor.getChangeLines</h4>
+<b>getChangeLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a change.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a change (list of integer)
+</dd>
+</dl><a NAME="Editor.getCompleter" ID="Editor.getCompleter"></a>
+<h4>Editor.getCompleter</h4>
+<b>getCompleter</b>(<i></i>)
+<p>
+        Public method to retrieve a reference to the completer object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the completer object (CompleterBase)
+</dd>
+</dl><a NAME="Editor.getCompletionListHook" ID="Editor.getCompletionListHook"></a>
+<h4>Editor.getCompletionListHook</h4>
+<b>getCompletionListHook</b>(<i>key</i>)
+<p>
+        Public method to get the registered completion list provider.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the provider
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+function providing completion list
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+function or None
+</dd>
+</dl><a NAME="Editor.getCoverageLines" ID="Editor.getCoverageLines"></a>
+<h4>Editor.getCoverageLines</h4>
+<b>getCoverageLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a coverage marker.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a coverage marker (list of integer)
+</dd>
+</dl><a NAME="Editor.getCurrentWord" ID="Editor.getCurrentWord"></a>
+<h4>Editor.getCurrentWord</h4>
+<b>getCurrentWord</b>(<i></i>)
+<p>
+        Public method to get the word at the current position.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the word at that current position (string)
+</dd>
+</dl><a NAME="Editor.getCurrentWordBoundaries" ID="Editor.getCurrentWordBoundaries"></a>
+<h4>Editor.getCurrentWordBoundaries</h4>
+<b>getCurrentWordBoundaries</b>(<i></i>)
+<p>
+        Public method to get the word boundaries at the current position.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with start and end indexes of the current word
+            (integer, integer)
+</dd>
+</dl><a NAME="Editor.getEncoding" ID="Editor.getEncoding"></a>
+<h4>Editor.getEncoding</h4>
+<b>getEncoding</b>(<i></i>)
+<p>
+        Public method to return the current encoding.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+current encoding (string)
+</dd>
+</dl><a NAME="Editor.getFileName" ID="Editor.getFileName"></a>
+<h4>Editor.getFileName</h4>
+<b>getFileName</b>(<i></i>)
+<p>
+        Public method to return the name of the file being displayed.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+filename of the displayed file (string)
+</dd>
+</dl><a NAME="Editor.getFileType" ID="Editor.getFileType"></a>
+<h4>Editor.getFileType</h4>
+<b>getFileType</b>(<i></i>)
+<p>
+        Public method to return the type of the file being displayed.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+type of the displayed file (string)
+</dd>
+</dl><a NAME="Editor.getFileTypeByFlag" ID="Editor.getFileTypeByFlag"></a>
+<h4>Editor.getFileTypeByFlag</h4>
+<b>getFileTypeByFlag</b>(<i></i>)
+<p>
+        Public method to return the type of the file, if it was set by an
+        eflag: marker.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+type of the displayed file, if set by an eflag: marker or an
+            empty string (string)
+</dd>
+</dl><a NAME="Editor.getHighlightPosition" ID="Editor.getHighlightPosition"></a>
+<h4>Editor.getHighlightPosition</h4>
+<b>getHighlightPosition</b>(<i></i>)
+<p>
+        Public method to return the position of the highlight bar.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+line number of the highlight bar (integer)
+</dd>
+</dl><a NAME="Editor.getLanguage" ID="Editor.getLanguage"></a>
+<h4>Editor.getLanguage</h4>
+<b>getLanguage</b>(<i>normalized=True, forPygments=False</i>)
+<p>
+        Public method to retrieve the language of the editor.
+</p><dl>
+<dt><i>normalized=</i></dt>
+<dd>
+flag indicating to normalize some Pygments
+            lexer names (boolean)
+</dd><dt><i>forPygments=</i></dt>
+<dd>
+flag indicating to normalize some lexer
+            names for Pygments (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+language of the editor (string)
+</dd>
+</dl><a NAME="Editor.getLexer" ID="Editor.getLexer"></a>
+<h4>Editor.getLexer</h4>
+<b>getLexer</b>(<i></i>)
+<p>
+        Public method to retrieve a reference to the lexer object.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+the lexer object (Lexer)
+</dd>
+</dl><a NAME="Editor.getMenu" ID="Editor.getMenu"></a>
+<h4>Editor.getMenu</h4>
+<b>getMenu</b>(<i>menuName</i>)
+<p>
+        Public method to get a reference to the main context menu or a submenu.
+</p><dl>
+<dt><i>menuName</i></dt>
+<dd>
+name of the menu (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the requested menu (QMenu) or None
+</dd>
+</dl><a NAME="Editor.getMouseClickHandler" ID="Editor.getMouseClickHandler"></a>
+<h4>Editor.getMouseClickHandler</h4>
+<b>getMouseClickHandler</b>(<i>modifiers, button</i>)
+<p>
+        Public method to get a registered mouse click handler.
+</p><dl>
+<dt><i>modifiers</i> (Qt.KeyboardModifiers)</dt>
+<dd>
+keyboard modifiers of the handler
+</dd><dt><i>button</i> (Qt.MouseButton)</dt>
+<dd>
+mouse button of the handler
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+plug-in name and registered function
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+tuple of str and func
+</dd>
+</dl><a NAME="Editor.getMouseClickHandlers" ID="Editor.getMouseClickHandlers"></a>
+<h4>Editor.getMouseClickHandlers</h4>
+<b>getMouseClickHandlers</b>(<i>name</i>)
+<p>
+        Public method to get all registered mouse click handlers of
+        a plug-in.
+</p><dl>
+<dt><i>name</i> (str)</dt>
+<dd>
+name of the plug-in
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+registered mouse click handlers as list of modifiers,
+            mouse button and function
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+list of tuple of (Qt.KeyboardModifiers, Qt.MouseButton,func)
+</dd>
+</dl><a NAME="Editor.getNoName" ID="Editor.getNoName"></a>
+<h4>Editor.getNoName</h4>
+<b>getNoName</b>(<i></i>)
+<p>
+        Public method to get the display string for an unnamed editor.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+display string for this unnamed editor (string)
+</dd>
+</dl><a NAME="Editor.getSearchIndicatorLines" ID="Editor.getSearchIndicatorLines"></a>
+<h4>Editor.getSearchIndicatorLines</h4>
+<b>getSearchIndicatorLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a search indicator.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a search indicator (list of integer)
+</dd>
+</dl><a NAME="Editor.getSearchText" ID="Editor.getSearchText"></a>
+<h4>Editor.getSearchText</h4>
+<b>getSearchText</b>(<i>selectionOnly=False</i>)
+<p>
+        Public method to determine the selection or the current word for the
+        next search operation.
+</p><dl>
+<dt><i>selectionOnly</i></dt>
+<dd>
+flag indicating that only selected text should be
+            returned (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+selection or current word (string)
+</dd>
+</dl><a NAME="Editor.getSharingStatus" ID="Editor.getSharingStatus"></a>
+<h4>Editor.getSharingStatus</h4>
+<b>getSharingStatus</b>(<i></i>)
+<p>
+        Public method to get some share status info.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+tuple indicating, if the editor is sharable, the sharing
+            status, if it is inside a locally initiated shared edit session
+            and if it is inside a remotely initiated shared edit session
+            (boolean, boolean, boolean, boolean)
+</dd>
+</dl><a NAME="Editor.getSyntaxErrorLines" ID="Editor.getSyntaxErrorLines"></a>
+<h4>Editor.getSyntaxErrorLines</h4>
+<b>getSyntaxErrorLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a syntax error.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a syntax error (list of integer)
+</dd>
+</dl><a NAME="Editor.getSyntaxErrors" ID="Editor.getSyntaxErrors"></a>
+<h4>Editor.getSyntaxErrors</h4>
+<b>getSyntaxErrors</b>(<i></i>)
+<p>
+        Public method to retrieve the syntax error markers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+sorted list of all lines containing a syntax error
+            (list of integer)
+</dd>
+</dl><a NAME="Editor.getTaskLines" ID="Editor.getTaskLines"></a>
+<h4>Editor.getTaskLines</h4>
+<b>getTaskLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a task.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a task (list of integer)
+</dd>
+</dl><a NAME="Editor.getWarningLines" ID="Editor.getWarningLines"></a>
+<h4>Editor.getWarningLines</h4>
+<b>getWarningLines</b>(<i></i>)
+<p>
+        Public method to get the lines containing a warning.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+list of lines containing a warning (list of integer)
+</dd>
+</dl><a NAME="Editor.getWarnings" ID="Editor.getWarnings"></a>
+<h4>Editor.getWarnings</h4>
+<b>getWarnings</b>(<i></i>)
+<p>
+        Public method to retrieve the warning markers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+sorted list of all lines containing a warning
+            (list of integer)
+</dd>
+</dl><a NAME="Editor.getWord" ID="Editor.getWord"></a>
+<h4>Editor.getWord</h4>
+<b>getWord</b>(<i>line, index, direction=0, useWordChars=True</i>)
+<p>
+        Public method to get the word at a position.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+number of line to look at (int)
+</dd><dt><i>index</i></dt>
+<dd>
+position to look at (int)
+</dd><dt><i>direction</i></dt>
+<dd>
+direction to look in (0 = whole word, 1 = left,
+            2 = right)
+</dd><dt><i>useWordChars=</i></dt>
+<dd>
+flag indicating to use the wordCharacters
+            method (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the word at that position (string)
+</dd>
+</dl><a NAME="Editor.getWordBoundaries" ID="Editor.getWordBoundaries"></a>
+<h4>Editor.getWordBoundaries</h4>
+<b>getWordBoundaries</b>(<i>line, index, useWordChars=True</i>)
+<p>
+        Public method to get the word boundaries at a position.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+number of line to look at (int)
+</dd><dt><i>index</i></dt>
+<dd>
+position to look at (int)
+</dd><dt><i>useWordChars=</i></dt>
+<dd>
+flag indicating to use the wordCharacters
+            method (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple with start and end indexes of the word at the position
+            (integer, integer)
+</dd>
+</dl><a NAME="Editor.getWordLeft" ID="Editor.getWordLeft"></a>
+<h4>Editor.getWordLeft</h4>
+<b>getWordLeft</b>(<i>line, index</i>)
+<p>
+        Public method to get the word to the left of a position.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+number of line to look at (int)
+</dd><dt><i>index</i></dt>
+<dd>
+position to look at (int)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the word to the left of that position (string)
+</dd>
+</dl><a NAME="Editor.getWordRight" ID="Editor.getWordRight"></a>
+<h4>Editor.getWordRight</h4>
+<b>getWordRight</b>(<i>line, index</i>)
+<p>
+        Public method to get the word to the right of a position.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+number of line to look at (int)
+</dd><dt><i>index</i></dt>
+<dd>
+position to look at (int)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+the word to the right of that position (string)
+</dd>
+</dl><a NAME="Editor.gotoLastEditPosition" ID="Editor.gotoLastEditPosition"></a>
+<h4>Editor.gotoLastEditPosition</h4>
+<b>gotoLastEditPosition</b>(<i></i>)
+<p>
+        Public method to move the cursor to the last edit position.
+</p><a NAME="Editor.gotoLine" ID="Editor.gotoLine"></a>
+<h4>Editor.gotoLine</h4>
+<b>gotoLine</b>(<i>line, pos=1, firstVisible=False</i>)
+<p>
+        Public slot to jump to the beginning of a line.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number to go to (integer)
+</dd><dt><i>pos=</i></dt>
+<dd>
+position in line to go to (integer)
+</dd><dt><i>firstVisible=</i></dt>
+<dd>
+flag indicating to make the line the first
+            visible line (boolean)
+</dd>
+</dl><a NAME="Editor.gotoMethodClass" ID="Editor.gotoMethodClass"></a>
+<h4>Editor.gotoMethodClass</h4>
+<b>gotoMethodClass</b>(<i>goUp=False</i>)
+<p>
+        Public method to go to the next Python method or class definition.
+</p><dl>
+<dt><i>goUp</i></dt>
+<dd>
+flag indicating the move direction (boolean)
+</dd>
+</dl><a NAME="Editor.gotoSyntaxError" ID="Editor.gotoSyntaxError"></a>
+<h4>Editor.gotoSyntaxError</h4>
+<b>gotoSyntaxError</b>(<i></i>)
+<p>
+        Public slot to handle the 'Goto syntax error' context menu action.
+</p><a NAME="Editor.handleMonospacedEnable" ID="Editor.handleMonospacedEnable"></a>
+<h4>Editor.handleMonospacedEnable</h4>
+<b>handleMonospacedEnable</b>(<i></i>)
+<p>
+        Public slot to handle the Use Monospaced Font context menu entry.
+</p><a NAME="Editor.handleRenamed" ID="Editor.handleRenamed"></a>
+<h4>Editor.handleRenamed</h4>
+<b>handleRenamed</b>(<i>fn</i>)
+<p>
+        Public slot to handle the editorRenamed signal.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to be set for the editor (string).
+</dd>
+</dl><a NAME="Editor.hasBookmarks" ID="Editor.hasBookmarks"></a>
+<h4>Editor.hasBookmarks</h4>
+<b>hasBookmarks</b>(<i></i>)
+<p>
+        Public method to check for the presence of bookmarks.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of bookmarks (boolean)
+</dd>
+</dl><a NAME="Editor.hasBreakpoints" ID="Editor.hasBreakpoints"></a>
+<h4>Editor.hasBreakpoints</h4>
+<b>hasBreakpoints</b>(<i></i>)
+<p>
+        Public method to check for the presence of breakpoints.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of breakpoints (boolean)
+</dd>
+</dl><a NAME="Editor.hasChangeMarkers" ID="Editor.hasChangeMarkers"></a>
+<h4>Editor.hasChangeMarkers</h4>
+<b>hasChangeMarkers</b>(<i></i>)
+<p>
+        Public method to determine, if this editor contains any change markers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of change markers (boolean)
+</dd>
+</dl><a NAME="Editor.hasCoverageMarkers" ID="Editor.hasCoverageMarkers"></a>
+<h4>Editor.hasCoverageMarkers</h4>
+<b>hasCoverageMarkers</b>(<i></i>)
+<p>
+        Public method to test, if there are coverage markers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of coverage markers (boolean)
+</dd>
+</dl><a NAME="Editor.hasMiniMenu" ID="Editor.hasMiniMenu"></a>
+<h4>Editor.hasMiniMenu</h4>
+<b>hasMiniMenu</b>(<i></i>)
+<p>
+        Public method to check the miniMenu flag.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a minimized context menu (boolean)
+</dd>
+</dl><a NAME="Editor.hasSyntaxErrors" ID="Editor.hasSyntaxErrors"></a>
+<h4>Editor.hasSyntaxErrors</h4>
+<b>hasSyntaxErrors</b>(<i></i>)
+<p>
+        Public method to check for the presence of syntax errors.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of syntax errors (boolean)
+</dd>
+</dl><a NAME="Editor.hasTaskMarkers" ID="Editor.hasTaskMarkers"></a>
+<h4>Editor.hasTaskMarkers</h4>
+<b>hasTaskMarkers</b>(<i></i>)
+<p>
+        Public method to determine, if this editor contains any task markers.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of task markers (boolean)
+</dd>
+</dl><a NAME="Editor.hasWarnings" ID="Editor.hasWarnings"></a>
+<h4>Editor.hasWarnings</h4>
+<b>hasWarnings</b>(<i></i>)
+<p>
+        Public method to check for the presence of warnings.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating the presence of warnings (boolean)
+</dd>
+</dl><a NAME="Editor.highlight" ID="Editor.highlight"></a>
+<h4>Editor.highlight</h4>
+<b>highlight</b>(<i>line=None, error=False, syntaxError=False</i>)
+<p>
+        Public method to highlight [or de-highlight] a particular line.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number to highlight (integer)
+</dd><dt><i>error</i></dt>
+<dd>
+flag indicating whether the error highlight should be
+            used (boolean)
+</dd><dt><i>syntaxError</i></dt>
+<dd>
+flag indicating a syntax error (boolean)
+</dd>
+</dl><a NAME="Editor.highlightVisible" ID="Editor.highlightVisible"></a>
+<h4>Editor.highlightVisible</h4>
+<b>highlightVisible</b>(<i></i>)
+<p>
+        Public method to make sure that the highlight is visible.
+</p><a NAME="Editor.indentLineOrSelection" ID="Editor.indentLineOrSelection"></a>
+<h4>Editor.indentLineOrSelection</h4>
+<b>indentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to indent the current line or current selection.
+</p><a NAME="Editor.isJavascriptFile" ID="Editor.isJavascriptFile"></a>
+<h4>Editor.isJavascriptFile</h4>
+<b>isJavascriptFile</b>(<i></i>)
+<p>
+        Public method to return a flag indicating a Javascript file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Javascript file (boolean)
+</dd>
+</dl><a NAME="Editor.isLastEditPositionAvailable" ID="Editor.isLastEditPositionAvailable"></a>
+<h4>Editor.isLastEditPositionAvailable</h4>
+<b>isLastEditPositionAvailable</b>(<i></i>)
+<p>
+        Public method to check, if a last edit position is available.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating availability (boolean)
+</dd>
+</dl><a NAME="Editor.isPy2File" ID="Editor.isPy2File"></a>
+<h4>Editor.isPy2File</h4>
+<b>isPy2File</b>(<i></i>)
+<p>
+        Public method to return a flag indicating a Python2 file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python2 file (boolean)
+</dd>
+</dl><a NAME="Editor.isPy3File" ID="Editor.isPy3File"></a>
+<h4>Editor.isPy3File</h4>
+<b>isPy3File</b>(<i></i>)
+<p>
+        Public method to return a flag indicating a Python3 file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python3 file (boolean)
+</dd>
+</dl><a NAME="Editor.isPyFile" ID="Editor.isPyFile"></a>
+<h4>Editor.isPyFile</h4>
+<b>isPyFile</b>(<i></i>)
+<p>
+        Public method to return a flag indicating a Python (2 or 3) file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Python (2 or 3) file (boolean)
+</dd>
+</dl><a NAME="Editor.isRubyFile" ID="Editor.isRubyFile"></a>
+<h4>Editor.isRubyFile</h4>
+<b>isRubyFile</b>(<i></i>)
+<p>
+        Public method to return a flag indicating a Ruby file.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating a Ruby file (boolean)
+</dd>
+</dl><a NAME="Editor.isSpellCheckRegion" ID="Editor.isSpellCheckRegion"></a>
+<h4>Editor.isSpellCheckRegion</h4>
+<b>isSpellCheckRegion</b>(<i>pos</i>)
+<p>
+        Public method to check, if the given position is within a region, that
+        should be spell checked.
+</p><dl>
+<dt><i>pos</i></dt>
+<dd>
+position to be checked (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating pos is in a spell check region (boolean)
+</dd>
+</dl><a NAME="Editor.joinLines" ID="Editor.joinLines"></a>
+<h4>Editor.joinLines</h4>
+<b>joinLines</b>(<i></i>)
+<p>
+        Public slot to join the current line with the next one.
+</p><a NAME="Editor.keyPressEvent" ID="Editor.keyPressEvent"></a>
+<h4>Editor.keyPressEvent</h4>
+<b>keyPressEvent</b>(<i>ev</i>)
+<p>
+        Protected method to handle the user input a key at a time.
+</p><dl>
+<dt><i>ev</i></dt>
+<dd>
+key event (QKeyEvent)
+</dd>
+</dl><a NAME="Editor.macroDelete" ID="Editor.macroDelete"></a>
+<h4>Editor.macroDelete</h4>
+<b>macroDelete</b>(<i></i>)
+<p>
+        Public method to delete a macro.
+</p><a NAME="Editor.macroLoad" ID="Editor.macroLoad"></a>
+<h4>Editor.macroLoad</h4>
+<b>macroLoad</b>(<i></i>)
+<p>
+        Public method to load a macro from a file.
+</p><a NAME="Editor.macroRecordingStart" ID="Editor.macroRecordingStart"></a>
+<h4>Editor.macroRecordingStart</h4>
+<b>macroRecordingStart</b>(<i></i>)
+<p>
+        Public method to start macro recording.
+</p><a NAME="Editor.macroRecordingStop" ID="Editor.macroRecordingStop"></a>
+<h4>Editor.macroRecordingStop</h4>
+<b>macroRecordingStop</b>(<i></i>)
+<p>
+        Public method to stop macro recording.
+</p><a NAME="Editor.macroRun" ID="Editor.macroRun"></a>
+<h4>Editor.macroRun</h4>
+<b>macroRun</b>(<i></i>)
+<p>
+        Public method to execute a macro.
+</p><a NAME="Editor.macroSave" ID="Editor.macroSave"></a>
+<h4>Editor.macroSave</h4>
+<b>macroSave</b>(<i></i>)
+<p>
+        Public method to save a macro to a file.
+</p><a NAME="Editor.menuEditBreakpoint" ID="Editor.menuEditBreakpoint"></a>
+<h4>Editor.menuEditBreakpoint</h4>
+<b>menuEditBreakpoint</b>(<i>line=None</i>)
+<p>
+        Public slot to handle the 'Edit breakpoint' context menu action.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+linenumber of the breakpoint to edit
+</dd>
+</dl><a NAME="Editor.menuNextBreakpoint" ID="Editor.menuNextBreakpoint"></a>
+<h4>Editor.menuNextBreakpoint</h4>
+<b>menuNextBreakpoint</b>(<i></i>)
+<p>
+        Public slot to handle the 'Next breakpoint' context menu action.
+</p><a NAME="Editor.menuPreviousBreakpoint" ID="Editor.menuPreviousBreakpoint"></a>
+<h4>Editor.menuPreviousBreakpoint</h4>
+<b>menuPreviousBreakpoint</b>(<i></i>)
+<p>
+        Public slot to handle the 'Previous breakpoint' context menu action.
+</p><a NAME="Editor.menuToggleBookmark" ID="Editor.menuToggleBookmark"></a>
+<h4>Editor.menuToggleBookmark</h4>
+<b>menuToggleBookmark</b>(<i></i>)
+<p>
+        Public slot to handle the 'Toggle bookmark' context menu action.
+</p><a NAME="Editor.menuToggleBreakpoint" ID="Editor.menuToggleBreakpoint"></a>
+<h4>Editor.menuToggleBreakpoint</h4>
+<b>menuToggleBreakpoint</b>(<i></i>)
+<p>
+        Public slot to handle the 'Toggle breakpoint' context menu action.
+</p><a NAME="Editor.mousePressEvent" ID="Editor.mousePressEvent"></a>
+<h4>Editor.mousePressEvent</h4>
+<b>mousePressEvent</b>(<i>event</i>)
+<p>
+        Protected method to handle the mouse press event.
+</p><dl>
+<dt><i>event</i></dt>
+<dd>
+the mouse press event (QMouseEvent)
+</dd>
+</dl><a NAME="Editor.mouseReleaseEvent" ID="Editor.mouseReleaseEvent"></a>
+<h4>Editor.mouseReleaseEvent</h4>
+<b>mouseReleaseEvent</b>(<i>evt</i>)
+<p>
+        Protected method calling a registered mouse click handler function.
+</p><dl>
+<dt><i>evt</i> (QMouseEvent)</dt>
+<dd>
+event object
+</dd>
+</dl><a NAME="Editor.newBreakpointWithProperties" ID="Editor.newBreakpointWithProperties"></a>
+<h4>Editor.newBreakpointWithProperties</h4>
+<b>newBreakpointWithProperties</b>(<i>line, properties</i>)
+<p>
+        Public method to set a new breakpoint and its properties.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the breakpoint (integer)
+</dd><dt><i>properties</i></dt>
+<dd>
+properties for the breakpoint (tuple)
+                (condition, temporary flag, enabled flag, ignore count)
+</dd>
+</dl><a NAME="Editor.nextBookmark" ID="Editor.nextBookmark"></a>
+<h4>Editor.nextBookmark</h4>
+<b>nextBookmark</b>(<i></i>)
+<p>
+        Public slot to handle the 'Next bookmark' context menu action.
+</p><a NAME="Editor.nextChange" ID="Editor.nextChange"></a>
+<h4>Editor.nextChange</h4>
+<b>nextChange</b>(<i></i>)
+<p>
+        Public slot to handle the 'Next change' context menu action.
+</p><a NAME="Editor.nextTask" ID="Editor.nextTask"></a>
+<h4>Editor.nextTask</h4>
+<b>nextTask</b>(<i></i>)
+<p>
+        Public slot to handle the 'Next task' context menu action.
+</p><a NAME="Editor.nextUncovered" ID="Editor.nextUncovered"></a>
+<h4>Editor.nextUncovered</h4>
+<b>nextUncovered</b>(<i></i>)
+<p>
+        Public slot to handle the 'Next uncovered' context menu action.
+</p><a NAME="Editor.nextWarning" ID="Editor.nextWarning"></a>
+<h4>Editor.nextWarning</h4>
+<b>nextWarning</b>(<i></i>)
+<p>
+        Public slot to handle the 'Next warning' context menu action.
+</p><a NAME="Editor.previousBookmark" ID="Editor.previousBookmark"></a>
+<h4>Editor.previousBookmark</h4>
+<b>previousBookmark</b>(<i></i>)
+<p>
+        Public slot to handle the 'Previous bookmark' context menu action.
+</p><a NAME="Editor.previousChange" ID="Editor.previousChange"></a>
+<h4>Editor.previousChange</h4>
+<b>previousChange</b>(<i></i>)
+<p>
+        Public slot to handle the 'Previous task' context menu action.
+</p><a NAME="Editor.previousTask" ID="Editor.previousTask"></a>
+<h4>Editor.previousTask</h4>
+<b>previousTask</b>(<i></i>)
+<p>
+        Public slot to handle the 'Previous task' context menu action.
+</p><a NAME="Editor.previousUncovered" ID="Editor.previousUncovered"></a>
+<h4>Editor.previousUncovered</h4>
+<b>previousUncovered</b>(<i></i>)
+<p>
+        Public slot to handle the 'Previous uncovered' context menu action.
+</p><a NAME="Editor.previousWarning" ID="Editor.previousWarning"></a>
+<h4>Editor.previousWarning</h4>
+<b>previousWarning</b>(<i></i>)
+<p>
+        Public slot to handle the 'Previous warning' context menu action.
+</p><a NAME="Editor.printFile" ID="Editor.printFile"></a>
+<h4>Editor.printFile</h4>
+<b>printFile</b>(<i></i>)
+<p>
+        Public slot to print the text.
+</p><a NAME="Editor.printPreviewFile" ID="Editor.printPreviewFile"></a>
+<h4>Editor.printPreviewFile</h4>
+<b>printPreviewFile</b>(<i></i>)
+<p>
+        Public slot to show a print preview of the text.
+</p><a NAME="Editor.projectClosed" ID="Editor.projectClosed"></a>
+<h4>Editor.projectClosed</h4>
+<b>projectClosed</b>(<i></i>)
+<p>
+        Public slot to handle the closing of a project.
+</p><a NAME="Editor.projectLexerAssociationsChanged" ID="Editor.projectLexerAssociationsChanged"></a>
+<h4>Editor.projectLexerAssociationsChanged</h4>
+<b>projectLexerAssociationsChanged</b>(<i></i>)
+<p>
+        Public slot to handle changes of the project lexer associations.
+</p><a NAME="Editor.projectOpened" ID="Editor.projectOpened"></a>
+<h4>Editor.projectOpened</h4>
+<b>projectOpened</b>(<i></i>)
+<p>
+        Public slot to handle the opening of a project.
+</p><a NAME="Editor.readFile" ID="Editor.readFile"></a>
+<h4>Editor.readFile</h4>
+<b>readFile</b>(<i>fn, createIt=False, encoding=""</i>)
+<p>
+        Public slot to read the text from a file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to read from (string)
+</dd><dt><i>createIt=</i></dt>
+<dd>
+flag indicating the creation of a new file, if the
+            given one doesn't exist (boolean)
+</dd><dt><i>encoding=</i></dt>
+<dd>
+encoding to be used to read the file (string)
+            (Note: this parameter overrides encoding detection)
+</dd>
+</dl><a NAME="Editor.readSettings" ID="Editor.readSettings"></a>
+<h4>Editor.readSettings</h4>
+<b>readSettings</b>(<i></i>)
+<p>
+        Public slot to read the settings into our lexer.
+</p><a NAME="Editor.receive" ID="Editor.receive"></a>
+<h4>Editor.receive</h4>
+<b>receive</b>(<i>command</i>)
+<p>
+        Public slot to handle received editor commands.
+</p><dl>
+<dt><i>command</i></dt>
+<dd>
+command string (string)
+</dd>
+</dl><a NAME="Editor.redo" ID="Editor.redo"></a>
+<h4>Editor.redo</h4>
+<b>redo</b>(<i></i>)
+<p>
+        Public method to redo the last recorded change.
+</p><a NAME="Editor.refresh" ID="Editor.refresh"></a>
+<h4>Editor.refresh</h4>
+<b>refresh</b>(<i></i>)
+<p>
+        Public slot to refresh the editor contents.
+</p><a NAME="Editor.refreshCoverageAnnotations" ID="Editor.refreshCoverageAnnotations"></a>
+<h4>Editor.refreshCoverageAnnotations</h4>
+<b>refreshCoverageAnnotations</b>(<i></i>)
+<p>
+        Public method to refresh the code coverage annotations.
+</p><a NAME="Editor.removeCallTipHook" ID="Editor.removeCallTipHook"></a>
+<h4>Editor.removeCallTipHook</h4>
+<b>removeCallTipHook</b>(<i>key</i>)
+<p>
+        Public method to remove a previously registered calltip provider.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the provider
+</dd>
+</dl><a NAME="Editor.removeClone" ID="Editor.removeClone"></a>
+<h4>Editor.removeClone</h4>
+<b>removeClone</b>(<i>editor</i>)
+<p>
+        Public method to remove a clone from our list.
+</p><dl>
+<dt><i>editor</i></dt>
+<dd>
+reference to the cloned editor (Editor)
+</dd>
+</dl><a NAME="Editor.removeCompletionListHook" ID="Editor.removeCompletionListHook"></a>
+<h4>Editor.removeCompletionListHook</h4>
+<b>removeCompletionListHook</b>(<i>key</i>)
+<p>
+        Public method to remove a previously registered completion list
+        provider.
+</p><dl>
+<dt><i>key</i> (str)</dt>
+<dd>
+name of the provider
+</dd>
+</dl><a NAME="Editor.removeMouseClickHandler" ID="Editor.removeMouseClickHandler"></a>
+<h4>Editor.removeMouseClickHandler</h4>
+<b>removeMouseClickHandler</b>(<i>modifiers, button</i>)
+<p>
+        Public method to un-registered a mouse click handler.
+</p><dl>
+<dt><i>modifiers</i> (Qt.KeyboardModifiers)</dt>
+<dd>
+keyboard modifiers of the handler
+</dd><dt><i>button</i> (Qt.MouseButton)</dt>
+<dd>
+mouse button of the handler
+</dd>
+</dl><a NAME="Editor.removeMouseClickHandlers" ID="Editor.removeMouseClickHandlers"></a>
+<h4>Editor.removeMouseClickHandlers</h4>
+<b>removeMouseClickHandlers</b>(<i>name</i>)
+<p>
+        Public method to un-registered all mouse click handlers of
+        a plug-in.
+</p><dl>
+<dt><i>name</i> (str)</dt>
+<dd>
+name of the plug-in
+</dd>
+</dl><a NAME="Editor.resizeEvent" ID="Editor.resizeEvent"></a>
+<h4>Editor.resizeEvent</h4>
+<b>resizeEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling resize events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the resize event (QResizeEvent)
+</dd>
+</dl><a NAME="Editor.revertToUnmodified" ID="Editor.revertToUnmodified"></a>
+<h4>Editor.revertToUnmodified</h4>
+<b>revertToUnmodified</b>(<i></i>)
+<p>
+        Public method to revert back to the last saved state.
+</p><a NAME="Editor.saveFile" ID="Editor.saveFile"></a>
+<h4>Editor.saveFile</h4>
+<b>saveFile</b>(<i>saveas=False, path=None</i>)
+<p>
+        Public method to save the text to a file.
+</p><dl>
+<dt><i>saveas</i></dt>
+<dd>
+flag indicating a 'save as' action (boolean)
+</dd><dt><i>path</i></dt>
+<dd>
+directory to save the file in (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Editor.saveFileAs" ID="Editor.saveFileAs"></a>
+<h4>Editor.saveFileAs</h4>
+<b>saveFileAs</b>(<i>path=None, toProject=False</i>)
+<p>
+        Public slot to save a file with a new name.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+directory to save the file in (string)
+</dd><dt><i>toProject=</i></dt>
+<dd>
+flag indicating a save to project operation
+            (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+tuple of two values (boolean, string) giving a success
+            indicator and the name of the saved file
+</dd>
+</dl><a NAME="Editor.saveFileCopy" ID="Editor.saveFileCopy"></a>
+<h4>Editor.saveFileCopy</h4>
+<b>saveFileCopy</b>(<i>path=None</i>)
+<p>
+        Public method to save a copy of the file.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+directory to save the file in (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl><a NAME="Editor.searchCurrentWordBackward" ID="Editor.searchCurrentWordBackward"></a>
+<h4>Editor.searchCurrentWordBackward</h4>
+<b>searchCurrentWordBackward</b>(<i></i>)
+<p>
+        Public slot to search the current word backward.
+</p><a NAME="Editor.searchCurrentWordForward" ID="Editor.searchCurrentWordForward"></a>
+<h4>Editor.searchCurrentWordForward</h4>
+<b>searchCurrentWordForward</b>(<i></i>)
+<p>
+        Public slot to search the current word forward.
+</p><a NAME="Editor.selectCurrentWord" ID="Editor.selectCurrentWord"></a>
+<h4>Editor.selectCurrentWord</h4>
+<b>selectCurrentWord</b>(<i></i>)
+<p>
+        Public method to select the current word.
+</p><a NAME="Editor.selectWord" ID="Editor.selectWord"></a>
+<h4>Editor.selectWord</h4>
+<b>selectWord</b>(<i>line, index</i>)
+<p>
+        Public method to select the word at a position.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+number of line to look at (int)
+</dd><dt><i>index</i></dt>
+<dd>
+position to look at (int)
+</dd>
+</dl><a NAME="Editor.sendSharedEdit" ID="Editor.sendSharedEdit"></a>
+<h4>Editor.sendSharedEdit</h4>
+<b>sendSharedEdit</b>(<i></i>)
+<p>
+        Public slot to end a shared edit session for the editor and
+        send the changes.
+</p><a NAME="Editor.setAutoCompletionEnabled" ID="Editor.setAutoCompletionEnabled"></a>
+<h4>Editor.setAutoCompletionEnabled</h4>
+<b>setAutoCompletionEnabled</b>(<i>enable</i>)
+<p>
+        Public method to enable/disable autocompletion.
+</p><dl>
+<dt><i>enable</i></dt>
+<dd>
+flag indicating the desired autocompletion status
+            (boolean)
+</dd>
+</dl><a NAME="Editor.setAutoCompletionHook" ID="Editor.setAutoCompletionHook"></a>
+<h4>Editor.setAutoCompletionHook</h4>
+<b>setAutoCompletionHook</b>(<i>func</i>)
+<p>
+        Public method to set an autocompletion hook.
+</p><dl>
+<dt><i>func</i></dt>
+<dd>
+Function to be set to handle autocompletion. func
+            should be a function taking a reference to the editor and
+            a boolean indicating to complete a context.
+</dd>
+</dl><a NAME="Editor.setAutoSpellChecking" ID="Editor.setAutoSpellChecking"></a>
+<h4>Editor.setAutoSpellChecking</h4>
+<b>setAutoSpellChecking</b>(<i></i>)
+<p>
+        Public method to set the automatic spell checking.
+</p><a NAME="Editor.setCallTipHook" ID="Editor.setCallTipHook"></a>
+<h4>Editor.setCallTipHook</h4>
+<b>setCallTipHook</b>(<i>func</i>)
+<p>
+        Public method to set a calltip hook.
+</p><dl>
+<dt><i>func</i></dt>
+<dd>
+Function to be set to determine calltips. func
+            should be a function taking a reference to the editor,
+            a position into the text and the amount of commas to the
+            left of the cursor. It should return the possible
+            calltips as a list of strings.
+</dd>
+</dl><a NAME="Editor.setLanguage" ID="Editor.setLanguage"></a>
+<h4>Editor.setLanguage</h4>
+<b>setLanguage</b>(<i>filename, initTextDisplay=True, propagate=True, pyname=""</i>)
+<p>
+        Public method to set a lexer language.
+</p><dl>
+<dt><i>filename</i></dt>
+<dd>
+filename used to determine the associated lexer
+            language (string)
+</dd><dt><i>initTextDisplay</i></dt>
+<dd>
+flag indicating an initialization of the text
+            display is required as well (boolean)
+</dd><dt><i>propagate=</i></dt>
+<dd>
+flag indicating to propagate the change (boolean)
+</dd><dt><i>pyname=</i></dt>
+<dd>
+name of the pygments lexer to use (string)
+</dd>
+</dl><a NAME="Editor.setMonospaced" ID="Editor.setMonospaced"></a>
+<h4>Editor.setMonospaced</h4>
+<b>setMonospaced</b>(<i>on</i>)
+<p>
+        Public method to set/reset a monospaced font.
+</p><dl>
+<dt><i>on</i></dt>
+<dd>
+flag to indicate usage of a monospace font (boolean)
+</dd>
+</dl><a NAME="Editor.setMouseClickHandler" ID="Editor.setMouseClickHandler"></a>
+<h4>Editor.setMouseClickHandler</h4>
+<b>setMouseClickHandler</b>(<i>name, modifiers, button, function</i>)
+<p>
+        Public method to set a mouse click handler.
+</p><dl>
+<dt><i>name</i> (str)</dt>
+<dd>
+name of the plug-in (or 'internal') setting this handler
+</dd><dt><i>modifiers</i> (Qt.KeyboardModifiers or int)</dt>
+<dd>
+keyboard modifiers of the handler
+</dd><dt><i>button</i> (Qt.MouseButton or int)</dt>
+<dd>
+mouse button of the handler
+</dd><dt><i>function</i> (func)</dt>
+<dd>
+handler function
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+bool
+</dd>
+</dl><a NAME="Editor.setNoName" ID="Editor.setNoName"></a>
+<h4>Editor.setNoName</h4>
+<b>setNoName</b>(<i>noName</i>)
+<p>
+        Public method to set the display string for an unnamed editor.
+</p><dl>
+<dt><i>noName</i></dt>
+<dd>
+display string for this unnamed editor (string)
+</dd>
+</dl><a NAME="Editor.setSearchIndicator" ID="Editor.setSearchIndicator"></a>
+<h4>Editor.setSearchIndicator</h4>
+<b>setSearchIndicator</b>(<i>startPos, indicLength</i>)
+<p>
+        Public method to set a search indicator for the given range.
+</p><dl>
+<dt><i>startPos</i></dt>
+<dd>
+start position of the indicator (integer)
+</dd><dt><i>indicLength</i></dt>
+<dd>
+length of the indicator (integer)
+</dd>
+</dl><a NAME="Editor.setSpellingForProject" ID="Editor.setSpellingForProject"></a>
+<h4>Editor.setSpellingForProject</h4>
+<b>setSpellingForProject</b>(<i></i>)
+<p>
+        Public method to set the spell checking options for files belonging
+        to the current project.
+</p><a NAME="Editor.shareConnected" ID="Editor.shareConnected"></a>
+<h4>Editor.shareConnected</h4>
+<b>shareConnected</b>(<i>connected</i>)
+<p>
+        Public slot to handle a change of the connected state.
+</p><dl>
+<dt><i>connected</i></dt>
+<dd>
+flag indicating the connected state (boolean)
+</dd>
+</dl><a NAME="Editor.shareEditor" ID="Editor.shareEditor"></a>
+<h4>Editor.shareEditor</h4>
+<b>shareEditor</b>(<i>share</i>)
+<p>
+        Public slot to set the shared status of the editor.
+</p><dl>
+<dt><i>share</i></dt>
+<dd>
+flag indicating the share status (boolean)
+</dd>
+</dl><a NAME="Editor.shortenEmptyLines" ID="Editor.shortenEmptyLines"></a>
+<h4>Editor.shortenEmptyLines</h4>
+<b>shortenEmptyLines</b>(<i></i>)
+<p>
+        Public slot to compress lines consisting solely of whitespace
+        characters.
+</p><a NAME="Editor.shouldAutosave" ID="Editor.shouldAutosave"></a>
+<h4>Editor.shouldAutosave</h4>
+<b>shouldAutosave</b>(<i></i>)
+<p>
+        Public slot to check the autosave flags.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating this editor should be saved (boolean)
+</dd>
+</dl><a NAME="Editor.smartIndentLineOrSelection" ID="Editor.smartIndentLineOrSelection"></a>
+<h4>Editor.smartIndentLineOrSelection</h4>
+<b>smartIndentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to indent current line smartly.
+</p><a NAME="Editor.sortLines" ID="Editor.sortLines"></a>
+<h4>Editor.sortLines</h4>
+<b>sortLines</b>(<i></i>)
+<p>
+        Public slot to sort the lines spanned by a rectangular selection.
+</p><a NAME="Editor.startSharedEdit" ID="Editor.startSharedEdit"></a>
+<h4>Editor.startSharedEdit</h4>
+<b>startSharedEdit</b>(<i></i>)
+<p>
+        Public slot to start a shared edit session for the editor.
+</p><a NAME="Editor.streamCommentLine" ID="Editor.streamCommentLine"></a>
+<h4>Editor.streamCommentLine</h4>
+<b>streamCommentLine</b>(<i></i>)
+<p>
+        Public slot to stream comment the current line.
+</p><a NAME="Editor.streamCommentLineOrSelection" ID="Editor.streamCommentLineOrSelection"></a>
+<h4>Editor.streamCommentLineOrSelection</h4>
+<b>streamCommentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to stream comment the current line or current selection.
+</p><a NAME="Editor.streamCommentSelection" ID="Editor.streamCommentSelection"></a>
+<h4>Editor.streamCommentSelection</h4>
+<b>streamCommentSelection</b>(<i></i>)
+<p>
+        Public slot to comment the current selection.
+</p><a NAME="Editor.toggleBookmark" ID="Editor.toggleBookmark"></a>
+<h4>Editor.toggleBookmark</h4>
+<b>toggleBookmark</b>(<i>line</i>)
+<p>
+        Public method to toggle a bookmark.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the bookmark (integer)
+</dd>
+</dl><a NAME="Editor.toggleCommentBlock" ID="Editor.toggleCommentBlock"></a>
+<h4>Editor.toggleCommentBlock</h4>
+<b>toggleCommentBlock</b>(<i></i>)
+<p>
+        Public slot to toggle the comment of a block.
+</p><p>
+        If the line of the cursor or the selection is not commented, it will
+        be commented. If it is commented, the comment block will be removed.
+        The later works independent of the current selection.
+</p><a NAME="Editor.toggleSyntaxError" ID="Editor.toggleSyntaxError"></a>
+<h4>Editor.toggleSyntaxError</h4>
+<b>toggleSyntaxError</b>(<i>line, index, error, msg="", show=False</i>)
+<p>
+        Public method to toggle a syntax error indicator.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the syntax error (integer)
+</dd><dt><i>index</i></dt>
+<dd>
+index number of the syntax error (integer)
+</dd><dt><i>error</i></dt>
+<dd>
+flag indicating if the error marker should be
+            set or deleted (boolean)
+</dd><dt><i>msg</i></dt>
+<dd>
+error message (string)
+</dd><dt><i>show=</i></dt>
+<dd>
+flag indicating to set the cursor to the error position
+            (boolean)
+</dd>
+</dl><a NAME="Editor.toggleWarning" ID="Editor.toggleWarning"></a>
+<h4>Editor.toggleWarning</h4>
+<b>toggleWarning</b>(<i>line, col, warning, msg="", warningType=WarningCode</i>)
+<p>
+        Public method to toggle a warning indicator.
+</p><p>
+        Note: This method is used to set pyflakes and code style warnings.
+</p><dl>
+<dt><i>line</i></dt>
+<dd>
+line number of the warning
+</dd><dt><i>col</i></dt>
+<dd>
+column of the warning
+</dd><dt><i>warning</i></dt>
+<dd>
+flag indicating if the warning marker should be
+            set or deleted (boolean)
+</dd><dt><i>msg</i></dt>
+<dd>
+warning message (string)
+</dd><dt><i>warningType=</i></dt>
+<dd>
+type of warning message (integer)
+</dd>
+</dl><a NAME="Editor.uncommentLine" ID="Editor.uncommentLine"></a>
+<h4>Editor.uncommentLine</h4>
+<b>uncommentLine</b>(<i></i>)
+<p>
+        Public slot to uncomment the current line.
+</p><a NAME="Editor.uncommentLineOrSelection" ID="Editor.uncommentLineOrSelection"></a>
+<h4>Editor.uncommentLineOrSelection</h4>
+<b>uncommentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to uncomment the current line or current selection.
+</p><a NAME="Editor.uncommentSelection" ID="Editor.uncommentSelection"></a>
+<h4>Editor.uncommentSelection</h4>
+<b>uncommentSelection</b>(<i></i>)
+<p>
+        Public slot to uncomment the current selection.
+</p><a NAME="Editor.undo" ID="Editor.undo"></a>
+<h4>Editor.undo</h4>
+<b>undo</b>(<i></i>)
+<p>
+        Public method to undo the last recorded change.
+</p><a NAME="Editor.unindentLineOrSelection" ID="Editor.unindentLineOrSelection"></a>
+<h4>Editor.unindentLineOrSelection</h4>
+<b>unindentLineOrSelection</b>(<i></i>)
+<p>
+        Public slot to unindent the current line or current selection.
+</p><a NAME="Editor.unsetAutoCompletionHook" ID="Editor.unsetAutoCompletionHook"></a>
+<h4>Editor.unsetAutoCompletionHook</h4>
+<b>unsetAutoCompletionHook</b>(<i></i>)
+<p>
+        Public method to unset a previously installed autocompletion hook.
+</p><a NAME="Editor.unsetCallTipHook" ID="Editor.unsetCallTipHook"></a>
+<h4>Editor.unsetCallTipHook</h4>
+<b>unsetCallTipHook</b>(<i></i>)
+<p>
+        Public method to unset a calltip hook.
+</p><a NAME="Editor.updateMarkerMap" ID="Editor.updateMarkerMap"></a>
+<h4>Editor.updateMarkerMap</h4>
+<b>updateMarkerMap</b>(<i></i>)
+<p>
+        Public method to initiate an update of the marker map.
+</p><a NAME="Editor.viewportEvent" ID="Editor.viewportEvent"></a>
+<h4>Editor.viewportEvent</h4>
+<b>viewportEvent</b>(<i>evt</i>)
+<p>
+        Protected method handling event of the viewport.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the event (QEvent)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indiating that the event was handled (boolean)
+</dd>
+</dl><a NAME="Editor.wheelEvent" ID="Editor.wheelEvent"></a>
+<h4>Editor.wheelEvent</h4>
+<b>wheelEvent</b>(<i>evt</i>)
+<p>
+        Protected method to handle wheel events.
+</p><dl>
+<dt><i>evt</i></dt>
+<dd>
+reference to the wheel event (QWheelEvent)
+</dd>
+</dl><a NAME="Editor.writeFile" ID="Editor.writeFile"></a>
+<h4>Editor.writeFile</h4>
+<b>writeFile</b>(<i>fn, backup=True</i>)
+<p>
+        Public slot to write the text to a file.
+</p><dl>
+<dt><i>fn</i></dt>
+<dd>
+filename to write to (string)
+</dd><dt><i>backup</i></dt>
+<dd>
+flag indicating to save a backup (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+flag indicating success (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

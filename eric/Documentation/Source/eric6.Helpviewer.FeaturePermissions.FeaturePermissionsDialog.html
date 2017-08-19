@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Helpviewer.FeaturePermissions.FeaturePermissionsDialog</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Helpviewer.FeaturePermissions.FeaturePermissionsDialog</h1>
+<p>
+Module implementing the feature permission dialog.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#FeaturePermissionsDialog">FeaturePermissionsDialog</a></td>
+<td>Class implementing the feature permission dialog.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="FeaturePermissionsDialog" ID="FeaturePermissionsDialog"></a>
+<h2>FeaturePermissionsDialog</h2>
+<p>
+    Class implementing the feature permission dialog.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_FeaturePermissionsDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#FeaturePermissionsDialog.__init__">FeaturePermissionsDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.__updateGeoButtons">__updateGeoButtons</a></td>
+<td>Private method to update the geolocation buttons.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.__updateNotifButtons">__updateNotifButtons</a></td>
+<td>Private method to update the notifications buttons.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.getData">getData</a></td>
+<td>Public method to retrieve the dialog contents.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.on_geoList_itemSelectionChanged">on_geoList_itemSelectionChanged</a></td>
+<td>Private slot handling changes in the list of selected geolocation items.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.on_geoRemoveAllButton_clicked">on_geoRemoveAllButton_clicked</a></td>
+<td>Private slot to remove all geolocation entries.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.on_geoRemoveButton_clicked">on_geoRemoveButton_clicked</a></td>
+<td>Private slot to remove selected geolocation entries.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.on_notifList_itemSelectionChanged">on_notifList_itemSelectionChanged</a></td>
+<td>Private slot handling changes in the list of selected notifications items.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.on_notifRemoveAllButton_clicked">on_notifRemoveAllButton_clicked</a></td>
+<td>Private slot to remove all notification entries.</td>
+</tr><tr>
+<td><a href="#FeaturePermissionsDialog.on_notifRemoveButton_clicked">on_notifRemoveButton_clicked</a></td>
+<td>Private slot to remove selected notification entries.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="FeaturePermissionsDialog.__init__" ID="FeaturePermissionsDialog.__init__"></a>
+<h4>FeaturePermissionsDialog (Constructor)</h4>
+<b>FeaturePermissionsDialog</b>(<i>featurePermissions, parent=None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>featurePermissions</i> (dict of dict of list)</dt>
+<dd>
+dictionary with remembered feature
+            permissions
+</dd><dt><i>parent</i> (QWidget)</dt>
+<dd>
+reference to the parent widget
+</dd>
+</dl><a NAME="FeaturePermissionsDialog.__updateGeoButtons" ID="FeaturePermissionsDialog.__updateGeoButtons"></a>
+<h4>FeaturePermissionsDialog.__updateGeoButtons</h4>
+<b>__updateGeoButtons</b>(<i></i>)
+<p>
+        Private method to update the geolocation buttons.
+</p><a NAME="FeaturePermissionsDialog.__updateNotifButtons" ID="FeaturePermissionsDialog.__updateNotifButtons"></a>
+<h4>FeaturePermissionsDialog.__updateNotifButtons</h4>
+<b>__updateNotifButtons</b>(<i></i>)
+<p>
+        Private method to update the notifications buttons.
+</p><a NAME="FeaturePermissionsDialog.getData" ID="FeaturePermissionsDialog.getData"></a>
+<h4>FeaturePermissionsDialog.getData</h4>
+<b>getData</b>(<i></i>)
+<p>
+        Public method to retrieve the dialog contents.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+new feature permission settings
+</dd>
+</dl><dl>
+<dt>Return Type:</dt>
+<dd>
+dict of dict of list
+</dd>
+</dl><a NAME="FeaturePermissionsDialog.on_geoList_itemSelectionChanged" ID="FeaturePermissionsDialog.on_geoList_itemSelectionChanged"></a>
+<h4>FeaturePermissionsDialog.on_geoList_itemSelectionChanged</h4>
+<b>on_geoList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot handling changes in the list of selected geolocation
+        items.
+</p><a NAME="FeaturePermissionsDialog.on_geoRemoveAllButton_clicked" ID="FeaturePermissionsDialog.on_geoRemoveAllButton_clicked"></a>
+<h4>FeaturePermissionsDialog.on_geoRemoveAllButton_clicked</h4>
+<b>on_geoRemoveAllButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove all geolocation entries.
+</p><a NAME="FeaturePermissionsDialog.on_geoRemoveButton_clicked" ID="FeaturePermissionsDialog.on_geoRemoveButton_clicked"></a>
+<h4>FeaturePermissionsDialog.on_geoRemoveButton_clicked</h4>
+<b>on_geoRemoveButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove selected geolocation entries.
+</p><a NAME="FeaturePermissionsDialog.on_notifList_itemSelectionChanged" ID="FeaturePermissionsDialog.on_notifList_itemSelectionChanged"></a>
+<h4>FeaturePermissionsDialog.on_notifList_itemSelectionChanged</h4>
+<b>on_notifList_itemSelectionChanged</b>(<i></i>)
+<p>
+        Private slot handling changes in the list of selected notifications
+        items.
+</p><a NAME="FeaturePermissionsDialog.on_notifRemoveAllButton_clicked" ID="FeaturePermissionsDialog.on_notifRemoveAllButton_clicked"></a>
+<h4>FeaturePermissionsDialog.on_notifRemoveAllButton_clicked</h4>
+<b>on_notifRemoveAllButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove all notification entries.
+</p><a NAME="FeaturePermissionsDialog.on_notifRemoveButton_clicked" ID="FeaturePermissionsDialog.on_notifRemoveButton_clicked"></a>
+<h4>FeaturePermissionsDialog.on_notifRemoveButton_clicked</h4>
+<b>on_notifRemoveButton_clicked</b>(<i></i>)
+<p>
+        Private slot to remove selected notification entries.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

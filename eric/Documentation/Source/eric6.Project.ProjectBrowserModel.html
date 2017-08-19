@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html><head>
+<title>eric6.Project.ProjectBrowserModel</title>
+<meta charset="UTF-8">
+<style>
+body {
+    background: #EDECE6;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #85774A; }
+h2 { color: white; background: #85774A; }
+h3 { color: white; background: #9D936E; }
+h4 { color: white; background: #9D936E; }
+    
+a { color: #BA6D36; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>eric6.Project.ProjectBrowserModel</h1>
+<p>
+Module implementing the browser model.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>ProjectBrowserFormType</td></tr><tr><td>ProjectBrowserInterfaceType</td></tr><tr><td>ProjectBrowserItemDirectory</td></tr><tr><td>ProjectBrowserItemFile</td></tr><tr><td>ProjectBrowserItemSimpleDirectory</td></tr><tr><td>ProjectBrowserNoType</td></tr><tr><td>ProjectBrowserOthersType</td></tr><tr><td>ProjectBrowserResourceType</td></tr><tr><td>ProjectBrowserSourceType</td></tr><tr><td>ProjectBrowserTranslationType</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserDirectoryItem">ProjectBrowserDirectoryItem</a></td>
+<td>Class implementing the data structure for project browser directory items.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserFileItem">ProjectBrowserFileItem</a></td>
+<td>Class implementing the data structure for project browser file items.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin">ProjectBrowserItemMixin</a></td>
+<td>Class implementing common methods of project browser items.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel">ProjectBrowserModel</a></td>
+<td>Class implementing the project browser model.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserSimpleDirectoryItem">ProjectBrowserSimpleDirectoryItem</a></td>
+<td>Class implementing the data structure for project browser simple directory items.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="ProjectBrowserDirectoryItem" ID="ProjectBrowserDirectoryItem"></a>
+<h2>ProjectBrowserDirectoryItem</h2>
+<p>
+    Class implementing the data structure for project browser directory items.
+</p>
+<h3>Derived from</h3>
+BrowserDirectoryItem, ProjectBrowserItemMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserDirectoryItem.__init__">ProjectBrowserDirectoryItem</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowserDirectoryItem.__init__" ID="ProjectBrowserDirectoryItem.__init__"></a>
+<h4>ProjectBrowserDirectoryItem (Constructor)</h4>
+<b>ProjectBrowserDirectoryItem</b>(<i>parent, dinfo, projectType, full=True, bold=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>dinfo</i></dt>
+<dd>
+dinfo is the string for the directory (string)
+</dd><dt><i>projectType</i></dt>
+<dd>
+type of file/directory in the project
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd><dt><i>bold</i></dt>
+<dd>
+flag indicating a highlighted font (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ProjectBrowserFileItem" ID="ProjectBrowserFileItem"></a>
+<h2>ProjectBrowserFileItem</h2>
+<p>
+    Class implementing the data structure for project browser file items.
+</p>
+<h3>Derived from</h3>
+BrowserFileItem, ProjectBrowserItemMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserFileItem.__init__">ProjectBrowserFileItem</a></td>
+<td>Constructor</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowserFileItem.__init__" ID="ProjectBrowserFileItem.__init__"></a>
+<h4>ProjectBrowserFileItem (Constructor)</h4>
+<b>ProjectBrowserFileItem</b>(<i>parent, finfo, projectType, full=True, bold=False, sourceLanguage=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>finfo</i></dt>
+<dd>
+the string for the file (string)
+</dd><dt><i>projectType</i></dt>
+<dd>
+type of file/directory in the project
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd><dt><i>bold</i></dt>
+<dd>
+flag indicating a highlighted font (boolean)
+</dd><dt><i>sourceLanguage</i></dt>
+<dd>
+source code language of the project (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ProjectBrowserItemMixin" ID="ProjectBrowserItemMixin"></a>
+<h2>ProjectBrowserItemMixin</h2>
+<p>
+    Class implementing common methods of project browser items.
+</p><p>
+    It is meant to be used as a mixin class.
+</p>
+<h3>Derived from</h3>
+object
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserItemMixin.__init__">ProjectBrowserItemMixin</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin.addProjectType">addProjectType</a></td>
+<td>Public method to add a type to the list.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin.addVcsStatus">addVcsStatus</a></td>
+<td>Public method to add the VCS status.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin.getProjectTypes">getProjectTypes</a></td>
+<td>Public method to get the project type.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin.getTextColor">getTextColor</a></td>
+<td>Public method to get the items text color.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin.setVcsState">setVcsState</a></td>
+<td>Public method to set the items VCS state.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserItemMixin.setVcsStatus">setVcsStatus</a></td>
+<td>Public method to set the VCS status.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowserItemMixin.__init__" ID="ProjectBrowserItemMixin.__init__"></a>
+<h4>ProjectBrowserItemMixin (Constructor)</h4>
+<b>ProjectBrowserItemMixin</b>(<i>type_, bold=False</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of file/directory in the project
+</dd><dt><i>bold</i></dt>
+<dd>
+flag indicating a highlighted font
+</dd>
+</dl><a NAME="ProjectBrowserItemMixin.addProjectType" ID="ProjectBrowserItemMixin.addProjectType"></a>
+<h4>ProjectBrowserItemMixin.addProjectType</h4>
+<b>addProjectType</b>(<i>type_</i>)
+<p>
+        Public method to add a type to the list.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type to add to the list
+</dd>
+</dl><a NAME="ProjectBrowserItemMixin.addVcsStatus" ID="ProjectBrowserItemMixin.addVcsStatus"></a>
+<h4>ProjectBrowserItemMixin.addVcsStatus</h4>
+<b>addVcsStatus</b>(<i>vcsStatus</i>)
+<p>
+        Public method to add the VCS status.
+</p><dl>
+<dt><i>vcsStatus</i></dt>
+<dd>
+VCS status text (string)
+</dd>
+</dl><a NAME="ProjectBrowserItemMixin.getProjectTypes" ID="ProjectBrowserItemMixin.getProjectTypes"></a>
+<h4>ProjectBrowserItemMixin.getProjectTypes</h4>
+<b>getProjectTypes</b>(<i></i>)
+<p>
+        Public method to get the project type.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+project type
+</dd>
+</dl><a NAME="ProjectBrowserItemMixin.getTextColor" ID="ProjectBrowserItemMixin.getTextColor"></a>
+<h4>ProjectBrowserItemMixin.getTextColor</h4>
+<b>getTextColor</b>(<i></i>)
+<p>
+        Public method to get the items text color.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+text color (QColor)
+</dd>
+</dl><a NAME="ProjectBrowserItemMixin.setVcsState" ID="ProjectBrowserItemMixin.setVcsState"></a>
+<h4>ProjectBrowserItemMixin.setVcsState</h4>
+<b>setVcsState</b>(<i>state</i>)
+<p>
+        Public method to set the items VCS state.
+</p><dl>
+<dt><i>state</i></dt>
+<dd>
+VCS state (one of A, C, M, U or " ") (string)
+</dd>
+</dl><a NAME="ProjectBrowserItemMixin.setVcsStatus" ID="ProjectBrowserItemMixin.setVcsStatus"></a>
+<h4>ProjectBrowserItemMixin.setVcsStatus</h4>
+<b>setVcsStatus</b>(<i>vcsStatus</i>)
+<p>
+        Public method to set the VCS status.
+</p><dl>
+<dt><i>vcsStatus</i></dt>
+<dd>
+VCS status text (string)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ProjectBrowserModel" ID="ProjectBrowserModel"></a>
+<h2>ProjectBrowserModel</h2>
+<p>
+    Class implementing the project browser model.
+</p><h3>Signals</h3>
+<dl>
+<dt>vcsStateChanged(str)</dt>
+<dd>
+emitted after the VCS state has changed
+</dd>
+</dl>
+<h3>Derived from</h3>
+BrowserModel
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserModel.__init__">ProjectBrowserModel</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.__addVCSStatus">__addVCSStatus</a></td>
+<td>Private method used to set the vcs status of a node.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.__changeParentsVCSState">__changeParentsVCSState</a></td>
+<td>Private method to recursively change the parents VCS state.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.__updateVCSStatus">__updateVCSStatus</a></td>
+<td>Private method used to update the vcs status of a node.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.addNewItem">addNewItem</a></td>
+<td>Public method to add a new item to the model.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.changeVCSStates">changeVCSStates</a></td>
+<td>Public slot to record the (non normal) VCS states.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.data">data</a></td>
+<td>Public method to get data of an item.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.directoryChanged">directoryChanged</a></td>
+<td>Public slot to handle the directoryChanged signal of the watcher.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.findChildItem">findChildItem</a></td>
+<td>Public method to find a child item given some text.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.findItem">findItem</a></td>
+<td>Public method to find an item given its name.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.findParentItemByName">findParentItemByName</a></td>
+<td>Public method to find an item given its name.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.itemIndexByName">itemIndexByName</a></td>
+<td>Public method to find an item's index given its name.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.itemIndexByNameAndLine">itemIndexByNameAndLine</a></td>
+<td>Public method to find an item's index given its name.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.populateItem">populateItem</a></td>
+<td>Public method to populate an item's subtree.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.populateProjectDirectoryItem">populateProjectDirectoryItem</a></td>
+<td>Public method to populate a directory item's subtree.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.preferencesChanged">preferencesChanged</a></td>
+<td>Public method used to handle a change in preferences.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.projectClosed">projectClosed</a></td>
+<td>Public method called after a project has been closed.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.projectOpened">projectOpened</a></td>
+<td>Public method used to populate the model after a project has been opened.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.projectPropertiesChanged">projectPropertiesChanged</a></td>
+<td>Public method to react on a change of the project properties.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.removeItem">removeItem</a></td>
+<td>Public method to remove a named item.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.renameItem">renameItem</a></td>
+<td>Public method to rename an item.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.repopulateItem">repopulateItem</a></td>
+<td>Public method to repopulate an item.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserModel.updateVCSStatus">updateVCSStatus</a></td>
+<td>Public method used to update the vcs status of a node.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowserModel.__init__" ID="ProjectBrowserModel.__init__"></a>
+<h4>ProjectBrowserModel (Constructor)</h4>
+<b>ProjectBrowserModel</b>(<i>parent</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+reference to parent object (Project.Project)
+</dd>
+</dl><a NAME="ProjectBrowserModel.__addVCSStatus" ID="ProjectBrowserModel.__addVCSStatus"></a>
+<h4>ProjectBrowserModel.__addVCSStatus</h4>
+<b>__addVCSStatus</b>(<i>item, name</i>)
+<p>
+        Private method used to set the vcs status of a node.
+</p><dl>
+<dt><i>item</i></dt>
+<dd>
+item to work on
+</dd><dt><i>name</i></dt>
+<dd>
+filename belonging to this item (string)
+</dd>
+</dl><a NAME="ProjectBrowserModel.__changeParentsVCSState" ID="ProjectBrowserModel.__changeParentsVCSState"></a>
+<h4>ProjectBrowserModel.__changeParentsVCSState</h4>
+<b>__changeParentsVCSState</b>(<i>path, itemCache</i>)
+<p>
+        Private method to recursively change the parents VCS state.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+pathname of parent item (string)
+</dd><dt><i>itemCache</i></dt>
+<dd>
+reference to the item cache used to store
+            references to named items
+</dd>
+</dl><a NAME="ProjectBrowserModel.__updateVCSStatus" ID="ProjectBrowserModel.__updateVCSStatus"></a>
+<h4>ProjectBrowserModel.__updateVCSStatus</h4>
+<b>__updateVCSStatus</b>(<i>item, name, recursive=True</i>)
+<p>
+        Private method used to update the vcs status of a node.
+</p><dl>
+<dt><i>item</i></dt>
+<dd>
+item to work on
+</dd><dt><i>name</i></dt>
+<dd>
+filename belonging to this item (string)
+</dd><dt><i>recursive=</i></dt>
+<dd>
+flag indicating a recursive update (boolean)
+</dd>
+</dl><a NAME="ProjectBrowserModel.addNewItem" ID="ProjectBrowserModel.addNewItem"></a>
+<h4>ProjectBrowserModel.addNewItem</h4>
+<b>addNewItem</b>(<i>typeString, name, additionalTypeStrings=None</i>)
+<p>
+        Public method to add a new item to the model.
+</p><dl>
+<dt><i>typeString</i></dt>
+<dd>
+string denoting the type of the new item (string)
+</dd><dt><i>name</i></dt>
+<dd>
+name of the new item (string)
+</dd><dt><i>additionalTypeStrings</i></dt>
+<dd>
+names of additional types (list of string)
+</dd>
+</dl><a NAME="ProjectBrowserModel.changeVCSStates" ID="ProjectBrowserModel.changeVCSStates"></a>
+<h4>ProjectBrowserModel.changeVCSStates</h4>
+<b>changeVCSStates</b>(<i>statesList</i>)
+<p>
+        Public slot to record the (non normal) VCS states.
+</p><dl>
+<dt><i>statesList</i></dt>
+<dd>
+list of VCS state entries (list of strings) giving
+            the states in the first column and the path relative to the project
+            directory starting with the third column. The allowed status flags
+            are:
+            <ul>
+                <li>"A" path was added but not yet comitted</li>
+                <li>"M" path has local changes</li>
+                <li>"O" path was removed</li>
+                <li>"R" path was deleted and then re-added</li>
+                <li>"U" path needs an update</li>
+                <li>"Z" path contains a conflict</li>
+                <li>" " path is back at normal</li>
+            </ul>
+</dd>
+</dl><a NAME="ProjectBrowserModel.data" ID="ProjectBrowserModel.data"></a>
+<h4>ProjectBrowserModel.data</h4>
+<b>data</b>(<i>index, role</i>)
+<p>
+        Public method to get data of an item.
+</p><dl>
+<dt><i>index</i></dt>
+<dd>
+index of the data to retrieve (QModelIndex)
+</dd><dt><i>role</i></dt>
+<dd>
+role of data (Qt.ItemDataRole)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+requested data
+</dd>
+</dl><a NAME="ProjectBrowserModel.directoryChanged" ID="ProjectBrowserModel.directoryChanged"></a>
+<h4>ProjectBrowserModel.directoryChanged</h4>
+<b>directoryChanged</b>(<i>path</i>)
+<p>
+        Public slot to handle the directoryChanged signal of the watcher.
+</p><dl>
+<dt><i>path</i></dt>
+<dd>
+path of the directory (string)
+</dd>
+</dl><a NAME="ProjectBrowserModel.findChildItem" ID="ProjectBrowserModel.findChildItem"></a>
+<h4>ProjectBrowserModel.findChildItem</h4>
+<b>findChildItem</b>(<i>text, column, parentItem=None</i>)
+<p>
+        Public method to find a child item given some text.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text to search for (string)
+</dd><dt><i>column</i></dt>
+<dd>
+column to search in (integer)
+</dd><dt><i>parentItem</i></dt>
+<dd>
+reference to parent item
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the item found
+</dd>
+</dl><a NAME="ProjectBrowserModel.findItem" ID="ProjectBrowserModel.findItem"></a>
+<h4>ProjectBrowserModel.findItem</h4>
+<b>findItem</b>(<i>name</i>)
+<p>
+        Public method to find an item given its name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the item (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the item found
+</dd>
+</dl><a NAME="ProjectBrowserModel.findParentItemByName" ID="ProjectBrowserModel.findParentItemByName"></a>
+<h4>ProjectBrowserModel.findParentItemByName</h4>
+<b>findParentItemByName</b>(<i>type_, name, dontSplit=False</i>)
+<p>
+        Public method to find an item given its name.
+</p><p>
+        <b>Note</b>: This method creates all necessary parent items, if they
+        don't exist.
+</p><dl>
+<dt><i>type_</i></dt>
+<dd>
+type of the item
+</dd><dt><i>name</i></dt>
+<dd>
+name of the item (string)
+</dd><dt><i>dontSplit</i></dt>
+<dd>
+flag indicating the name should not be split (boolean)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+reference to the item found and the new display name (string)
+</dd>
+</dl><a NAME="ProjectBrowserModel.itemIndexByName" ID="ProjectBrowserModel.itemIndexByName"></a>
+<h4>ProjectBrowserModel.itemIndexByName</h4>
+<b>itemIndexByName</b>(<i>name</i>)
+<p>
+        Public method to find an item's index given its name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the item (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the item found (QModelIndex)
+</dd>
+</dl><a NAME="ProjectBrowserModel.itemIndexByNameAndLine" ID="ProjectBrowserModel.itemIndexByNameAndLine"></a>
+<h4>ProjectBrowserModel.itemIndexByNameAndLine</h4>
+<b>itemIndexByNameAndLine</b>(<i>name, lineno</i>)
+<p>
+        Public method to find an item's index given its name.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the item (string)
+</dd><dt><i>lineno</i></dt>
+<dd>
+one based line number of the item (integer)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+index of the item found (QModelIndex)
+</dd>
+</dl><a NAME="ProjectBrowserModel.populateItem" ID="ProjectBrowserModel.populateItem"></a>
+<h4>ProjectBrowserModel.populateItem</h4>
+<b>populateItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate an item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="ProjectBrowserModel.populateProjectDirectoryItem" ID="ProjectBrowserModel.populateProjectDirectoryItem"></a>
+<h4>ProjectBrowserModel.populateProjectDirectoryItem</h4>
+<b>populateProjectDirectoryItem</b>(<i>parentItem, repopulate=False</i>)
+<p>
+        Public method to populate a directory item's subtree.
+</p><dl>
+<dt><i>parentItem</i></dt>
+<dd>
+reference to the directory item to be populated
+</dd><dt><i>repopulate</i></dt>
+<dd>
+flag indicating a repopulation (boolean)
+</dd>
+</dl><a NAME="ProjectBrowserModel.preferencesChanged" ID="ProjectBrowserModel.preferencesChanged"></a>
+<h4>ProjectBrowserModel.preferencesChanged</h4>
+<b>preferencesChanged</b>(<i></i>)
+<p>
+        Public method used to handle a change in preferences.
+</p><a NAME="ProjectBrowserModel.projectClosed" ID="ProjectBrowserModel.projectClosed"></a>
+<h4>ProjectBrowserModel.projectClosed</h4>
+<b>projectClosed</b>(<i></i>)
+<p>
+        Public method called after a project has been closed.
+</p><a NAME="ProjectBrowserModel.projectOpened" ID="ProjectBrowserModel.projectOpened"></a>
+<h4>ProjectBrowserModel.projectOpened</h4>
+<b>projectOpened</b>(<i></i>)
+<p>
+        Public method used to populate the model after a project has been
+        opened.
+</p><a NAME="ProjectBrowserModel.projectPropertiesChanged" ID="ProjectBrowserModel.projectPropertiesChanged"></a>
+<h4>ProjectBrowserModel.projectPropertiesChanged</h4>
+<b>projectPropertiesChanged</b>(<i></i>)
+<p>
+        Public method to react on a change of the project properties.
+</p><a NAME="ProjectBrowserModel.removeItem" ID="ProjectBrowserModel.removeItem"></a>
+<h4>ProjectBrowserModel.removeItem</h4>
+<b>removeItem</b>(<i>name</i>)
+<p>
+        Public method to remove a named item.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+file or directory name of the item (string).
+</dd>
+</dl><a NAME="ProjectBrowserModel.renameItem" ID="ProjectBrowserModel.renameItem"></a>
+<h4>ProjectBrowserModel.renameItem</h4>
+<b>renameItem</b>(<i>name, newFilename</i>)
+<p>
+        Public method to rename an item.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+the old display name (string)
+</dd><dt><i>newFilename</i></dt>
+<dd>
+new filename of the item (string)
+</dd>
+</dl><a NAME="ProjectBrowserModel.repopulateItem" ID="ProjectBrowserModel.repopulateItem"></a>
+<h4>ProjectBrowserModel.repopulateItem</h4>
+<b>repopulateItem</b>(<i>name</i>)
+<p>
+        Public method to repopulate an item.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+name of the file relative to the project root (string)
+</dd>
+</dl><a NAME="ProjectBrowserModel.updateVCSStatus" ID="ProjectBrowserModel.updateVCSStatus"></a>
+<h4>ProjectBrowserModel.updateVCSStatus</h4>
+<b>updateVCSStatus</b>(<i>name, recursive=True</i>)
+<p>
+        Public method used to update the vcs status of a node.
+</p><dl>
+<dt><i>name</i></dt>
+<dd>
+filename belonging to this item (string)
+</dd><dt><i>recursive</i></dt>
+<dd>
+flag indicating a recursive update (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="ProjectBrowserSimpleDirectoryItem" ID="ProjectBrowserSimpleDirectoryItem"></a>
+<h2>ProjectBrowserSimpleDirectoryItem</h2>
+<p>
+    Class implementing the data structure for project browser simple directory
+    items.
+</p>
+<h3>Derived from</h3>
+BrowserItem, ProjectBrowserItemMixin
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#ProjectBrowserSimpleDirectoryItem.__init__">ProjectBrowserSimpleDirectoryItem</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#ProjectBrowserSimpleDirectoryItem.dirName">dirName</a></td>
+<td>Public method returning the directory name.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserSimpleDirectoryItem.lessThan">lessThan</a></td>
+<td>Public method to check, if the item is less than the other one.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserSimpleDirectoryItem.name">name</a></td>
+<td>Public method to return the name of the item.</td>
+</tr><tr>
+<td><a href="#ProjectBrowserSimpleDirectoryItem.setName">setName</a></td>
+<td>Public method to set the directory name.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="ProjectBrowserSimpleDirectoryItem.__init__" ID="ProjectBrowserSimpleDirectoryItem.__init__"></a>
+<h4>ProjectBrowserSimpleDirectoryItem (Constructor)</h4>
+<b>ProjectBrowserSimpleDirectoryItem</b>(<i>parent, projectType, text, path=""</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent item
+</dd><dt><i>projectType</i></dt>
+<dd>
+type of file/directory in the project
+</dd><dt><i>text</i></dt>
+<dd>
+text to be displayed (string)
+</dd><dt><i>path</i></dt>
+<dd>
+path of the directory (string)
+</dd>
+</dl><a NAME="ProjectBrowserSimpleDirectoryItem.dirName" ID="ProjectBrowserSimpleDirectoryItem.dirName"></a>
+<h4>ProjectBrowserSimpleDirectoryItem.dirName</h4>
+<b>dirName</b>(<i></i>)
+<p>
+        Public method returning the directory name.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+directory name (string)
+</dd>
+</dl><a NAME="ProjectBrowserSimpleDirectoryItem.lessThan" ID="ProjectBrowserSimpleDirectoryItem.lessThan"></a>
+<h4>ProjectBrowserSimpleDirectoryItem.lessThan</h4>
+<b>lessThan</b>(<i>other, column, order</i>)
+<p>
+        Public method to check, if the item is less than the other one.
+</p><dl>
+<dt><i>other</i></dt>
+<dd>
+reference to item to compare against (BrowserItem)
+</dd><dt><i>column</i></dt>
+<dd>
+column number to use for the comparison (integer)
+</dd><dt><i>order</i></dt>
+<dd>
+sort order (Qt.SortOrder) (for special sorting)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+true, if this item is less than other (boolean)
+</dd>
+</dl><a NAME="ProjectBrowserSimpleDirectoryItem.name" ID="ProjectBrowserSimpleDirectoryItem.name"></a>
+<h4>ProjectBrowserSimpleDirectoryItem.name</h4>
+<b>name</b>(<i></i>)
+<p>
+        Public method to return the name of the item.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+name of the item (string)
+</dd>
+</dl><a NAME="ProjectBrowserSimpleDirectoryItem.setName" ID="ProjectBrowserSimpleDirectoryItem.setName"></a>
+<h4>ProjectBrowserSimpleDirectoryItem.setName</h4>
+<b>setName</b>(<i>dinfo, full=True</i>)
+<p>
+        Public method to set the directory name.
+</p><dl>
+<dt><i>dinfo</i></dt>
+<dd>
+dinfo is the string for the directory (string)
+</dd><dt><i>full</i></dt>
+<dd>
+flag indicating full pathname should be displayed (boolean)
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>
